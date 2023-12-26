@@ -16,7 +16,7 @@ export default function Home() {
           Triple C Collective
         </h1>
       </header>
-      <section className="px-4 sm:px-6 py-6 text-white rounded-lg bg-primary-purple/75">
+      <section className="px-4 sm:px-6 py-6 text-white">
         <h2 className="text-4xl sm:text-5xl text-center">Coming soon</h2>
       </section>
       <footer className="p-2 mx-24 text-sm font-medium text-center text-white rounded-lg sm:p-4 bg-primary-purple/75">
