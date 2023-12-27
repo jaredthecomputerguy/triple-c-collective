@@ -1,5 +1,6 @@
 import getPayloadClient from "../../../payload/payloadClient";
-import { serialize } from "@/app/utils/serializeHtml";
+import { BlogContent } from "./_components/BlogContent";
+import { notFound } from "next/navigation";
 
 export default async function BlogTestPage({
   params: { id },
@@ -19,12 +20,11 @@ export default async function BlogTestPage({
 
   const blog = blogs.docs[0];
 
-  if (!blog) return <div>Blog with id: {id} does not exist</div>;
+  if (!blog || !blog.content) return notFound();
 
-  const elements = serialize(blog.content!);
   return (
     <main>
-      <article>{elements}</article>
+      <BlogContent blogContent={blog.content as any} />
     </main>
   );
 }
