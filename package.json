@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate": "npx payload generate:types"
   },
   "dependencies": {
     "@payloadcms/bundler-webpack": "^1.0.5",

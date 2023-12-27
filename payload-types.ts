@@ -18,6 +18,11 @@ export interface Config {
 export interface Blog {
   id: string;
   title?: string | null;
+  content?:
+    | {
+        [k: string]: unknown;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }

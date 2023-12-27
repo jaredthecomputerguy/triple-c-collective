@@ -1,14 +1,18 @@
-import { CollectionConfig } from "payload/types"
+import { CollectionConfig } from "payload/types";
 
 export const Blogs: CollectionConfig = {
-	slug: "blogs",
-	access: {
-		read: () => true,
-	},
-	fields: [
-		{
-			name: "title",
-			type: "text"
-		}
-	]
-}
+  slug: "blogs",
+  access: {
+    read: () => true,
+  },
+  fields: [
+    {
+      name: "title",
+      type: "text",
+    },
+    {
+      name: "content",
+      type: "richText",
+    },
+  ],
+};
