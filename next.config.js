@@ -5,6 +5,9 @@ const { withPayload } = require("@payloadcms/next-payload");
 module.exports = withPayload(
   {
     // your Next config here
+    experimental: {
+      serverActions: true,
+    },
   },
   {
     // The second argument to `withPayload`
