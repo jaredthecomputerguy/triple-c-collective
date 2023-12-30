@@ -1,6 +1,8 @@
+import { cookies } from 'next/headers';
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
-import './globals.css';
+// import '../globals.css';
+import { WithAgeConsent } from '../_components/with-age-consent';
 
 export const metadata: Metadata = {
     title: 'Home | Triple C Collective',
@@ -15,9 +17,17 @@ const montserrat = Montserrat({
 });
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+    const cookieStore = cookies();
+    const ageConsent = cookieStore.get('age-consent');
+
     return (
         <html lang='en' className={montserrat.variable}>
-            <body>{children}</body>
+            <body>
+                <header>
+                    <div>Triple C Collective</div>
+                </header>
+                <WithAgeConsent ageConsent={ageConsent}>{children}</WithAgeConsent>
+            </body>
         </html>
     );
 }
