@@ -1,7 +1,8 @@
 import { cookies } from 'next/headers';
 import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
-import { WithAgeConsent } from '../_components/with-age-consent';
+import { Montserrat, Open_Sans } from 'next/font/google';
+import { WithAgeConsent } from './with-age-consent';
+import { Header } from '../_components/header';
 
 export const metadata: Metadata = {
     title: 'Triple C Collective',
@@ -15,6 +16,12 @@ const montserrat = Montserrat({
     variable: '--font-logo',
 });
 
+const openSans = Open_Sans({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-main',
+});
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
     const cookieStore = cookies();
     const ageConsent = cookieStore.get('age-consent');
@@ -22,10 +29,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     return (
         <html lang='en' className={montserrat.variable}>
             <body>
-                <header>
-                    <div>Triple C Collective</div>
-                </header>
-                <WithAgeConsent ageConsent={ageConsent}>{children}</WithAgeConsent>
+                <Header />
+                <WithAgeConsent ageConsent={ageConsent}>
+                    <main className={openSans.variable}>{children}</main>
+                </WithAgeConsent>
             </body>
         </html>
     );
