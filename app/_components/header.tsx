@@ -6,6 +6,7 @@ import { BarsIcon } from './icons/BarsIcon';
 import { CartIcon } from './icons/CartIcon';
 import { PhoneIcon } from './icons/PhoneIcon';
 import { CloseIcon } from './icons/CloseIcon';
+import Image from 'next/image';
 
 const LINKS = [
     { href: '/', label: 'Home' },
@@ -37,12 +38,14 @@ export const Header = () => {
                         <span>Shop now</span>
                     </a>
                 </div>
-                <div className='p-4 flex justify-between items-center relative'>
-                    <span className='font-logo text-primary-purple font-bold text-xl sm:text-3xl uppercase'>
+                <div className='p-4 flex justify-between items-center relative bg-[#fefefe]'>
+                    <a
+                        className='font-logo text-primary-purple rounded font-bold text-xl sm:text-3xl uppercase p-2  transition-all outline-none focus:outline-primary-purple active:outline-primary-purple'
+                        href='/'>
                         Triple C Collective
-                    </span>
+                    </a>
                     <button
-                        className='sm:hidden p-1 rounded hover:bg-gray-200 active:bg-gray-200 focus:bg-gray-200 transition-all outline-none focus:outline-primary-purple active:outline-primary-purple'
+                        className='md:hidden p-1 rounded hover:bg-gray-200 active:bg-gray-200 focus:bg-gray-200 transition-all outline-none focus:outline-primary-purple active:outline-primary-purple'
                         onClick={toggleMobileMenu}>
                         {showMobileMenu ? (
                             <CloseIcon className='w-8 h-8 text-primary-purple' />
@@ -51,17 +54,16 @@ export const Header = () => {
                         )}
                     </button>
                     {showMobileMenu && (
-                        <nav className='absolute top-16 text-center right-0 w-full bg-primary-purple text-white'>
-                            <ul className='flex flex-col w-full'>
+                        <nav className='absolute top-16 text-center py-[6px] right-0 w-full bg-primary-purple text-white'>
+                            <ul className='flex flex-col w-full bg-primary-purple'>
                                 {LINKS.map((link) => (
-                                    <NavLink href={link.href} label={link.label} />
+                                    <NavLink href={link.href} label={link.label} key={link.href} />
                                 ))}
                             </ul>
                         </nav>
                     )}
                 </div>
             </header>
-            <nav></nav>
         </>
     );
 };
@@ -69,7 +71,9 @@ export const Header = () => {
 const NavLink = ({ href, label }: { href: string; label: string }) => {
     return (
         <li>
-            <a className='py-4 w-full block' href={href}>
+            <a
+                className='outline-none focus:outline-white active:outline-white py-4 w-full block uppercase font-semibold hover:bg-white/10 transition-all focus:bg-white/10 active:bg-white/10'
+                href={href}>
                 {label}
             </a>
         </li>
