@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Montserrat, Open_Sans } from 'next/font/google';
 import { WithAgeConsent } from './with-age-consent';
 import { Header } from '../_components/header';
+import { Footer } from '../_components/footer';
 
 export const metadata: Metadata = {
     title: 'Triple C Collective',
@@ -33,6 +34,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <WithAgeConsent ageConsent={ageConsent}>
                     <main className={`${openSans.variable} px-6 max-w-7xl mx-auto`}>{children}</main>
                 </WithAgeConsent>
+                <Footer />
             </body>
         </html>
     );

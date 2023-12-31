@@ -9,6 +9,7 @@ import { CloseIcon } from './icons/CloseIcon';
 import { ClockIcon } from './icons/ClockIcon';
 import { LocationIcon } from './icons/LocationIcon';
 import { link } from 'fs';
+import Link from 'next/link';
 
 const LINKS = [
     { href: '/', label: 'Home' },
@@ -66,11 +67,11 @@ export const Header = () => {
                 {/* Header */}
             </div>
             <div className='p-4 max-w-7xl mx-auto flex justify-between items-center relative bg-[#fefefe]'>
-                <a
-                    className='font-logo text-primary-purple rounded font-bold text-xl sm:text-2xl md:text-3xl lg:text-5xl uppercase p-2 transition-all outline-none focus:outline-primary-purple active:outline-primary-purple'
-                    href='/'>
+                <Link
+                    href='/'
+                    className='font-logo text-primary-purple rounded font-bold text-xl sm:text-2xl md:text-3xl lg:text-5xl uppercase p-2 transition-all outline-none focus:outline-primary-purple active:outline-primary-purple'>
                     Triple C Collective
-                </a>
+                </Link>
                 <button
                     className='md:hidden p-1 rounded hover:bg-gray-200 active:bg-gray-200 focus:bg-gray-200 transition-all outline-none focus:outline-primary-purple active:outline-primary-purple'
                     onClick={toggleMobileMenu}>
@@ -104,11 +105,11 @@ export const Header = () => {
 const NavLink = ({ href, label }: { href: string; label: string }) => {
     return (
         <li>
-            <a
+            <Link
                 className='text-primary-purple font-semibold lg:text-xl hover:underline py-2 px-4 active:underline focus:underline outline-none focus:outline-primary-purple active:outline-primary-purple rounded'
                 href={href}>
                 {label}
-            </a>
+            </Link>
         </li>
     );
 };
@@ -116,11 +117,11 @@ const NavLink = ({ href, label }: { href: string; label: string }) => {
 const MobileNavLink = ({ href, label }: { href: string; label: string }) => {
     return (
         <li className=''>
-            <a
+            <Link
                 className='outline-none focus:outline-white active:outline-white py-4 w-full block uppercase font-semibold hover:bg-white/10 transition-all focus:bg-white/10 active:bg-white/10'
                 href={href}>
                 {label}
-            </a>
+            </Link>
         </li>
     );
 };
