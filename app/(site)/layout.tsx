@@ -29,10 +29,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
     return (
         <html lang='en' className={montserrat.variable}>
-            <body>
+            <body className='overscroll-none bg-primary-purple sm:bg-[#fefefe]'>
                 <Header />
                 <WithAgeConsent ageConsent={ageConsent}>
-                    <main className={`${openSans.variable} px-6 max-w-7xl mx-auto`}>{children}</main>
+                    <main className={`${openSans.variable} px-6 max-w-7xl bg-[#fefefe] mx-auto`}>{children}</main>
                 </WithAgeConsent>
                 <Footer />
             </body>
