@@ -16,7 +16,7 @@ export default function CookiePolicyPage() {
                 <p>
                     This page describes what information they gather, how we use it and why we sometimes need to store
                     these cookies. We will also share how you can prevent these cookies from being stored however this
-                    may downgrade or 'break' certain elements of the sites functionality.
+                    may downgrade or &apos;break&apos; certain elements of the sites functionality.
                 </p>
                 <br />
                 <h3 className='text-3xl py-2'>How We Use Cookies</h3>
@@ -56,8 +56,8 @@ export default function CookiePolicyPage() {
                 <h6 className='text-3xl py-2'>More Information</h6>
                 <p>
                     Hopefully that has clarified things for you and as was previously mentioned if there is something
-                    that you aren't sure whether you need or not it's usually safer to leave cookies enabled in case it
-                    does interact with one of the features you use on our site.
+                    that you aren&apos;t sure whether you need or not it&apos;s usually safer to leave cookies enabled
+                    in case it does interact with one of the features you use on our site.
                 </p>
                 <br />
                 <p>
