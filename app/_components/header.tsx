@@ -49,10 +49,13 @@ export const Header = () => {
                         <ClockIcon className='w-4 h-4' />
                         <span>10am - 9:30pm</span>
                     </div>
-                    <div className='flex gap-2 items-center p-2 justify-center font-semibold rounded'>
+                    <a
+                        className='flex gap-2 items-center p-2 px-4 justify-center font-semibold rounded hover:bg-white/10 transition-all focus:bg-white/10 active:bg-white/10 outline-none active:outline-white focus:outline-white'
+                        href='http://maps.google.com/?q=14196%20Lakeshore%20Dr%2C%20Clearlake%2C%20CA%2095422'
+                        target='_blank'>
                         <LocationIcon className='w-4 h-4' />
                         <span>14196 Lakeshore Dr. Clearlake, CA 95422</span>
-                    </div>
+                    </a>
                     <a
                         className='flex gap-2 items-center p-2 px-4 justify-center font-semibold rounded hover:bg-white/10 transition-all focus:bg-white/10 active:bg-white/10 outline-none active:outline-white focus:outline-white'
                         href='https://triplec.treez.io/onlinemenu/?customerType=ADULT'
