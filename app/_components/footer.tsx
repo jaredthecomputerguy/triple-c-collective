@@ -34,7 +34,10 @@ export const Footer = () => {
             </ul>
             <span className='text-sm'>
                 Made with &#10084; by{' '}
-                <a className='text-cyan-500 p-1' href='https://www.github.com/jaredthecomputerguy' target='_blank'>
+                <a
+                    className='text-cyan-500 font-semibold p-1'
+                    href='https://www.github.com/jaredthecomputerguy'
+                    target='_blank'>
                     Jared Mercer
                 </a>
             </span>
