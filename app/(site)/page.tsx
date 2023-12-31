@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
     return (
-        <div className='max-w-7xl mx-auto'>
+        <section>
             <h1 className='font-main text-3xl'>Home</h1>
-        </div>
+        </section>
     );
 }

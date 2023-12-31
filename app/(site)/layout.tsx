@@ -31,7 +31,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <body>
                 <Header />
                 <WithAgeConsent ageConsent={ageConsent}>
-                    <main className={openSans.variable}>{children}</main>
+                    <main className={`${openSans.variable} px-6 max-w-7xl mx-auto`}>{children}</main>
                 </WithAgeConsent>
             </body>
         </html>
