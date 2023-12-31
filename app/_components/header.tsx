@@ -58,8 +58,7 @@ export const Header = () => {
                     </a>
                     <a
                         className='flex gap-2 items-center p-2 px-4 justify-center font-semibold rounded hover:bg-white/10 transition-all focus:bg-white/10 active:bg-white/10 outline-none active:outline-white focus:outline-white'
-                        href='https://triplec.treez.io/onlinemenu/?customerType=ADULT'
-                        target='tel:707-701-4160'>
+                        href='tel:707-701-4160'>
                         <PhoneIcon className='w-4 h-4' />
                         <span>(707) 701-4160</span>
                     </a>
