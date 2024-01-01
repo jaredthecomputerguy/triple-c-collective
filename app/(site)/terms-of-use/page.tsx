@@ -1,6 +1,14 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Terms of Use | Triple C Collective',
+    description:
+        'Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California. Proudly open for over 15 years, we offer a diverse selection of high-quality cannabis products, expert guidance, and a welcoming environment for cannabis enthusiasts. Discover a trusted name in the industry - Triple C Collective, your premier destination for a decade and a half of cannabis excellence.',
+};
+
 export default function TermsOfUsePage() {
     return (
-        <section className='max-w-4xl mx-auto sm:py-12 py-6 px-2'>
+        <section className='max-w-4xl mx-auto sm:py-12 py-6 mb-8 px-2'>
             <h1 className='text-4xl py-4 font-semibold'>Terms of Use</h1>
             <span className='text-center text-gray-700 mx-auto py-2'>Last Updated: 12/31/2023</span>
             <hr className='pb-4' />

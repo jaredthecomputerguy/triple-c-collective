@@ -32,10 +32,11 @@ export const Footer = () => {
                     </Link>
                 </li>
             </ul>
-            <span className='text-sm'>
-                Made with &#10084; by{' '}
+            <span className='text-xs text-center flex flex-col items-center'>
+                Made with &#10084; by
                 <a
-                    className='text-cyan-500 font-semibold p-1'
+                    className='text-cyan-500 p-1 rounded -mt-2 font-semibold px-1 hover:bg-white/10 transition-all focus:bg-white/10 active:bg-white/10 outline-none active:outline-white focus:outline-white'
+                    id='jared'
                     href='https://www.github.com/jaredthecomputerguy'
                     target='_blank'>
                     Jared Mercer
