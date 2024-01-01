@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { BarsIcon } from './icons/BarsIcon';
 import { CartIcon } from './icons/CartIcon';
@@ -8,19 +8,29 @@ import { PhoneIcon } from './icons/PhoneIcon';
 import { CloseIcon } from './icons/CloseIcon';
 import { ClockIcon } from './icons/ClockIcon';
 import { LocationIcon } from './icons/LocationIcon';
-import { link } from 'fs';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const LINKS = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/products', label: 'Products' },
-    { href: '/blog', label: 'Blog' },
+    { href: '/blogs', label: 'Blog' },
     { href: '/contact', label: 'Contact Us' },
 ];
 
 export const Header = () => {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
+    const [currentPath, setCurrentPath] = useState<string | null>();
+
+    const pathname = usePathname();
+
+    useEffect(() => {
+        setCurrentPath(pathname);
+        if (pathname !== currentPath) {
+            setShowMobileMenu(false);
+        }
+    }, [pathname]);
 
     const toggleMobileMenu = () => setShowMobileMenu((prevState) => !prevState);
 
