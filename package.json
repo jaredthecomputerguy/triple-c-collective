@@ -10,6 +10,7 @@
     "generate": "npx payload generate:types"
   },
   "dependencies": {
+    "@next/third-parties": "^14.0.4",
     "@payloadcms/bundler-webpack": "^1.0.5",
     "@payloadcms/db-mongodb": "^1.1.1",
     "@payloadcms/next-payload": "^0.1.11",
