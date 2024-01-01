@@ -82,6 +82,7 @@ export const Header = () => {
                     className='font-logo text-primary-purple rounded font-bold text-xl sm:text-2xl md:text-3xl lg:text-5xl uppercase p-2 transition-all outline-none focus:outline-primary-purple active:outline-primary-purple'>
                     Triple C Collective
                 </Link>
+                {/* TODO: See if we can smooth this transition out */}
                 <button
                     className='md:hidden p-1 rounded hover:bg-gray-200 active:bg-gray-200 focus:bg-gray-200 transition-all outline-none focus:outline-primary-purple active:outline-primary-purple'
                     onClick={toggleMobileMenu}>
