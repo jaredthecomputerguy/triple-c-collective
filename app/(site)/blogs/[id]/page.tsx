@@ -2,7 +2,8 @@ import getPayloadClient from '../../../../payload/payloadClient';
 import { BlogContent } from './_components/BlogContent';
 import { notFound } from 'next/navigation';
 
-export default async function BlogTestPage({ params: { id } }: { params: { id: string } }) {
+export default async function BlogPage({ params: { id } }: { params: { id: string } }) {
+    // TODO: Implement this
     const payload = await getPayloadClient();
 
     const blogs = await payload.find({
