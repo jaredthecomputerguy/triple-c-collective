@@ -8,6 +8,7 @@ export const Footer = () => {
                 className='p-2 rounded hover:bg-white/10 transition-all focus:bg-white/10 active:bg-white/10 outline-none active:outline-white focus:outline-white text-2xl sm:text-3xl md:text-4xl font-logo uppercase font-semibold'>
                 Triple C Collective
             </Link>
+            <span className='text-zinc-400 text-sm -mt-2'>C10-0000551-LIC</span>
             <span className='text-zinc-400 text-sm -mt-2'>Copyright &copy; 2023 YCNIUQ Inc.</span>
             <ul className='divide-x flex py-2 text-sm sm:text-base'>
                 <li className='px-2'>
