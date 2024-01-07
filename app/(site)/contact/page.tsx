@@ -1,8 +1,6 @@
 // @ts-expect-error Experimental package
 import { GoogleMapsEmbed } from '@next/third-parties/google';
 
-import { FacebookIcon } from '@/app/_components/icons/FacebookIcon';
-import { InstagramIcon } from '@/app/_components/icons/InstagramIcon';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -24,6 +22,7 @@ export default function ContactPage() {
                 style='height: 500px; width: 500px'
                 loading='eager'
                 q='Triple C Collective, 14196 Lakeshore Ave. Clearlake CA 95422'
+                title='Google Maps'
             />
         </section>
     );
