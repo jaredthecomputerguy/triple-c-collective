@@ -52,16 +52,14 @@ export default function TermsOfUsePage() {
                 your account.
             </p>{' '}
             <br />
-            <h6 className='text-3xl py-2'>6. Prohibited Activities</h6>{' '}
-            <p>
-                You agree not to engage in any activities that may be deemed illegal, including but not limited to:
-                <ul className='list-disc pl-4'>
-                    <li>Unauthorized access to our systems or data.</li>
-                    <li>Interference with the proper working of the website.</li>
-                    <li>Distribution of malicious code.</li>
-                    <li>Any activity that violates the rights of others.</li>
-                </ul>
-            </p>
+            <h6 className='text-3xl py-2'>6. Prohibited Activities</h6> You agree not to engage in any activities that
+            may be deemed illegal, including but not limited to:
+            <ul className='list-disc pl-4'>
+                <li>Unauthorized access to our systems or data.</li>
+                <li>Interference with the proper working of the website.</li>
+                <li>Distribution of malicious code.</li>
+                <li>Any activity that violates the rights of others.</li>
+            </ul>
             <br />
             <h6 className='text-3xl py-2'>7. Intellectual Property</h6>{' '}
             <p>
