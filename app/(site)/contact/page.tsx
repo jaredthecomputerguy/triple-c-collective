@@ -1,7 +1,5 @@
-// @ts-expect-error Experimental package
-import { GoogleMapsEmbed } from '@next/third-parties/google';
-
 import { Metadata } from 'next';
+import { GoogleMapEmbed } from './GoogleMapEmbed';
 
 export const metadata: Metadata = {
     title: 'Contact Us | Triple C Collective',
@@ -10,20 +8,11 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-    // TODO: Implement this
     // TODO: Add links to FB and Instagram
     return (
-        <section>
-            Contact Page
-            <GoogleMapsEmbed
-                apiKey={process.env.GOOGLE_MAPS_API_KEY!}
-                mode='place'
-                allowfullscreen
-                style='height: 500px; width: 500px'
-                loading='eager'
-                q='Triple C Collective, 14196 Lakeshore Ave. Clearlake CA 95422'
-                title='Google Maps'
-            />
+        <section className='max-w-4xl mx-auto sm:py-12 py-6 px-2'>
+            <h1 className='text-4xl py-4 font-semibold'>Contact us</h1>
+            <GoogleMapEmbed />
         </section>
     );
 }
