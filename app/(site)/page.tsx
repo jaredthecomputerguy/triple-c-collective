@@ -1,6 +1,4 @@
-import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
-import './globals.css';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Home | Triple C Collective',
@@ -8,16 +6,10 @@ export const metadata: Metadata = {
         'Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California. Proudly open for over 15 years, we offer a diverse selection of high-quality cannabis products, expert guidance, and a welcoming environment for cannabis enthusiasts. Discover a trusted name in the industry - Triple C Collective, your premier destination for a decade and a half of cannabis excellence.',
 };
 
-const montserrat = Montserrat({
-    subsets: ['latin'],
-    display: 'swap',
-    variable: '--font-logo',
-});
-
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default function HomePage() {
     return (
-        <html lang='en' className={montserrat.variable}>
-            <body>{children}</body>
-        </html>
+        <section>
+            <h1 className='font-main text-3xl'>Home</h1>
+        </section>
     );
 }
