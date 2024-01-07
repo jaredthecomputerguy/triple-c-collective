@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'Terms of Use | Triple C Collective',
@@ -37,6 +38,7 @@ export default function TermsOfUsePage() {
                 of cannabis and related products. Triple C Collective reserves the right to refuse service to anyone for
                 any reason at any time.
             </p>{' '}
+            <br />
             <h5 className='text-3xl py-2'>4. Product Information</h5>{' '}
             <p>
                 Information about our cannabis products on the website is for informational purposes only. It does not
@@ -53,8 +55,12 @@ export default function TermsOfUsePage() {
             <h6 className='text-3xl py-2'>6. Prohibited Activities</h6>{' '}
             <p>
                 You agree not to engage in any activities that may be deemed illegal, including but not limited to:
-                Unauthorized access to our systems or data. Interference with the proper working of the website.
-                Distribution of malicious code. Any activity that violates the rights of others.{' '}
+                <ul className='list-disc pl-4'>
+                    <li>Unauthorized access to our systems or data.</li>
+                    <li>Interference with the proper working of the website.</li>
+                    <li>Distribution of malicious code.</li>
+                    <li>Any activity that violates the rights of others.</li>
+                </ul>
             </p>
             <br />
             <h6 className='text-3xl py-2'>7. Intellectual Property</h6>{' '}
@@ -79,8 +85,11 @@ export default function TermsOfUsePage() {
             <br />
             <h6 className='text-3xl py-2'>10. Contact Information</h6>{' '}
             <p>
-                If you have any questions about these Terms of Use, please contact us at contact@tripleccollective.com.
-                Thank you for choosing Triple C Collective!
+                If you have any questions about these Terms of Use, please contact us using our{' '}
+                <Link className='text-blue-500' href='/contact'>
+                    contact page
+                </Link>
+                .
             </p>
         </section>
     );
