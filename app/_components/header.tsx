@@ -30,7 +30,7 @@ export const Header = () => {
         if (pathname !== currentPath) {
             setShowMobileMenu(false);
         }
-    }, [pathname]);
+    }, [pathname, currentPath]);
 
     const toggleMobileMenu = () => setShowMobileMenu((prevState) => !prevState);
 
