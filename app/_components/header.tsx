@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from 'react';
 
-import { BarsIcon } from './icons/BarsIcon';
-import { CartIcon } from './icons/CartIcon';
-import { PhoneIcon } from './icons/PhoneIcon';
-import { CloseIcon } from './icons/CloseIcon';
-import { ClockIcon } from './icons/ClockIcon';
-import { LocationIcon } from './icons/LocationIcon';
+import { BarsIcon } from './icons/bar-icon';
+import { CartIcon } from './icons/cart-icon';
+import { PhoneIcon } from './icons/phone-icon';
+import { CloseIcon } from './icons/close-icon';
+import { ClockIcon } from './icons/clock-icon';
+import { LocationIcon } from './icons/location-icon';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 

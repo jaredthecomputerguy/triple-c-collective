@@ -4,6 +4,7 @@ import { Montserrat, Open_Sans } from 'next/font/google';
 import { WithAgeConsent } from './with-age-consent';
 import { Header } from '../_components/header';
 import { Footer } from '../_components/footer';
+import { Toaster } from '../_components/toaster';
 
 export const metadata: Metadata = {
     title: 'Triple C Collective',
@@ -30,6 +31,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     return (
         <html lang='en' className={montserrat.variable}>
             <body className='overscroll-none bg-primary-purple sm:bg-[#fefefe]'>
+                <Toaster />
                 <Header />
                 <WithAgeConsent ageConsent={ageConsent}>
                     <main className={`${openSans.variable} px-6 max-w-7xl bg-[#fefefe] mx-auto`}>{children}</main>

@@ -1,27 +1,59 @@
 // next.config.js
-const path = require("path");
-const { withPayload } = require("@payloadcms/next-payload");
+const path = require('path');
+const { withPayload } = require('@payloadcms/next-payload');
+
+const cspHeader = `
+    default-src *;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' blob: data:;
+    font-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'none';
+    block-all-mixed-content;
+    upgrade-insecure-requests;
+`;
 
 module.exports = withPayload(
-  {
-    // your Next config here
-    experimental: {
-      serverActions: true,
+    {
+        // your Next config here
+        experimental: {
+            serverActions: true,
+            serverComponentsExternalPackages: [
+                '@react-email/components',
+                '@react-email/render',
+                '@react-email/tailwind',
+            ],
+        },
+        async headers() {
+            return [
+                {
+                    source: '/(.*)',
+                    headers: [
+                        {
+                            key: 'Content-Security-Policy',
+                            value: cspHeader.replace(/\n/g, ''),
+                        },
+                    ],
+                },
+            ];
+        },
     },
-  },
-  {
-    // The second argument to `withPayload`
-    // allows you to specify paths to your Payload dependencies
-    // and configure the admin route to your Payload CMS.
+    {
+        // The second argument to `withPayload`
+        // allows you to specify paths to your Payload dependencies
+        // and configure the admin route to your Payload CMS.
 
-    // Point to your Payload config (required)
-    configPath: path.resolve(__dirname, "./payload/payload.config.ts"),
+        // Point to your Payload config (required)
+        configPath: path.resolve(__dirname, './payload/payload.config.ts'),
 
-    // Point to your exported, initialized Payload instance (optional, default shown below`)
-    payloadPath: path.resolve(process.cwd(), "./payload/payloadClient.ts"),
+        // Point to your exported, initialized Payload instance (optional, default shown below`)
+        payloadPath: path.resolve(process.cwd(), './payload/payloadClient.ts'),
 
-    // Set a custom Payload admin route (optional, default is `/admin`)
-    // NOTE: Read the "Set a custom admin route" section in the payload/next-payload README.
-    adminRoute: "/admin",
-  }
+        // Set a custom Payload admin route (optional, default is `/admin`)
+        // NOTE: Read the "Set a custom admin route" section in the payload/next-payload README.
+        adminRoute: '/admin',
+    }
 );
