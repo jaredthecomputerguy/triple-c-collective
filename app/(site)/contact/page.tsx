@@ -13,6 +13,7 @@ export default function ContactPage() {
     return (
         <section className='max-w-4xl mx-auto sm:py-12 py-6 px-2'>
             <h1 className='text-4xl py-4 font-semibold'>Contact us</h1>
+            <hr className='pb-4' />
             <ContactForm />
             <GoogleMapEmbed />
         </section>
