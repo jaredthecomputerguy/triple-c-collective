@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { GoogleMapEmbed } from './google-map-embed';
+import { ContactForm } from './contact-form';
 
 export const metadata: Metadata = {
     title: 'Contact Us | Triple C Collective',
@@ -12,6 +13,7 @@ export default function ContactPage() {
     return (
         <section className='max-w-4xl mx-auto sm:py-12 py-6 px-2'>
             <h1 className='text-4xl py-4 font-semibold'>Contact us</h1>
+            <ContactForm />
             <GoogleMapEmbed />
         </section>
     );
