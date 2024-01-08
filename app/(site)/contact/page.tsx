@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { GoogleMapEmbed } from './GoogleMapEmbed';
+import { GoogleMapEmbed } from './google-map-embed';
 
 export const metadata: Metadata = {
     title: 'Contact Us | Triple C Collective',
