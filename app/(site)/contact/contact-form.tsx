@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
 import { sendEmail } from '@/app/lib/send-email';
 import { useToast } from '@/app/lib/use-toast';
@@ -13,8 +13,6 @@ export interface EmailInfo {
 }
 
 export const ContactForm = () => {
-    // TODO:
-
     const [emailInfo, setEmailInfo] = useState<EmailInfo>({
         from: '',
         message: '',
@@ -80,7 +78,7 @@ export const ContactForm = () => {
                     type='text'
                     id='name'
                     autoComplete='name'
-                    value={emailInfo.name}
+                    defaultValue={emailInfo.name}
                     name='name'
                 />
             </div>
@@ -93,7 +91,7 @@ export const ContactForm = () => {
                     required
                     min='1'
                     max='100'
-                    value={emailInfo.from}
+                    defaultValue={emailInfo.from}
                     onChange={handleInputChange}
                     type='email'
                     id='from'
@@ -109,7 +107,7 @@ export const ContactForm = () => {
                     required
                     min='1'
                     max='100'
-                    value={emailInfo.subject}
+                    defaultValue={emailInfo.subject}
                     onChange={handleInputChange}
                     type='text'
                     id='subject'
@@ -124,14 +122,14 @@ export const ContactForm = () => {
                     className='p-2 rounded border-2 border-gray-500 outline-none focus:outline-primary-purple'
                     required
                     onChange={handleInputChange}
-                    value={emailInfo.message}
+                    defaultValue={emailInfo.message}
                     rows={5}
                     id='message'
                     name='message'
                 />
             </div>
             <button
-                className='px-6 my-4 py-2 rounded bg-primary-purple md:text-xl transition-all text-white font-semibold hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 outline-none focus:outline-primary-purple active:outline-primary-purple disabled:bg-primary-purple/50'
+                className='px-6 py-2 rounded bg-primary-purple md:text-xl transition-all text-white font-semibold hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 outline-none focus:outline-primary-purple active:outline-primary-purple disabled:bg-primary-purple/50'
                 disabled={emailIsSending}>
                 {emailIsSending ? 'Sending...' : 'Send message'}
             </button>
