@@ -73,13 +73,14 @@ export const ContactForm = () => {
                     Name
                 </label>
                 <input
-                    className='p-2 rounded border-2 border-gray-500 outline-none focus:outline-primary-purple'
+                    className='p-2 rounded border-2 border-gray-500 outline-none focus:outline-primary-purple placeholder:text-gray-600'
                     onChange={handleInputChange}
                     type='text'
                     id='name'
                     autoComplete='name'
                     defaultValue={emailInfo.name}
                     name='name'
+                    placeholder='Jane Doe'
                 />
             </div>
             <div className='flex flex-col gap-1'>
@@ -87,7 +88,7 @@ export const ContactForm = () => {
                     Email
                 </label>
                 <input
-                    className='p-2 rounded border-2 border-gray-500 outline-none focus:outline-primary-purple'
+                    className='p-2 rounded border-2 border-gray-500 outline-none focus:outline-primary-purple placeholder:text-gray-600'
                     required
                     min='1'
                     max='100'
@@ -96,6 +97,7 @@ export const ContactForm = () => {
                     type='email'
                     id='from'
                     name='from'
+                    placeholder='janedoe@example.com'
                 />
             </div>
             <div className='flex flex-col gap-1'>
@@ -103,7 +105,7 @@ export const ContactForm = () => {
                     Subject
                 </label>
                 <input
-                    className='p-2 rounded border-2 border-gray-500 outline-none focus:outline-primary-purple'
+                    className='p-2 rounded border-2 border-gray-500 outline-none focus:outline-primary-purple placeholder:text-gray-600'
                     required
                     min='1'
                     max='100'
@@ -112,6 +114,7 @@ export const ContactForm = () => {
                     type='text'
                     id='subject'
                     name='subject'
+                    placeholder='Questions, Comments, Concerns...'
                 />
             </div>
             <div className='flex flex-col gap-1'>
@@ -119,13 +122,14 @@ export const ContactForm = () => {
                     Message
                 </label>
                 <textarea
-                    className='p-2 rounded border-2 border-gray-500 outline-none focus:outline-primary-purple'
+                    className='p-2 rounded border-2 border-gray-500 outline-none focus:outline-primary-purple placeholder:text-gray-600 mb-2'
                     required
                     onChange={handleInputChange}
                     defaultValue={emailInfo.message}
                     rows={5}
                     id='message'
                     name='message'
+                    placeholder='Enter your message here...'
                 />
             </div>
             <button
