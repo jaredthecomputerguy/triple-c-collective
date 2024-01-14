@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import getPayloadClient from '../../../payload/payloadClient';
-import Link from 'next/link';
 import { PostButtons } from './post-buttons';
 
 export const metadata: Metadata = {
@@ -27,17 +26,6 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
         sort: '-createdAt',
         page: page,
     });
-
-    function getPagesArray(length: number) {
-        const arr = [];
-        for (let i = 0; i < length; i++) {
-            arr.push(i + 1);
-        }
-
-        return arr;
-    }
-
-    const pages = getPagesArray(blogs.totalPages);
 
     return (
         <section className='max-w-4xl mx-auto sm:py-12 py-6 px-2'>
