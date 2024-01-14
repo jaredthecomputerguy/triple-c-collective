@@ -26,18 +26,22 @@ export const PostButtons = ({ totalPages, hasNextPage, hasPrevPage }: PostButton
 
     return (
         <div className='flex gap-2 items-center'>
-            <button
-                className='px-6 py-2 rounded bg-primary-purple transition-all text-white font-semibold hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 outline-none focus:outline-primary-purple active:outline-primary-purple disabled:pointer-events-none disabled:bg-primary-purple/50'
-                disabled={!hasPrevPage}
-                onClick={handlePrevPage}>
-                Load newer posts
-            </button>
-            <button
-                className='px-6 py-2 rounded bg-primary-purple transition-all text-white font-semibold hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 outline-none focus:outline-primary-purple active:outline-primary-purple disabled:pointer-events-none disabled:bg-primary-purple/50'
-                disabled={!hasNextPage}
-                onClick={handleNextPage}>
-                Load older posts
-            </button>
+            {hasPrevPage && (
+                <button
+                    className='px-6 py-2 rounded bg-primary-purple transition-all text-white font-semibold hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 outline-none focus:outline-primary-purple active:outline-primary-purple disabled:pointer-events-none disabled:bg-primary-purple/50'
+                    disabled={!hasPrevPage}
+                    onClick={handlePrevPage}>
+                    Load newer posts
+                </button>
+            )}
+            {hasNextPage && (
+                <button
+                    className='px-6 py-2 rounded bg-primary-purple transition-all text-white font-semibold hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 outline-none focus:outline-primary-purple active:outline-primary-purple disabled:pointer-events-none disabled:bg-primary-purple/50'
+                    disabled={!hasNextPage}
+                    onClick={handleNextPage}>
+                    Load older posts
+                </button>
+            )}
         </div>
     );
 };
