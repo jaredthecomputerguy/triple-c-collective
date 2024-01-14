@@ -18,6 +18,7 @@ export interface Config {
 export interface Blog {
   id: string;
   title?: string | null;
+  description?: string | null;
   content?:
     | {
         [k: string]: unknown;

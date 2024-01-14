@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import getPayloadClient from '../../../payload/payloadClient';
 import { PostButtons } from './post-buttons';
+import { BlogCard } from './blog-card';
 
 export const metadata: Metadata = {
     title: 'All Blogs | Triple C Collective',
@@ -32,14 +33,12 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
             <h1 className='text-4xl py-4 font-semibold'>All Blogs</h1>
             <hr className='pb-4' />
             <div className='flex flex-col gap-4'>
-                <ul>
+                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4'>
                     {blogs.docs.map((blog) => (
                         // TODO: Add blog cards
-                        <li className='hover:text-blue-600 text-blue-500' key={blog.id}>
-                            <a href={`/blogs/${blog.id}`}>{blog.title}</a>
-                        </li>
+                        <BlogCard blog={blog} key={blog.id} />
                     ))}
-                </ul>
+                </div>
                 <PostButtons
                     totalPages={blogs.totalPages}
                     hasNextPage={blogs.hasNextPage}
