@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import getPayloadClient from '../../../payload/payloadClient';
 import Link from 'next/link';
+import { PostButtons } from './post-buttons';
 
 export const metadata: Metadata = {
     title: 'All Blogs | Triple C Collective',
@@ -23,7 +24,7 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
     const blogs = await payload.find({
         collection: 'blogs',
         limit: BLOG_POST_LIMIT,
-        sort: 'createdAt',
+        sort: '-createdAt',
         page: page,
     });
 
@@ -37,7 +38,6 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
     }
 
     const pages = getPagesArray(blogs.totalPages);
-    console.log('pages', pages);
 
     return (
         <section className='max-w-4xl mx-auto sm:py-12 py-6 px-2'>
@@ -52,25 +52,11 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
                         </li>
                     ))}
                 </ul>
-                <div className='flex gap-2 items-center'>
-                    <button
-                        className='px-6 py-2 rounded bg-primary-purple transition-all text-white font-semibold hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 outline-none focus:outline-primary-purple active:outline-primary-purple disabled:pointer-events-none disabled:bg-primary-purple/50'
-                        disabled={!blogs.hasPrevPage}>
-                        <Link href={`/blogs?page=${blogs.prevPage}`}>Previous Page</Link>
-                    </button>
-                    <ul className='flex gap-1 hover:text-blue-600 text-blue-500'>
-                        {pages.map((page) => (
-                            <li key={page}>
-                                <Link href={`/blogs?page=${page}`}>{page}</Link>
-                            </li>
-                        ))}
-                    </ul>
-                    <button
-                        className='px-6 py-2 rounded bg-primary-purple transition-all text-white font-semibold hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 outline-none focus:outline-primary-purple active:outline-primary-purple disabled:pointer-events-none disabled:bg-primary-purple/50'
-                        disabled={!blogs.hasNextPage}>
-                        <Link href={`/blogs?page=${blogs.nextPage}`}>Next Page</Link>
-                    </button>
-                </div>
+                <PostButtons
+                    totalPages={blogs.totalPages}
+                    hasNextPage={blogs.hasNextPage}
+                    hasPrevPage={blogs.hasPrevPage}
+                />
             </div>
         </section>
     );
