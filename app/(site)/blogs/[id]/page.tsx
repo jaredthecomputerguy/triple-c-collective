@@ -28,6 +28,8 @@ export default async function BlogPage({ params }: { params: { id: string } }) {
 
     if (!blog) return notFound();
 
+    const test = 'test';
+
     return (
         <main>
             <BlogContent blogContent={blog.content as any} />
