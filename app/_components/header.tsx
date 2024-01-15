@@ -35,19 +35,19 @@ export const Header = () => {
     const toggleMobileMenu = () => setShowMobileMenu((prevState) => !prevState);
 
     return (
-        <header className='sticky top-0 shadow'>
-            <div className='min-w-screen group sticky top-0 bg-primary-purple'>
+        <header className='sticky top-0 z-50 shadow'>
+            <div className='sticky top-0 min-w-screen group bg-primary-purple'>
                 {/* Information Bar */}
                 {/* Mobile View */}
                 <div className='bg-primary-purple px-4 py-2 flex justify-between text-sm md:hidden text-[#fefefe]'>
                     <a
-                        className='flex gap-2 items-center p-2 justify-center font-semibold rounded outline-none transition-all active:outline-white focus:outline-white hover:bg-white/10 focus:bg-white/10 active:bg-white/10'
+                        className='flex items-center justify-center gap-2 p-2 font-semibold transition-all rounded outline-none active:outline-white focus:outline-white hover:bg-white/10 focus:bg-white/10 active:bg-white/10'
                         href='tel:707-701-4160'>
                         <PhoneIcon className='w-4 h-4' />
                         <span>(707) 701-4160</span>
                     </a>
                     <a
-                        className='flex gap-2 items-center p-2 px-4 justify-center font-semibold rounded hover:bg-white/10 transition-all focus:bg-white/10 active:bg-white/10 outline-none active:outline-white focus:outline-white'
+                        className='flex items-center justify-center gap-2 p-2 px-4 font-semibold transition-all rounded outline-none hover:bg-white/10 focus:bg-white/10 active:bg-white/10 active:outline-white focus:outline-white'
                         href='https://triplec.treez.io/onlinemenu/?customerType=ADULT'
                         target='_blank'>
                         <CartIcon className='w-4 h-4' />
@@ -56,19 +56,19 @@ export const Header = () => {
                 </div>
                 {/* Desktop View */}
                 <div className='bg-primary-purple px-4 py-2 justify-between text-sm max-w-7xl mx-auto hidden md:flex text-[#fefefe]'>
-                    <div className='flex gap-2 items-center p-2 justify-center font-semibold rounded'>
+                    <div className='flex items-center justify-center gap-2 p-2 font-semibold rounded'>
                         <ClockIcon className='w-4 h-4' />
                         <span>10am - 9:30pm</span>
                     </div>
                     <a
-                        className='flex gap-2 items-center p-2 px-4 justify-center font-semibold rounded hover:bg-white/10 transition-all focus:bg-white/10 active:bg-white/10 outline-none active:outline-white focus:outline-white'
+                        className='flex items-center justify-center gap-2 p-2 px-4 font-semibold transition-all rounded outline-none hover:bg-white/10 focus:bg-white/10 active:bg-white/10 active:outline-white focus:outline-white'
                         href='http://bit.ly/triple-c-collective'
                         target='_blank'>
                         <LocationIcon className='w-4 h-4' />
                         <span>14196 Lakeshore Dr. Clearlake, CA 95422</span>
                     </a>
                     <a
-                        className='flex gap-2 items-center p-2 px-4 justify-center font-semibold rounded hover:bg-white/10 transition-all focus:bg-white/10 active:bg-white/10 outline-none active:outline-white focus:outline-white'
+                        className='flex items-center justify-center gap-2 p-2 px-4 font-semibold transition-all rounded outline-none hover:bg-white/10 focus:bg-white/10 active:bg-white/10 active:outline-white focus:outline-white'
                         href='tel:707-701-4160'>
                         <PhoneIcon className='w-4 h-4' />
                         <span>(707) 701-4160</span>
@@ -79,12 +79,12 @@ export const Header = () => {
             <div className='p-4 max-w-7xl mx-auto flex justify-between items-center relative bg-[#fefefe]'>
                 <Link
                     href='/'
-                    className='font-logo text-primary-purple rounded font-bold text-xl sm:text-2xl md:text-3xl lg:text-5xl uppercase p-2 transition-all outline-none focus:outline-primary-purple active:outline-primary-purple'>
+                    className='p-2 text-xl font-bold uppercase transition-all rounded outline-none font-logo text-primary-purple sm:text-2xl md:text-3xl lg:text-5xl focus:outline-primary-purple active:outline-primary-purple'>
                     Triple C Collective
                 </Link>
                 {/* TODO: See if we can smooth this transition out */}
                 <button
-                    className='md:hidden p-1 rounded hover:bg-gray-200 active:bg-gray-200 focus:bg-gray-200 transition-all outline-none focus:outline-primary-purple active:outline-primary-purple'
+                    className='p-1 transition-all rounded outline-none md:hidden hover:bg-gray-200 active:bg-gray-200 focus:bg-gray-200 focus:outline-primary-purple active:outline-primary-purple'
                     onClick={toggleMobileMenu}>
                     {showMobileMenu ? (
                         <CloseIcon className='w-8 h-8 text-primary-purple' />
@@ -117,7 +117,7 @@ const NavLink = ({ href, label }: { href: string; label: string }) => {
     return (
         <li>
             <Link
-                className='text-primary-purple font-semibold lg:text-xl hover:underline py-2 px-4 active:underline focus:underline outline-none focus:outline-primary-purple active:outline-primary-purple rounded'
+                className='px-4 py-2 font-semibold rounded outline-none text-primary-purple lg:text-xl hover:underline active:underline focus:underline focus:outline-primary-purple active:outline-primary-purple'
                 href={href}>
                 {label}
             </Link>
@@ -129,7 +129,7 @@ const MobileNavLink = ({ href, label }: { href: string; label: string }) => {
     return (
         <li className=''>
             <Link
-                className='outline-none focus:outline-white active:outline-white py-4 w-full block uppercase font-semibold hover:bg-white/10 transition-all focus:bg-white/10 active:bg-white/10'
+                className='block w-full py-4 font-semibold uppercase transition-all outline-none focus:outline-white active:outline-white hover:bg-white/10 focus:bg-white/10 active:bg-white/10'
                 href={href}>
                 {label}
             </Link>

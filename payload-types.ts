@@ -17,12 +17,12 @@ export interface Config {
 }
 export interface Blog {
   id: string;
-  title?: string | null;
-  content?:
-    | {
-        [k: string]: unknown;
-      }[]
-    | null;
+  slug: string;
+  title: string;
+  description: string;
+  content: {
+    [k: string]: unknown;
+  }[];
   updatedAt: string;
   createdAt: string;
 }
