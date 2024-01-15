@@ -1,38 +1,36 @@
-import getPayloadClient from '~/payloadClient';
-import { BlogContent } from './_components/BlogContent';
-import { notFound } from 'next/navigation';
+import getPayloadClient from "~/payloadClient";
+import { BlogContent } from "./_components/BlogContent";
+import { notFound } from "next/navigation";
 
 async function getBlogById(id: string) {
-    try {
-        const payload = await getPayloadClient();
+  try {
+    const payload = await getPayloadClient();
 
-        const blogs = await payload.find({
-            collection: 'blogs',
-            where: {
-                id: {
-                    equals: id,
-                },
-            },
-        });
+    const blogs = await payload.find({
+      collection: "blogs",
+      where: {
+        id: {
+          equals: id,
+        },
+      },
+    });
 
-        return blogs.docs[0];
-    } catch (err) {
-        console.error('Error: ', err);
-    }
+    return blogs.docs[0];
+  } catch (err) {
+    console.error("Error: ", err);
+  }
 }
 
 export default async function BlogPage({ params }: { params: { id: string } }) {
-    // TODO: Implement this
+  // TODO: Implement this
 
-    const blog = await getBlogById(params.id);
+  const blog = await getBlogById(params.id);
 
-    if (!blog) return notFound();
+  if (!blog) return notFound();
 
-    const test = 'test';
-
-    return (
-        <main>
-            <BlogContent blogContent={blog.content as any} />
-        </main>
-    );
+  return (
+    <main>
+      <BlogContent blogContent={blog.content as any} />
+    </main>
+  );
 }
