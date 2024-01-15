@@ -1,23 +1,30 @@
-import getPayloadClient from '../../../../payload/payloadClient';
+import getPayloadClient from '~/payloadClient';
 import { BlogContent } from './_components/BlogContent';
 import { notFound } from 'next/navigation';
 
-export default async function BlogPage({ params: { id } }: { params: { id: string } }) {
-    // TODO: Implement this
-    const payload = await getPayloadClient();
+async function getBlogById(id: string) {
+    try {
+        const payload = await getPayloadClient();
 
-    const blogs = await payload.find({
-        collection: 'blogs',
-        where: {
-            id: {
-                equals: id,
+        const blogs = await payload.find({
+            collection: 'blogs',
+            where: {
+                id: {
+                    equals: id,
+                },
             },
-        },
-    });
+        });
 
-    const blog = blogs.docs[0];
+        return blogs.docs[0];
+    } catch (err) {
+        console.error('Error: ', err);
+    }
+}
 
-    if (!blog || !blog.content) return notFound();
+export default async function BlogPage({ params }: { params: { id: string } }) {
+    // TODO: Implement this
+
+    const blog = await getBlogById(params.id);
 
     return (
         <main>

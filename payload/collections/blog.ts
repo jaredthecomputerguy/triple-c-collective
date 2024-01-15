@@ -8,16 +8,26 @@ export const Blogs: CollectionConfig = {
     },
     fields: [
         {
+            name: 'slug',
+            type: 'text',
+            unique: true,
+            required: true,
+        },
+        {
             name: 'title',
             type: 'text',
+            unique: true,
+            required: true,
         },
         {
             name: 'description',
             type: 'text',
+            required: true,
         },
         {
             name: 'content',
             type: 'richText',
+            required: true,
             editor: slateEditor({
                 admin: {
                     elements: [
