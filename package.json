@@ -10,10 +10,8 @@
         "generate": "npx payload generate:types"
     },
     "lint-staged": {
-        "lint-staged": {
-            "*.{js,ts,tsx,jsx}": "eslint --fix",
-            "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
-        }
+        "*.{js,ts,tsx,jsx}": "eslint --fix",
+        "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
     },
     "dependencies": {
         "@next/third-parties": "^14.0.4",
