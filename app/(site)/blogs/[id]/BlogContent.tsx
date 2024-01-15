@@ -7,7 +7,7 @@ import { TextNode } from "@payloadcms/richtext-slate";
 export const serialize = (children: TextNode[]): ReactNode[] =>
   children.map((node: TextNode, i: number) => {
     if (Text.isText(node)) {
-      let text: ReactNode = escapeHTML(node.text);
+      let text: ReactNode = node.text;
 
       if (node.bold) {
         text = <strong key={i}>{text}</strong>;
