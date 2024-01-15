@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
+
 import getPayloadClient from '../../../payload/payloadClient';
+
 import { PostButtons } from './post-buttons';
 import { BlogCard } from './blog-card';
-import { blogPostsToSeed } from '@/app/lib/seed-data';
 
 export const metadata: Metadata = {
     title: 'All Blogs | Triple C Collective',
@@ -22,22 +23,6 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
     const page = +searchParams.page ?? 1;
     const payload = await getPayloadClient();
 
-    // async function seedBlogs(blogs: { title: string; description: string; createdAt: string }[]) {
-    //     await Promise.all(
-    //         blogs.map((blog) => {
-    //             console.log('Creating post: ', blog.title);
-    //             return payload.create({
-    //                 collection: 'blogs',
-    //                 data: blog,
-    //             });
-    //         })
-    //     );
-
-    //     console.log('DONE');
-    // }
-
-    // seedBlogs(blogPostsToSeed);
-
     const blogs = await payload.find({
         collection: 'blogs',
         limit: BLOG_POST_LIMIT,
@@ -52,7 +37,6 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
             <div className='flex flex-col gap-4'>
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-4'>
                     {blogs.docs.map((blog) => (
-                        // TODO: Add blog cards
                         <BlogCard blog={blog} key={blog.id} />
                     ))}
                 </div>
