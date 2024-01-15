@@ -25,10 +25,10 @@ export const PostButtons = ({ totalPages, hasNextPage, hasPrevPage }: PostButton
     };
 
     return (
-        <div className='flex gap-2 items-center'>
+        <div className='flex items-center justify-between gap-2'>
             {hasPrevPage && (
                 <button
-                    className='px-6 py-2 rounded bg-primary-purple transition-all text-white font-semibold hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 outline-none focus:outline-primary-purple active:outline-primary-purple disabled:pointer-events-none disabled:bg-primary-purple/50'
+                    className='px-6 py-2 font-semibold text-white transition-all rounded outline-none bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:pointer-events-none disabled:bg-primary-purple/50'
                     disabled={!hasPrevPage}
                     onClick={handlePrevPage}>
                     Load newer posts
@@ -36,7 +36,7 @@ export const PostButtons = ({ totalPages, hasNextPage, hasPrevPage }: PostButton
             )}
             {hasNextPage && (
                 <button
-                    className='px-6 py-2 rounded bg-primary-purple transition-all text-white font-semibold hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 outline-none focus:outline-primary-purple active:outline-primary-purple disabled:pointer-events-none disabled:bg-primary-purple/50'
+                    className='px-6 py-2 font-semibold text-white transition-all rounded outline-none bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:pointer-events-none disabled:bg-primary-purple/50'
                     disabled={!hasNextPage}
                     onClick={handleNextPage}>
                     Load older posts

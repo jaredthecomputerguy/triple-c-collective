@@ -31,11 +31,11 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
     });
 
     return (
-        <section className='max-w-4xl mx-auto sm:py-12 py-6 px-2'>
-            <h1 className='text-4xl py-4 font-semibold'>All Blogs</h1>
+        <section className='max-w-4xl px-2 py-6 mx-auto sm:py-12'>
+            <h1 className='py-4 text-4xl font-semibold'>All Blogs</h1>
             <hr className='pb-4' />
             <div className='flex flex-col gap-4'>
-                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-4'>
+                <div className='grid grid-cols-1 gap-6 py-4 sm:grid-cols-2 lg:grid-cols-3'>
                     {blogs.docs.map((blog) => (
                         <BlogCard blog={blog} key={blog.id} />
                     ))}
