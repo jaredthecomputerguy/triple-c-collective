@@ -2,9 +2,13 @@ import React, { Fragment, ReactNode } from "react";
 import escapeHTML from "escape-html";
 import { Text } from "slate";
 import { TextNode } from "@payloadcms/richtext-slate";
+import { formatDate } from "@/app/lib/utils";
 
 // TODO: Add styles to ALL element possible with Slate Rich Text Editor
-export const serialize = (children: TextNode[]): ReactNode[] =>
+export const serialize = (
+  children: TextNode[],
+  createdAt?: string,
+): ReactNode[] =>
   children.map((node: TextNode, i: number) => {
     if (Text.isText(node)) {
       let text: ReactNode = node.text;
@@ -41,11 +45,33 @@ export const serialize = (children: TextNode[]): ReactNode[] =>
     switch (typedNode.type) {
       case "h1":
         return (
-          <h1 className="text-5xl" key={i}>
-            {serialize(typedNode.children)}
-          </h1>
+          <>
+            <span className="text-gray-600">{formatDate(createdAt!)}</span>
+            <h1
+              className="text-4xl text-pretty pb-4 pt-2 font-semibold"
+              key={i}
+            >
+              {serialize(typedNode.children)}
+            </h1>
+            <hr className="pb-4" />
+          </>
         );
-      // TODO: Iterate through all headings here...
+      case "h2":
+        return (
+          <>
+            <h2 className="text-3xl text-pretty py-2 font-semibold">
+              {serialize(typedNode.children)}
+            </h2>
+          </>
+        );
+      case "h3":
+        return (
+          <>
+            <h2 className="text-2xl text-pretty py-2 font-semibold">
+              {serialize(typedNode.children)}
+            </h2>
+          </>
+        );
       case "blockquote":
         return <blockquote key={i}>{serialize(typedNode.children)}</blockquote>;
       case "ul":
@@ -74,10 +100,21 @@ export const serialize = (children: TextNode[]): ReactNode[] =>
         );
 
       default:
-        return <p key={i}>{serialize(typedNode.children)}</p>;
+        return (
+          <>
+            <p key={i}>{serialize(typedNode.children)}</p>
+            <br />
+          </>
+        );
     }
   });
 
-export const BlogContent = ({ blogContent }: { blogContent: TextNode[] }) => {
-  return <article>{serialize(blogContent)}</article>;
+export const BlogContent = ({
+  blogContent,
+  createdAt,
+}: {
+  blogContent: TextNode[];
+  createdAt: string;
+}) => {
+  return <>{serialize(blogContent, createdAt)}</>;
 };
