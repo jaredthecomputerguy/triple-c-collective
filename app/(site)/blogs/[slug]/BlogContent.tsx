@@ -1,10 +1,9 @@
-import React, { Fragment, ReactNode } from "react";
+import React, { Fragment, ReactNode, useEffect, useState } from "react";
 import escapeHTML from "escape-html";
 import { Text } from "slate";
 import { TextNode } from "@payloadcms/richtext-slate";
-import { formatDate } from "@/app/lib/utils";
+import { cn, formatDate } from "@/app/lib/utils";
 
-// TODO: Add styles to ALL element possible with Slate Rich Text Editor
 export const serialize = (
   children: TextNode[],
   createdAt?: string,
@@ -40,40 +39,36 @@ export const serialize = (
       return null;
     }
 
-    const typedNode = node as { type: string; children: any; url?: string };
+    const typedNode = node as {
+      type: string;
+      children: any;
+      url?: string;
+      textAlign: string;
+    };
 
     switch (typedNode.type) {
       case "h1":
         return (
-          <>
+          <Fragment key={i}>
             <span className="text-gray-600">{formatDate(createdAt!)}</span>
-            <h1
-              className="text-4xl text-pretty pb-4 pt-2 font-semibold"
-              key={i}
-            >
+            <h1 className="text-4xl text-pretty pb-4 pt-2 font-semibold">
               {serialize(typedNode.children)}
             </h1>
             <hr className="pb-4" />
-          </>
+          </Fragment>
         );
       case "h2":
         return (
-          <>
-            <h2 className="text-3xl text-pretty py-2 font-semibold">
-              {serialize(typedNode.children)}
-            </h2>
-          </>
+          <h2 className="text-3xl text-pretty py-2 font-semibold" key={i}>
+            {serialize(typedNode.children)}
+          </h2>
         );
       case "h3":
         return (
-          <>
-            <h2 className="text-2xl text-pretty py-2 font-semibold">
-              {serialize(typedNode.children)}
-            </h2>
-          </>
+          <h3 className="text-2xl text-pretty py-2 font-semibold" key={i}>
+            {serialize(typedNode.children)}
+          </h3>
         );
-      case "blockquote":
-        return <blockquote key={i}>{serialize(typedNode.children)}</blockquote>;
       case "ul":
         return (
           <ul className="list-disc" key={i}>
@@ -101,10 +96,16 @@ export const serialize = (
 
       default:
         return (
-          <>
-            <p key={i}>{serialize(typedNode.children)}</p>
-            <br />
-          </>
+          <p
+            key={i}
+            className={cn([
+              typedNode.textAlign === "right" && "text-right",
+              typedNode.textAlign === "left" && "text-left",
+              typedNode.textAlign === "center" && "text-center",
+            ])}
+          >
+            {serialize(typedNode.children)}
+          </p>
         );
     }
   });
