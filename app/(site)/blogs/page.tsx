@@ -4,7 +4,6 @@ import getPayloadClient from "../../../payload/payloadClient";
 
 import { PostButtons } from "./post-buttons";
 import { BlogCard } from "./blog-card";
-import { seedBlogs } from "@/app/lib/utils";
 
 export const metadata: Metadata = {
   title: "All Blogs | Triple C Collective",

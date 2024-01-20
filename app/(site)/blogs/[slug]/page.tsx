@@ -6,7 +6,7 @@ import { TextNode } from "@payloadcms/richtext-slate";
 
 export async function generateMetadata(
   { params }: { params: { slug: string } },
-  parent: ResolvingMetadata,
+  _parent: ResolvingMetadata,
 ): Promise<Metadata> {
   // read route params
   const { slug } = params;

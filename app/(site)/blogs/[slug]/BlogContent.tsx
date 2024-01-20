@@ -1,4 +1,4 @@
-import React, { Fragment, ReactNode, useEffect, useState } from "react";
+import React, { Fragment, ReactNode } from "react";
 import escapeHTML from "escape-html";
 import { Text } from "slate";
 import { TextNode } from "@payloadcms/richtext-slate";
