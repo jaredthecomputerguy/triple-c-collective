@@ -31,7 +31,7 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
   });
 
   return (
-    <section className="max-w-4xl px-2 py-6 mx-auto sm:py-12">
+    <div className="max-w-4xl px-2 py-6 mx-auto sm:py-12">
       <h1 className="py-4 text-4xl font-semibold">All Blogs</h1>
       <hr className="pb-4" />
       <div className="flex flex-col gap-4">
@@ -46,6 +46,6 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
           hasPrevPage={blogs.hasPrevPage}
         />
       </div>
-    </section>
+    </div>
   );
 }
