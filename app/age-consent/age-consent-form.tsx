@@ -11,7 +11,7 @@ export const AgeConsentForm = () => {
   const [checked, setChecked] = useState(false);
 
   return (
-    <section className="bg-[#fefefe]/75 text-black mx-6 py-6 px-4 md:px-6 md:py-8 text-center rounded">
+    <div className="bg-[#fefefe]/75 text-black mx-6 py-6 px-4 md:px-6 md:py-8 text-center rounded">
       <h1 className="pb-4 text-3xl font-bold uppercase text-primary-purple md:text-5xl font-logo">
         Triple C Collective
       </h1>
@@ -56,6 +56,6 @@ export const AgeConsentForm = () => {
           </a>
         </div>
       </form>
-    </section>
+    </div>
   );
 };

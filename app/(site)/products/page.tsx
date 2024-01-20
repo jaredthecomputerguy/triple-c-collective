@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
   // TODO: Implement this
-  return <section>Products Page</section>;
+  return <div>Products Page</div>;
 }
