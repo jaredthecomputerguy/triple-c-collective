@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { SetStateAction, useEffect, useState } from "react";
 
 import { BarsIcon } from "./icons/bar-icon";
 import { CartIcon } from "./icons/cart-icon";
@@ -28,6 +28,8 @@ export const Header = () => {
   useEffect(() => {
     setCurrentPath(pathname);
     if (pathname !== currentPath) {
+      setShowMobileMenu(false);
+    } else {
       setShowMobileMenu(false);
     }
   }, [pathname, currentPath]);
@@ -107,6 +109,7 @@ export const Header = () => {
                   href={link.href}
                   label={link.label}
                   key={link.href}
+                  setShowMobileMenu={setShowMobileMenu}
                 />
               ))}
             </ul>
@@ -115,7 +118,12 @@ export const Header = () => {
         <nav className="hidden md:block">
           <ul className="flex md:gap-2 lg:gap-4">
             {LINKS.filter((link) => link.label !== "Home").map((link) => (
-              <NavLink key={link.href} href={link.href} label={link.label} />
+              <NavLink
+                key={link.href}
+                href={link.href}
+                label={link.label}
+                setShowMobileMenu={setShowMobileMenu}
+              />
             ))}
           </ul>
         </nav>
@@ -124,10 +132,21 @@ export const Header = () => {
   );
 };
 
-const NavLink = ({ href, label }: { href: string; label: string }) => {
+const NavLink = ({
+  href,
+  label,
+  setShowMobileMenu,
+}: {
+  href: string;
+  label: string;
+  setShowMobileMenu: React.Dispatch<SetStateAction<boolean>>;
+}) => {
   return (
     <li>
       <Link
+        onClick={() => {
+          setShowMobileMenu(false);
+        }}
         className="px-4 py-2 font-semibold rounded outline-none text-primary-purple lg:text-xl hover:underline active:underline focus:underline focus:outline-primary-purple active:outline-primary-purple"
         href={href}
       >
@@ -137,10 +156,21 @@ const NavLink = ({ href, label }: { href: string; label: string }) => {
   );
 };
 
-const MobileNavLink = ({ href, label }: { href: string; label: string }) => {
+const MobileNavLink = ({
+  href,
+  label,
+  setShowMobileMenu,
+}: {
+  href: string;
+  label: string;
+  setShowMobileMenu: React.Dispatch<SetStateAction<boolean>>;
+}) => {
   return (
     <li className="">
       <Link
+        onClick={() => {
+          setShowMobileMenu(false);
+        }}
         className="block w-full py-4 font-semibold uppercase transition-all outline-none focus:outline-white active:outline-white hover:bg-white/10 focus:bg-white/10 active:bg-white/10"
         href={href}
       >
