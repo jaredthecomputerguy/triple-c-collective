@@ -23,6 +23,12 @@ export async function generateMetadata(
     },
   });
 
+  if (!blog.docs[0]) {
+    return {
+      title: "Not Found | Triple C Collective",
+    };
+  }
+
   return {
     title: blog.docs[0].title,
   };
