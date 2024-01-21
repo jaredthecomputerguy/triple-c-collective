@@ -3,6 +3,7 @@ import escapeHTML from "escape-html";
 import { Text } from "slate";
 import { TextNode } from "@payloadcms/richtext-slate";
 import { cn, formatDate } from "@/app/lib/utils";
+import Image from "next/image";
 
 export const serialize = (
   children: TextNode[],
@@ -44,6 +45,12 @@ export const serialize = (
       children: any;
       url?: string;
       textAlign: string;
+      value?: {
+        alt: string;
+        width: number;
+        height: number;
+        url: string;
+      };
     };
 
     switch (typedNode.type) {
@@ -92,6 +99,16 @@ export const serialize = (
           <a href={escapeHTML(typedNode.url)} key={i}>
             {serialize(typedNode.children)}
           </a>
+        );
+      case "upload":
+        return (
+          <Image
+            key={i}
+            src={typedNode.value!.url}
+            alt={typedNode.value?.alt!}
+            width={typedNode.value?.width}
+            height={typedNode.value?.height}
+          />
         );
 
       default:
