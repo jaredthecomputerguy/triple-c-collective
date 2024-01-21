@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
-import { sendEmail } from "@/app/lib/send-email";
-import { useToast } from "@/app/lib/use-toast";
+import { sendEmail } from "@/lib/send-email";
+import { useToast } from "@/lib/use-toast";
 
 export interface EmailInfo {
   name?: string;

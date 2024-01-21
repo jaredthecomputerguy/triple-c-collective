@@ -2,7 +2,7 @@ import React, { Fragment, ReactNode } from "react";
 import escapeHTML from "escape-html";
 import { Text } from "slate";
 import { TextNode } from "@payloadcms/richtext-slate";
-import { cn, formatDate } from "@/app/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
 import Image from "next/image";
 
 export const serialize = (

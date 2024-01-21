@@ -1,4 +1,4 @@
-import { formatDate } from "@/app/lib/utils";
+import { formatDate } from "@/lib/utils";
 import { Blog } from "@/payload-types";
 import Image from "next/image";
 import Link from "next/link";
