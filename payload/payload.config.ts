@@ -5,6 +5,7 @@ import { slateEditor } from "@payloadcms/richtext-slate";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 
 import { Blogs } from "./collections/blog";
+import { Media } from "./collections/media";
 
 export default buildConfig({
   db: mongooseAdapter({
@@ -14,7 +15,7 @@ export default buildConfig({
   admin: {
     bundler: webpackBundler(),
   },
-  collections: [Blogs],
+  collections: [Blogs, Media],
   globals: [
     // Your globals here
   ],
