@@ -3,9 +3,11 @@ import { buildConfig } from "payload/config";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
+import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 
 import { Blogs } from "./collections/blog";
 import { Media } from "./collections/media";
+import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
 
 export default buildConfig({
   db: mongooseAdapter({
@@ -22,4 +24,26 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(__dirname, "../payload-types.ts"),
   },
+  plugins: [
+    cloudStorage({
+      collections: {
+        // Enable cloud storage for Media collection
+        media: {
+          // Create the S3 adapter
+          adapter: s3Adapter({
+            config: {
+              region: process.env.AWS_REGION!,
+
+              credentials: {
+                accessKeyId: process.env.AWS_KEY!,
+                secretAccessKey: process.env.AWS_SECRET_KEY!,
+              },
+            },
+
+            bucket: process.env.AWS_BUCKET!,
+          }),
+        },
+      },
+    }),
+  ],
 });

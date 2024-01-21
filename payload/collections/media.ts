@@ -5,12 +5,24 @@ export const Media: CollectionConfig = {
   upload: {
     staticURL: "/media",
     staticDir: "media",
-    mimeTypes: ["image/*"],
+    disableLocalStorage: true,
   },
+
   fields: [
+    {
+      name: "url",
+      type: "text",
+      hooks: {
+        afterRead: [
+          ({ data: doc }) =>
+            `https://triple-c-collective.s3.us-west-1.amazonaws.com/${doc!.filename}`,
+        ],
+      },
+    },
     {
       name: "alt",
       type: "text",
+      required: true,
     },
   ],
 };
