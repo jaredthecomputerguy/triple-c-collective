@@ -2,17 +2,18 @@ import path from "path";
 import { buildConfig } from "payload/config";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { slateEditor } from "@payloadcms/richtext-slate";
-import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 
 import { Blogs } from "./collections/blog";
 import { Media } from "./collections/media";
 import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
+import { webpackBundler } from "@payloadcms/bundler-webpack";
 
 export default buildConfig({
   db: mongooseAdapter({
     url: process.env.MONGODB_URI as string,
   }),
+  debug: true,
   editor: slateEditor({}),
   admin: {
     bundler: webpackBundler(),

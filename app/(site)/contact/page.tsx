@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   // TODO: Add links to FB and Instagram
   return (
-    <div className="max-w-4xl mx-auto sm:py-12 py-6 px-2">
+    <div className="max-w-4xl mx-auto sm:py-12 py-6 px-4 bg-[#fefefe]">
       <h1 className="text-4xl py-4 font-semibold">Contact us</h1>
       <hr className="pb-4" />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">

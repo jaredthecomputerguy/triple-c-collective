@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="px-2 py-6 mx-auto sm:py-12">
+    <div className="mx-auto bg-[#fefefe]">
       <div className="relative flex flex-col items-center justify-center">
         <Image
           className="object-cover aspect-video md:aspect-auto"
@@ -23,7 +23,7 @@ export default function AboutPage() {
           About Us
         </span>
       </div>
-      <section className="px-2 py-6 mx-auto sm:py-12">
+      <section className="px-4 py-6 mx-auto sm:py-12 max-w-7xl">
         <p className="max-w-4xl mx-auto text-xl font-semibold text-center md:text-2xl md:py-12 text-pretty">
           Welcome to{" "}
           <span className="text-primary-purple">Triple C Collective</span>, your
@@ -32,7 +32,7 @@ export default function AboutPage() {
           the cannabis community.
         </p>
         <div className="flex flex-col items-center gap-2 my-6 md:gap-4">
-          <div className="flex flex-col gap-2 py-6 md:flex-row">
+          <div className="flex flex-col gap-6 py-6 md:flex-row">
             <div className="flex flex-col justify-center gap-2 md:gap-4 md:px-12">
               <h2 className="text-2xl md:text-4xl">Our Journey</h2>
               <hr className="pb-2" />
@@ -54,7 +54,7 @@ export default function AboutPage() {
               alt=""
             />
           </div>
-          <div className="flex flex-col gap-2 py-6 md:flex-row-reverse">
+          <div className="flex flex-col gap-6 py-6 md:flex-row-reverse">
             <div className="flex flex-col justify-center gap-2 md:gap-4 md:px-12">
               <h2 className="text-2xl md:text-4xl">Meet our Owner</h2>
               <hr className="pb-2" />
@@ -75,7 +75,7 @@ export default function AboutPage() {
               alt=""
             />
           </div>
-          <div className="flex flex-col gap-2 py-6 md:flex-row">
+          <div className="flex flex-col gap-6 py-6 md:flex-row">
             <div className="flex flex-col justify-center gap-2 md:gap-4 md:px-12">
               <h2 className="text-2xl md:text-4xl">Our Commitment to You</h2>
               <hr className="pb-2" />
@@ -97,7 +97,7 @@ export default function AboutPage() {
               alt=""
             />
           </div>
-          <div className="flex flex-col gap-2 py-6 md:flex-row-reverse">
+          <div className="flex flex-col gap-6 py-6 md:flex-row-reverse">
             <div className="flex flex-col justify-center gap-2 md:gap-4 md:px-12">
               <h2 className="text-2xl md:text-4xl">Beyond Cannabis</h2>
               <hr className="pb-2" />
