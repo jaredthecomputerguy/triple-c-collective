@@ -18,6 +18,7 @@ export interface Config {
 }
 export interface Blog {
   id: string;
+  image: string | Media;
   slug: string;
   title: string;
   description: string;
