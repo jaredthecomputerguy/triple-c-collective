@@ -1,5 +1,5 @@
 import { formatDate } from "@/lib/utils";
-import { Blog, Media } from "@/payload-types";
+import { Blog } from "@/payload-types";
 import Image from "next/image";
 import Link from "next/link";
 
