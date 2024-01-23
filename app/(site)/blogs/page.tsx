@@ -40,11 +40,7 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
             <BlogCard blog={blog} key={blog.id} />
           ))}
         </div>
-        <PostButtons
-          totalPages={blogs.totalPages}
-          hasNextPage={blogs.hasNextPage}
-          hasPrevPage={blogs.hasPrevPage}
-        />
+        <PostButtons totalPages={blogs.totalPages} hasNextPage={blogs.hasNextPage} hasPrevPage={blogs.hasPrevPage} />
       </div>
     </div>
   );

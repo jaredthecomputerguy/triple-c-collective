@@ -26,3 +26,7 @@ body {
   box-shadow: inset 100px 0 0 0 #fefefe;
   color: rgb(43, 7, 77);
 }
+
+.text-shadow {
+  text-shadow: rgba(0, 0, 0, 0.5) 5px 5px 5px;
+}
