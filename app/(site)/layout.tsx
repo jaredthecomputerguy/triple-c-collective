@@ -18,17 +18,7 @@ const montserrat = Montserrat({
   variable: "--font-logo",
 });
 
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-main",
-});
-
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = cookies();
   const ageConsent = cookieStore.get("age-consent");
 
@@ -38,7 +28,7 @@ export default async function RootLayout({
         <Toaster />
         <Header />
         <WithAgeConsent ageConsent={ageConsent}>
-          <main className={`${openSans.variable}bg-[#fefefe]`}>{children}</main>
+          <main className="bg-[#fefefe]">{children}</main>
         </WithAgeConsent>
         <Footer />
       </body>

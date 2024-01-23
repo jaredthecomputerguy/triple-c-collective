@@ -20,7 +20,7 @@ export default function HomePage() {
           alt="Triple C Collective Storefront"
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black/50" />
-        <h1 className="absolute text-4xl md:text-6xl text-center font-semibold text-white px-4 font-logo">
+        <h1 className="absolute text-4xl md:text-6xl text-center text-shadow font-semibold text-white px-4 font-logo">
           Welcome to Triple C Collective
         </h1>
       </div>
