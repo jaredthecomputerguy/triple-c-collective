@@ -13,7 +13,7 @@ export type Product = (typeof placeholderProducts)[number];
 export default function HomePage() {
   return (
     <div className="bg-[#fefefe]">
-      <div className="flex flex-col items-center relative justify-center">
+      <div className="relative flex flex-col items-center justify-center">
         <img
           className="w-full h-96 md:h-[600px] object-cover"
           src="/images/store-interior-placeholder.jpg"
@@ -21,7 +21,7 @@ export default function HomePage() {
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black/50" />
 
-        <span className="absolute text-4xl md:text-6xl text-center font-semibold text-white px-4 font-logo text-shadow">
+        <h1 className="absolute px-4 text-4xl font-semibold text-center text-white md:text-6xl font-logo text-shadow">
           Welcome to Triple C Collective
         </h1>
       </div>
