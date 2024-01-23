@@ -62,7 +62,7 @@ export default async function BlogPage({ params }: { params: { slug: string } })
   if (!blog || !blog.content) return notFound();
 
   return (
-    <article className="max-w-4xl px-4 py-6 pb-12 mx-auto sm:py-12 bg-[#fefefe]">
+    <article className="max-w-4xl px-4 py-6 mx-auto sm:py-12 prose prose-a:text-blue-600 prose-h1:font-logo bg-[#fefefe]">
       <BlogContent blogContent={blog.content} createdAt={blog.createdAt} />
     </article>
   );
