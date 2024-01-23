@@ -8,10 +8,25 @@ export const Blogs: CollectionConfig = {
   },
   fields: [
     {
+      name: "image",
+      type: "upload",
+      relationTo: "media",
+      required: true,
+    },
+    {
       name: "slug",
       type: "text",
       unique: true,
       required: true,
+      validate: (value: string) => {
+        const slugRegex = /^[a-zA-Z0-9_-]+$/;
+
+        if (slugRegex.test(value)) {
+          return true;
+        } else {
+          return "Please provide a valid slug. Valid slugs can only contain letters (both uppercase and lowercase), numbers, underscores, and hyphens";
+        }
+      },
     },
     {
       name: "title",
@@ -30,16 +45,7 @@ export const Blogs: CollectionConfig = {
       required: true,
       editor: slateEditor({
         admin: {
-          elements: [
-            "h1",
-            "h2",
-            "h3",
-            "link",
-            "ol",
-            "ul",
-            "textAlign",
-            "upload",
-          ],
+          elements: ["h1", "h2", "h3", "link", "ol", "ul", "textAlign", "upload"],
         },
       }),
     },

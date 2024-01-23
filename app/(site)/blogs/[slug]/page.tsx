@@ -6,7 +6,7 @@ import { TextNode } from "@payloadcms/richtext-slate";
 
 export async function generateMetadata(
   { params }: { params: { slug: string } },
-  _parent: ResolvingMetadata,
+  _parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
   const { slug } = params;
@@ -56,17 +56,13 @@ async function getBlogBySlug(slug: string) {
   }
 }
 
-export default async function BlogPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function BlogPage({ params }: { params: { slug: string } }) {
   const blog = await getBlogBySlug(params.slug);
 
   if (!blog || !blog.content) return notFound();
 
   return (
-    <article className="max-w-4xl px-2 py-6 mx-auto sm:py-12">
+    <article className="max-w-4xl px-4 py-6 pb-12 mx-auto sm:py-12 bg-[#fefefe]">
       <BlogContent blogContent={blog.content} createdAt={blog.createdAt} />
     </article>
   );

@@ -31,7 +31,7 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
   });
 
   return (
-    <div className="max-w-4xl px-2 py-6 mx-auto sm:py-12">
+    <div className="max-w-4xl px-4 py-6 mx-auto sm:py-12 bg-[#fefefe]">
       <h1 className="py-4 text-4xl font-semibold">All Blogs</h1>
       <hr className="pb-4" />
       <div className="flex flex-col gap-4">
@@ -40,11 +40,7 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
             <BlogCard blog={blog} key={blog.id} />
           ))}
         </div>
-        <PostButtons
-          totalPages={blogs.totalPages}
-          hasNextPage={blogs.hasNextPage}
-          hasPrevPage={blogs.hasPrevPage}
-        />
+        <PostButtons totalPages={blogs.totalPages} hasNextPage={blogs.hasNextPage} hasPrevPage={blogs.hasPrevPage} />
       </div>
     </div>
   );

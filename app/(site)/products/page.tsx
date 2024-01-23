@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
   // TODO: Implement this
-  return <div>Products Page</div>;
+  return <div className="bg-[#fefefe] px-4">Products Page</div>;
 }

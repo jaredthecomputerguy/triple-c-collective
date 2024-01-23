@@ -52,9 +52,16 @@ export async function seedBlogs(payloadClient: Payload) {
           createdAt: blog.createdAt,
           content: generatedContent,
           slug: generatedSlug,
+          image: {
+            url: "/images/blog-placeholder.png",
+            alt: "Blog placeholder image",
+            createdAt: blog.createdAt,
+            id: "60f0b1b0c9b7a2001b9f1b1a",
+            updatedAt: blog.createdAt,
+          },
         },
       });
-    }),
+    })
   );
 
   console.log("Done seeding blogs...\n");

@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -9,8 +8,18 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div>
-      <h1 className="font-main text-3xl">Home</h1>
+    <div className="bg-[#fefefe]">
+      <div className="flex flex-col items-center relative justify-center">
+        <img
+          className="w-full h-96 md:h-[600px] object-cover"
+          src="/images/store-interior-placeholder.jpg"
+          alt="Triple C Collective Storefront"
+        />
+        <div className="absolute top-0 left-0 w-full h-full bg-black/50" />
+        <span className="absolute text-4xl md:text-6xl text-center font-semibold text-white px-4 font-logo text-shadow">
+          Welcome to Triple C Collective
+        </span>
+      </div>
     </div>
   );
 }
