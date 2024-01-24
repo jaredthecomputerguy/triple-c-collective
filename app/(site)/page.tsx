@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import reviews from "./reviews.json";
 import { ReviewCard } from "../_components/review-card";
+import { StoreIcon } from "../_components/icons/store";
+import { StarRating } from "../_components/star-rating";
 
 // import { ProductCarousel } from "./product-carousel";
 // import placeholderProducts from "./placeholder-products.json";
@@ -35,7 +37,18 @@ export default function HomePage() {
           What Our Customers Are Saying...
         </h2>
         <hr />
-        <div className="grid gap-6 md:grid-cols-3 py-16">
+        <div className="flex flex-col items-center gap-4 px-4">
+          <div className="flex items-center gap-4 justify-center pt-12">
+            <StoreIcon className="stroke-primary-purple w-12 h-12" />
+            <span className="text-primary-purple font-semibold text-3xl">Triple C Collective</span>
+          </div>
+          <div className="flex gap-4 items-center">
+            <span className="text-primary-purple font-semibold text-4xl">4.4</span>
+            <StarRating rating="4.4" className="max-w-40 sm:max-w-48" />
+            <span className="text-gray-600 text-sm">(494 reviews)</span>
+          </div>
+        </div>
+        <div className="grid gap-8 md:grid-cols-3 py-14">
           {reviews.map((review) => (
             <ReviewCard key={review.id} review={review} />
           ))}

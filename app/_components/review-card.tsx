@@ -22,12 +22,15 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <div key={review.id} className="flex flex-col gap-2">
-      <a href={review.link} target="_blank" className="flex group px-6 sm:px-2 gap-4 items-center">
+    <div key={review.id} className="flex flex-col gap-2 ">
+      <a
+        href={review.link}
+        target="_blank"
+        className="flex group px-6 sm:px-2 gap-4 items-center outline-none rounded-lg focus:outline-primary-purple active:outline-primary-purple">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img className="w-10 h-10 rounded-full object-cover" src={review.imageSrc} alt={review.name} />
         <div className="flex flex-col">
-          <p className="text-lg group-hover:underline font-semibold text-pretty">{review.name}</p>
+          <p className="text-lg group-hover:underline  font-semibold text-pretty">{review.name}</p>
           <div className="flex gap-1">
             <StarRating className="max-w-24" rating={review.rating} />
             <span className="text-sm text-gray-500">{timeSince(review.date)}</span>
@@ -38,7 +41,7 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
         &quot;{review.text}&quot;
       </p>
       <button
-        className="text-primary-purple font-semibold hover:underline active:underline focus:underline"
+        className="text-primary-purple outline-none rounded-lg focus:outline-primary-purple active:outline-primary-purple py-2 font-semibold hover:underline active:underline focus:underline"
         onClick={() => setShowMore((prev) => !prev)}>
         {showMore ? "Show less" : "Show more"}
       </button>

@@ -21,7 +21,7 @@ interface StarRatingProps {
 
 export const StarRating = ({
   rating,
-  colors = { active: "#edd813", inactive: "#73704b" },
+  colors = { active: "#edd813", inactive: "#ccc" },
   className,
 }: StarRatingProps) => {
   const customStyles = {
@@ -30,12 +30,5 @@ export const StarRating = ({
     inactiveFillColor: colors.inactive,
   };
 
-  return (
-    <Rating
-      className={className}
-      value={parseFloat(rating)}
-      readOnly
-      itemStyles={customStyles}
-    />
-  );
+  return <Rating className={className} value={parseFloat(rating)} readOnly itemStyles={customStyles} />;
 };
