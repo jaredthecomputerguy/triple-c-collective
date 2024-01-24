@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import type { Metadata } from "next";
-import { Montserrat, Open_Sans } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { WithAgeConsent } from "./with-age-consent";
 import { Header } from "../_components/header";
 import { Footer } from "../_components/footer";

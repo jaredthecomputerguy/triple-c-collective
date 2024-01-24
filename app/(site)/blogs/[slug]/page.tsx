@@ -1,13 +1,10 @@
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 import getPayloadClient from "~/payloadClient";
 import { BlogContent } from "./BlogContent";
 import { notFound } from "next/navigation";
 import { TextNode } from "@payloadcms/richtext-slate";
 
-export async function generateMetadata(
-  { params }: { params: { slug: string } },
-  _parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   // read route params
   const { slug } = params;
 
