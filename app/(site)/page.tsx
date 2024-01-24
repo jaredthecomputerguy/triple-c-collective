@@ -1,14 +1,18 @@
 import { Metadata } from "next";
-import { ProductCarousel } from "./product-carousel";
-import placeholderProducts from "./placeholder-products.json";
+import { StarRating } from "../_components/star-rating";
+import reviews from "./reviews.json";
+import Image from "next/image";
+import { ReviewCard } from "../_components/review-card";
+
+// import { ProductCarousel } from "./product-carousel";
+// import placeholderProducts from "./placeholder-products.json";
+// export type Product = (typeof placeholderProducts)[number];
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
   description:
     "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California. Proudly open for over 15 years, we offer a diverse selection of high-quality cannabis products, expert guidance, and a welcoming environment for cannabis enthusiasts. Discover a trusted name in the industry - Triple C Collective, your premier destination for a decade and a half of cannabis excellence.",
 };
-
-export type Product = (typeof placeholderProducts)[number];
 
 export default function HomePage() {
   return (
@@ -27,30 +31,15 @@ export default function HomePage() {
       </div>
       {/* TODO: Try to make product carousel work */}
       {/* <ProductCarousel products={placeholderProducts} /> */}
-      <div className="py-16">
-        <h2 className="text-4xl text-center">What our customers are saying</h2>
-        <div>
-          <blockquote className="text-center">
-            <p className="text-xl">
-              “I love Triple C Collective! They have a great selection of products and the staff is very friendly and
-              helpful. I highly recommend this place!”
-            </p>
-            <cite className="text-lg font-semibold">- John Doe</cite>
-          </blockquote>
-          <blockquote className="text-center">
-            <p className="text-xl">
-              “I love Triple C Collective! They have a great selection of products and the staff is very friendly and
-              helpful. I highly recommend this place!”
-            </p>
-            <cite className="text-lg font-semibold">- John Doe</cite>
-          </blockquote>
-          <blockquote className="text-center">
-            <p className="text-xl">
-              “I love Triple C Collective! They have a great selection of products and the staff is very friendly and
-              helpful. I highly recommend this place!”
-            </p>
-            <cite className="text-lg font-semibold">- John Doe</cite>
-          </blockquote>
+      <div className="py-12 max-w-4xl mx-auto">
+        <h2 className="text-4xl py-8 text-center font-logo font-semibold text-pretty">
+          What Our Customers Are Saying...
+        </h2>
+        <hr />
+        <div className="grid gap-6 md:grid-cols-3 py-16">
+          {reviews.map((review) => (
+            <ReviewCard key={review.id} review={review} />
+          ))}
         </div>
       </div>
     </div>

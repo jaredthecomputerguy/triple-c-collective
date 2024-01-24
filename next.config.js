@@ -6,7 +6,7 @@ const cspHeader = `
     default-src *;
     script-src 'self' 'unsafe-eval' 'unsafe-inline';
     style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data:;
+    img-src 'self' blob: data: https://lh3.googleusercontent.com;;
     font-src 'self';
     object-src 'none';
     base-uri 'self';
@@ -21,11 +21,7 @@ module.exports = withPayload(
     // your Next config here
     experimental: {
       serverActions: true,
-      serverComponentsExternalPackages: [
-        "@react-email/components",
-        "@react-email/render",
-        "@react-email/tailwind",
-      ],
+      serverComponentsExternalPackages: ["@react-email/components", "@react-email/render", "@react-email/tailwind"],
     },
     images: {
       remotePatterns: [
@@ -64,5 +60,5 @@ module.exports = withPayload(
     // Set a custom Payload admin route (optional, default is `/admin`)
     // NOTE: Read the "Set a custom admin route" section in the payload/next-payload README.
     adminRoute: "/admin",
-  },
+  }
 );
