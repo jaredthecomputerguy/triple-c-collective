@@ -1,7 +1,5 @@
 import { Metadata } from "next";
-import { StarRating } from "../_components/star-rating";
 import reviews from "./reviews.json";
-import Image from "next/image";
 import { ReviewCard } from "../_components/review-card";
 
 // import { ProductCarousel } from "./product-carousel";
@@ -18,6 +16,7 @@ export default function HomePage() {
   return (
     <div className="bg-[#fefefe]">
       <div className="relative flex flex-col items-center justify-center">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="w-full h-96 md:h-[600px] object-cover"
           src="/images/store-interior-placeholder.jpg"

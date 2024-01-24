@@ -24,6 +24,7 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
   return (
     <div key={review.id} className="flex flex-col gap-2">
       <a href={review.link} className="flex group px-6 sm:px-2 gap-4 items-center">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img className="w-10 h-10 rounded-full object-cover" src={review.imageSrc} alt={review.name} />
         <div className="flex flex-col">
           <p className="text-lg group-hover:underline font-semibold text-pretty">{review.name}</p>
