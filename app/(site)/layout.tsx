@@ -18,7 +18,11 @@ const montserrat = Montserrat({
   variable: "--font-logo",
 });
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const cookieStore = cookies();
   const ageConsent = cookieStore.get("age-consent");
 

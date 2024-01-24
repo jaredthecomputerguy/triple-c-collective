@@ -88,7 +88,7 @@ export async function seedBlogs(payloadClient: Payload) {
           },
         },
       });
-    })
+    }),
   );
 
   console.log("Done seeding blogs...\n");

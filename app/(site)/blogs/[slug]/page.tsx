@@ -4,7 +4,11 @@ import { BlogContent } from "./BlogContent";
 import { notFound } from "next/navigation";
 import { TextNode } from "@payloadcms/richtext-slate";
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   // read route params
   const { slug } = params;
 
@@ -53,7 +57,11 @@ async function getBlogBySlug(slug: string) {
   }
 }
 
-export default async function BlogPage({ params }: { params: { slug: string } }) {
+export default async function BlogPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const blog = await getBlogBySlug(params.slug);
 
   if (!blog || !blog.content) return notFound();

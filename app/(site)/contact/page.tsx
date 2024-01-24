@@ -25,7 +25,8 @@ export default function ContactPage() {
                 <a
                   className="flex flex-col text-sky-700 font-medium"
                   href="https://www.google.com/maps/place/14196+Lakeshore+Dr,+Clearlake,+CA+95422"
-                  target="_blank">
+                  target="_blank"
+                >
                   <span>14196 Lakeshore Drive</span>
                   <span>Clearlake, CA 95422</span>
                 </a>
@@ -39,7 +40,10 @@ export default function ContactPage() {
             </div>
             <div className="flex flex-col gap-2">
               <p className="text-xl font-semibold">Email</p>
-              <a className="text-sky-700 font-medium" href="mailto:clearlakecompassioncenter@yahoo.com">
+              <a
+                className="text-sky-700 font-medium"
+                href="mailto:clearlakecompassioncenter@yahoo.com"
+              >
                 clearlakecompassioncenter@yahoo.com
               </a>
             </div>
