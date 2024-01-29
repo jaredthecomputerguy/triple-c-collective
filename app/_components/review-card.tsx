@@ -1,6 +1,6 @@
 "use client";
 
-import { timeSince } from "@/lib/utils";
+import { getInitials, timeSince } from "@/lib/utils";
 
 import { useState } from "react";
 import { StarRating } from "./star-rating";
@@ -18,6 +18,25 @@ interface ReviewCardProps {
   };
 }
 
+
+const AvatarImage = ({id, name}: {id: number, name: string}) => {
+  let styles;
+  
+  switch(id) {
+    case 1:
+      styles = "py-2 px-[0.55rem] font-semibold bg-lime-500 rounded-full"
+      break
+    case 2:
+      styles = "p-2 font-semibold bg-pink-500 rounded-full"
+      break
+    case 3:
+      styles = "p-2 font-semibold bg-lime-500 rounded-full"
+      break
+  }
+
+   return <div className={styles}>{getInitials(name)}</div>
+}
+
 export const ReviewCard = ({ review }: ReviewCardProps) => {
   const [showMore, setShowMore] = useState(false);
 
@@ -28,7 +47,8 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
         target="_blank"
         className="flex group px-6 sm:px-2 gap-4 items-center outline-none rounded-lg focus:outline-primary-purple active:outline-primary-purple">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="w-10 h-10 rounded-full object-cover" src={review.imageSrc} alt={review.name} />
+        {/* <img className="w-10 h-10 rounded-full object-cover" src={review.imageSrc} alt={review.name} /> */}
+        <AvatarImage id={review.id} name={review.name} />
         <div className="flex flex-col">
           <p className="text-lg group-hover:underline  font-semibold text-pretty">{review.name}</p>
           <div className="flex gap-1">

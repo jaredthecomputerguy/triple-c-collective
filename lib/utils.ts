@@ -35,6 +35,10 @@ export function timeSince(dateString: string) {
   }
 }
 
+export function getInitials(name: string) {
+  return name.split(" ").map(word => word.charAt(0)).join("");
+}
+
 export function formatDate(dateString: string) {
   const date = new Date(dateString);
 
