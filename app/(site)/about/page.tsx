@@ -32,7 +32,7 @@ export default function AboutPage() {
           the cannabis community.
         </p>
         <div className="flex flex-col items-center gap-2 my-6 md:gap-4">
-          <div className="flex flex-col gap-6 py-6 md:flex-row">
+          <div className="flex flex-col gap-6 py-6 items-center lg:flex-row">
             <div className="flex flex-col justify-center gap-2 md:gap-4 md:px-12">
               <h2 className="text-2xl md:text-4xl">Our Journey</h2>
               <hr className="pb-2" />
@@ -47,6 +47,7 @@ export default function AboutPage() {
               </p>
             </div>
             <Image
+              className="object-cover"
               src="/images/generic-blog.jpg"
               width={600}
               height={400}
@@ -54,7 +55,7 @@ export default function AboutPage() {
               alt=""
             />
           </div>
-          <div className="flex flex-col gap-6 py-6 md:flex-row-reverse">
+          <div className="flex flex-col gap-6 py-6 items-center lg:flex-row-reverse">
             <div className="flex flex-col justify-center gap-2 md:gap-4 md:px-12">
               <h2 className="text-2xl md:text-4xl">Meet our Owner</h2>
               <hr className="pb-2" />
@@ -75,7 +76,7 @@ export default function AboutPage() {
               alt=""
             />
           </div>
-          <div className="flex flex-col gap-6 py-6 md:flex-row">
+          <div className="flex flex-col gap-6 py-6 items-center lg:flex-row">
             <div className="flex flex-col justify-center gap-2 md:gap-4 md:px-12">
               <h2 className="text-2xl md:text-4xl">Our Commitment to You</h2>
               <hr className="pb-2" />
@@ -97,7 +98,7 @@ export default function AboutPage() {
               alt=""
             />
           </div>
-          <div className="flex flex-col gap-6 py-6 md:flex-row-reverse">
+          <div className="flex flex-col gap-6 py-6 items-center lg:flex-row-reverse">
             <div className="flex flex-col justify-center gap-2 md:gap-4 md:px-12">
               <h2 className="text-2xl md:text-4xl">Beyond Cannabis</h2>
               <hr className="pb-2" />
