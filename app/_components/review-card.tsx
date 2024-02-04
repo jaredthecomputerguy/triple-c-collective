@@ -30,7 +30,7 @@ const AvatarImage = ({id, name}: {id: number, name: string}) => {
       styles = "p-2 font-semibold bg-pink-500 rounded-full"
       break
     case 3:
-      styles = "p-2 font-semibold bg-lime-500 rounded-full"
+      styles = "p-2 font-semibold bg-violet-500 rounded-full"
       break
   }
 
@@ -51,9 +51,9 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
         <AvatarImage id={review.id} name={review.name} />
         <div className="flex flex-col">
           <p className="text-lg group-hover:underline  font-semibold text-pretty">{review.name}</p>
-          <div className="flex gap-1">
+          <div className="flex gap-1 items-center">
             <StarRating className="max-w-24" rating={review.rating} />
-            <span className="text-sm text-gray-500">{timeSince(review.date)}</span>
+            <span className="text-sm md:text-xs lg:text-sm text-gray-500">{timeSince(review.date)}</span>
           </div>
         </div>
       </a>
