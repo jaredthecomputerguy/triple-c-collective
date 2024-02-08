@@ -10,8 +10,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         main: "url('/lake-county.webp')",
       },
       fontFamily: {
@@ -20,6 +19,10 @@ const config: Config = {
       },
       colors: {
         "primary-purple": "rgb(43, 7, 77)",
+      },
+      animation: {
+        "desktop-scroll": "desktop-scroll 30s linear infinite both",
+        "mobile-scroll": "mobile-scroll 30s linear infinite both",
       },
     },
   },

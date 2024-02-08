@@ -4,8 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --brands-length: 23.5;
+  --mobile-brands-width: calc(-1 * 128px * var(--brands-length));
+  --desktop-brands-width: calc(-1 * 162px * var(--brands-length));
+}
+
 body {
   font-family: "Open Sans", sans-serif;
+  @apply antialiased;
 }
 
 #jared {
@@ -25,4 +32,22 @@ body {
 
 .text-shadow {
   text-shadow: rgba(0, 0, 0, 0.5) 5px 5px 5px;
+}
+
+@keyframes desktop-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(var(--desktop-brands-width));
+  }
+}
+
+@keyframes mobile-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(var(--mobile-brands-width));
+  }
 }

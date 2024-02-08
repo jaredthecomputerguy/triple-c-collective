@@ -1,11 +1,12 @@
 import { Metadata } from "next";
-import reviews from "./reviews.json";
+import reviews from "@/lib/data/reviews.json";
 import { ReviewCard } from "../_components/review-card";
 import { StoreIcon } from "../_components/icons/store";
 import { StarRating } from "../_components/star-rating";
+import { BrandCarousel } from "./brand-carousel";
 
 // import { ProductCarousel } from "./product-carousel";
-// import placeholderProducts from "./placeholder-products.json";
+// import placeholderProducts from "@/lib/data/ placeholder-products.json";
 // export type Product = (typeof placeholderProducts)[number];
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default function HomePage() {
       </div>
       {/* TODO: Try to make product carousel work */}
       {/* <ProductCarousel products={placeholderProducts} /> */}
+
       <div className="py-12 max-w-4xl mx-auto">
         <h2 className="text-4xl py-8 text-center font-logo font-semibold text-pretty">
           What Our Customers Are Saying...
@@ -48,10 +50,17 @@ export default function HomePage() {
             <span className="text-gray-600 text-sm">(494 reviews)</span>
           </div>
         </div>
-        <div className="grid gap-8 md:grid-cols-3 py-14">
+        <div className="grid gap-4 px-2 md:grid-cols-3 py-14">
           {reviews.map((review) => (
             <ReviewCard key={review.id} review={review} />
           ))}
+        </div>
+      </div>
+      <div className="max-w-4xl mx-auto">
+        <h3 className="text-4xl font-logo text-center pb-8 font-semibold">Featured Brands</h3>
+        <hr className="pb-4" />
+        <div className="flex items-center justify-center">
+          <BrandCarousel />
         </div>
       </div>
     </div>
