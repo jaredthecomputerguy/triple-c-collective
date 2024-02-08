@@ -5,9 +5,9 @@ const { withPayload } = require("@payloadcms/next-payload");
 const cspHeader = `
     default-src *;
     script-src 'self' 'unsafe-eval' 'unsafe-inline';
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data: https://lh3.googleusercontent.com;;
-    font-src 'self';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    img-src 'self' blob: data: https://lh3.googleusercontent.com;
+    font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
