@@ -7,10 +7,6 @@ import { StoreIcon } from "../_components/icons/store";
 import { StarRating } from "../_components/star-rating";
 import { BrandCarousel } from "./brand-carousel";
 
-// import { ProductCarousel } from "./product-carousel";
-// import placeholderProducts from "@/lib/data/ placeholder-products.json";
-// export type Product = (typeof placeholderProducts)[number];
-
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
   description:
@@ -33,13 +29,9 @@ export default function HomePage() {
           Welcome to Triple C Collective
         </h1>
       </div>
-      {/* TODO: Try to make product carousel work */}
-      {/* <ProductCarousel products={placeholderProducts} /> */}
-
       <div className="mx-auto bg-gray-200 py-20">
         <div className="flex flex-col max-w-7xl mx-auto md:flex-row gap-8 lg:gap-16 justify-center px-4">
           <div className="flex flex-col gap-4">
-            {/* TODO: Online ordering */}
             <Image
               src="/images/order-online.avif"
               className="rounded-lg aspect-video"
@@ -57,7 +49,6 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="flex flex-col gap-4">
-            {/* TODO: Contact Us */}{" "}
             <Image
               src="/images/phonecall.avif"
               className="rounded-lg aspect-video"
@@ -74,7 +65,6 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="flex flex-col gap-4">
-            {/* Rewards Program */}
             <Image
               src="/images/rewards.avif"
               className="rounded-lg aspect-video"
