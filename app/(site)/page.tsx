@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import reviews from "@/lib/data/reviews.json";
 import { ReviewCard } from "../_components/review-card";
 import { StoreIcon } from "../_components/icons/store";
@@ -34,6 +36,71 @@ export default function HomePage() {
       {/* TODO: Try to make product carousel work */}
       {/* <ProductCarousel products={placeholderProducts} /> */}
 
+      <div className="mx-auto bg-gray-200 py-20">
+        <div className="flex flex-col max-w-7xl mx-auto md:flex-row gap-8 lg:gap-16 justify-center px-4">
+          <div className="flex flex-col gap-4">
+            {/* TODO: Online ordering */}
+            <Image
+              src="/images/order-online.avif"
+              className="rounded-lg aspect-video"
+              alt="Online Ordering"
+              width={800}
+              height={800}
+            />
+            <p className="text-2xl text-primary-purple font-semibold font-logo">Online Ordering</p>
+            <p>Look through our online menu and place an order for pickup or delivery.</p>
+            <Link
+              className="mt-4 px-6 py-2 font-semibold text-white transition-all rounded outline-none w-fit grow-0 bg-primary-purple md:text-xl hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:bg-primary-purple/50"
+              href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
+              target="_blank">
+              Shop Now
+            </Link>
+          </div>
+          <div className="flex flex-col gap-4">
+            {/* TODO: Contact Us */}{" "}
+            <Image
+              src="/images/phonecall.avif"
+              className="rounded-lg aspect-video"
+              alt="Online Ordering"
+              width={800}
+              height={800}
+            />
+            <p className="text-2xl text-primary-purple font-semibold font-logo">Order by Phone</p>
+            <p>Talk to our talented budtenders and place your order for curbside or in store pickup.</p>
+            <Link
+              className="mt-4 px-6 py-2 font-semibold text-white transition-all rounded outline-none w-fit grow-0 bg-primary-purple md:text-xl hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:bg-primary-purple/50"
+              href="tel:707-701-4160">
+              Call Us
+            </Link>
+          </div>
+          <div className="flex flex-col gap-4">
+            {/* Rewards Program */}
+            <Image
+              src="/images/rewards.avif"
+              className="rounded-lg aspect-video"
+              alt="Online Ordering"
+              width={800}
+              height={800}
+            />
+            <p className="text-2xl text-primary-purple font-semibold font-logo">Rewards Program</p>
+            <p>Earn points with every purchase you make, and redeem them at any time.</p>
+            <Link
+              className="mt-4 px-6 py-2 font-semibold text-white transition-all rounded outline-none w-fit grow-0 bg-primary-purple md:text-xl hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:bg-primary-purple/50"
+              href="/rewards">
+              Learn More
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-4xl pt-20 mx-auto">
+        <h3 className="text-4xl font-logo text-center pb-8 font-semibold">Featured Brands</h3>
+        <hr className="pb-4" />
+        <div className="flex items-center justify-center">
+          <BrandCarousel />
+        </div>
+      </div>
+
       <div className="py-12 max-w-4xl mx-auto">
         <h2 className="text-4xl py-8 text-center font-logo font-semibold text-pretty">
           What Our Customers Are Saying...
@@ -54,13 +121,6 @@ export default function HomePage() {
           {reviews.map((review) => (
             <ReviewCard key={review.id} review={review} />
           ))}
-        </div>
-      </div>
-      <div className="max-w-4xl mx-auto">
-        <h3 className="text-4xl font-logo text-center pb-8 font-semibold">Featured Brands</h3>
-        <hr className="pb-4" />
-        <div className="flex items-center justify-center">
-          <BrandCarousel />
         </div>
       </div>
     </div>
