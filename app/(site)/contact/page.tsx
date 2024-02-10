@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import { GoogleMapEmbed } from "./google-map-embed";
 import { ContactForm } from "./contact-form";
+import { FacebookIcon } from "@/app/_components/icons/facebook-icon";
+import { InstagramIcon } from "@/app/_components/icons/instagram-icon";
 
 export const dynamic = "force-dynamic";
 
@@ -51,6 +53,23 @@ export default function ContactPage() {
               <a className="text-sky-700 font-medium" href="mailto:clearlakecompassioncenter@yahoo.com">
                 clearlakecompassioncenter@yahoo.com
               </a>
+            </div>
+            <div className="flex flex-col gap-2">
+              <p className="text-xl font-semibold">Socials</p>
+              <ul className="flex gap-2 items-center">
+                <li className="p-1">
+                  <a
+                    href="https://www.facebook.com/people/Triple-C-Collective-Clearlake-CA/100095379903282/"
+                    target="_blank">
+                    <FacebookIcon className="w-8 h-8" />
+                  </a>
+                </li>
+                <li className="p-1">
+                  <a href="https://www.instagram.com/_tripleccollective/" target="_blank">
+                    <InstagramIcon className="w-9 h-9" />
+                  </a>
+                </li>
+              </ul>
             </div>
             <hr />
             <div>
