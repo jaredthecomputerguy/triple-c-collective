@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import reviews from "@/lib/data/reviews.json";
-import { ReviewCard } from "../_components/review-card";
-import { StoreIcon } from "../_components/icons/store";
-import { StarRating } from "../_components/star-rating";
+import { ReviewCard } from "./_components/review-card";
+import { StoreIcon } from "./_components/icons/store";
+import { StarRating } from "./_components/star-rating";
 import { BrandCarousel } from "./brand-carousel";
 
 export const metadata: Metadata = {

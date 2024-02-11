@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { Header } from "./_components/header";
+import { Footer } from "./_components/footer";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -17,7 +19,13 @@ const montserrat = Montserrat({
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={montserrat.variable} suppressHydrationWarning>
-      <body>{children}</body>
+      <body>
+        <Header />
+
+        {children}
+
+        <Footer />
+      </body>
     </html>
   );
 }
