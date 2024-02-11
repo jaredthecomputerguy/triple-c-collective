@@ -26,6 +26,10 @@ body {
   -webkit-background-clip: text;
 }
 
+.radial-gradient {
+  background: radial-gradient(circle, rgba(64, 16, 110, 1) 0%, rgba(43, 7, 77, 1) 84%, rgba(47, 7, 77, 1) 100%);
+}
+
 @keyframes desktop-scroll {
   0% {
     transform: translateX(0);

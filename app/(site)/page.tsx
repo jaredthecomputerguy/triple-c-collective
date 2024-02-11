@@ -29,6 +29,30 @@ export default function HomePage() {
           Welcome to Triple C Collective
         </h1>
       </div>
+
+      <div className="radial-gradient text-[#fefefe]">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col gap-8 py-20">
+          <h2 className="text-3xl font-semibold text-shadow text-center md:text-4xl uppercase font-logo">
+            Lake County&apos;s <span className="gold">Premier</span> Cannabis Dispensary
+          </h2>
+          <div className="max-w-2xl flex items-center mx-auto">
+            <div className="bg-white h-px w-36 md:w-60" />
+            <Image
+              src="/images/logo.png"
+              width={200}
+              height={200}
+              className="rounded-lg mx-auto w-24 md:w-48"
+              alt="Storefront"
+            />
+            <div className="bg-white h-px w-36 md:w-60" />
+          </div>
+          <p className="font-logo text-balanced text-center mx-auto prose text-white text-xl">
+            Located in the heart of Lake County, California, we offer a diverse selection of high-quality cannabis
+            products, expert guidance, and a welcoming environment for cannabis enthusiasts.
+          </p>
+        </div>
+      </div>
+
       <div className="mx-auto bg-gray-200 py-20">
         <div className="flex flex-col max-w-7xl mx-auto md:flex-row gap-8 lg:gap-16 justify-center px-4">
           <div className="flex flex-col gap-4">
@@ -92,9 +116,9 @@ export default function HomePage() {
       </div>
 
       <div className="py-12 max-w-4xl mx-auto">
-        <h2 className="text-4xl py-8 text-center font-logo font-semibold text-pretty">
+        <h4 className="text-4xl py-8 text-center font-logo font-semibold text-pretty">
           What Our Customers Are Saying...
-        </h2>
+        </h4>
         <hr />
         <div className="flex flex-col items-center gap-4 px-4">
           <div className="flex items-center gap-4 justify-center pt-12">
