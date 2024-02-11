@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import type { Metadata } from "next";
-import { Montserrat, Open_Sans } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { WithAgeConsent } from "./with-age-consent";
 import { Header } from "../_components/header";
 import { Footer } from "../_components/footer";
@@ -23,7 +23,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const ageConsent = cookieStore.get("age-consent");
 
   return (
-    <html lang="en" className={montserrat.variable}>
+    <html lang="en" className={montserrat.variable} suppressHydrationWarning>
       <body className="overscroll-none bg-primary-purple sm:bg-[#fefefe]">
         <Toaster />
         <Header />

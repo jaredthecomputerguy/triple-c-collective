@@ -16,7 +16,7 @@ const montserrat = Montserrat({
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={montserrat.variable}>
+    <html lang="en" className={montserrat.variable} suppressHydrationWarning>
       <body>{children}</body>
     </html>
   );

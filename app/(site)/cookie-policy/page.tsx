@@ -14,7 +14,7 @@ export default function CookiePolicyPage() {
       <span className="mx-auto text-center text-gray-700">Last Updated: 12/31/2023</span>
       <hr className="my-1" />
       <article className="pb-6">
-        <h2 className="text-3xl">What Are Cookies</h2>
+        <h2 className="text-3xl mt-6">What Are Cookies</h2>
         <p>
           As is common practice with almost all professional websites this site uses cookies, which are tiny files that
           are downloaded to your computer, to improve your experience.

@@ -1,4 +1,4 @@
 {
-    "extends": "next/core-web-vitals",
-    "rules": { "no-unused-vars": "warn" }
+  "extends": "next/core-web-vitals",
+  "rules": { "no-unused-vars": ["warn", { "args": "after-used" }] }
 }

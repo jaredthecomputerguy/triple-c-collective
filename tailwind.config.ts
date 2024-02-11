@@ -20,6 +20,10 @@ const config: Config = {
       colors: {
         "primary-purple": "rgb(43, 7, 77)",
       },
+      animation: {
+        "desktop-scroll": "desktop-scroll 30s linear infinite both",
+        "mobile-scroll": "mobile-scroll 30s linear infinite both",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

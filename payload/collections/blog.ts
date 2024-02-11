@@ -45,7 +45,16 @@ export const Blogs: CollectionConfig = {
       required: true,
       editor: slateEditor({
         admin: {
-          elements: ["h1", "h2", "h3", "link", "ol", "ul", "textAlign", "upload"],
+          elements: [
+            "h1",
+            "h2",
+            "h3",
+            "link",
+            "ol",
+            "ul",
+            "textAlign",
+            "upload",
+          ],
         },
       }),
     },

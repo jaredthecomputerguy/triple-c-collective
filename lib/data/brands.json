@@ -1,0 +1,128 @@
+[
+  {
+    "id": 0,
+    "src": "/images/brands/midsfactory.png",
+    "alt": "Midsfactory Logo",
+    "website": "https://www.midsfactory.com/"
+  },
+  {
+    "id": 1,
+    "src": "/images/brands/glasshouse.jpg",
+    "alt": "Glasshouse Farms Logo",
+    "website": "https://glasshousefarms.org"
+  },
+  {
+    "id": 2,
+    "src": "/images/brands/flawless.jpg",
+    "alt": "Flawless Flowers Logo",
+    "website": "https://flawlessflowers.com/"
+  },
+  {
+    "id": 3,
+    "src": "/images/brands/highgrade.png",
+    "alt": "High Grade Farms Logo",
+    "website": "https://highgradeonly.com/"
+  },
+  {
+    "id": 4,
+    "src": "/images/brands/kiva.png",
+    "alt": "Kiva Confections Logo",
+    "website": "https://www.kivaconfections.com/"
+  },
+  {
+    "id": 5,
+    "src": "/images/brands/camino.png",
+    "alt": "Camino Gummies Logo",
+    "website": "https://www.kivaconfections.com/brand/camino"
+  },
+  {
+    "id": 6,
+    "src": "/images/brands/gelato.webp",
+    "alt": "Gelato Cannabis Company Logo",
+    "website": "https://www.gelatocanna.com/"
+  },
+  {
+    "id": 7,
+    "src": "/images/brands/seven-leaves.png",
+    "alt": "Seven Leaves Logo",
+    "website": "https://www.sevenleavesca.com/"
+  },
+  {
+    "id": 8,
+    "src": "/images/brands/papas-herb.png",
+    "alt": "Papas Herb Logo",
+    "website": "https://papasherb.com/"
+  },
+  {
+    "id": 9,
+    "src": "/images/brands/high-supply.svg",
+    "alt": "High Supply Logo",
+    "website": "https://www.highsupplyofficial.com/"
+  },
+  {
+    "id": 10,
+    "src": "/images/brands/eightyeast.webp",
+    "alt": "Eighty East Logo",
+    "website": "https://eightyeast.com/"
+  },
+  {
+    "id": 11,
+    "src": "/images/brands/pacific-stone.png",
+    "alt": "Pacific Stone Logo",
+    "website": "https://pacificstonebrand.com/"
+  },
+  {
+    "id": 12,
+    "src": "/images/brands/floracal.svg",
+    "alt": "Floracal Logo",
+    "website": "https://www.floracalfarms.com/"
+  },
+  {
+    "id": 13,
+    "src": "/images/brands/akwaaba.png",
+    "alt": "Akwaaba Farms Logo",
+    "website": "https://www.akwaabafarms.com/"
+  },
+  {
+    "id": 14,
+    "src": "/images/brands/kushy-punch.png",
+    "alt": "Kushy Punch Logo",
+    "website": "https://kushypunch.com/"
+  },
+  {
+    "id": 15,
+    "src": "/images/brands/snicklefritz.avif",
+    "alt": "Snicklefritz Logo",
+    "website": "https://phatpanda.com/"
+  },
+  {
+    "id": 16,
+    "src": "/images/brands/stiiizy.avif",
+    "alt": "Stiiizy Logo",
+    "website": "https://www.stiiizy.com/"
+  },
+  {
+    "id": 17,
+    "src": "/images/brands/raw-garden.svg",
+    "alt": "Raw Garden Logo",
+    "website": "https://rawgarden.farm/"
+  },
+  {
+    "id": 18,
+    "src": "/images/brands/everyday-dabs.jpeg",
+    "alt": "Everyday Dabs Logo",
+    "website": "https://www.google.com/search?q=everyday+dabs"
+  },
+  {
+    "id": 19,
+    "src": "/images/brands/west-coast-treez.png",
+    "alt": "West Coast Treez Logo",
+    "website": "https://westcoasttreez.com/"
+  },
+  {
+    "id": 20,
+    "src": "/images/brands/jeeter.svg",
+    "alt": "Jeeter Logo",
+    "website": "https://www.jeeter.com/"
+  }
+]

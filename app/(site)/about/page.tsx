@@ -28,18 +28,19 @@ export default function AboutPage() {
           the cannabis community.
         </p>
         <div className="flex flex-col items-center gap-2 my-6 md:gap-4">
-          <div className="flex flex-col gap-6 py-6 md:flex-row">
+          <div className="flex flex-col gap-6 py-6 items-center lg:flex-row">
             <div className="flex flex-col justify-center gap-2 md:gap-4 md:px-12">
               <h2 className="text-2xl md:text-4xl">Our Journey</h2>
               <hr className="pb-2" />
               <p className="text-lg">
-                Since our establishment in 2009, Triple C Collective has been committed to providing a diverse range of
-                high-quality products and exceptional service to both medicinal and recreational cannabis enthusiasts.
-                Our enduring presence in the industry reflects our passion for cultivating a welcoming environment where
-                everyone can explore the benefits of cannabis in a safe and knowledgeable manner.
+                Since our establishment in 2009, we&apos;ve been committed to providing a diverse range of high-quality
+                products and exceptional service to both medicinal and recreational cannabis enthusiasts. Our enduring
+                presence in the industry reflects our passion for cultivating a welcoming environment where everyone can
+                explore the benefits of cannabis in a safe and knowledgeable manner.
               </p>
             </div>
             <Image
+              className="object-cover"
               src="/images/generic-blog.jpg"
               width={600}
               height={400}
@@ -47,7 +48,7 @@ export default function AboutPage() {
               alt=""
             />
           </div>
-          <div className="flex flex-col gap-6 py-6 md:flex-row-reverse">
+          <div className="flex flex-col gap-6 py-6 items-center lg:flex-row-reverse">
             <div className="flex flex-col justify-center gap-2 md:gap-4 md:px-12">
               <h2 className="text-2xl md:text-4xl">Meet our Owner</h2>
               <hr className="pb-2" />
@@ -66,15 +67,15 @@ export default function AboutPage() {
               alt=""
             />
           </div>
-          <div className="flex flex-col gap-6 py-6 md:flex-row">
+          <div className="flex flex-col gap-6 py-6 items-center lg:flex-row">
             <div className="flex flex-col justify-center gap-2 md:gap-4 md:px-12">
               <h2 className="text-2xl md:text-4xl">Our Commitment to You</h2>
               <hr className="pb-2" />
               <p className="text-lg">
                 At Triple C Collective, we understand that each individual&apos;s cannabis journey is unique. Whether
                 you&apos;re seeking relief for medical purposes or exploring recreational options, our knowledgeable
-                staff is here to guide you through our curated selection. We pride ourselves on offering a variety of
-                strains, edibles, and other cannabis products to cater to every preference.
+                staff is here to guide you through our curated selection. We pride ourselves on offering a unique
+                variety of strains, edibles, and other cannabis products to cater to every preference.
               </p>
             </div>
             <Image
@@ -85,14 +86,14 @@ export default function AboutPage() {
               alt=""
             />
           </div>
-          <div className="flex flex-col gap-6 py-6 md:flex-row-reverse">
+          <div className="flex flex-col gap-6 py-6 items-center lg:flex-row-reverse">
             <div className="flex flex-col justify-center gap-2 md:gap-4 md:px-12">
               <h2 className="text-2xl md:text-4xl">Beyond Cannabis</h2>
               <hr className="pb-2" />
               <p className="text-lg">
-                In addition to our extensive cannabis collection, we are excited to offer a selection of kratom and
-                premium CBD products. These alternatives complement our commitment to holistic well-being, providing
-                options for those looking for diverse wellness solutions.
+                In addition to our extensive cannabis collection, we offer a selection of kratom and premium CBD
+                products. These alternatives complement our commitment to holistic well-being, providing options for
+                those looking for diverse wellness solutions.
               </p>
             </div>
             <Image
@@ -107,8 +108,8 @@ export default function AboutPage() {
         {/* BOTTOM CALL OF ACTION */}
         <div className="max-w-4xl py-16 mx-auto">
           <p className="max-w-4xl mx-auto text-xl font-semibold text-center md:text-2xl text-pretty">
-            Thank you for being a part of the Triple C Collective family. Your well-being is our priority, and we look
-            forward to serving you for many more years to come!
+            Thank you for being a part of the Triple C Collective family. We&apos;ll work hard to continue being your
+            favorite cannabis collective for many years to come!
           </p>
         </div>
       </section>

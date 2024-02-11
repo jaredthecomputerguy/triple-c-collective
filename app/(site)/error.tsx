@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+
 export default function Error({
   error,
   reset,
@@ -7,6 +9,10 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  useEffect(() => {
+    console.error("Error: ", error);
+  }, [error]);
+
   return (
     <div className="max-w-4xl mx-auto sm:pt-12 pt-6 px-2 h-[calc(100vh-300px)]">
       <h1 className="text-4xl py-4 font-semibold">Something went wrong...</h1>

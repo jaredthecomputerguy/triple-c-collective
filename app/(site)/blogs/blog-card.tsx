@@ -10,10 +10,6 @@ interface BlogCardProps {
 export const BlogCard = ({ blog }: BlogCardProps) => {
   const blogImageSrc = typeof blog.image === "object" ? (blog.image.url as string) : "/images/blog-placeholder.png";
 
-  if (blog.image) {
-    console.log(blog.image);
-  }
-
   return (
     <>
       <Link

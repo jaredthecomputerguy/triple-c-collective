@@ -14,8 +14,10 @@ import { usePathname } from "next/navigation";
 const LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/products", label: "Products" },
-  { href: "/blogs", label: "Blog" },
+  { href: "/rewards", label: "Rewards" },
+  // TODO: Remove this once the blogs route is deleted
+  // { href: "/blogs", label: "Blog" },
+  { href: "/deals", label: "Deals" },
   { href: "/contact", label: "Contact Us" },
 ];
 
@@ -44,16 +46,14 @@ export const Header = () => {
         <div className="bg-primary-purple px-4 py-2 flex justify-between text-sm md:hidden text-[#fefefe]">
           <a
             className="flex items-center justify-center gap-2 p-2 font-semibold transition-all rounded outline-none active:outline-white focus:outline-white hover:bg-white/10 focus:bg-white/10 active:bg-white/10"
-            href="tel:707-701-4160"
-          >
+            href="tel:707-701-4160">
             <PhoneIcon className="w-4 h-4" />
             <span>(707) 701-4160</span>
           </a>
           <a
             className="flex items-center justify-center gap-2 p-2 px-4 font-semibold transition-all rounded outline-none hover:bg-white/10 focus:bg-white/10 active:bg-white/10 active:outline-white focus:outline-white"
             href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
-            target="_blank"
-          >
+            target="_blank">
             <CartIcon className="w-4 h-4" />
             <span>Shop now</span>
           </a>
@@ -67,15 +67,13 @@ export const Header = () => {
           <a
             className="flex items-center justify-center gap-2 p-2 px-4 font-semibold transition-all rounded outline-none hover:bg-white/10 focus:bg-white/10 active:bg-white/10 active:outline-white focus:outline-white"
             href="http://bit.ly/triple-c-collective"
-            target="_blank"
-          >
+            target="_blank">
             <LocationIcon className="w-4 h-4" />
             <span>14196 Lakeshore Dr. Clearlake, CA 95422</span>
           </a>
           <a
             className="flex items-center justify-center gap-2 p-2 px-4 font-semibold transition-all rounded outline-none hover:bg-white/10 focus:bg-white/10 active:bg-white/10 active:outline-white focus:outline-white"
-            href="tel:707-701-4160"
-          >
+            href="tel:707-701-4160">
             <PhoneIcon className="w-4 h-4" />
             <span>(707) 701-4160</span>
           </a>
@@ -85,16 +83,14 @@ export const Header = () => {
       <div className="p-4 max-w-7xl mx-auto flex justify-between items-center relative bg-[#fefefe]">
         <Link
           href="/"
-          className="p-2 text-xl font-bold uppercase transition-all rounded outline-none font-logo text-primary-purple sm:text-2xl md:text-3xl lg:text-5xl focus:outline-primary-purple active:outline-primary-purple"
-        >
+          className="p-2 text-xl font-bold uppercase transition-all rounded outline-none font-logo text-primary-purple sm:text-2xl md:text-3xl lg:text-5xl focus:outline-primary-purple active:outline-primary-purple">
           Triple C Collective
         </Link>
         {/* TODO: See if we can smooth this transition out */}
         <button
           className="p-1 transition-all rounded outline-none md:hidden hover:bg-gray-200 active:bg-gray-200 focus:bg-gray-200 focus:outline-primary-purple active:outline-primary-purple"
           onClick={toggleMobileMenu}
-          name="navigation-menu-button"
-        >
+          name="navigation-menu-button">
           {showMobileMenu ? (
             <CloseIcon className="w-8 h-8 text-primary-purple" />
           ) : (
@@ -118,12 +114,7 @@ export const Header = () => {
         <nav className="hidden md:block">
           <ul className="flex md:gap-2 lg:gap-4">
             {LINKS.filter((link) => link.label !== "Home").map((link) => (
-              <NavLink
-                key={link.href}
-                href={link.href}
-                label={link.label}
-                setShowMobileMenu={setShowMobileMenu}
-              />
+              <NavLink key={link.href} href={link.href} label={link.label} setShowMobileMenu={setShowMobileMenu} />
             ))}
           </ul>
         </nav>
@@ -148,8 +139,7 @@ const NavLink = ({
           setShowMobileMenu(false);
         }}
         className="px-4 py-2 font-semibold rounded outline-none text-primary-purple lg:text-xl hover:underline active:underline focus:underline focus:outline-primary-purple active:outline-primary-purple"
-        href={href}
-      >
+        href={href}>
         {label}
       </Link>
     </li>
@@ -172,8 +162,7 @@ const MobileNavLink = ({
           setShowMobileMenu(false);
         }}
         className="block w-full py-4 font-semibold uppercase transition-all outline-none focus:outline-white active:outline-white hover:bg-white/10 focus:bg-white/10 active:bg-white/10"
-        href={href}
-      >
+        href={href}>
         {label}
       </Link>
     </li>

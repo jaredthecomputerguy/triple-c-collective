@@ -5,7 +5,10 @@ import { TextNode } from "@payloadcms/richtext-slate";
 import { cn, formatDate } from "@/lib/utils";
 import Image from "next/image";
 
-export const serialize = (children: TextNode[], createdAt?: string): ReactNode[] =>
+export const serialize = (
+  children: TextNode[],
+  createdAt?: string,
+): ReactNode[] =>
   children.map((node: TextNode, i: number) => {
     if (Text.isText(node)) {
       let text: ReactNode = node.text;
@@ -93,14 +96,21 @@ export const serialize = (children: TextNode[], createdAt?: string): ReactNode[]
             className={cn(
               typedNode.textAlign === "center" && "text-center",
               typedNode.textAlign === "right" && "text-right",
-              typedNode.textAlign === "left" && "text-left"
-            )}>
+              typedNode.textAlign === "left" && "text-left",
+            )}
+          >
             {serialize(typedNode.children)}
           </p>
         );
     }
   });
 
-export const BlogContent = ({ blogContent, createdAt }: { blogContent: TextNode[]; createdAt: string }) => {
+export const BlogContent = ({
+  blogContent,
+  createdAt,
+}: {
+  blogContent: TextNode[];
+  createdAt: string;
+}) => {
   return <>{serialize(blogContent, createdAt)}</>;
 };
