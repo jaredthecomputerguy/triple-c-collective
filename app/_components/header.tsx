@@ -15,7 +15,9 @@ const LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/rewards", label: "Rewards" },
-  { href: "/blogs", label: "Blog" },
+  // TODO: Remove this once the blogs route is deleted
+  // { href: "/blogs", label: "Blog" },
+  { href: "/deals", label: "Deals" },
   { href: "/contact", label: "Contact Us" },
 ];
 
