@@ -101,7 +101,7 @@ export default function HomePage() {
             <Link
               className="mt-4 px-6 py-2 font-semibold text-white transition-all rounded outline-none w-fit grow-0 bg-primary-purple md:text-xl hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:bg-primary-purple/50"
               href="/rewards">
-              Learn More
+              Read More
             </Link>
           </div>
         </div>
