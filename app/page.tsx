@@ -58,7 +58,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-4">
             <Image
               src="/images/order-online.avif"
-              className="rounded-lg aspect-video"
+              className="rounded-lg"
               alt="Online Ordering"
               width={800}
               height={800}
@@ -73,13 +73,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="flex flex-col gap-4">
-            <Image
-              src="/images/phonecall.avif"
-              className="rounded-lg aspect-video"
-              alt="Online Ordering"
-              width={800}
-              height={800}
-            />
+            <Image src="/images/phonecall.avif" className="rounded-lg" alt="Online Ordering" width={800} height={800} />
             <p className="text-2xl text-primary-purple font-semibold font-logo">Order by Phone</p>
             <p>Talk to our talented budtenders and place your order for curbside or in store pickup.</p>
             <Link
@@ -89,19 +83,13 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="flex flex-col gap-4">
-            <Image
-              src="/images/rewards.avif"
-              className="rounded-lg aspect-video"
-              alt="Online Ordering"
-              width={800}
-              height={800}
-            />
+            <Image src="/images/rewards.avif" className="rounded-lg" alt="Online Ordering" width={800} height={800} />
             <p className="text-2xl text-primary-purple font-semibold font-logo">Rewards Program</p>
             <p>Earn points with every purchase you make, and redeem them at any time.</p>
             <Link
               className="mt-4 px-6 py-2 font-semibold text-white transition-all rounded outline-none w-fit grow-0 bg-primary-purple md:text-xl hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:bg-primary-purple/50"
               href="/rewards">
-              Read More
+              Explore Rewards
             </Link>
           </div>
         </div>
