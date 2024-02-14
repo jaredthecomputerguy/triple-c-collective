@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
+import { AgeModal } from "./age-modal";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -19,11 +20,15 @@ const montserrat = Montserrat({
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={montserrat.variable} suppressHydrationWarning>
-      <body>
+      <body className="relative">
+        <a
+          href="#main-content"
+          className="absolute top-2 bg-primary-purple border-white left-2 transition-opacity z-50 text-white p-1 opacity-0 focus:opacity-100 rounded text-sm outline-none focus:outline-white active:outline-white">
+          Skip to main content
+        </a>
         <Header />
-
+        <AgeModal />
         {children}
-
         <Footer />
       </body>
     </html>
