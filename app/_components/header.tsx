@@ -39,7 +39,7 @@ export const Header = () => {
   const toggleMobileMenu = () => setShowMobileMenu((prevState) => !prevState);
 
   return (
-    <header className="sticky top-0 z-50 shadow bg-[#fefefe]">
+    <header className="sticky top-0 z-40 shadow bg-[#fefefe]">
       <div className="sticky top-0 min-w-screen group bg-primary-purple">
         {/* Information Bar */}
         {/* Mobile View */}

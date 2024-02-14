@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="bg-[#fefefe]">
+    <main className="bg-[#fefefe]" id="main-content">
       <div className="relative flex flex-col items-center justify-center">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -137,6 +137,6 @@ export default function HomePage() {
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 }

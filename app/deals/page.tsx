@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function DealsPage() {
   return (
-    <div className="max-w-4xl mx-auto sm:py-12 py-6 px-4 bg-[#fefefe]">
+    <main className="max-w-4xl mx-auto sm:py-12 py-6 px-4 bg-[#fefefe]" id="main-content">
       <h1 className="text-4xl py-4 font-semibold">Deals</h1>
       <hr className="pb-4" />
       <div className="h-96 py-4">
@@ -21,6 +21,6 @@ export default function DealsPage() {
           className="outline-none rounded-xl"
         />
       </div>
-    </div>
+    </main>
   );
 }

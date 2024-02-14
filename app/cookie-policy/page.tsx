@@ -9,7 +9,9 @@ export const metadata: Metadata = {
 
 export default function CookiePolicyPage() {
   return (
-    <div className="max-w-4xl mx-auto sm:py-12 py-6 bg-[#fefefe] px-4 prose-a:text-blue-600 prose prose-h5:font-semibold prose-h6:text-[#111827] prose-h5:text-[#111827] prose-h6:font-semibold">
+    <main
+      className="max-w-4xl mx-auto sm:py-12 py-6 bg-[#fefefe] px-4 prose-a:text-blue-600 prose prose-h5:font-semibold prose-h6:text-[#111827] prose-h5:text-[#111827] prose-h6:font-semibold"
+      id="main-content">
       <h1 className="text-4xl font-semibold">Cookie Policy</h1>
       <span className="mx-auto text-center text-gray-700">Last Updated: 12/31/2023</span>
       <hr className="my-1" />
@@ -65,6 +67,6 @@ export default function CookiePolicyPage() {
           .
         </p>
       </article>
-    </div>
+    </main>
   );
 }
