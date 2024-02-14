@@ -17,11 +17,13 @@ export default function HomePage() {
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <div className="relative flex flex-col items-center justify-center">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           className="w-full h-96 md:h-[600px] object-cover"
           src="/images/store-interior-placeholder.jpg"
           alt="Triple C Collective Storefront"
+          width={1170}
+          height={500}
+          priority
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black/50" />
 
