@@ -65,7 +65,8 @@ export default function ContactPage() {
                   <a
                     className="rounded outline-none focus:outline-primary-purple active:outline-primary-purple"
                     href="https://www.facebook.com/people/Triple-C-Collective-Clearlake-CA/100095379903282/"
-                    target="_blank">
+                    target="_blank"
+                    aria-label="Follow us on Facebook">
                     <FacebookIcon className="rounded w-8 h-8" />
                   </a>
                 </li>
@@ -73,7 +74,8 @@ export default function ContactPage() {
                   <a
                     className="rounded outline-none focus:outline-primary-purple active:outline-primary-purple"
                     href="https://www.instagram.com/_tripleccollective/"
-                    target="_blank">
+                    target="_blank"
+                    aria-label="Follow us on Instagram">
                     <InstagramIcon className="w-9 h-9" />
                   </a>
                 </li>
