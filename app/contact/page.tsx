@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   // TODO: Add links to FB and Instagram
   return (
-    <div className="max-w-4xl mx-auto sm:py-12 py-6 px-4 bg-[#fefefe]">
+    <main className="max-w-4xl mx-auto sm:py-12 py-6 px-4 bg-[#fefefe]" id="main-content">
       <h1 className="text-4xl py-4 font-semibold">Contact us</h1>
       <hr className="pb-4" />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -34,7 +34,7 @@ export default function ContactPage() {
               <p className="text-xl font-semibold">Address</p>
               <div>
                 <a
-                  className="flex flex-col text-sky-700 font-medium"
+                  className="flex flex-col hover:underline text-sky-700 font-medium rounded outline-none focus:outline-primary-purple active:outline-primary-purple"
                   href="https://www.google.com/maps/place/14196+Lakeshore+Dr,+Clearlake,+CA+95422"
                   target="_blank">
                   <span>14196 Lakeshore Drive</span>
@@ -44,13 +44,17 @@ export default function ContactPage() {
             </div>
             <div className="flex flex-col gap-2">
               <p className="text-xl font-semibold">Telephone</p>
-              <a className="text-sky-700 font-medium" href="tel:707-701-4160">
+              <a
+                className="text-sky-700 hover:underline font-medium rounded outline-none focus:outline-primary-purple active:outline-primary-purple"
+                href="tel:707-701-4160">
                 (707) 701-4160
               </a>
             </div>
             <div className="flex flex-col gap-2">
               <p className="text-xl font-semibold">Email</p>
-              <a className="text-sky-700 font-medium" href="mailto:clearlakecompassioncenter@yahoo.com">
+              <a
+                className="text-sky-700 hover:underline font-medium rounded outline-none focus:outline-primary-purple active:outline-primary-purple"
+                href="mailto:clearlakecompassioncenter@yahoo.com">
                 clearlakecompassioncenter@yahoo.com
               </a>
             </div>
@@ -59,13 +63,17 @@ export default function ContactPage() {
               <ul className="flex gap-2 items-center">
                 <li className="p-1">
                   <a
+                    className="rounded outline-none focus:outline-primary-purple active:outline-primary-purple"
                     href="https://www.facebook.com/people/Triple-C-Collective-Clearlake-CA/100095379903282/"
                     target="_blank">
-                    <FacebookIcon className="w-8 h-8" />
+                    <FacebookIcon className="rounded w-8 h-8" />
                   </a>
                 </li>
                 <li className="p-1">
-                  <a href="https://www.instagram.com/_tripleccollective/" target="_blank">
+                  <a
+                    className="rounded outline-none focus:outline-primary-purple active:outline-primary-purple"
+                    href="https://www.instagram.com/_tripleccollective/"
+                    target="_blank">
                     <InstagramIcon className="w-9 h-9" />
                   </a>
                 </li>
@@ -80,6 +88,6 @@ export default function ContactPage() {
         </div>
         <GoogleMapEmbed />
       </div>
-    </div>
+    </main>
   );
 }

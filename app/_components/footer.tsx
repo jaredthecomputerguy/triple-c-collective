@@ -36,7 +36,7 @@ export const Footer = () => {
       <span className="text-xs text-center flex flex-col items-center">
         Made by
         <a
-          className="text-cyan-500 p-1 rounded my-1 font-semibold px-1 hover:bg-white/10 transition-all focus:bg-white/10 active:bg-white/10 outline-none active:outline-white focus:outline-white"
+          className="text-cyan-500 p-1 px-2 rounded my-1 font-semibold hover:bg-white/10 transition-all focus:bg-white/10 active:bg-white/10 outline-none active:outline-white focus:outline-white"
           id="jared"
           href="https://jaredthecomputerguy.dev/"
           target="_blank">

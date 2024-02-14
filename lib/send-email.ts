@@ -2,16 +2,11 @@
 
 import { renderAsync } from "@react-email/render";
 import nodemailer from "nodemailer";
-import { ContactEmail } from "../app/(site)/contact/contact-email";
-import { type EmailInfo } from "../app/(site)/contact/contact-form";
+import { ContactEmail } from "../app//contact/contact-email";
+import { type EmailInfo } from "../app/contact/contact-form";
 import { type MailOptions } from "nodemailer/lib/sendmail-transport";
 
-export const sendEmail = async ({
-  from,
-  message,
-  subject,
-  name,
-}: EmailInfo) => {
+export const sendEmail = async ({ from, message, subject, name }: EmailInfo) => {
   const email = process.env.NODEMAILER_USER;
 
   try {
@@ -25,9 +20,7 @@ export const sendEmail = async ({
       },
     });
 
-    const emailHtml = await renderAsync(
-      ContactEmail({ message, from, subject, name }),
-    );
+    const emailHtml = await renderAsync(ContactEmail({ message, from, subject, name }));
 
     const options: MailOptions = {
       from: email,

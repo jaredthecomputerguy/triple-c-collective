@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto bg-[#fefefe]">
+    <main className="mx-auto bg-[#fefefe]" id="main-content">
       <div className="relative flex flex-col items-center justify-center">
         <Image
           className="object-cover aspect-video md:aspect-auto"
@@ -113,6 +113,6 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

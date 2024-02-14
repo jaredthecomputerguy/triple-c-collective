@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import reviews from "@/lib/data/reviews.json";
-import { ReviewCard } from "../_components/review-card";
-import { StoreIcon } from "../_components/icons/store";
-import { StarRating } from "../_components/star-rating";
+import { ReviewCard } from "./_components/review-card";
+import { StoreIcon } from "./_components/icons/store";
+import { StarRating } from "./_components/star-rating";
 import { BrandCarousel } from "./brand-carousel";
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="bg-[#fefefe]">
+    <main className="bg-[#fefefe]" id="main-content">
       <div className="relative flex flex-col items-center justify-center">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -137,6 +137,6 @@ export default function HomePage() {
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 }
