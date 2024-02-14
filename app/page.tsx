@@ -6,6 +6,11 @@ import { ReviewCard } from "./_components/review-card";
 import { StoreIcon } from "./_components/icons/store";
 import { StarRating } from "./_components/star-rating";
 import { BrandCarousel } from "./brand-carousel";
+import headerImg from "@/public/images/store-interior-placeholder.jpg";
+import logoImg from "@/public/images/logo.png";
+import orderOnlineImg from "@/public/images/order-online.avif";
+import phonecallImg from "@/public/images/phonecall.avif";
+import rewardsImg from "@/public/images/rewards.avif";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -19,10 +24,8 @@ export default function HomePage() {
       <div className="relative flex flex-col items-center justify-center">
         <Image
           className="w-full h-96 md:h-[600px] object-cover"
-          src="/images/store-interior-placeholder.jpg"
+          src={headerImg}
           alt="Triple C Collective Storefront"
-          width={1170}
-          height={500}
           priority
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black/50" />
@@ -39,13 +42,7 @@ export default function HomePage() {
           </h2>
           <div className="max-w-2xl flex items-center mx-auto">
             <div className="bg-white h-px w-36 md:w-60" />
-            <Image
-              src="/images/logo.png"
-              width={200}
-              height={200}
-              className="rounded-lg mx-auto w-24 md:w-48"
-              alt="Storefront"
-            />
+            <Image src={logoImg} className="rounded-lg mx-auto w-24 md:w-48" alt="Storefront" />
             <div className="bg-white h-px w-36 md:w-60" />
           </div>
           <p className="font-logo text-balanced text-center mx-auto prose text-white text-xl">
@@ -58,13 +55,7 @@ export default function HomePage() {
       <div className="mx-auto bg-gray-200 py-20">
         <div className="flex flex-col max-w-7xl mx-auto md:flex-row gap-8 lg:gap-16 justify-center px-4">
           <div className="flex flex-col gap-4">
-            <Image
-              src="/images/order-online.avif"
-              className="rounded-lg"
-              alt="Online Ordering"
-              width={800}
-              height={800}
-            />
+            <Image src={orderOnlineImg} className="rounded-lg" alt="Online Ordering" />
             <p className="text-2xl text-primary-purple font-semibold font-logo">Online Ordering</p>
             <p>Look through our online menu and place an order for pickup or delivery.</p>
             <Link
@@ -75,7 +66,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="flex flex-col gap-4">
-            <Image src="/images/phonecall.avif" className="rounded-lg" alt="Online Ordering" width={800} height={800} />
+            <Image src={phonecallImg} className="rounded-lg" alt="Online Ordering" />
             <p className="text-2xl text-primary-purple font-semibold font-logo">Order by Phone</p>
             <p>Talk to our talented budtenders and place your order for curbside or in store pickup.</p>
             <Link
@@ -85,7 +76,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="flex flex-col gap-4">
-            <Image src="/images/rewards.avif" className="rounded-lg" alt="Online Ordering" width={800} height={800} />
+            <Image src={rewardsImg} className="rounded-lg" alt="Online Ordering" />
             <p className="text-2xl text-primary-purple font-semibold font-logo">Rewards Program</p>
             <p>Earn points with every purchase you make, and redeem them at any time.</p>
             <Link
