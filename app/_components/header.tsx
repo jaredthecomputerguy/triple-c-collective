@@ -90,7 +90,8 @@ export const Header = () => {
         <button
           className="p-1 transition-all rounded outline-none md:hidden hover:bg-gray-200 active:bg-gray-200 focus:bg-gray-200 focus:outline-primary-purple active:outline-primary-purple"
           onClick={toggleMobileMenu}
-          name="navigation-menu-button">
+          name="mobile-navigation-button"
+          aria-label="Mobile Navigation Button">
           {showMobileMenu ? (
             <CloseIcon className="w-8 h-8 text-primary-purple" />
           ) : (
