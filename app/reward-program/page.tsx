@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import Image from "next/image";
+import rewardsPageImg from "@/public/images/rewards-program.avif";
 
 export const metadata: Metadata = {
   title: "Rewards Program | Triple C Collective",
@@ -7,12 +9,21 @@ export const metadata: Metadata = {
 };
 
 export default function RewardsPage() {
-  // TODO: Implement this
   return (
-    <main className="max-w-4xl mx-auto sm:py-12 py-6 px-4 bg-[#fefefe]" id="main-content">
-      <h1 className="text-4xl py-4 font-semibold">Rewards Program</h1>
-      <hr className="pb-4" />
-      <div>HELLO</div>
+    <main className="max-w-7xl mx-auto sm:py-12 py-6 px-4 bg-[#fefefe]" id="main-content">
+      <div className="flex flex-col gap-8 items-center md:flex-row-reverse">
+        <div className="flex flex-col gap-4">
+          <h1 className="text-4xl md:text-5xl text-balance lg:text-6xl font-semibold text-center font-logo">
+            Join our Rewards Program
+          </h1>
+          <p className="text-gray-600 text-center text-pretty">
+            Earn $0.02 for every dollar spent. Sign up today and start saving!{" "}
+          </p>
+        </div>
+        <div className="basis-5/6 max-w-[500px] md:max-w-full">
+          <Image className="rounded-xl" src={rewardsPageImg} alt="A quarter with the shadow of a cannabis leaf" />
+        </div>
+      </div>
     </main>
   );
 }
