@@ -83,7 +83,7 @@ export const Header = () => {
       <div className="p-4 max-w-7xl mx-auto flex justify-between items-center relative bg-[#fefefe]">
         <Link
           href="/"
-          className="p-2 text-xl font-bold uppercase transition-all rounded outline-none font-logo text-primary-purple sm:text-2xl md:text-3xl lg:text-5xl focus:outline-primary-purple active:outline-primary-purple">
+          className="p-2 text-xl font-bold uppercase transition-all rounded outline-none font-logo text-primary-purple sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl focus:outline-primary-purple active:outline-primary-purple">
           Triple C Collective
         </Link>
         {/* TODO: See if we can smooth this transition out */}
