@@ -40,7 +40,7 @@ export default function AboutPage() {
               </p>
             </div>
             <Image
-              className="object-cover"
+              className="object-cover rounded-xl"
               src="/images/generic-blog.jpg"
               width={600}
               height={400}
@@ -60,6 +60,7 @@ export default function AboutPage() {
               </p>
             </div>
             <Image
+              className="rounded-xl"
               src="/images/generic-blog.jpg"
               width={600}
               height={400}
@@ -79,6 +80,7 @@ export default function AboutPage() {
               </p>
             </div>
             <Image
+              className="rounded-xl"
               src="/images/generic-blog.jpg"
               width={600}
               height={400}
@@ -97,6 +99,7 @@ export default function AboutPage() {
               </p>
             </div>
             <Image
+              className="rounded-xl"
               src="/images/generic-blog.jpg"
               width={600}
               height={400}
