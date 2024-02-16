@@ -29,7 +29,7 @@ export default function RewardsPage() {
           <span className="text-xl font-logo">01</span>
           <h2 className="font-logo text-2xl lg:text-4xl font-semibold pt-6">Sign Up</h2>
           <hr className="w-full h-px" />
-          <p className="text-center py-2 text-gray-800 mb-8 text-balance">Visit the store or place an order online to have an account created. You'll be automatically opted in to our rewards program.</p>
+          <p className="text-center py-2 text-gray-800 mb-8 text-balance">Visit the store or place an order online to have an account created. You&apos;ll be automatically opted in to our rewards program.</p>
         </div>
         <div className="flex flex-col gap-4 items-center py-6 px-4 max-w-[500px] md:max-w-none mx-auto border-[1px] border-gray-300">
           <span className="text-xl font-logo">02</span>
@@ -41,7 +41,7 @@ export default function RewardsPage() {
           <span className="text-xl font-logo">03</span>
           <h2 className="font-logo text-2xl lg:text-4xl font-semibold pt-6">Redeem Rewards</h2>
           <hr className="w-full h-px" />
-          <p className="text-center py-2 text-gray-800 mb-8">Once you've earned enough points, you can redeem them for discounts on your purchases. Let a budtender know that you'd like to use your rewards when making a purchase, and we'll apply the discount to your total.</p>
+          <p className="text-center py-2 text-gray-800 mb-8">Once you&apos;ve earned enough points, you can redeem them for discounts on your purchases. Let a budtender know that you&apos;d like to use your rewards when making a purchase, and we&apos;ll apply the discount to your total.</p>
         </div>
       </div>
     </main>
