@@ -36,52 +36,88 @@ export default function HomePage() {
       </div>
 
       <div className="radial-gradient text-[#fefefe]">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col gap-8 py-20">
-          <h2 className="text-3xl font-semibold text-shadow text-center md:text-4xl uppercase font-logo">
-            Lake County&apos;s <span className="gold">Premier</span> Cannabis Dispensary
+        <div className="flex flex-col gap-8 px-4 py-20 mx-auto max-w-7xl">
+          <h2 className="text-3xl font-semibold text-center uppercase text-shadow md:text-4xl font-logo">
+            Lake County&apos;s <span className="gold">Premier</span> Cannabis
+            Dispensary
           </h2>
-          <div className="max-w-2xl flex items-center mx-auto">
-            <div className="bg-white h-px w-36 md:w-60" />
-            <Image src={logoImg} className="rounded-lg mx-auto w-24 md:w-48" alt="Storefront" />
-            <div className="bg-white h-px w-36 md:w-60" />
+          <div className="flex items-center max-w-2xl mx-auto">
+            <div className="h-px bg-white w-36 md:w-60" />
+            <Image
+              src={logoImg}
+              className="w-24 mx-auto rounded-lg md:w-48"
+              alt="Storefront"
+            />
+            <div className="h-px bg-white w-36 md:w-60" />
           </div>
-          <p className="font-logo text-balanced text-center mx-auto prose text-white text-xl">
-            Located in the heart of Lake County, California, we offer a diverse selection of high-quality cannabis
-            products, expert guidance, and a welcoming environment for cannabis enthusiasts.
+          <p className="mx-auto text-xl prose text-center text-white font-logo text-balanced">
+            Located in the heart of Lake County, California, we offer a diverse
+            selection of high-quality cannabis products, expert guidance, and a
+            welcoming environment for cannabis enthusiasts.
           </p>
         </div>
       </div>
 
-      <div className="mx-auto bg-gray-200 py-20">
-        <div className="flex flex-col max-w-7xl mx-auto md:flex-row gap-8 lg:gap-16 justify-center px-4">
+      <div className="py-20 mx-auto bg-gray-200">
+        <div className="flex flex-col justify-center gap-8 px-4 mx-auto max-w-7xl md:flex-row lg:gap-16">
           <div className="flex flex-col gap-4">
-            <Image src={orderOnlineImg} className="rounded-lg" alt="Online Ordering" />
-            <p className="text-2xl text-primary-purple font-semibold font-logo">Online Ordering</p>
-            <p>Look through our online menu and place an order for pickup or delivery.</p>
+            <Image
+              src={orderOnlineImg}
+              className="rounded-lg"
+              alt="Online Ordering"
+            />
+            <p className="text-2xl font-semibold text-primary-purple font-logo">
+              Online Ordering
+            </p>
+            <p>
+              Look through our online menu and place an order for pickup or
+              delivery.
+            </p>
             <Link
-              className="mt-4 px-6 py-2 font-semibold text-white transition-all rounded outline-none w-fit grow-0 bg-primary-purple md:text-xl hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:bg-primary-purple/50"
+              className="px-6 py-2 mt-4 font-semibold text-white transition-all rounded outline-none w-fit grow-0 bg-primary-purple md:text-xl hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:bg-primary-purple/50"
               href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
-              target="_blank">
+              target="_blank"
+            >
               Shop Now
             </Link>
           </div>
           <div className="flex flex-col gap-4">
-            <Image src={phonecallImg} className="rounded-lg" alt="Online Ordering" />
-            <p className="text-2xl text-primary-purple font-semibold font-logo">Order by Phone</p>
-            <p>Talk to our talented budtenders and place your order for curbside or in store pickup.</p>
+            <Image
+              src={phonecallImg}
+              className="rounded-lg"
+              alt="Online Ordering"
+            />
+            <p className="text-2xl font-semibold text-primary-purple font-logo">
+              Order by Phone
+            </p>
+            <p>
+              Talk to our talented budtenders and place your order for curbside
+              or in store pickup.
+            </p>
             <Link
-              className="mt-4 px-6 py-2 font-semibold text-white transition-all rounded outline-none w-fit grow-0 bg-primary-purple md:text-xl hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:bg-primary-purple/50"
-              href="tel:707-701-4160">
+              className="px-6 py-2 mt-4 font-semibold text-white transition-all rounded outline-none w-fit grow-0 bg-primary-purple md:text-xl hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:bg-primary-purple/50"
+              href="tel:707-701-4160"
+            >
               Call Us
             </Link>
           </div>
           <div className="flex flex-col gap-4">
-            <Image src={rewardsImg} className="rounded-lg" alt="Online Ordering" />
-            <p className="text-2xl text-primary-purple font-semibold font-logo">Rewards Program</p>
-            <p>Earn points with every purchase you make, and redeem them at any time.</p>
+            <Image
+              src={rewardsImg}
+              className="rounded-lg"
+              alt="Online Ordering"
+            />
+            <p className="text-2xl font-semibold text-primary-purple font-logo">
+              Rewards Program
+            </p>
+            <p>
+              Earn points with every purchase you make, and redeem them at any
+              time.
+            </p>
             <Link
-              className="mt-4 px-6 py-2 font-semibold text-white transition-all rounded outline-none w-fit grow-0 bg-primary-purple md:text-xl hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:bg-primary-purple/50"
-              href="/rewards">
+              className="px-6 py-2 mt-4 font-semibold text-white transition-all rounded outline-none w-fit grow-0 bg-primary-purple md:text-xl hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:bg-primary-purple/50"
+              href="/rewards"
+            >
               Explore Rewards
             </Link>
           </div>
@@ -89,27 +125,33 @@ export default function HomePage() {
       </div>
 
       <div className="max-w-4xl pt-20 mx-auto">
-        <h3 className="text-4xl font-logo text-center pb-8 font-semibold">Featured Brands</h3>
+        <h3 className="pb-8 text-4xl font-semibold text-center font-logo">
+          Featured Brands
+        </h3>
         <hr className="pb-4" />
         <div className="flex items-center justify-center">
           <BrandCarousel />
         </div>
       </div>
 
-      <div className="py-12 max-w-4xl mx-auto">
-        <h4 className="text-4xl py-8 text-center font-logo font-semibold text-pretty">
+      <div className="max-w-4xl py-12 mx-auto">
+        <h4 className="py-8 text-4xl font-semibold text-center font-logo text-pretty">
           What Our Customers Are Saying...
         </h4>
         <hr />
         <div className="flex flex-col items-center gap-4 px-4">
-          <div className="flex items-center gap-4 justify-center pt-12">
-            <StoreIcon className="stroke-primary-purple w-12 h-12" />
-            <span className="text-primary-purple font-semibold text-3xl">Triple C Collective</span>
+          <div className="flex items-center justify-center gap-4 pt-12">
+            <StoreIcon className="w-12 h-12 stroke-primary-purple" />
+            <span className="text-3xl font-semibold text-primary-purple">
+              Triple C Collective
+            </span>
           </div>
-          <div className="flex gap-4 items-center">
-            <span className="text-primary-purple font-semibold text-4xl">4.4</span>
+          <div className="flex items-center gap-4">
+            <span className="text-4xl font-semibold text-primary-purple">
+              4.4
+            </span>
             <StarRating rating="4.4" className="max-w-40 sm:max-w-48" />
-            <span className="text-gray-600 text-sm">(494 reviews)</span>
+            <span className="text-sm text-gray-600">(494 reviews)</span>
           </div>
         </div>
         <div className="grid gap-4 px-2 md:grid-cols-3 py-14">
