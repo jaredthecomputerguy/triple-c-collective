@@ -4,6 +4,13 @@ import { twMerge } from "tailwind-merge";
 import { blogPostsToSeed } from "./seed-data";
 import { type Payload } from "payload";
 
+export type TimeRemainingUntilFirstFriday = {
+  Days: string;
+  Hours: string;
+  Minutes: string;
+  Seconds: string;
+};
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -36,7 +43,10 @@ export function timeSince(dateString: string) {
 }
 
 export function getInitials(name: string) {
-  return name.split(" ").map(word => word.charAt(0)).join("");
+  return name
+    .split(" ")
+    .map((word) => word.charAt(0))
+    .join("");
 }
 
 export function formatDate(dateString: string) {
@@ -92,8 +102,39 @@ export async function seedBlogs(payloadClient: Payload) {
           },
         },
       });
-    }),
+    })
   );
 
   console.log("Done seeding blogs...\n");
+}
+
+export function getTimeRemainingUntilFirstFriday(): TimeRemainingUntilFirstFriday {
+  const now = new Date();
+  const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+
+  // Find the first Friday of next month
+  let firstFriday = 1;
+  while (nextMonth.getDay() !== 5) {
+    firstFriday++;
+    nextMonth.setDate(firstFriday);
+  }
+
+  const deadline = new Date(nextMonth);
+  deadline.setHours(12, 0, 0, 0);
+
+  const timeRemaining = deadline.getTime() - now.getTime();
+  const seconds = Math.floor((timeRemaining / 1000) % 60)
+    .toString()
+    .padStart(2, "0");
+  const minutes = Math.floor((timeRemaining / 1000 / 60) % 60)
+    .toString()
+    .padStart(2, "0");
+  const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24)
+    .toString()
+    .padStart(2, "0");
+  const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24))
+    .toString()
+    .padStart(2, "0");
+
+  return { Days: days, Hours: hours, Minutes: minutes, Seconds: seconds };
 }
