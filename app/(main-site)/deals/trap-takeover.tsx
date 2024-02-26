@@ -4,6 +4,7 @@ import {
   TimeRemainingUntilFirstFriday,
   getTimeRemainingUntilFirstFriday,
 } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -46,7 +47,7 @@ export const TrapTakeover = () => {
     <div className="flex flex-col items-center py-8 trap-takeover font-trap-takeover rounded-xl">
       <div className="flex flex-col items-center justify-between">
         <a
-          className="p-2 transition-colors outline-none focus:bg-white/25 hover:bg-white/25 rounded-xl"
+          className="p-2 transition-colors outline-none focus:bg-white/25 hover:bg-white/25 focus:outline-white rounded-xl"
           href="https://illaguerrilla.com/"
           target="_blank"
         >
@@ -59,7 +60,7 @@ export const TrapTakeover = () => {
         </a>
         <div className="flex flex-col items-center gap-2">
           <h2
-            className="text-5xl font-bold"
+            className="text-5xl font-bold uppercase"
             style={{
               backgroundImage:
                 "linear-gradient(180deg, #f2bd2a 28%, #f26e50 74%)",
@@ -68,7 +69,7 @@ export const TrapTakeover = () => {
               filter: "drop-shadow(rgb(53, 2, 124) 2px 2px 0px)",
             }}
           >
-            Trap Takeover
+            Trap Takeover!
           </h2>
           <p className="text-2xl text-[#fefefe]">
             Every first Friday of the month
@@ -86,6 +87,14 @@ export const TrapTakeover = () => {
           </div>
         ))}
       </div>
+      <a
+        href="https://illaguerrilla.com/#event-list"
+        target="_blank"
+        className="flex py-1 px-2 rounded outline-none hover:text-white hover:bg-[#1a0056] focus:text-white focus:bg-[#1a0056] transition-all focus:outline-white  items-center bg-[#f2c029] gap-1 text-lg"
+      >
+        <span>Learn More</span>
+        <ArrowRight size={18} />
+      </a>
     </div>
   );
 };
