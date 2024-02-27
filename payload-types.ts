@@ -10,9 +10,10 @@ export interface Config {
   collections: {
     blogs: Blog;
     media: Media;
+    deals: Deal;
     users: User;
-    "payload-preferences": PayloadPreference;
-    "payload-migrations": PayloadMigration;
+    'payload-preferences': PayloadPreference;
+    'payload-migrations': PayloadMigration;
   };
   globals: {};
 }
@@ -40,6 +41,15 @@ export interface Media {
   width?: number | null;
   height?: number | null;
 }
+export interface Deal {
+  id: string;
+  active?: boolean | null;
+  title: string;
+  description: string;
+  image: string | Media;
+  updatedAt: string;
+  createdAt: string;
+}
 export interface User {
   id: string;
   updatedAt: string;
@@ -56,7 +66,7 @@ export interface User {
 export interface PayloadPreference {
   id: string;
   user: {
-    relationTo: "users";
+    relationTo: 'users';
     value: string | User;
   };
   key?: string | null;
@@ -80,6 +90,7 @@ export interface PayloadMigration {
   createdAt: string;
 }
 
-declare module "payload" {
+
+declare module 'payload' {
   export interface GeneratedTypes extends Config {}
 }

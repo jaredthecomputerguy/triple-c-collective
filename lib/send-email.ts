@@ -2,8 +2,8 @@
 
 import { renderAsync } from "@react-email/render";
 import nodemailer from "nodemailer";
-import { ContactEmail } from "../app//contact/contact-email";
-import { type EmailInfo } from "../app/contact/contact-form";
+import { ContactEmail } from "../app/(main-site)/contact/contact-email";
+import { type EmailInfo } from "../app/(main-site)/contact/contact-form";
 import { type MailOptions } from "nodemailer/lib/sendmail-transport";
 
 export const sendEmail = async ({ from, message, subject, name }: EmailInfo) => {

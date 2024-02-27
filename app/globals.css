@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -46,4 +47,16 @@ body {
   50% {
     transform: translateX(var(--mobile-brands-width));
   }
+}
+
+.trap-takeover {
+  background-image: url("/images/palm-tree.png"),
+    radial-gradient(circle at 100% 0%, rgb(191, 38, 138) 0%, rgb(53, 2, 124) 100%);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.font-trap-takeover {
+  font-family: "VT323", monospace;
 }
