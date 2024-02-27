@@ -44,7 +44,7 @@ export const TrapTakeover = () => {
   if (!timeRemaining) return;
 
   return (
-    <div className="flex flex-col items-center py-8 trap-takeover font-trap-takeover rounded-xl">
+    <div className="flex flex-col items-center py-8 trap-takeover font-trap-takeover rounded-xl grow">
       <div className="flex flex-col items-center justify-between">
         <a
           className="p-2 transition-colors outline-none focus:bg-white/25 hover:bg-white/25 focus:outline-white rounded-xl"

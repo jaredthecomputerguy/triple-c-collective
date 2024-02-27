@@ -22,13 +22,16 @@ export default async function DealsPage() {
   });
 
   return (
-    <main className="max-w-4xl mx-auto sm:py-12 py-6 px-4 bg-[#fefefe]" id="main-content">
-      <h1 className="text-4xl py-4 font-semibold">Deals</h1>
-      <hr className="pb-4" />
+    <main
+      className="max-w-7xl mx-auto sm:py-12 py-6 px-4 bg-[#fefefe]"
+      id="main-content"
+    >
       <TrapTakeover />
-      <div className="grid grid-cols-1">
+      <section className="py-12">
+        <h1 className="text-5xl py-2 font-logo font-semibold">Current Deals</h1>
+        <hr className="pb-4" />
         <DealCards deals={deals.docs} />
-      </div>
+      </section>
     </main>
   );
 }
