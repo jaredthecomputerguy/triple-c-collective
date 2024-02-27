@@ -67,7 +67,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-2">
                 <p className="text-xl font-semibold">Socials</p>
                 <ul className="flex items-center gap-2">
-                  <li className="p-1">
+                  <li className="rounded p-1 transition-colors hover:bg-primary-purple/10">
                     <a
                       className="rounded outline-none focus:outline-primary-purple active:outline-primary-purple"
                       href="https://www.facebook.com/people/Triple-C-Collective-Clearlake-CA/100095379903282/"
@@ -77,7 +77,7 @@ export default function ContactPage() {
                       <FacebookIcon className="h-8 w-8 rounded" />
                     </a>
                   </li>
-                  <li className="p-1">
+                  <li className="rounded p-1 transition-colors hover:bg-primary-purple/10">
                     <a
                       className="rounded outline-none focus:outline-primary-purple active:outline-primary-purple"
                       href="https://www.instagram.com/_tripleccollective/"
