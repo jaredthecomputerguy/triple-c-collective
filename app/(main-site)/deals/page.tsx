@@ -24,6 +24,10 @@ export default async function DealsPage() {
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
+        <h1 className="py-2 font-logo text-5xl font-semibold">
+          Trap Takeover Countdown
+        </h1>
+        <hr className="pb-12" />
         <TrapTakeover />
         <section className="py-12">
           <h1 className="py-2 font-logo text-5xl font-semibold">
@@ -32,7 +36,6 @@ export default async function DealsPage() {
           <hr className="pb-4" />
           <DealCards deals={deals.docs} />
         </section>
-        {/* TODO: Put a call to action here so the customer can start shopping */}
       </div>
     </main>
   );
