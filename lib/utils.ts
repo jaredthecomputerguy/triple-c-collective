@@ -102,7 +102,7 @@ export async function seedBlogs(payloadClient: Payload) {
           },
         },
       });
-    })
+    }),
   );
 
   console.log("Done seeding blogs...\n");
@@ -137,4 +137,21 @@ export function getTimeRemainingUntilFirstFriday(): TimeRemainingUntilFirstFrida
     .padStart(2, "0");
 
   return { Days: days, Hours: hours, Minutes: minutes, Seconds: seconds };
+}
+
+export function isDateLessThan(dateStr: string, days: number) {
+  // Convert the input string to a Date object
+  const date = new Date(dateStr);
+
+  // Get the current date
+  const currentDate = new Date();
+
+  // Calculate the difference between the current date and the input date
+  const difference = currentDate.getTime() - date.getTime();
+
+  // Calculate the number of milliseconds in X days
+  const millisecondsIn7Days = days * 24 * 60 * 60 * 1000;
+
+  // Check if the difference is less than X days
+  return difference < millisecondsIn7Days;
 }
