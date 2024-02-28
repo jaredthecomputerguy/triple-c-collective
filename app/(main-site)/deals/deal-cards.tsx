@@ -1,6 +1,7 @@
-import { Media, type Deal } from "@/payload-types";
+import type { Media, Deal } from "@/payload-types";
 import Image from "next/image";
 import Link from "next/link";
+import { isDateLessThan } from "@/lib/utils";
 
 export const DealCards = ({ deals }: { deals: Deal[] }) => {
   const dealsWithImages = deals.map((deal) => ({
@@ -20,9 +21,10 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
             },
           }}
           target="_blank"
-          className="group overflow-hidden rounded-xl border border-primary-purple/50 shadow-lg outline-none focus:outline-primary-purple active:outline-primary-purple"
+          className="group relative overflow-hidden rounded-xl border border-primary-purple/50 shadow-lg outline-none focus:outline-primary-purple active:outline-primary-purple"
           key={deal.id}
         >
+          <NewBadge createdAt={deal.createdAt} />
           <Image
             className="shadow"
             src={deal.image.url ?? ""}
@@ -38,6 +40,22 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
           </div>
         </Link>
       ))}
+    </div>
+  );
+};
+
+const NewBadge = ({ createdAt }: { createdAt: string }) => {
+  const DAYS_TO_BE_CONSIDERED_NEW = 3;
+
+  const isNew = isDateLessThan(createdAt, DAYS_TO_BE_CONSIDERED_NEW);
+
+  if (!isNew) {
+    return null;
+  }
+
+  return (
+    <div className="absolute right-0 rounded-bl-xl bg-red-600 p-4 font-logo text-sm font-semibold text-white">
+      NEW
     </div>
   );
 };
