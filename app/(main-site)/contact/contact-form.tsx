@@ -44,32 +44,31 @@ export const ContactForm = () => {
       return;
     }
 
-    try {
-      await sendEmail({ from, message, subject, name });
-      toast({
-        title: "Your message was sent.",
-        duration: 2000,
-      });
+    const { error } = await sendEmail({ from, message, subject, name });
+
+    if (error) {
       setEmailIsSending(false);
-      setEmailInfo({
-        from: "",
-        message: "",
-        subject: "",
-        name: "",
+      return toast({
+        title: "Something went wrong...",
+        description: "Please try again later.",
+        duration: 2000,
+        variant: "destructive",
       });
-    } catch (error) {
-      if (error instanceof Error) {
-        console.log("Error: ", error.message);
-        toast({
-          title: "Something went wrong...",
-          duration: 2000,
-          variant: "destructive",
-        });
-        setEmailIsSending(false);
-      } else {
-        console.log("Unknown Error: ", error);
-      }
     }
+
+    setEmailIsSending(false);
+
+    setEmailInfo({
+      from: "",
+      message: "",
+      subject: "",
+      name: "",
+    });
+
+    toast({
+      title: "Your message was sent.",
+      duration: 2000,
+    });
   };
 
   return (
@@ -79,12 +78,12 @@ export const ContactForm = () => {
           Name
         </label>
         <input
-          className="p-2 border-2 border-gray-500 rounded outline-none focus:outline-primary-purple placeholder:text-gray-600"
+          className="rounded border-2 border-gray-500 p-2 outline-none placeholder:text-gray-600 focus:outline-primary-purple"
           onChange={handleInputChange}
           type="text"
           id="name"
           autoComplete="name"
-          defaultValue={emailInfo.name}
+          value={emailInfo.name}
           name="name"
           placeholder="Jane Doe"
         />
@@ -94,11 +93,11 @@ export const ContactForm = () => {
           Email
         </label>
         <input
-          className="p-2 border-2 border-gray-500 rounded outline-none focus:outline-primary-purple placeholder:text-gray-600"
+          className="rounded border-2 border-gray-500 p-2 outline-none placeholder:text-gray-600 focus:outline-primary-purple"
           required
           min="1"
           max="100"
-          defaultValue={emailInfo.from}
+          value={emailInfo.from}
           onChange={handleInputChange}
           type="email"
           id="from"
@@ -111,11 +110,11 @@ export const ContactForm = () => {
           Subject
         </label>
         <input
-          className="p-2 border-2 border-gray-500 rounded outline-none focus:outline-primary-purple placeholder:text-gray-600"
+          className="rounded border-2 border-gray-500 p-2 outline-none placeholder:text-gray-600 focus:outline-primary-purple"
           required
           min="1"
           max="100"
-          defaultValue={emailInfo.subject}
+          value={emailInfo.subject}
           onChange={handleInputChange}
           type="text"
           id="subject"
@@ -128,10 +127,10 @@ export const ContactForm = () => {
           Message
         </label>
         <textarea
-          className="p-2 mb-2 border-2 border-gray-500 rounded outline-none focus:outline-primary-purple placeholder:text-gray-600"
+          className="mb-2 rounded border-2 border-gray-500 p-2 outline-none placeholder:text-gray-600 focus:outline-primary-purple"
           required
           onChange={handleInputChange}
-          defaultValue={emailInfo.message}
+          value={emailInfo.message}
           rows={5}
           id="message"
           name="message"
@@ -139,8 +138,9 @@ export const ContactForm = () => {
         />
       </div>
       <button
-        className="px-6 py-2 font-semibold text-white transition-all rounded outline-none bg-primary-purple md:text-xl hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:bg-primary-purple/50"
+        className="rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple active:bg-primary-purple/80 active:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
         disabled={emailIsSending}
+        type="submit"
       >
         {emailIsSending ? "Sending..." : "Send message"}
       </button>

@@ -6,8 +6,14 @@ import { ContactEmail } from "../app/(main-site)/contact/contact-email";
 import { type EmailInfo } from "../app/(main-site)/contact/contact-form";
 import { type MailOptions } from "nodemailer/lib/sendmail-transport";
 
-export const sendEmail = async ({ from, message, subject, name }: EmailInfo) => {
+export const sendEmail = async ({
+  from,
+  message,
+  subject,
+  name,
+}: EmailInfo) => {
   const email = process.env.NODEMAILER_USER;
+  const password = process.env.NODEMAILER_PASSWORD;
 
   try {
     const transporter = nodemailer.createTransport({
@@ -16,11 +22,13 @@ export const sendEmail = async ({ from, message, subject, name }: EmailInfo) => 
       secure: true,
       auth: {
         user: email,
-        pass: process.env.NODEMAILER_PASSWORD,
+        pass: password,
       },
     });
 
-    const emailHtml = await renderAsync(ContactEmail({ message, from, subject, name }));
+    const emailHtml = await renderAsync(
+      ContactEmail({ message, from, subject, name }),
+    );
 
     const options: MailOptions = {
       from: email,
@@ -30,11 +38,14 @@ export const sendEmail = async ({ from, message, subject, name }: EmailInfo) => 
     };
 
     await transporter.sendMail(options);
+    return { error: null };
   } catch (err) {
     if (err instanceof Error) {
       console.error("Nodemailer Error: ", err.message);
+      return { error: err.message };
     } else {
       console.error("Error: ", err);
+      return { error: "Something went wrong..." };
     }
   }
 };

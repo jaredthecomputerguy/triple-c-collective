@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "./_components/toaster";
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
   description:
@@ -24,7 +25,10 @@ export default async function RootLayout({
       className={`${montserrat.variable} bg-primary-purple`}
       suppressHydrationWarning
     >
-      <body className="relative">{children}</body>
+      <body className="relative">
+        <Toaster />
+        {children}
+      </body>
     </html>
   );
 }
