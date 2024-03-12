@@ -245,7 +245,7 @@ export default function HomePage() {
                     <thead className="text-left">
                       <tr className="bg-primary-purple text-white">
                         <th className="p-2">Location</th>
-                        <th className="text-center">Delivery Fee</th>
+                        <th className="p-2 text-center">Delivery Fee</th>
                       </tr>
                     </thead>
                     <tbody>
