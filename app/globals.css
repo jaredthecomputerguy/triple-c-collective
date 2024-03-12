@@ -21,14 +21,26 @@ body {
 }
 
 .gold {
-  background-image: linear-gradient(to right, #cb9b51 0%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 100%);
+  background-image: linear-gradient(
+    to right,
+    #cb9b51 0%,
+    #f6e27a 45%,
+    #f6f2c0 50%,
+    #f6e27a 55%,
+    #cb9b51 100%
+  );
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
 }
 
 .radial-gradient {
-  background: radial-gradient(circle, rgba(64, 16, 110, 1) 0%, rgba(43, 7, 77, 1) 84%, rgba(47, 7, 77, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(64, 16, 110, 1) 0%,
+    rgba(43, 7, 77, 1) 84%,
+    rgba(47, 7, 77, 1) 100%
+  );
 }
 
 @keyframes desktop-scroll {
@@ -51,7 +63,11 @@ body {
 
 .trap-takeover {
   background-image: url("/images/palm-tree.png"),
-    radial-gradient(circle at 100% 0%, rgb(191, 38, 138) 0%, rgb(53, 2, 124) 100%);
+    radial-gradient(
+      circle at 100% 0%,
+      rgb(191, 38, 138) 0%,
+      rgb(53, 2, 124) 100%
+    );
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -59,4 +75,8 @@ body {
 
 .font-trap-takeover {
   font-family: "VT323", monospace;
+}
+
+td {
+  font-weight: 600;
 }

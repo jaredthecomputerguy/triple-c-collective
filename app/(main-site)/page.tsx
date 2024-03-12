@@ -18,6 +18,12 @@ import logoImg from "@/public/images/logo.png";
 import orderOnlineImg from "@/public/images/order-online.avif";
 import phonecallImg from "@/public/images/phonecall.avif";
 import rewardsImg from "@/public/images/rewards.avif";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../_components/accordian";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -165,6 +171,142 @@ export default function HomePage() {
           {reviews.map((review) => (
             <ReviewCard key={review.id} review={review} />
           ))}
+        </div>
+        <div className="px-4 pb-10">
+          <h5 className="py-8 text-center font-logo text-4xl font-semibold">
+            Frequently Asked Questions
+          </h5>
+          <hr className="pb-4" />
+          <div className="px-4">
+            <Accordion type="multiple">
+              <AccordionItem value="item-1">
+                <AccordionTrigger>
+                  Is cannabis legal in California?
+                </AccordionTrigger>
+                <AccordionContent>
+                  Yes, cannabis is legal for both medical and recreational use
+                  in California. Triple C Collective operates in full compliance
+                  with all state and local regulations.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger>
+                  What types of products do you offer?
+                </AccordionTrigger>
+                <AccordionContent>
+                  At Triple C Collective, we offer a wide range of cannabis
+                  products, including flower, concentrates, edibles, topicals,
+                  and more. We also carry Kratom and select CBD products.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-3">
+                <AccordionTrigger>
+                  How do I know which product is right for me?
+                </AccordionTrigger>
+                <AccordionContent>
+                  Choosing the right cannabis product depends on various
+                  factors, including your experience level, desired effects, and
+                  preferences. Our knowledgeable staff is here to assist you in
+                  finding the perfect product tailored to your needs.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-4">
+                <AccordionTrigger>
+                  Can I purchase cannabis online?
+                </AccordionTrigger>
+                <AccordionContent>
+                  Absolutely! We offer convenient online ordering for pickup or
+                  delivery. Browse our extensive selection, place your order,
+                  and relax while we take care of the rest.{" "}
+                  <p className="my-2 text-lg">
+                    <Link
+                      href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
+                      target="_blank"
+                      className="font-semibold text-primary-purple hover:underline"
+                    >
+                      Start shopping
+                    </Link>
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-5">
+                <AccordionTrigger>
+                  Can I get my order delivered?
+                </AccordionTrigger>
+                <AccordionContent>
+                  Yes, we offer delivery services to select areas twice a day if
+                  we have a driver available.
+                  <p className="my-2">Our delivery times are 12pm and 5pm.</p>
+                  <p className="my-2">
+                    There is a delivery fee depending on your location which you
+                    can view below.
+                  </p>
+                  <table className="w-full max-w-2xl table-auto px-4">
+                    <thead className="text-left">
+                      <tr className="bg-primary-purple text-white">
+                        <th className="p-2">Location</th>
+                        <th className="text-center">Delivery Fee</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="p-2">Clearlake & Lower Lake</td>
+                        <td className="text-center">$10</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2">Clearlake Oaks & Twin Lakes</td>
+                        <td className="text-center">$12</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2">Hidden Valley & Glenhaven</td>
+                        <td className="text-center">$25</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2">
+                          Cobb, Kelseyville, Middletown, Lucerne, & Spring
+                          Valley
+                        </td>
+                        <td className="text-center">$30</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2">Lakeport & Upper Lake</td>
+                        <td className="text-center">$35</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-6">
+                <AccordionTrigger>
+                  What payment methods do you accept?
+                </AccordionTrigger>
+                <AccordionContent>
+                  We accept cash and debit cards for in-store purchases. Online
+                  orders can be paid for securely with debit.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-7">
+                <AccordionTrigger>
+                  Is there a minimum age requirement to purchase cannabis?
+                </AccordionTrigger>
+                <AccordionContent>
+                  Yes, you must be at least 21 years old, or 18 years old with
+                  valid medical identification, to purchase cannabis products in
+                  California. We require a valid ID for all transactions.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-8">
+                <AccordionTrigger>
+                  Are your products tested for quality and safety?
+                </AccordionTrigger>
+                <AccordionContent>
+                  Absolutely. All products available undergo rigorous testing by
+                  accredited laboratories to ensure they meet the mandated state
+                  safety and quality standards.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
         </div>
       </div>
     </main>
