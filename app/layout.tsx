@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+
 import { Toaster } from "./_components/toaster";
+import NextTopLoader from "nextjs-toploader";
+
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
   description:
@@ -26,6 +29,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body className="relative">
+        <NextTopLoader color="" />
         <Toaster />
         {children}
       </body>
