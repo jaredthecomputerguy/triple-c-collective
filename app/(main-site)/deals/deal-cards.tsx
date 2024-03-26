@@ -21,7 +21,7 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
             },
           }}
           target="_blank"
-          className="group relative overflow-hidden rounded-xl border border-primary-purple/50 shadow-lg outline-none focus:outline-primary-purple active:outline-primary-purple"
+          className="group relative overflow-hidden rounded-xl border border-primary-purple/50 shadow-lg outline-none focus:outline-primary-purple"
           key={deal.id}
         >
           <NewBadge createdAt={deal.createdAt} />

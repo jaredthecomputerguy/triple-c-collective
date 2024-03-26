@@ -138,7 +138,7 @@ export const ContactForm = () => {
         />
       </div>
       <button
-        className="rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple active:bg-primary-purple/80 active:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
+        className="rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
         disabled={emailIsSending}
         type="submit"
       >

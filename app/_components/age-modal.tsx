@@ -36,7 +36,8 @@ export const AgeModal = () => {
 
   const handleKeyDownInModal: KeyboardEventHandler<HTMLDivElement> = (e) => {
     if (e.key === "Tab") {
-      const focusableElements = ageModalRef.current?.querySelectorAll<HTMLElement>("button, input");
+      const focusableElements =
+        ageModalRef.current?.querySelectorAll<HTMLElement>("button, input");
 
       if (!focusableElements) return;
 
@@ -66,15 +67,17 @@ export const AgeModal = () => {
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/75"
       ref={ageModalRef}
-      onKeyDown={handleKeyDownInModal}>
-      <div className="bg-white p-8 rounded-lg">
+      onKeyDown={handleKeyDownInModal}
+    >
+      <div className="rounded-lg bg-white p-8">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={2}
           stroke="currentColor"
-          className="w-12 h-12 mx-auto text-primary-purple">
+          className="mx-auto h-12 w-12 text-primary-purple"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -82,27 +85,32 @@ export const AgeModal = () => {
           />
         </svg>
 
-        <p className="md:text-4xl text-2xl font-semibold text-center py-4">Are you 21 or older?</p>
-        <p className="text-center text-sm pb-2">Or 18+ with valid medical recommendation</p>
+        <p className="py-4 text-center text-2xl font-semibold md:text-4xl">
+          Are you 21 or older?
+        </p>
+        <p className="pb-2 text-center text-sm">
+          Or 18+ with valid medical recommendation
+        </p>
         <div className="flex flex-col justify-center gap-4">
-          <div className="gap-2 justify-center flex items-center">
+          <div className="flex items-center justify-center gap-2">
             <label htmlFor="rememberMe">Remember Me</label>
             <div className="relative flex">
               <input
-                className="appearance-none bg-primary-purple/50 w-4 border border-primary-purple h-4 rounded transition-colors ease-in-out checked:bg-primary-purple"
+                className="h-4 w-4 appearance-none rounded border border-primary-purple bg-primary-purple/50 transition-colors ease-in-out checked:bg-primary-purple"
                 type="checkbox"
                 id="rememberMe"
                 checked={rememberMe}
                 onChange={() => setRememberMe((prev) => !prev)}
               />
               {rememberMe && (
-                <div className="absolute top-0 left-0 pointer-events-none">
+                <div className="pointer-events-none absolute left-0 top-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="#fefefe"
-                    className="w-4 h-4"
-                    strokeWidth={5}>
+                    className="h-4 w-4"
+                    strokeWidth={5}
+                  >
                     <path
                       fillRule="evenodd"
                       d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
@@ -113,15 +121,17 @@ export const AgeModal = () => {
               )}
             </div>
           </div>
-          <div className="flex gap-4 justify-center">
+          <div className="flex justify-center gap-4">
             <button
-              className="px-6 py-2 font-semibold text-white transition-all rounded outline-none bg-primary-purple md:text-xl hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple"
-              onClick={handleYesClick}>
+              className="rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple md:text-xl "
+              onClick={handleYesClick}
+            >
               Yes
             </button>
             <button
-              className="px-6 py-2 font-semibold text-white transition-all rounded outline-none bg-primary-purple md:text-xl hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple"
-              onClick={() => router.push("https://google.com")}>
+              className="rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple md:text-xl "
+              onClick={() => router.push("https://google.com")}
+            >
               No
             </button>
           </div>

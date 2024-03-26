@@ -32,7 +32,7 @@ export const PostButtons = ({
     <div className="flex items-center justify-between gap-2">
       {hasPrevPage && (
         <button
-          className="px-6 py-2 font-semibold text-white transition-all rounded outline-none bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:pointer-events-none disabled:bg-primary-purple/50"
+          className="rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:pointer-events-none disabled:bg-primary-purple/50"
           disabled={!hasPrevPage}
           onClick={handlePrevPage}
         >
@@ -41,7 +41,7 @@ export const PostButtons = ({
       )}
       {hasNextPage && (
         <button
-          className="px-6 py-2 font-semibold text-white transition-all rounded outline-none bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:pointer-events-none disabled:bg-primary-purple/50"
+          className="rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple  disabled:pointer-events-none disabled:bg-primary-purple/50"
           disabled={!hasNextPage}
           onClick={handleNextPage}
         >

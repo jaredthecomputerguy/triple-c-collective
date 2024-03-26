@@ -87,7 +87,7 @@ export default function HomePage() {
               delivery.
             </p>
             <Link
-              className="mt-4 w-fit grow-0 rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple active:bg-primary-purple/80 active:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
+              className="mt-4 w-fit grow-0 rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
               href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
               target="_blank"
             >
@@ -108,7 +108,7 @@ export default function HomePage() {
               or in store pickup.
             </p>
             <Link
-              className="mt-4 w-fit grow-0 rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple active:bg-primary-purple/80 active:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
+              className="mt-4 w-fit grow-0 rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
               href="tel:707-701-4160"
             >
               Call Us
@@ -128,7 +128,7 @@ export default function HomePage() {
               time.
             </p>
             <Link
-              className="mt-4 w-fit grow-0 rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple active:bg-primary-purple/80 active:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
+              className="mt-4 w-fit grow-0 rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
               href="/rewards"
             >
               Explore Rewards

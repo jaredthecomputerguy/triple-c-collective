@@ -37,7 +37,7 @@ export default function ContactPage() {
                 <p className="text-xl font-semibold">Address</p>
                 <div>
                   <a
-                    className="flex flex-col rounded font-medium text-sky-700 outline-none hover:underline focus:outline-primary-purple active:outline-primary-purple"
+                    className="flex flex-col rounded font-medium text-sky-700 outline-none hover:underline focus:outline-primary-purple"
                     href="https://www.google.com/maps/place/14196+Lakeshore+Dr,+Clearlake,+CA+95422"
                     target="_blank"
                   >
@@ -49,7 +49,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-2">
                 <p className="text-xl font-semibold">Telephone</p>
                 <a
-                  className="rounded font-medium text-sky-700 outline-none hover:underline focus:outline-primary-purple active:outline-primary-purple"
+                  className="rounded font-medium text-sky-700 outline-none hover:underline focus:outline-primary-purple"
                   href="tel:707-701-4160"
                 >
                   (707) 701-4160
@@ -58,7 +58,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-2">
                 <p className="text-xl font-semibold">Email</p>
                 <a
-                  className="rounded font-medium text-sky-700 outline-none hover:underline focus:outline-primary-purple active:outline-primary-purple"
+                  className="rounded font-medium text-sky-700 outline-none hover:underline focus:outline-primary-purple"
                   href="mailto:clearlakecompassioncenter@yahoo.com"
                 >
                   clearlakecompassioncenter@yahoo.com
@@ -69,7 +69,7 @@ export default function ContactPage() {
                 <ul className="flex items-center gap-2">
                   <li className="rounded p-1 transition-colors hover:bg-primary-purple/10">
                     <a
-                      className="rounded outline-none focus:outline-primary-purple active:outline-primary-purple"
+                      className="rounded outline-none focus:outline-primary-purple"
                       href="https://www.facebook.com/people/Triple-C-Collective-Clearlake-CA/100095379903282/"
                       target="_blank"
                       aria-label="Follow us on Facebook"
@@ -79,7 +79,7 @@ export default function ContactPage() {
                   </li>
                   <li className="rounded p-1 transition-colors hover:bg-primary-purple/10">
                     <a
-                      className="rounded outline-none focus:outline-primary-purple active:outline-primary-purple"
+                      className="rounded outline-none focus:outline-primary-purple"
                       href="https://www.instagram.com/_tripleccollective/"
                       target="_blank"
                       aria-label="Follow us on Instagram"

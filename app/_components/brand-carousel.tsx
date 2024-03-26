@@ -4,15 +4,16 @@ import brands from "@/lib/data/brands.json";
 
 export const BrandCarousel = () => {
   return (
-    <div className="flex gap-8 py-6 overflow-x-hidden items-center outline-none rounded-lg focus:outline-primary-purple active:outline-primary-purple">
+    <div className="flex items-center gap-8 overflow-x-hidden rounded-lg py-6 outline-none focus:outline-primary-purple">
       {brands.map((brand) => (
         <Link
           key={brand.id}
           href={brand.website}
           target="_blank"
-          className="shrink-0 h-full animate-mobile-scroll sm:animate-desktop-scroll outline-none rounded-lg focus:outline-primary-purple active:outline-primary-purple">
+          className="h-full shrink-0 animate-mobile-scroll rounded-lg outline-none focus:outline-primary-purple sm:animate-desktop-scroll"
+        >
           <Image
-            className="aspect-square object-contain w-32 h-32 sm:w-48 sm:h-48"
+            className="aspect-square h-32 w-32 object-contain sm:h-48 sm:w-48"
             src={brand.src!}
             alt={brand.alt}
             width={300}
