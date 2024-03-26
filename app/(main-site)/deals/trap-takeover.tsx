@@ -1,32 +1,16 @@
 "use client";
 
 import {
-  TimeRemainingUntilFirstFriday,
-  getTimeRemainingUntilFirstFriday,
+  type TimeRemainingUntilFirstOrThirdFriday,
+  getTimeRemainingUntilFirstOrThirdFriday,
 } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-// TODO: Delete me later!
-// import { cn } from "@/lib/utils";
-
-// export const TrapTakeoverIframe = ({ className = "" }) => {
-//   return (
-//     <iframe
-//       title="Illa Guerrilla Trap Takeover Countdown Clock"
-//       src="https://illaguerrilla.com/iframe-triple-c/"
-//       loading="eager"
-//       width="100%"
-//       height="110%"
-//       className={cn("outline-none rounded-xl h-[500px] w-[350px]", className)}
-//     />
-//   );
-// };
-
 export const TrapTakeover = () => {
   const [timeRemaining, setTimeRemaining] =
-    useState<TimeRemainingUntilFirstFriday>({
+    useState<TimeRemainingUntilFirstOrThirdFriday>({
       Days: "--",
       Hours: "--",
       Minutes: "--",
@@ -35,7 +19,7 @@ export const TrapTakeover = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeRemaining(getTimeRemainingUntilFirstFriday());
+      setTimeRemaining(getTimeRemainingUntilFirstOrThirdFriday(new Date()));
     }, 100);
 
     return () => clearInterval(interval);
@@ -44,10 +28,10 @@ export const TrapTakeover = () => {
   if (!timeRemaining) return;
 
   return (
-    <div className="flex flex-col items-center py-8 trap-takeover font-trap-takeover rounded-xl grow">
+    <div className="trap-takeover font-trap-takeover flex grow flex-col items-center rounded-xl py-8">
       <div className="flex flex-col items-center justify-between">
         <a
-          className="p-2 transition-colors outline-none focus:bg-white/25 hover:bg-white/25 focus:outline-white rounded-xl"
+          className="rounded-xl p-2 outline-none transition-colors hover:bg-white/25 focus:bg-white/25 focus:outline-white"
           href="https://illaguerrilla.com/"
           target="_blank"
         >
@@ -76,13 +60,13 @@ export const TrapTakeover = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-col items-center gap-4 px-8 py-4 mx-auto md:flex-row">
+      <div className="mx-auto flex flex-col items-center gap-4 px-8 py-4 md:flex-row">
         {Object.entries(timeRemaining).map(([label, value]) => (
           <div
             key={label}
-            className="flex md:gap-0 md:flex-col py-1 gap-2 items-center justify-center border-2 w-64 md:w-32 rounded-xl bg-[#1a0056] border-[#f2c029]"
+            className="flex w-64 items-center justify-center gap-2 rounded-xl border-2 border-[#f2c029] bg-[#1a0056] py-1 md:w-32 md:flex-col md:gap-0"
           >
-            <span className="text-[#f2c029] text-3xl">{value}</span>
+            <span className="text-3xl text-[#f2c029]">{value}</span>
             <span className="text-2xl text-[#f2913d]">{label}</span>
           </div>
         ))}
@@ -90,7 +74,7 @@ export const TrapTakeover = () => {
       <a
         href="https://illaguerrilla.com/#event-list"
         target="_blank"
-        className="flex py-1 px-2 rounded outline-none hover:text-white hover:bg-[#1a0056] focus:text-white focus:bg-[#1a0056] transition-all focus:outline-white  items-center bg-[#f2c029] gap-1 text-lg"
+        className="flex items-center gap-1 rounded bg-[#f2c029] px-2 py-1 text-lg outline-none transition-all hover:bg-[#1a0056]  hover:text-white focus:bg-[#1a0056] focus:text-white focus:outline-white"
       >
         <span>Learn More</span>
         <ArrowRight size={18} />

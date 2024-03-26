@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 import { blogPostsToSeed } from "./seed-data";
 import { type Payload } from "payload";
 
-export type TimeRemainingUntilFirstFriday = {
+export type TimeRemainingUntilFirstOrThirdFriday = {
   Days: string;
   Hours: string;
   Minutes: string;
@@ -108,31 +108,62 @@ export async function seedBlogs(payloadClient: Payload) {
   console.log("Done seeding blogs...\n");
 }
 
-export function getTimeRemainingUntilFirstFriday(): TimeRemainingUntilFirstFriday {
-  const now = new Date();
-  const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+export function getTimeRemainingUntilFirstOrThirdFriday(
+  now: Date,
+): TimeRemainingUntilFirstOrThirdFriday {
+  const currentMonth = now.getMonth();
+  const currentYear = now.getFullYear();
 
-  // Find the first Friday of next month
-  let firstFriday = 1;
-  while (nextMonth.getDay() !== 5) {
-    firstFriday++;
-    nextMonth.setDate(firstFriday);
+  // Find the first Friday of the month
+  let firstFriday = new Date(currentYear, currentMonth, 1);
+  while (firstFriday.getDay() !== 5) {
+    firstFriday.setDate(firstFriday.getDate() + 1);
   }
 
-  const deadline = new Date(nextMonth);
-  deadline.setHours(12, 0, 0, 0);
+  // Find the third Friday of the month
+  let thirdFriday = new Date(currentYear, currentMonth, 1);
+  let count = 0;
+  while (count < 3) {
+    thirdFriday.setDate(thirdFriday.getDate() + 1);
+    if (thirdFriday.getDay() === 5) {
+      count++;
+    }
+  }
 
-  const timeRemaining = deadline.getTime() - now.getTime();
-  const seconds = Math.floor((timeRemaining / 1000) % 60)
-    .toString()
-    .padStart(2, "0");
-  const minutes = Math.floor((timeRemaining / 1000 / 60) % 60)
+  // Determine which Friday comes first after today
+  let nextFriday;
+  if (now < firstFriday || now.getDate() === firstFriday.getDate()) {
+    nextFriday = firstFriday;
+  } else if (now < thirdFriday || now.getDate() === thirdFriday.getDate()) {
+    nextFriday = thirdFriday;
+  } else {
+    // If today is after both first and third Friday, calculate next month's first Friday
+    const nextMonth = currentMonth === 11 ? 0 : currentMonth + 1;
+    const nextYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+    nextFriday = new Date(nextYear, nextMonth, 1);
+    while (nextFriday.getDay() !== 5) {
+      nextFriday.setDate(nextFriday.getDate() + 1);
+    }
+  }
+
+  // Calculate time remaining until the next Friday
+  const timeRemaining = nextFriday.getTime() - now.getTime();
+
+  // Ensure the time remaining is positive
+  if (timeRemaining < 0) {
+    return { Days: "00", Hours: "00", Minutes: "00", Seconds: "00" };
+  }
+
+  const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24))
     .toString()
     .padStart(2, "0");
   const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24)
     .toString()
     .padStart(2, "0");
-  const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24))
+  const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60)
+    .toString()
+    .padStart(2, "0");
+  const seconds = Math.floor((timeRemaining / 1000) % 60)
     .toString()
     .padStart(2, "0");
 
