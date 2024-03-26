@@ -68,7 +68,6 @@ export default function RewardsPage() {
           </div>
         </div>
         <div className="flex flex-col items-center gap-8 py-16">
-          {/* TODO: Make this a better call to action */}
           <h5 className="text-center font-logo text-5xl font-semibold lg:text-6xl">
             Ready to get started?
           </h5>

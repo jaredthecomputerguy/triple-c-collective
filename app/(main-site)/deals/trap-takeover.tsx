@@ -55,8 +55,8 @@ export const TrapTakeover = () => {
           >
             Trap Takeover!
           </h2>
-          <p className="text-2xl text-[#fefefe]">
-            Every first Friday of the month
+          <p className="text-center text-2xl text-[#fefefe]">
+            Every 1st and 3rd Friday of the month
           </p>
         </div>
       </div>

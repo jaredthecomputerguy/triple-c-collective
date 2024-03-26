@@ -13,7 +13,7 @@ export default function AboutPage() {
       <div className="relative flex flex-col items-center justify-center">
         <Image
           className="aspect-video h-full max-h-[600px] w-full object-cover"
-          src="/images/store-updated.jpg"
+          src="/images/store-updated-2.jpg"
           alt="Triple C Collective Storefront"
           width={1751}
           height={985}
@@ -49,8 +49,8 @@ export default function AboutPage() {
               </p>
             </div>
             <Image
-              className="rounded-xl object-cover"
-              src="/images/generic-blog.jpg"
+              className="aspect-[3/2] rounded-xl object-cover"
+              src="/images/lake-county.jpg"
               width={600}
               height={400}
               // TODO: Find a better alt tag and change my image
@@ -71,8 +71,8 @@ export default function AboutPage() {
               </p>
             </div>
             <Image
-              className="rounded-xl"
-              src="/images/generic-blog.jpg"
+              className="aspect-[3/2] rounded-xl object-cover"
+              src="/images/owner.jpg"
               width={600}
               height={400}
               // TODO: Find a better alt tag  and change my image
@@ -94,8 +94,8 @@ export default function AboutPage() {
               </p>
             </div>
             <Image
-              className="rounded-xl"
-              src="/images/generic-blog.jpg"
+              className=" aspect-[3/2] rounded-xl object-cover"
+              src="/images/commitment.jpg"
               width={600}
               height={400}
               // TODO: Find a better alt tag  and change my image
@@ -114,8 +114,8 @@ export default function AboutPage() {
               </p>
             </div>
             <Image
-              className="rounded-xl"
-              src="/images/generic-blog.jpg"
+              className="aspect-[3/2] rounded-xl object-cover"
+              src="/images/wellness-2.jpg"
               width={600}
               height={400}
               // TODO: Find a better alt tag  and change my image

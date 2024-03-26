@@ -13,7 +13,7 @@ const BrandCarousel = dynamic(() =>
 
 import reviews from "@/lib/data/reviews.json";
 
-import headerImg from "@/public/images/store-interior-placeholder.jpg";
+import headerImg from "@/public/images/interior-shop.jpg";
 import logoImg from "@/public/images/logo.png";
 import orderOnlineImg from "@/public/images/order-online.avif";
 import phonecallImg from "@/public/images/phonecall.avif";
