@@ -29,7 +29,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body className="relative">
-        <NextTopLoader color="" />
+        <NextTopLoader color="white" />
         <Toaster />
         {children}
       </body>
