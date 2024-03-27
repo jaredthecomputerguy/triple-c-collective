@@ -8,10 +8,48 @@ import NextTopLoader from "nextjs-toploader";
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
   description:
-    "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California. Proudly open for over 15 years, we offer a diverse selection of high-quality cannabis products, expert guidance, and a welcoming environment for cannabis enthusiasts. Discover a trusted name in the industry - Triple C Collective, your premier destination for a decade and a half of cannabis excellence.",
+    "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California.",
+  keywords: [
+    "cannabis",
+    "dispensary",
+    "marijuana",
+    "weed",
+    "pot",
+    "Lake County",
+    "California",
+    "Triple C Collective",
+    "flower",
+    "dab",
+    "concentrate",
+    "edibles",
+    "cbd",
+    "kratom",
+    "wellness",
+    "Clearlake",
+  ],
+  authors: [
+    {
+      name: "Jared Mercer",
+      url: "https://jaredthecomputerguy.dev",
+    },
+  ],
+  creator: "Jared Mercer",
   openGraph: {
+    title: "Home | Triple C Collective",
+    url: "https://triple-c-collective.vercel.app",
+    description: "Lake County's Premier Cannabis Dispensary",
     images: "https://triple-c-collective.vercel.app/opengraph-image.jpg",
+    siteName: "Triple C Collective",
+    locale: "en_US",
+    type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Home | Triple C Collective",
+    description: "Lake County's Premier Cannabis Dispensary",
+    images: ["https://triple-c-collective.vercel.app/opengraph-image.jpg"],
+  },
+  metadataBase: new URL("https://triple-c-collective.vercel.app"),
 };
 
 const montserrat = Montserrat({
