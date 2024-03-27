@@ -13,7 +13,15 @@ export const AgeModal = () => {
 
   function handleYesClick() {
     if (rememberMe) {
-      localStorage.setItem("age-consent", "true");
+      const today = new Date();
+
+      console.log("setting local storage");
+
+      localStorage.setItem(
+        "age-consent",
+        `true; ${new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30)}`,
+      );
+      console.log("set local storage");
       setShowModal(false);
     } else {
       sessionStorage.setItem("age-consent", "true");
@@ -24,6 +32,18 @@ export const AgeModal = () => {
   function checkStorageForAgeConsent() {
     const localAgeConsent = localStorage.getItem("age-consent");
     const sessionAgeConsent = sessionStorage.getItem("age-consent");
+
+    if (localAgeConsent) {
+      const expiry = localAgeConsent.split("; ")[1];
+      const expiryDate = new Date(expiry);
+      const today = new Date();
+
+      console.log(expiryDate);
+
+      if (expiryDate < today) {
+        localStorage.removeItem("age-consent");
+      }
+    }
 
     if (!localAgeConsent && !sessionAgeConsent) {
       setShowModal(true);
