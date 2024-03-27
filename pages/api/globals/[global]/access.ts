@@ -2,6 +2,8 @@ import handler from "@payloadcms/next-payload/dist/handlers/globals/[global]/acc
 
 export default handler;
 
+export const runtime = "edge";
+
 export const config = {
   api: {
     externalResolver: true,
