@@ -129,7 +129,7 @@ export default function HomePage() {
             </p>
             <Link
               className="mt-4 w-fit grow-0 rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
-              href="/rewards"
+              href="/reward-program"
             >
               Explore Rewards
             </Link>

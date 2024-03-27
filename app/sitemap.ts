@@ -12,25 +12,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: "https://tripleccollective.com/about",
       lastModified: new Date(),
       changeFrequency: "yearly",
-      priority: 0.8,
+      priority: 0.6,
     },
     {
-      url: "https://tripleccollective.com/products",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
-    {
-      url: "https://tripleccollective.com/contact",
-      lastModified: new Date(),
+      url: "https://tripleccollective.com/reward-program",
+      lastModified: "2024-03-26",
       changeFrequency: "yearly",
+      priority: 0.5,
+    },
+    {
+      url: "https://tripleccollective.com/deals",
+      lastModified: "2024-03-26",
+      changeFrequency: "daily",
       priority: 0.9,
     },
     {
-      url: "https://tripleccollective.com/blogs",
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
+      url: "https://tripleccollective.com/contact",
+      lastModified: "2024-03-26",
+      changeFrequency: "daily",
+      priority: 0.9,
     },
   ];
 }
