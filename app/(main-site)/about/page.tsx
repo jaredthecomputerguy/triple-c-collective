@@ -100,15 +100,15 @@ export default function AboutPage() {
           </div>
           <div className="flex flex-col items-center gap-6 py-6 lg:flex-row-reverse">
             <div className="flex flex-col justify-center gap-2 md:gap-4 md:px-12">
-              <h2 className="text-2xl md:text-4xl">Meet our Owner</h2>
+              <h2 className="text-2xl md:text-4xl">Experienced Staff</h2>
               <hr className="pb-2" />
               <p className="text-lg">
-                Angie De Coux, the heart and soul behind Triple C Collective,
-                brings a wealth of experience and a genuine commitment to
-                enhancing the well-being of our community. Her vision has shaped
-                our dispensary into a haven for those seeking top-notch cannabis
-                products, as well as alternative solutions like kratom and
-                select CBD offerings.
+                Our dedicated team of cannabis enthusiasts brings unparalleled
+                knowledge and expertise to guide you while you shop. From
+                cultivation techniques to product recommendations, trust our
+                experienced staff to provide personalized and informed
+                assistance, ensuring a memorable and fulfilling cannabis
+                experience for every visitor.
               </p>
             </div>
             <Image
@@ -126,7 +126,7 @@ export default function AboutPage() {
               <hr className="pb-2" />
               <p className="text-lg">
                 At Triple C Collective, we understand that each
-                individual&apos;s cannabis journey is unique. Whether
+                individual&apos;s cannabis preferences are unique. Whether
                 you&apos;re seeking relief for medical purposes or exploring
                 recreational options, our knowledgeable staff is here to guide
                 you through our curated selection. We pride ourselves on

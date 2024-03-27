@@ -72,7 +72,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <form className="flex flex-col gap-2 py-4" onSubmit={handleFormSubmit}>
+    <form className="flex flex-col gap-2 pt-4" onSubmit={handleFormSubmit}>
       <div className="flex flex-col gap-1">
         <label className="font-semibold text-primary-purple" htmlFor="name">
           Name
