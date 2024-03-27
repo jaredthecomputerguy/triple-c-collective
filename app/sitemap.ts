@@ -16,21 +16,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: "https://tripleccollective.com/reward-program",
-      lastModified: "2024-03-26",
+      lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.5,
     },
     {
       url: "https://tripleccollective.com/deals",
-      lastModified: "2024-03-26",
+      lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.9,
     },
     {
       url: "https://tripleccollective.com/contact",
-      lastModified: "2024-03-26",
-      changeFrequency: "daily",
-      priority: 0.9,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.8,
+    },
+    {
+      url: "https://tripleccollective.com/privacy-policy",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
+      url: "https://tripleccollective.com/cookie-policy",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: "https://tripleccollective.com/terms-of-use",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.2,
     },
   ];
 }
