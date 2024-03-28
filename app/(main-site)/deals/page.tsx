@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   creator: "Jared Mercer",
   openGraph: {
     title: "Deals | Triple C Collective",
-    url: "https://triple-c-collective.vercel.app/deals",
+    url: `${process.env.SITE_URL}/deals`,
     description: "Lake County's Premier Cannabis Dispensary",
     siteName: "Triple C Collective",
     locale: "en_US",
@@ -47,11 +47,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Deals | Triple C Collective",
     description: "Lake County's Premier Cannabis Dispensary",
-    images: [
-      "https://triple-c-collective.vercel.app/deals/opengraph-image.png",
-    ],
+    images: [`${process.env.SITE_URL}/deals/opengraph-image.png`],
   },
-  metadataBase: new URL("https://triple-c-collective.vercel.app"),
+  metadataBase: new URL(`${process.env.SITE_URL}`),
 };
 
 export default async function DealsPage() {

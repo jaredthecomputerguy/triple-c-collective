@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/admin/",
     },
-    sitemap: "https://tripleccollective/sitemap.xml",
+    sitemap: "https://tripleccollective.com/sitemap.xml",
   };
 }
