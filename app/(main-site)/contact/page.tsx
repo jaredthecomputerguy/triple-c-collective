@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Contact Us | Triple C Collective",
     url: "https://triple-c-collective.vercel.app",
     description: "Lake County's Premier Cannabis Dispensary",
-    images: "https://triple-c-collective.vercel.app/opengraph-image.jpg",
+    images: "https://triple-c-collective.vercel.app/opengraph-image.png",
     siteName: "Triple C Collective",
     locale: "en_US",
     type: "website",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact Us | Triple C Collective",
     description: "Lake County's Premier Cannabis Dispensary",
-    images: ["https://triple-c-collective.vercel.app/opengraph-image.jpg"],
+    images: ["https://triple-c-collective.vercel.app/opengraph-image.png"],
   },
   metadataBase: new URL("https://triple-c-collective.vercel.app"),
 };
