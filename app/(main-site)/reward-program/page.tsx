@@ -33,9 +33,8 @@ export const metadata: Metadata = {
   creator: "Jared Mercer",
   openGraph: {
     title: "Reward Program | Triple C Collective",
-    url: "https://triple-c-collective.vercel.app",
+    url: "https://triple-c-collective.vercel.app/reward-program",
     description: "Lake County's Premier Cannabis Dispensary",
-    images: "https://triple-c-collective.vercel.app/opengraph-image.jpg",
     siteName: "Triple C Collective",
     locale: "en_US",
     type: "website",
@@ -44,7 +43,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Reward Program | Triple C Collective",
     description: "Lake County's Premier Cannabis Dispensary",
-    images: ["https://triple-c-collective.vercel.app/opengraph-image.jpg"],
+    images: [
+      "https://triple-c-collective.vercel.app/reward-program/opengraph-image.png",
+    ],
   },
   metadataBase: new URL("https://triple-c-collective.vercel.app"),
 };
