@@ -38,20 +38,37 @@ export const ContactForm = () => {
 
     setEmailIsSending(true);
 
+    const hasSentEmail = sessionStorage.getItem("es");
+
+    if (hasSentEmail) {
+      setEmailIsSending(false);
+      return toast({
+        title: "You've already sent a message today.",
+        description: "Please try again tomorrow.",
+        duration: 5000,
+        variant: "destructive",
+      });
+    }
+
     const { from, message, subject, name } = emailInfo;
 
     if (!from || !message || !subject) {
       return;
     }
 
-    const { error } = await sendEmail({ from, message, subject, name });
+    const { error } = await sendEmail({
+      from,
+      message,
+      subject: `Message from website contact page: '${subject}'`,
+      name,
+    });
 
     if (error) {
       setEmailIsSending(false);
       return toast({
         title: "Something went wrong...",
         description: "Please try again later.",
-        duration: 2000,
+        duration: 5000,
         variant: "destructive",
       });
     }
@@ -67,8 +84,10 @@ export const ContactForm = () => {
 
     toast({
       title: "Your message was sent.",
-      duration: 2000,
+      duration: 5000,
     });
+
+    sessionStorage.setItem("es", new Date().toString());
   };
 
   return (
