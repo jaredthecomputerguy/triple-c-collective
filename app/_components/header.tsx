@@ -15,8 +15,6 @@ const LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/reward-program", label: "Rewards" },
-  // TODO: Remove this once the blogs route is deleted
-  // { href: "/blogs", label: "Blog" },
   { href: "/deals", label: "Deals" },
   { href: "/contact", label: "Contact Us" },
 ];
@@ -91,7 +89,6 @@ export const Header = () => {
         >
           Triple C Collective
         </Link>
-        {/* TODO: See if we can smooth this transition out */}
         <button
           className="rounded p-1 outline-none transition-all hover:bg-gray-200 focus:bg-gray-200 focus:outline-primary-purple md:hidden"
           onClick={toggleMobileMenu}
