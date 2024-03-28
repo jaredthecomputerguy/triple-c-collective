@@ -94,8 +94,7 @@ export default function AboutPage() {
               src="/images/lake-county.jpg"
               width={600}
               height={400}
-              // TODO: Find a better alt tag and change my image
-              alt=""
+              alt="Lake County, CA Hillside"
             />
           </div>
           <div className="flex flex-col items-center gap-6 py-6 lg:flex-row-reverse">
@@ -116,8 +115,7 @@ export default function AboutPage() {
               src="/images/staff.jpg"
               width={600}
               height={400}
-              // TODO: Find a better alt tag  and change my image
-              alt=""
+              alt="Dispensary Staff"
             />
           </div>
           <div className="flex flex-col items-center gap-6 py-6 lg:flex-row">
@@ -139,8 +137,7 @@ export default function AboutPage() {
               src="/images/commitment.jpg"
               width={600}
               height={400}
-              // TODO: Find a better alt tag  and change my image
-              alt=""
+              alt="Woman holding cannabis plant"
             />
           </div>
           <div className="flex flex-col items-center gap-6 py-6 lg:flex-row-reverse">
@@ -159,12 +156,10 @@ export default function AboutPage() {
               src="/images/wellness-2.jpg"
               width={600}
               height={400}
-              // TODO: Find a better alt tag  and change my image
-              alt=""
+              alt="CBD oil"
             />
           </div>
         </div>
-        {/* BOTTOM CALL OF ACTION */}
         <div className="mx-auto max-w-4xl py-16">
           <p className="mx-auto max-w-4xl text-pretty text-center text-xl font-semibold md:text-2xl">
             Thank you for being a part of the Triple C Collective family.

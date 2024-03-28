@@ -4,10 +4,9 @@ import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 
-import { cloudStorage } from "@payloadcms/plugin-cloud-storage";  
+import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 
-import { Blogs } from "./collections/blog";
 import { Media } from "./collections/media";
 import { Deals } from "./collections/deals";
 
@@ -20,7 +19,7 @@ export default buildConfig({
   admin: {
     bundler: webpackBundler(),
   },
-  collections: [Blogs, Media, Deals],
+  collections: [Media, Deals],
   globals: [
     // Your globals here
   ],

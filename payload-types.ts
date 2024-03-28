@@ -8,7 +8,6 @@
 
 export interface Config {
   collections: {
-    blogs: Blog;
     media: Media;
     deals: Deal;
     users: User;
@@ -16,18 +15,6 @@ export interface Config {
     'payload-migrations': PayloadMigration;
   };
   globals: {};
-}
-export interface Blog {
-  id: string;
-  image: string | Media;
-  slug: string;
-  title: string;
-  description: string;
-  content: {
-    [k: string]: unknown;
-  }[];
-  updatedAt: string;
-  createdAt: string;
 }
 export interface Media {
   id: string;
