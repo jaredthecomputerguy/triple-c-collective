@@ -1,6 +1,9 @@
 import { Metadata } from "next";
 import Link from "next/link";
 
+import { Header } from "./_components/header";
+import { Footer } from "./_components/footer";
+
 export const metadata: Metadata = {
   title: "Not Found | Triple C Collective",
   description:
@@ -9,17 +12,26 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="max-w-4xl mx-auto sm:pt-12 pt-6 px-8 h-[calc(100vh-300px)]">
-      <h1 className="text-4xl py-4 font-semibold">Page not found</h1>
-      <hr className="pb-4" />
-      <div className="flex flex-col gap-4">
-        <p>The page you&apos;re looking for doesn&apos;t exist.</p>
-        <Link
-          className="px-6 py-2 w-fit font-semibold text-white transition-all rounded outline-none bg-primary-purple md:text-xl hover:bg-primary-purple/80 focus:bg-primary-purple/80 active:bg-primary-purple/80 focus:outline-primary-purple active:outline-primary-purple disabled:bg-primary-purple/50"
-          href="/">
-          Go Home
-        </Link>
-      </div>
+    <div className="flex min-h-screen w-screen flex-col justify-between bg-white">
+      <Header />
+      <section className="mx-auto mb-64 flex max-w-4xl flex-col items-center justify-center gap-6 px-2 pt-6 sm:pt-12">
+        <h1 className="py-4 text-center text-4xl font-semibold">
+          404 | Page Not Found
+        </h1>
+        <div className="flex flex-col gap-4 text-center">
+          <p>The page you are looking for does not exist.</p>
+          <p>
+            Return to the{" "}
+            <Link
+              className="font-semibold text-primary-purple hover:underline"
+              href="/"
+            >
+              Home Page
+            </Link>
+          </p>
+        </div>
+      </section>
+      <Footer />
     </div>
   );
 }
