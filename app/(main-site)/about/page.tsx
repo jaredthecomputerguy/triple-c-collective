@@ -113,7 +113,7 @@ export default function AboutPage() {
             </div>
             <Image
               className="aspect-[3/2] rounded-xl object-cover"
-              src="/images/owner.jpg"
+              src="/images/staff.jpg"
               width={600}
               height={400}
               // TODO: Find a better alt tag  and change my image
