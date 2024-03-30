@@ -26,7 +26,7 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
         >
           <NewBadge createdAt={deal.createdAt} />
           <Image
-            className="shadow"
+            className="aspect-video object-cover shadow"
             src={deal.image.url ?? ""}
             alt={deal.title}
             width={500}
