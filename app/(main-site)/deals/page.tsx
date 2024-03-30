@@ -52,6 +52,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(`${process.env.SITE_URL}`),
 };
 
+export const revalidate = 60;
+
 export default async function DealsPage() {
   const payloadClient = await getPayloadClient();
 
