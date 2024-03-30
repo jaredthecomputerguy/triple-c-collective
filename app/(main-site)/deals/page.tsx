@@ -6,8 +6,6 @@ import Image from "next/image";
 import { Button } from "@/app/_components/button";
 import Link from "next/link";
 
-export const dynamic = "force-dynamic";
-
 export const metadata: Metadata = {
   title: "Deals | Triple C Collective",
   description:
