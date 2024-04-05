@@ -64,13 +64,13 @@ export function getTimeRemainingUntilFirstOrThirdFriday(
   const currentYear = now.getFullYear();
 
   // Find the first Friday of the month
-  let firstFriday = new Date(currentYear, currentMonth, 1);
+  let firstFriday = new Date(currentYear, currentMonth, 1, 12);
   while (firstFriday.getDay() !== 5) {
     firstFriday.setDate(firstFriday.getDate() + 1);
   }
 
   // Find the third Friday of the month
-  let thirdFriday = new Date(currentYear, currentMonth, 1);
+  let thirdFriday = new Date(currentYear, currentMonth, 1, 12);
   let count = 0;
   while (count < 3) {
     thirdFriday.setDate(thirdFriday.getDate() + 1);
