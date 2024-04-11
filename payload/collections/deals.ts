@@ -32,6 +32,7 @@ export const Deals: CollectionConfig = {
         { label: "High Hemp", value: "HIGH HEMP" },
         { label: "Dompen", value: "DOMPEN" },
         { label: "Glasshouse", value: "GLASSHOUSE" },
+        { label: "Green River Extracts", value: "GREEN RIVER EXTRACTS" },
         { label: "Equilibrium Genetics", value: "EQUILIBRIUM GENETICS" },
         { label: "Stiizy", value: "STIIZY" },
         { label: "Lookah", value: "LOOKAH" },

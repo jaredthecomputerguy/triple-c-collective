@@ -17,7 +17,7 @@ export const sendEmail = async ({
 
   try {
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
+      host: "smtp.mail.yahoo.com",
       port: 465,
       secure: true,
       auth: {
