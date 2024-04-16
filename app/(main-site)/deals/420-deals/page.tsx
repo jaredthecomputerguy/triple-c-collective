@@ -8,10 +8,57 @@ import { ImageViewer } from "./image-viewer";
 import { cn } from "@/lib/utils";
 import { CartridgeIcon } from "@/app/_components/icons/cartridge";
 import { GoogleMapEmbed } from "../../contact/google-map-embed";
+import { Metadata } from "next";
 
 const smokeFont = localFont({
   src: "smoke.ttf",
 });
+
+export const metadata: Metadata = {
+  title: "4/20 Deals | Triple C Collective",
+  description:
+    "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California.",
+  keywords: [
+    "cannabis",
+    "dispensary",
+    "marijuana",
+    "weed",
+    "pot",
+    "Lake County",
+    "California",
+    "Triple C Collective",
+    "flower",
+    "dab",
+    "concentrate",
+    "edibles",
+    "cbd",
+    "kratom",
+    "wellness",
+    "Clearlake",
+  ],
+  authors: [
+    {
+      name: "Jared Mercer",
+      url: "https://jaredthecomputerguy.dev",
+    },
+  ],
+  creator: "Jared Mercer",
+  openGraph: {
+    title: "4/20 Deals | Triple C Collective",
+    url: `${process.env.SITE_URL}/deals/420-deals`,
+    description: "Lake County's Premier Cannabis Dispensary",
+    siteName: "Triple C Collective",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "4/20 Deals | Triple C Collective",
+    description: "Lake County's Premier Cannabis Dispensary",
+    images: [`${process.env.SITE_URL}/deals/420-deals/opengraph-image.png`],
+  },
+  metadataBase: new URL(`${process.env.SITE_URL}`),
+};
 
 export default function FourTwentyDealsPage() {
   return (
@@ -269,7 +316,7 @@ export default function FourTwentyDealsPage() {
             <div>
               <h4 className="pb-2 text-3xl font-semibold">Store Credit</h4>
               <p className="text-lg">
-                Win $150 in store credit to use on your next purchase or save it
+                Win $155 in store credit to use on your next purchase or save it
                 for a rainy day
               </p>
             </div>
