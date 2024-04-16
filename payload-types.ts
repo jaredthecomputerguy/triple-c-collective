@@ -42,6 +42,7 @@ export interface Deal {
         | 'HIGH HEMP'
         | 'DOMPEN'
         | 'GLASSHOUSE'
+        | 'GREEN RIVER EXTRACTS'
         | 'EQUILIBRIUM GENETICS'
         | 'STIIZY'
         | 'LOOKAH'
@@ -138,7 +139,7 @@ export interface Deal {
         | 'JUICY JAYS'
         | 'O.P.M.S'
         | 'MIDSFACTORY'
-      )
+      )[]
     | null;
   categories?:
     | (
