@@ -10,13 +10,15 @@ import { ClockIcon } from "./icons/clock-icon";
 import { LocationIcon } from "./icons/location-icon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { BottomBanner } from "./bottom-banner";
 
 const LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/reward-program", label: "Rewards" },
   { href: "/deals", label: "Deals" },
-  { href: "/contact", label: "Contact Us" },
+  { href: "/deals/420-deals", label: "4/20" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export const Header = () => {
@@ -38,6 +40,7 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
+      <BottomBanner />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
         {/* Information Bar */}
         {/* Mobile View */}
