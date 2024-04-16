@@ -24,6 +24,7 @@ export const Deals: CollectionConfig = {
     {
       name: "brand",
       type: "select",
+      hasMany: true,
       options: [
         { label: "Elyon", value: "ELYON" },
         { label: "Juicy Jay's", value: "JUICY JAY'S" },
