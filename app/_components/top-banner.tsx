@@ -26,7 +26,7 @@ export const TopBanner = () => {
             >
               <Link href="/deals/420-deals" className="flex gap-2">
                 <FaCannabis />
-                OUR 4/20 DEALS ARE HERE!
+                4/20 IS LIVE! - SHOP NOW
                 <FaCannabis />
               </Link>
             </Button>
