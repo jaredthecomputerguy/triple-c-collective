@@ -10,7 +10,8 @@ import { ClockIcon } from "./icons/clock-icon";
 import { LocationIcon } from "./icons/location-icon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-// import { TopBanner } from "./top-banner";
+import { TopBanner } from "./top-banner";
+import { VoteIcon } from "./icons/vote-icon";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -40,7 +41,7 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
-      {/* <TopBanner /> */}
+      <TopBanner bannerText="Lake Fest Voting Boxes Now Available" icon={<VoteIcon className="w-6 h-6" />} />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
         <div className="flex justify-between bg-primary-purple px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a

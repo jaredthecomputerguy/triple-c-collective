@@ -1,13 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import Link from "next/link";
-import { FaCannabis } from "react-icons/fa";
-
 import { CloseIcon } from "./icons/close-icon";
 import { Button } from "./button";
 
-export const TopBanner = () => {
+export const TopBanner = ({
+  bannerText,
+  icon,
+}: {
+  bannerText: string;
+  icon: ReactNode;
+}) => {
   const [showBanner, setShowBanner] = useState(true);
 
   if (!showBanner) {
@@ -21,13 +25,13 @@ export const TopBanner = () => {
           <span className="flex items-center justify-center font-semibold">
             <Button
               asChild
-              className="px-1 py-2 text-base font-semibold md:text-lg"
+              className="px-1 py-2 text-sm font-semibold md:text-lg"
               variant="link"
             >
-              <Link href="/deals/420-deals" className="flex gap-2">
-                <FaCannabis />
-                4/20 IS LIVE! - SHOP NOW
-                <FaCannabis />
+              <Link href="/deals" className="flex gap-2">
+                {/* {icon} */}
+                {bannerText}
+                {/* {icon} */}
               </Link>
             </Button>
           </span>
