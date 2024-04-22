@@ -10,14 +10,14 @@ import { ClockIcon } from "./icons/clock-icon";
 import { LocationIcon } from "./icons/location-icon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { TopBanner } from "./top-banner";
+// import { TopBanner } from "./top-banner";
 
 const LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/reward-program", label: "Rewards" },
   { href: "/deals", label: "Deals" },
-  { href: "/deals/420-deals", label: "4/20" },
+  // { href: "/deals/420-deals", label: "4/20" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -40,10 +40,8 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
-      <TopBanner />
+      {/* <TopBanner /> */}
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
-        {/* Information Bar */}
-        {/* Mobile View */}
         <div className="flex justify-between bg-primary-purple px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
             className="flex items-center justify-center gap-2 rounded p-2 font-semibold outline-none transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"

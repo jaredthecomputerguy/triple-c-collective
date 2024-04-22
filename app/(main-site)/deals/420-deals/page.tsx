@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { CartridgeIcon } from "@/app/_components/icons/cartridge";
 import { GoogleMapEmbed } from "../../contact/google-map-embed";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 const smokeFont = localFont({
   src: "smoke.ttf",
@@ -61,6 +62,8 @@ export const metadata: Metadata = {
 };
 
 export default function FourTwentyDealsPage() {
+
+  return notFound()
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <div className="mx-auto max-w-7xl rounded bg-[#fefefe] px-4 py-6 sm:py-12">
