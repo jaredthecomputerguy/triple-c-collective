@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Contact Us | Triple C Collective",
   description:
-    "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California.",
+    "If you have any questions or concerns, feel free to reach out to us. We are here to help you with all your cannabis needs.",
   keywords: [
     "cannabis",
     "dispensary",

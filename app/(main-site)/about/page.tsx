@@ -4,7 +4,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "About | Triple C Collective",
   description:
-    "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California.",
+    "Learn more about Triple C Collective, Lake County's premier cannabis dispensary.",
   keywords: [
     "cannabis",
     "dispensary",

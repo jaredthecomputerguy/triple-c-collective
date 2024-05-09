@@ -9,7 +9,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Deals | Triple C Collective",
   description:
-    "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California.",
+    "Check out Lake County's premier cannabis dispensary for the latest deals on flower, dabs, concentrates, edibles, and more.",
   keywords: [
     "cannabis",
     "dispensary",

@@ -5,7 +5,7 @@ import rewardsPageImg from "@/public/images/rewards-program.avif";
 export const metadata: Metadata = {
   title: "Reward Program | Triple C Collective",
   description:
-    "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California.",
+    "Sign up for our rewards program and earn $0.02 for every dollar spent. Start saving today!",
   keywords: [
     "cannabis",
     "dispensary",
