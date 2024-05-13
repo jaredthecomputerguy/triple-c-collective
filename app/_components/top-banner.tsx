@@ -6,15 +6,17 @@ import { CloseIcon } from "./icons/close-icon";
 import { Button } from "./button";
 
 export const TopBanner = ({
+  active,
   bannerText,
   icon,
 }: {
+  active: boolean;
   bannerText: string;
   icon: ReactNode;
 }) => {
   const [showBanner, setShowBanner] = useState(true);
 
-  if (!showBanner) {
+  if (!showBanner || !active) {
     return null;
   }
 
