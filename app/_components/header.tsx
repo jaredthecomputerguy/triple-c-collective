@@ -42,7 +42,6 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        active={false}
         bannerText="Lake Fest Voting Boxes Now Available"
         icon={<VoteIcon className="h-6 w-6" />}
       />

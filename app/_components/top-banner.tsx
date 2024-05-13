@@ -8,15 +8,17 @@ import { Button } from "./button";
 export const TopBanner = ({
   active,
   bannerText,
+  showIcon,
   icon,
 }: {
-  active: boolean;
+  active?: boolean;
   bannerText: string;
+  showIcon?: boolean;
   icon: ReactNode;
 }) => {
-  const [showBanner, setShowBanner] = useState(true);
+  const [showBanner, setShowBanner] = useState(active);
 
-  if (!showBanner || !active) {
+  if (!showBanner) {
     return null;
   }
 
@@ -31,9 +33,9 @@ export const TopBanner = ({
               variant="link"
             >
               <Link href="/deals" className="flex gap-2">
-                {/* {icon} */}
+                {showIcon && icon}
                 {bannerText}
-                {/* {icon} */}
+                {showIcon && icon}
               </Link>
             </Button>
           </span>
