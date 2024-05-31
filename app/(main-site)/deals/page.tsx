@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { TrapTakeover } from "./trap-takeover";
+import { TrapTakeoverCountdown } from "./trap-takeover-countdown";
 import { DealCards } from "./deal-cards";
 import getPayloadClient from "@/payload/payloadClient";
 import Image from "next/image";
@@ -75,7 +75,7 @@ export default async function DealsPage() {
           Trap Takeover Countdown
         </h1>
         <hr className="pb-12" />
-        <TrapTakeover />
+        <TrapTakeoverCountdown />
         <section className="py-12">
           <h1 className="py-2 font-logo text-5xl font-semibold">
             Current Deals

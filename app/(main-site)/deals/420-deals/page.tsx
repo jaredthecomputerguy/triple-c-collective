@@ -4,12 +4,12 @@ import { PiFlowerThin } from "react-icons/pi";
 import { GiMasonJar } from "react-icons/gi";
 import { SlPresent } from "react-icons/sl";
 
-import { ImageViewer } from "./image-viewer";
 import { cn } from "@/lib/utils";
 import { CartridgeIcon } from "@/app/_components/icons/cartridge";
 import { GoogleMapEmbed } from "../../contact/google-map-embed";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ImageViewer } from "@/app/_components/image-viewer";
 
 const smokeFont = localFont({
   src: "smoke.ttf",
@@ -62,8 +62,7 @@ export const metadata: Metadata = {
 };
 
 export default function FourTwentyDealsPage() {
-
-  return notFound()
+  return notFound();
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <div className="mx-auto max-w-7xl rounded bg-[#fefefe] px-4 py-6 sm:py-12">
@@ -77,7 +76,13 @@ export default function FourTwentyDealsPage() {
         </h1>
         <div className="pb-16">
           <div className="mx-auto w-fit">
-            <ImageViewer />
+            <ImageViewer
+              className="aspect-[1163/1600] h-96 w-72 cursor-pointer rounded border-white sm:h-[700px] sm:w-[500px]"
+              src="/images/420-flyer.jpg"
+              alt="4/20 Sales"
+              width={1163}
+              height={1600}
+            />
             <p className="py-1 text-center text-sm font-semibold text-gray-600">
               (Click the image to expand)
             </p>
@@ -104,7 +109,7 @@ export default function FourTwentyDealsPage() {
                     (Limit 1 per customer)
                   </span>
                 </div>
-                <div className="flex flex-col text-pretty font-semibold ">
+                <div className="text-pretty flex flex-col font-semibold ">
                   {" "}
                   Purchase any 1/8th, 1/4oz, or 1/2oz and get two Phat Panda or
                   one High Grade Farms 1/8th for a penny
@@ -112,7 +117,7 @@ export default function FourTwentyDealsPage() {
                     (Limit 2 Phat Panda or 1 High Grade Farms per customer)
                   </span>
                 </div>
-                <div className="flex flex-col text-pretty font-semibold ">
+                <div className="text-pretty flex flex-col font-semibold ">
                   {" "}
                   Purchase any 1oz flower and get two Phat Panda gummies for a
                   penny
@@ -120,7 +125,7 @@ export default function FourTwentyDealsPage() {
                     (Limit 2 per customer)
                   </span>
                 </div>
-                <div className="flex flex-col text-pretty font-semibold ">
+                <div className="text-pretty flex flex-col font-semibold ">
                   {" "}
                   Purchase any preroll, and get two penny prerolls from the
                   following brands:
@@ -132,7 +137,7 @@ export default function FourTwentyDealsPage() {
                     (Limit 2 per customer)
                   </span>
                 </div>
-                <div className="flex flex-col text-pretty font-semibold">
+                <div className="text-pretty flex flex-col font-semibold">
                   {" "}
                   Reduced Prices on the following products:
                   <ul className="list-inside list-disc py-2 text-left text-sm">
@@ -171,7 +176,7 @@ export default function FourTwentyDealsPage() {
                   Kushy Punch
                   <span className="w-full text-sm">(Limit 1 per customer)</span>
                 </div>
-                <div className="flex flex-col text-pretty font-semibold">
+                <div className="text-pretty flex flex-col font-semibold">
                   {" "}
                   Reduced Prices on the following products:
                   <ul className="list-inside list-disc py-2 text-left text-sm">
@@ -203,7 +208,7 @@ export default function FourTwentyDealsPage() {
                   B.O.B. Stash kief is available for $5
                   <span className="w-full text-sm">(Limit 2 per customer)</span>
                 </div>
-                <div className="flex flex-col text-pretty font-semibold">
+                <div className="text-pretty flex flex-col font-semibold">
                   {" "}
                   Reduced Prices on the following products:
                   <ul className="list-inside list-disc py-2 text-left text-sm">
@@ -236,7 +241,7 @@ export default function FourTwentyDealsPage() {
                     (Limit 3 per customer)
                   </span>
                 </div>
-                <div className="flex flex-col text-pretty font-semibold">
+                <div className="text-pretty flex flex-col font-semibold">
                   {" "}
                   Reduced Prices on the following products:
                   <ul className="list-inside list-disc py-2 text-left text-sm">
@@ -264,7 +269,7 @@ export default function FourTwentyDealsPage() {
                     (Limit 1 per customer)
                   </span>
                 </div>
-                <div className="flex flex-col text-pretty font-semibold">
+                <div className="text-pretty flex flex-col font-semibold">
                   {" "}
                   Reduced Prices on the following products:
                   <ul className="list-inside list-disc py-2 text-left text-sm">

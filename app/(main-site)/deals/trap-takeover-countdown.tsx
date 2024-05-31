@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export const TrapTakeover = () => {
+export const TrapTakeoverCountdown = () => {
   const [timeRemaining, setTimeRemaining] =
     useState<TimeRemainingUntilFirstOrThirdFriday>({
       Days: "--",
