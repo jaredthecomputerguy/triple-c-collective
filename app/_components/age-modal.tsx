@@ -15,13 +15,10 @@ export const AgeModal = () => {
     if (rememberMe) {
       const today = new Date();
 
-      console.log("setting local storage");
-
       localStorage.setItem(
         "age-consent",
         `true; ${new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30)}`,
       );
-      console.log("set local storage");
       setShowModal(false);
     } else {
       sessionStorage.setItem("age-consent", "true");
@@ -37,8 +34,6 @@ export const AgeModal = () => {
       const expiry = localAgeConsent.split("; ")[1];
       const expiryDate = new Date(expiry);
       const today = new Date();
-
-      console.log(expiryDate);
 
       if (expiryDate < today) {
         localStorage.removeItem("age-consent");
