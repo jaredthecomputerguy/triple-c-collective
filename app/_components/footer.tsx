@@ -11,7 +11,7 @@ export const Footer = () => {
       </Link>
       <span className="-mt-2 text-sm text-zinc-400">C10-0000551-LIC</span>
       <span className="-mt-2 text-sm text-zinc-400">
-        Copyright &copy; 2023 YCNIUQ Inc.
+        Copyright &copy; 2023-2024 YCNIUQ Inc.
       </span>
       <ul className="flex divide-x py-2 text-sm sm:text-base">
         <li className="px-2">
