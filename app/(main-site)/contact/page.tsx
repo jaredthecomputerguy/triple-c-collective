@@ -57,7 +57,7 @@ export default function ContactPage() {
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <section className="mx-auto max-w-7xl px-4 py-6 sm:py-12">
-        <h1 className="py-4 text-4xl font-semibold">Contact us</h1>
+        <h1 className="py-4 font-logo text-4xl font-semibold">Contact us</h1>
         <hr className="pb-4" />
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div>

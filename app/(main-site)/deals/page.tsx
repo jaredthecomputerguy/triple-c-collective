@@ -71,15 +71,15 @@ export default async function DealsPage() {
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
-        <h1 className="py-2 font-logo text-5xl font-semibold">
+        <h1 className="py-4 font-logo text-4xl font-semibold">
           Trap Takeover Countdown
         </h1>
         <hr className="pb-12" />
         <TrapTakeoverCountdown />
         <section className="py-12">
-          <h1 className="py-2 font-logo text-5xl font-semibold">
+          <h2 className="py-4 font-logo text-4xl font-semibold">
             Current Deals
-          </h1>
+          </h2>
           <hr className="pb-4" />
           {deals.docs.length === 0 ? (
             <div className="flex flex-col items-center justify-center gap-12 py-8 md:py-16">
