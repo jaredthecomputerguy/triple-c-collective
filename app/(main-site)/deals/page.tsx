@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import { TrapTakeoverCountdown } from "./trap-takeover-countdown";
-import { DealCards } from "./deal-cards";
 import getPayloadClient from "@/payload/payloadClient";
 import Image from "next/image";
 import { Button } from "@/app/_components/button";
 import Link from "next/link";
+import { DealCategory } from "./deal-category";
 
 export const metadata: Metadata = {
   title: "Deals | Triple C Collective",
@@ -68,18 +68,41 @@ export default async function DealsPage() {
     },
   });
 
+  const flowerAndPrerollDeals = deals.docs.filter((deal) => {
+    return (
+      deal.categories?.includes("flower") ||
+      deal.categories?.includes("preroll")
+    );
+  });
+
+  const edibleAndBeverageDeals = deals.docs.filter((deal) => {
+    return (
+      deal.categories?.includes("edible") ||
+      deal.categories?.includes("beverage")
+    );
+  });
+
+  const extractDeals = deals.docs.filter((deal) => {
+    return deal.categories?.includes("extract");
+  });
+
+  const cartridgeDeals = deals.docs.filter((deal) => {
+    return deal.categories?.includes("cartridge");
+  });
+
+  const pillAndTinctureDeals = deals.docs.filter((deal) => {
+    return (
+      deal.categories?.includes("pill") || deal.categories?.includes("tincture")
+    );
+  });
+
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
-        <h1 className="py-4 font-logo text-4xl font-semibold">
-          Trap Takeover Countdown
-        </h1>
-        <hr className="pb-12" />
-        <TrapTakeoverCountdown />
-        <section className="py-12">
-          <h2 className="py-4 font-logo text-4xl font-semibold">
+        <section>
+          <h1 className="py-4 font-logo text-4xl font-semibold">
             Current Deals
-          </h2>
+          </h1>
           <hr className="pb-4" />
           {deals.docs.length === 0 ? (
             <div className="flex flex-col items-center justify-center gap-12 py-8 md:py-16">
@@ -106,8 +129,37 @@ export default async function DealsPage() {
               </Button>
             </div>
           ) : (
-            <DealCards deals={deals.docs} />
+            <>
+              <DealCategory
+                categoryTitle="Flower & Prerolls"
+                categorySubtitle="Discover premium buds and perfectly rolled convenience."
+                deals={flowerAndPrerollDeals}
+              />
+              <DealCategory
+                categoryTitle="Edibles & Beverages"
+                categorySubtitle="Deliciously infused treats and drinks to elevate your experience."
+                deals={edibleAndBeverageDeals}
+              />
+              <DealCategory
+                categoryTitle="Cartridges"
+                categorySubtitle="High-quality vape options for smooth and potent hits."
+                deals={cartridgeDeals}
+              />
+              <DealCategory
+                categoryTitle="Extracts"
+                categorySubtitle="Concentrated excellence for the true connoisseur."
+                deals={extractDeals}
+              />
+              <DealCategory
+                categoryTitle="Pills and Tinctures"
+                categorySubtitle="Discreet, easy-to-dose options for tailored relief."
+                deals={pillAndTinctureDeals}
+              />
+            </>
           )}
+        </section>
+        <section className="py-12">
+          <TrapTakeoverCountdown />
         </section>
       </div>
     </main>
