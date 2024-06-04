@@ -8,10 +8,7 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
     ...deal,
     image: deal.image as Media,
   }));
-  console.log(
-    "deals.brand",
-    dealsWithImages.map((deal) => deal.brand),
-  );
+
   return (
     <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-2 lg:grid-cols-3">
       {dealsWithImages.map((deal) => (
