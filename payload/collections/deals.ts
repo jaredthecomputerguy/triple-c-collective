@@ -26,6 +26,7 @@ export const Deals: CollectionConfig = {
       name: "brand",
       type: "select",
       hasMany: true,
+      required: true,
       options: brands,
     },
     {

@@ -22,6 +22,7 @@ Triple C Collective is a cannabis dispensary dedicated to providing high-quality
 - Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
 - Payload CMS: A headless CMS for managing website content.
 - Nodemailer: A module for Node.js applications to allow easy email sending.
+- Vitest: A Vite-native testing framework.
 - Husky: A tool that allows for Git hooks to be easily configured.
 - AWS S3: Amazon Simple Storage Service for storing website assets.
 - lint-staged: A tool for running scripts on staged files in Git.
@@ -35,7 +36,7 @@ To run this project locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/triple-c-collective.git
+   git clone https://github.com/jaredthecomputerguy/triple-c-collective.git
    ```
 
 2. Install dependencies

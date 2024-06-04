@@ -6,51 +6,72 @@ import { Button } from "@/app/_components/button";
 import Link from "next/link";
 import { DealCategory } from "./deal-category";
 
-export const metadata: Metadata = {
-  title: "Deals | Triple C Collective",
-  description:
-    "Check out Lake County's premier cannabis dispensary for the latest deals on flower, dabs, concentrates, edibles, and more.",
-  keywords: [
-    "cannabis",
-    "dispensary",
-    "marijuana",
-    "weed",
-    "pot",
-    "Lake County",
-    "California",
-    "Triple C Collective",
-    "flower",
-    "dab",
-    "concentrate",
-    "edibles",
-    "cbd",
-    "kratom",
-    "wellness",
-    "Clearlake",
-  ],
-  authors: [
-    {
-      name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev",
+export async function generateMetadata(): Promise<Metadata> {
+  const payloadClient = await getPayloadClient();
+
+  const deals = await payloadClient.find({
+    collection: "deals",
+    where: {
+      active: {
+        equals: true,
+      },
     },
-  ],
-  creator: "Jared Mercer",
-  openGraph: {
+  });
+
+  // Get unique brands from deals by creating a Set from the array of brands
+  const dealBrands = new Set(
+    [...deals.docs, ...deals.docs, ...deals.docs]
+      .map((deal) => deal.brand)
+      .flat(),
+  );
+
+  return {
     title: "Deals | Triple C Collective",
-    url: `${process.env.SITE_URL}/deals`,
-    description: "Lake County's Premier Cannabis Dispensary",
-    siteName: "Triple C Collective",
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Deals | Triple C Collective",
-    description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/deals/opengraph-image.png`],
-  },
-  metadataBase: new URL(`${process.env.SITE_URL}`),
-};
+    description:
+      "Check out Lake County's premier cannabis dispensary for the latest deals on flower, dabs, concentrates, edibles, and more.",
+    keywords: [
+      "cannabis",
+      "dispensary",
+      "marijuana",
+      "weed",
+      "pot",
+      "Lake County",
+      "California",
+      "Triple C Collective",
+      "flower",
+      "dab",
+      "concentrate",
+      "edibles",
+      "cbd",
+      "kratom",
+      "wellness",
+      "Clearlake",
+      ...dealBrands,
+    ],
+    authors: [
+      {
+        name: "Jared Mercer",
+        url: "https://jaredthecomputerguy.dev",
+      },
+    ],
+    creator: "Jared Mercer",
+    openGraph: {
+      title: "Deals | Triple C Collective",
+      url: `${process.env.SITE_URL}/deals`,
+      description: "Lake County's Premier Cannabis Dispensary",
+      siteName: "Triple C Collective",
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Deals | Triple C Collective",
+      description: "Lake County's Premier Cannabis Dispensary",
+      images: [`${process.env.SITE_URL}/deals/opengraph-image.png`],
+    },
+    metadataBase: new URL(`${process.env.SITE_URL}`),
+  };
+}
 
 export const revalidate = 60;
 
