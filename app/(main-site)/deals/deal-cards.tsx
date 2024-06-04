@@ -8,7 +8,10 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
     ...deal,
     image: deal.image as Media,
   }));
-
+  console.log(
+    "deals.brand",
+    dealsWithImages.map((deal) => deal.brand),
+  );
   return (
     <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-2 lg:grid-cols-3">
       {dealsWithImages.map((deal) => (
@@ -17,7 +20,7 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
             pathname: "https://triplec.treez.io/onlinemenu/search",
             query: {
               categories: deal.categories?.join(","),
-              brands: deal.brand,
+              brands: deal.brand.join(","),
             },
           }}
           target="_blank"
