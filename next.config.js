@@ -5,6 +5,7 @@ const { withPayload } = require("@payloadcms/next-payload");
 const cspHeader = `
     default-src *;
     script-src 'self' 'unsafe-eval' 'unsafe-inline';
+    script-src-elem 'self' 'unsafe-eval' 'unsafe-inline' https://va.vercel-scripts.com/v1/script.debug.js;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     img-src 'self' blob: data: https://lh3.googleusercontent.com;
     font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;
@@ -21,7 +22,11 @@ module.exports = withPayload(
     // your Next config here
     experimental: {
       serverActions: true,
-      serverComponentsExternalPackages: ["@react-email/components", "@react-email/render", "@react-email/tailwind"],
+      serverComponentsExternalPackages: [
+        "@react-email/components",
+        "@react-email/render",
+        "@react-email/tailwind",
+      ],
     },
     images: {
       remotePatterns: [
@@ -60,5 +65,5 @@ module.exports = withPayload(
     // Set a custom Payload admin route (optional, default is `/admin`)
     // NOTE: Read the "Set a custom admin route" section in the payload/next-payload README.
     adminRoute: "/admin",
-  }
+  },
 );

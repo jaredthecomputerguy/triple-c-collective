@@ -72,8 +72,7 @@ export const TrapTakeoverCountdown = () => {
         ))}
       </div>
       <a
-        href="https://illaguerrilla.com/#event-list"
-        target="_blank"
+        href="/deals/trap-takeover"
         className="flex items-center gap-1 rounded bg-[#f2c029] px-2 py-1 text-lg outline-none transition-all hover:bg-[#1a0056]  hover:text-white focus:bg-[#1a0056] focus:text-white focus:outline-white"
       >
         <span>Learn More</span>
