@@ -1,6 +1,6 @@
 "use client";
 
-import React, { SetStateAction, useEffect, useState } from "react";
+import React, { ReactNode, SetStateAction, useEffect, useState } from "react";
 
 import { BarsIcon } from "./icons/bar-icon";
 import { CartIcon } from "./icons/cart-icon";
@@ -13,15 +13,27 @@ import { usePathname } from "next/navigation";
 import { TopBanner } from "./top-banner";
 import { VoteIcon } from "./icons/vote-icon";
 import { TrapTakeoverBanner } from "./trap-takeover-banner";
+import {
+  ChevronRight,
+  HomeIcon,
+  UsersRoundIcon,
+  Gem,
+  BanknoteIcon,
+  PhoneIcon as ContactUsIcon,
+} from "lucide-react";
 
 const LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/reward-program", label: "Rewards" },
-  { href: "/deals", label: "Deals" },
+  { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
+  { href: "/about", label: "About", icon: <UsersRoundIcon size={26} /> },
+  { href: "/reward-program", label: "Rewards", icon: <Gem size={26} /> },
+  { href: "/deals", label: "Deals", icon: <BanknoteIcon size={26} /> },
   // TODO: Save this for subsequent years
   // { href: "/deals/420-deals", label: "4/20" },
-  { href: "/contact", label: "Contact" },
+  {
+    href: "/contact",
+    label: "Contact",
+    icon: <ContactUsIcon size={26} />,
+  },
 ];
 
 export const Header = () => {
@@ -117,6 +129,7 @@ export const Header = () => {
                   <MobileNavLink
                     href={link.href}
                     label={link.label}
+                    icon={link.icon}
                     key={link.href}
                     setShowMobileMenu={setShowMobileMenu}
                   />
@@ -124,7 +137,7 @@ export const Header = () => {
               </ul>
             </nav>
             <div
-              className="h-dvh fixed left-0 top-0 -z-10 w-screen"
+              className="fixed left-0 top-0 -z-10 h-dvh w-screen"
               onClick={() => setShowMobileMenu(false)}
             />
           </>
@@ -173,22 +186,28 @@ const NavLink = ({
 const MobileNavLink = ({
   href,
   label,
+  icon,
   setShowMobileMenu,
 }: {
   href: string;
   label: string;
+  icon: ReactNode;
   setShowMobileMenu: React.Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
-    <li>
+    <li className="block">
       <Link
         onClick={() => {
           setShowMobileMenu(false);
         }}
-        className="block w-full py-4 font-semibold uppercase outline-none transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
+        className="flex w-full items-center justify-between px-6 py-4 font-semibold uppercase outline-none transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
         href={href}
       >
-        {label}
+        <span className="flex items-center gap-4">
+          {icon}
+          {label}
+        </span>
+        <ChevronRight />
       </Link>
     </li>
   );
