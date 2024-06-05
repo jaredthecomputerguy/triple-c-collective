@@ -30,7 +30,7 @@ export const TrapTakeoverBanner = ({ active }: { active: boolean }) => {
         </div>
       </div>
       <Button
-        className="absolute right-2 p-1 duration-300 ease-in-out hover:animate-spin md:right-8"
+        className="absolute right-2 p-1 md:right-7"
         onClick={() => setShowBanner(false)}
         variant="ghost"
       >
