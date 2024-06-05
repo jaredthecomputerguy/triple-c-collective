@@ -12,12 +12,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { TopBanner } from "./top-banner";
 import { VoteIcon } from "./icons/vote-icon";
+import { TrapTakeoverBanner } from "./trap-takeover-banner";
 
 const LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/reward-program", label: "Rewards" },
   { href: "/deals", label: "Deals" },
+  // TODO: Save this for subsequent years
   // { href: "/deals/420-deals", label: "4/20" },
   { href: "/contact", label: "Contact" },
 ];
@@ -45,6 +47,7 @@ export const Header = () => {
         bannerText="Lake Fest Voting Boxes Now Available"
         icon={<VoteIcon className="h-6 w-6" />}
       />
+      <TrapTakeoverBanner active />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
         <div className="flex justify-between bg-primary-purple px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
@@ -177,7 +180,7 @@ const MobileNavLink = ({
   setShowMobileMenu: React.Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
-    <li className="">
+    <li>
       <Link
         onClick={() => {
           setShowMobileMenu(false);
