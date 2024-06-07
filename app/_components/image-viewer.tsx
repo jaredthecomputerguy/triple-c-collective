@@ -29,6 +29,7 @@ export const ImageViewer = ({
           width={width}
           height={height}
           priority
+          tabIndex={0}
         />
       </PhotoView>
     </PhotoProvider>

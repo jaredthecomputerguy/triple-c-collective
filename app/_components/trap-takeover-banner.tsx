@@ -22,7 +22,7 @@ export const TrapTakeoverBanner = ({ active }: { active: boolean }) => {
             >
               <Link href="/deals/trap-takeover" className="flex gap-2">
                 <span className="font-trap-takeover uppercase">
-                  Trap Takeover is Here
+                  Trap Takeover is Here - 12PM
                 </span>
               </Link>
             </Button>

@@ -1,4 +1,6 @@
 import { ImageViewer } from "@/app/_components/image-viewer";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function TrapTakeoverPage() {
   return (
@@ -8,10 +10,77 @@ export default function TrapTakeoverPage() {
         <h1 className="pb-4 font-logo text-4xl font-semibold">Trap Takeover</h1>
         <hr className="pb-4" />
         <section>
-          {/* <h2 className="py-4 font-logo text-3xl font-semibold">
-             Featured Brands
-           </h2>
-          <p className="py-4 text-lg"></p> */}
+          <h2 className="py-4 text-center font-logo text-3xl font-semibold md:text-left">
+            Featured Brands
+          </h2>
+          <div className="flex flex-col justify-evenly py-8 text-lg sm:flex-row">
+            <div className="flex flex-col items-center hover:underline">
+              <Link
+                className="p-2"
+                href="https://www.akwaabafarms.com/"
+                target="_blank"
+              >
+                <h3 className="text-center font-logo text-2xl font-semibold">
+                  Akwaaba Farms
+                </h3>
+                <Image
+                  src="/images/brands/akwaaba.png"
+                  width={200}
+                  height={200}
+                  alt="Akwaaba Farms Logo"
+                />
+              </Link>
+            </div>
+            <div className="flex flex-col items-center hover:underline">
+              <Link
+                className="p-2"
+                href="https://www.dompen.co"
+                target="_blank"
+              >
+                <h3 className="font-logo text-2xl font-semibold">Dompen</h3>
+                <Image
+                  src="/images/brands/dompen.avif"
+                  width={200}
+                  height={200}
+                  alt="Dompen Logo"
+                />
+              </Link>
+            </div>
+            <div className="flex flex-col items-center hover:underline">
+              <Link
+                className="p-2"
+                href="https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=BIG%20BOY%20DRO"
+                target="_blank"
+              >
+                <h3 className="font-logo text-2xl font-semibold">
+                  Big Boy Dro
+                </h3>
+                <Image
+                  src="/images/brands/big-boy-dro.png"
+                  width={200}
+                  height={200}
+                  alt="Big Boy Dro Logo"
+                />
+              </Link>
+            </div>
+            <div className="flex flex-col items-center hover:underline">
+              <Link
+                className="p-2"
+                href="https://www.midsfactory.com/"
+                target="_blank"
+              >
+                <h3 className="font-logo text-2xl font-semibold">
+                  Midsfactory
+                </h3>
+                <Image
+                  src="/images/brands/midsfactory.png"
+                  width={200}
+                  height={200}
+                  alt="Midsfactory Logo"
+                />
+              </Link>
+            </div>
+          </div>
         </section>
         <ImageViewer
           className="mx-auto h-full w-full cursor-pointer object-cover object-top"
