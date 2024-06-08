@@ -54,7 +54,10 @@ export default function TrapTakeoverPage() {
           >
             {IS_ACTIVE ? (
               FEATURED_BRANDS.map((brand) => (
-                <div className="flex flex-col items-center hover:underline">
+                <div
+                  className="flex flex-col items-center hover:underline"
+                  key={brand.name}
+                >
                   <Link className="p-2" href={brand.url} target="_blank">
                     <h3 className="text-center font-logo text-2xl font-semibold">
                       {brand.name}
