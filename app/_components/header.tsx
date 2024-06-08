@@ -59,7 +59,7 @@ export const Header = () => {
         bannerText="Lake Fest Voting Boxes Now Available"
         icon={<VoteIcon className="h-6 w-6" />}
       />
-      <TrapTakeoverBanner active />
+      <TrapTakeoverBanner active={false} />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
         <div className="flex justify-between bg-primary-purple px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
@@ -137,7 +137,7 @@ export const Header = () => {
               </ul>
             </nav>
             <div
-              className="fixed left-0 top-0 -z-10 h-dvh w-screen"
+              className="h-dvh fixed left-0 top-0 -z-10 w-screen"
               onClick={() => setShowMobileMenu(false)}
             />
           </>
