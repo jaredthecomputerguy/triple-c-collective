@@ -180,7 +180,7 @@ export default async function DealsPage() {
           )}
         </section>
         <section className="py-12">
-          <TrapTakeoverCountdown />
+          <TrapTakeoverCountdown linkUrl="/deals/trap-takeover" labelText="Learn more" />
         </section>
       </div>
     </main>

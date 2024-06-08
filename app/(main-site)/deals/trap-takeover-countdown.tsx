@@ -8,7 +8,15 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export const TrapTakeoverCountdown = () => {
+export const TrapTakeoverCountdown = ({
+  linkUrl,
+  target,
+  labelText,
+}: {
+  linkUrl: string;
+  target?: string;
+  labelText: string;
+}) => {
   const [timeRemaining, setTimeRemaining] =
     useState<TimeRemainingUntilFirstOrThirdFriday>({
       Days: "--",
@@ -72,10 +80,11 @@ export const TrapTakeoverCountdown = () => {
         ))}
       </div>
       <a
-        href="/deals/trap-takeover"
+        href={linkUrl}
         className="flex items-center gap-1 rounded bg-[#f2c029] px-2 py-1 text-lg outline-none transition-all hover:bg-[#1a0056]  hover:text-white focus:bg-[#1a0056] focus:text-white focus:outline-white"
+        target={target}
       >
-        <span>Learn More</span>
+        <span>{labelText}</span>
         <ArrowRight size={18} />
       </a>
     </div>
