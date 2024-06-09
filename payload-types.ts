@@ -189,6 +189,7 @@ export interface Deal {
     | 'LARAMIE'
     | 'LEVEL'
     | 'LIGHTER LEASH'
+    | 'LIME'
     | 'LMFAO'
     | 'LOOKAH'
     | 'LOOKAH ORIGINAL DESIGN GLASS'
