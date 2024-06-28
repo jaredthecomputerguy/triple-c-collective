@@ -11,7 +11,6 @@ import { LocationIcon } from "./icons/location-icon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { TopBanner } from "./top-banner";
-import { VoteIcon } from "./icons/vote-icon";
 import { TrapTakeoverBanner } from "./trap-takeover-banner";
 import {
   ChevronRight,
@@ -20,6 +19,7 @@ import {
   Gem,
   BanknoteIcon,
   PhoneIcon as ContactUsIcon,
+  LeafIcon,
 } from "lucide-react";
 
 const LINKS = [
@@ -56,8 +56,11 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        bannerText="Lake Fest Voting Boxes Now Available"
-        icon={<VoteIcon className="h-6 w-6" />}
+        className="text-base font-semibold md:text-lg"
+        bannerText="Real CA Cannabis Dispensary"
+        showIcon
+        icon={<LeafIcon className="size-5 text-white" />}
+        active
       />
       <TrapTakeoverBanner active={false} />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
@@ -137,7 +140,7 @@ export const Header = () => {
               </ul>
             </nav>
             <div
-              className="h-dvh fixed left-0 top-0 -z-10 w-screen"
+              className="fixed left-0 top-0 -z-10 h-dvh w-screen"
               onClick={() => setShowMobileMenu(false)}
             />
           </>
