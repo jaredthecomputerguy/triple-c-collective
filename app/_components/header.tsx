@@ -58,7 +58,6 @@ export const Header = () => {
       <TopBanner
         className="text-base font-semibold md:text-lg"
         bannerText="Real CA Cannabis Dispensary"
-        showIcon
         icon={<LeafIcon className="size-5 text-white" />}
         active
       />
@@ -140,7 +139,7 @@ export const Header = () => {
               </ul>
             </nav>
             <div
-              className="fixed left-0 top-0 -z-10 h-dvh w-screen"
+              className="h-dvh fixed left-0 top-0 -z-10 w-screen"
               onClick={() => setShowMobileMenu(false)}
             />
           </>

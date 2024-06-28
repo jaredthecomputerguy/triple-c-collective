@@ -9,14 +9,12 @@ export const TopBanner = ({
   className = "px-1 py-2 text-sm font-semibold md:text-lg",
   active,
   bannerText,
-  showIcon,
   icon,
   link = "/deals",
 }: {
   className?: string;
   active?: boolean;
   bannerText: string;
-  showIcon?: boolean;
   icon?: ReactNode;
   link?: string;
 }) => {
@@ -33,9 +31,9 @@ export const TopBanner = ({
           <span className="flex items-center justify-center font-semibold">
             <Button asChild className={className} variant="link">
               <Link href={link} className="flex gap-2">
-                {showIcon && icon}
+                {icon}
                 {bannerText}
-                {showIcon && icon}
+                {icon}
               </Link>
             </Button>
           </span>
