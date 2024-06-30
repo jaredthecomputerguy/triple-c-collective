@@ -221,7 +221,7 @@ export default async function RealCACannabisPage() {
                     href="/pdf/dcc-factbook.pdf"
                     target="_blank"
                     rel="noreferrer"
-                    download
+                    download="real-ca-cannabis-factsheet.pdf"
                     title="Download the Real CA Cannabis Fact Sheet"
                   >
                     Download Fact Sheet
