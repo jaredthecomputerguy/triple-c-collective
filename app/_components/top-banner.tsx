@@ -6,15 +6,15 @@ import { CloseIcon } from "./icons/close-icon";
 import { Button } from "./button";
 
 export const TopBanner = ({
-  className = "px-1 py-2 text-sm font-semibold md:text-lg",
   active,
   bannerText,
+  className = "px-1 py-2 text-sm font-semibold md:text-lg",
   icon,
   link = "/deals",
 }: {
-  className?: string;
   active?: boolean;
   bannerText: string;
+  className?: string;
   icon?: ReactNode;
   link?: string;
 }) => {

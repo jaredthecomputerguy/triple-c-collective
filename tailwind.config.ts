@@ -17,6 +17,7 @@ const config: Config = {
       fontFamily: {
         logo: ["var(--font-logo)"],
         main: ["'Open Sans'"],
+        serif: ["'DM Serif Display'"],
       },
       colors: {
         "primary-purple": "rgb(43, 7, 77)",

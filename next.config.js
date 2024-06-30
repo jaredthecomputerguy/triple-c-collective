@@ -9,10 +9,10 @@ const cspHeader = `
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     img-src 'self' blob: data: https://lh3.googleusercontent.com https://triple-c-collective.s3.us-west-1.amazonaws.com;
     font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;
-    object-src 'none';
+    object-src 'self';
     base-uri 'self';
     form-action 'self';
-    frame-ancestors 'none';
+    frame-ancestors 'self';
     block-all-mixed-content;
     upgrade-insecure-requests;
 `;
