@@ -15,8 +15,8 @@ export default function RealCACannabisPage() {
                     Discover the Real CA Cannabis Program
                   </h1>
                   <p className="text-muted-foreground max-w-[600px] md:text-xl">
-                    The Department of Cannabis Control&asos;s &apos;Real CA
-                    Cannabis&apos; program ensures you&aposre purchasing from
+                    The Department of Cannabis Control&apos;s &apos;Real CA
+                    Cannabis&apos; program ensures you&apos;re purchasing from
                     licensed and compliant cannabis retailers. Support local
                     businesses and get the best quality products.
                   </p>
