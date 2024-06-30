@@ -1,6 +1,56 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/app/_components/button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Real CA Cannabis | Triple C Collective",
+  description:
+    "Learn more about the Real CA Cannabis program at Triple C Collective, serving Lake County, California.",
+  keywords: [
+    "cannabis",
+    "real ca cannabis",
+    "legal cannabis",
+    "dispensary",
+    "marijuana",
+    "weed",
+    "pot",
+    "Lake County",
+    "California",
+    "Triple C Collective",
+    "flower",
+    "dab",
+    "concentrate",
+    "edibles",
+    "cbd",
+    "kratom",
+    "wellness",
+    "Clearlake",
+  ],
+  authors: [
+    {
+      name: "Jared Mercer",
+      url: "https://jaredthecomputerguy.dev",
+    },
+  ],
+  creator: "Jared Mercer",
+  openGraph: {
+    title: "Real CA Cannabis | Triple C Collective",
+    url: `${process.env.SITE_URL}`,
+    description: "Lake County's Premier Cannabis Dispensary",
+    images: `${process.env.SITE_URL}/opengraph-image.png`,
+    siteName: "Triple C Collective",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Real CA Cannabis | Triple C Collective",
+    description: "Lake County's Premier Cannabis Dispensary",
+    images: [`${process.env.SITE_URL}/opengraph-image.png`],
+  },
+  metadataBase: new URL(`${process.env.SITE_URL}`),
+};
 
 export default async function RealCACannabisPage() {
   return (
