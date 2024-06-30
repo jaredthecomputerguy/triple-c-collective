@@ -15,10 +15,10 @@ export default function RealCACannabisPage() {
                     Discover the Real CA Cannabis Program
                   </h1>
                   <p className="text-muted-foreground max-w-[600px] md:text-xl">
-                    The Department of Cannabis Control's 'Real CA Cannabis'
-                    program ensures you're purchasing from licensed and
-                    compliant cannabis retailers. Support local businesses and
-                    get the best quality products.
+                    The Department of Cannabis Control&asos;s &apos;Real CA
+                    Cannabis&apos; program ensures you&aposre purchasing from
+                    licensed and compliant cannabis retailers. Support local
+                    businesses and get the best quality products.
                   </p>
                   <Button
                     variant="link"
@@ -61,7 +61,7 @@ export default function RealCACannabisPage() {
                   California Department of Cannabis Control to help consumers
                   identify licensed and compliant cannabis retailers. By
                   purchasing from these verified businesses, you can be
-                  confident you're getting high-quality, safe products.
+                  confident you&apos;re getting high-quality, safe products.
                 </p>
               </div>
               <Image
@@ -93,8 +93,8 @@ export default function RealCACannabisPage() {
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Buying cannabis from licensed and compliant retailers ensures
-                  you're getting safe, high-quality products that meet strict
-                  regulatory standards. This supports the legal cannabis
+                  you&apos;re getting safe, high-quality products that meet
+                  strict regulatory standards. This supports the legal cannabis
                   industry in California and helps protect consumers from the
                   risks of the illicit market.
                 </p>
@@ -114,8 +114,8 @@ export default function RealCACannabisPage() {
                 </h2>
                 <p className="text-muted-foreground max-w-[900px] font-semibold md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   The Real CA Cannabis program is an official initiative of the
-                  California Department of Cannabis Control. We're proud to work
-                  with them to help you shop safely and responsibly.
+                  California Department of Cannabis Control. We&apos;re proud to
+                  work with them to help you shop safely and responsibly.
                 </p>
               </div>
               <div className="flex flex-col">
