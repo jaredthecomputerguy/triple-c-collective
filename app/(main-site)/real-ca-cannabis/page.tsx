@@ -71,8 +71,8 @@ export default async function RealCACannabisPage() {
                     businesses and get the best quality products.
                   </p>
                   <Button
-                    variant="link"
-                    className="border border-black"
+                    variant="outline"
+                    className="mx-auto my-2 w-fit border-black/50 hover:border-black hover:underline hover:shadow"
                     asChild
                   >
                     <Link
