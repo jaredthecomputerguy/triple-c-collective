@@ -21,6 +21,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/app/_components/accordian";
+import { Button } from "../_components/button";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -214,6 +215,45 @@ export default function HomePage() {
             <ReviewCard key={review.id} review={review} />
           ))}
         </div>
+
+        <div className="mx-auto max-w-4xl px-4 py-12">
+          <div className="pb-6">
+            <h5 className="text-center font-logo text-4xl font-semibold">
+              Real CA Cannabis
+            </h5>
+            <p className="pt-1 text-center text-xl font-bold tracking-tighter text-gray-700">
+              Recognized by the State of California
+            </p>
+          </div>
+          <hr />
+          <div className="container mx-auto px-4 pt-6 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <p className="text-muted-foreground max-w-[900px] font-semibold md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  The Real CA Cannabis program is an official initiative of the
+                  California Department of Cannabis Control. We&apos;re proud to
+                  work with them to help you shop safely and responsibly.
+                </p>
+              </div>
+              <div className="flex flex-col">
+                <Image
+                  src="/images/dcc-logo.png"
+                  width={280}
+                  height={140}
+                  alt="Logo"
+                />
+                <Button
+                  variant="outline"
+                  className="mx-auto my-2 w-fit border-black/50 hover:border-black hover:shadow"
+                  asChild
+                >
+                  <Link href="/real-ca-cannabis">Learn More</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="px-4 pb-10">
           <h5 className="py-8 text-center font-logo text-4xl font-semibold">
             Frequently Asked Questions
