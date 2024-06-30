@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/app/_components/button";
 
-export default function RealCACannabisPage() {
+export default async function RealCACannabisPage() {
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <main className="flex-1">
@@ -159,16 +159,6 @@ export default function RealCACannabisPage() {
                     Download Fact Sheet
                   </a>
                 </Button>
-                <div className="w-full max-w-2xl">
-                  <embed
-                    className="mx-auto"
-                    src="/pdf/dcc-factbook.pdf"
-                    type="application/pdf"
-                    width="100%"
-                    height="600rem"
-                    title="Download the Real CA Cannabis Fact Sheet"
-                  />
-                </div>
               </div>
             </div>
           </div>
