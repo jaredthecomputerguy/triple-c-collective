@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/app/_components/button";
 import { Metadata } from "next";
+import { Search } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Real CA Cannabis | Triple C Collective",
@@ -70,19 +71,36 @@ export default async function RealCACannabisPage() {
                     licensed and compliant cannabis retailers. Support local
                     businesses and get the best quality products.
                   </p>
-                  <Button
-                    variant="outline"
-                    className="mx-auto my-2 w-fit border-black/50 hover:border-black hover:underline hover:shadow"
-                    asChild
-                  >
-                    <Link
-                      href="https://real.cannabis.ca.gov/"
-                      prefetch={false}
-                      target="_blank"
+                  <div className="flex w-fit items-center gap-4">
+                    <Button
+                      variant="outline"
+                      className="w-fit-content bg-[#114b3c] font-semibold text-white transition-all hover:bg-[#f0b268] hover:text-[#114b3e]"
+                      asChild
                     >
-                      Learn More
-                    </Link>
-                  </Button>
+                      <Link
+                        href="https://real.cannabis.ca.gov/licensed-retailers/?address=95422"
+                        prefetch={false}
+                        target="_blank"
+                      >
+                        <div className="flex items-center gap-1">
+                          <Search className="h-4 w-4" /> Find Legal Retailers
+                        </div>
+                      </Link>
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="mx-auto my-2 w-fit border-black/50 hover:border-black hover:underline hover:shadow"
+                      asChild
+                    >
+                      <Link
+                        href="https://real.cannabis.ca.gov/"
+                        prefetch={false}
+                        target="_blank"
+                      >
+                        Learn More
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
               <Image
