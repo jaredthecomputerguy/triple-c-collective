@@ -16,6 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
         equals: true,
       },
     },
+    sort: "-updatedAt",
   });
 
   // Get unique brands from deals by creating a Set from the array of brands
@@ -180,7 +181,10 @@ export default async function DealsPage() {
           )}
         </section>
         <section className="py-12">
-          <TrapTakeoverCountdown linkUrl="/deals/trap-takeover" labelText="Learn more" />
+          <TrapTakeoverCountdown
+            linkUrl="/deals/trap-takeover"
+            labelText="Learn more"
+          />
         </section>
       </div>
     </main>

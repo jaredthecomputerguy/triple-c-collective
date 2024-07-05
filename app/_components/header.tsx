@@ -56,13 +56,12 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        active
         bannerText="Real CA Cannabis Dispensary"
         className="text-base font-semibold md:text-lg"
         icon={<LeafIcon className="size-5 text-white" />}
         link="/real-ca-cannabis"
       />
-      <TrapTakeoverBanner active={false} />
+      <TrapTakeoverBanner active={true} />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
         <div className="flex justify-between bg-primary-purple px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
@@ -140,7 +139,7 @@ export const Header = () => {
               </ul>
             </nav>
             <div
-              className="fixed left-0 top-0 -z-10 h-dvh w-screen"
+              className="h-dvh fixed left-0 top-0 -z-10 w-screen"
               onClick={() => setShowMobileMenu(false)}
             />
           </>

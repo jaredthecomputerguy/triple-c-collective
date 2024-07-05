@@ -5,8 +5,8 @@ import Link from "next/link";
 import { TrapTakeoverCountdown } from "../trap-takeover-countdown";
 
 // TODO: Change IS_ACTIVE to true when ready to publish
-const IS_ACTIVE = false;
-const TRAP_TAKEOVER_DATE = "June 21st, 2024";
+const IS_ACTIVE = true;
+const TRAP_TAKEOVER_DATE = "July 5th, 2024";
 
 const FEATURED_BRANDS = [
   {
@@ -20,6 +20,12 @@ const FEATURED_BRANDS = [
     url: "https://www.dompen.co",
     image: "/images/brands/dompen.avif",
     alt: "Dompen Logo",
+  },
+  {
+    name: "Koa",
+    url: "https://www.koacannabis.com/",
+    image: "/images/brands/koa.png",
+    alt: "Koa Logo",
   },
   {
     name: "Big Boy Dro",
@@ -81,7 +87,7 @@ export default function TrapTakeoverPage() {
         {IS_ACTIVE ? (
           <ImageViewer
             className="mx-auto h-full w-full cursor-pointer object-cover object-top"
-            src="/images/trap-takeover/06072024_traptakeover.webp"
+            src="/images/7-5-flyer.jpg"
             alt="Trap Takeover"
             width={1920}
             height={1080}
