@@ -7,6 +7,7 @@ import { TrapTakeoverCountdown } from "../trap-takeover-countdown";
 // TODO: Change IS_ACTIVE to true when ready to publish
 const IS_ACTIVE = true;
 const TRAP_TAKEOVER_DATE = "July 5th, 2024";
+const TRAP_TAKEOVER_FLYER_URL = "/images/7-5-flyer.jpg";
 
 const FEATURED_BRANDS = [
   {
@@ -87,7 +88,7 @@ export default function TrapTakeoverPage() {
         {IS_ACTIVE ? (
           <ImageViewer
             className="mx-auto h-full w-full cursor-pointer object-cover object-top"
-            src="/images/7-5-flyer.jpg"
+            src={TRAP_TAKEOVER_FLYER_URL}
             alt="Trap Takeover"
             width={1920}
             height={1080}
