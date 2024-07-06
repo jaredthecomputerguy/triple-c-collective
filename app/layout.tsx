@@ -5,6 +5,7 @@ import "./globals.css";
 import { Toaster } from "./_components/toaster";
 import NextTopLoader from "nextjs-toploader";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -72,6 +73,7 @@ export default async function RootLayout({
     >
       <body className="relative">
         <Analytics />
+        <SpeedInsights />
         <NextTopLoader color="white" />
         <Toaster />
         {children}
