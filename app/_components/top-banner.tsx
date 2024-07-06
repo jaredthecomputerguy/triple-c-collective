@@ -43,6 +43,7 @@ export const TopBanner = ({
         className="absolute right-2 p-1 md:right-8"
         onClick={() => setShowBanner(false)}
         variant="ghost"
+        name="Close Top Banner"
       >
         <CloseIcon />
       </Button>

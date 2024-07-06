@@ -5,8 +5,8 @@ import Link from "next/link";
 import { TrapTakeoverCountdown } from "../trap-takeover-countdown";
 
 // TODO: Change IS_ACTIVE to true when ready to publish
-const IS_ACTIVE = true;
-const TRAP_TAKEOVER_DATE = "July 5th, 2024";
+const IS_ACTIVE = false;
+const TRAP_TAKEOVER_DATE = "July 19th, 2024";
 const TRAP_TAKEOVER_FLYER_URL = "/images/7-5-flyer.jpg";
 
 const FEATURED_BRANDS = [
