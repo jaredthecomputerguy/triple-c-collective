@@ -20,11 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 
   // Get unique brands from deals by creating a Set from the array of brands
-  const dealBrands = new Set(
-    [...deals.docs, ...deals.docs, ...deals.docs]
-      .map((deal) => deal.brand)
-      .flat(),
-  );
+  const dealBrands = new Set(deals.docs.map((deal) => deal.brand).flat());
 
   return {
     title: "Deals | Triple C Collective",
