@@ -88,7 +88,7 @@ export const Header = () => {
           </div>
           <a
             className="flex items-center justify-center gap-2 rounded p-2 px-4 font-semibold outline-none transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
-            href="http://bit.ly/triple-c-collective"
+            href="https://www.google.com/maps/dir//triple+c+collective/@38.9554237,-122.6496488"
             target="_blank"
           >
             <LocationIcon className="h-4 w-4" />
@@ -139,7 +139,7 @@ export const Header = () => {
               </ul>
             </nav>
             <div
-              className="h-dvh fixed left-0 top-0 -z-10 w-screen"
+              className="fixed left-0 top-0 -z-10 h-dvh w-screen"
               onClick={() => setShowMobileMenu(false)}
             />
           </>
