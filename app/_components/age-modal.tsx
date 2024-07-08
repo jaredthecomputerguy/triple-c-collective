@@ -41,6 +41,7 @@ export const AgeModal = () => {
     }
 
     if (!localAgeConsent && !sessionAgeConsent) {
+      ageModalRef.current?.focus();
       setShowModal(true);
       document.body.style.overflow = "hidden";
     } else {
@@ -82,6 +83,8 @@ export const AgeModal = () => {
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/75"
       ref={ageModalRef}
+      id="age-modal"
+      tabIndex={-1}
       onKeyDown={handleKeyDownInModal}
     >
       <div className="rounded-lg bg-white p-8">
