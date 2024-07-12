@@ -30,7 +30,7 @@ export const TopBanner = ({
         <div className="text-sm md:text-base">
           <span className="flex items-center justify-center font-semibold">
             <Button asChild className={className} variant="link">
-              <Link href={link} className="flex gap-2">
+              <Link href={link} className="flex gap-2" target="_blank">
                 {icon}
                 {bannerText}
                 {icon}

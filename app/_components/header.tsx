@@ -56,10 +56,11 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        bannerText="Real CA Cannabis Dispensary"
+        bannerText="15th Anniversary Deals"
         className="text-base font-semibold md:text-lg"
         icon={<LeafIcon className="size-5 text-white" />}
-        link="/real-ca-cannabis"
+        link="https://triplec.treez.io/onlinemenu/search?customerType=ALL&query=akwaaba"
+        active
       />
       <TrapTakeoverBanner active={false} />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
