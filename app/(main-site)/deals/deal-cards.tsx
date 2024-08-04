@@ -21,12 +21,12 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
             },
           }}
           target="_blank"
-          className="group relative overflow-hidden rounded-xl border border-primary-purple/50 shadow-lg outline-none transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl focus:outline-primary-purple"
+          className="group relative flex flex-col items-center overflow-hidden rounded-xl border border-primary-purple/50 shadow-lg outline-none transition-transform duration-300 ease-in-out hover:-translate-y-1 focus:outline-primary-purple"
           key={deal.id}
         >
           <NewBadge createdAt={deal.createdAt} />
           <Image
-            className="aspect-video object-cover shadow"
+            className="deal-card-shadow aspect-video object-cover"
             src={deal.image.url ?? ""}
             alt={deal.title}
             width={500}
