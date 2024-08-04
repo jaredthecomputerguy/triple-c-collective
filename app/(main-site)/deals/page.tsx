@@ -6,6 +6,8 @@ import { Button } from "@/app/_components/button";
 import Link from "next/link";
 import { DealCategory } from "./deal-category";
 
+export const revalidate = 3600;
+
 export async function generateMetadata(): Promise<Metadata> {
   const payloadClient = await getPayloadClient();
 
@@ -19,7 +21,8 @@ export async function generateMetadata(): Promise<Metadata> {
     sort: "-updatedAt",
   });
 
-  // Get unique brands from deals by creating a Set from the array of brands
+  // Get unique brands from deals by creating a Set from the array of brands.
+  // This is used to generate the SEO keywords for the page.
   const dealBrands = new Set(deals.docs.map((deal) => deal.brand).flat());
 
   return {
@@ -69,10 +72,6 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(`${process.env.SITE_URL}`),
   };
 }
-
-export const revalidate = 60;
-
-export const dynamic = "force-dynamic";
 
 export default async function DealsPage() {
   const payloadClient = await getPayloadClient();
