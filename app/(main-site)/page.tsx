@@ -14,6 +14,7 @@ import logoImg from "@/public/images/logo.png";
 import orderOnlineImg from "@/public/images/order-online.avif";
 import phonecallImg from "@/public/images/phonecall.avif";
 import rewardsImg from "@/public/images/rewards.avif";
+import dccLogoImg from "@/public/images/dcc-logo.png";
 
 import {
   Accordion,
@@ -237,7 +238,7 @@ export default function HomePage() {
               </div>
               <div className="flex flex-col">
                 <Image
-                  src="/images/dcc-logo.png"
+                  src={dccLogoImg}
                   width={280}
                   height={140}
                   alt="Logo"
