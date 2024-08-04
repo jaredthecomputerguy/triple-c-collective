@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { KeyboardEventHandler, useEffect, useRef, useState } from "react";
+import { type KeyboardEventHandler, useEffect, useRef, useState } from "react";
 
 export const AgeModal = () => {
   const [showModal, setShowModal] = useState<boolean>();

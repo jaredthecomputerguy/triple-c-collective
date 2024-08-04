@@ -1,8 +1,14 @@
-import { SVGProps } from "react";
+import { type SVGProps } from "react";
 
-export const InstagramIcon = ({ className = "w-7 h-7" }: SVGProps<SVGElement>) => {
+export const InstagramIcon = ({
+  className = "w-7 h-7",
+}: SVGProps<SVGElement>) => {
   return (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 448 512"
+    >
       <defs>
         <linearGradient id="strokeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#f9ce34" />

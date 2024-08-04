@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import { type ReactNode, useState } from "react";
 import Link from "next/link";
 import { CloseIcon } from "./icons/close-icon";
 import { Button } from "./button";

@@ -1,6 +1,11 @@
 "use client";
 
-import React, { ReactNode, SetStateAction, useEffect, useState } from "react";
+import React, {
+  type ReactNode,
+  type SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 
 import { BarsIcon } from "./icons/bar-icon";
 import { CartIcon } from "./icons/cart-icon";
@@ -140,7 +145,7 @@ export const Header = () => {
               </ul>
             </nav>
             <div
-              className="fixed left-0 top-0 -z-10 h-dvh w-screen"
+              className="h-dvh fixed left-0 top-0 -z-10 w-screen"
               onClick={() => setShowMobileMenu(false)}
             />
           </>

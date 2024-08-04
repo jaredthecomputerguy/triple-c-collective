@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import { GoogleMapEmbed } from "./google-map-embed";
 import { ContactForm } from "./contact-form";
 import { FacebookIcon } from "@/app/_components/icons/facebook-icon";

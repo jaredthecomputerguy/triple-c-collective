@@ -7,7 +7,7 @@ import { SlPresent } from "react-icons/sl";
 import { cn } from "@/lib/utils";
 import { CartridgeIcon } from "@/app/_components/icons/cartridge";
 import { GoogleMapEmbed } from "../../contact/google-map-embed";
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ImageViewer } from "@/app/_components/image-viewer";
 

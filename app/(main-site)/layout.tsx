@@ -1,5 +1,5 @@
-import { Metadata } from "next";
-import { ReactNode } from "react";
+import { type Metadata } from "next";
+import { type ReactNode } from "react";
 import { Header } from "../_components/header";
 import { AgeModal } from "../_components/age-modal";
 import { Footer } from "../_components/footer";

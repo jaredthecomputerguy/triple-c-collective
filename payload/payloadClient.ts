@@ -1,4 +1,4 @@
-import { Payload, getPayload } from "payload/dist/payload";
+import { type Payload, getPayload } from "payload/dist/payload";
 import config from "./payload.config";
 
 if (!process.env.PAYLOAD_SECRET) {

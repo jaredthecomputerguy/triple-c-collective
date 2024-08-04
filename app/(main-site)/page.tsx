@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -237,12 +237,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="flex flex-col">
-                <Image
-                  src={dccLogoImg}
-                  width={280}
-                  height={140}
-                  alt="Logo"
-                />
+                <Image src={dccLogoImg} width={280} height={140} alt="Logo" />
                 <Button
                   variant="outline"
                   className="mx-auto my-2 w-fit border-black/50 hover:border-black hover:shadow"

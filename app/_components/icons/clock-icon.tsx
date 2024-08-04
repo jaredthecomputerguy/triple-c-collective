@@ -1,7 +1,7 @@
-import { SVGProps } from "react";
+import { type SVGProps } from "react";
 
 export const ClockIcon = ({
-  className = "w-6 h-6",
+  className = "h-6 w-6",
   stroke = "currentColor",
   strokeWidth = 1.5,
 }: SVGProps<SVGElement>) => {

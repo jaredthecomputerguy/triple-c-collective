@@ -1,4 +1,4 @@
-import { UserConfig, defineConfig } from "vitest/config";
+import { type UserConfig, defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({

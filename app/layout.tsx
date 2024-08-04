@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { type Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 

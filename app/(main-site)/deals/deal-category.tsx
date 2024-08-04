@@ -1,4 +1,4 @@
-import { Deal } from "@/payload-types";
+import { type Deal } from "@/payload-types";
 import { DealCards } from "./deal-cards";
 
 interface DealCategoryProps {

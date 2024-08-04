@@ -1,4 +1,4 @@
-import { CollectionConfig } from "payload/types";
+import { type CollectionConfig } from "payload/types";
 import brands from "../brands.json";
 
 export const Deals: CollectionConfig = {

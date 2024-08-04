@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import Image from "next/image";
 import rewardsPageImg from "@/public/images/rewards-program.avif";
 
@@ -65,7 +65,7 @@ export default function RewardsPage() {
             <Image
               className="rounded-xl"
               src={rewardsPageImg}
-              alt="A quarter with the shadow of a cannabis leaf"
+              alt="A quarter with the of a cannabis leaf shadow"
             />
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function RewardsPage() {
               Sign Up
             </h2>
             <hr className="h-px w-full" />
-            <p className="mb-8 text-balance py-2 text-center text-gray-800">
+            <p className="text-balance mb-8 py-2 text-center text-gray-800">
               Visit the store or place an order online to have an account
               created. You&apos;ll be automatically opted in to our rewards
               program.

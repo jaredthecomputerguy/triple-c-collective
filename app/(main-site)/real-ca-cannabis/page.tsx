@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/app/_components/button";
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import { Search } from "lucide-react";
 
 export const metadata: Metadata = {

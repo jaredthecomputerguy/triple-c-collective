@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import { TrapTakeoverCountdown } from "./trap-takeover-countdown";
 import getPayloadClient from "@/payload/payloadClient";
 import Image from "next/image";
