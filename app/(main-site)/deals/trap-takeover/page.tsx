@@ -1,19 +1,32 @@
 import { ImageViewer } from "@/app/_components/image-viewer";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { TrapTakeoverCountdown } from "../trap-takeover-countdown";
 
-// TODO: Change IS_ACTIVE to true when ready to publish
-const IS_ACTIVE = false;
-const TRAP_TAKEOVER_DATE = "July 19th, 2024";
+// SHOW_PAGE determines whether to show the coming soon page or not
+const SHOW_PAGE = true;
+// HAVE_FLYER determines whether to show the flyer or not
+const HAVE_FLYER = false;
+
+const TRAP_TAKEOVER_DATE = "August 16th, 2024";
 const TRAP_TAKEOVER_FLYER_URL = "/images/7-5-flyer.jpg";
 
-const FEATURED_BRANDS = [
+type FeaturedBrand = {
+  name: string;
+  url: string;
+  image: StaticImageData | string;
+  alt: string;
+};
+
+// Local imports for the image assets
+import akwaaba from "@/public/images/brands/akwaaba.png";
+
+const FEATURED_BRANDS: FeaturedBrand[] = [
   {
     name: "Akwaaba Farms",
     url: "https://www.akwaabafarms.com/",
-    image: "/images/brands/akwaaba.png",
+    image: akwaaba,
     alt: "Akwaaba Farms Logo",
   },
   {
@@ -56,10 +69,10 @@ export default function TrapTakeoverPage() {
           <div
             className={cn(
               "flex flex-col justify-evenly py-8 text-lg sm:flex-row",
-              IS_ACTIVE ? "" : "sm:justify-start",
+              SHOW_PAGE ? "" : "sm:justify-start",
             )}
           >
-            {IS_ACTIVE ? (
+            {SHOW_PAGE ? (
               FEATURED_BRANDS.map((brand) => (
                 <div
                   className="flex flex-col items-center hover:underline"
@@ -85,7 +98,7 @@ export default function TrapTakeoverPage() {
             )}
           </div>
         </section>
-        {IS_ACTIVE ? (
+        {HAVE_FLYER ? (
           <ImageViewer
             className="mx-auto h-full w-full cursor-pointer object-cover object-top"
             src={TRAP_TAKEOVER_FLYER_URL}
