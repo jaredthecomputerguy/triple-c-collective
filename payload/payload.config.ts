@@ -9,6 +9,7 @@ import { webpackBundler } from "@payloadcms/bundler-webpack";
 
 import { Media } from "./collections/media";
 import { Deals } from "./collections/deals";
+import { RevalidateDeals } from "./revalidate-deals";
 
 export default buildConfig({
   db: mongooseAdapter({
@@ -18,6 +19,9 @@ export default buildConfig({
   editor: slateEditor({}),
   admin: {
     bundler: webpackBundler(),
+    components: {
+      actions: [RevalidateDeals],
+    },
   },
   collections: [Media, Deals],
   globals: [

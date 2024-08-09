@@ -3,6 +3,9 @@ import brands from "../brands.json";
 
 export const Deals: CollectionConfig = {
   slug: "deals",
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: "active",
