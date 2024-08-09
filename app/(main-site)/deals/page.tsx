@@ -113,6 +113,10 @@ export default async function DealsPage() {
     );
   });
 
+  const merchDeals = deals.docs.filter((deal) => {
+    return deal.categories?.includes("merch");
+  });
+
   console.log(deals.docs);
 
   return (
@@ -173,6 +177,11 @@ export default async function DealsPage() {
                 categoryTitle="Pills and Tinctures"
                 categorySubtitle="Discreet, easy-to-dose options for tailored relief."
                 deals={pillAndTinctureDeals}
+              />
+              <DealCategory
+                categoryTitle="Other Deals"
+                categorySubtitle="Merch, papers, glassware, and more."
+                deals={merchDeals}
               />
             </>
           )}
