@@ -72,12 +72,14 @@ export default async function DealsPage() {
   );
   const fetchedDeals = (await res.json()) as DealsResponse;
 
-  const deals = fetchedDeals.items.map((deal) => {
-    return {
-      ...deal,
-      image: getDealImageUrl(deal),
-    };
-  });
+  const deals = fetchedDeals.items
+    .map((deal) => {
+      return {
+        ...deal,
+        image: getDealImageUrl(deal),
+      };
+    })
+    .filter((deal) => deal.active);
 
   const flowerAndPrerollDeals = deals.filter((deal) => {
     return (
