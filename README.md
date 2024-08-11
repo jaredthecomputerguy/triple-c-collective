@@ -24,7 +24,6 @@ Triple C Collective is a cannabis dispensary dedicated to providing high-quality
 - Nodemailer: A module for Node.js applications to allow easy email sending.
 - Vitest: A Vite-native testing framework.
 - Husky: A tool that allows for Git hooks to be easily configured.
-- AWS S3: Amazon Simple Storage Service for storing website assets.
 - lint-staged: A tool for running scripts on staged files in Git.
 - React Email: A library for sending HTML emails using React.
 - Google Maps API: For integrating maps and location services into the website.
@@ -66,12 +65,8 @@ To run this project locally, follow these steps:
    NODEMAILER_USER="MY_USER"
    NODEMAILER_PASSWORD="MY_PASSWORD"
 
-   # S3
-   AWS_BUCKET="MY_BUCKET"
-   AWS_REGION="MY_REGION"
-   AWS_KEY="MY_KEY"
-   AWS_SECRET_ACCESS_KEY="MY_SECRET_KEY"
-   AWS_S3_ENDPOINT="https://..."
+   # Vercel/Next
+   SITE_URL="https://triple-c-collective.vercel.app"
    ```
 
 5. Run the application
