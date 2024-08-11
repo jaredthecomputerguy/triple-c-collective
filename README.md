@@ -20,7 +20,7 @@ Triple C Collective is a cannabis dispensary dedicated to providing high-quality
 
 - Next.js: A React framework for building server-side rendered applications.
 - Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
-- Payload CMS: A headless CMS for managing website content.
+- Pocketbase: An external CMS for managing website content hosted on a personal VPS.
 - Nodemailer: A module for Node.js applications to allow easy email sending.
 - Vitest: A Vite-native testing framework.
 - Husky: A tool that allows for Git hooks to be easily configured.
@@ -54,10 +54,10 @@ To run this project locally, follow these steps:
 4. Fill out all environment variables in .env
 
    ```bash
-   # PayloadCMS Secrets
-   MONGODB_URI="MY_URI"
-   PAYLOAD_SECRET="MY_SECRET"
-   PAYLOAD_CONFIG_PATH="payload/payload.config.ts"
+   # Pocketbase 
+   POCKETBASE_BASE_URL="https://"
+   POCKETBASE_DEAL_URL="/api/deals/"
+   POCKETBASE_IMAGE_URL="/files/deals/"
 
    # Google Maps Embed
    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY="MY_API_KEY"
@@ -74,13 +74,7 @@ To run this project locally, follow these steps:
    AWS_S3_ENDPOINT="https://..."
    ```
 
-5. Generate the PayloadCMS types
-
-   ```bash
-   npm run generate
-   ```
-
-6. Run the application
+5. Run the application
 
    ```bash
    npm run dev
