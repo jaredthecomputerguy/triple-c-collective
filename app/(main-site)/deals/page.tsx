@@ -6,8 +6,6 @@ import Link from "next/link";
 import { DealCategory } from "./deal-category";
 import { getDealImageUrl, type DealsResponse } from "@/lib/utils";
 
-export const revalidate = 3600;
-
 export async function generateMetadata(): Promise<Metadata> {
   const res = await fetch(
     `${process.env.POCKETBASE_BASE_URL!}/${process.env.POCKETBASE_DEAL_URL}`,
