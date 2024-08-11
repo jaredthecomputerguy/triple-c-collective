@@ -1,12 +1,38 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+export type DealsResponse = {
+  page: number;
+  perPage: number;
+  totalItems: number;
+  totalPages: number;
+  items: Deal[];
+};
+
+export type Deal = {
+  active: boolean;
+  brands: string[];
+  categories: string[];
+  collectionId: string;
+  collectionName: string;
+  created: string; // ISO 8601 date string
+  description: string;
+  id: string;
+  image: string;
+  title: string;
+  updated: string; // ISO 8601 date string
+};
+
 export type TimeRemainingUntilFirstOrThirdFriday = {
   Days: string;
   Hours: string;
   Minutes: string;
   Seconds: string;
 };
+
+export function getDealImageUrl(deal: Deal) {
+  return `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_IMAGE_URL}/${deal.id}/${deal.image}`;
+}
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

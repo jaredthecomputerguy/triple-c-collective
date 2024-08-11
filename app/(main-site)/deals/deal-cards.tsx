@@ -1,33 +1,27 @@
-import type { Media, Deal } from "@/payload-types";
 import Image from "next/image";
 import Link from "next/link";
-import { isDateLessThan } from "@/lib/utils";
+import { isDateLessThan, type Deal } from "@/lib/utils";
 
 export const DealCards = ({ deals }: { deals: Deal[] }) => {
-  const dealsWithImages = deals.map((deal) => ({
-    ...deal,
-    image: deal.image as Media,
-  }));
-
   return (
     <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-2 lg:grid-cols-3">
-      {dealsWithImages.map((deal) => (
+      {deals.map((deal) => (
         <Link
           href={{
             pathname: "https://triplec.treez.io/onlinemenu/search",
             query: {
               categories: deal.categories?.join(","),
-              brands: deal.brand.join(","),
+              brands: deal.brands.join(","),
             },
           }}
           target="_blank"
           className="group relative flex flex-col items-center overflow-hidden rounded-xl border border-primary-purple/50 shadow-lg outline-none transition-transform duration-300 ease-in-out hover:-translate-y-1 focus:outline-primary-purple"
           key={deal.id}
         >
-          <NewBadge createdAt={deal.createdAt} />
+          <NewBadge createdAt={deal.created} />
           <Image
             className="deal-card-shadow aspect-video object-cover"
-            src={deal.image.url ?? ""}
+            src={deal.image ?? ""}
             alt={deal.title}
             width={500}
             height={500}

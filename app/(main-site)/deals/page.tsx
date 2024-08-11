@@ -1,29 +1,22 @@
 import { type Metadata } from "next";
 import { TrapTakeoverCountdown } from "./trap-takeover-countdown";
-import getPayloadClient from "@/payload/payloadClient";
 import Image from "next/image";
 import { Button } from "@/app/_components/button";
 import Link from "next/link";
 import { DealCategory } from "./deal-category";
+import { getDealImageUrl, type DealsResponse } from "@/lib/utils";
 
 export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
-  const payloadClient = await getPayloadClient();
-
-  const deals = await payloadClient.find({
-    collection: "deals",
-    where: {
-      active: {
-        equals: true,
-      },
-    },
-    sort: "-updatedAt",
-  });
+  const res = await fetch(
+    `${process.env.POCKETBASE_BASE_URL!}/${process.env.POCKETBASE_DEAL_URL}`,
+  );
+  const deals = (await res.json()) as DealsResponse;
 
   // Get unique brands from deals by creating a Set from the array of brands.
   // This is used to generate the SEO keywords for the page.
-  const dealBrands = new Set(deals.docs.map((deal) => deal.brand).flat());
+  const dealBrands = new Set(deals.items.map((deal) => deal.brands).flat());
 
   return {
     title: "Deals | Triple C Collective",
@@ -74,50 +67,49 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function DealsPage() {
-  const payloadClient = await getPayloadClient();
+  const res = await fetch(
+    `${process.env.POCKETBASE_BASE_URL!}/${process.env.POCKETBASE_DEAL_URL}`,
+  );
+  const fetchedDeals = (await res.json()) as DealsResponse;
 
-  const deals = await payloadClient.find({
-    collection: "deals",
-    where: {
-      active: {
-        equals: true,
-      },
-    },
+  const deals = fetchedDeals.items.map((deal) => {
+    return {
+      ...deal,
+      image: getDealImageUrl(deal),
+    };
   });
 
-  const flowerAndPrerollDeals = deals.docs.filter((deal) => {
+  const flowerAndPrerollDeals = deals.filter((deal) => {
     return (
       deal.categories?.includes("flower") ||
       deal.categories?.includes("preroll")
     );
   });
 
-  const edibleAndBeverageDeals = deals.docs.filter((deal) => {
+  const edibleAndBeverageDeals = deals.filter((deal) => {
     return (
       deal.categories?.includes("edible") ||
       deal.categories?.includes("beverage")
     );
   });
 
-  const extractDeals = deals.docs.filter((deal) => {
+  const extractDeals = deals.filter((deal) => {
     return deal.categories?.includes("extract");
   });
 
-  const cartridgeDeals = deals.docs.filter((deal) => {
+  const cartridgeDeals = deals.filter((deal) => {
     return deal.categories?.includes("cartridge");
   });
 
-  const pillAndTinctureDeals = deals.docs.filter((deal) => {
+  const pillAndTinctureDeals = deals.filter((deal) => {
     return (
       deal.categories?.includes("pill") || deal.categories?.includes("tincture")
     );
   });
 
-  const merchDeals = deals.docs.filter((deal) => {
+  const merchDeals = deals.filter((deal) => {
     return deal.categories?.includes("merch");
   });
-
-  console.log(deals.docs);
 
   return (
     <main className="bg-[#fefefe]" id="main-content">
@@ -127,7 +119,7 @@ export default async function DealsPage() {
             Current Deals
           </h1>
           <hr className="pb-4" />
-          {deals.docs.length === 0 ? (
+          {deals.length === 0 ? (
             <div className="flex flex-col items-center justify-center gap-12 py-8 md:py-16">
               <Image
                 className="h-96 w-96"
