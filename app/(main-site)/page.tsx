@@ -23,6 +23,7 @@ import {
   AccordionTrigger,
 } from "@/app/_components/accordian";
 import { Button } from "../_components/button";
+import { ShopNowButton } from "../_components/shop-now-button";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -130,13 +131,7 @@ export default function HomePage() {
               Look through our online menu and place an order for pickup or
               delivery.
             </p>
-            <Link
-              className="mt-4 w-fit grow-0 rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
-              href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
-              target="_blank"
-            >
-              Shop Now
-            </Link>
+            <ShopNowButton />
           </div>
           <div className="flex flex-col gap-4">
             <Image
