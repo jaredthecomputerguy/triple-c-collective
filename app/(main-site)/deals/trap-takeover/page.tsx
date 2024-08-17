@@ -5,11 +5,12 @@ import Link from "next/link";
 import { TrapTakeoverCountdown } from "../trap-takeover-countdown";
 
 // SHOW_PAGE determines whether to show the coming soon page or not
-const SHOW_PAGE = true;
+const SHOW_PAGE = false;
+
 // HAVE_FLYER determines whether to show the flyer or not
 const HAVE_FLYER = false;
 
-const TRAP_TAKEOVER_DATE = "August 16th, 2024";
+const TRAP_TAKEOVER_DATE = "September 6th, 2024";
 const TRAP_TAKEOVER_FLYER_URL = "/images/7-5-flyer.jpg";
 
 type FeaturedBrand = {
@@ -20,6 +21,7 @@ type FeaturedBrand = {
 };
 
 // Local imports for the image assets
+// TODO: Add more of the local imports
 import akwaaba from "@/public/images/brands/akwaaba.png";
 
 const FEATURED_BRANDS: FeaturedBrand[] = [
