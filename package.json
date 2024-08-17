@@ -9,6 +9,8 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
+    "pocketbase:build": "docker build -t pocketbase .",
+    "pocketbase:run": "docker run -d -p 8080:8080 pocketbase",
     "lighthouse:run": "node lighthouse/run-reports.mjs",
     "lighthouse:serve": "serve ./lighthouse/reports"
   },
