@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest",
     "pocketbase:build": "docker build -t pocketbase .",
-    "pocketbase:run": "docker run -d -p 8080:8080 pocketbase",
+    "pocketbase:run": "docker run -d --name pocketbase-container -p 8080:8080 pocketbase",
+    "pocketbase:clean": "docker rm -f pocketbase-container && docker image rm pocketbase",
     "lighthouse:run": "node lighthouse/run-reports.mjs",
     "lighthouse:serve": "serve ./lighthouse/reports"
   },

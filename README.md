@@ -27,6 +27,7 @@ Triple C Collective is a cannabis dispensary dedicated to providing high-quality
 - lint-staged: A tool for running scripts on staged files in Git.
 - React Email: A library for sending HTML emails using React.
 - Google Maps API: For integrating maps and location services into the website.
+- Docker: For running a Pocketbase backend in a virtualized container.
 
 ## Installation
 
@@ -68,8 +69,14 @@ To run this project locally, follow these steps:
    # Vercel/Next
    SITE_URL="https://triple-c-collective.vercel.app"
    ```
+5. Start the local Pocketbase backend
 
-5. Run the application
+   ```bash
+   npm run pocketbase:build
+   npm run pocketbase:run
+   ```
+
+6. Run the application
 
    ```bash
    npm run dev
