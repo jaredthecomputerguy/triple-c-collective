@@ -9,9 +9,9 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
-    "pocketbase:build": "docker build -t pocketbase .",
-    "pocketbase:run": "docker run -d --name pocketbase-container -p 8080:8080 pocketbase",
-    "pocketbase:clean": "docker rm -f pocketbase-container && docker image rm pocketbase",
+    "pocketbase:build": "make -C pocketbase build",
+    "pocketbase:run": "make -C pocketbase all",
+    "pocketbase:clean": "make -C pocketbase clean",
     "lighthouse:run": "node lighthouse/run-reports.mjs",
     "lighthouse:serve": "serve ./lighthouse/reports"
   },
