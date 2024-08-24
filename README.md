@@ -27,7 +27,7 @@ Triple C Collective is a cannabis dispensary dedicated to providing high-quality
 - lint-staged: A tool for running scripts on staged files in Git.
 - React Email: A library for sending HTML emails using React.
 - Google Maps API: For integrating maps and location services into the website.
-- Docker: For running a Pocketbase backend in a virtualized container.
+- Golang: To extend my PocketBase local backend with preconfigured admin user + deal collection.
 
 ## Installation
 
