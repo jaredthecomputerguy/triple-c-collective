@@ -18,16 +18,16 @@ Triple C Collective is a cannabis dispensary dedicated to providing high-quality
 
 ## Technologies Used
 
-- Next.js: A React framework for building server-side rendered applications.
-- Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
-- Pocketbase: An external CMS for managing website content hosted on a personal VPS.
-- Nodemailer: A module for Node.js applications to allow easy email sending.
-- Vitest: A Vite-native testing framework.
-- Husky: A tool that allows for Git hooks to be easily configured.
-- lint-staged: A tool for running scripts on staged files in Git.
-- React Email: A library for sending HTML emails using React.
-- Google Maps API: For integrating maps and location services into the website.
-- Golang: To extend my PocketBase local backend with preconfigured admin user + deal collection.
+- [Next.js](https://nextjs.org/): A React framework for building server-side rendered applications.
+- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for rapidly building custom designs.
+- [Pocketbase](https://pocketbase.io/): An external CMS for managing website content hosted on a personal VPS.
+- [Nodemailer](https://nodemailer.com/): A module for Node.js applications to allow easy email sending.
+- [Vitest](https://vitest.dev/): A Vite-native testing framework.
+- [Husky](https://typicode.github.io/husky/): A tool that allows for Git hooks to be easily configured.
+- [lint-staged](https://github.com/lint-staged/lint-staged): A tool for running scripts on staged files in Git.
+- [React Email](https://react.email/): A library for sending HTML emails using React.
+- [Google Maps API](https://developers.google.com/maps): For integrating maps and location services into the website.
+- [Golang](https://go.dev/): To extend my PocketBase local backend with preconfigured admin user + deal collection.
 
 ## Installation
 
