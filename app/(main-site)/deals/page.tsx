@@ -9,9 +9,8 @@ import { getDealImageUrl, type DealsResponse } from "@/lib/utils";
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const res = await fetch(
-    `${process.env.POCKETBASE_BASE_URL!}/${process.env.POCKETBASE_DEAL_URL}`,
-  );
+  const res = await fetch(`${process.env.SITE_URL}/api/deals`);
+
   const deals = (await res.json()) as DealsResponse;
 
   // Get unique brands from deals by creating a Set from the array of brands.
@@ -67,9 +66,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function DealsPage() {
-  const res = await fetch(
-    `${process.env.POCKETBASE_BASE_URL!}/${process.env.POCKETBASE_DEAL_URL}`,
-  );
+  const res = await fetch(`${process.env.SITE_URL}/api/deals`, {
+    cache: "no-store",
+  });
+
   const fetchedDeals = (await res.json()) as DealsResponse;
 
   const deals = fetchedDeals.items
