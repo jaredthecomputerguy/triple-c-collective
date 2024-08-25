@@ -23,10 +23,10 @@ test("(Test: Third Friday of Current Month) - Should return exactly 13 days betw
 
 test("(Test: First Friday of Next Month) - Should return exactly 13 days between Jan 20, 2024 and the third Friday, Feb 2, 2024", () => {
   const { Days, Hours, Minutes, Seconds } =
-    getTimeRemainingUntilFirstOrThirdFriday(new Date(2024, 0, 6, 12));
+    getTimeRemainingUntilFirstOrThirdFriday(new Date(2024, 0, 20, 12));
 
-  expect(Days).toBe("13");
-  expect(Hours).toBe("00");
+  expect(Days).toBe("12");
+  expect(Hours).toBe("12");
   expect(Minutes).toBe("00");
   expect(Seconds).toBe("00");
 });
