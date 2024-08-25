@@ -29,7 +29,7 @@ Triple C Collective is a cannabis dispensary dedicated to providing high-quality
 - [Google Maps API](https://developers.google.com/maps): For integrating maps and location services into the website.
 - [Golang](https://go.dev/): To extend my PocketBase local backend with preconfigured admin user + deal collection.
 
-## Installation
+## Local Installation
 
 To run this project locally, follow these steps:
 
