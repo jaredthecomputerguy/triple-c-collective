@@ -29,7 +29,7 @@ Triple C Collective is a cannabis dispensary dedicated to providing high-quality
 - [Google Maps API](https://developers.google.com/maps): For integrating maps and location services into the website.
 - [Golang](https://go.dev/): To extend my PocketBase local backend with preconfigured admin user + deal collection.
 
-## Local Installation
+## Installation
 
 To run this project locally, follow these steps:
 
@@ -54,7 +54,7 @@ To run this project locally, follow these steps:
 4. Fill out all environment variables in .env
 
    ```bash
-   # Pocketbase 
+   # Pocketbase
    POCKETBASE_BASE_URL="https://"
    POCKETBASE_DEAL_URL="/api/deals/"
    POCKETBASE_IMAGE_URL="/files/deals/"
@@ -69,6 +69,7 @@ To run this project locally, follow these steps:
    # Vercel/Next
    SITE_URL="https://triple-c-collective.vercel.app"
    ```
+
 5. Start the local Pocketbase backend
 
    ```bash
