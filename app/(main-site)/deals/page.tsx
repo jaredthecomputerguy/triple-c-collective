@@ -8,14 +8,17 @@ import { getDealImageUrl, type DealsResponse } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
-export async function generateMetadata(): Promise<Metadata> {
+const fetchDeals = async ({ cache }: { cache: boolean }) => {
   const res = await fetch(
     `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_DEAL_URL}`,
+    cache ? { cache: "no-store" } : undefined,
   );
 
-  const deals = (await res.json()) as DealsResponse;
+  return (await res.json()) as DealsResponse;
+};
 
-  console.log("----> deals", deals);
+export async function generateMetadata(): Promise<Metadata> {
+  const deals = await fetchDeals({ cache: false });
 
   // Get unique brands from deals by creating a Set from the array of brands.
   // This is used to generate the SEO keywords for the page.
@@ -70,14 +73,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function DealsPage() {
-  const res = await fetch(
-    `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_DEAL_URL}`,
-    {
-      cache: "no-store",
-    },
-  );
-
-  const fetchedDeals = (await res.json()) as DealsResponse;
+  const fetchedDeals = await fetchDeals({ cache: true });
 
   const deals = fetchedDeals.items
     .map((deal) => {

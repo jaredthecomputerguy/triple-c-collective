@@ -32,6 +32,8 @@ func main() {
 			return err
 		}
 
+		err = seedDeal(app)
+
 		return nil
 	})
 
@@ -91,13 +93,14 @@ func createDealCollection(app *pocketbase.PocketBase) error {
 				Name:     "image",
 				Type:     schema.FieldTypeFile,
 				Required: true,
-				Options:  &schema.FileOptions{},
+				Options: &schema.FileOptions{
+					MaxSelect: 1,
+				},
 			},
 			&schema.SchemaField{
 				Name:     "brands",
 				Type:     schema.FieldTypeSelect,
 				Required: true,
-				// I want this to be a multiselect
 				Options: &schema.SelectOptions{
 					Values: types.JsonArray[string]{
 						// TODO: Get the list of brands
@@ -115,10 +118,13 @@ func createDealCollection(app *pocketbase.PocketBase) error {
 				// I want this to be a multiselect
 				Options: &schema.SelectOptions{
 					Values: types.JsonArray[string]{
-						// TODO: Get the list of categories
-						"Category 1",
-						"Category 2",
-						"Category 3",
+						"flower",
+						"cartridge",
+						"extract",
+						"pill",
+						"tincture",
+						"preroll",
+						"edible",
 					},
 					MaxSelect: 32,
 				},
@@ -131,4 +137,39 @@ func createDealCollection(app *pocketbase.PocketBase) error {
 	}
 
 	return nil
+}
+
+func seedDeal(app *pocketbase.PocketBase) error {
+	// Check if the 'deals' table has any records
+	collection, err := app.Dao().FindCollectionByNameOrId("deals")
+	if err != nil {
+		return errors.New("failed to find deals collection: " + err.Error())
+	}
+
+	// Try to get the first record
+	record, err := app.Dao().FindFirstRecordByFilter(collection.Name, "")
+	if err == nil && record != nil {
+		// If a record is found, log and return early
+		log.Println("Deals table already has records. Skipping seeding.")
+		return nil
+	}
+
+	// If no records found or there was an error (likely because no records exist), insert a single deal for testing
+	deal := models.NewRecord(collection)
+	deal.Set("active", true)
+	deal.Set("title", "Test Deal")
+	deal.Set("description", "This is a test deal for development purposes.")
+	deal.Set("image", "placeholder.png")
+	// You'll need to ensure this file exists in your pb_public directory
+	deal.Set("brands", []string{"Brand 1"})
+	deal.Set("categories", []string{"flower"})
+
+
+	if err := app.Dao().SaveRecord(deal); err != nil {
+		return errors.New("failed to save test deal: " + err.Error())
+	}
+
+	log.Println("Test deal inserted successfully.")
+	return nil
+
 }

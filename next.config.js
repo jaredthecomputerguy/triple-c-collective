@@ -31,6 +31,12 @@ module.exports = {
         hostname: "jaredthecomputerguy.dev",
         pathname: "/**",
       },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "8090",
+        pathname: "/**",
+      },
     ],
   },
   async headers() {
