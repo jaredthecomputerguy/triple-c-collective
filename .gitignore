@@ -46,3 +46,4 @@ TODOS.md
 /pocketbase/pb_data/*
 *.db
 .sqliterc
+/pocketbase/.pocketbase
