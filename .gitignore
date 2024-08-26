@@ -40,7 +40,7 @@ next-env.d.ts
 TODOS.md
 
 # lighthouse reports
-/lighthouse/reports/*.html
+/lighthouse/js/reports/*.html
 
 # pocketbase dbs
 /pocketbase/pb_data/*

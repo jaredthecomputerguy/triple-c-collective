@@ -26,7 +26,7 @@ const total = routes.length;
 
 async function main() {
   console.time("lighthouse");
-  const outPath = "./lighthouse/reports";
+  const outPath = "./lighthouse/js/reports";
 
   if (existsSync(outPath)) {
     try {
