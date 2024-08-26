@@ -1,7 +1,7 @@
 import type { DealsResponse } from "@/lib/utils";
 import { NextResponse } from "next/server";
 
-export const GET = async (_req: Request) => {
+export const GET = async () => {
   const res = await fetch(
     `${process.env.POCKETBASE_BASE_URL!}/${process.env.POCKETBASE_DEAL_URL}`,
   );
