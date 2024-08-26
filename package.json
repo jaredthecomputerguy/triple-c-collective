@@ -12,8 +12,10 @@
     "pocketbase:build": "make -C pocketbase build",
     "pocketbase:run": "make -C pocketbase all",
     "pocketbase:clean": "make -C pocketbase clean",
-    "lighthouse:run": "node lighthouse/run-reports.mjs",
-    "lighthouse:serve": "serve ./lighthouse/reports"
+    "lighthouse-js:run": "node lighthouse/run-reports.mjs",
+    "lighthouse-js:serve": "serve ./lighthouse/reports",
+    "lighthouse-go:run": "make -C ./lighthouse/go/ run cmd=generate",
+    "lighthouse-go:serve": "make -C ./lighthouse/go/ run cmd=serve"
   },
   "husky": {
     "hooks": {

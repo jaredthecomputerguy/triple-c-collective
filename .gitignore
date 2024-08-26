@@ -41,6 +41,8 @@ TODOS.md
 
 # lighthouse reports
 /lighthouse/js/reports/*.html
+/lighthouse/go/bin
+/lighthouse/go/reports/*.html
 
 # pocketbase dbs
 /pocketbase/pb_data/*
