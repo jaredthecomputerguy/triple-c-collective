@@ -15,6 +15,15 @@ export const sendEmail = async ({
   const email = process.env.NODEMAILER_USER;
   const password = process.env.NODEMAILER_PASSWORD;
 
+  if (process.env.NODE_ENV === "development") {
+    console.log(
+      "\n\nNODEMAILER --> Sending email: ",
+      JSON.stringify({ from, message, subject, name }),
+      "\n\n",
+    );
+    return { error: null };
+  }
+
   try {
     const transporter = nodemailer.createTransport({
       host: "smtp.mail.yahoo.com",

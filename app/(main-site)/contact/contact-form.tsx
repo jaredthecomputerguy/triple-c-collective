@@ -40,7 +40,7 @@ export const ContactForm = () => {
 
     const hasSentEmail = sessionStorage.getItem("es");
 
-    if (hasSentEmail) {
+    if (hasSentEmail && process.env.NODE_ENV !== "development") {
       setEmailIsSending(false);
       return toast({
         title: "You've already sent a message today.",
