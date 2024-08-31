@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"io"
+	"os"
 	"os/exec"
 	"strings"
 	"sync"
@@ -29,6 +30,9 @@ var generateCmd = &cobra.Command{
 			"/terms-of-use",
 			"/deals/trap-takeover",
 		}
+
+		// Write an index.html file to the ./reports/ directory
+		os.WriteFile("./reports/index.html", []byte(generateIndexFile(routes)), 0644)
 
 		var wg sync.WaitGroup
 		p := mpb.New(mpb.WithWaitGroup(&wg))
@@ -120,4 +124,56 @@ func (pr *ProgressReader) Read(p []byte) (int, error) {
 		pr.bar.IncrBy(1)
 	}
 	return n, err
+}
+
+func generateIndexFile(routes []string) string {
+
+	// Generate the navigation links
+	var options []string
+	for _, route := range routes {
+		var snakeRoute string
+		if route == "" {
+			snakeRoute = "root"
+			options = append(options, fmt.Sprintf("<option value='%s.html'>%s</option>", snakeRoute, "/"))
+		} else {
+			snakeRoute = strings.Replace(route, "/", "_", 20)
+			options = append(options, fmt.Sprintf("<option data-href='%s.html'>%s</option>", snakeRoute, "/"))
+		}
+	}
+
+	return fmt.Sprintf(`
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Lighthouse Reports</title>
+			<link
+				rel="stylesheet"
+				href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+			>
+			<script src="./script.js" defer></script>
+			<style>
+				:root { --pico-font-size: 1rem; }
+				h1 { padding-top: 3rem; }
+			</style>
+		</head>
+		<body>
+			<div class="container">
+				<hgroup>
+					<h1>Lighthouse Reports</h1>
+					<p>A collection of Lighthouse reports for www.tripleccollective.com</p>
+				</hgroup>
+				<hr />
+				<select name="report" id="report" aria-label="Choose a report to view below">
+					<option selected disabled value="">
+						Choose a report to view below
+					</option>
+					%s
+				</select>
+				<iframe id="embed" src="" title="Lighthouse Report" width="100%" height="100%" frameborder="0"></iframe>
+			</div>
+		</body>
+	`, strings.Join(options, "\n"))
 }
