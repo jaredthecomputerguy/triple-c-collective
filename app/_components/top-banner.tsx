@@ -10,13 +10,13 @@ export const TopBanner = ({
   bannerText,
   className = "px-1 py-2 text-sm font-semibold md:text-lg",
   icon,
-  link = "/deals",
+  link = { href: "/deals" },
 }: {
   active?: boolean;
   bannerText: string;
   className?: string;
   icon?: ReactNode;
-  link?: string;
+  link?: { href: string; target?: string };
 }) => {
   const [showBanner, setShowBanner] = useState(active);
 
@@ -30,7 +30,11 @@ export const TopBanner = ({
         <div className="text-sm md:text-base">
           <span className="flex items-center justify-center font-semibold">
             <Button asChild className={className} variant="link">
-              <Link href={link} className="flex gap-2" target="_blank">
+              <Link
+                href={link.href}
+                className="flex gap-2"
+                target={link.target}
+              >
                 {icon}
                 {bannerText}
                 {icon}

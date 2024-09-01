@@ -64,7 +64,8 @@ func createDefaultAdminUser(app *pocketbase.PocketBase) error {
 //	  "brands": "select",
 //	  "categories": "select"
 //	}
-func createDealCollection(app *pocketbase.PocketBase) error {
+func 
+createDealCollection(app *pocketbase.PocketBase) error {
 	collection := &models.Collection{
 		Name:       "deals",
 		Type:       models.CollectionTypeBase,
@@ -129,6 +130,10 @@ func createDealCollection(app *pocketbase.PocketBase) error {
 					MaxSelect: 32,
 				},
 			},
+			&schema.SchemaField{
+				Name:     "badge",
+				Type:     schema.FieldTypeText,
+			},
 		),
 	}
 
@@ -163,7 +168,7 @@ func seedDeal(app *pocketbase.PocketBase) error {
 	// You'll need to ensure this file exists in your pb_public directory
 	deal.Set("brands", []string{"Brand 1"})
 	deal.Set("categories", []string{"flower"})
-
+	deal.Set("badge", "Test Deal Badge")
 
 	if err := app.Dao().SaveRecord(deal); err != nil {
 		return errors.New("failed to save test deal: " + err.Error())

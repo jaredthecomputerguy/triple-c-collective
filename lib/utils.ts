@@ -20,6 +20,7 @@ export type Deal = {
   id: string;
   image: string;
   title: string;
+  badge: string;
   updated: string; // ISO 8601 date string
 };
 

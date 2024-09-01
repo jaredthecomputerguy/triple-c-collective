@@ -24,7 +24,7 @@ import {
   Gem,
   BanknoteIcon,
   PhoneIcon as ContactUsIcon,
-  LeafIcon,
+  FlagIcon,
 } from "lucide-react";
 
 const LINKS = [
@@ -61,10 +61,10 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        bannerText="15th Anniversary Deals"
+        bannerText="Labor Day Deals"
         className="text-base font-semibold md:text-lg"
-        icon={<LeafIcon className="size-5 text-white" />}
-        link="https://triplec.treez.io/onlinemenu/search?customerType=ALL&query=akwaaba"
+        icon={<FlagIcon className="size-5 text-white" />}
+        link={{ href: "/deals" }}
         active
       />
       <TrapTakeoverBanner active={false} />
@@ -145,7 +145,7 @@ export const Header = () => {
               </ul>
             </nav>
             <div
-              className="h-dvh fixed left-0 top-0 -z-10 w-screen"
+              className="fixed left-0 top-0 -z-10 h-dvh w-screen"
               onClick={() => setShowMobileMenu(false)}
             />
           </>
