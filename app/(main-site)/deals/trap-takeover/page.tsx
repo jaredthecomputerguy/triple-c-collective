@@ -5,7 +5,7 @@ import Link from "next/link";
 import { TrapTakeoverCountdown } from "../trap-takeover-countdown";
 
 // SHOW_PAGE determines whether to show the coming soon page or not
-const SHOW_PAGE = false;
+const SHOW_PAGE = true;
 
 // HAVE_FLYER determines whether to show the flyer or not
 const HAVE_FLYER = false;
@@ -21,39 +21,42 @@ type FeaturedBrand = {
 };
 
 // Local imports for the image assets
-// TODO: Add more of the local imports
-import akwaaba from "@/public/images/brands/akwaaba.png";
+import midsFactoryLogo from "@/public/images/brands/midsfactory.png";
+import dompenLogo from "@/public/images/brands/dompen.avif";
+import koaLogo from "@/public/images/brands/koa.png";
+import bigBoyDroLogo from "@/public/images/brands/big-boy-dro.png";
+import greenRiverExtractsLogo from "@/public/images/brands/green-river-extracts-logo.png";
 
 const FEATURED_BRANDS: FeaturedBrand[] = [
   {
-    name: "Akwaaba Farms",
-    url: "https://www.akwaabafarms.com/",
-    image: akwaaba,
-    alt: "Akwaaba Farms Logo",
+    name: "Midsfactory",
+    url: "https://www.midsfactory.com/",
+    image: midsFactoryLogo,
+    alt: "Midsfactory Logo",
   },
   {
     name: "Dompen",
     url: "https://www.dompen.co",
-    image: "/images/brands/dompen.avif",
+    image: dompenLogo,
     alt: "Dompen Logo",
   },
   {
     name: "Koa",
     url: "https://www.koacannabis.com/",
-    image: "/images/brands/koa.png",
+    image: koaLogo,
     alt: "Koa Logo",
   },
   {
     name: "Big Boy Dro",
     url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=BIG%20BOY%20DRO",
-    image: "/images/brands/big-boy-dro.png",
+    image: bigBoyDroLogo,
     alt: "Big Boy Dro Logo",
   },
   {
-    name: "Midsfactory",
-    url: "https://www.midsfactory.com/",
-    image: "/images/brands/midsfactory.png",
-    alt: "Midsfactory Logo",
+    name: "Green River Extracts",
+    url: "https://www.greenriverextracts.com/",
+    image: greenRiverExtractsLogo,
+    alt: "Green River Extracts Logo",
   },
 ];
 
@@ -70,7 +73,7 @@ export default function TrapTakeoverPage() {
           </h2>
           <div
             className={cn(
-              "flex flex-col justify-evenly py-8 text-lg sm:flex-row",
+              "flex flex-col flex-wrap justify-evenly py-8 text-lg sm:flex-row",
               SHOW_PAGE ? "" : "sm:justify-start",
             )}
           >
@@ -80,15 +83,18 @@ export default function TrapTakeoverPage() {
                   className="flex flex-col items-center hover:underline"
                   key={brand.name}
                 >
-                  <Link className="p-2" href={brand.url} target="_blank">
+                  <Link
+                    className="flex flex-col items-center rounded border border-white p-2 outline-none focus:border-primary-purple focus:outline-primary-purple"
+                    href={brand.url}
+                    target="_blank"
+                  >
                     <h3 className="text-center font-logo text-2xl font-semibold">
                       {brand.name}
                     </h3>
                     <Image
                       src={brand.image}
-                      width={200}
-                      height={200}
                       alt={brand.alt}
+                      className="h-56 w-56"
                     />
                   </Link>
                 </div>
