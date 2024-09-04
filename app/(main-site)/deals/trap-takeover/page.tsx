@@ -67,10 +67,45 @@ export default function TrapTakeoverPage() {
         <span className="px-1 pb-1 text-gray-600">{TRAP_TAKEOVER_DATE}</span>
         <h1 className="pb-4 font-logo text-4xl font-semibold">Trap Takeover</h1>
         <hr className="pb-4" />
-        <section>
-          <h2 className="py-4 text-center font-logo text-3xl font-semibold md:text-left">
+        <h2 className="py-8 pb-12 text-center font-logo text-2xl font-semibold md:text-left md:text-4xl">
+          Get Ready for the Ultimate Cannabis Shopping Experience
+        </h2>
+        <div className="trap-takeover rounded-lg bg-primary-purple p-8 text-white">
+          <p className="pb-4 text-2xl">
+            {" "}
+            We’re teaming up with Illa Guerrilla to bring you unbeatable deals
+            and a night to remember. Here’s what you can look forward to:
+          </p>{" "}
+          <ul className="list-inside list-decimal space-y-6">
+            <li>
+              <strong className="text-semibold">Buy One, Get One Free:</strong>{" "}
+              Stock up on your favorites with BOGO deals on select premium
+              brands. It’s the perfect opportunity to explore new products or
+              get more of what you love.
+            </li>{" "}
+            <li>
+              <strong>Learn about Illa Guerrilla:</strong> Our Illa Guerrilla
+              sales rep will be on-site with a booth, showcasing product
+              displays and ready to answer all your cannabis questions.{" "}
+            </li>
+            <li>
+              <strong>Raffle Prizes:</strong> For every promo purchase, you’ll
+              receive a raffle ticket. At 8 PM, we’ll draw a ticket for a chance
+              to win an exclusive prize pack filled with promo products and swag
+              from top cannabis brands. Don’t miss your chance to win big!
+            </li>
+            <li>
+              <strong>Gift Bags for the Early Birds:</strong> The first 50
+              customers to show up for the sale will receive a complimentary
+              gift bag loaded with goodies. Make sure to arrive early to snag
+              one before they’re gone!{" "}
+            </li>
+          </ul>
+        </div>
+        <section className="py-8">
+          <h3 className="py-4 text-center font-logo text-3xl font-semibold md:text-left">
             Featured Brands
-          </h2>
+          </h3>
           <div
             className={cn(
               "flex flex-col flex-wrap justify-evenly py-8 text-lg sm:flex-row",
@@ -88,7 +123,7 @@ export default function TrapTakeoverPage() {
                     href={brand.url}
                     target="_blank"
                   >
-                    <h3 className="text-center font-logo text-2xl font-semibold">
+                    <h3 className="w-full py-2 text-center font-logo text-2xl font-semibold">
                       {brand.name}
                     </h3>
                     <Image
@@ -106,6 +141,7 @@ export default function TrapTakeoverPage() {
             )}
           </div>
         </section>
+        <section></section>
         {HAVE_FLYER ? (
           <ImageViewer
             className="mx-auto h-full w-full cursor-pointer object-cover object-top"

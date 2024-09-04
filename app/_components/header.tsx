@@ -26,6 +26,7 @@ import {
   PhoneIcon as ContactUsIcon,
   FlagIcon,
 } from "lucide-react";
+import { LiaCannabisSolid } from "react-icons/lia";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
@@ -61,10 +62,10 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        bannerText="Labor Day Deals"
+        bannerText="Trap Takeover - Sept 6th"
         className="text-base font-semibold md:text-lg"
-        icon={<FlagIcon className="size-5 text-white" />}
-        link={{ href: "/deals" }}
+        icon={<LiaCannabisSolid className="size-6 text-white" />}
+        link={{ href: "/deals/trap-takeover" }}
         active
       />
       <TrapTakeoverBanner active={false} />
