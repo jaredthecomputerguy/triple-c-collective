@@ -4,7 +4,7 @@ import { ContactForm } from "./contact-form";
 import { FacebookIcon } from "@/app/_components/icons/facebook-icon";
 import { InstagramIcon } from "@/app/_components/icons/instagram-icon";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Contact Us | Triple C Collective",

@@ -24,7 +24,6 @@ import {
   Gem,
   BanknoteIcon,
   PhoneIcon as ContactUsIcon,
-  FlagIcon,
 } from "lucide-react";
 import { LiaCannabisSolid } from "react-icons/lia";
 
