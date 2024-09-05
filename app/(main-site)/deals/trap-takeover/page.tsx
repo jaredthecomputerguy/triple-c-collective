@@ -6,10 +6,8 @@ import { TrapTakeoverCountdown } from "../trap-takeover-countdown";
 
 // SHOW_PAGE determines whether to show the coming soon page or not
 const SHOW_PAGE = true;
-
 // HAVE_FLYER determines whether to show the flyer or not
 const HAVE_FLYER = false;
-
 const TRAP_TAKEOVER_DATE = "September 6th, 2024";
 const TRAP_TAKEOVER_FLYER_URL = "/images/7-5-flyer.jpg";
 
