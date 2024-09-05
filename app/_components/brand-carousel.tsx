@@ -1,27 +1,74 @@
+"use client";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import Image from "next/image";
 import Link from "next/link";
 import brands from "@/lib/data/brands.json";
 
+import Slider, { type Settings } from "react-slick";
+
 export const BrandCarousel = () => {
+  const settings: Settings = {
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    speed: 1000,
+    easing: "ease-in-out",
+    className: "w-[85%]",
+    autoplay: true,
+    autoplaySpeed: 1,
+    infinite: true,
+    pauseOnFocus: true,
+    pauseOnHover: true,
+    focusOnSelect: true,
+    accessibility: true,
+    centerMode: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
-    <div className="flex items-center gap-8 overflow-x-hidden rounded-lg py-6 outline-none focus:outline-primary-purple">
+    <Slider {...settings}>
       {brands.map((brand) => (
         <Link
           key={brand.id}
           href={brand.website}
           target="_blank"
-          className="h-full shrink-0 animate-mobile-scroll rounded-lg outline-none focus:outline-primary-purple sm:animate-desktop-scroll"
+          className="relative mx-4 my-auto h-64 w-64"
         >
           <Image
-            className="aspect-square h-32 w-32 object-contain sm:h-48 sm:w-48"
             src={brand.src!}
             alt={brand.alt}
-            width={300}
-            height={300}
+            fill
             priority
+            className="object-contain"
+            tabIndex={0}
           />
         </Link>
       ))}
-    </div>
+    </Slider>
   );
 };

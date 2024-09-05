@@ -1,7 +1,6 @@
 import { type Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 
 import { ReviewCard } from "@/app/_components/review-card";
 import { StoreIcon } from "@/app/_components/icons/store";
@@ -24,6 +23,7 @@ import {
 } from "@/app/_components/accordian";
 import { Button } from "../_components/button";
 import { ShopNowButton } from "../_components/shop-now-button";
+import { BrandCarousel } from "../_components/brand-carousel";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -71,10 +71,6 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(`${process.env.SITE_URL}`),
 };
-
-const BrandCarousel = dynamic(() =>
-  import("../_components/brand-carousel").then((mod) => mod.BrandCarousel),
-);
 
 export default function HomePage() {
   return (
