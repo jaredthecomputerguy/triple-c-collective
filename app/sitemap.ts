@@ -27,6 +27,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: "https://tripleccollective.com/deals/trap-takeover",
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
       url: "https://tripleccollective.com/contact",
       lastModified: new Date(),
       changeFrequency: "yearly",
