@@ -33,6 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: "https://tripleccollective.com/real-ca-cannabis",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.2,
+    },
+    {
       url: "https://tripleccollective.com/privacy-policy",
       lastModified: new Date(),
       changeFrequency: "yearly",
