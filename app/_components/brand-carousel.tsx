@@ -12,18 +12,17 @@ import Slider, { type Settings } from "react-slick";
 export const BrandCarousel = () => {
   const settings: Settings = {
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     speed: 1000,
     easing: "ease-in-out",
     className: "w-[85%]",
     autoplay: true,
-    autoplaySpeed: 1,
+    autoplaySpeed: 2000,
     infinite: true,
     pauseOnFocus: true,
     pauseOnHover: true,
     focusOnSelect: true,
     accessibility: true,
-    centerMode: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -31,13 +30,6 @@ export const BrandCarousel = () => {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
         },
       },
       {
