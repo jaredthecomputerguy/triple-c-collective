@@ -73,6 +73,10 @@ td {
   color: black !important;
 }
 
+.slick-slide {
+  padding: 0 0.25rem;
+}
+
 @keyframes desktop-scroll {
   0% {
     transform: translateX(0);

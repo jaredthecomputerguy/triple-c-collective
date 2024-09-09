@@ -13,12 +13,14 @@ export const BrandCarousel = () => {
   const settings: Settings = {
     slidesToShow: 3,
     slidesToScroll: 3,
+    dots: true,
     speed: 1000,
     easing: "ease-in-out",
     className: "w-[85%]",
     autoplay: true,
     autoplaySpeed: 2000,
     infinite: true,
+    lazyLoad: "anticipated",
     pauseOnFocus: true,
     pauseOnHover: true,
     focusOnSelect: true,
@@ -49,7 +51,7 @@ export const BrandCarousel = () => {
           key={brand.id}
           href={brand.website}
           target="_blank"
-          className="relative mx-4 my-auto h-64 w-64"
+          className="relative my-auto h-64 w-64"
         >
           <Image
             src={brand.src!}
