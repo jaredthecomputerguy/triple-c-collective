@@ -1,5 +1,5 @@
 import { ImageViewer } from "@/app/_components/image-viewer";
-import { cn } from "@/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { TrapTakeoverCountdown } from "../trap-takeover-countdown";
@@ -8,7 +8,7 @@ import { TrapTakeoverCountdown } from "../trap-takeover-countdown";
 const SHOW_PAGE = true;
 // HAVE_FLYER determines whether to show the flyer or not
 const HAVE_FLYER = false;
-const TRAP_TAKEOVER_DATE = "September 6th, 2024";
+const TRAP_TAKEOVER_DATE = formatDate("09-20-2024");
 const TRAP_TAKEOVER_FLYER_URL = "/images/7-5-flyer.jpg";
 
 type FeaturedBrand = {
@@ -19,18 +19,26 @@ type FeaturedBrand = {
 };
 
 // Local imports for the image assets
-import midsFactoryLogo from "@/public/images/brands/midsfactory.png";
+import jeffSessionLogo from "@/public/images/brands/jeff-sessions-logo.png";
 import dompenLogo from "@/public/images/brands/dompen.avif";
 import koaLogo from "@/public/images/brands/koa.png";
-import bigBoyDroLogo from "@/public/images/brands/big-boy-dro.png";
-import greenRiverExtractsLogo from "@/public/images/brands/green-river-extracts-logo.png";
+import masCannabisLogo from "@/public/images/brands/mas-cannabis-logo.jpg";
+import roninRosinLogo from "@/public/images/brands/ronin-logo.jpg";
+
+/*
+ *  - Jeff Session
+ *  - DomPen
+ *  - Koa
+ *  - Mas Cannabis
+ *  - Ronin Rosin
+ * */
 
 const FEATURED_BRANDS: FeaturedBrand[] = [
   {
-    name: "Midsfactory",
-    url: "https://www.midsfactory.com/",
-    image: midsFactoryLogo,
-    alt: "Midsfactory Logo",
+    name: "Jeff's Sessions",
+    url: "https://jeffssessions.com/",
+    image: jeffSessionLogo,
+    alt: "Jeff's Sessions Logo",
   },
   {
     name: "Dompen",
@@ -45,16 +53,16 @@ const FEATURED_BRANDS: FeaturedBrand[] = [
     alt: "Koa Logo",
   },
   {
-    name: "Big Boy Dro",
-    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=BIG%20BOY%20DRO",
-    image: bigBoyDroLogo,
-    alt: "Big Boy Dro Logo",
+    name: "Más Cannabis",
+    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%7B%7D&brands=MAS CANNABIS CO.",
+    image: masCannabisLogo,
+    alt: "Más Cannabis Logo",
   },
   {
-    name: "Green River Extracts",
-    url: "https://www.greenriverextracts.com/",
-    image: greenRiverExtractsLogo,
-    alt: "Green River Extracts Logo",
+    name: "Ronin",
+    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=RONIN",
+    image: roninRosinLogo,
+    alt: "Ronin Logo",
   },
 ];
 
@@ -62,7 +70,7 @@ export default function TrapTakeoverPage() {
   return (
     <main className="bg-[#fefefe]">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
-        <span className="px-1 pb-1 text-gray-600">{TRAP_TAKEOVER_DATE}</span>
+        <span className="pb-1 text-gray-600">{TRAP_TAKEOVER_DATE}</span>
         <h1 className="pb-4 font-logo text-4xl font-semibold">Trap Takeover</h1>
         <hr className="pb-4" />
         <h2 className="py-8 pb-12 text-center font-logo text-2xl font-semibold md:text-left md:text-4xl">

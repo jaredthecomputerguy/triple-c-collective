@@ -61,10 +61,12 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        bannerText="Trap Takeover - Sept 6th"
+        bannerText="Trap Takeover - Sept 20th"
+        bottomText="Gift Bags for First 50 People"
         className="text-base font-semibold md:text-lg"
         icon={<LiaCannabisSolid className="size-6 text-white" />}
         link={{ href: "/deals/trap-takeover" }}
+        active
       />
       <TrapTakeoverBanner active={false} />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">

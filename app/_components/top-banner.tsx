@@ -8,12 +8,14 @@ import { Button } from "./button";
 export const TopBanner = ({
   active,
   bannerText,
+  bottomText,
   className = "px-1 py-2 text-sm font-semibold md:text-lg",
   icon,
   link = { href: "/deals" },
 }: {
   active?: boolean;
   bannerText: string;
+  bottomText?: string;
   className?: string;
   icon?: ReactNode;
   link?: { href: string; target?: string };
@@ -30,15 +32,32 @@ export const TopBanner = ({
         <div className="text-sm md:text-base">
           <span className="flex items-center justify-center font-semibold">
             <Button asChild className={className} variant="link">
-              <Link
-                href={link.href}
-                className="flex gap-2"
-                target={link.target}
-              >
-                {icon}
-                {bannerText}
-                {icon}
-              </Link>
+              {bottomText ? (
+                <Link
+                  href={link.href}
+                  className="flex flex-col"
+                  target={link.target}
+                >
+                  <span className="flex items-center gap-2">
+                    {icon}
+                    {bannerText}
+                    {icon}
+                  </span>
+                  <span className="text-sm">{bottomText}</span>
+                </Link>
+              ) : (
+                <Link
+                  href={link.href}
+                  className="flex flex-col"
+                  target={link.target}
+                >
+                  <span className="flex items-center gap-2">
+                    {icon}
+                    {bannerText}
+                    {icon}
+                  </span>
+                </Link>
+              )}
             </Button>
           </span>
         </div>

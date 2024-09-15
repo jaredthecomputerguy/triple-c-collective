@@ -228,7 +228,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="flex flex-col">
-                <Image src={dccLogoImg} width={280} height={140} alt="Logo" />
+                <Image src={dccLogoImg} width={280} alt="DCC Logo" />
                 <Button
                   variant="outline"
                   className="mx-auto my-2 w-fit border-black/50 hover:border-black hover:shadow"
