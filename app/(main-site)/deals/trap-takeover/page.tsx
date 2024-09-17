@@ -7,9 +7,9 @@ import { TrapTakeoverCountdown } from "../trap-takeover-countdown";
 // SHOW_PAGE determines whether to show the coming soon page or not
 const SHOW_PAGE = true;
 // HAVE_FLYER determines whether to show the flyer or not
-const HAVE_FLYER = false;
+const HAVE_FLYER = true;
 const TRAP_TAKEOVER_DATE = formatDate("09-20-2024");
-const TRAP_TAKEOVER_FLYER_URL = "/images/7-5-flyer.jpg";
+const TRAP_TAKEOVER_FLYER_URL = "/images/9-20-trap-takeover-large.jpg";
 
 type FeaturedBrand = {
   name: string;
