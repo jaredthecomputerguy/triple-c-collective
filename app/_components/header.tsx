@@ -66,7 +66,6 @@ export const Header = () => {
         className="text-base font-semibold md:text-lg"
         icon={<LiaCannabisSolid className="size-6 text-white" />}
         link={{ href: "/deals/trap-takeover" }}
-        active
       />
       <TrapTakeoverBanner active={false} />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
