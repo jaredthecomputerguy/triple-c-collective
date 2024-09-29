@@ -74,14 +74,15 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function DealsPage() {
   const fetchedDeals = await fetchDeals({ cache: true });
 
-  const deals = fetchedDeals.items
-    .map((deal) => {
-      return {
-        ...deal,
-        image: getDealImageUrl(deal),
-      };
-    })
-    .filter((deal) => deal.active);
+  const deals = fetchedDeals.items.reduce<DealsResponse["items"]>(
+    (acc, deal) => {
+      if (deal.active) {
+        acc.push({ ...deal, image: getDealImageUrl(deal) });
+      }
+      return acc;
+    },
+    [],
+  );
 
   const flowerAndPrerollDeals = deals.filter((deal) => {
     return (
