@@ -1,70 +1,24 @@
 import { ImageViewer } from "@/app/_components/image-viewer";
 import { cn, formatDate } from "@/lib/utils";
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { TrapTakeoverCountdown } from "../trap-takeover-countdown";
+import { getFeaturedBrands } from "./trap-takeover-brands";
 
 // SHOW_PAGE determines whether to show the coming soon page or not
-const SHOW_PAGE = false;
+const SHOW_PAGE = true;
 // HAVE_FLYER determines whether to show the flyer or not
 const HAVE_FLYER = false;
 const TRAP_TAKEOVER_DATE = formatDate("10-04-2024");
 const TRAP_TAKEOVER_FLYER_URL = "/images/9-20-trap-takeover-large.jpg";
 
-type FeaturedBrand = {
-  name: string;
-  url: string;
-  image: StaticImageData | string;
-  alt: string;
-};
-
-// Local imports for the image assets
-import jeffSessionLogo from "@/public/images/brands/jeff-sessions-logo.png";
-import dompenLogo from "@/public/images/brands/dompen.avif";
-import koaLogo from "@/public/images/brands/koa.png";
-import masCannabisLogo from "@/public/images/brands/mas-cannabis-logo.jpg";
-import roninRosinLogo from "@/public/images/brands/ronin-logo.jpg";
-
-/*
- *  - Jeff Session
- *  - DomPen
- *  - Koa
- *  - Mas Cannabis
- *  - Ronin Rosin
- * */
-
-const FEATURED_BRANDS: FeaturedBrand[] = [
-  {
-    name: "Jeff's Sessions",
-    url: "https://jeffssessions.com/",
-    image: jeffSessionLogo,
-    alt: "Jeff's Sessions Logo",
-  },
-  {
-    name: "Dompen",
-    url: "https://www.dompen.co",
-    image: dompenLogo,
-    alt: "Dompen Logo",
-  },
-  {
-    name: "Koa",
-    url: "https://www.koacannabis.com/",
-    image: koaLogo,
-    alt: "Koa Logo",
-  },
-  {
-    name: "Más Cannabis",
-    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%7B%7D&brands=MAS CANNABIS CO.",
-    image: masCannabisLogo,
-    alt: "Más Cannabis Logo",
-  },
-  {
-    name: "Ronin",
-    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=RONIN",
-    image: roninRosinLogo,
-    alt: "Ronin Logo",
-  },
-];
+const featuredBrands = getFeaturedBrands([
+  "Midsfactory",
+  "Koa Cannabis Co.",
+  "Dompen",
+  "Green River Extracts",
+  "Big Boy Dro",
+]);
 
 export default function TrapTakeoverPage() {
   return (
@@ -119,7 +73,7 @@ export default function TrapTakeoverPage() {
             )}
           >
             {SHOW_PAGE ? (
-              FEATURED_BRANDS.map((brand) => (
+              featuredBrands.map((brand) => (
                 <div
                   className="flex flex-col items-center hover:underline"
                   key={brand.name}
