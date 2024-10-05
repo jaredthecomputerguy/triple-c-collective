@@ -9,7 +9,10 @@ import { getFeaturedBrands } from "./trap-takeover-brands";
 const SHOW_PAGE = true;
 // HAVE_FLYER determines whether to show the flyer or not
 const HAVE_FLYER = false;
-const TRAP_TAKEOVER_DATE = formatDate("10-04-2024");
+// HAVE_GIFTBAGS determines whether the Trap Takeover is doing the gift bag promo
+const HAVE_GIFT_BAGS = false;
+
+const TRAP_TAKEOVER_DATE = formatDate("10-18-2024");
 const TRAP_TAKEOVER_FLYER_URL = "/images/9-20-trap-takeover-large.jpg";
 
 const featuredBrands = getFeaturedBrands([
@@ -54,12 +57,14 @@ export default function TrapTakeoverPage() {
               to win an exclusive prize pack filled with promo products and swag
               from top cannabis brands. Don’t miss your chance to win big!
             </li>
-            <li>
-              <strong>Gift Bags for the Early Birds:</strong> The first 50
-              customers to show up for the sale will receive a complimentary
-              gift bag loaded with goodies. Make sure to arrive early to snag
-              one before they’re gone!{" "}
-            </li>
+            {HAVE_GIFT_BAGS && (
+              <li>
+                <strong>Gift Bags for the Early Birds:</strong> The first 50
+                customers to show up for the sale will receive a complimentary
+                gift bag loaded with goodies. Make sure to arrive early to snag
+                one before they’re gone!{" "}
+              </li>
+            )}
           </ul>
         </div>
         <section className="py-8">
