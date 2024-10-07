@@ -24,6 +24,7 @@ import {
   Gem,
   BanknoteIcon,
   PhoneIcon as ContactUsIcon,
+  PillIcon,
 } from "lucide-react";
 import { LiaCannabisSolid } from "react-icons/lia";
 
@@ -61,11 +62,14 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        bannerText="Trap Takeover - Sept 20th"
-        bottomText="Gift Bags for First 50 People"
+        bannerText="25% OFF LEVEL PROTABS"
         className="text-base font-semibold md:text-lg"
-        icon={<LiaCannabisSolid className="size-6 text-white" />}
-        link={{ href: "/deals/trap-takeover" }}
+        icon={<PillIcon className="size-5 text-white" />}
+        link={{
+          href: "https://triplec.treez.io/onlinemenu/search?categories=pill&brands=LEVEL&customerType=ADULT",
+          target: "_blank",
+        }}
+        active
       />
       <TrapTakeoverBanner active={false} />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
