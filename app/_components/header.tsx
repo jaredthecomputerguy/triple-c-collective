@@ -62,12 +62,11 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        bannerText="25% OFF LEVEL PROTABS"
+        bannerText="TRAP TAKEOVER TODAY 12-5PM"
         className="text-base font-semibold md:text-lg"
-        icon={<PillIcon className="size-5 text-white" />}
+        icon={<LiaCannabisSolid className="size-5 text-white" />}
         link={{
-          href: "https://triplec.treez.io/onlinemenu/search?categories=pill&brands=LEVEL&customerType=ADULT",
-          target: "_blank",
+          href: "/deals/trap-takeover",
         }}
         active
       />
