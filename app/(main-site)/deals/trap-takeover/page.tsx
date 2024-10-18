@@ -15,13 +15,12 @@ const HAVE_GIFT_BAGS = false;
 const TRAP_TAKEOVER_DATE = formatDate("10-18-2024");
 const TRAP_TAKEOVER_FLYER_URL = "/images/9-20-trap-takeover-large.jpg";
 
-const featuredBrands = getFeaturedBrands([
-  "Midsfactory",
-  "Koa Cannabis Co.",
+// Pass `undefined` as the last arg to show the 'more brands coming soon...'
+const featuredBrands = getFeaturedBrands(
   "Dompen",
+  "Jeff's Sessions",
   "Green River Extracts",
-  "Big Boy Dro",
-]);
+);
 
 export default function TrapTakeoverPage() {
   return (
@@ -91,11 +90,17 @@ export default function TrapTakeoverPage() {
                     <h3 className="w-full py-2 text-center font-logo text-2xl font-semibold">
                       {brand.name}
                     </h3>
-                    <Image
-                      src={brand.image}
-                      alt={brand.alt}
-                      className="h-56 w-56"
-                    />
+                    {brand.name ? (
+                      <Image
+                        src={brand.image}
+                        alt={brand.alt}
+                        className="h-56 w-56"
+                      />
+                    ) : (
+                      <div className="flex h-56 w-56 flex-col items-center justify-center text-center">
+                        And many more coming soon...
+                      </div>
+                    )}
                   </Link>
                 </div>
               ))
