@@ -24,7 +24,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,tsx,jsx}": "eslint --fix",
+    "*.{js,ts,tsx,jsx}": "eslint",
     "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
   },
   "dependencies": {
