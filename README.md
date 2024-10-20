@@ -59,6 +59,9 @@ To run this project locally, follow these steps:
    POCKETBASE_DEAL_URL="/api/deals/"
    POCKETBASE_IMAGE_URL="/files/deals/"
 
+   # Custom Event Server
+   EVENT_SERVER_URL="https://"
+
    # Google Maps Embed
    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY="MY_API_KEY"
 
@@ -81,4 +84,10 @@ To run this project locally, follow these steps:
 
    ```bash
    npm run dev
+   ```
+
+7. (Optional) Open the Pocketbase admin page
+
+   ```bash
+   npm run pocketbase:admin
    ```
