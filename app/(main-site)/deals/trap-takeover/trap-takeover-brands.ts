@@ -55,7 +55,7 @@ const BRANDS = [
   },
   {
     name: undefined,
-    alt: "And many more...",
+    alt: "And more to come...",
     url: "https://triplec.treez.io/onlinemenu/?customerType=ADULT",
     image: comingSoonImage,
   },

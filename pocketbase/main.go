@@ -1,9 +1,18 @@
 package main
 
 import (
+	"bytes"
 	"errors"
+	"fmt"
+	"io"
 	"log"
+	"mime/multipart"
+	"net/http"
 	"os"
+	"os/signal"
+	"path/filepath"
+	"syscall"
+	"time"
 
 	"github.com/pocketbase/pocketbase"
 	"github.com/pocketbase/pocketbase/apis"
@@ -15,6 +24,8 @@ import (
 
 func main() {
 	app := pocketbase.New()
+
+	var recordId *string
 
 	app.OnBeforeServe().Add(func(e *core.ServeEvent) error {
 		e.Router.GET("/*", apis.StaticDirectoryHandler(os.DirFS("./pb_public"), false))
@@ -32,14 +43,34 @@ func main() {
 			return err
 		}
 
-		err = seedDeal(app)
+		err = seedDeal(app, &recordId)
 
 		return nil
 	})
 
-	if err := app.Start(); err != nil {
-		log.Fatal(err)
-	}
+	sigChannel := make(chan os.Signal, 1)
+	signal.Notify(sigChannel, os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
+
+	go func() {
+		if err := app.Start(); err != nil {
+			log.Fatal(err)
+		}
+	}()
+
+	go func() {
+		time.Sleep(2 * time.Second)
+		if recordId != nil {
+			uploadPlaceholderImage(*recordId)
+			return
+		} else {
+			fmt.Println("No record ID found. Image upload aborted.")
+			return
+		}
+	}()
+
+	<-sigChannel
+	log.Println("\nReceived shutdown signal, closing PocketBase server...")
+	log.Println("Server shut down successfully")
 }
 
 // createDefaultAdminUser creates a default admin user with the email "test@test.com" and the password "testpassword"
@@ -64,15 +95,14 @@ func createDefaultAdminUser(app *pocketbase.PocketBase) error {
 //	  "brands": "select",
 //	  "categories": "select"
 //	}
-func 
-createDealCollection(app *pocketbase.PocketBase) error {
+func createDealCollection(app *pocketbase.PocketBase) error {
 	collection := &models.Collection{
 		Name:       "deals",
 		Type:       models.CollectionTypeBase,
 		ListRule:   types.Pointer(""),
 		ViewRule:   types.Pointer(""),
 		CreateRule: nil,
-		UpdateRule: nil,
+		UpdateRule: types.Pointer(""),
 		DeleteRule: nil,
 		Schema: schema.NewSchema(
 			&schema.SchemaField{
@@ -96,6 +126,7 @@ createDealCollection(app *pocketbase.PocketBase) error {
 				Required: true,
 				Options: &schema.FileOptions{
 					MaxSelect: 1,
+					MaxSize:   1000000,
 				},
 			},
 			&schema.SchemaField{
@@ -109,7 +140,7 @@ createDealCollection(app *pocketbase.PocketBase) error {
 						"Brand 2",
 						"Brand 3",
 					},
-					MaxSelect: 32,
+					MaxSelect: 3,
 				},
 			},
 			&schema.SchemaField{
@@ -127,12 +158,12 @@ createDealCollection(app *pocketbase.PocketBase) error {
 						"preroll",
 						"edible",
 					},
-					MaxSelect: 32,
+					MaxSelect: 7,
 				},
 			},
 			&schema.SchemaField{
-				Name:     "badge",
-				Type:     schema.FieldTypeText,
+				Name: "badge",
+				Type: schema.FieldTypeText,
 			},
 		),
 	}
@@ -144,7 +175,7 @@ createDealCollection(app *pocketbase.PocketBase) error {
 	return nil
 }
 
-func seedDeal(app *pocketbase.PocketBase) error {
+func seedDeal(app *pocketbase.PocketBase, recordId **string) error {
 	// Check if the 'deals' table has any records
 	collection, err := app.Dao().FindCollectionByNameOrId("deals")
 	if err != nil {
@@ -164,17 +195,70 @@ func seedDeal(app *pocketbase.PocketBase) error {
 	deal.Set("active", true)
 	deal.Set("title", "Test Deal")
 	deal.Set("description", "This is a test deal for development purposes.")
-	deal.Set("image", "placeholder.png")
 	// You'll need to ensure this file exists in your pb_public directory
 	deal.Set("brands", []string{"Brand 1"})
 	deal.Set("categories", []string{"flower"})
 	deal.Set("badge", "Test Deal Badge")
-
+	deal.Set("image", "placeholder.png")
 	if err := app.Dao().SaveRecord(deal); err != nil {
 		return errors.New("failed to save test deal: " + err.Error())
 	}
 
+	*recordId = &deal.Id
+
 	log.Println("Test deal inserted successfully.")
 	return nil
+}
+
+func uploadPlaceholderImage(recordId string) {
+	filePath := "./placeholder.png"
+	url := fmt.Sprintf("http://127.0.0.1:8090/api/collections/deals/records/%s", recordId)
+
+	file, err := os.Open(filePath)
+	if err != nil {
+		fmt.Printf("failed to open placeholder image file: %v", err)
+		return
+	}
+	defer file.Close()
+
+	var reqBody bytes.Buffer
+	writer := multipart.NewWriter(&reqBody)
+
+	part, err := writer.CreateFormFile("image", filepath.Base(filePath))
+	if err != nil {
+		fmt.Printf("failed to create form file: %v", err)
+		return
+	}
+
+	_, err = io.Copy(part, file)
+	if err != nil {
+		fmt.Printf("failed to copy file data: %v", err)
+		return
+	}
+
+	err = writer.Close()
+	if err != nil {
+		fmt.Printf("failed to close writer: %v", err)
+		return
+	}
+
+	req, err := http.NewRequest("PATCH", url, &reqBody)
+	req.Header.Add("Content-Type", writer.FormDataContentType())
+
+	client := &http.Client{}
+
+	resp, err := client.Do(req)
+	if err != nil {
+		fmt.Printf("failed to send request: %v", err)
+		return
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		fmt.Printf("upload failed with status: %s\n", resp.Status)
+		return
+	}
+
+	fmt.Println("> Placeholder image uploaded successfully")
 
 }

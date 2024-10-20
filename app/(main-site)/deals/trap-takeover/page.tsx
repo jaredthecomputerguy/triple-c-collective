@@ -10,16 +10,40 @@ const SHOW_PAGE = true;
 // HAVE_FLYER determines whether to show the flyer or not
 const HAVE_FLYER = false;
 // HAVE_GIFTBAGS determines whether the Trap Takeover is doing the gift bag promo
-const HAVE_GIFT_BAGS = false;
+const HAVE_GIFT_BAGS = true;
 
-const TRAP_TAKEOVER_DATE = formatDate("10-18-2024");
+const TRAP_TAKEOVER_DATE = formatDate("11-01-2024");
 const TRAP_TAKEOVER_FLYER_URL = "/images/9-20-trap-takeover-large.jpg";
+
+/*
+ * Nov. 1st
+ *  - [x] Midsfactory
+ *  - [x] Dompen
+ *  - [x] Koa
+ *  - [x] Jeff's
+ *  - [x] Big Boy Dro
+ *  - [x] Green River Extracts
+ *  - [ ] Coffee Supply (NEW)
+ *  - [ ] Akwaaba (Out of Stock)
+ *
+ * Nov. 15th
+ *  - [ ] Dompen
+ *  - [ ] Koa
+ *  - [ ] Ronin
+ *  - [ ] Green River Extracts
+ *  - [ ] Farmer's Cup (NEW)
+ *  - [ ] Akwaaba (Out of Stock)
+ */
 
 // Pass `undefined` as the last arg to show the 'more brands coming soon...'
 const featuredBrands = getFeaturedBrands(
+  "Midsfactory",
   "Dompen",
+  "Koa",
   "Jeff's Sessions",
+  "Big Boy Dro",
   "Green River Extracts",
+  undefined,
 );
 
 export default function TrapTakeoverPage() {
@@ -80,7 +104,7 @@ export default function TrapTakeoverPage() {
               featuredBrands.map((brand) => (
                 <div
                   className="flex flex-col items-center hover:underline"
-                  key={brand.name}
+                  key={brand.name ?? "undefined"}
                 >
                   <Link
                     className="flex flex-col items-center rounded border border-white p-2 outline-none focus:border-primary-purple focus:outline-primary-purple"
@@ -98,7 +122,7 @@ export default function TrapTakeoverPage() {
                       />
                     ) : (
                       <div className="flex h-56 w-56 flex-col items-center justify-center text-center">
-                        And many more coming soon...
+                        And more coming soon...
                       </div>
                     )}
                   </Link>

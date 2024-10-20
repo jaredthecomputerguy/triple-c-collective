@@ -68,7 +68,7 @@ export const Header = () => {
         link={{
           href: "/deals/trap-takeover",
         }}
-        active
+        active={false}
       />
       <TrapTakeoverBanner active={false} />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
