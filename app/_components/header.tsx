@@ -24,7 +24,6 @@ import {
   Gem,
   BanknoteIcon,
   PhoneIcon as ContactUsIcon,
-  PillIcon,
 } from "lucide-react";
 import { LiaCannabisSolid } from "react-icons/lia";
 
@@ -62,13 +61,13 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        bannerText="TRAP TAKEOVER TODAY 12-5PM"
+        bannerText="STIIIZY SALE - SAT & SUN"
         className="text-base font-semibold md:text-lg"
         icon={<LiaCannabisSolid className="size-5 text-white" />}
         link={{
-          href: "/deals/trap-takeover",
+          href: "/deals",
         }}
-        active={false}
+        active={true}
       />
       <TrapTakeoverBanner active={false} />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
