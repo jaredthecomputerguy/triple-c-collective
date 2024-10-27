@@ -18,6 +18,7 @@ const config: Config = {
         logo: ["var(--font-logo)"],
         main: ["'Open Sans'"],
         serif: ["'DM Serif Display'"],
+        stiiizy: ["'Bebas Neue'"],
       },
       colors: {
         "primary-purple": "rgb(43, 7, 77)",

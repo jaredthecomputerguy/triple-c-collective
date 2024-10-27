@@ -5,6 +5,8 @@ import { Button } from "@/app/_components/button";
 import Link from "next/link";
 import { DealCategory } from "./deal-category";
 import { getDealImageUrl, type DealsResponse } from "@/lib/utils";
+import stiiizyLogo from "@/public/images/brands/stiiizy-logo-black.png";
+import stiiizyCarts from "@/public/images/brands/stiiizy-carts.png";
 
 export const dynamic = "force-dynamic";
 
@@ -183,7 +185,27 @@ export default async function DealsPage() {
             </>
           )}
         </section>
-        <section className="py-12">
+        <section className="flex flex-col items-center justify-center pt-12 text-center">
+          <Image
+            src={stiiizyCarts}
+            alt="Stiiizy Cartridges"
+            width={2048 / 6}
+            height={2048 / 6}
+          />
+          <h2 className="flex flex-col items-center gap-4 font-stiiizy text-5xl text-[#241f1f]">
+            <Image
+              src={stiiizyLogo}
+              width={1258 / 4}
+              height={598 / 4}
+              alt="Stiiizy Logo"
+            />{" "}
+            Saturdays &amp; Sundays
+          </h2>
+          <p className="py-4 font-stiiizy text-3xl">
+            Buy two, get one free every weekend
+          </p>
+        </section>
+        <section className="pb-12 pt-16">
           <TrapTakeoverCountdown
             linkUrl="/deals/trap-takeover"
             labelText="Learn more"
