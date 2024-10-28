@@ -68,7 +68,7 @@ export const TrapTakeoverCountdown = ({
           </p>
         </div>
       </div>
-      <div className="mx-auto flex flex-col items-center gap-4 px-8 py-4 md:flex-row">
+      <div className="mx-auto flex flex-col flex-wrap items-center justify-center gap-4 px-8 py-4 md:flex-row">
         {Object.entries(timeRemaining).map(([label, value]) => (
           <div
             key={label}

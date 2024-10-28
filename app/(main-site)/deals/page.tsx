@@ -5,8 +5,7 @@ import { Button } from "@/app/_components/button";
 import Link from "next/link";
 import { DealCategory } from "./deal-category";
 import { getDealImageUrl, type DealsResponse } from "@/lib/utils";
-import stiiizyLogo from "@/public/images/brands/stiiizy-logo-black.png";
-import stiiizyCarts from "@/public/images/brands/stiiizy-carts.png";
+import { StiiizyDealCountdown } from "./stiiizy-deal-countdown";
 
 export const dynamic = "force-dynamic";
 
@@ -185,31 +184,18 @@ export default async function DealsPage() {
             </>
           )}
         </section>
-        <section className="flex flex-col items-center justify-center pt-12 text-center">
-          <Image
-            src={stiiizyCarts}
-            alt="Stiiizy Cartridges"
-            width={2048 / 6}
-            height={2048 / 6}
-          />
-          <h2 className="flex flex-col items-center gap-4 font-stiiizy text-5xl text-[#241f1f]">
-            <Image
-              src={stiiizyLogo}
-              width={1258 / 4}
-              height={598 / 4}
-              alt="Stiiizy Logo"
-            />{" "}
-            Saturdays &amp; Sundays
+        <section>
+          <h2 className="py-4 font-logo text-4xl font-semibold">
+            Recurring Deals
           </h2>
-          <p className="py-4 font-stiiizy text-3xl">
-            Buy two, get one free every weekend
-          </p>
-        </section>
-        <section className="pb-12 pt-16">
-          <TrapTakeoverCountdown
-            linkUrl="/deals/trap-takeover"
-            labelText="Learn more"
-          />
+          <hr className="pb-4" />
+          <div className="block grid-cols-2 space-y-12 lg:grid">
+            <StiiizyDealCountdown />
+            <TrapTakeoverCountdown
+              linkUrl="/deals/trap-takeover"
+              labelText="Learn more"
+            />
+          </div>
         </section>
       </div>
     </main>
