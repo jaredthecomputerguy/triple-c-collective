@@ -61,7 +61,7 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        bannerText="STIIIZY SALE - SAT & SUN"
+        bannerText="STIIIZY SALE - LIVE NOW"
         className="text-base font-semibold md:text-lg"
         icon={<LiaCannabisSolid className="size-5 text-white" />}
         link={{

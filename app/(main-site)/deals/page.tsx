@@ -189,7 +189,7 @@ export default async function DealsPage() {
             Recurring Deals
           </h2>
           <hr className="pb-4" />
-          <div className="block grid-cols-2 space-y-12 lg:grid">
+          <div className="block grid-cols-2 space-x-1 space-y-12 lg:grid">
             <StiiizyDealCountdown />
             <TrapTakeoverCountdown
               linkUrl="/deals/trap-takeover"

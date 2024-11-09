@@ -1,10 +1,16 @@
 import Image from "next/image";
 import stiiizyLogo from "@/public/images/brands/stiiizy-logo-black.png";
 import stiiizyCarts from "@/public/images/brands/stiiizy-carts.png";
+import Link from "next/link";
 
 export const StiiizyDealCountdown = () => {
   return (
-    <div className="flex flex-col items-center justify-center" id="stiiizy">
+    <Link
+      className="flex flex-col items-center justify-center rounded-xl underline-offset-4 hover:underline"
+      href="https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=STIIIZY"
+      id="stiiizy"
+      target="_blank"
+    >
       <Image
         src={stiiizyCarts}
         alt="Stiiizy Cartridges"
@@ -23,6 +29,6 @@ export const StiiizyDealCountdown = () => {
       <p className="py-4 text-center font-stiiizy text-3xl">
         Buy two, get one free every weekend
       </p>
-    </div>
+    </Link>
   );
 };
