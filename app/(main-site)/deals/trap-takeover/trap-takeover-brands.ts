@@ -6,6 +6,7 @@ import koaLogo from "@/public/images/brands/koa.png";
 import greenRiverExtractsLogo from "@/public/images/brands/green-river-extracts-logo.png";
 import bigBoyDroLogo from "@/public/images/brands/big-boy-dro.png";
 import jeffsSessionsLogo from "@/public/images/brands/jeff-sessions-logo.png";
+import roninRosinLogo from "@/public/images/brands/ronin-logo.jpg";
 
 export type FeaturedBrand = (typeof BRANDS)[number];
 type BrandNames = FeaturedBrand["name"][];
@@ -52,6 +53,12 @@ const BRANDS = [
     alt: "Jeff's Sessions Logo",
     url: "https://jeffssessions.com/",
     image: jeffsSessionsLogo,
+  },
+  {
+    name: "Ronin",
+    alt: "Ronin Rosin Logo",
+    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=RONIN",
+    image: roninRosinLogo,
   },
   {
     name: undefined,
