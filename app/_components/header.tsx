@@ -65,7 +65,7 @@ export const Header = () => {
         className="text-base font-semibold md:text-lg"
         icon={<LiaCannabisSolid className="size-5 text-white" />}
         link={{
-          href: "/deals",
+          href: "/deals#stiiizy",
         }}
         active={true}
       />

@@ -4,7 +4,7 @@ import stiiizyCarts from "@/public/images/brands/stiiizy-carts.png";
 
 export const StiiizyDealCountdown = () => {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center" id="stiiizy">
       <Image
         src={stiiizyCarts}
         alt="Stiiizy Cartridges"
