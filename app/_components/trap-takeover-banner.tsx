@@ -3,7 +3,13 @@ import { Button } from "./button";
 import { useState } from "react";
 import { CloseIcon } from "./icons/close-icon";
 
-export const TrapTakeoverBanner = ({ active }: { active: boolean }) => {
+export const TrapTakeoverBanner = ({
+  active,
+  bannerText = "Trap Takeover is Here - 12PM",
+}: {
+  active: boolean;
+  bannerText?: string;
+}) => {
   const [showBanner, setShowBanner] = useState(active);
 
   if (!showBanner) {
@@ -22,7 +28,7 @@ export const TrapTakeoverBanner = ({ active }: { active: boolean }) => {
             >
               <Link href="/deals/trap-takeover" className="flex gap-2">
                 <span className="font-trap-takeover uppercase">
-                  Trap Takeover is Here - 12PM
+                  {bannerText}
                 </span>
               </Link>
             </Button>

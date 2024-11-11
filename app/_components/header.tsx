@@ -65,11 +65,14 @@ export const Header = () => {
         className="text-base font-semibold md:text-lg"
         icon={<LiaCannabisSolid className="size-5 text-white" />}
         link={{
-          href: "/deals#stiiizy",
+          href: "/deals/trap-takeover",
         }}
-        active={true}
+        active={false}
       />
-      <TrapTakeoverBanner active={false} />
+      <TrapTakeoverBanner
+        active={true}
+        bannerText="Trap Takeover - Fri, Nov 15th"
+      />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
         <div className="flex justify-between bg-primary-purple px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
