@@ -15,10 +15,9 @@
     "pocketbase:run": "make -C pocketbase all",
     "pocketbase:clean": "make -C pocketbase clean",
     "pocketbase:admin": "open http://127.0.0.1:8090/_/",
-    "lighthouse-js:run": "node lighthouse/js/run-reports.mjs",
-    "lighthouse-js:serve": "serve ./lighthouse/js/reports",
-    "lighthouse-go:run": "make -C ./lighthouse/go/ run cmd=generate",
-    "lighthouse-go:serve": "make -C ./lighthouse/go/ run cmd=serve"
+    "lighthouse:run": "node lighthouse/js/run-reports.mjs",
+    "lighthouse:serve": "serve ./lighthouse/js/reports",
+    "lighthouse": "npm run lighthouse:run && npm run lighthouse:serve"
   },
   "husky": {
     "hooks": {
