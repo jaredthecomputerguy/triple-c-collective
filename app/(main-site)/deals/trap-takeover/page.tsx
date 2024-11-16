@@ -17,10 +17,10 @@ const TRAP_TAKEOVER_FLYER_URL = "/images/9-20-trap-takeover-large.jpg";
 
 /*
  * Nov. 15th
- *  - [ ] Dompen
- *  - [ ] Koa
- *  - [ ] Ronin
- *  - [ ] Green River Extracts
+ *  - [x] Dompen
+ *  - [x] Koa
+ *  - [x] Ronin
+ *  - [x] Green River Extracts
  *  - [ ] Farmer's Cup (NEW)
  *  - [ ] Akwaaba (Out of Stock)
  */
