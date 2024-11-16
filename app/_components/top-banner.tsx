@@ -67,6 +67,7 @@ export const TopBanner = ({
         onClick={() => setShowBanner(false)}
         variant="ghost"
         name="Close Top Banner"
+        aria-label="Close Top Banner"
       >
         <CloseIcon />
       </Button>
