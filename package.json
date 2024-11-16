@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "concurrently -n pb,next -c green,magenta \"npm:pocketbase:run\" \"next dev\"",
     "build": "next build",
+    "build:dev": "concurrently -n pb,next-builder --kill-others \"npm:pocketbase:run\" \"next build\"",
     "start": "next start",
+    "preview": "concurrently -n pb,next -c green,cyan \"npm:pocketbase:run\" \"next start\"",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
