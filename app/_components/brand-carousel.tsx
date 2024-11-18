@@ -57,6 +57,7 @@ export const BrandCarousel = () => {
             src={brand.src!}
             alt={brand.alt}
             fill
+            sizes="16rem"
             priority
             className="object-contain"
             tabIndex={0}

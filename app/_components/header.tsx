@@ -25,7 +25,7 @@ import {
   BanknoteIcon,
   PhoneIcon as ContactUsIcon,
 } from "lucide-react";
-import { LiaCannabisSolid } from "react-icons/lia";
+import { TurkeyIcon } from "./icons/turkey-icon";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
@@ -61,11 +61,15 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        bannerText="STIIIZY SALE - LIVE NOW"
-        className="text-base font-semibold md:text-lg"
-        icon={<LiaCannabisSolid className="size-5 text-white" />}
+        bannerText="Closed Thanksgiving Day to Enjoy the Holiday"
+        bannerColor="bg-yellow-950"
+        className="text-sm font-semibold text-orange-400 md:text-lg"
+        icon={{
+          rightIcon: <span>&#129411;</span>,
+          leftIcon: <span>&#129411;</span>,
+        }}
         link={{
-          href: "/deals/#stiiizy",
+          href: "#",
         }}
         active={true}
       />

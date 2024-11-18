@@ -1,25 +1,34 @@
 "use client";
 
-import { type ReactNode, useState } from "react";
+import {
+  type ReactNode,
+  useState,
+  type ComponentProps,
+  type HTMLAttributeAnchorTarget,
+} from "react";
 import Link from "next/link";
 import { CloseIcon } from "./icons/close-icon";
 import { Button } from "./button";
+import { cn } from "@/lib/utils";
+
+interface TopBannerProps extends ComponentProps<"div"> {
+  active?: boolean;
+  bannerText: string;
+  bannerColor?: string;
+  bottomText?: string;
+  icon?: { leftIcon?: ReactNode; rightIcon?: ReactNode };
+  link?: { href: string; target?: HTMLAttributeAnchorTarget };
+}
 
 export const TopBanner = ({
   active,
   bannerText,
+  bannerColor = "bg-primary-purple",
   bottomText,
   className = "px-1 py-2 text-sm font-semibold md:text-lg",
   icon,
   link = { href: "/deals" },
-}: {
-  active?: boolean;
-  bannerText: string;
-  bottomText?: string;
-  className?: string;
-  icon?: ReactNode;
-  link?: { href: string; target?: string };
-}) => {
+}: TopBannerProps) => {
   const [showBanner, setShowBanner] = useState(active);
 
   if (!showBanner) {
@@ -27,7 +36,12 @@ export const TopBanner = ({
   }
 
   return (
-    <div className="sticky top-0 flex w-screen items-center justify-center bg-primary-purple py-4 font-logo font-semibold text-white md:px-4">
+    <div
+      className={cn(
+        bannerColor,
+        "sticky top-0 flex w-screen items-center justify-center py-4 font-logo font-semibold text-white md:px-4",
+      )}
+    >
       <div className="mx-auto max-w-7xl">
         <div className="text-sm md:text-base">
           <span className="flex items-center justify-center font-semibold">
@@ -39,9 +53,9 @@ export const TopBanner = ({
                   target={link.target}
                 >
                   <span className="flex items-center gap-2">
-                    {icon}
+                    {icon?.leftIcon}
                     {bannerText}
-                    {icon}
+                    {icon?.rightIcon}
                   </span>
                   <span className="text-sm">{bottomText}</span>
                 </Link>
@@ -51,10 +65,10 @@ export const TopBanner = ({
                   className="flex flex-col"
                   target={link.target}
                 >
-                  <span className="flex items-center gap-2">
-                    {icon}
+                  <span className="flex items-center gap-2 text-wrap text-center">
+                    {icon?.leftIcon}
                     {bannerText}
-                    {icon}
+                    {icon?.rightIcon}
                   </span>
                 </Link>
               )}
