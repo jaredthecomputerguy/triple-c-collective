@@ -61,18 +61,13 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        bannerText="Closed Thanksgiving Day to Enjoy the Holiday"
-        bannerColor="bg-yellow-950"
-        className="text-sm font-semibold text-orange-400 md:text-lg"
-        icon={{
-          rightIcon: <span>&#129411;</span>,
-          leftIcon: <span>&#129411;</span>,
-        }}
-        link={{
-          href: "#",
-        }}
+        className="turkey-bg bg-gradient-to-tr from-amber-600 to-yellow-800 text-base font-semibold text-white md:text-xl"
         active={true}
-      />
+      >
+        <span className="text-base font-semibold md:text-xl">
+          &#129411; Closed Thanksgiving Day &#129411;
+        </span>
+      </TopBanner>
       <TrapTakeoverBanner
         active={false}
         bannerText="Trap Takeover - Fri, Nov 15th"
