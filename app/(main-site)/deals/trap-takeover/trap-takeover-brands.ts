@@ -1,5 +1,4 @@
 import comingSoonImage from "@/public/images/palm-tree.png";
-import noLogoImage from "@/public/images/brands/no-logo-2.png";
 
 import midsfactoryLogo from "@/public/images/brands/midsfactory.png";
 import dompenLogo from "@/public/images/brands/dompen.avif";
@@ -8,6 +7,7 @@ import greenRiverExtractsLogo from "@/public/images/brands/green-river-extracts-
 import bigBoyDroLogo from "@/public/images/brands/big-boy-dro.png";
 import jeffsSessionsLogo from "@/public/images/brands/jeff-sessions-logo.png";
 import roninRosinLogo from "@/public/images/brands/ronin-logo.jpg";
+import coffeeSupplyLogo from "@/public/images/brands/coffee-supply.png";
 
 export type FeaturedBrand = (typeof BRANDS)[number];
 type BrandNames = FeaturedBrand["name"][];
@@ -64,9 +64,9 @@ const BRANDS = [
   {
     name: "Coffee Supply",
     // TODO: Change this once we have an actual logo
-    alt: "Logo Coming Soon",
+    alt: "Coffee Supply Logo",
     url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=COFFEE%20SUPPLY",
-    image: noLogoImage,
+    image: coffeeSupplyLogo,
   },
   {
     name: undefined,
