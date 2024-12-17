@@ -12,27 +12,17 @@ const HAVE_FLYER = false;
 // HAVE_GIFTBAGS determines whether the Trap Takeover is doing the gift bag promo
 const HAVE_GIFT_BAGS = false;
 
-const TRAP_TAKEOVER_DATE = formatDate("11-15-2024");
+const TRAP_TAKEOVER_DATE = formatDate("12-20-2024");
 const TRAP_TAKEOVER_FLYER_URL = "/images/9-20-trap-takeover-large.jpg";
-
-/*
- * Nov. 15th
- *  - [x] Dompen
- *  - [x] Koa
- *  - [x] Ronin
- *  - [x] Green River Extracts
- *  - [ ] Farmer's Cup (NEW)
- *  - [ ] Akwaaba (Out of Stock)
- */
 
 // Pass `undefined` as the last arg to show the 'more brands coming soon...'
 const featuredBrands = getFeaturedBrands(
+  "Jeff's Sessions",
   "Dompen",
-  "Koa",
-  "Ronin",
+  "Koa Cannabis Co.",
   "Green River Extracts",
-  // "Farmer's Cup",
-  undefined,
+  "Big Boy Dro",
+  "Coffee Supply",
 );
 
 export default function TrapTakeoverPage() {

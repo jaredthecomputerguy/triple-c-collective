@@ -1,4 +1,5 @@
 import comingSoonImage from "@/public/images/palm-tree.png";
+import noLogoImage from "@/public/images/brands/no-logo-2.png";
 
 import midsfactoryLogo from "@/public/images/brands/midsfactory.png";
 import dompenLogo from "@/public/images/brands/dompen.avif";
@@ -59,6 +60,13 @@ const BRANDS = [
     alt: "Ronin Rosin Logo",
     url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=RONIN",
     image: roninRosinLogo,
+  },
+  {
+    name: "Coffee Supply",
+    // TODO: Change this once we have an actual logo
+    alt: "Logo Coming Soon",
+    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=COFFEE%20SUPPLY",
+    image: noLogoImage,
   },
   {
     name: undefined,
