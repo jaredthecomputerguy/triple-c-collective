@@ -107,7 +107,7 @@ export default async function DealsPage() {
     return deal.categories?.includes("cartridge");
   });
 
-  const pillAndTinctureDeals = deals.filter((deal) => {
+  const pillTincturesAndTopicalsDeals = deals.filter((deal) => {
     return (
       deal.categories?.includes("pill") || deal.categories?.includes("tincture")
     );
@@ -172,9 +172,9 @@ export default async function DealsPage() {
                 deals={extractDeals}
               />
               <DealCategory
-                categoryTitle="Pills and Tinctures"
+                categoryTitle="Pills, Tinctures & Topicals"
                 categorySubtitle="Discreet, easy-to-dose options for tailored relief."
-                deals={pillAndTinctureDeals}
+                deals={pillTincturesAndTopicalsDeals}
               />
               <DealCategory
                 categoryTitle="Other Deals"
