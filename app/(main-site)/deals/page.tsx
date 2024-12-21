@@ -109,7 +109,9 @@ export default async function DealsPage() {
 
   const pillTincturesAndTopicalsDeals = deals.filter((deal) => {
     return (
-      deal.categories?.includes("pill") || deal.categories?.includes("tincture")
+      deal.categories?.includes("pill") ||
+      deal.categories?.includes("tincture") ||
+      deal.categories?.includes("topicals")
     );
   });
 
