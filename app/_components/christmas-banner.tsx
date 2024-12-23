@@ -2,7 +2,7 @@ export const ChristmasBanner = () => {
   return (
     <>
       <ul className="strand">
-        {new Array(29).fill("").map((_, i) => {
+        {new Array(64).fill("").map((_, i) => {
           return <li key={i}></li>;
         })}
       </ul>
