@@ -29,7 +29,8 @@ export const TopBanner = ({
     <div
       className={cn(
         className,
-        "sticky top-0 flex w-screen items-center justify-center py-4 font-logo font-semibold text-white md:px-4",
+        "sticky top-0 flex w-screen items-center justify-center font-logo font-semibold text-white md:px-4",
+        // "py-4",
       )}
     >
       <div className="mx-auto max-w-7xl">
@@ -42,7 +43,7 @@ export const TopBanner = ({
         </div>
       </div>
       <Button
-        className="absolute right-2 p-1 md:right-8"
+        className="absolute right-2 z-50 p-1 md:right-8"
         onClick={() => setShowBanner(false)}
         variant="ghost"
         name="Close Top Banner"

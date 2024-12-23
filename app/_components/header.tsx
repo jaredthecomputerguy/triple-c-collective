@@ -25,6 +25,7 @@ import {
   BanknoteIcon,
   PhoneIcon as ContactUsIcon,
 } from "lucide-react";
+import { ChristmasBanner } from "./christmas-banner";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
@@ -59,7 +60,9 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
-      <TopBanner active={true}>{/* TODO: Add christmas banner */}</TopBanner>
+      <TopBanner active={true} className="bg-primary-purple">
+        <ChristmasBanner />
+      </TopBanner>
       <TrapTakeoverBanner
         active={false}
         bannerText="Trap Takeover - Fri, Dec 20th"

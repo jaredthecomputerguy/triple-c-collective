@@ -70,7 +70,7 @@ export default function ContactPage() {
                 </p>
                 <p className="flex gap-1">
                   <span className="font-semibold">Closed:</span>Thanksgiving &
-                  Christmas
+                  Christmas Day
                 </p>
               </div>
               <div className="flex flex-col gap-2">
