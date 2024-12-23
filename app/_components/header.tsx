@@ -59,14 +59,7 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
-      <TopBanner active={true} className="bg-black">
-        <Link
-          className="font-stiiizy text-3xl font-semibold text-white hover:underline focus:underline md:text-4xl"
-          href="https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=STIIIZY"
-        >
-          STIIIZY SAT &amp; SUN - LIVE NOW
-        </Link>
-      </TopBanner>
+      <TopBanner active={true}>{/* TODO: Add christmas banner */}</TopBanner>
       <TrapTakeoverBanner
         active={false}
         bannerText="Trap Takeover - Fri, Dec 20th"
