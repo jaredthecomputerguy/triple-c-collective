@@ -135,7 +135,7 @@ func createDealCollection(app *pocketbase.PocketBase) error {
 				Required: true,
 				Options: &schema.SelectOptions{
 					Values: types.JsonArray[string]{
-						// TODO: Get the list of brands
+						// TODO: Get the list of brands from Treez API programatically
 						"Brand 1",
 						"Brand 2",
 						"Brand 3",

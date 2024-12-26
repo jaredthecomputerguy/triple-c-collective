@@ -32,7 +32,6 @@ const LINKS = [
   { href: "/about", label: "About", icon: <UsersRoundIcon size={26} /> },
   { href: "/reward-program", label: "Rewards", icon: <Gem size={26} /> },
   { href: "/deals", label: "Deals", icon: <BanknoteIcon size={26} /> },
-  // TODO: Save this for subsequent years
   // { href: "/deals/420-deals", label: "4/20" },
   {
     href: "/contact",

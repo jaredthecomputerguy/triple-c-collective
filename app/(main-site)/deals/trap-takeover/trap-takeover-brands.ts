@@ -63,7 +63,6 @@ const BRANDS = [
   },
   {
     name: "Coffee Supply",
-    // TODO: Change this once we have an actual logo
     alt: "Coffee Supply Logo",
     url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=COFFEE%20SUPPLY",
     image: coffeeSupplyLogo,
