@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 
 const fetchDeals = async ({ cache }: { cache: boolean }) => {
   const res = await fetch(
-    `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_DEAL_URL}`,
+    `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_DEAL_URL}?filter=active=true`,
     cache ? { cache: "no-store" } : undefined,
   );
   return (await res.json()) as DealsResponse;
@@ -74,7 +74,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function DealsPage() {
   const fetchedDeals = await fetchDeals({ cache: true });
-
+  console.log("--> fetchedDeals", fetchedDeals);
   const deals = fetchedDeals.items.reduce<DealsResponse["items"]>(
     (acc, deal) => {
       if (deal.active) {
