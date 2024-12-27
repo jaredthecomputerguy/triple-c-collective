@@ -10,7 +10,7 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
   return (
     <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-2 lg:grid-cols-3">
       {deals.map((deal) => {
-        const isNew = isDateLessThan(deal.created, DAYS_TO_BE_CONSIDERED_NEW);
+        const isNew = isDateLessThan(deal.updated, DAYS_TO_BE_CONSIDERED_NEW);
         return (
           <Link
             href={{

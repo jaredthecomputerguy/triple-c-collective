@@ -74,7 +74,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function DealsPage() {
   const fetchedDeals = await fetchDeals({ cache: true });
-  console.log("--> fetchedDeals", fetchedDeals);
+
   const deals = fetchedDeals.items.reduce<DealsResponse["items"]>(
     (acc, deal) => {
       if (deal.active) {
