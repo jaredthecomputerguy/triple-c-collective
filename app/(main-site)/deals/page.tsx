@@ -111,7 +111,7 @@ export default async function DealsPage() {
     return (
       deal.categories?.includes("pill") ||
       deal.categories?.includes("tincture") ||
-      deal.categories?.includes("topicals")
+      deal.categories?.includes("topical")
     );
   });
 
