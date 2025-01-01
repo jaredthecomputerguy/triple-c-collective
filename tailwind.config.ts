@@ -22,6 +22,8 @@ const config: Config = {
       },
       colors: {
         "primary-purple": "rgb(43, 7, 77)",
+        "new-years-gold": "#D9B01C",
+        "new-years-black": "#090909",
       },
       animation: {
         "desktop-scroll": "desktop-scroll 30s linear infinite both",

@@ -25,7 +25,8 @@ import {
   BanknoteIcon,
   PhoneIcon as ContactUsIcon,
 } from "lucide-react";
-import { ChristmasBanner } from "./christmas-banner";
+import Sparkle from "react-sparkle";
+import { Fireworks } from "@fireworks-js/react";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
@@ -59,12 +60,24 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
-      <TopBanner active={false} className="bg-primary-purple">
-        <ChristmasBanner />
+      <TopBanner active={true} className="bg-new-years-black py-6">
+        <div className="flex items-center gap-4">
+          <span className="font-serif text-xl tracking-wider text-new-years-gold md:text-3xl">
+            {" "}
+            OPEN NEW YEARS DAY
+          </span>
+        </div>
       </TopBanner>
       <TrapTakeoverBanner
         active={false}
         bannerText="Trap Takeover - Fri, Dec 20th"
+      />
+      <Sparkle
+        fadeOutSpeed={5}
+        color={"#D9B01C"}
+        minSize={20}
+        overflowPx={0}
+        count={15}
       />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
         <div className="flex justify-between bg-primary-purple px-4 py-2 text-sm text-[#fefefe] md:hidden">
