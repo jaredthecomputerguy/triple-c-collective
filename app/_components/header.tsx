@@ -26,7 +26,6 @@ import {
   PhoneIcon as ContactUsIcon,
 } from "lucide-react";
 import Sparkle from "react-sparkle";
-import { Fireworks } from "@fireworks-js/react";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },

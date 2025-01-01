@@ -29,16 +29,13 @@ export const TopBanner = ({
     <div
       className={cn(
         className,
-        "sticky top-0 flex w-screen items-center justify-center font-logo font-semibold text-white md:px-4",
-        // "py-4",
+        "sticky top-0 flex items-center justify-center font-logo font-semibold text-white md:px-4",
       )}
     >
       <div className="mx-auto max-w-7xl">
         <div className="">
           <span className="flex items-center justify-center font-semibold">
-            {/* <Button asChild variant="link">*/}
             {children}
-            {/* </Button> */}
           </span>
         </div>
       </div>
