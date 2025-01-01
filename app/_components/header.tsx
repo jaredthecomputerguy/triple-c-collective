@@ -59,7 +59,7 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
-      <TopBanner active={true} className="bg-primary-purple">
+      <TopBanner active={false} className="bg-primary-purple">
         <ChristmasBanner />
       </TopBanner>
       <TrapTakeoverBanner
