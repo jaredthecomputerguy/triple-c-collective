@@ -23,7 +23,7 @@ export const TrapTakeoverBanner = ({
           <span className="flex items-center justify-center font-semibold">
             <Button
               asChild
-              className="px-1 py-2 text-2xl font-semibold md:text-4xl"
+              className="px-1 py-2 text-2xl font-semibold decoration-yellow-500 md:text-4xl"
               variant="link"
             >
               <Link href="/deals/trap-takeover" className="flex gap-2">
