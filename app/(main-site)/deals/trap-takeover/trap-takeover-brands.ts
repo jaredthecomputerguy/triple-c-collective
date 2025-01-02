@@ -1,6 +1,7 @@
 import comingSoonImage from "@/public/images/palm-tree.png";
 
 import midsfactoryLogo from "@/public/images/brands/midsfactory.png";
+import akwaabaLogo from "@/public/images/brands/akwaaba.png";
 import dompenLogo from "@/public/images/brands/dompen.avif";
 import koaLogo from "@/public/images/brands/koa.png";
 import greenRiverExtractsLogo from "@/public/images/brands/green-river-extracts-logo.png";
@@ -13,6 +14,12 @@ export type FeaturedBrand = (typeof BRANDS)[number];
 type BrandNames = FeaturedBrand["name"][];
 
 const BRANDS = [
+  {
+    name: "Akwaaba",
+    alt: "Akwaaba Logo",
+    url: "https://www.akwaabafarms.com/",
+    image: akwaabaLogo,
+  },
   {
     name: "Midsfactory",
     alt: "Midsfactory Logo",
@@ -27,12 +34,6 @@ const BRANDS = [
   },
   {
     name: "Koa Cannabis Co.",
-    alt: "Koa Logo",
-    url: "https://www.koacannabis.com/",
-    image: koaLogo,
-  },
-  {
-    name: "Koa",
     alt: "Koa Logo",
     url: "https://www.koacannabis.com/",
     image: koaLogo,
