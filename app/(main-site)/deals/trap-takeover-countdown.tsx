@@ -51,16 +51,7 @@ export const TrapTakeoverCountdown = ({
           />
         </a>
         <div className="flex flex-col items-center gap-2">
-          <h2
-            className="text-5xl font-bold uppercase"
-            style={{
-              backgroundImage:
-                "linear-gradient(180deg, #f2bd2a 28%, #f26e50 74%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              filter: "drop-shadow(rgb(53, 2, 124) 2px 2px 0px)",
-            }}
-          >
+          <h2 className="trap-takeover-text text-5xl font-bold uppercase">
             Trap Takeover!
           </h2>
           <p className="text-center text-2xl text-[#fefefe]">
