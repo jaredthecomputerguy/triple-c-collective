@@ -12,16 +12,16 @@ const HAVE_FLYER = false;
 // HAVE_GIFTBAGS determines whether the Trap Takeover is doing the gift bag promo
 const HAVE_GIFT_BAGS = false;
 
-const TRAP_TAKEOVER_DATE = formatDate("01-03-2025");
+const TRAP_TAKEOVER_DATE = formatDate("01-17-2025");
 
 const TRAP_TAKEOVER_FLYER_URL = "/images/9-20-trap-takeover-large.jpg";
 
 // Pass `undefined` as the last arg to show the 'more brands coming soon...'
 const featuredBrands = getFeaturedBrands(
-  "Coffee Supply",
+  "Big Boy Dro",
   "Akwaaba",
-  "Midsfactory",
   "Dompen",
+  "Jeff's Sessions",
   "Koa Cannabis Co.",
   "Green River Extracts",
   "Ronin",
