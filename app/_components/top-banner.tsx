@@ -11,11 +11,13 @@ import { cn } from "@/lib/utils";
 
 interface TopBannerProps extends ComponentProps<"div"> {
   active?: boolean;
+  closeBtnClass?: string;
   link?: { href: string; target?: HTMLAttributeAnchorTarget };
 }
 
 export const TopBanner = ({
   active,
+  closeBtnClass = "text-black",
   children,
   className = "px-1 py-2 font-semibold",
 }: TopBannerProps) => {
@@ -40,7 +42,7 @@ export const TopBanner = ({
         </div>
       </div>
       <Button
-        className="absolute right-2 z-50 p-1 md:right-8"
+        className={cn("absolute right-2 z-50 p-1 md:right-8", closeBtnClass)}
         onClick={() => setShowBanner(false)}
         variant="ghost"
         name="Close Top Banner"

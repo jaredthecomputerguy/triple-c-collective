@@ -25,6 +25,7 @@ import {
   BanknoteIcon,
   PhoneIcon as ContactUsIcon,
 } from "lucide-react";
+import { StiiizyBanner } from "./stiiizy-banner";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
@@ -58,9 +59,15 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
-      <TopBanner active={false}></TopBanner>
-      <TrapTakeoverBanner
+      <TopBanner
         active={true}
+        className="bg-black py-4"
+        closeBtnClass="text-white"
+      >
+        <StiiizyBanner />
+      </TopBanner>
+      <TrapTakeoverBanner
+        active={false}
         bannerText="Trap Takeover - TODAY 12pm-6pm"
       />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
