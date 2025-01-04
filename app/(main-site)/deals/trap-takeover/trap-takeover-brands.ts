@@ -47,7 +47,7 @@ const BRANDS = [
   {
     name: "Big Boy Dro",
     alt: "Big Boy Dro Logo",
-    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=BIG ",
+    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=BIG BOY DRO",
     image: bigBoyDroLogo,
   },
   {
