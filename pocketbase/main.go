@@ -211,8 +211,6 @@ func seedDeal(app *pocketbase.PocketBase, recordId **string) error {
 		return errors.New("failed to save test deal: " + err.Error())
 	}
 
-	fmt.Printf("inserted deal: %v", deal)
-
 	*recordId = &deal.Id
 
 	log.Println("Test deal inserted successfully.")
