@@ -44,8 +44,9 @@ TODOS.md
 /lighthouse/go/bin
 /lighthouse/go/reports/*.html
 
-# pocketbase dbs
+# pocketbase dbs + data
 /pocketbase/pb_data/*
 *.db
 .sqliterc
 /pocketbase/pocketbase
+/pocketbase/*.json
