@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
@@ -21,6 +22,10 @@ import (
 	"github.com/pocketbase/pocketbase/models/schema"
 	"github.com/pocketbase/pocketbase/tools/types"
 )
+
+type BrandData struct {
+	Brands []string `json:"brands"`
+}
 
 func main() {
 	app := pocketbase.New()
@@ -44,6 +49,10 @@ func main() {
 		}
 
 		err = seedDeal(app, &recordId)
+
+		if err != nil {
+			return err
+		}
 
 		return nil
 	})
@@ -96,6 +105,9 @@ func createDefaultAdminUser(app *pocketbase.PocketBase) error {
 //	  "categories": "select"
 //	}
 func createDealCollection(app *pocketbase.PocketBase) error {
+
+	brands := getBrands()
+
 	collection := &models.Collection{
 		Name:       "deals",
 		Type:       models.CollectionTypeBase,
@@ -134,12 +146,7 @@ func createDealCollection(app *pocketbase.PocketBase) error {
 				Type:     schema.FieldTypeSelect,
 				Required: true,
 				Options: &schema.SelectOptions{
-					Values: types.JsonArray[string]{
-						// TODO: Get the list of brands from Treez API programatically
-						"Brand 1",
-						"Brand 2",
-						"Brand 3",
-					},
+					Values:    types.JsonArray[string](brands),
 					MaxSelect: 3,
 				},
 			},
@@ -196,7 +203,7 @@ func seedDeal(app *pocketbase.PocketBase, recordId **string) error {
 	deal.Set("title", "Test Deal")
 	deal.Set("description", "This is a test deal for development purposes.")
 	// You'll need to ensure this file exists in your pb_public directory
-	deal.Set("brands", []string{"Brand 1"})
+	deal.Set("brands", []string{"AKWAABA FARMS"})
 	deal.Set("categories", []string{"flower"})
 	deal.Set("badge", "Test Deal Badge")
 	deal.Set("image", "placeholder.png")
@@ -204,10 +211,33 @@ func seedDeal(app *pocketbase.PocketBase, recordId **string) error {
 		return errors.New("failed to save test deal: " + err.Error())
 	}
 
+	fmt.Printf("inserted deal: %v", deal)
+
 	*recordId = &deal.Id
 
 	log.Println("Test deal inserted successfully.")
 	return nil
+}
+
+func getBrands() []string {
+
+	brandJsonPath := "./treez-brands.json"
+
+	file, err := os.Open(brandJsonPath)
+
+	if err != nil {
+		log.Fatal("Error opening treez-brands.json file.")
+	}
+
+	defer file.Close()
+
+	var brandData BrandData
+
+	decoder := json.NewDecoder(file)
+
+	decoder.Decode(&brandData)
+
+	return brandData.Brands
 }
 
 func uploadPlaceholderImage(recordId string) {
@@ -242,7 +272,7 @@ func uploadPlaceholderImage(recordId string) {
 		return
 	}
 
-	req, err := http.NewRequest("PATCH", url, &reqBody)
+	req, _ := http.NewRequest("PATCH", url, &reqBody)
 	req.Header.Add("Content-Type", writer.FormDataContentType())
 
 	client := &http.Client{}
