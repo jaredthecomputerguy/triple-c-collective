@@ -69,7 +69,16 @@ export const Header = () => {
         active={true}
         className="group bg-black py-4 transition hover:bg-white"
         closeBtnClass="text-white transition group-hover:text-black"
-        onMouseEnter={() => {
+        onTouchStart={() => {
+          setStiiizyLogo(stiiizyBlackLogo);
+        }}
+        onTouchCancel={() => {
+          setStiiizyLogo(stiiizyBlackLogo);
+        }}
+        onTouchEnd={() => {
+          setStiiizyLogo(stiiizyWhiteLogo);
+        }}
+        onMouseOver={() => {
           setStiiizyLogo(stiiizyBlackLogo);
         }}
         onMouseLeave={() => {
