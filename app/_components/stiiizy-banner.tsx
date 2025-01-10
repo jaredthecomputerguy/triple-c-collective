@@ -2,8 +2,14 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Image, { type StaticImageData } from "next/image";
+import { Separator } from "./separator";
 
-export const StiiizyBanner = () => {
+interface StiiizyBannerProps {
+  image: StaticImageData;
+}
+
+export const StiiizyBanner = ({ image }: StiiizyBannerProps) => {
   const [dayOfWeek, setDayOfWeek] = useState(new Date().getDay());
 
   useEffect(() => {
@@ -14,10 +20,23 @@ export const StiiizyBanner = () => {
 
   return (
     <Link
-      className="font-stiiizy text-3xl font-semibold text-white hover:underline focus:underline md:text-4xl"
+      className="flex items-center gap-12 px-4 py-1 font-stiiizy text-3xl
+      font-thin text-white transition hover:underline group-hover:text-black md:text-4xl"
       href="https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=STIIIZY"
+      target="_blank"
     >
-      STIIIZY SAT &amp; SUN {isSaturdayOrSunday && " - LIVE NOW"}
+      <Image
+        className="h-10 w-20"
+        src={image}
+        alt="Stiiizy Logo"
+        width={1258}
+        height={598}
+      />
+      <Separator
+        className="h-12 w-1 bg-white transition group-hover:bg-black"
+        orientation="vertical"
+      />
+      SAT &amp; SUN {isSaturdayOrSunday && " - LIVE NOW"}
     </Link>
   );
 };

@@ -25,7 +25,11 @@ import {
   BanknoteIcon,
   PhoneIcon as ContactUsIcon,
 } from "lucide-react";
+
+import stiiizyWhiteLogo from "@/public/images/brands/stiiizy-white.png";
+import stiiizyBlackLogo from "@/public/images/brands/stiiizy-logo-black.png";
 import { StiiizyBanner } from "./stiiizy-banner";
+import type { StaticImageData } from "next/image";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
@@ -43,6 +47,8 @@ const LINKS = [
 export const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [currentPath, setCurrentPath] = useState<string | null>();
+  const [stiiizyLogo, setStiiizyLogo] =
+    useState<StaticImageData>(stiiizyWhiteLogo);
 
   const pathname = usePathname();
 
@@ -60,14 +66,20 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        active={false}
-        className="bg-black py-4"
-        closeBtnClass="text-white"
+        active={true}
+        className="group bg-black py-4 transition hover:bg-white"
+        closeBtnClass="text-white transition group-hover:text-black"
+        onMouseEnter={() => {
+          setStiiizyLogo(stiiizyBlackLogo);
+        }}
+        onMouseLeave={() => {
+          setStiiizyLogo(stiiizyWhiteLogo);
+        }}
       >
-        <StiiizyBanner />
+        <StiiizyBanner image={stiiizyLogo} />
       </TopBanner>
       <TrapTakeoverBanner
-        active={true}
+        active={false}
         bannerText="Trap Takeover - Fri, Jan 17th"
       />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">

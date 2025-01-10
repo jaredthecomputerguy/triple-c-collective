@@ -20,6 +20,7 @@ export const TopBanner = ({
   closeBtnClass = "text-black",
   children,
   className = "px-1 py-2 font-semibold",
+  ...props
 }: TopBannerProps) => {
   const [showBanner, setShowBanner] = useState(active);
 
@@ -29,6 +30,7 @@ export const TopBanner = ({
 
   return (
     <div
+      {...props}
       className={cn(
         className,
         "sticky top-0 flex items-center justify-center font-logo font-semibold text-white md:px-4",
