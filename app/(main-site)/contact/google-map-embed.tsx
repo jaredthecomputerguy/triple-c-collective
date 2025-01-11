@@ -1,6 +1,5 @@
 "use client";
 
-// @ts-expect-error Experimental package
 import { GoogleMapsEmbed } from "@next/third-parties/google";
 
 export const GoogleMapEmbed = ({
@@ -18,7 +17,6 @@ export const GoogleMapEmbed = ({
       style={`height: ${height}; width: ${width}`}
       loading="eager"
       q="Triple C Collective, 14196 Lakeshore Ave. Clearlake CA 95422"
-      title="Google Maps"
     />
   );
 };
