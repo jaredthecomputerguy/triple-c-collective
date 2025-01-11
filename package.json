@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@fireworks-js/react": "^2.10.8",
-    "@next/third-parties": "^14.0.4",
+    "@next/third-parties": "^15.1.4",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
