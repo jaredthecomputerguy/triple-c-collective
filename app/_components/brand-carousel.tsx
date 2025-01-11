@@ -16,7 +16,7 @@ export const BrandCarousel = () => {
     dots: true,
     speed: 1000,
     easing: "ease-in-out",
-    className: "w-[85%]",
+    className: "min-h-[261px] w-[85%]",
     autoplay: true,
     autoplaySpeed: 2000,
     infinite: true,
