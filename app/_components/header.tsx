@@ -3,6 +3,8 @@
 import React, {
   type ReactNode,
   type SetStateAction,
+  type MouseEvent,
+  type TouchEvent,
   useEffect,
   useState,
 } from "react";
@@ -63,32 +65,44 @@ export const Header = () => {
 
   const toggleMobileMenu = () => setShowMobileMenu((prevState) => !prevState);
 
+  const handleStiiizyBannerEvent = (
+    e: TouchEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>,
+  ) => {
+    switch (e.type) {
+      case "touchstart":
+        setStiiizyLogo(stiiizyBlackLogo);
+        break;
+      case "touchcancel":
+        setStiiizyLogo(stiiizyBlackLogo);
+        break;
+      case "touchend":
+        setStiiizyLogo(stiiizyWhiteLogo);
+        break;
+      case "mouseover":
+        setStiiizyLogo(stiiizyBlackLogo);
+        break;
+      case "mouseleave":
+        setStiiizyLogo(stiiizyWhiteLogo);
+        break;
+    }
+  };
+
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        active={true}
+        active={false}
         className="group bg-black py-4 transition hover:bg-white"
         closeBtnClass="text-white transition group-hover:text-black"
-        onTouchStart={() => {
-          setStiiizyLogo(stiiizyBlackLogo);
-        }}
-        onTouchCancel={() => {
-          setStiiizyLogo(stiiizyBlackLogo);
-        }}
-        onTouchEnd={() => {
-          setStiiizyLogo(stiiizyWhiteLogo);
-        }}
-        onMouseOver={() => {
-          setStiiizyLogo(stiiizyBlackLogo);
-        }}
-        onMouseLeave={() => {
-          setStiiizyLogo(stiiizyWhiteLogo);
-        }}
+        onTouchStart={handleStiiizyBannerEvent}
+        onTouchCancel={handleStiiizyBannerEvent}
+        onTouchEnd={handleStiiizyBannerEvent}
+        onMouseOver={handleStiiizyBannerEvent}
+        onMouseLeave={handleStiiizyBannerEvent}
       >
         <StiiizyBanner image={stiiizyLogo} />
       </TopBanner>
       <TrapTakeoverBanner
-        active={false}
+        active={true}
         bannerText="Trap Takeover - Fri, Jan 17th"
       />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
