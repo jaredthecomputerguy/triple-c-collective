@@ -7,9 +7,11 @@ import { getFeaturedBrands } from "./trap-takeover-brands";
 
 // SHOW_PAGE determines whether to show the coming soon page or not
 const SHOW_PAGE = true;
+
 // HAVE_FLYER determines whether to show the flyer or not
 const HAVE_FLYER = false;
-// HAVE_GIFTBAGS determines whether the Trap Takeover is doing the gift bag promo
+
+// HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo
 const HAVE_GIFT_BAGS = false;
 
 const TRAP_TAKEOVER_DATE = formatDate("01-17-2025");
