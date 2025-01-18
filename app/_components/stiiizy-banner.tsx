@@ -17,8 +17,7 @@ export const StiiizyBanner = ({ image }: StiiizyBannerProps) => {
     setDayOfWeek(new Date().getDay());
   }, []);
 
-  // const isSaturdayOrSunday = dayOfWeek === 0 || dayOfWeek === 6;
-  const isSaturdayOrSunday = false;
+  const isSaturdayOrSunday = dayOfWeek === 0 || dayOfWeek === 6;
 
   return (
     <Link
