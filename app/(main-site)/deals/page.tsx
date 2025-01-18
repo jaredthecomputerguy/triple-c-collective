@@ -5,7 +5,7 @@ import { Button } from "@/app/_components/button";
 import Link from "next/link";
 import { DealCategory } from "./deal-category";
 import { getDealImageUrl, type DealsResponse } from "@/lib/utils";
-import { StiiizyDealCountdown } from "./stiiizy-deal-countdown";
+import { StiiizyDealCard } from "./stiiizy-deal-card";
 
 export const dynamic = "force-dynamic";
 
@@ -192,7 +192,7 @@ export default async function DealsPage() {
           </h2>
           <hr className="pb-4" />
           <div className="block grid-cols-2 space-x-1 space-y-12 lg:grid">
-            <StiiizyDealCountdown />
+            <StiiizyDealCard />
             <TrapTakeoverCountdown
               linkUrl="/deals/trap-takeover"
               labelText="Learn more"

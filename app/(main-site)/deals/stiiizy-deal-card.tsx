@@ -3,7 +3,7 @@ import stiiizyLogo from "@/public/images/brands/stiiizy-logo-black.png";
 import stiiizyCarts from "@/public/images/brands/stiiizy-carts.png";
 import Link from "next/link";
 
-export const StiiizyDealCountdown = () => {
+export const StiiizyDealCard = () => {
   return (
     <Link
       className="flex flex-col items-center justify-center rounded-xl underline-offset-4 hover:underline"
