@@ -102,7 +102,7 @@ export const Header = () => {
         <StiiizyBanner image={stiiizyLogo} />
       </TopBanner>
       <TrapTakeoverBanner
-        active={true}
+        active={false}
         bannerText="Trap Takeover - LIVE NOW 12-6PM"
       />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
