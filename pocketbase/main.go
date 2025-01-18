@@ -164,6 +164,7 @@ func createDealCollection(app *pocketbase.PocketBase) error {
 						"tincture",
 						"preroll",
 						"edible",
+						"plant",
 					},
 					MaxSelect: 7,
 				},

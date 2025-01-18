@@ -119,6 +119,10 @@ export default async function DealsPage() {
     return deal.categories?.includes("merch");
   });
 
+  const plantDeals = deals.filter((deal) => {
+    return deal.categories?.includes("plant");
+  });
+
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
@@ -177,6 +181,11 @@ export default async function DealsPage() {
                 categoryTitle="Pills, Tinctures & Topicals"
                 categorySubtitle="Discreet, easy-to-dose options for tailored relief."
                 deals={pillTincturesAndTopicalsDeals}
+              />
+              <DealCategory
+                categoryTitle="Plants, Clones & Seeds"
+                categorySubtitle="Top-tier genetics and healthy plants to start your grow with success."
+                deals={plantDeals}
               />
               <DealCategory
                 categoryTitle="Other Deals"
