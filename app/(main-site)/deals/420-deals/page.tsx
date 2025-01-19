@@ -109,7 +109,7 @@ export default function FourTwentyDealsPage() {
                     (Limit 1 per customer)
                   </span>
                 </div>
-                <div className="text-pretty flex flex-col font-semibold ">
+                <div className="flex flex-col text-pretty font-semibold ">
                   {" "}
                   Purchase any 1/8th, 1/4oz, or 1/2oz and get two Phat Panda or
                   one High Grade Farms 1/8th for a penny
@@ -117,7 +117,7 @@ export default function FourTwentyDealsPage() {
                     (Limit 2 Phat Panda or 1 High Grade Farms per customer)
                   </span>
                 </div>
-                <div className="text-pretty flex flex-col font-semibold ">
+                <div className="flex flex-col text-pretty font-semibold ">
                   {" "}
                   Purchase any 1oz flower and get two Phat Panda gummies for a
                   penny
@@ -125,7 +125,7 @@ export default function FourTwentyDealsPage() {
                     (Limit 2 per customer)
                   </span>
                 </div>
-                <div className="text-pretty flex flex-col font-semibold ">
+                <div className="flex flex-col text-pretty font-semibold ">
                   {" "}
                   Purchase any preroll, and get two penny prerolls from the
                   following brands:
@@ -137,7 +137,7 @@ export default function FourTwentyDealsPage() {
                     (Limit 2 per customer)
                   </span>
                 </div>
-                <div className="text-pretty flex flex-col font-semibold">
+                <div className="flex flex-col text-pretty font-semibold">
                   {" "}
                   Reduced Prices on the following products:
                   <ul className="list-inside list-disc py-2 text-left text-sm">
@@ -176,7 +176,7 @@ export default function FourTwentyDealsPage() {
                   Kushy Punch
                   <span className="w-full text-sm">(Limit 1 per customer)</span>
                 </div>
-                <div className="text-pretty flex flex-col font-semibold">
+                <div className="flex flex-col text-pretty font-semibold">
                   {" "}
                   Reduced Prices on the following products:
                   <ul className="list-inside list-disc py-2 text-left text-sm">
@@ -208,7 +208,7 @@ export default function FourTwentyDealsPage() {
                   B.O.B. Stash kief is available for $5
                   <span className="w-full text-sm">(Limit 2 per customer)</span>
                 </div>
-                <div className="text-pretty flex flex-col font-semibold">
+                <div className="flex flex-col text-pretty font-semibold">
                   {" "}
                   Reduced Prices on the following products:
                   <ul className="list-inside list-disc py-2 text-left text-sm">
@@ -241,7 +241,7 @@ export default function FourTwentyDealsPage() {
                     (Limit 3 per customer)
                   </span>
                 </div>
-                <div className="text-pretty flex flex-col font-semibold">
+                <div className="flex flex-col text-pretty font-semibold">
                   {" "}
                   Reduced Prices on the following products:
                   <ul className="list-inside list-disc py-2 text-left text-sm">
@@ -269,7 +269,7 @@ export default function FourTwentyDealsPage() {
                     (Limit 1 per customer)
                   </span>
                 </div>
-                <div className="text-pretty flex flex-col font-semibold">
+                <div className="flex flex-col text-pretty font-semibold">
                   {" "}
                   Reduced Prices on the following products:
                   <ul className="list-inside list-disc py-2 text-left text-sm">

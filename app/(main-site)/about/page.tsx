@@ -67,7 +67,7 @@ export default function AboutPage() {
         </span>
       </div>
       <section className="mx-auto max-w-7xl px-4 py-6 sm:py-12">
-        <p className="text-pretty mx-auto max-w-4xl text-center text-xl font-semibold md:py-12 md:text-2xl">
+        <p className="mx-auto max-w-4xl text-pretty text-center text-xl font-semibold md:py-12 md:text-2xl">
           Welcome to{" "}
           <span className="text-primary-purple">Triple C Collective</span>, your
           trusted destination for a premium cannabis experience! With over 15
@@ -161,7 +161,7 @@ export default function AboutPage() {
           </div>
         </div>
         <div className="mx-auto max-w-4xl py-16">
-          <p className="text-pretty mx-auto max-w-4xl text-center text-xl font-semibold md:text-2xl">
+          <p className="mx-auto max-w-4xl text-pretty text-center text-xl font-semibold md:text-2xl">
             Thank you for being a part of the Triple C Collective family.
             We&apos;ll work hard to continue being your favorite cannabis
             collective for many years to come!

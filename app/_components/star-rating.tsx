@@ -30,5 +30,12 @@ export const StarRating = ({
     inactiveFillColor: colors.inactive,
   };
 
-  return <Rating className={className} value={parseFloat(rating)} readOnly itemStyles={customStyles} />;
+  return (
+    <Rating
+      className={className}
+      value={parseFloat(rating)}
+      readOnly
+      itemStyles={customStyles}
+    />
+  );
 };

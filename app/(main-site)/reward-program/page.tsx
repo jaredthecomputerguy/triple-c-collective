@@ -76,7 +76,7 @@ export default function RewardsPage() {
               Sign Up
             </h2>
             <hr className="h-px w-full" />
-            <p className="text-balance mb-8 py-2 text-center text-gray-800">
+            <p className="mb-8 text-balance py-2 text-center text-gray-800">
               Visit the store or place an order online to have an account
               created. You&apos;ll be automatically opted in to our rewards
               program.
