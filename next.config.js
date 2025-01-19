@@ -16,7 +16,6 @@ const cspHeader = `
 
 module.exports = {
   experimental: {
-    serverActions: true,
     serverComponentsExternalPackages: [
       "@react-email/components",
       "@react-email/render",
