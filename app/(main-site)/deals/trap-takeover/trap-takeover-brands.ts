@@ -70,7 +70,7 @@ const BRANDS = [
   },
   {
     name: undefined,
-    alt: "And more to come...",
+    alt: "Brands coming soon",
     url: "https://triplec.treez.io/onlinemenu/?customerType=ADULT",
     image: comingSoonImage,
   },
