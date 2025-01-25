@@ -19,7 +19,15 @@ const TRAP_TAKEOVER_DATE = formatDate("02-07-2025");
 const TRAP_TAKEOVER_FLYER_URL = "/images/9-20-trap-takeover-large.jpg";
 
 // Pass `undefined` as the last arg to show the 'more brands coming soon...'
-const featuredBrands = getFeaturedBrands(undefined);
+const featuredBrands = getFeaturedBrands(
+  "Big Boy Dro",
+  "Akwaaba",
+  "Midsfactory",
+  "Dompen",
+  "Koa Cannabis Co.",
+  "Green River Extracts",
+  "Ronin",
+);
 
 export default function TrapTakeoverPage() {
   return (
