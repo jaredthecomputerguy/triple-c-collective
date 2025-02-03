@@ -28,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `Trap Takeover ${formattedTrapTakeoverDate}. | Triple C Collective`,
     description:
-      "If you have any questions or concerns, feel free to reach out to us. We are here to help you with all your cannabis needs.",
+      "Join us at Triple C Collective for our Trap Takeover event in collaboration with Illa Guerrilla! Enjoy unbeatable BOGO deals on select premium cannabis brands, meet the Illa Guerrilla sales rep, and enter our raffle for a chance to win exclusive prize packs.",
     keywords: [
       "cannabis",
       "cannabis store",
@@ -63,7 +63,7 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     creator: "Jared Mercer",
     openGraph: {
-      title: "Contact Us | Triple C Collective",
+      title: `${formattedTrapTakeoverDate}. | Triple C Collective`,
       url: `${process.env.SITE_URL}`,
       description: "Lake County's Premier Cannabis Dispensary",
       images: `${process.env.SITE_URL}/opengraph-image.png`,
@@ -73,7 +73,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Contact Us | Triple C Collective",
+      title: `${formattedTrapTakeoverDate}. | Triple C Collective`,
       description: "Lake County's Premier Cannabis Dispensary",
       images: [`${process.env.SITE_URL}/opengraph-image.png`],
     },
