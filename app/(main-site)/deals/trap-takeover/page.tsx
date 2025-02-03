@@ -53,7 +53,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "flower sale",
       "edible sale",
       "cartridge sale",
-      formattedTrapTakeoverDate + " sale",
+      `Trap Takeover ${formattedTrapTakeoverDate} sale`,
     ],
     authors: [
       {
@@ -63,7 +63,7 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     creator: "Jared Mercer",
     openGraph: {
-      title: `${formattedTrapTakeoverDate}. | Triple C Collective`,
+      title: `Trap Takeover ${formattedTrapTakeoverDate}. | Triple C Collective`,
       url: `${process.env.SITE_URL}`,
       description: "Lake County's Premier Cannabis Dispensary",
       images: `${process.env.SITE_URL}/opengraph-image.png`,
@@ -73,7 +73,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${formattedTrapTakeoverDate}. | Triple C Collective`,
+      title: `Trap Takeover ${formattedTrapTakeoverDate}. | Triple C Collective`,
       description: "Lake County's Premier Cannabis Dispensary",
       images: [`${process.env.SITE_URL}/opengraph-image.png`],
     },
