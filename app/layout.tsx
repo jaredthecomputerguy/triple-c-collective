@@ -53,6 +53,7 @@ export const metadata: Metadata = {
     description: "Lake County's Premier Cannabis Dispensary",
     images: [`${process.env.SITE_URL}/opengraph-image.png`],
   },
+  robots: "all",
   metadataBase: new URL(process.env.SITE_URL!),
 };
 
