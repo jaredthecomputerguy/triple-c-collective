@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }).format(new Date(TRAP_TAKEOVER_DATE));
 
   return {
-    title: `Trap Takeover ${formattedTrapTakeoverDate} | Triple C Collective`,
+    title: `Trap Takeover ${formattedTrapTakeoverDate}. | Triple C Collective`,
     description:
       "If you have any questions or concerns, feel free to reach out to us. We are here to help you with all your cannabis needs.",
     keywords: [
