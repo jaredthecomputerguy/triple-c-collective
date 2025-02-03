@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     "Sign up for our rewards program and earn $0.02 for every dollar spent. Start saving today!",
   keywords: [
     "cannabis",
+    "cannabis store",
     "dispensary",
     "marijuana",
     "weed",

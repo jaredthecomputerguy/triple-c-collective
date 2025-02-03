@@ -3,6 +3,25 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Cookie Policy | Triple C Collective",
+  keywords: [
+    "cannabis",
+    "cannabis store",
+    "dispensary",
+    "marijuana",
+    "weed",
+    "pot",
+    "Lake County",
+    "California",
+    "Triple C Collective",
+    "flower",
+    "dab",
+    "concentrate",
+    "edibles",
+    "cbd",
+    "kratom",
+    "wellness",
+    "Clearlake",
+  ],
   description:
     "Learn more about how Triple C Collective uses cookies to improve your experience.",
 };

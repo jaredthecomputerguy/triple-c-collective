@@ -3,6 +3,25 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Terms of Use | Triple C Collective",
+  keywords: [
+    "cannabis",
+    "cannabis store",
+    "dispensary",
+    "marijuana",
+    "weed",
+    "pot",
+    "Lake County",
+    "California",
+    "Triple C Collective",
+    "flower",
+    "dab",
+    "concentrate",
+    "edibles",
+    "cbd",
+    "kratom",
+    "wellness",
+    "Clearlake",
+  ],
   description:
     "By using this website, you agree to comply with and be bound by the following terms and conditions of use. Please read these Terms of Use carefully before accessing or using our website.",
 };

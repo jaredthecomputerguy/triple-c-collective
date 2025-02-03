@@ -30,6 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "Check out Lake County's premier cannabis dispensary for the latest deals on flower, dabs, concentrates, edibles, and more.",
     keywords: [
       "cannabis",
+      "cannabis store",
       "dispensary",
       "marijuana",
       "weed",

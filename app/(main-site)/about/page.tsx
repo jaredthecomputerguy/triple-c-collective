@@ -7,6 +7,7 @@ export const metadata: Metadata = {
     "Learn more about Triple C Collective, Lake County's premier cannabis dispensary.",
   keywords: [
     "cannabis",
+    "cannabis store",
     "dispensary",
     "marijuana",
     "weed",

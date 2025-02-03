@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California.",
   keywords: [
     "cannabis",
+    "cannabis store",
     "dispensary",
     "marijuana",
     "weed",

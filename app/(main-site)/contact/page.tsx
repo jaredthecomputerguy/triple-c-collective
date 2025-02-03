@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     "If you have any questions or concerns, feel free to reach out to us. We are here to help you with all your cannabis needs.",
   keywords: [
     "cannabis",
+    "cannabis store",
     "dispensary",
     "marijuana",
     "weed",

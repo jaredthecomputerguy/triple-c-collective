@@ -2,6 +2,25 @@ import { type Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Triple C Collective",
+  keywords: [
+    "cannabis",
+    "cannabis store",
+    "dispensary",
+    "marijuana",
+    "weed",
+    "pot",
+    "Lake County",
+    "California",
+    "Triple C Collective",
+    "flower",
+    "dab",
+    "concentrate",
+    "edibles",
+    "cbd",
+    "kratom",
+    "wellness",
+    "Clearlake",
+  ],
   description:
     "This page describes what information they gather, how we use it and why we sometimes need to store these cookies. We will also share how you can prevent these cookies from being stored however this may downgrade or 'break' certain elements of the sites functionality.",
 };
