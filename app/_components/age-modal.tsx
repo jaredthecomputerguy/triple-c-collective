@@ -3,6 +3,8 @@
 import { useRouter } from "next/navigation";
 import { type KeyboardEventHandler, useEffect, useRef, useState } from "react";
 
+// TODO: Add the logic to check a cookie instead of local/session storage
+
 export const AgeModal = () => {
   const [showModal, setShowModal] = useState<boolean>();
   const [rememberMe, setRememberMe] = useState(false);
