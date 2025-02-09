@@ -109,7 +109,7 @@ export default function ContactPage() {
                   <li className="rounded p-1 transition-colors hover:bg-primary-purple/10">
                     <a
                       className="rounded outline-none focus:outline-primary-purple"
-                      href="https://www.facebook.com/people/Triple-C-Collective-Clearlake-CA/100095379903282/"
+                      href="https://www.facebook.com/profile.php?id=61572730929498"
                       target="_blank"
                       aria-label="Follow us on Facebook"
                     >
