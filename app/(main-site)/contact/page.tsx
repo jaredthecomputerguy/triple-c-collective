@@ -116,16 +116,18 @@ export default function ContactPage() {
                       <FacebookIcon className="h-8 w-8 rounded" />
                     </a>
                   </li>
-                  <li className="rounded p-1 transition-colors hover:bg-primary-purple/10">
-                    <a
-                      className="rounded outline-none focus:outline-primary-purple"
-                      href="https://www.instagram.com/_tripleccollective/"
-                      target="_blank"
-                      aria-label="Follow us on Instagram"
-                    >
-                      <InstagramIcon className="h-9 w-9" />
-                    </a>
-                  </li>
+                  {/* TODO: Uncomment this when we have a new IG
+                    <li className="rounded p-1 transition-colors hover:bg-primary-purple/10">
+                     <a
+                       className="rounded outline-none focus:outline-primary-purple"
+                       href="https://www.instagram.com/_tripleccollective/"
+                       target="_blank"
+                       aria-label="Follow us on Instagram"
+                     >
+                       <InstagramIcon className="h-9 w-9" />
+                     </a>
+                   </li>
+                   */}
                 </ul>
               </div>
               <hr />
