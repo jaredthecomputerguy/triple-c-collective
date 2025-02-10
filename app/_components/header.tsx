@@ -90,7 +90,7 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <TopBanner
-        active={true}
+        active={false}
         className="group bg-black py-4 transition hover:bg-white"
         closeBtnClass="text-white transition group-hover:text-black"
         onTouchStart={handleStiiizyBannerEvent}
@@ -102,8 +102,8 @@ export const Header = () => {
         <StiiizyBanner image={stiiizyLogo} />
       </TopBanner>
       <TrapTakeoverBanner
-        active={false}
-        bannerText="Trap Takeover - Today @ 12PM"
+        active={true}
+        bannerText="Trap Takeover - Feb. 21st"
       />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
         <div className="flex justify-between bg-primary-purple px-4 py-2 text-sm text-[#fefefe] md:hidden">

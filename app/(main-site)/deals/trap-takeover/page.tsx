@@ -7,7 +7,7 @@ import { getFeaturedBrands } from "./trap-takeover-brands";
 import type { Metadata } from "next";
 
 // SHOW_PAGE determines whether to show the coming soon page or not
-const SHOW_PAGE = true;
+const SHOW_PAGE = false;
 
 // HAVE_FLYER determines whether to show the flyer or not
 const HAVE_FLYER = false;
@@ -15,7 +15,7 @@ const HAVE_FLYER = false;
 // HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo
 const HAVE_GIFT_BAGS = false;
 
-const TRAP_TAKEOVER_DATE = formatDate("02-07-2025");
+const TRAP_TAKEOVER_DATE = formatDate("02-21-2025");
 
 const TRAP_TAKEOVER_FLYER_URL = "/images/9-20-trap-takeover-large.jpg";
 
