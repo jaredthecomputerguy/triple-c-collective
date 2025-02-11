@@ -7,7 +7,7 @@ import { getFeaturedBrands } from "./trap-takeover-brands";
 import type { Metadata } from "next";
 
 // SHOW_PAGE determines whether to show the coming soon page or not
-const SHOW_PAGE = false;
+const SHOW_PAGE = true;
 
 // HAVE_FLYER determines whether to show the flyer or not
 const HAVE_FLYER = false;
@@ -84,10 +84,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
 // Pass `undefined` as the last arg to show the 'more brands coming soon...'
 const featuredBrands = getFeaturedBrands(
-  "Big Boy Dro",
+  "Coffee Supply",
   "Akwaaba",
-  "Midsfactory",
   "Dompen",
+  "Jeff's Sessions",
   "Koa Cannabis Co.",
   "Green River Extracts",
   "Ronin",
