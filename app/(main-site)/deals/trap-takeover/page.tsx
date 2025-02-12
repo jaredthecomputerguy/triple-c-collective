@@ -185,19 +185,17 @@ export default function TrapTakeoverPage() {
         </section>
 
         <section className="w-full">
-          <video
-            autoPlay
-            muted
-            preload="auto"
-            className="rounded-xl mx-auto my-16"
-            loop
-            playsInline
-          >
-            <source
-              src="/videos/Trap_Takeover_2_21_25_flyer.mov"
-              type="video/quicktime"
-            />
-          </video>
+          {/* <video
+             autoPlay
+             muted
+             preload="auto"
+             className="rounded-xl mx-auto my-16"
+             loop
+             playsInline
+           >
+             <source src="/videos/trap-takeover-0221.mp4" type="video/mp4" />
+           </video>
+           */}
         </section>
         {HAVE_FLYER ? (
           <ImageViewer
