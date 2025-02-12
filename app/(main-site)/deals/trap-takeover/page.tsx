@@ -137,6 +137,7 @@ export default function TrapTakeoverPage() {
             )}
           </ul>
         </div>
+
         <section className="py-8">
           <h3 className="py-4 text-center font-logo text-3xl font-semibold md:text-left">
             Featured Brands
@@ -182,7 +183,22 @@ export default function TrapTakeoverPage() {
             )}
           </div>
         </section>
-        <section></section>
+
+        <section className="w-full">
+          <video
+            autoPlay
+            muted
+            preload="auto"
+            className="rounded-xl mx-auto my-16"
+            loop
+            playsInline
+          >
+            <source
+              src="/videos/Trap_Takeover_2_21_25_flyer.mov"
+              type="video/quicktime"
+            />
+          </video>
+        </section>
         {HAVE_FLYER ? (
           <ImageViewer
             className="mx-auto h-full w-full cursor-pointer object-cover object-top"
