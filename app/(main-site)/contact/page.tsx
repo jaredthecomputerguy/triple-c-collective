@@ -106,18 +106,16 @@ export default function ContactPage() {
               <div className="flex flex-col gap-2">
                 <p className="text-xl font-semibold">Socials</p>
                 <ul className="flex items-center gap-2">
-                  {/* TODO: Uncomment this when we have a new IG
                   <li className="rounded p-1 transition-colors hover:bg-primary-purple/10">
                     <a
                       className="rounded outline-none focus:outline-primary-purple"
-                      href="https://www.facebook.com/profile.php?id=61572730929498"
+                      href="https://www.facebook.com/profile.php?id=61572842924915"
                       target="_blank"
                       aria-label="Follow us on Facebook"
                     >
                       <FacebookIcon className="h-8 w-8 rounded" />
                     </a>
                   </li>
-                  */}
                   {/* TODO: Uncomment this when we have a new IG
                     <li className="rounded p-1 transition-colors hover:bg-primary-purple/10">
                      <a
