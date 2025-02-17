@@ -1,4 +1,4 @@
-import comingSoonImage from "@/public/images/palm-tree.png";
+import comingSoonImage from "@/public/images/palm-tree.webp";
 
 import midsfactoryLogo from "@/public/images/brands/midsfactory.png";
 import akwaabaLogo from "@/public/images/brands/akwaaba.png";

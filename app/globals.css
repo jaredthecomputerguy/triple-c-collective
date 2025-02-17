@@ -56,7 +56,7 @@ td {
 }
 
 .trap-takeover {
-  background-image: url("/images/palm-tree.png"),
+  background-image: url("/images/palm-tree.webp"),
     radial-gradient(
       circle at 100% 0%,
       rgb(191, 38, 138) 0%,
