@@ -192,7 +192,10 @@ export default function TrapTakeoverPage() {
             loop
             playsInline
           >
-            <source src="/videos/trap-takeover-0221.mp4" type="video/mp4" />
+            <source
+              src="/videos/trap-takeover-0221-updated.mp4"
+              type="video/mp4"
+            />
           </video>
         </section>
         {HAVE_FLYER ? (
