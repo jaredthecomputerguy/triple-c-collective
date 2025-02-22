@@ -3,6 +3,8 @@ import { GoogleMapEmbed } from "./google-map-embed";
 import { ContactForm } from "./contact-form";
 import { FacebookIcon } from "@/app/_components/icons/facebook-icon";
 // import { InstagramIcon } from "@/app/_components/icons/instagram-icon";
+import { SnapchatIcon } from "@/app/_components/icons/snapchat-icon";
+import { SnapchatEmbed } from "@/app/_components/snapchat-embed";
 
 export const metadata: Metadata = {
   title: "Contact Us | Triple C Collective",
@@ -116,6 +118,17 @@ export default function ContactPage() {
                       <FacebookIcon className="h-8 w-8 rounded" />
                     </a>
                   </li>
+                  <li className="rounded p-1 transition-colors hover:bg-primary-purple/10">
+                    <a
+                      className="rounded outline-none focus:outline-primary-purple"
+                      href="https://www.snapchat.com/add/triplec.420"
+                      target="_blank"
+                      aria-label="Follow us on Snapchat"
+                    >
+                      <SnapchatIcon className="h-8 w-8 rounded" />
+                    </a>
+                  </li>
+
                   {/* TODO: Uncomment this when we have a new IG
                     <li className="rounded p-1 transition-colors hover:bg-primary-purple/10">
                      <a
