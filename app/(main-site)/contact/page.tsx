@@ -4,7 +4,6 @@ import { ContactForm } from "./contact-form";
 import { FacebookIcon } from "@/app/_components/icons/facebook-icon";
 // import { InstagramIcon } from "@/app/_components/icons/instagram-icon";
 import { SnapchatIcon } from "@/app/_components/icons/snapchat-icon";
-import { SnapchatEmbed } from "@/app/_components/snapchat-embed";
 
 export const metadata: Metadata = {
   title: "Contact Us | Triple C Collective",
