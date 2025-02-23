@@ -32,6 +32,7 @@ import stiiizyWhiteLogo from "@/public/images/brands/stiiizy-white.png";
 import stiiizyBlackLogo from "@/public/images/brands/stiiizy-logo-black.png";
 import { StiiizyBanner } from "./stiiizy-banner";
 import type { StaticImageData } from "next/image";
+import { SnapchatIcon } from "./icons/snapchat-icon";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
@@ -89,6 +90,7 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
+      {/*
       <TopBanner
         active={true}
         className="group bg-black py-4 transition hover:bg-white"
@@ -100,6 +102,22 @@ export const Header = () => {
         onMouseLeave={handleStiiizyBannerEvent}
       >
         <StiiizyBanner image={stiiizyLogo} />
+      </TopBanner>
+      */}
+
+      <TopBanner active={true} className="bg-[#fffc00] text-black">
+        <a
+          href="https://snapchat.com/t/yur3aX6P"
+          target="_blank"
+          className="text-black text-center text-sm md:text-base px-4 py-4 font-logo font-bold flex gap-2 items-center"
+        >
+          <SnapchatIcon className="flex-none size-6 md:size-10" />
+          <div className="flex flex-col">
+            <span>REPLY TO OUR POST TO GET $15</span>
+            <small>SHOW US IN STORE TO REDEEM</small>
+          </div>
+          <SnapchatIcon className="flex-none size-6 md:size-10" />
+        </a>
       </TopBanner>
       <TrapTakeoverBanner
         active={false}
