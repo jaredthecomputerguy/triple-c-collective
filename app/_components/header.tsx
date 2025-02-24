@@ -32,13 +32,14 @@ import stiiizyWhiteLogo from "@/public/images/brands/stiiizy-white.png";
 import stiiizyBlackLogo from "@/public/images/brands/stiiizy-logo-black.png";
 import { StiiizyBanner } from "./stiiizy-banner";
 import type { StaticImageData } from "next/image";
-import { SnapchatIcon } from "./icons/snapchat-icon";
+import { SnapchatBanner } from "./snapchat-banner";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
   { href: "/about", label: "About", icon: <UsersRoundIcon size={26} /> },
   { href: "/reward-program", label: "Rewards", icon: <Gem size={26} /> },
   { href: "/deals", label: "Deals", icon: <BanknoteIcon size={26} /> },
+  // TODO: Add this back for 4/20
   // { href: "/deals/420-deals", label: "4/20" },
   {
     href: "/contact",
@@ -47,6 +48,7 @@ const LINKS = [
   },
 ];
 
+// TODO: Maybe move the TopBanner component into the StiiizyBanner component. Will need to pass the state and setters in tho, might be not worth the trouble
 export const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [currentPath, setCurrentPath] = useState<string | null>();
@@ -90,9 +92,8 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
-      {/*
       <TopBanner
-        active={true}
+        active={false}
         className="group bg-black py-4 transition hover:bg-white"
         closeBtnClass="text-white transition group-hover:text-black"
         onTouchStart={handleStiiizyBannerEvent}
@@ -103,25 +104,9 @@ export const Header = () => {
       >
         <StiiizyBanner image={stiiizyLogo} />
       </TopBanner>
-      */}
-
-      <TopBanner active={true} className="bg-[#fffc00] text-black">
-        <a
-          href="https://snapchat.com/t/yur3aX6P"
-          target="_blank"
-          className="text-black text-center text-sm md:text-base px-4 py-4 font-logo font-bold flex gap-2 items-center"
-        >
-          <SnapchatIcon className="flex-none size-6 md:size-10" />
-          <div className="flex flex-col">
-            <span>REPLY TO OUR POST TO GET $15</span>
-            <small>SHOW US IN STORE TO REDEEM</small>
-          </div>
-          <SnapchatIcon className="flex-none size-6 md:size-10" />
-        </a>
-      </TopBanner>
       <TrapTakeoverBanner
-        active={false}
-        bannerText="Trap Takeover - Live Now"
+        active={true}
+        bannerText="Trap Takeover - March 7th"
       />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
         <div className="flex justify-between bg-primary-purple px-4 py-2 text-sm text-[#fefefe] md:hidden">
