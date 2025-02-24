@@ -6,18 +6,16 @@ import { TrapTakeoverCountdown } from "../trap-takeover-countdown";
 import { getFeaturedBrands } from "./trap-takeover-brands";
 import type { Metadata } from "next";
 
-// SHOW_PAGE determines whether to show the coming soon page or not
+// SHOW_PAGE determines whether to show the page or not
 const SHOW_PAGE = true;
 
-// HAVE_FLYER determines whether to show the flyer or not
-const HAVE_FLYER = false;
+// HAVE_VIDEO determines whether to show the video flyer or not
+const HAVE_VIDEO = false;
 
 // HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo
 const HAVE_GIFT_BAGS = false;
 
-const TRAP_TAKEOVER_DATE = formatDate("02-21-2025");
-
-const TRAP_TAKEOVER_FLYER_URL = "/images/9-20-trap-takeover-large.jpg";
+const TRAP_TAKEOVER_DATE = formatDate("03-07-2025");
 
 export async function generateMetadata(): Promise<Metadata> {
   const formattedTrapTakeoverDate = new Intl.DateTimeFormat("en-US", {
@@ -84,12 +82,14 @@ export async function generateMetadata(): Promise<Metadata> {
 
 // Pass `undefined` as the last arg to show the 'more brands coming soon...'
 const featuredBrands = getFeaturedBrands(
+  "Big Boy Dro",
   "Akwaaba",
+  "Midsfactory",
   "Dompen",
-  "Jeff's Sessions",
   "Koa Cannabis Co.",
+  "Jeff's Sessions",
   "Green River Extracts",
-  "Ronin",
+  "Hashtag",
 );
 
 export default function TrapTakeoverPage() {
@@ -183,36 +183,28 @@ export default function TrapTakeoverPage() {
           </div>
         </section>
 
-        <section className="w-full">
-          <video
-            autoPlay
-            muted
-            preload="auto"
-            className="rounded-xl mx-auto my-16"
-            loop
-            playsInline
-          >
-            <source
-              src="/videos/trap-takeover-0221-updated.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </section>
-        {HAVE_FLYER ? (
-          <ImageViewer
-            className="mx-auto h-full w-full cursor-pointer object-cover object-top"
-            src={TRAP_TAKEOVER_FLYER_URL}
-            alt="Trap Takeover"
-            width={1920}
-            height={1080}
-          />
-        ) : (
-          <TrapTakeoverCountdown
-            linkUrl="https://illaguerrilla.com"
-            target="_blank"
-            labelText="Check out Illa Guerrilla"
-          />
+        {HAVE_VIDEO && (
+          <section className="w-full">
+            <video
+              autoPlay
+              muted
+              preload="auto"
+              className="rounded-xl mx-auto my-16"
+              loop
+              playsInline
+            >
+              <source
+                src="/videos/trap-takeover-0221-updated.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </section>
         )}
+        <TrapTakeoverCountdown
+          linkUrl="https://illaguerrilla.com"
+          target="_blank"
+          labelText="Check out Illa Guerrilla"
+        />
       </div>
     </main>
   );
