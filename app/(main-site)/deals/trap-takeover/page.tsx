@@ -1,4 +1,3 @@
-import { ImageViewer } from "@/app/_components/image-viewer";
 import { cn, formatDate } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,16 +14,43 @@ const HAVE_VIDEO = false;
 // HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo
 const HAVE_GIFT_BAGS = false;
 
-const TRAP_TAKEOVER_DATE = formatDate("03-07-2025");
+const TRAP_TAKEOVER_DATE_STRING = formatDate("03-07-2025");
 
-export async function generateMetadata(): Promise<Metadata> {
-  const formattedTrapTakeoverDate = new Intl.DateTimeFormat("en-US", {
+const getTrapTakeoverDateWithSuffix = (trapTakeoverDate: Date) => {
+  const formattedDate = new Intl.DateTimeFormat("en-US", {
     month: "short",
     day: "numeric",
-  }).format(new Date(TRAP_TAKEOVER_DATE));
+  }).format(trapTakeoverDate);
+
+  const day = trapTakeoverDate.getDay();
+  let suffix;
+  const lastDigit = day % 10;
+  const lastTwoDigits = day % 100;
+  if (lastDigit === 1 && lastTwoDigits !== 11) {
+    suffix = "st";
+    return formattedDate + suffix;
+  }
+  if (lastDigit === 2 && lastTwoDigits !== 12) {
+    suffix = "nd";
+    return formattedDate + suffix;
+  }
+  if (lastDigit === 3 && lastTwoDigits !== 13) {
+    suffix = "rd";
+    return formattedDate + suffix;
+  }
+
+  suffix = "th";
+  return formattedDate + suffix;
+};
+
+export async function generateMetadata(): Promise<Metadata> {
+  const trapTakeoverDate = new Date(TRAP_TAKEOVER_DATE_STRING);
+
+  const trapTakeoverDateWithSuffix =
+    getTrapTakeoverDateWithSuffix(trapTakeoverDate);
 
   return {
-    title: `Trap Takeover ${formattedTrapTakeoverDate}. | Triple C Collective`,
+    title: `${trapTakeoverDateWithSuffix} Trap Takeover | Triple C Collective`,
     description:
       "Join us at Triple C Collective for our Trap Takeover event in collaboration with Illa Guerrilla! Enjoy unbeatable BOGO deals on select premium cannabis brands, meet the Illa Guerrilla sales rep, and enter our raffle for a chance to win exclusive prize packs.",
     keywords: [
@@ -51,7 +77,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "flower sale",
       "edible sale",
       "cartridge sale",
-      `Trap Takeover ${formattedTrapTakeoverDate} sale`,
+      `Trap Takeover ${trapTakeoverDateWithSuffix} sale`,
     ],
     authors: [
       {
@@ -61,7 +87,7 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     creator: "Jared Mercer",
     openGraph: {
-      title: `Trap Takeover ${formattedTrapTakeoverDate}. | Triple C Collective`,
+      title: `Trap Takeover ${trapTakeoverDateWithSuffix} | Triple C Collective`,
       url: `${process.env.SITE_URL}`,
       description: "Lake County's Premier Cannabis Dispensary",
       images: `${process.env.SITE_URL}/opengraph-image.png`,
@@ -71,7 +97,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `Trap Takeover ${formattedTrapTakeoverDate}. | Triple C Collective`,
+      title: `Trap Takeover ${trapTakeoverDateWithSuffix}. | Triple C Collective`,
       description: "Lake County's Premier Cannabis Dispensary",
       images: [`${process.env.SITE_URL}/opengraph-image.png`],
     },
@@ -96,7 +122,7 @@ export default function TrapTakeoverPage() {
   return (
     <main className="bg-[#fefefe]">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
-        <span className="pb-1 text-gray-600">{TRAP_TAKEOVER_DATE}</span>
+        <span className="pb-1 text-gray-600">{TRAP_TAKEOVER_DATE_STRING}</span>
         <h1 className="pb-4 font-logo text-4xl font-semibold">Trap Takeover</h1>
         <hr className="pb-4" />
         <h2 className="py-8 pb-12 text-center font-logo text-2xl font-semibold md:text-left md:text-4xl">

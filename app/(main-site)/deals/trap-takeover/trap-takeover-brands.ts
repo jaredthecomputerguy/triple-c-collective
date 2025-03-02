@@ -9,7 +9,7 @@ import bigBoyDroLogo from "@/public/images/brands/big-boy-dro.png";
 import jeffsSessionsLogo from "@/public/images/brands/jeff-sessions-logo.png";
 import roninRosinLogo from "@/public/images/brands/ronin-logo.jpg";
 import coffeeSupplyLogo from "@/public/images/brands/coffee-supply.png";
-import hashtagLogo from "@/public/images/brands/hashtag.jpg";
+import hashtagLogo from "@/public/images/brands/hashtag-logo.png";
 
 export type FeaturedBrand = (typeof BRANDS)[number];
 type BrandNames = FeaturedBrand["name"][];
@@ -71,7 +71,6 @@ const BRANDS = [
   },
   {
     name: "Hashtag",
-    // TODO: update this when I know what image im using
     alt: "Hashtag Infused Flower",
     url: "https://triplec.treez.io/onlinemenu/search?customerType=ALL&query=hashtag",
     image: hashtagLogo,
