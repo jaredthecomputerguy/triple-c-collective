@@ -32,7 +32,7 @@ import stiiizyWhiteLogo from "@/public/images/brands/stiiizy-white.png";
 import stiiizyBlackLogo from "@/public/images/brands/stiiizy-logo-black.png";
 import { StiiizyBanner } from "./stiiizy-banner";
 import type { StaticImageData } from "next/image";
-import { SnapchatBanner } from "./snapchat-banner";
+// import { SnapchatBanner } from "./snapchat-banner";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },

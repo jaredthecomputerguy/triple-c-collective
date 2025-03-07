@@ -4,12 +4,19 @@ import Link from "next/link";
 import { TrapTakeoverCountdown } from "../trap-takeover-countdown";
 import { getFeaturedBrands } from "./trap-takeover-brands";
 import type { Metadata } from "next";
+import { ImageViewer } from "@/app/_components/image-viewer";
 
 // SHOW_PAGE determines whether to show the page or not
 const SHOW_PAGE = true;
 
 // HAVE_VIDEO determines whether to show the video flyer or not
 const HAVE_VIDEO = false;
+//
+// HAVE_FLYER determines whether to show the paper flyer or not
+const HAVE_FLYER = true;
+
+// FLYER_PATH is the path to the digital flyer
+const FLYER_PATH = "/images/trap-takeover/0307-flyer.jpg";
 
 // HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo
 const HAVE_GIFT_BAGS = false;
@@ -224,6 +231,21 @@ export default function TrapTakeoverPage() {
                 type="video/mp4"
               />
             </video>
+          </section>
+        )}
+        {HAVE_FLYER && (
+          <section className="w-full">
+            <h3 className="py-4 text-center font-logo text-3xl font-semibold md:text-left">
+              Deals
+            </h3>
+            <hr />
+            <ImageViewer
+              className="rounded-xl mx-auto my-16"
+              src={FLYER_PATH}
+              alt="March 7th Trap Takeover Flyer"
+              width={1236}
+              height={1599}
+            />
           </section>
         )}
         <TrapTakeoverCountdown
