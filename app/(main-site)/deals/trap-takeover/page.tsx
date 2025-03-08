@@ -1,4 +1,4 @@
-import { cn, formatDate } from "@/lib/utils";
+import { cn, formatDate, getTrapTakeoverDateWithSuffix } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { TrapTakeoverCountdown } from "../trap-takeover-countdown";
@@ -16,39 +16,12 @@ const HAVE_VIDEO = false;
 const HAVE_FLYER = true;
 
 // FLYER_PATH is the path to the digital flyer
-const FLYER_PATH = "/images/trap-takeover/0307-flyer.jpg";
+const FLYER_PATH = "/images/trap-takeover/0321-flyer.png";
 
 // HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo
 const HAVE_GIFT_BAGS = false;
 
-const TRAP_TAKEOVER_DATE_STRING = formatDate("03-07-2025");
-
-const getTrapTakeoverDateWithSuffix = (trapTakeoverDate: Date) => {
-  const formattedDate = new Intl.DateTimeFormat("en-US", {
-    month: "short",
-    day: "numeric",
-  }).format(trapTakeoverDate);
-
-  const day = trapTakeoverDate.getDay();
-  let suffix;
-  const lastDigit = day % 10;
-  const lastTwoDigits = day % 100;
-  if (lastDigit === 1 && lastTwoDigits !== 11) {
-    suffix = "st";
-    return formattedDate + suffix;
-  }
-  if (lastDigit === 2 && lastTwoDigits !== 12) {
-    suffix = "nd";
-    return formattedDate + suffix;
-  }
-  if (lastDigit === 3 && lastTwoDigits !== 13) {
-    suffix = "rd";
-    return formattedDate + suffix;
-  }
-
-  suffix = "th";
-  return formattedDate + suffix;
-};
+const TRAP_TAKEOVER_DATE_STRING = formatDate("03-21-2025");
 
 export async function generateMetadata(): Promise<Metadata> {
   const trapTakeoverDate = new Date(TRAP_TAKEOVER_DATE_STRING);
@@ -115,12 +88,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
 // Pass `undefined` as the last arg to show the 'more brands coming soon...'
 const featuredBrands = getFeaturedBrands(
-  "Big Boy Dro",
+  "Coffee Supply",
   "Akwaaba",
-  "Midsfactory",
+  "Jeff's Sessions",
   "Dompen",
   "Koa Cannabis Co.",
-  "Jeff's Sessions",
+  "Midsfactory",
   "Green River Extracts",
   "Hashtag",
 );
@@ -187,7 +160,7 @@ export default function TrapTakeoverPage() {
                   key={brand.name ?? "undefined"}
                 >
                   <Link
-                    className="flex flex-col items-center rounded border border-white p-2 outline-none focus:border-primary-purple focus:outline-primary-purple"
+                    className="flex flex-col items-center rounded border border-white py-2 px-8 outline-none focus:border-primary-purple focus:outline-primary-purple"
                     href={brand.url}
                     target="_blank"
                   >
@@ -198,7 +171,7 @@ export default function TrapTakeoverPage() {
                       <Image
                         src={brand.image}
                         alt={brand.alt}
-                        className="h-56 w-56 object-contain"
+                        className="sm:h-56 sm:w-56 w-32 h-32 object-contain"
                       />
                     ) : (
                       <div className="flex h-56 w-56 flex-col items-center justify-center text-center">

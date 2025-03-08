@@ -84,6 +84,33 @@ export function formatDate(dateString: string) {
   });
 }
 
+export function getTrapTakeoverDateWithSuffix(trapTakeoverDate: Date) {
+  const formattedDate = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+  }).format(trapTakeoverDate);
+
+  const day = trapTakeoverDate.getDate();
+  let suffix;
+  const lastDigit = day % 10;
+  const lastTwoDigits = day % 100;
+  if (lastDigit === 1 && lastTwoDigits !== 11) {
+    suffix = "st";
+    return formattedDate + suffix;
+  }
+  if (lastDigit === 2 && lastTwoDigits !== 12) {
+    suffix = "nd";
+    return formattedDate + suffix;
+  }
+  if (lastDigit === 3 && lastTwoDigits !== 13) {
+    suffix = "rd";
+    return formattedDate + suffix;
+  }
+
+  suffix = "th";
+  return formattedDate + suffix;
+}
+
 export function getTimeRemainingUntilFirstOrThirdFriday(
   now: Date,
 ): TimeRemainingUntilFirstOrThirdFriday {
