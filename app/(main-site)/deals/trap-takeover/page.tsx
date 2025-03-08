@@ -11,7 +11,7 @@ const SHOW_PAGE = true;
 
 // HAVE_VIDEO determines whether to show the video flyer or not
 const HAVE_VIDEO = false;
-//
+
 // HAVE_FLYER determines whether to show the paper flyer or not
 const HAVE_FLYER = true;
 
