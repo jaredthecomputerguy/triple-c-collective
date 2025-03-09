@@ -24,6 +24,7 @@ import {
 import { Button } from "../_components/button";
 import { ShopNowButton } from "../_components/shop-now-button";
 import { BrandCarousel } from "../_components/brand-carousel";
+import { NewsletterForm } from "./newsletter-form";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -250,7 +251,19 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+      </div>
 
+      <div className="px-4 pb-10">
+        <h5 className="px-8 text-center font-logo text-4xl font-semibold">
+          Join our Newsletter
+        </h5>
+        <hr className="pb-4" />
+        <div className="p-4 radial-gradient rounded max-w-5xl mx-auto">
+          <NewsletterForm />
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-4xl py-12">
         <div className="px-4 pb-10">
           <h5 className="py-8 text-center font-logo text-4xl font-semibold">
             Frequently Asked Questions
