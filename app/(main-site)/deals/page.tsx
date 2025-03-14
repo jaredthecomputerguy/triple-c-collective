@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 
 const fetchDeals = async ({ cache }: { cache: boolean }) => {
   const res = await fetch(
-    `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_DEAL_URL}?filter=active=true`,
+    `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_DEAL_URL}?filter=active=true&sort=-updated`,
     cache ? { cache: "no-store" } : undefined,
   );
   return (await res.json()) as DealsResponse;
