@@ -4,41 +4,17 @@ import Image, { type StaticImageData } from "next/image";
 import { Separator } from "./separator";
 import { cn } from "@/lib/utils";
 import { TopBanner } from "./top-banner";
+import stiiizyWhiteLogo from "@/public/images/brands/stiiizy-white.png";
+import stiiizyBlackLogo from "@/public/images/brands/stiiizy-logo-black.png";
 
 interface StiiizyBannerProps {
-  image: StaticImageData;
   active: boolean;
-  className: string;
-  closeBtnClass: string;
-  onTouchStart: (
-    e: TouchEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>,
-  ) => void;
-  onTouchCancel: (
-    e: TouchEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>,
-  ) => void;
-  onTouchEnd: (
-    e: TouchEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>,
-  ) => void;
-  onMouseOver: (
-    e: TouchEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>,
-  ) => void;
-  onMouseLeave: (
-    e: TouchEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>,
-  ) => void;
 }
 
-export const StiiizyBanner = ({
-  image,
-  active,
-  className,
-  closeBtnClass,
-  onTouchStart,
-  onTouchCancel,
-  onTouchEnd,
-  onMouseOver,
-  onMouseLeave,
-}: StiiizyBannerProps) => {
+export const StiiizyBanner = ({ active }: StiiizyBannerProps) => {
   const [dayOfWeek, setDayOfWeek] = useState(new Date().getDay());
+  const [stiiizyLogo, setStiiizyLogo] =
+    useState<StaticImageData>(stiiizyWhiteLogo);
 
   useEffect(() => {
     setDayOfWeek(new Date().getDay());
@@ -46,16 +22,38 @@ export const StiiizyBanner = ({
 
   const isSaturdayOrSunday = dayOfWeek === 0 || dayOfWeek === 6;
 
+  const handleStiiizyBannerEvent = (
+    e: TouchEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>,
+  ) => {
+    switch (e.type) {
+      case "touchstart":
+        setStiiizyLogo(stiiizyBlackLogo);
+        break;
+      case "touchcancel":
+        setStiiizyLogo(stiiizyBlackLogo);
+        break;
+      case "touchend":
+        setStiiizyLogo(stiiizyWhiteLogo);
+        break;
+      case "mouseover":
+        setStiiizyLogo(stiiizyBlackLogo);
+        break;
+      case "mouseleave":
+        setStiiizyLogo(stiiizyWhiteLogo);
+        break;
+    }
+  };
+
   return (
     <TopBanner
       active={active}
-      className={className}
-      closeBtnClass={closeBtnClass}
-      onTouchStart={onTouchStart}
-      onTouchCancel={onTouchCancel}
-      onTouchEnd={onTouchEnd}
-      onMouseOver={onMouseOver}
-      onMouseLeave={onMouseLeave}
+      className="group bg-black py-4 transition hover:bg-white"
+      closeBtnClass="text-white transition group-hover:text-black"
+      onTouchStart={handleStiiizyBannerEvent}
+      onTouchCancel={handleStiiizyBannerEvent}
+      onTouchEnd={handleStiiizyBannerEvent}
+      onMouseOver={handleStiiizyBannerEvent}
+      onMouseLeave={handleStiiizyBannerEvent}
     >
       <Link
         className="flex items-center gap-4 px-4 py-1 font-stiiizy text-2xl font-thin text-white
@@ -65,7 +63,7 @@ export const StiiizyBanner = ({
       >
         <Image
           className="h-10 w-20"
-          src={image}
+          src={stiiizyLogo}
           alt="Stiiizy Logo"
           width={1258}
           height={598}

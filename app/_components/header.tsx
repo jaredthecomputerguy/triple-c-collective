@@ -3,21 +3,11 @@
 import React, {
   type ReactNode,
   type SetStateAction,
-  type MouseEvent,
-  type TouchEvent,
   useEffect,
   useState,
 } from "react";
-
-import { BarsIcon } from "./icons/bar-icon";
-import { CartIcon } from "./icons/cart-icon";
-import { PhoneIcon } from "./icons/phone-icon";
-import { CloseIcon } from "./icons/close-icon";
-import { ClockIcon } from "./icons/clock-icon";
-import { LocationIcon } from "./icons/location-icon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { TrapTakeoverBanner } from "./trap-takeover-banner";
 import {
   ChevronRight,
   HomeIcon,
@@ -27,10 +17,14 @@ import {
   PhoneIcon as ContactUsIcon,
 } from "lucide-react";
 
-import stiiizyWhiteLogo from "@/public/images/brands/stiiizy-white.png";
-import stiiizyBlackLogo from "@/public/images/brands/stiiizy-logo-black.png";
+import { BarsIcon } from "./icons/bar-icon";
+import { CartIcon } from "./icons/cart-icon";
+import { PhoneIcon } from "./icons/phone-icon";
+import { CloseIcon } from "./icons/close-icon";
+import { ClockIcon } from "./icons/clock-icon";
+import { LocationIcon } from "./icons/location-icon";
+import { TrapTakeoverBanner } from "./trap-takeover-banner";
 import { StiiizyBanner } from "./stiiizy-banner";
-import type { StaticImageData } from "next/image";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
@@ -49,8 +43,6 @@ const LINKS = [
 export const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [currentPath, setCurrentPath] = useState<string | null>();
-  const [stiiizyLogo, setStiiizyLogo] =
-    useState<StaticImageData>(stiiizyWhiteLogo);
 
   const pathname = usePathname();
 
@@ -65,41 +57,9 @@ export const Header = () => {
 
   const toggleMobileMenu = () => setShowMobileMenu((prevState) => !prevState);
 
-  const handleStiiizyBannerEvent = (
-    e: TouchEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>,
-  ) => {
-    switch (e.type) {
-      case "touchstart":
-        setStiiizyLogo(stiiizyBlackLogo);
-        break;
-      case "touchcancel":
-        setStiiizyLogo(stiiizyBlackLogo);
-        break;
-      case "touchend":
-        setStiiizyLogo(stiiizyWhiteLogo);
-        break;
-      case "mouseover":
-        setStiiizyLogo(stiiizyBlackLogo);
-        break;
-      case "mouseleave":
-        setStiiizyLogo(stiiizyWhiteLogo);
-        break;
-    }
-  };
-
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
-      <StiiizyBanner
-        active={true}
-        className="group bg-black py-4 transition hover:bg-white"
-        closeBtnClass="text-white transition group-hover:text-black"
-        onTouchStart={handleStiiizyBannerEvent}
-        onTouchCancel={handleStiiizyBannerEvent}
-        onTouchEnd={handleStiiizyBannerEvent}
-        onMouseOver={handleStiiizyBannerEvent}
-        onMouseLeave={handleStiiizyBannerEvent}
-        image={stiiizyLogo}
-      />
+      <StiiizyBanner active={true} />
       <TrapTakeoverBanner
         active={false}
         bannerText="Trap Takeover - March 21st"
