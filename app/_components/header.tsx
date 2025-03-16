@@ -17,7 +17,6 @@ import { ClockIcon } from "./icons/clock-icon";
 import { LocationIcon } from "./icons/location-icon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { TopBanner } from "./top-banner";
 import { TrapTakeoverBanner } from "./trap-takeover-banner";
 import {
   ChevronRight,
@@ -32,7 +31,6 @@ import stiiizyWhiteLogo from "@/public/images/brands/stiiizy-white.png";
 import stiiizyBlackLogo from "@/public/images/brands/stiiizy-logo-black.png";
 import { StiiizyBanner } from "./stiiizy-banner";
 import type { StaticImageData } from "next/image";
-// import { SnapchatBanner } from "./snapchat-banner";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
@@ -48,7 +46,6 @@ const LINKS = [
   },
 ];
 
-// TODO: Maybe move the TopBanner component into the StiiizyBanner component. Will need to pass the state and setters in tho, might be not worth the trouble
 export const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [currentPath, setCurrentPath] = useState<string | null>();
@@ -92,7 +89,7 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
-      <TopBanner
+      <StiiizyBanner
         active={true}
         className="group bg-black py-4 transition hover:bg-white"
         closeBtnClass="text-white transition group-hover:text-black"
@@ -101,9 +98,8 @@ export const Header = () => {
         onTouchEnd={handleStiiizyBannerEvent}
         onMouseOver={handleStiiizyBannerEvent}
         onMouseLeave={handleStiiizyBannerEvent}
-      >
-        <StiiizyBanner image={stiiizyLogo} />
-      </TopBanner>
+        image={stiiizyLogo}
+      />
       <TrapTakeoverBanner
         active={false}
         bannerText="Trap Takeover - March 21st"
