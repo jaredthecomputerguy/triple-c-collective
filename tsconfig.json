@@ -30,7 +30,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/utils/serializeHtml.jsx",
-    "app/(site)/privacy-policy"
+    "app/(site)/privacy-policy",
+    "prettier.config.mjs"
   ],
   "exclude": ["node_modules"]
 }
