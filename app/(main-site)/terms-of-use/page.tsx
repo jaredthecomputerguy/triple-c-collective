@@ -33,7 +33,7 @@ export default function TermsOfUsePage() {
         <div>
           <h1 className="text-4xl font-semibold">Terms of Use</h1>
           <span className="mx-auto py-2 text-center text-gray-700">
-            Last Updated: 12/31/2023
+            Last Updated: 03/15/2025
           </span>
           <hr className="my-1" />
         </div>
@@ -106,7 +106,49 @@ export default function TermsOfUsePage() {
           updates periodically. Your continued use of the website after changes
           constitutes acceptance of the revised terms.
         </p>{" "}
-        <h6 className="py-2 text-3xl">10. Contact Information</h6>{" "}
+        <h2 className="py-2 text-3xl">
+          10. Marketing Communications & Rewards Program
+        </h2>
+        <h3 className="py-2 text-2xl">Newsletter & Promotional Emails</h3>
+        <p>
+          By subscribing to our newsletter, you agree to receive promotional
+          emails, special offers, and updates from Triple C Collective.
+        </p>
+        <ul className="list-disc pl-4">
+          <li>
+            We use <strong>Resend</strong> as our email service provider to
+            manage and send communications.
+          </li>
+          <li>
+            Each email includes an <strong>unsubscribe link</strong>, allowing
+            you to opt out at any time.
+          </li>
+          <li>
+            Unsubscribing from promotional emails will not affect your ability
+            to redeem rewards points.
+          </li>
+        </ul>
+        <h3 className="py-2 text-2xl">Rewards Program</h3>
+        <p>
+          Customers who subscribe to our newsletter are automatically enrolled
+          in our rewards program.
+        </p>
+        <ul className="list-disc pl-4">
+          <li>Rewards points do not expire and can be redeemed at any time.</li>
+          <li>
+            The current redemption rate is <strong>5 points = $5</strong>, which
+            can be used toward purchases at Triple C Collective.
+          </li>
+          <li>
+            If you wish to opt out of the rewards program while remaining
+            subscribed to the newsletter, please contact us.
+          </li>
+          <li>
+            Triple C Collective reserves the right to update or modify the
+            rewards program at any time.
+          </li>
+        </ul>
+        <h6 className="py-2 text-3xl">11. Contact Information</h6>{" "}
         <p>
           If you have any questions about these Terms of Use, please contact us
           using our{" "}

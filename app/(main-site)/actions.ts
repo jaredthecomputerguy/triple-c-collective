@@ -35,6 +35,7 @@ async function processQueue() {
     lastRequestTime = Date.now(); // Update timestamp before processing
 
     try {
+      console.log(`Checking if email: ${toEmail} already exists`);
       // Check if email already exists in audience
       const { data: listAudienceData, error: listAudienceError } =
         await resend.contacts.list({ audienceId });
@@ -49,6 +50,7 @@ async function processQueue() {
         continue;
       }
 
+      console.log("Creating contact with email: ", toEmail);
       // Create contact
       const { data: createContactData, error: createContactError } =
         await resend.contacts.create({
@@ -68,6 +70,7 @@ async function processQueue() {
       lastRequestTime = Date.now();
       await new Promise((res) => setTimeout(res, 1000)); // Ensure delay before sending email
 
+      console.log("Sending email to: ", toEmail);
       const { data: sendEmailData, error: sendEmailError } =
         await resend.emails.send({
           from: fromEmail,
@@ -93,7 +96,7 @@ async function processQueue() {
 export async function sendWelcomeEmailAction(user: SendWelcomeEmailInfo) {
   if (emailQueue.some((entry) => entry.toEmail === user.toEmail)) {
     console.log("Duplicate request detected, ignoring:", user.toEmail);
-    return { error: "You have already requested a subscription!" };
+    return { error: null };
   }
 
   emailQueue.push(user);

@@ -254,10 +254,6 @@ export default function HomePage() {
       </div>
 
       <div className="px-4 pb-10">
-        <h5 className="px-8 text-center font-logo text-4xl font-semibold">
-          Join our Newsletter
-        </h5>
-        <hr className="pb-4" />
         <div className="p-4 radial-gradient rounded max-w-5xl mx-auto">
           <NewsletterForm />
         </div>

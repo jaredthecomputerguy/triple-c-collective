@@ -31,7 +31,7 @@ export default function PrivacyPolicyPage() {
       <section className="prose mx-auto max-w-4xl bg-[#fefefe] px-4 py-6 prose-h5:font-semibold prose-h5:text-[#111827] prose-h6:font-semibold prose-h6:text-[#111827] prose-a:text-blue-600 sm:py-12">
         <h1 className="text-4xl font-semibold">Privacy Policy</h1>
         <span className="mx-auto py-2 text-center text-gray-700">
-          Last Updated: 12/31/2023
+          Last Updated: 03/15/2025
         </span>
         <hr className="my-1" />
         <article className="pb-6">
@@ -152,6 +152,99 @@ export default function PrivacyPolicyPage() {
                   {" "}
                   You can manage your cookie preferences through your browser
                   settings.
+                </li>
+              </ul>
+            </li>
+          </ol>
+          <h2 className="py-2 text-3xl">
+            Marketing Communications & Rewards Program
+          </h2>
+
+          <ol className="list-decimal px-4">
+            <li>
+              <span className="text-lg font-semibold">
+                Newsletter & Promotional Emails:
+              </span>
+              <ul className="list-disc px-4">
+                <li>
+                  When you subscribe to our newsletter, you consent to receiving
+                  promotional emails, special offers, and updates about Triple C
+                  Collective.
+                </li>
+                <li>
+                  We use <strong>Resend</strong> as our email service provider
+                  to deliver these communications. Resend may process and store
+                  your email address in accordance with their{" "}
+                  <a
+                    href="https://resend.com/legal/privacy-policy"
+                    target="_blank"
+                  >
+                    privacy policy
+                  </a>
+                  .
+                </li>
+                <li>
+                  Every email we send includes an{" "}
+                  <strong>unsubscribe link</strong>, allowing you to opt out at
+                  any time.
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <span className="text-lg font-semibold">Rewards Program:</span>
+              <ul className="list-disc px-4">
+                <li>
+                  Customers who subscribe to our newsletter are automatically
+                  enrolled in our rewards program.
+                </li>
+                <li>
+                  Rewards points do not expire and can be redeemed at any time.
+                </li>
+                <li>
+                  $1 in reward points is $1 off your order and can be used for
+                  purchases at Triple C Collective.
+                </li>
+                <li>
+                  You may request to opt out of the rewards program while
+                  remaining subscribed to our newsletter.
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <span className="text-lg font-semibold">
+                Your Choices & Opt-Out Options:
+              </span>
+              <ul className="list-disc px-4">
+                <li>
+                  You can <strong>unsubscribe</strong> from promotional emails
+                  using the link in any email.
+                </li>
+                <li>
+                  If you wish to opt out of the rewards program separately,
+                  please contact us at{" "}
+                  <a href="mailto:clearlakecompassioncenter@yahoo.com">
+                    clearlakecompassioncenter@yahoo.com
+                  </a>
+                  .
+                </li>
+                <li>
+                  Opting out of promotional emails will not affect your ability
+                  to redeem earned rewards points.
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <span className="text-lg font-semibold">
+                Changes to the Rewards Program:
+              </span>
+              <ul className="list-disc px-4">
+                <li>
+                  Triple C Collective reserves the right to update or modify the
+                  rewards program, including point redemption policies, with
+                  notice to subscribers.
                 </li>
               </ul>
             </li>
