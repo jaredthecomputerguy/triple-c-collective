@@ -19,7 +19,7 @@
     "lighthouse:run": "node lighthouse/js/run-reports.mjs",
     "lighthouse:serve": "serve ./lighthouse/js/reports",
     "lighthouse": "npm run lighthouse:run && npm run lighthouse:serve",
-    "email": "email dev --dir lib/emails"
+    "email": "email dev --port 3050 --dir lib/emails"
   },
   "husky": {
     "hooks": {
@@ -78,6 +78,7 @@
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.0.1",
     "concurrently": "^8.2.2",
+    "dotenv": "^16.4.7",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "jsdom": "^24.0.0",

@@ -56,5 +56,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.2,
     },
+    {
+      url: "https://tripleccollective.com/newsletter",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.2,
+    },
+    {
+      url: "https://tripleccollective.com/newsletter/unsubscribe",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.2,
+    },
+    {
+      url: "https://tripleccollective.com/newsletter/unsubscribe/error",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.2,
+    },
+
+    {
+      url: "https://tripleccollective.com/newsletter/unsubscribe/success",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.2,
+    },
   ];
 }
