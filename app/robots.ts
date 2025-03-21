@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/admin/",
+      disallow: ["/admin/", "/newsletter/"],
     },
     sitemap: "https://tripleccollective.com/sitemap.xml",
   };

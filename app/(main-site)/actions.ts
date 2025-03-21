@@ -17,6 +17,14 @@ interface SendWelcomeEmailInfo {
   lastName?: string;
 }
 
+function logIfInDev(...messages: any[]) {
+  // TODO: replace all the console logs with this
+  if (process.env.NODE_ENV !== "development") {
+    return;
+  }
+  console.log(messages);
+}
+
 // Ensure only one request is processed at a time
 async function processQueue() {
   if (isProcessingQueue) return;
@@ -27,7 +35,7 @@ async function processQueue() {
     const timeSinceLastRequest = now - lastRequestTime;
 
     if (timeSinceLastRequest < 1000) {
-      console.log(`Rate limit delay: Waiting ${1000 - timeSinceLastRequest}ms`);
+      logIfInDev(`Rate limit delay: Waiting ${1000 - timeSinceLastRequest}ms`);
       await new Promise((res) => setTimeout(res, 1000 - timeSinceLastRequest));
     }
 
@@ -35,7 +43,7 @@ async function processQueue() {
     lastRequestTime = Date.now(); // Update timestamp before processing
 
     try {
-      console.log(`Checking if email: ${toEmail} already exists`);
+      logIfInDev(`Checking if email: ${toEmail} already exists`);
       // Check if email already exists in audience
       const { data: listAudienceData, error: listAudienceError } =
         await resend.contacts.list({ audienceId });
@@ -46,11 +54,11 @@ async function processQueue() {
       }
 
       if (listAudienceData.data.some((contact) => contact.email === toEmail)) {
-        console.log("Already subscribed:", toEmail);
+        logIfInDev("Already subscribed:", toEmail);
         continue;
       }
 
-      console.log("Creating contact with email: ", toEmail);
+      logIfInDev("Creating contact with email: ", toEmail);
       // Create contact
       const { data: createContactData, error: createContactError } =
         await resend.contacts.create({
@@ -70,19 +78,22 @@ async function processQueue() {
       lastRequestTime = Date.now();
       await new Promise((res) => setTimeout(res, 1000)); // Ensure delay before sending email
 
-      console.log("Sending email to: ", toEmail);
+      logIfInDev("Sending email to: ", toEmail);
       const { data: sendEmailData, error: sendEmailError } =
         await resend.emails.send({
           from: fromEmail,
           to: [toEmail],
           subject: "Welcome to the Triple C Newsletter!",
-          react: WelcomeEmail({ contactId: createContactData.id }),
+          react: WelcomeEmail({
+            siteUrl: process.env.SITE_URL,
+            contactId: createContactData.id,
+          }),
         });
 
       if (sendEmailError) {
         console.error("Error sending email:", sendEmailError);
       } else {
-        console.log("Welcome email sent:", sendEmailData?.id);
+        logIfInDev("Welcome email sent:", sendEmailData?.id);
       }
     } catch (err) {
       console.error("Unexpected error:", err);
@@ -95,7 +106,7 @@ async function processQueue() {
 // Function to add requests to the queue
 export async function sendWelcomeEmailAction(user: SendWelcomeEmailInfo) {
   if (emailQueue.some((entry) => entry.toEmail === user.toEmail)) {
-    console.log("Duplicate request detected, ignoring:", user.toEmail);
+    logIfInDev("Duplicate request detected, ignoring:", user.toEmail);
     return { error: null };
   }
 

@@ -35,7 +35,6 @@ export function NewsletterForm() {
     });
 
     if (error) {
-      console.log(error);
       toast({
         title: error,
         duration: 5000,
@@ -52,12 +51,12 @@ export function NewsletterForm() {
 
   return (
     <div
-      className="rounded-lg p-4 md:p-6 text-white md:flex items-center justify-center"
+      className="items-center justify-center rounded-lg p-4 text-white md:flex md:p-6"
       ref={subRef}
     >
-      <div className="flex flex-col items-center gap-4 text-center mb-6">
-        <div className="flex flex-col items-center gap-4 text-center mb-6">
-          <h3 className="font-logo text-2xl md:text-3xl font-semibold">
+      <div className="mb-6 flex flex-col items-center gap-4 text-center">
+        <div className="mb-6 flex flex-col items-center gap-4 text-center">
+          <h3 className="font-logo text-2xl font-semibold md:text-3xl">
             Stay Updated with Triple C Collective
           </h3>
           <p className="max-w-md text-pretty">
@@ -68,7 +67,7 @@ export function NewsletterForm() {
 
         {hasSubmitted ? (
           <>
-            <h3 className="font-logo text-2xl md:text-3xl font-semibold">
+            <h3 className="font-logo text-2xl font-semibold md:text-3xl">
               Thanks for subscribing!
             </h3>
             <p className="max-w-md">Check your email for your confirmation.</p>
@@ -76,7 +75,7 @@ export function NewsletterForm() {
         ) : (
           <form
             onSubmit={handleNewsletterFormSubmit}
-            className="max-w-md mx-auto space-y-4"
+            className="mx-auto max-w-md space-y-4"
           >
             <div className="flex flex-col items-start gap-1">
               <label htmlFor="firstName" className="text-white">
@@ -88,11 +87,11 @@ export function NewsletterForm() {
                 placeholder="Bob"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="bg-white/90 border-none text-black placeholder:text-gray-500 p-2 rounded w-full"
+                className="w-full rounded border-none bg-white/90 p-2 text-black placeholder:text-gray-500"
               />
             </div>
 
-            <div className="flex flex-col gap-1 items-start">
+            <div className="flex flex-col items-start gap-1">
               <label htmlFor="lastName" className="text-white">
                 Last Name
               </label>
@@ -102,11 +101,11 @@ export function NewsletterForm() {
                 placeholder="Marley"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="bg-white/90 border-none text-black placeholder:text-gray-500 p-2 rounded w-full"
+                className="w-full rounded border-none bg-white/90 p-2 text-black placeholder:text-gray-500"
               />
             </div>
 
-            <div className="flex flex-col gap-1 items-start">
+            <div className="flex flex-col items-start gap-1">
               <label htmlFor="email" className="text-white">
                 Email
                 <span className="text-red-600"> *</span>
@@ -118,7 +117,7 @@ export function NewsletterForm() {
                 value={email}
                 required
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-white/90 border-none text-black placeholder:text-gray-500 p-2 rounded w-full"
+                className="w-full rounded border-none bg-white/90 p-2 text-black placeholder:text-gray-500"
               />
             </div>
 
@@ -129,7 +128,7 @@ export function NewsletterForm() {
                 required
                 checked={agreedToTerms}
                 onChange={() => setAgreedToTerms((prev) => !prev)}
-                className="mt-1 data-[state=checked]:bg-white data-[state=checked]:border-white"
+                className="mt-1 data-[state=checked]:border-white data-[state=checked]:bg-white"
               />
               <label htmlFor="terms" className="text-sm">
                 I agree to the{" "}
@@ -156,10 +155,10 @@ export function NewsletterForm() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-white hover:bg-white/90 text-primary-purple font-semibold py-2 px-6 rounded transition-all"
+              className="w-full rounded bg-white px-6 py-2 font-semibold text-primary-purple transition-all hover:bg-white/90"
             >
               {loading ? (
-                <span className="flex items-center gap-2 justify-center">
+                <span className="flex items-center justify-center gap-2">
                   <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#5D3FD3] border-t-transparent"></div>
                   Subscribing...
                 </span>
