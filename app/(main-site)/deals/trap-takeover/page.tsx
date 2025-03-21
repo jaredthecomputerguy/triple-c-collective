@@ -160,7 +160,7 @@ export default function TrapTakeoverPage() {
                   key={brand.name ?? "undefined"}
                 >
                   <Link
-                    className="flex flex-col items-center rounded border border-white py-2 px-8 outline-none focus:border-primary-purple focus:outline-primary-purple"
+                    className="flex flex-col items-center rounded border border-white px-8 py-2 outline-none focus:border-primary-purple focus:outline-primary-purple"
                     href={brand.url}
                     target="_blank"
                   >
@@ -171,7 +171,7 @@ export default function TrapTakeoverPage() {
                       <Image
                         src={brand.image}
                         alt={brand.alt}
-                        className="sm:h-56 sm:w-56 w-32 h-32 object-contain"
+                        className="h-32 w-32 object-contain sm:h-56 sm:w-56"
                       />
                     ) : (
                       <div className="flex h-56 w-56 flex-col items-center justify-center text-center">
@@ -195,7 +195,7 @@ export default function TrapTakeoverPage() {
               autoPlay
               muted
               preload="auto"
-              className="rounded-xl mx-auto my-16"
+              className="mx-auto my-16 rounded-xl"
               loop
               playsInline
             >
@@ -213,7 +213,7 @@ export default function TrapTakeoverPage() {
             </h3>
             <hr />
             <ImageViewer
-              className="rounded-xl mx-auto my-16"
+              className="mx-auto my-16 rounded-xl"
               src={FLYER_PATH}
               alt="March 7th Trap Takeover Flyer"
               width={1236}
