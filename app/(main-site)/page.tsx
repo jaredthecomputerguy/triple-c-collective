@@ -253,13 +253,11 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* 
       <div className="px-4 pb-10">
         <div className="radial-gradient mx-auto max-w-5xl rounded p-4">
           <NewsletterForm />
         </div>
-      </div> 
-      */}
+      </div>
 
       <div className="mx-auto max-w-4xl py-12">
         <div className="px-4 pb-10">
