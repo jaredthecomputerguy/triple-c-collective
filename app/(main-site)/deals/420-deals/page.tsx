@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 import { CartridgeIcon } from "@/app/_components/icons/cartridge";
 import { GoogleMapEmbed } from "../../contact/google-map-embed";
 import { type Metadata } from "next";
-import { notFound } from "next/navigation";
 import { ImageViewer } from "@/app/_components/image-viewer";
 
 const smokeFont = localFont({
@@ -62,8 +61,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(`${process.env.SITE_URL}`),
 };
 
+// TODO: Redesign me!!!
+
 export default function FourTwentyDealsPage() {
-  return notFound();
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <div className="mx-auto max-w-7xl rounded bg-[#fefefe] px-4 py-6 sm:py-12">
