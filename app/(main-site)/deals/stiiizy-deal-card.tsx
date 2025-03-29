@@ -7,7 +7,7 @@ export const StiiizyDealCard = () => {
   return (
     <Link
       className="flex flex-col items-center justify-center rounded-xl underline-offset-4 hover:underline"
-      href="https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=STIIIZY"
+      href="https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%7B%7D&brands=STIIIZY&categories=CARTRIDGE"
       id="stiiizy"
       target="_blank"
     >

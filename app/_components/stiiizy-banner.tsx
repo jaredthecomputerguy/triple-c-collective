@@ -58,7 +58,7 @@ export const StiiizyBanner = ({ active }: StiiizyBannerProps) => {
       <Link
         className="flex items-center gap-4 px-4 py-1 font-stiiizy text-2xl font-thin text-white
       transition hover:underline group-hover:text-black md:gap-12 md:text-4xl"
-        href="https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=STIIIZY"
+        href="https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%7B%7D&brands=STIIIZY&categories=CARTRIDGE"
         target="_blank"
       >
         <Image
