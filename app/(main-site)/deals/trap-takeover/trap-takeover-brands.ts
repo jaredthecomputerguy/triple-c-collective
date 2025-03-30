@@ -10,6 +10,7 @@ import jeffsSessionsLogo from "@/public/images/brands/jeff-sessions-logo.png";
 import roninRosinLogo from "@/public/images/brands/ronin-logo.jpg";
 import coffeeSupplyLogo from "@/public/images/brands/coffee-supply.png";
 import hashtagLogo from "@/public/images/brands/hashtag-logo.png";
+import chameleonCraftLogo from "@/public/images/brands/chameleon-craft.png";
 
 export type FeaturedBrand = (typeof BRANDS)[number];
 type BrandNames = FeaturedBrand["name"][];
@@ -74,6 +75,12 @@ const BRANDS = [
     alt: "Hashtag Infused Flower",
     url: "https://triplec.treez.io/onlinemenu/search?customerType=ALL&query=hashtag",
     image: hashtagLogo,
+  },
+  {
+    name: "Chameleon Craft",
+    alt: "Chameleon Craft Logo",
+    url: "https://www.chameleoncraftcannabis.com/",
+    image: chameleonCraftLogo,
   },
   {
     name: undefined,
