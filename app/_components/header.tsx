@@ -59,9 +59,9 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
-      <StiiizyBanner active={true} />
+      <StiiizyBanner active={false} />
       <TrapTakeoverBanner
-        active={false}
+        active={true}
         bannerText="Trap Takeover - April 4th"
       />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
