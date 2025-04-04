@@ -16,7 +16,7 @@ const HAVE_VIDEO = false;
 const HAVE_FLYER = true;
 
 // FLYER_PATH is the path to the digital flyer
-const FLYER_PATH = "/images/trap-takeover/0404-flyer.png";
+const FLYER_PATH = "/images/trap-takeover/0404-flyer-no-giftbags.png";
 
 // HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo
 const HAVE_GIFT_BAGS = false;
