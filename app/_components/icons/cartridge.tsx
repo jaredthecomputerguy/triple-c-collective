@@ -4,14 +4,14 @@ export const CartridgeIcon = ({ className }: { className: string }) => {
       <g
         id="Icon/ProductCircle/Passive/Cartridge"
         stroke="none"
-        stroke-width="1"
+        strokeWidth="1"
         fill="transparent"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       >
         <circle
           id="Oval-2"
           stroke="#2b074d"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           cx="20"
           cy="20"
           r="19.25"
@@ -20,9 +20,9 @@ export const CartridgeIcon = ({ className }: { className: string }) => {
           id="Icon_Cartridge"
           transform="translate(16.000000, 9.000000)"
           stroke="#2b074d"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
         >
           <path
             d="M7.3,0 L7.3,21.267 C7.3,21.67 5.822,22 4,22 C2.178,22 0.7,21.67 0.7,21.267 L0.7,0 L7.3,0 Z"
