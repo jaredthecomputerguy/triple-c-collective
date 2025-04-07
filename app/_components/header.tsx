@@ -31,8 +31,7 @@ const LINKS = [
   { href: "/about", label: "About", icon: <UsersRoundIcon size={26} /> },
   { href: "/reward-program", label: "Rewards", icon: <Gem size={26} /> },
   { href: "/deals", label: "Deals", icon: <BanknoteIcon size={26} /> },
-  // TODO: Add this back for 4/20
-  // { href: "/deals/420-deals", label: "4/20" },
+  { href: "/deals/420-deals", label: "4/20 Deals" },
   {
     href: "/contact",
     label: "Contact",

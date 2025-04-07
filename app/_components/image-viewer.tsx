@@ -3,6 +3,9 @@ import "react-photo-view/dist/react-photo-view.css";
 
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Loader2 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface ImageViewerProps {
   className?: string;
@@ -19,6 +22,21 @@ export const ImageViewer = ({
   width,
   height,
 }: ImageViewerProps) => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return (
+      <div className={cn(className, "flex items-center justify-center")}>
+        {/*<Loader2 className="animate-spin" />*/}
+        <div className="h-full w-full animate-pulse rounded bg-gray-300"></div>
+      </div>
+    );
+  }
+
   return (
     <PhotoProvider>
       <PhotoView src={src}>

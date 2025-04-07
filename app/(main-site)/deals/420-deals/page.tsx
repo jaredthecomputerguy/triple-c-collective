@@ -1,18 +1,17 @@
-import localFont from "next/font/local";
+import { type Metadata } from "next";
+
+import Image from "next/image";
 import { LiaCannabisSolid, LiaCookieBiteSolid } from "react-icons/lia";
 import { PiFlowerThin } from "react-icons/pi";
 import { GiMasonJar } from "react-icons/gi";
 import { SlPresent } from "react-icons/sl";
 
-import { cn } from "@/lib/utils";
 import { CartridgeIcon } from "@/app/_components/icons/cartridge";
 import { GoogleMapEmbed } from "../../contact/google-map-embed";
-import { type Metadata } from "next";
 import { ImageViewer } from "@/app/_components/image-viewer";
+import fourTwentyLogo from "@/public/images/4-20/420_logo-resized.png";
 
-const smokeFont = localFont({
-  src: "smoke.ttf",
-});
+const fourTwentyFlyerPath = "/images/4-20/420-flyer-with-bags.jpg";
 
 export const metadata: Metadata = {
   title: "4/20 Deals | Triple C Collective",
@@ -61,25 +60,23 @@ export const metadata: Metadata = {
   metadataBase: new URL(`${process.env.SITE_URL}`),
 };
 
-// TODO: Redesign me!!!
-
 export default function FourTwentyDealsPage() {
   return (
     <main className="bg-[#fefefe]" id="main-content">
-      <div className="mx-auto max-w-7xl rounded bg-[#fefefe] px-4 py-6 sm:py-12">
-        <h1
-          className={cn(
-            smokeFont.className,
-            "mx-auto mb-16 text-center text-6xl font-bold text-primary-purple sm:text-8xl",
-          )}
-        >
-          420 is here!
-        </h1>
+      <div className="relative mx-auto max-w-7xl rounded px-4 py-6 sm:py-12">
+        <div className="motion-preset-expand mx-auto flex max-w-3xl items-center justify-center pb-12">
+          <Image
+            className="aspect-4/3"
+            src={fourTwentyLogo}
+            alt="4/20 Triple C Collective Logo"
+            priority
+          />
+        </div>
         <div className="pb-16">
           <div className="mx-auto w-fit">
             <ImageViewer
               className="aspect-[1163/1600] h-96 w-72 cursor-pointer rounded border-white sm:h-[700px] sm:w-[500px]"
-              src="/images/420-flyer.jpg"
+              src={fourTwentyFlyerPath}
               alt="4/20 Sales"
               width={1163}
               height={1600}

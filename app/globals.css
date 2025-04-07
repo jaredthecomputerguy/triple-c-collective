@@ -11,7 +11,9 @@
   --brands-length: 23.5;
   --mobile-brands-width: calc(-1 * 128px * var(--brands-length));
   --desktop-brands-width: calc(-1 * 162px * var(--brands-length));
-  /* CHRISTMAS LIGHT VARS */
+  /* 420 Neon Light Vars */
+  --neon-green: #32df19;
+  /* Christmas Light Vars */
   --globe-width: 12px;
   --globe-height: 28px;
   --globe-spacing: 40px;
@@ -118,6 +120,44 @@ td {
   }
 }
 
+/* This is for the 4/20 neon effect */
+.neon {
+  border: 2px solid white;
+  animation: pulsate 1.5s infinite alternate;
+  border-radius: 10px;
+  box-shadow:
+    0 0 0.2rem #fff,
+    0 0 0.2rem #fff,
+    0 0 2rem #32df19,
+    0 0 0.8rem #32df19,
+    0 0 2.8rem #32df19,
+    inset 0 0 1.3rem #32df19;
+}
+
+@keyframes pulsate {
+  0% {
+    box-shadow:
+      0 0 0.2rem #fff,
+      0 0 0.2rem #fff,
+      0 0 2rem #32df19,
+      0 0 0.8rem #32df19,
+      0 0 2.8rem #32df19,
+      inset 0 0 1.3rem #32df19;
+  }
+
+  100% {
+    box-shadow:
+      0 0 0.25rem #fff,
+      0 0 0.6875rem #fff,
+      0 0 1.1875rem #fff,
+      0 0 2.5rem #32df19,
+      0 0 5rem #32df19,
+      0 0 5.625rem #32df19,
+      0 0 6.25rem #32df19,
+      inset 0 0 9.375rem #32df19;
+  }
+}
+
 /* THIS IS FOR THE CHRISTMAS BANNER */
 
 .strand {
@@ -137,7 +177,7 @@ td {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-animation-iteration-count: infinite;
-  animation-interation-count: infinite;
+  animation-iteration-count: infinite;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -180,6 +220,7 @@ td {
 
 .strand li:nth-child(3n + 1) {
   -webkit-animation: 1.4s;
+  animation: 1.4s;
   animation-duration: 1.4s;
 }
 
