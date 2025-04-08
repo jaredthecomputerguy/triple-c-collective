@@ -14,7 +14,6 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         main: "url('/lake-county.webp')",
         clover: "url('/clover.svg')",
-        grass: "url('/images/grass.jpg')",
       },
       fontFamily: {
         logo: ["var(--font-logo)"],

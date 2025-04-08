@@ -10,7 +10,7 @@ export const CartridgeIcon = ({ className }: { className: string }) => {
       >
         <circle
           id="Oval-2"
-          stroke="#2b074d"
+          stroke="white"
           strokeWidth="1.5"
           cx="20"
           cy="20"
@@ -19,7 +19,7 @@ export const CartridgeIcon = ({ className }: { className: string }) => {
         <g
           id="Icon_Cartridge"
           transform="translate(16.000000, 9.000000)"
-          stroke="#2b074d"
+          stroke="white"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="1.5"
