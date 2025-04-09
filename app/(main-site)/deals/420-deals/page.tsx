@@ -61,7 +61,7 @@ export default function FourTwentyDealsPage() {
     <main className="bg-[#fefefe]" id="main-content">
       <div className="relative mx-auto max-w-7xl rounded px-4 py-6 sm:py-12">
         {/* Header */}
-        <div className="motion-preset-expand mx-auto flex max-w-3xl items-center justify-center pb-12 transition-all duration-300 hover:scale-110">
+        <div className="motion-preset-expand mx-auto flex max-w-3xl items-center justify-center transition-all duration-300 hover:scale-110">
           <Image
             className="aspect-4/3"
             src={fourTwentyLogo}
@@ -70,6 +70,10 @@ export default function FourTwentyDealsPage() {
             quality={100}
           />
         </div>
+
+        <h1 className="animate-text bg-gradient-to-r from-teal-500 via-purple-800 to-orange-500 bg-clip-text pb-8 text-center font-logo text-5xl font-black text-transparent md:text-7xl">
+          4/20 Deals
+        </h1>
 
         {/* Flyer */}
         <div className="pb-16">
@@ -88,7 +92,12 @@ export default function FourTwentyDealsPage() {
         </div>
 
         {/* Deals */}
+
         <FourTwentyDeals />
+
+        <p className="p-4 text-center text-lg">
+          All Sales Are While Supplies Last
+        </p>
 
         {/* Footer */}
         <div>
@@ -129,8 +138,3 @@ export default function FourTwentyDealsPage() {
     </main>
   );
 }
-
-type Deal = {
-  description: string;
-  limit?: number;
-};
