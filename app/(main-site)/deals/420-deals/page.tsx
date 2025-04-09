@@ -103,24 +103,26 @@ export default function FourTwentyDealsPage() {
         <div>
           <div className="flex flex-col py-16 font-semibold">
             {" "}
-            <h3 className="font-logo text-4xl font-semibold">Enter to win</h3>
+            <h3 className="font-logo text-4xl font-semibold">
+              Enter to win our 4/20 Raffle
+            </h3>
             <hr className="pb-4" />
             <span className="text-xl">
               Show up on 4/20 and make a purchase to get a raffle ticket. The
-              winners will be drawn on Sunday, 4/21 at 12 PM PST.
+              winners will be drawn on Monday, 4/21 at 10 PM PST.
             </span>
             <div className="grid grid-cols-1 gap-8 pt-8 md:grid-cols-2">
               <div>
                 <h4 className="pb-2 text-3xl font-semibold">Cannabis Kit</h4>
                 <p className="text-lg">
-                  Includes a glass bong, merch, a drawstring bag, two rolling
-                  trays, and much more
+                  Swag bag filled to the brim with products totalling up to
+                  $300+ and merch from your favorite brands!
                 </p>
               </div>
               <div>
                 <h4 className="pb-2 text-3xl font-semibold">Store Credit</h4>
                 <p className="text-lg">
-                  Win $155 in store credit to use on your next purchase or save
+                  Win $200 in store credit to use on your next purchase or save
                   it for a rainy day
                 </p>
               </div>

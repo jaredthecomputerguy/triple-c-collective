@@ -232,6 +232,10 @@ export const FourTwentyDeals = () => {
         icon={<SlPresent className="h-12 w-12" />}
         deals={[
           {
+            brand: "First Four People In Line",
+            description: "Merch/Goodie for the first 4 people in line",
+          },
+          {
             brand: "Tablets",
             description:
               "Buy any tablets, get two packs of LEVEL Protabs for free",
