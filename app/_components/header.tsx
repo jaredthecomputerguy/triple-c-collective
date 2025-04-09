@@ -25,6 +25,7 @@ import { ClockIcon } from "./icons/clock-icon";
 import { LocationIcon } from "./icons/location-icon";
 import { TrapTakeoverBanner } from "./trap-takeover-banner";
 import { StiiizyBanner } from "./stiiizy-banner";
+import { FourTwentyBanner } from "./4-20-banner";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
@@ -60,9 +61,10 @@ export const Header = () => {
     <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
       <StiiizyBanner active={false} />
       <TrapTakeoverBanner
-        active={true}
+        active={false}
         bannerText="Trap Takeover - 4/20 Weekend"
       />
+      <FourTwentyBanner active={true} />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
         <div className="flex justify-between bg-primary-purple px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a

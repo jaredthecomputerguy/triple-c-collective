@@ -156,7 +156,8 @@ export const FourTwentyDeals = () => {
         deals={[
           {
             brand: "Kushy Punch",
-            description: "Buy any pack of gummies, get a free pack",
+            description:
+              "Buy any pack of gummies, get a free pack of gummies or a cartridge",
           },
           {
             brand: "PLUS",
@@ -196,6 +197,11 @@ export const FourTwentyDeals = () => {
             brand: "Dompen",
             description:
               "Buy any cartridge or disposable, get your choice of another cartridge or disposable for free testt",
+          },
+          {
+            brand: "Kushy Punch",
+            description:
+              "Buy any cartridge, get a free pack of gummies or a cartridge",
           },
         ]}
         reducedPriceDeals={["ABX Sauce Cartridge - $30"]}

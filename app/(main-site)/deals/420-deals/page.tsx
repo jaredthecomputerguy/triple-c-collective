@@ -71,9 +71,20 @@ export default function FourTwentyDealsPage() {
           />
         </div>
 
-        <h1 className="animate-text bg-gradient-to-r from-teal-500 via-purple-800 to-orange-500 bg-clip-text pb-8 text-center font-logo text-5xl font-black text-transparent md:text-7xl">
-          4/20 Deals
-        </h1>
+        <div className="flex flex-col items-center">
+          <h1 className="animate-text bg-gradient-to-r from-teal-500 via-purple-800 to-orange-500 bg-clip-text pb-8 text-center font-logo text-5xl font-black text-transparent md:text-7xl">
+            4/20 Deals
+          </h1>
+          <span className="w-full text-center text-2xl font-semibold">
+            Sales All Weekend
+          </span>
+          <span className="w-full text-center text-sm font-semibold md:text-lg">
+            Trap Takeover - Friday 4/18 & Saturday 4/19
+          </span>
+          <span className="w-full pb-8 text-center text-sm font-semibold md:text-lg">
+            4/20 - Sunday 4/20
+          </span>
+        </div>
 
         {/* Flyer */}
         <div className="pb-16">
