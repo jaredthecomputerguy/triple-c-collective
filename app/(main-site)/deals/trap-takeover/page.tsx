@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 import { ImageViewer } from "@/app/_components/image-viewer";
 
 // SHOW_PAGE determines whether to show the page or not
-const SHOW_PAGE = true;
+const SHOW_PAGE = false;
 
 // HAVE_VIDEO determines whether to show the video flyer or not
 const HAVE_VIDEO = false;
@@ -18,10 +18,13 @@ const HAVE_FLYER = true;
 // FLYER_PATH is the path to the digital flyer
 const FLYER_PATH = "/images/trap-takeover/0404-flyer-no-giftbags.png";
 
+// RAFFLE_RULES_PATH is the path to the raffle rules
+const RAFFLE_RULES_PATH = "/images/trap-takeover/raffle-rules.png";
+
 // HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo
 const HAVE_GIFT_BAGS = false;
 
-const TRAP_TAKEOVER_DATE_STRING = formatDate("04-04-2025");
+const TRAP_TAKEOVER_DATE_STRING = formatDate("04-18-2025");
 
 export async function generateMetadata(): Promise<Metadata> {
   const trapTakeoverDate = new Date(TRAP_TAKEOVER_DATE_STRING);
@@ -220,6 +223,20 @@ export default function TrapTakeoverPage() {
             />
           </section>
         )}
+
+        <section className="w-full" id="raffle-rules">
+          <h3 className="py-4 text-center font-logo text-3xl font-semibold md:text-left">
+            Raffle Rules
+          </h3>
+          <hr />
+          <ImageViewer
+            className="mx-auto my-16 rounded-xl"
+            src={RAFFLE_RULES_PATH}
+            alt="Raffle Rules"
+            width={1236}
+            height={1599}
+          />
+        </section>
         <TrapTakeoverCountdown
           linkUrl="https://illaguerrilla.com"
           target="_blank"
