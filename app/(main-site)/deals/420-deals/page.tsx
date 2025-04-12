@@ -103,7 +103,6 @@ export default function FourTwentyDealsPage() {
         </div>
 
         {/* Deals */}
-
         <FourTwentyDeals />
 
         <p className="p-4 text-center text-lg">

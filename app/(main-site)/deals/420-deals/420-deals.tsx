@@ -5,26 +5,25 @@ import { LiaCannabisSolid, LiaCookieBiteSolid } from "react-icons/lia";
 import { GiMasonJar } from "react-icons/gi";
 import { SlPresent } from "react-icons/sl";
 import { CartridgeIcon } from "@/app/_components/icons/cartridge";
+import {
+  fourTwentyDealsData,
+  type Deal,
+  type ReducedPriceDeal,
+} from "./420-deals-data";
 
 interface FourTwentyDealCardProps {
   title: string;
   variant: "green" | "white";
   icon: ReactNode;
-  deals: Deal[];
-  reducedPriceDeals: string[];
+  bogoDeals: Deal[];
+  reducedPriceDeals: ReducedPriceDeal[];
 }
-
-type Deal = {
-  brand: string;
-  description: string;
-  limit?: number;
-};
 
 const FourTwentyDealCard = ({
   title,
   variant,
   icon,
-  deals,
+  bogoDeals: deals,
   reducedPriceDeals,
 }: FourTwentyDealCardProps) => {
   return (
@@ -67,7 +66,14 @@ const FourTwentyDealCard = ({
               Reduced Prices on the following:
               <ul className="list-inside list-disc space-y-2 py-2 text-left text-base">
                 {reducedPriceDeals.map((reducedPriceDeal, i) => (
-                  <li key={i}>{reducedPriceDeal}</li>
+                  <li key={i}>
+                    {reducedPriceDeal.description}{" "}
+                    {reducedPriceDeal.limit && (
+                      <span className="text-sm">
+                        (Limit {reducedPriceDeal.limit})
+                      </span>
+                    )}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -86,65 +92,10 @@ export const FourTwentyDeals = () => {
         title="Flower & Prerolls"
         variant="green"
         icon={<LiaCannabisSolid className="h-12 w-12" />}
-        deals={[
-          {
-            brand: "Big Boy Dro, Flawless, High Grade, & Seven Leaves",
-            description: "Get 1 gram of flower for 25¢",
-          },
-          {
-            brand: "Seven Leaves",
-            description: "Buy any flower, get a free eighth (3.5g)",
-          },
-          {
-            brand: "Eighty East",
-            description: "Buy any flower, get a free eighth (3.5g)",
-          },
-          {
-            brand: "High Grade & Flawless",
-            description: "Buy any flower, get a free eighth (3.5g)",
-          },
-          {
-            brand: "Clarkies",
-            description: "Buy any flower, get a free eighth (3.5g)",
-          },
-          {
-            brand: "Glasshouse Farms",
-            description: "Buy any flower, get a free eighth (3.5g)",
-          },
-          {
-            brand: "Papa's Herb",
-            description: "Buy any infused preroll, get a second one free",
-          },
-          {
-            brand: "Koa Cannabis Co.",
-            description: "Buy any infused preroll 10pk, get a second one free",
-          },
-          {
-            brand: "Midsfactory",
-            description:
-              "Buy an infused preroll, get your choice of any other Midsfactory product (cartridge, concetrate, infused preroll) for free",
-          },
-        ]}
-        reducedPriceDeals={[
-          "Hashtag Infused Flower 3.5g - $25",
-          "Snicklefritz Flower 28g - $55",
-          "Phat Panda Flower 28g - $55",
-          "Phat Panda Flower 3.5g - $24",
-          "Tyson Flower 3.5g - $35",
-          "High Supply Flower 28g - $55",
-          "High Supply Flower 14g - $40",
-          "Coffee Supply Flower 3.5g - $20",
-          "Seed Junky Flower 14g - $40",
-          "Lumpy's Flower 7g - $30",
-          "Lumpy's Flower 14g - $40",
-          "Lumpy's Flower 3.5g - $22",
-          "Big Boy Dro Tres Altos Flower 3.5g - $20",
-          "Akwaaba Cakemera Flower 3.5g - $5",
-          "Papa's Herb Flower 3.5g - $11",
-          "Seven Leaves 1g Preroll - $2",
-          "St. Ides 1g Infused Preroll - $20",
-          "Garden Society CBD Preroll Pack 5pk - $20",
-        ]}
+        bogoDeals={fourTwentyDealsData.flowerAndPrerolls.bogoDeals}
+        reducedPriceDeals={
+          fourTwentyDealsData.flowerAndPrerolls.reducedPriceDeals
+        }
       />
 
       {/* Edibles */}
@@ -153,29 +104,8 @@ export const FourTwentyDeals = () => {
         title="Edibles"
         variant="white"
         icon={<LiaCookieBiteSolid className="h-12 w-12" />}
-        deals={[
-          {
-            brand: "Kushy Punch",
-            description:
-              "Buy any pack of gummies, get a free pack of gummies or a cartridge",
-          },
-          {
-            brand: "PLUS",
-            description: "Buy any pack of gummies, get a free 10pk or 2pk pack",
-          },
-
-          {
-            brand: "Emerald Sky",
-            description: "Buy any pack of gummies, get a free pack",
-          },
-        ]}
-        reducedPriceDeals={[
-          "St. Ides Midnight Berries Seltzer - $3",
-          "ALL Big Pete's Marshmallow Treats - $10",
-          "Garden Society Gummies - $10",
-          "Kikoko Tea Bags - $28",
-          "Gelato Balm - $10",
-        ]}
+        bogoDeals={fourTwentyDealsData.edibles.bogoDeals}
+        reducedPriceDeals={fourTwentyDealsData.edibles.reducedPriceDeals}
       />
       {/* Cartridges */}
 
@@ -183,28 +113,8 @@ export const FourTwentyDeals = () => {
         title="Cartridges"
         variant="green"
         icon={<CartridgeIcon className="h-12 w-12" />}
-        deals={[
-          {
-            brand: "Midsfactory",
-            description:
-              "Buy a cartridge, get your choice of any other Midsfactory product (cartridge, concetrate, infused preroll) for free",
-          },
-          {
-            brand: "Stiiizy",
-            description: "Buy any cartridge, get a free 1g cartridge",
-          },
-          {
-            brand: "Dompen",
-            description:
-              "Buy any cartridge or disposable, get your choice of another cartridge or disposable for free testt",
-          },
-          {
-            brand: "Kushy Punch",
-            description:
-              "Buy any cartridge, get a free pack of gummies or a cartridge",
-          },
-        ]}
-        reducedPriceDeals={["ABX Sauce Cartridge - $30"]}
+        bogoDeals={fourTwentyDealsData.cartridges.bogoDeals}
+        reducedPriceDeals={fourTwentyDealsData.cartridges.reducedPriceDeals}
       />
       {/* Concentrate */}
 
@@ -212,22 +122,8 @@ export const FourTwentyDeals = () => {
         title="Concentrate"
         variant="white"
         icon={<GiMasonJar className="h-12 w-12" />}
-        deals={[
-          {
-            brand: "Midsfactory",
-            description:
-              "Buy a concentrate, get your choice of any other Midsfactory product (cartridge, concetrate, infused preroll) for free",
-          },
-          {
-            brand: "Green River Extracts",
-            description: "Buy a badder, get a live rosin badder for free",
-          },
-        ]}
-        reducedPriceDeals={[
-          "Rickett Pocket Dab Rig - $21",
-          "Midsfactory Londonchello Concentrate - $21",
-          "Midsfactory Sherbanger Concentrate - $15",
-        ]}
+        bogoDeals={fourTwentyDealsData.concentrates.bogoDeals}
+        reducedPriceDeals={fourTwentyDealsData.concentrates.reducedPriceDeals}
       />
 
       {/* Other */}
@@ -236,18 +132,8 @@ export const FourTwentyDeals = () => {
         title="Other"
         variant="green"
         icon={<SlPresent className="h-12 w-12" />}
-        deals={[
-          {
-            brand: "First Four People In Line",
-            description: "Merch/Goodie for the first 4 people in line",
-          },
-          {
-            brand: "Tablets",
-            description:
-              "Buy any tablets, get two packs of LEVEL Protabs for free",
-          },
-        ]}
-        reducedPriceDeals={[]}
+        bogoDeals={fourTwentyDealsData.other.bogoDeals}
+        reducedPriceDeals={fourTwentyDealsData.other.reducedPriceDeals}
       />
     </div>
   );
