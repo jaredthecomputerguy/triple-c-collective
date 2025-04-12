@@ -15,6 +15,7 @@ import {
   Gem,
   BanknoteIcon,
   PhoneIcon as ContactUsIcon,
+  FlameIcon,
 } from "lucide-react";
 
 import { BarsIcon } from "./icons/bar-icon";
@@ -32,7 +33,11 @@ const LINKS = [
   { href: "/about", label: "About", icon: <UsersRoundIcon size={26} /> },
   { href: "/reward-program", label: "Rewards", icon: <Gem size={26} /> },
   { href: "/deals", label: "Deals", icon: <BanknoteIcon size={26} /> },
-  { href: "/deals/420-deals", label: "4/20 Deals" },
+  {
+    href: "/deals/420-deals",
+    label: "4/20 Deals",
+    icon: <FlameIcon size={26} />,
+  },
   {
     href: "/contact",
     label: "Contact",

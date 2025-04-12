@@ -24,7 +24,9 @@ export const FourTwentyBanner = ({ active }: { active: boolean }) => {
           alt="420 Logo"
           className="size-10 md:size-16"
         />
-        <span className="text-2xl">4/20 Deals - April 18-20th</span>
+        <span className="text-base md:text-2xl">
+          4/20 Deals - April 18-20th
+        </span>
         <Image
           src={fourTwentyLogo}
           alt="420 Logo"
