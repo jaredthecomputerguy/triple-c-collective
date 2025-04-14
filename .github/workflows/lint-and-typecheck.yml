@@ -1,4 +1,4 @@
-name: Lint & Typecheck
+name: lint & typecheck
 
 on: [push, pull_request]
 
@@ -14,10 +14,10 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
+      - name: intall dependencies
         run: npm ci
 
-      - name: Run lint
+      - name: run lint
         run: npm run lint
 
   typecheck:
@@ -31,8 +31,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
+      - name: install dependencies
         run: npm ci
 
-      - name: Run lint
+      - name: run typecheck
         run: npm run typecheck
