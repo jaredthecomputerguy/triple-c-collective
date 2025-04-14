@@ -14,6 +14,7 @@ const cspHeader = `
     upgrade-insecure-requests;
 `;
 
+/** @type {import('next').NextConfig} */
 module.exports = {
   experimental: {
     serverComponentsExternalPackages: [

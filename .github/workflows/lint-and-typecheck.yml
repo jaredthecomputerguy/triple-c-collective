@@ -34,5 +34,9 @@ jobs:
       - name: install dependencies
         run: npm ci
 
+      # this is a workaround for https://github.com/vercel/next.js/issues/53959
+      - name: create next-env.d.ts
+        run: echo -e '/// <reference types="next" />\n/// <reference types="next/image-types/global" />' > src/next-env.d.ts
+
       - name: run typecheck
         run: npm run typecheck
