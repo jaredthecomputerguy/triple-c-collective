@@ -13,17 +13,9 @@ interface SendWelcomeEmailInfo {
   lastName?: string;
 }
 
-function logIfInDev(...messages: any[]) {
-  if (process.env.NODE_ENV !== "development") {
-    return;
-  }
-  console.log(messages);
-}
-
 export async function sendWelcomeEmailAction(user: SendWelcomeEmailInfo) {
   const { toEmail, firstName, lastName } = user;
   try {
-    logIfInDev("Creating contact with email: ", toEmail);
     const { data: createContactData, error: createContactError } =
       await resend.contacts.create({
         email: toEmail,
@@ -36,7 +28,6 @@ export async function sendWelcomeEmailAction(user: SendWelcomeEmailInfo) {
       throw new Error("Failed to create contact");
     }
 
-    logIfInDev("Sending email to: ", toEmail);
     const { data: sendEmailData, error: sendEmailError } =
       await resend.emails.send({
         from: fromEmail,

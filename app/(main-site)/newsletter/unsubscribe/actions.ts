@@ -18,13 +18,8 @@ export async function unsubscribeUserAction(contactId: string) {
     }
   } catch (e) {
     if (e instanceof Error) {
-      console.error(
-        "Something went wrong when unsubbing a contact: ",
-        e.message,
-      );
       redirect(`/newsletter/unsubscribe/error?contactId=${contactId}`);
     } else {
-      console.error("Unknown issue when unsubbing a contact: ", e);
       redirect(`/newsletter/unsubscribe/error?contactId=${contactId}`);
     }
   }

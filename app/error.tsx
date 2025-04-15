@@ -15,6 +15,7 @@ export default function Error({
   const pathname = usePathname();
 
   useEffect(() => {
+    // eslint-disable-next-line no-console
     console.error(`Error on page ${pathname}: ${error}`);
   }, [error, pathname]);
 

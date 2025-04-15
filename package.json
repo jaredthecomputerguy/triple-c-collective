@@ -9,7 +9,7 @@
     "start": "next start",
     "start:dev": "concurrently -n pb,next-builder -c green,magenta --kill-others \"npm:pocketbase:run\" \"next start\"",
     "preview": "concurrently -n pb,next -c green,cyan \"npm:pocketbase:run\" \"next start\"",
-    "lint": "next lint",
+    "lint": "TSESTREE_SUPPRESS_SUPPORTED_VERSION_WARNING=true next lint",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
     "pocketbase:build": "make -C pocketbase build",
