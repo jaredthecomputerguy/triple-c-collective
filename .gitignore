@@ -50,3 +50,6 @@ TODOS.md
 .sqliterc
 /pocketbase/pocketbase
 /pocketbase/*.json
+
+# stylesheet for resend
+resend.css
