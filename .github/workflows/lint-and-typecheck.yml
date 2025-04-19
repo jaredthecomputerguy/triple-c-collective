@@ -18,7 +18,7 @@ jobs:
         run: npm ci
 
       - name: run lint
-        run: npm run lint
+        run: NEXT_TELEMETRY_DISABLED=1 npm run lint
 
   typecheck:
     runs-on: ubuntu-latest
