@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  type TimeRemainingUntilFirstOrThirdFriday,
+  type TimeRemainingUntilDate,
   getTimeRemainingUntilFirstOrThirdFriday,
 } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
@@ -17,13 +17,12 @@ export const TrapTakeoverCountdown = ({
   target?: string;
   labelText: string;
 }) => {
-  const [timeRemaining, setTimeRemaining] =
-    useState<TimeRemainingUntilFirstOrThirdFriday>({
-      Days: "--",
-      Hours: "--",
-      Minutes: "--",
-      Seconds: "--",
-    });
+  const [timeRemaining, setTimeRemaining] = useState<TimeRemainingUntilDate>({
+    Days: "--",
+    Hours: "--",
+    Minutes: "--",
+    Seconds: "--",
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {

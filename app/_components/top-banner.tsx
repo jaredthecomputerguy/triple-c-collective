@@ -13,6 +13,7 @@ interface TopBannerProps extends ComponentProps<"div"> {
   active?: boolean;
   closeBtnClass?: string;
   link?: { href: string; target?: HTMLAttributeAnchorTarget };
+  onClose?: () => void;
 }
 
 export const TopBanner = ({
@@ -20,9 +21,17 @@ export const TopBanner = ({
   closeBtnClass = "text-black",
   children,
   className = "px-1 py-2 font-semibold",
+  onClose,
   ...props
 }: TopBannerProps) => {
   const [showBanner, setShowBanner] = useState(active);
+
+  const handleClose = () => {
+    setShowBanner(false);
+    if (onClose) {
+      onClose();
+    }
+  };
 
   if (!showBanner) {
     return null;
@@ -45,7 +54,7 @@ export const TopBanner = ({
       </div>
       <Button
         className={cn("absolute right-2 z-50 p-1 md:right-8", closeBtnClass)}
-        onClick={() => setShowBanner(false)}
+        onClick={handleClose}
         variant="ghost"
         name="Close Top Banner"
         aria-label="Close Top Banner"

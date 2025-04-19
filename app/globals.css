@@ -122,12 +122,11 @@ td {
 
 /* This is for the 4/20 neon effect */
 .neon {
-  border: 2px solid white;
   animation: pulsate 1.5s infinite alternate;
   border-radius: 10px;
   box-shadow:
-    0 0 0.2rem #fff,
-    0 0 0.2rem #fff,
+    0 0 0.2rem var(--neon-green),
+    0 0 0.2rem var(--neon-green),
     0 0 2rem #32df19,
     0 0 0.8rem #32df19,
     0 0 2.8rem #32df19,
@@ -164,8 +163,58 @@ td {
   @apply bg-[url('/images/4-20/cannabis-leaf.svg')] bg-center bg-no-repeat;
 }
 
-.leaf {
-  @apply bg-[url('/images/4-20/cannabis-leaf.svg')] bg-center bg-no-repeat;
+.neon-border {
+  position: relative;
+  overflow: visible;
+  border-radius: 4px;
+  padding: 2px;
+  background-color: black;
+  border: 1px solid #32df19;
+  box-shadow: 0 0 5px rgba(50, 223, 25, 0.5);
+}
+
+.neon-border::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    90deg,
+    black 0%,
+    #32df19 10%,
+    #32df19 20%,
+    black 30%,
+    black 70%,
+    #32df19 80%,
+    #32df19 90%,
+    black 100%
+  );
+  background-size: 200% 100%;
+  animation: electricity-animation 2s linear infinite;
+  z-index: 0;
+  border-radius: 4px;
+  box-shadow:
+    0 0 10px rgba(50, 223, 25, 0.7),
+    0 0 20px rgba(50, 223, 25, 0.5),
+    0 0 30px rgba(50, 223, 25, 0.3);
+  pointer-events: none;
+}
+
+.neon-border > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes electricity-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
 }
 
 /* THIS IS FOR THE CHRISTMAS BANNER */

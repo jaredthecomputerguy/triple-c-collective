@@ -1,39 +1,45 @@
+"use client";
+
 import { TopBanner } from "./top-banner";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 import fourTwentyLogo from "@/public/images/4-20/420_logo-resized.png";
+import { FourTwentyTimer } from "./4-20-timer";
 
 export const FourTwentyBanner = ({ active }: { active: boolean }) => {
-  if (!active) {
+  const [showBanner, setShowBanner] = useState(active);
+
+  if (!showBanner) {
     return null;
   }
 
   return (
-    <TopBanner
-      active={active}
-      className="bg-[#101010]"
-      closeBtnClass="text-white"
-    >
-      <Link
-        className="flex items-center gap-2 py-4 hover:underline"
-        href="/deals/420-deals"
+    <div className="neon-border">
+      <TopBanner
+        active={showBanner}
+        className="bg-[#101010]"
+        closeBtnClass="text-white"
+        onClose={() => setShowBanner(false)}
       >
-        <Image
-          src={fourTwentyLogo}
-          alt="420 Logo"
-          className="size-10 md:size-16"
-        />
-        <div className="flex flex-col items-center">
-          <span className="text-lg md:text-2xl">4/20 Sale</span>
-          <span className="text-base md:text-xl">Tomorrow @ 10AM</span>
-        </div>
-        <Image
-          src={fourTwentyLogo}
-          alt="420 Logo"
-          className="size-10 md:size-16"
-        />
-      </Link>
-    </TopBanner>
+        <Link
+          className="flex items-center gap-2 py-4 hover:underline"
+          href="/deals/420-deals"
+        >
+          <div className="flex items-center gap-1 md:flex-col md:gap-4">
+            <Image
+              className="aspect-4/3 -my-8 h-24 w-24"
+              src={fourTwentyLogo}
+              alt="4/20 Triple C Collective Logo"
+              priority
+              quality={100}
+            />
+
+            <FourTwentyTimer />
+          </div>
+        </Link>
+      </TopBanner>
+    </div>
   );
 };

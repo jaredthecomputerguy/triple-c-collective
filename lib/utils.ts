@@ -24,7 +24,7 @@ export type Deal = {
   updated: string; // ISO 8601 date string
 };
 
-export type TimeRemainingUntilFirstOrThirdFriday = {
+export type TimeRemainingUntilDate = {
   Days: string;
   Hours: string;
   Minutes: string;
@@ -113,7 +113,7 @@ export function getTrapTakeoverDateWithSuffix(trapTakeoverDate: Date) {
 
 export function getTimeRemainingUntilFirstOrThirdFriday(
   now: Date,
-): TimeRemainingUntilFirstOrThirdFriday {
+): TimeRemainingUntilDate {
   const currentMonth = now.getMonth();
   const currentYear = now.getFullYear();
 
@@ -151,6 +151,37 @@ export function getTimeRemainingUntilFirstOrThirdFriday(
 
   // Calculate time remaining until the next Friday
   const timeRemaining = nextFriday.getTime() - now.getTime();
+
+  // Ensure the time remaining is positive
+  if (timeRemaining < 0) {
+    return { Days: "00", Hours: "00", Minutes: "00", Seconds: "00" };
+  }
+
+  const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24))
+    .toString()
+    .padStart(2, "0");
+  const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24)
+    .toString()
+    .padStart(2, "0");
+  const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60)
+    .toString()
+    .padStart(2, "0");
+  const seconds = Math.floor((timeRemaining / 1000) % 60)
+    .toString()
+    .padStart(2, "0");
+
+  return { Days: days, Hours: hours, Minutes: minutes, Seconds: seconds };
+}
+
+export function getTimeRemainingUntilFourTwenty(
+  now: Date,
+): TimeRemainingUntilDate {
+  const currentYear = now.getFullYear();
+
+  const fourTwentyDate = new Date(currentYear, 3, 20, 10, 0, 0, 0);
+
+  // Calculate time remaining until the next Friday
+  const timeRemaining = fourTwentyDate.getTime() - now.getTime();
 
   // Ensure the time remaining is positive
   if (timeRemaining < 0) {
