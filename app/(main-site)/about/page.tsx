@@ -1,5 +1,6 @@
 import { type Metadata } from "next";
 import Image from "next/image";
+import staffPhoto from "@/public/images/staff.jpg";
 
 export const metadata: Metadata = {
   title: "About | Triple C Collective",
@@ -113,9 +114,7 @@ export default function AboutPage() {
             </div>
             <Image
               className="aspect-[3/2] rounded-xl object-cover"
-              src="/images/staff.jpg"
-              width={600}
-              height={400}
+              src={staffPhoto}
               alt="Dispensary Staff"
             />
           </div>
