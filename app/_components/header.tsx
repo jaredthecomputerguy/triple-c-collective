@@ -23,10 +23,12 @@ import { PhoneIcon } from "./icons/phone-icon";
 import { CloseIcon } from "./icons/close-icon";
 import { ClockIcon } from "./icons/clock-icon";
 import { LocationIcon } from "./icons/location-icon";
+
 import { TrapTakeoverBanner } from "./trap-takeover-banner";
 import { StiiizyBanner } from "./stiiizy-banner";
 import { FourTwentyBanner } from "./4-20-banner";
 import { NewsletterBanner } from "./newsletter-banner";
+
 import { cn } from "@/lib/utils";
 
 const LINKS = [

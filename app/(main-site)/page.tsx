@@ -220,7 +220,9 @@ export default function HomePage() {
             </p>
           </div>
           <hr />
-          <div className="container mx-auto px-4 pt-6 md:px-6" id="newsletter">
+          <div className="container mx-auto px-4 pt-6 md:px-6">
+            {" "}
+            {/* id="newsletter"> */}
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <p className="text-muted-foreground max-w-[900px] font-semibold md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -253,7 +255,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="px-4 pb-10">
+      <div className="px-4 pb-10" id="newsletter">
         <div className="radial-gradient mx-auto max-w-5xl rounded p-4">
           <NewsletterForm />
         </div>
