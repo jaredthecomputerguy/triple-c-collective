@@ -46,17 +46,13 @@ export const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [currentPath, setCurrentPath] = useState<string | null>();
 
-  const [isMounted, setIsMounted] = useState(false);
-  const [position, setPosition] = useState(window.pageYOffset);
+  const [position, setPosition] = useState(0);
   const [visible, setVisible] = useState(true);
 
   const pathname = usePathname();
 
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  useEffect(() => {
+    setPosition(window.pageYOffset);
     const handleScroll = () => {
       let moving = window.pageYOffset;
       const topOffest = 200;
@@ -85,10 +81,6 @@ export const Header = () => {
   }, [pathname, currentPath]);
 
   const toggleMobileMenu = () => setShowMobileMenu((prevState) => !prevState);
-
-  if (!isMounted) {
-    return null;
-  }
 
   return (
     <header
