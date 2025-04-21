@@ -15,7 +15,6 @@ import {
   Gem,
   BanknoteIcon,
   PhoneIcon as ContactUsIcon,
-  FlameIcon,
 } from "lucide-react";
 
 import { BarsIcon } from "./icons/bar-icon";
@@ -27,7 +26,7 @@ import { LocationIcon } from "./icons/location-icon";
 import { TrapTakeoverBanner } from "./trap-takeover-banner";
 import { StiiizyBanner } from "./stiiizy-banner";
 import { FourTwentyBanner } from "./4-20-banner";
-import { NewsletterBanner } from "./newsletter-banner";
+// import { NewsletterBanner } from "./newsletter-banner";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
