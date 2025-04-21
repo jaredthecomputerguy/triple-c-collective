@@ -6,6 +6,7 @@ import { GoogleMapEmbed } from "../../contact/google-map-embed";
 import { ImageViewer } from "@/app/_components/image-viewer";
 import fourTwentyLogo from "@/public/images/4-20/420_logo-resized.png";
 import { FourTwentyDeals } from "./420-deals";
+import { notFound } from "next/navigation";
 
 const fourTwentyFlyerPath = "/images/4-20/420-flyer-with-bags.jpg";
 
@@ -57,6 +58,8 @@ export const metadata: Metadata = {
 };
 
 export default function FourTwentyDealsPage() {
+  return notFound();
+
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <div className="relative mx-auto max-w-7xl rounded px-4 py-6 sm:py-12">
