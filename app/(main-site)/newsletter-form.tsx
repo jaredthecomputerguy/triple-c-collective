@@ -57,7 +57,7 @@ export function NewsletterForm() {
       <div className="mb-6 flex flex-col items-center gap-4 text-center">
         <div className="mb-6 flex flex-col items-center gap-4 text-center">
           <h3 className="font-logo text-2xl font-semibold md:text-3xl">
-            Subscribe the the Triple C Newsletter
+            Join the Triple C Collective Newsletter
           </h3>
           <p className="max-w-md text-pretty">
             Subscribe to our newsletter to get exclusive deals, flyers for
