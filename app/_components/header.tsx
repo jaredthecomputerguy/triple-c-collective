@@ -26,7 +26,7 @@ import { LocationIcon } from "./icons/location-icon";
 import { TrapTakeoverBanner } from "./trap-takeover-banner";
 import { StiiizyBanner } from "./stiiizy-banner";
 import { FourTwentyBanner } from "./4-20-banner";
-// import { NewsletterBanner } from "./newsletter-banner";
+import { NewsletterBanner } from "./newsletter-banner";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
@@ -46,30 +46,31 @@ export const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [currentPath, setCurrentPath] = useState<string | null>();
 
-  const [position, setPosition] = useState(0);
-  const [visible, setVisible] = useState(true);
+  const [shouldHeaderShow, setShouldHeaderShow] = useState(true);
 
   const pathname = usePathname();
 
   useEffect(() => {
-    setPosition(window.pageYOffset);
-    const handleScroll = () => {
-      let moving = window.pageYOffset;
-      const topOffest = 200;
+    let lastScroll = window.pageYOffset;
 
-      if (position < topOffest) {
-        setVisible(true);
-      } else {
-        setVisible(position > moving);
+    const handleScroll = () => {
+      const currentScroll = window.pageYOffset;
+      const delta = currentScroll - lastScroll;
+      const topOffset = 200;
+      const threshold = 5; // pixels
+
+      if (currentScroll < topOffset) {
+        setShouldHeaderShow(true);
+      } else if (Math.abs(delta) > threshold) {
+        setShouldHeaderShow(delta < 0); // show when scrolling up
       }
-      setPosition(moving);
+
+      lastScroll = currentScroll;
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [position]);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     setCurrentPath(pathname);
@@ -85,7 +86,7 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        visible ? "opacity-100" : "pointer-events-none opacity-0",
+        shouldHeaderShow ? "opacity-100" : "pointer-events-none opacity-0",
         "sticky top-0 z-40 bg-[#fefefe] shadow transition-opacity",
       )}
     >
@@ -95,7 +96,7 @@ export const Header = () => {
         bannerText="Trap Takeover - 4/20 Weekend"
       />
       <FourTwentyBanner active={false} />
-      {/* <NewsletterBanner active={true} /> */}
+      <NewsletterBanner active={true} />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
         <div className="flex justify-between bg-primary-purple px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
