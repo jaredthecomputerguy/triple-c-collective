@@ -15,7 +15,6 @@ import {
   Gem,
   BanknoteIcon,
   PhoneIcon as ContactUsIcon,
-  FlameIcon,
 } from "lucide-react";
 
 import { BarsIcon } from "./icons/bar-icon";
@@ -24,20 +23,20 @@ import { PhoneIcon } from "./icons/phone-icon";
 import { CloseIcon } from "./icons/close-icon";
 import { ClockIcon } from "./icons/clock-icon";
 import { LocationIcon } from "./icons/location-icon";
+
 import { TrapTakeoverBanner } from "./trap-takeover-banner";
 import { StiiizyBanner } from "./stiiizy-banner";
 import { FourTwentyBanner } from "./4-20-banner";
+// import { NewsletterBanner } from "./newsletter-banner";
+
+import { cn } from "@/lib/utils";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
   { href: "/about", label: "About", icon: <UsersRoundIcon size={26} /> },
   { href: "/reward-program", label: "Rewards", icon: <Gem size={26} /> },
   { href: "/deals", label: "Deals", icon: <BanknoteIcon size={26} /> },
-  {
-    href: "/deals/420-deals",
-    label: "4/20 Deals",
-    icon: <FlameIcon size={26} />,
-  },
+  // { href: "/deals/420-deals", label: "4/20 Deals", icon: <FlameIcon size={26} />, },
   {
     href: "/contact",
     label: "Contact",
@@ -49,7 +48,31 @@ export const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [currentPath, setCurrentPath] = useState<string | null>();
 
+  const [shouldHeaderShow, setShouldHeaderShow] = useState(true);
+
   const pathname = usePathname();
+
+  useEffect(() => {
+    let lastScroll = window.pageYOffset;
+
+    const handleScroll = () => {
+      const currentScroll = window.pageYOffset;
+      const delta = currentScroll - lastScroll;
+      const topOffset = 200;
+      const threshold = 5; // pixels
+
+      if (currentScroll < topOffset) {
+        setShouldHeaderShow(true);
+      } else if (Math.abs(delta) > threshold) {
+        setShouldHeaderShow(delta < 0); // show when scrolling up
+      }
+
+      lastScroll = currentScroll;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     setCurrentPath(pathname);
@@ -63,13 +86,19 @@ export const Header = () => {
   const toggleMobileMenu = () => setShowMobileMenu((prevState) => !prevState);
 
   return (
-    <header className="sticky top-0 z-40 bg-[#fefefe] shadow">
+    <header
+      className={cn(
+        shouldHeaderShow ? "opacity-100" : "pointer-events-none opacity-0",
+        "sticky top-0 z-40 bg-[#fefefe] shadow transition-opacity",
+      )}
+    >
       <StiiizyBanner active={false} />
       <TrapTakeoverBanner
         active={false}
         bannerText="Trap Takeover - 4/20 Weekend"
       />
-      <FourTwentyBanner active={true} />
+      <FourTwentyBanner active={false} />
+      {/* <NewsletterBanner active={true} /> */}
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
         <div className="flex justify-between bg-primary-purple px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
