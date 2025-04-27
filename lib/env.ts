@@ -2,6 +2,7 @@ import { z } from "zod";
 
 const envVariables = z.object({
   NODE_ENV: z.string().min(1),
+  SHOW_LOGS: z.string().min(1),
 
   POCKETBASE_BASE_URL: z.string().min(1),
   POCKETBASE_DEAL_URL: z.string().min(1),
