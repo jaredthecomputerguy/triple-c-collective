@@ -1,11 +1,11 @@
 "use client";
 
-import { useToast } from "@/lib/use-toast";
-import type React from "react";
-
-import { useState, type FormEvent, useRef } from "react";
-import { sendWelcomeEmailAction } from "./actions";
 import Link from "next/link";
+import { useState, type FormEvent, useRef } from "react";
+
+import { useToast } from "@/lib/use-toast";
+
+import { sendWelcomeEmailAction } from "./actions";
 
 export function NewsletterForm() {
   const [email, setEmail] = useState("");

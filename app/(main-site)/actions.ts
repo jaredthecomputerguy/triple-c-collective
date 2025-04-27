@@ -2,10 +2,13 @@
 
 import { Resend } from "resend";
 import WelcomeEmail from "@/lib/emails/WelcomeEmail";
+import { Logger } from "@/lib/logger";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const audienceId = process.env.RESEND_GENERAL_AUDIENCE_ID;
 const fromEmail = process.env.RESEND_FROM_EMAIL;
+
+const logger = new Logger();
 
 interface SendWelcomeEmailInfo {
   toEmail: string;
@@ -13,9 +16,21 @@ interface SendWelcomeEmailInfo {
   lastName?: string;
 }
 
+/* eslint-disable no-console */
 export async function sendWelcomeEmailAction(user: SendWelcomeEmailInfo) {
   const { toEmail, firstName, lastName } = user;
   try {
+    if (process.env.NODE_ENV === "development") {
+      logger.log("<--DEV MODE-->");
+      logger.log("\t", {
+        toEmail,
+        firstName,
+        lastName,
+      });
+      logger.log("<--END DEV MODE-->");
+      return { error: null };
+    }
+
     const { data: createContactData, error: createContactError } =
       await resend.contacts.create({
         email: toEmail,

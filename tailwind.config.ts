@@ -32,6 +32,7 @@ const config: Config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         text: "text 5s ease infinite",
+        "fade-in": "fade-in 0.5s ease-in forwards",
       },
       keyframes: {
         "accordion-down": {
@@ -51,6 +52,10 @@ const config: Config = {
             "background-size": "200% 200%",
             "background-position": "right center",
           },
+        },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
         },
       },
     },
