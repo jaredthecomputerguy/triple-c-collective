@@ -30,6 +30,7 @@ import { FourTwentyBanner } from "./4-20-banner";
 import { NewsletterBanner } from "./newsletter-banner";
 
 import { cn } from "@/lib/utils";
+import { NewYearBanner } from "./new-year-banner";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
@@ -97,7 +98,6 @@ export const Header = () => {
         active={false}
         bannerText="Trap Takeover - 4/20 Weekend"
       />
-      <FourTwentyBanner active={false} />
       <NewsletterBanner active={true} />
       <div className="group bg-primary-purple sticky top-0 min-w-screen">
         <div className="bg-primary-purple flex justify-between px-4 py-2 text-sm text-[#fefefe] md:hidden">
