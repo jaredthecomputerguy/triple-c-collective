@@ -27,7 +27,7 @@ import { LocationIcon } from "./icons/location-icon";
 import { TrapTakeoverBanner } from "./trap-takeover-banner";
 import { StiiizyBanner } from "./stiiizy-banner";
 import { FourTwentyBanner } from "./4-20-banner";
-// import { NewsletterBanner } from "./newsletter-banner";
+import { NewsletterBanner } from "./newsletter-banner";
 
 import { cn } from "@/lib/utils";
 
@@ -89,7 +89,7 @@ export const Header = () => {
     <header
       className={cn(
         shouldHeaderShow ? "opacity-100" : "pointer-events-none opacity-0",
-        "sticky top-0 z-40 bg-[#fefefe] shadow transition-opacity",
+        "sticky top-0 z-40 bg-[#fefefe] shadow transition-opacity duration-300 ease-in-out",
       )}
     >
       <StiiizyBanner active={false} />
@@ -98,7 +98,7 @@ export const Header = () => {
         bannerText="Trap Takeover - 4/20 Weekend"
       />
       <FourTwentyBanner active={false} />
-      {/* <NewsletterBanner active={true} /> */}
+      <NewsletterBanner active={true} />
       <div className="min-w-screen group sticky top-0 bg-primary-purple">
         <div className="flex justify-between bg-primary-purple px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a

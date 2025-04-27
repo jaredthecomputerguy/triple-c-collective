@@ -1,5 +1,3 @@
-// next.config.js
-
 const cspHeader = `
     default-src *;
     script-src 'self' 'unsafe-eval' 'unsafe-inline';
@@ -12,10 +10,10 @@ const cspHeader = `
     form-action 'self';
     frame-ancestors 'self';
     upgrade-insecure-requests;
-`;
+`.replace(/\n/g, "");
 
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: [
       "@react-email/components",
@@ -45,10 +43,12 @@ module.exports = {
         headers: [
           {
             key: "Content-Security-Policy",
-            value: cspHeader.replace(/\n/g, ""),
+            value: cspHeader,
           },
         ],
       },
     ];
   },
 };
+
+module.exports = nextConfig;

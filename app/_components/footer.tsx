@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { CopyrightYear } from "./copyright-year";
+import { NewsletterForm } from "../(main-site)/newsletter-form";
 
 export const Footer = () => {
   return (
     <footer className="min-w-screen radial-gradient flex flex-col items-center gap-2  py-6 text-white md:py-12">
+      <NewsletterForm />
       <Link
         href="/"
         className="rounded p-2 font-logo text-2xl font-semibold uppercase transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white sm:text-3xl md:text-4xl"

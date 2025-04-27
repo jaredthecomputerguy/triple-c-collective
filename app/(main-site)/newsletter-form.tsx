@@ -1,11 +1,11 @@
 "use client";
 
-import { useToast } from "@/lib/use-toast";
-import type React from "react";
-
-import { useState, type FormEvent, useRef } from "react";
-import { sendWelcomeEmailAction } from "./actions";
 import Link from "next/link";
+import { useState, type FormEvent, useRef } from "react";
+
+import { useToast } from "@/lib/use-toast";
+
+import { sendWelcomeEmailAction } from "./actions";
 
 export function NewsletterForm() {
   const [email, setEmail] = useState("");
@@ -51,11 +51,12 @@ export function NewsletterForm() {
 
   return (
     <div
-      className="items-center justify-center rounded-lg p-4 text-white md:flex md:p-6"
+      className="items-center justify-center rounded-lg p-4 text-white md:p-6"
       ref={subRef}
+      id="newsletter"
     >
-      <div className="mb-6 flex flex-col items-center gap-4 text-center">
-        <div className="mb-6 flex flex-col items-center gap-4 text-center">
+      <div className="mb-6 flex flex-col items-start justify-start gap-4 text-center">
+        <div className="mb-6 flex h-full flex-col items-center gap-4 text-center">
           <h3 className="font-logo text-2xl font-semibold md:text-3xl">
             Join the Triple C Collective Newsletter
           </h3>

@@ -71,7 +71,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} bg-primary-purple`}
+      className={`${montserrat.variable} scroll-smooth bg-primary-purple`}
       suppressHydrationWarning
     >
       <body className="relative">

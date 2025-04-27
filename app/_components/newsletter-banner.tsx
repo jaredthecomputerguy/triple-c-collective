@@ -1,31 +1,174 @@
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import Link from "next/link";
 import { TopBanner } from "./top-banner";
+import { useToast } from "@/lib/use-toast";
+import { sendWelcomeEmailAction } from "../(main-site)/actions";
+import { cn } from "@/lib/utils";
+
+const NEWSLETTER_SUBMIT_KEY = "ns";
 
 interface NewsletterBannerProps {
   active: boolean;
 }
 
 export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
-  if (!active) {
-    return null;
-  }
+  const [currentStep, setCurrentStep] = useState<
+    "initial" | "consent" | "success"
+  >("initial");
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const { toast } = useToast();
 
-  function scrollNewsletterIntoView() {
-    const newsletter = document.querySelector("#newsletter");
+  const handleNewsletterBannerSubmit = async (
+    e: FormEvent<HTMLFormElement>,
+  ) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    if (!newsletter) {
-      throw new Error("Couldn't find any element with an id of 'newsletter'");
+    const { error } = await sendWelcomeEmailAction({
+      toEmail: email,
+    });
+
+    if (error) {
+      toast({
+        title: error,
+        duration: 5000,
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
     }
 
-    newsletter.scrollIntoView({
-      behavior: "smooth",
-    });
+    sessionStorage.setItem(NEWSLETTER_SUBMIT_KEY, "true");
+    setIsSubmitting(false);
+    setCurrentStep("success");
+  };
+
+  useEffect(() => {
+    setHasSubmitted(!!sessionStorage.getItem(NEWSLETTER_SUBMIT_KEY));
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return (
+      <TopBanner
+        active={active}
+        className={cn("pointer-events-none relative h-[56px] py-4 opacity-0")}
+      />
+    );
   }
 
   return (
-    <TopBanner active={active} className="py-4 text-black">
-      <button className="text-black" onClick={scrollNewsletterIntoView}>
-        Newsletter
-      </button>
+    <TopBanner
+      active={active}
+      className={cn(
+        "relative py-4 opacity-100 transition-opacity duration-500",
+      )}
+    >
+      <form
+        ref={formRef}
+        className="mr-8 flex flex-col items-center gap-2 px-4 text-sm md:text-base"
+        onSubmit={handleNewsletterBannerSubmit}
+      >
+        {currentStep === "initial" && (
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-center text-[#050505]">
+              Subscribe to our newsletter for exclusive deals + more!
+            </span>
+            {!hasSubmitted && (
+              <div className="flex w-full gap-2">
+                <input
+                  className="w-full flex-grow rounded border border-primary-purple bg-white/90 p-2 text-base text-black placeholder:text-gray-500 disabled:cursor-not-allowed disabled:bg-white/90 disabled:text-gray-500"
+                  type="email"
+                  name="email"
+                  id="bannerEmail"
+                  disabled={hasSubmitted}
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  required
+                  minLength={1}
+                  maxLength={100}
+                  placeholder="Enter your email"
+                  onKeyDown={(e) => {
+                    if (e.key !== "Enter" || !formRef.current) return;
+                    const isValid = formRef.current.checkValidity();
+                    if (isValid) {
+                      setCurrentStep("consent");
+                    }
+                  }}
+                />
+                <button
+                  type="button"
+                  className="rounded border border-primary-purple bg-white px-4 py-2 font-semibold text-primary-purple transition-all hover:bg-white/90 disabled:cursor-not-allowed disabled:text-primary-purple/50"
+                  disabled={hasSubmitted}
+                  onClick={() => {
+                    if (!formRef.current) return;
+                    const isValid = formRef.current.checkValidity();
+                    if (isValid) {
+                      setCurrentStep("consent");
+                    }
+                  }}
+                >
+                  Subscribe
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+
+        {currentStep === "consent" && (
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-center text-[#050505]">
+              Do you consent to receiving marketing emails and agree to our{" "}
+              <Link
+                className="text-blue-500 underline hover:text-blue-600"
+                href="/terms-of-use"
+              >
+                Terms of Use
+              </Link>{" "}
+              and{" "}
+              <Link
+                className="text-blue-500 underline hover:text-blue-600"
+                href="/privacy-policy"
+              >
+                Privacy Policy
+              </Link>
+              ?
+            </span>
+            <div className="flex gap-2 md:ml-8">
+              <button
+                type="submit"
+                className="rounded border border-transparent bg-primary-purple px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-primary-purple/90 disabled:cursor-not-allowed disabled:bg-primary-purple/50"
+                disabled={isSubmitting}
+              >
+                Yes
+              </button>
+              <button
+                type="button"
+                className="rounded border border-transparent bg-red-700 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-red-700/90 disabled:cursor-not-allowed disabled:bg-red-700/50"
+                onClick={() => setCurrentStep("initial")}
+                disabled={isSubmitting}
+              >
+                No
+              </button>
+            </div>
+          </div>
+        )}
+
+        {currentStep === "success" && (
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-center text-[#050505]">
+              Thanks for subscribing!
+            </span>
+            <span className="text-center text-[#050505]">
+              Check your email for more information!
+            </span>
+          </div>
+        )}
+      </form>
     </TopBanner>
   );
 };

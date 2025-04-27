@@ -20,7 +20,7 @@ export const TopBanner = ({
   active,
   closeBtnClass = "text-black",
   children,
-  className = "px-1 py-2 font-semibold",
+  className,
   onClose,
   ...props
 }: TopBannerProps) => {
@@ -45,13 +45,7 @@ export const TopBanner = ({
         "sticky top-0 flex items-center justify-center font-logo font-semibold text-white md:px-4",
       )}
     >
-      <div className="mx-auto max-w-7xl">
-        <div className="">
-          <span className="flex items-center justify-center font-semibold">
-            {children}
-          </span>
-        </div>
-      </div>
+      <div className="mx-auto max-w-7xl">{children}</div>
       <Button
         className={cn("absolute right-2 z-50 p-1 md:right-8", closeBtnClass)}
         onClick={handleClose}

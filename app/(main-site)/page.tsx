@@ -24,7 +24,6 @@ import {
 import { Button } from "../_components/button";
 import { ShopNowButton } from "../_components/shop-now-button";
 import { BrandCarousel } from "../_components/brand-carousel";
-import { NewsletterForm } from "./newsletter-form";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -252,12 +251,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="px-4 pb-10" id="newsletter">
-        <div className="radial-gradient mx-auto max-w-5xl rounded p-4">
-          <NewsletterForm />
         </div>
       </div>
 

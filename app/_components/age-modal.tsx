@@ -3,10 +3,11 @@
 import { useRouter } from "next/navigation";
 import { type KeyboardEventHandler, useEffect, useRef, useState } from "react";
 
+const AGE_CONSENT_KEY = "ac";
+
 export const AgeModal = () => {
   const [showModal, setShowModal] = useState<boolean>();
   const [rememberMe, setRememberMe] = useState(false);
-
   const ageModalRef = useRef<HTMLDivElement>(null);
 
   const router = useRouter();
@@ -16,19 +17,19 @@ export const AgeModal = () => {
       const today = new Date();
 
       localStorage.setItem(
-        "age-consent",
+        AGE_CONSENT_KEY,
         `true; ${new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30)}`,
       );
       setShowModal(false);
     } else {
-      sessionStorage.setItem("age-consent", "true");
+      sessionStorage.setItem(AGE_CONSENT_KEY, "true");
       setShowModal(false);
     }
   }
 
   function checkStorageForAgeConsent() {
-    const localAgeConsent = localStorage.getItem("age-consent");
-    const sessionAgeConsent = sessionStorage.getItem("age-consent");
+    const localAgeConsent = localStorage.getItem(AGE_CONSENT_KEY);
+    const sessionAgeConsent = sessionStorage.getItem(AGE_CONSENT_KEY);
 
     if (localAgeConsent) {
       const expiry = localAgeConsent.split("; ")[1];
@@ -36,7 +37,7 @@ export const AgeModal = () => {
       const today = new Date();
 
       if (expiryDate < today) {
-        localStorage.removeItem("age-consent");
+        localStorage.removeItem(AGE_CONSENT_KEY);
       }
     }
 
