@@ -51,7 +51,7 @@ const NewSubscriberEmail = ({
       >
         <Preview>{email} Just Subscribed to the Newsletter!</Preview>
         <Body className="bg-offwhite font-sans text-base">
-          <Container className="p-45 bg-white">
+          <Container className="bg-white p-45">
             <Img
               className="mx-auto h-24 w-24"
               src={`https://tripleccollective.com/images/logo.png`}
@@ -91,10 +91,10 @@ const NewSubscriberEmail = ({
             <Text className="m-0 text-center text-gray-400">
               Triple C Collective
             </Text>
-            <Text className=" m-0 text-center text-gray-400">
+            <Text className="m-0 text-center text-gray-400">
               14196 Lakeshore Dr, Clearlake, CA
             </Text>
-            <Text className=" m-0 text-center text-gray-400">
+            <Text className="m-0 text-center text-gray-400">
               (707) 701-4160
             </Text>
           </Container>

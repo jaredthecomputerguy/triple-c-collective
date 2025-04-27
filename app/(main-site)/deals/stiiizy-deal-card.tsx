@@ -17,7 +17,7 @@ export const StiiizyDealCard = () => {
         width={2048 / 8}
         height={2048 / 8}
       />
-      <h3 className="flex flex-col items-center gap-4 font-stiiizy text-5xl text-[#241f1f]">
+      <h3 className="font-stiiizy flex flex-col items-center gap-4 text-5xl text-[#241f1f]">
         <Image
           src={stiiizyLogo}
           width={1258 / 6}
@@ -26,7 +26,7 @@ export const StiiizyDealCard = () => {
         />{" "}
         Saturdays &amp; Sundays
       </h3>
-      <p className="py-4 text-center font-stiiizy text-3xl">
+      <p className="font-stiiizy py-4 text-center text-3xl">
         Buy two, get one free every weekend
       </p>
     </Link>

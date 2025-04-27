@@ -95,7 +95,7 @@ export const AgeModal = () => {
           viewBox="0 0 24 24"
           strokeWidth={2}
           stroke="currentColor"
-          className="mx-auto h-12 w-12 text-primary-purple"
+          className="text-primary-purple mx-auto h-12 w-12"
         >
           <path
             strokeLinecap="round"
@@ -115,14 +115,14 @@ export const AgeModal = () => {
             <label htmlFor="rememberMe">Remember Me</label>
             <div className="relative flex">
               <input
-                className="h-4 w-4 appearance-none rounded border border-primary-purple bg-primary-purple/50 transition-colors ease-in-out checked:bg-primary-purple"
+                className="border-primary-purple bg-primary-purple/50 checked:bg-primary-purple h-4 w-4 appearance-none rounded-sm border transition-colors ease-in-out"
                 type="checkbox"
                 id="rememberMe"
                 checked={rememberMe}
                 onChange={() => setRememberMe((prev) => !prev)}
               />
               {rememberMe && (
-                <div className="pointer-events-none absolute left-0 top-0">
+                <div className="pointer-events-none absolute top-0 left-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
@@ -142,13 +142,13 @@ export const AgeModal = () => {
           </div>
           <div className="flex justify-center gap-4">
             <button
-              className="rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple md:text-xl "
+              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
               onClick={handleYesClick}
             >
               Yes
             </button>
             <button
-              className="rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple md:text-xl "
+              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
               onClick={() => router.push("https://google.com")}
             >
               No

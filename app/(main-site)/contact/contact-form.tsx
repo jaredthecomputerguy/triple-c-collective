@@ -93,11 +93,11 @@ export const ContactForm = () => {
   return (
     <form className="flex flex-col gap-2 pt-4" onSubmit={handleFormSubmit}>
       <div className="flex flex-col gap-1">
-        <label className="font-semibold text-primary-purple" htmlFor="name">
+        <label className="text-primary-purple font-semibold" htmlFor="name">
           Name
         </label>
         <input
-          className="rounded border-2 border-gray-500 p-2 outline-none placeholder:text-gray-600 focus:outline-primary-purple"
+          className="focus:outline-primary-purple rounded-sm border-2 border-gray-500 p-2 outline-hidden placeholder:text-gray-600"
           onChange={handleInputChange}
           type="text"
           id="name"
@@ -108,11 +108,11 @@ export const ContactForm = () => {
         />
       </div>
       <div className="flex flex-col gap-1">
-        <label className="font-semibold text-primary-purple" htmlFor="from">
+        <label className="text-primary-purple font-semibold" htmlFor="from">
           Email
         </label>
         <input
-          className="rounded border-2 border-gray-500 p-2 outline-none placeholder:text-gray-600 focus:outline-primary-purple"
+          className="focus:outline-primary-purple rounded-sm border-2 border-gray-500 p-2 outline-hidden placeholder:text-gray-600"
           required
           min="1"
           max="100"
@@ -125,11 +125,11 @@ export const ContactForm = () => {
         />
       </div>
       <div className="flex flex-col gap-1">
-        <label className="font-semibold text-primary-purple" htmlFor="subject">
+        <label className="text-primary-purple font-semibold" htmlFor="subject">
           Subject
         </label>
         <input
-          className="rounded border-2 border-gray-500 p-2 outline-none placeholder:text-gray-600 focus:outline-primary-purple"
+          className="focus:outline-primary-purple rounded-sm border-2 border-gray-500 p-2 outline-hidden placeholder:text-gray-600"
           required
           min="1"
           max="100"
@@ -142,11 +142,11 @@ export const ContactForm = () => {
         />
       </div>
       <div className="flex flex-col gap-1">
-        <label className="font-semibold text-primary-purple" htmlFor="message">
+        <label className="text-primary-purple font-semibold" htmlFor="message">
           Message
         </label>
         <textarea
-          className="mb-2 rounded border-2 border-gray-500 p-2 outline-none placeholder:text-gray-600 focus:outline-primary-purple"
+          className="focus:outline-primary-purple mb-2 rounded-sm border-2 border-gray-500 p-2 outline-hidden placeholder:text-gray-600"
           required
           onChange={handleInputChange}
           value={emailInfo.message}
@@ -157,7 +157,7 @@ export const ContactForm = () => {
         />
       </div>
       <button
-        className="rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
+        className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
         disabled={emailIsSending}
         type="submit"
       >

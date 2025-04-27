@@ -10,8 +10,8 @@ export const StPatricksBanner = ({ active }: { active: boolean }) => {
     >
       <Link href="/deals" className="flex flex-col items-center">
         <div className="flex items-center justify-center gap-2 font-serif tracking-wider md:flex-row">
-          <span className="z-50 text-center text-base md:text-2xl ">Happy</span>
-          <span className="z-50 text-center text-2xl transition-all motion-reduce:transition-none md:text-3xl  md:group-hover:px-1 md:group-hover:text-4xl">
+          <span className="z-50 text-center text-base md:text-2xl">Happy</span>
+          <span className="z-50 text-center text-2xl transition-all motion-reduce:transition-none md:text-3xl md:group-hover:px-1 md:group-hover:text-4xl">
             St. Patrick&apos;s
           </span>
           <span className="z-50 text-center text-lg md:text-2xl">Day</span>

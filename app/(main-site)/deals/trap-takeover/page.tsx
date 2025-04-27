@@ -105,12 +105,12 @@ export default function TrapTakeoverPage() {
     <main className="bg-[#fefefe]">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
         <span className="pb-1 text-gray-600">{TRAP_TAKEOVER_DATE_STRING}</span>
-        <h1 className="pb-4 font-logo text-4xl font-semibold">Trap Takeover</h1>
+        <h1 className="font-logo pb-4 text-4xl font-semibold">Trap Takeover</h1>
         <hr className="pb-4" />
-        <h2 className="py-8 pb-12 text-center font-logo text-2xl font-semibold md:text-left md:text-4xl">
+        <h2 className="font-logo py-8 pb-12 text-center text-2xl font-semibold md:text-left md:text-4xl">
           Get Ready for the Ultimate Cannabis Shopping Experience
         </h2>
-        <div className="trap-takeover rounded-lg bg-primary-purple p-8 text-white">
+        <div className="trap-takeover bg-primary-purple rounded-lg p-8 text-white">
           <p className="pb-4 text-2xl">
             {" "}
             We’re teaming up with Illa Guerrilla to bring you unbeatable deals
@@ -146,7 +146,7 @@ export default function TrapTakeoverPage() {
         </div>
 
         <section className="py-8">
-          <h3 className="py-4 text-center font-logo text-3xl font-semibold md:text-left">
+          <h3 className="font-logo py-4 text-center text-3xl font-semibold md:text-left">
             Featured Brands
           </h3>
           <div
@@ -162,11 +162,11 @@ export default function TrapTakeoverPage() {
                   key={brand.name ?? "undefined"}
                 >
                   <Link
-                    className="flex flex-col items-center rounded border border-white px-8 py-2 outline-none focus:border-primary-purple focus:outline-primary-purple"
+                    className="focus:border-primary-purple focus:outline-primary-purple flex flex-col items-center rounded-sm border border-white px-8 py-2 outline-hidden"
                     href={brand.url}
                     target="_blank"
                   >
-                    <h3 className="w-full py-2 text-center font-logo text-2xl font-semibold">
+                    <h3 className="font-logo w-full py-2 text-center text-2xl font-semibold">
                       {brand.name}
                     </h3>
                     {brand.name ? (
@@ -210,7 +210,7 @@ export default function TrapTakeoverPage() {
         )}
         {HAVE_FLYER && (
           <section className="w-full">
-            <h3 className="py-4 text-center font-logo text-3xl font-semibold md:text-left">
+            <h3 className="font-logo py-4 text-center text-3xl font-semibold md:text-left">
               Deals
             </h3>
             <hr />
@@ -225,7 +225,7 @@ export default function TrapTakeoverPage() {
         )}
 
         <section className="w-full" id="raffle-rules">
-          <h3 className="py-4 text-center font-logo text-3xl font-semibold md:text-left">
+          <h3 className="font-logo py-4 text-center text-3xl font-semibold md:text-left">
             Raffle Rules
           </h3>
           <hr />

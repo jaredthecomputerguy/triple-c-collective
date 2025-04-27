@@ -83,16 +83,16 @@ export default function HomePage() {
           alt="Triple C Collective Storefront"
           priority
         />
-        <div className="absolute left-0 top-0 h-full w-full bg-black/50" />
+        <div className="absolute top-0 left-0 h-full w-full bg-black/50" />
 
-        <h1 className="text-shadow absolute px-4 text-center font-logo text-4xl font-semibold text-white md:text-6xl">
+        <h1 className="text-shadow font-logo absolute px-4 text-center text-4xl font-semibold text-white md:text-6xl">
           Welcome to Triple C Collective
         </h1>
       </div>
 
       <div className="radial-gradient text-[#fefefe]">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-20">
-          <h2 className="text-shadow text-center font-logo text-3xl font-semibold uppercase md:text-4xl">
+          <h2 className="text-shadow font-logo text-center text-3xl font-semibold uppercase md:text-4xl">
             Lake County&apos;s <span className="gold">Premier</span> Cannabis
             Dispensary
           </h2>
@@ -105,7 +105,7 @@ export default function HomePage() {
             />
             <div className="h-px w-36 bg-white md:w-60" />
           </div>
-          <p className="text-balanced prose mx-auto text-center font-logo text-xl text-white">
+          <p className="text-balanced prose font-logo mx-auto text-center text-xl text-white">
             Located in the heart of Lake County, California, we offer a diverse
             selection of high-quality cannabis products, expert guidance, and a
             welcoming environment for cannabis enthusiasts.
@@ -121,7 +121,7 @@ export default function HomePage() {
               className="rounded-lg"
               alt="Online Ordering"
             />
-            <p className="font-logo text-2xl font-semibold text-primary-purple">
+            <p className="font-logo text-primary-purple text-2xl font-semibold">
               Online Ordering
             </p>
             <p>
@@ -136,7 +136,7 @@ export default function HomePage() {
               className="rounded-lg"
               alt="Online Ordering"
             />
-            <p className="font-logo text-2xl font-semibold text-primary-purple">
+            <p className="font-logo text-primary-purple text-2xl font-semibold">
               Order by Phone
             </p>
             <p>
@@ -144,7 +144,7 @@ export default function HomePage() {
               or in store pickup.
             </p>
             <Link
-              className="mt-4 w-fit grow-0 rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
+              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 w-fit grow-0 rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
               href="tel:707-701-4160"
             >
               Call Us
@@ -156,7 +156,7 @@ export default function HomePage() {
               className="rounded-lg"
               alt="Online Ordering"
             />
-            <p className="font-logo text-2xl font-semibold text-primary-purple">
+            <p className="font-logo text-primary-purple text-2xl font-semibold">
               Rewards Program
             </p>
             <p>
@@ -164,7 +164,7 @@ export default function HomePage() {
               time.
             </p>
             <Link
-              className="mt-4 w-fit grow-0 rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
+              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 w-fit grow-0 rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
               href="/reward-program"
             >
               Explore Rewards
@@ -174,7 +174,7 @@ export default function HomePage() {
       </div>
 
       <div className="mx-auto max-w-4xl pt-20">
-        <h3 className="pb-8 text-center font-logo text-4xl font-semibold">
+        <h3 className="font-logo pb-8 text-center text-4xl font-semibold">
           Featured Brands
         </h3>
         <hr className="pb-4" />
@@ -184,19 +184,19 @@ export default function HomePage() {
       </div>
 
       <div className="mx-auto max-w-4xl py-12">
-        <h4 className="text-pretty py-8 text-center font-logo text-4xl font-semibold">
+        <h4 className="font-logo py-8 text-center text-4xl font-semibold text-pretty">
           What Our Customers Are Saying...
         </h4>
         <hr />
         <div className="flex flex-col items-center gap-4 px-4">
           <div className="flex items-center justify-center gap-4 pt-12">
-            <StoreIcon className="h-12 w-12 stroke-primary-purple" />
-            <span className="text-3xl font-semibold text-primary-purple">
+            <StoreIcon className="stroke-primary-purple h-12 w-12" />
+            <span className="text-primary-purple text-3xl font-semibold">
               Triple C Collective
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-4xl font-semibold text-primary-purple">
+            <span className="text-primary-purple text-4xl font-semibold">
               4.4
             </span>
             <StarRating rating="4.4" className="max-w-40 sm:max-w-48" />
@@ -211,7 +211,7 @@ export default function HomePage() {
 
         <div className="mx-auto max-w-4xl px-4 py-12">
           <div className="pb-6">
-            <h5 className="text-center font-logo text-4xl font-semibold">
+            <h5 className="font-logo text-center text-4xl font-semibold">
               Real CA Cannabis
             </h5>
             <p className="pt-1 text-center text-xl font-bold tracking-tighter text-gray-700">
@@ -238,7 +238,7 @@ export default function HomePage() {
                 />
                 <Button
                   variant="outline"
-                  className="mx-auto my-2 w-fit border-black/50 hover:border-black hover:shadow"
+                  className="mx-auto my-2 w-fit border-black/50 hover:border-black hover:shadow-sm"
                   asChild
                 >
                   <Link
@@ -256,7 +256,7 @@ export default function HomePage() {
 
       <div className="mx-auto max-w-4xl py-12">
         <div className="px-4 pb-10">
-          <h5 className="py-8 text-center font-logo text-4xl font-semibold">
+          <h5 className="font-logo py-8 text-center text-4xl font-semibold">
             Frequently Asked Questions
           </h5>
           <hr className="pb-4" />
@@ -305,7 +305,7 @@ export default function HomePage() {
                     <Link
                       href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
                       target="_blank"
-                      className="font-semibold text-primary-purple hover:underline"
+                      className="text-primary-purple font-semibold hover:underline"
                     >
                       Start shopping
                     </Link>

@@ -89,7 +89,7 @@ export const Header = () => {
     <header
       className={cn(
         shouldHeaderShow ? "opacity-100" : "pointer-events-none opacity-0",
-        "sticky top-0 z-40 bg-[#fefefe] shadow transition-opacity duration-300 ease-in-out",
+        "sticky top-0 z-40 bg-[#fefefe] shadow-sm transition-opacity duration-300 ease-in-out",
       )}
     >
       <StiiizyBanner active={false} />
@@ -99,17 +99,17 @@ export const Header = () => {
       />
       <FourTwentyBanner active={false} />
       <NewsletterBanner active={true} />
-      <div className="min-w-screen group sticky top-0 bg-primary-purple">
-        <div className="flex justify-between bg-primary-purple px-4 py-2 text-sm text-[#fefefe] md:hidden">
+      <div className="group bg-primary-purple sticky top-0 min-w-screen">
+        <div className="bg-primary-purple flex justify-between px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
-            className="flex items-center justify-center gap-2 rounded p-2 font-semibold outline-none transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
+            className="flex items-center justify-center gap-2 rounded-sm p-2 font-semibold outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
             href="tel:707-701-4160"
           >
             <PhoneIcon className="h-4 w-4" />
             <span>(707) 701-4160</span>
           </a>
           <a
-            className="flex items-center justify-center gap-2 rounded p-2 px-4 font-semibold outline-none transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
+            className="flex items-center justify-center gap-2 rounded-sm p-2 px-4 font-semibold outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
             href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
             target="_blank"
           >
@@ -118,13 +118,13 @@ export const Header = () => {
           </a>
         </div>
         {/* Desktop View */}
-        <div className="mx-auto hidden max-w-7xl justify-between bg-primary-purple px-4 py-2 text-sm text-[#fefefe] md:flex">
-          <div className="flex items-center justify-center gap-2 rounded p-2 font-semibold">
+        <div className="bg-primary-purple mx-auto hidden max-w-7xl justify-between px-4 py-2 text-sm text-[#fefefe] md:flex">
+          <div className="flex items-center justify-center gap-2 rounded-sm p-2 font-semibold">
             <ClockIcon className="h-4 w-4" />
             <span>10am - 9:30pm</span>
           </div>
           <a
-            className="flex items-center justify-center gap-2 rounded p-2 px-4 font-semibold outline-none transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
+            className="flex items-center justify-center gap-2 rounded-sm p-2 px-4 font-semibold outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
             href="https://www.google.com/maps/dir//triple+c+collective/@38.9554237,-122.6496488"
             target="_blank"
           >
@@ -132,7 +132,7 @@ export const Header = () => {
             <span>14196 Lakeshore Dr. Clearlake, CA 95422</span>
           </a>
           <a
-            className="flex items-center justify-center gap-2 rounded p-2 px-4 font-semibold outline-none transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
+            className="flex items-center justify-center gap-2 rounded-sm p-2 px-4 font-semibold outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
             href="tel:707-701-4160"
           >
             <PhoneIcon className="h-4 w-4" />
@@ -144,26 +144,26 @@ export const Header = () => {
       <div className="relative mx-auto flex max-w-7xl items-center justify-between bg-[#fefefe] p-4">
         <Link
           href="/"
-          className="rounded p-2 font-logo text-xl font-bold uppercase text-primary-purple outline-none transition-all focus:outline-primary-purple  sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
+          className="font-logo text-primary-purple focus:outline-primary-purple rounded-sm p-2 text-xl font-bold uppercase outline-hidden transition-all sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
         >
           Triple C Collective
         </Link>
         <button
-          className="rounded p-1 outline-none transition-all hover:bg-gray-200 focus:bg-gray-200 focus:outline-primary-purple md:hidden"
+          className="focus:outline-primary-purple rounded-sm p-1 outline-hidden transition-all hover:bg-gray-200 focus:bg-gray-200 md:hidden"
           onClick={toggleMobileMenu}
           name="mobile-navigation-button"
           aria-label="Mobile Navigation Button"
         >
           {showMobileMenu ? (
-            <CloseIcon className="h-8 w-8 text-primary-purple" />
+            <CloseIcon className="text-primary-purple h-8 w-8" />
           ) : (
-            <BarsIcon className="h-8 w-8 text-primary-purple" />
+            <BarsIcon className="text-primary-purple h-8 w-8" />
           )}
         </button>
         {showMobileMenu && (
           <>
-            <nav className="absolute right-0 top-16 w-full bg-primary-purple py-[6px] text-center text-white md:hidden">
-              <ul className="flex w-full flex-col bg-primary-purple">
+            <nav className="bg-primary-purple absolute top-16 right-0 w-full py-[6px] text-center text-white md:hidden">
+              <ul className="bg-primary-purple flex w-full flex-col">
                 {LINKS.map((link) => (
                   <MobileNavLink
                     href={link.href}
@@ -176,7 +176,7 @@ export const Header = () => {
               </ul>
             </nav>
             <div
-              className="fixed left-0 top-0 -z-10 h-dvh w-screen"
+              className="fixed top-0 left-0 -z-10 h-dvh w-screen"
               onClick={() => setShowMobileMenu(false)}
             />
           </>
@@ -213,7 +213,7 @@ const NavLink = ({
         onClick={() => {
           setShowMobileMenu(false);
         }}
-        className="rounded px-4 py-2 font-semibold text-primary-purple outline-none hover:underline focus:underline focus:outline-primary-purple lg:text-xl"
+        className="text-primary-purple focus:outline-primary-purple rounded-sm px-4 py-2 font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
         href={href}
       >
         {label}
@@ -239,7 +239,7 @@ const MobileNavLink = ({
         onClick={() => {
           setShowMobileMenu(false);
         }}
-        className="flex w-full items-center justify-between px-6 py-4 font-semibold uppercase outline-none transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
+        className="flex w-full items-center justify-between px-6 py-4 font-semibold uppercase outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
         href={href}
       >
         <span className="flex items-center gap-4">

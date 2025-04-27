@@ -1,11 +1,92 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap")
+layer(base);
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap")
+layer(base);
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap")
+layer(base);
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap")
+layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
+  --background-image-main: url("/lake-county.webp");
+  --background-image-clover: url("/clover.svg");
+
+  --font-logo: var(--font-logo);
+  --font-main: "Open Sans";
+  --font-serif: "DM Serif Display";
+  --font-stiiizy: "Bebas Neue";
+
+  --color-primary-purple: rgb(43, 7, 77);
+  --color-new-years-gold: #d9b01c;
+  --color-new-years-black: #090909;
+
+  --animate-desktop-scroll: desktop-scroll 30s linear infinite both;
+  --animate-mobile-scroll: mobile-scroll 30s linear infinite both;
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-text: text 5s ease infinite;
+  --animate-fade-in: fade-in 0.5s ease-in forwards;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+
+    to {
+      height: 0;
+    }
+  }
+
+  @keyframes text {
+    0%,
+    100% {
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+
+    50% {
+      background-size: 200% 200%;
+      background-position: right center;
+    }
+  }
+
+  @keyframes fade-in;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 :root {
   --brands-length: 23.5;

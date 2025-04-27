@@ -78,7 +78,7 @@ export default async function NewsletterUnsubscribePage({
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
-        <h1 className="py-4 font-logo text-4xl font-semibold">
+        <h1 className="font-logo py-4 text-4xl font-semibold">
           Are you sure you want to go?{" "}
         </h1>
         <hr />

@@ -88,7 +88,7 @@ export function NewsletterForm() {
                 placeholder="Bob"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="w-full rounded border-none bg-white/90 p-2 text-black placeholder:text-gray-500"
+                className="w-full rounded-sm border-none bg-white/90 p-2 text-black placeholder:text-gray-500"
               />
             </div>
 
@@ -102,7 +102,7 @@ export function NewsletterForm() {
                 placeholder="Marley"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="w-full rounded border-none bg-white/90 p-2 text-black placeholder:text-gray-500"
+                className="w-full rounded-sm border-none bg-white/90 p-2 text-black placeholder:text-gray-500"
               />
             </div>
 
@@ -118,7 +118,7 @@ export function NewsletterForm() {
                 value={email}
                 required
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded border-none bg-white/90 p-2 text-black placeholder:text-gray-500"
+                className="w-full rounded-sm border-none bg-white/90 p-2 text-black placeholder:text-gray-500"
               />
             </div>
 
@@ -156,7 +156,7 @@ export function NewsletterForm() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded bg-white px-6 py-2 font-semibold text-primary-purple transition-all hover:bg-white/90"
+              className="text-primary-purple w-full rounded-sm bg-white px-6 py-2 font-semibold transition-all hover:bg-white/90"
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">

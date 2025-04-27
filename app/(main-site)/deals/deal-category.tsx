@@ -18,7 +18,7 @@ export const DealCategory = ({
 
   return (
     <div>
-      <p className="py-4 font-logo text-3xl font-semibold">{categoryTitle}</p>
+      <p className="font-logo py-4 text-3xl font-semibold">{categoryTitle}</p>
       <span className="font-main text-gray-700">{categorySubtitle}</span>
       <DealCards deals={deals} />
     </div>

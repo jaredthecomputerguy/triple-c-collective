@@ -41,7 +41,7 @@ const FourTwentyDealCard = ({
             "leaf border-green-800 bg-white text-green-800",
         )}
       >
-        <h2 className="flex flex-col items-center justify-center pb-4 text-center font-logo text-3xl font-semibold">
+        <h2 className="font-logo flex flex-col items-center justify-center pb-4 text-center text-3xl font-semibold">
           {icon}
           {title}
         </h2>
@@ -62,7 +62,7 @@ const FourTwentyDealCard = ({
             </div>
           ))}
           {reducedPriceDeals.length > 0 && (
-            <div className="flex flex-col text-pretty text-lg font-semibold">
+            <div className="flex flex-col text-lg font-semibold text-pretty">
               Reduced Prices on the following:
               <ul className="list-inside list-disc space-y-2 py-2 text-left text-base">
                 {reducedPriceDeals.map((reducedPriceDeal, i) => (

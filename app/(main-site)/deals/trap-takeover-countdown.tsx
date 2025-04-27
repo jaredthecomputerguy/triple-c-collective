@@ -38,7 +38,7 @@ export const TrapTakeoverCountdown = ({
     <div className="trap-takeover font-trap-takeover flex grow flex-col items-center rounded-xl py-8">
       <div className="flex flex-col items-center justify-between">
         <a
-          className="rounded-xl p-2 outline-none transition-colors hover:bg-white/25 focus:bg-white/25 focus:outline-white"
+          className="rounded-xl p-2 outline-hidden transition-colors hover:bg-white/25 focus:bg-white/25 focus:outline-white"
           href="https://illaguerrilla.com/"
           target="_blank"
         >
@@ -71,7 +71,7 @@ export const TrapTakeoverCountdown = ({
       </div>
       <a
         href={linkUrl}
-        className="flex items-center gap-1 rounded bg-[#f2c029] px-2 py-1 text-lg outline-none transition-all hover:bg-[#1a0056]  hover:text-white focus:bg-[#1a0056] focus:text-white focus:outline-white"
+        className="flex items-center gap-1 rounded-sm bg-[#f2c029] px-2 py-1 text-lg outline-hidden transition-all hover:bg-[#1a0056] hover:text-white focus:bg-[#1a0056] focus:text-white focus:outline-white"
         target={target}
       >
         <span>{labelText}</span>
