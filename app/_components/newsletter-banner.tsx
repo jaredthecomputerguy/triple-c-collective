@@ -19,7 +19,7 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
+  const emailInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
   const handleNewsletterBannerSubmit = async (
@@ -69,7 +69,6 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
       )}
     >
       <form
-        ref={formRef}
         className="mr-8 flex flex-col items-center gap-2 px-4 text-sm md:text-base"
         onSubmit={handleNewsletterBannerSubmit}
       >
@@ -82,6 +81,7 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
               <div className="flex w-full gap-2">
                 <input
                   className="border-primary-purple w-full grow rounded-sm border bg-white/90 p-2 text-base text-black placeholder:text-gray-500 disabled:cursor-not-allowed disabled:bg-white/90 disabled:text-gray-500"
+                  ref={emailInputRef}
                   type="email"
                   name="email"
                   id="bannerEmail"
@@ -93,8 +93,9 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
                   maxLength={100}
                   placeholder="Enter your email"
                   onKeyDown={(e) => {
-                    if (e.key !== "Enter" || !formRef.current) return;
-                    const isValid = formRef.current.checkValidity();
+                    if (e.key !== "Enter" || !emailInputRef.current) return;
+                    const isValid = emailInputRef.current.reportValidity();
+                    // HERE: I want to show some of the validation errors
                     if (isValid) {
                       setCurrentStep("consent");
                     }
@@ -105,8 +106,8 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
                   className="border-primary-purple text-primary-purple disabled:text-primary-purple/50 rounded-sm border bg-white px-4 py-2 font-semibold transition-all hover:bg-white/90 disabled:cursor-not-allowed"
                   disabled={hasSubmitted}
                   onClick={() => {
-                    if (!formRef.current) return;
-                    const isValid = formRef.current.checkValidity();
+                    if (!emailInputRef.current) return;
+                    const isValid = emailInputRef.current.reportValidity();
                     if (isValid) {
                       setCurrentStep("consent");
                     }
