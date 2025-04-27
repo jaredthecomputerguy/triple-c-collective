@@ -21,6 +21,8 @@ const envVariables = z.object({
   RESEND_GENERAL_AUDIENCE_ID: z.string().min(1),
   RESEND_API_KEY: z.string().min(1),
   RESEND_FROM_EMAIL: z.string().min(1),
+  RESEND_WEBHOOK_EMAIL: z.string().min(1),
+  RESEND_WEBHOOK_SECRET: z.string().min(1),
 });
 
 envVariables.parse(process.env);
