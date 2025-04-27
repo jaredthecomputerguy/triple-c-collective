@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 "use server";
 
 import { renderAsync } from "@react-email/render";
@@ -6,6 +5,9 @@ import nodemailer from "nodemailer";
 import { ContactEmail } from "../app/(main-site)/contact/contact-email";
 import { type EmailInfo } from "../app/(main-site)/contact/contact-form";
 import { type MailOptions } from "nodemailer/lib/sendmail-transport";
+import { Logger } from "./logger";
+
+const logger = new Logger();
 
 export const sendEmail = async ({
   from,
@@ -17,7 +19,7 @@ export const sendEmail = async ({
   const password = process.env.NODEMAILER_PASSWORD;
 
   if (process.env.NODE_ENV === "development") {
-    console.log(
+    logger.log(
       "\n\nNODEMAILER --> Sending email: ",
       JSON.stringify({ from, message, subject, name }),
       "\n\n",
@@ -51,10 +53,10 @@ export const sendEmail = async ({
     return { error: null };
   } catch (err) {
     if (err instanceof Error) {
-      console.error("Nodemailer Error: ", err.message);
+      logger.error("Nodemailer Error: ", err.message);
       return { error: err.message };
     } else {
-      console.error("Error: ", err);
+      logger.error("Error: ", err);
       return { error: "Something went wrong..." };
     }
   }
