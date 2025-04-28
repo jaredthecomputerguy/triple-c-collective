@@ -1,3 +1,4 @@
+import Sparkle from "./sparkle";
 import { TopBanner } from "./top-banner";
 
 interface NewYearBannerProps {
@@ -19,13 +20,13 @@ export const NewYearBanner = ({ active }: NewYearBannerProps) => {
           </span>
         </div>
       </TopBanner>
-      {/*<Sparkle
+      <Sparkle
         fadeOutSpeed={5}
         color={"#D9B01C"}
         minSize={20}
         overflowPx={0}
         count={15}
-      />*/}
+      />
     </>
   );
 };
