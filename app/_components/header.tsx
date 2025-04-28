@@ -26,11 +26,9 @@ import { LocationIcon } from "./icons/location-icon";
 
 import { TrapTakeoverBanner } from "./trap-takeover-banner";
 import { StiiizyBanner } from "./stiiizy-banner";
-import { FourTwentyBanner } from "./4-20-banner";
 import { NewsletterBanner } from "./newsletter-banner";
 
 import { cn } from "@/lib/utils";
-import { NewYearBanner } from "./new-year-banner";
 
 const LINKS = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
