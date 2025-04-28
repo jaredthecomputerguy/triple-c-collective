@@ -114,61 +114,54 @@ export function getTrapTakeoverDateWithSuffix(trapTakeoverDate: Date) {
 export function getTimeRemainingUntilFirstOrThirdFriday(
   now: Date,
 ): TimeRemainingUntilDate {
-  const currentMonth = now.getMonth();
-  const currentYear = now.getFullYear();
+  const year = now.getFullYear();
+  const month = now.getMonth();
 
-  // Find the first Friday of the month
-  let firstFriday = new Date(currentYear, currentMonth, 1, 12);
-  while (firstFriday.getDay() !== 5) {
-    firstFriday.setDate(firstFriday.getDate() + 1);
-  }
-
-  // Find the third Friday of the month
-  let thirdFriday = new Date(currentYear, currentMonth, 1, 12);
-  let count = 0;
-  while (count < 3) {
-    thirdFriday.setDate(thirdFriday.getDate() + 1);
-    if (thirdFriday.getDay() === 5) {
-      count++;
+  function getNthFriday(month: number, year: number, n: 1 | 3) {
+    const date = new Date(year, month, 1);
+    let count = 0;
+    while (true) {
+      if (date.getDay() === 5) {
+        count++;
+        if (count === n) break;
+      }
+      date.setDate(date.getDate() + 1);
     }
+    // Set to exactly 12:00 PM
+    date.setHours(12, 0, 0, 0);
+    return date;
   }
 
-  // Determine which Friday comes first after today
-  let nextFriday;
-  if (now < firstFriday || now.getDate() === firstFriday.getDate()) {
-    nextFriday = firstFriday;
-  } else if (now < thirdFriday || now.getDate() === thirdFriday.getDate()) {
-    nextFriday = thirdFriday;
+  const firstFriday = getNthFriday(month, year, 1);
+  const thirdFriday = getNthFriday(month, year, 3);
+
+  let target: Date;
+
+  if (now.getTime() < firstFriday.getTime()) {
+    target = firstFriday;
+  } else if (now.getTime() < thirdFriday.getTime()) {
+    target = thirdFriday;
   } else {
-    // If today is after both first and third Friday, calculate next month's first Friday
-    const nextMonth = currentMonth === 11 ? 0 : currentMonth + 1;
-    const nextYear = currentMonth === 11 ? currentYear + 1 : currentYear;
-    nextFriday = new Date(nextYear, nextMonth, 1);
-    while (nextFriday.getDay() !== 5) {
-      nextFriday.setDate(nextFriday.getDate() + 1);
-    }
+    const nextMonth = (month + 1) % 12;
+    const nextYear = month === 11 ? year + 1 : year;
+    target = getNthFriday(nextMonth, nextYear, 1);
   }
 
-  // Calculate time remaining until the next Friday
-  const timeRemaining = nextFriday.getTime() - now.getTime();
+  const ms = target.getTime() - now.getTime();
 
-  // Ensure the time remaining is positive
-  if (timeRemaining < 0) {
+  if (ms <= 0) {
     return { Days: "00", Hours: "00", Minutes: "00", Seconds: "00" };
   }
 
-  const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24))
+  const totalSeconds = Math.floor(ms / 1000);
+  const totalMinutes = Math.floor(totalSeconds / 60);
+  const totalHours = Math.floor(totalMinutes / 60);
+  const days = Math.floor(totalHours / 24)
     .toString()
     .padStart(2, "0");
-  const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24)
-    .toString()
-    .padStart(2, "0");
-  const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60)
-    .toString()
-    .padStart(2, "0");
-  const seconds = Math.floor((timeRemaining / 1000) % 60)
-    .toString()
-    .padStart(2, "0");
+  const hours = (totalHours % 24).toString().padStart(2, "0");
+  const minutes = (totalMinutes % 60).toString().padStart(2, "0");
+  const seconds = (totalSeconds % 60).toString().padStart(2, "0");
 
   return { Days: days, Hours: hours, Minutes: minutes, Seconds: seconds };
 }
