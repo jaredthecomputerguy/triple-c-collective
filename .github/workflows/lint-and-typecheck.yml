@@ -1,26 +1,9 @@
 name: lint & typecheck
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout repo
-        uses: actions/checkout@v4
-
-      - name: setup node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: intall dependencies
-        run: npm ci
-
-      - name: run lint
-        run: NEXT_TELEMETRY_DISABLED=1 npm run lint
-
-  typecheck:
+  lint-and-typecheck:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
@@ -33,6 +16,9 @@ jobs:
 
       - name: install dependencies
         run: npm ci
+
+      - name: run lint
+        run: NEXT_TELEMETRY_DISABLED=1 npm run lint
 
       # this is a workaround for https://github.com/vercel/next.js/issues/53959
       - name: create next-env.d.ts
