@@ -63,13 +63,13 @@ export default function AboutPage() {
           priority
           quality={100}
         />
-        <div className="absolute left-0 top-0 h-full w-full bg-black/50" />
-        <span className="absolute font-logo text-3xl font-semibold text-white sm:text-5xl">
+        <div className="absolute top-0 left-0 h-full w-full bg-black/50" />
+        <span className="font-logo absolute text-3xl font-semibold text-white sm:text-5xl">
           About Us
         </span>
       </div>
       <section className="mx-auto max-w-7xl px-4 py-6 sm:py-12">
-        <p className="mx-auto max-w-4xl text-pretty text-center text-xl font-semibold md:py-12 md:text-2xl">
+        <p className="mx-auto max-w-4xl text-center text-xl font-semibold text-pretty md:py-12 md:text-2xl">
           Welcome to{" "}
           <span className="text-primary-purple">Triple C Collective</span>, your
           trusted destination for a premium cannabis experience! With over 15
@@ -92,7 +92,7 @@ export default function AboutPage() {
               </p>
             </div>
             <Image
-              className="aspect-[3/2] rounded-xl object-cover"
+              className="aspect-3/2 rounded-xl object-cover"
               src="/images/lake-county.jpg"
               width={600}
               height={400}
@@ -113,7 +113,7 @@ export default function AboutPage() {
               </p>
             </div>
             <Image
-              className="aspect-[3/2] rounded-xl object-cover"
+              className="aspect-3/2 rounded-xl object-cover"
               src={staffPhoto}
               alt="Dispensary Staff"
             />
@@ -133,7 +133,7 @@ export default function AboutPage() {
               </p>
             </div>
             <Image
-              className=" aspect-[3/2] rounded-xl object-cover"
+              className="aspect-3/2 rounded-xl object-cover"
               src="/images/commitment.jpg"
               width={600}
               height={400}
@@ -152,7 +152,7 @@ export default function AboutPage() {
               </p>
             </div>
             <Image
-              className="aspect-[3/2] rounded-xl object-cover"
+              className="aspect-3/2 rounded-xl object-cover"
               src="/images/wellness-2.jpg"
               width={600}
               height={400}
@@ -161,7 +161,7 @@ export default function AboutPage() {
           </div>
         </div>
         <div className="mx-auto max-w-4xl py-16">
-          <p className="mx-auto max-w-4xl text-pretty text-center text-xl font-semibold md:text-2xl">
+          <p className="mx-auto max-w-4xl text-center text-xl font-semibold text-pretty md:text-2xl">
             Thank you for being a part of the Triple C Collective family.
             We&apos;ll work hard to continue being your favorite cannabis
             collective for many years to come!

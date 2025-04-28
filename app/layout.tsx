@@ -6,7 +6,6 @@ import { Toaster } from "./_components/toaster";
 import NextTopLoader from "nextjs-toploader";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-// import { Snowfall } from "@/app/_components/snowfall";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -71,7 +70,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} scroll-smooth bg-primary-purple`}
+      className={`${montserrat.variable} bg-primary-purple scroll-smooth`}
       suppressHydrationWarning
     >
       <body className="relative">

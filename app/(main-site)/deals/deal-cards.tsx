@@ -21,7 +21,7 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
               },
             }}
             target="_blank"
-            className="group relative flex flex-col items-center overflow-hidden rounded-xl border border-primary-purple/50 shadow-lg outline-none transition-transform duration-300 ease-in-out hover:-translate-y-1 focus:outline-primary-purple"
+            className="group border-primary-purple/50 focus:outline-primary-purple relative flex flex-col items-center overflow-hidden rounded-xl border shadow-lg outline-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1"
             key={deal.id}
           >
             <BadgeContainer>
@@ -50,7 +50,7 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
 
 const BadgeContainer = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="absolute right-0 top-0 flex items-center justify-center gap-2 p-1 font-logo text-sm">
+    <div className="font-logo absolute top-0 right-0 flex items-center justify-center gap-2 p-1 text-sm">
       {children}
     </div>
   );

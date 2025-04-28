@@ -57,7 +57,7 @@ export default function ContactPage() {
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <section className="mx-auto max-w-7xl px-4 py-6 sm:py-12">
-        <h1 className="py-4 font-logo text-4xl font-semibold">Contact us</h1>
+        <h1 className="font-logo py-4 text-4xl font-semibold">Contact us</h1>
         <hr className="pb-4" />
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div>
@@ -77,7 +77,7 @@ export default function ContactPage() {
                 <p className="text-xl font-semibold">Address</p>
                 <div>
                   <a
-                    className="flex flex-col rounded font-medium text-sky-700 outline-none hover:underline focus:outline-primary-purple"
+                    className="focus:outline-primary-purple flex flex-col rounded-sm font-medium text-sky-700 outline-hidden hover:underline"
                     href="https://www.google.com/maps/place/14196+Lakeshore+Dr,+Clearlake,+CA+95422"
                     target="_blank"
                   >
@@ -89,7 +89,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-2">
                 <p className="text-xl font-semibold">Telephone</p>
                 <a
-                  className="rounded font-medium text-sky-700 outline-none hover:underline focus:outline-primary-purple"
+                  className="focus:outline-primary-purple rounded-sm font-medium text-sky-700 outline-hidden hover:underline"
                   href="tel:707-701-4160"
                 >
                   (707) 701-4160
@@ -98,7 +98,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-2">
                 <p className="text-xl font-semibold">Email</p>
                 <a
-                  className="rounded font-medium text-sky-700 outline-none hover:underline focus:outline-primary-purple"
+                  className="focus:outline-primary-purple rounded-sm font-medium text-sky-700 outline-hidden hover:underline"
                   href="mailto:clearlakecompassioncenter@yahoo.com"
                 >
                   clearlakecompassioncenter@yahoo.com
@@ -107,31 +107,31 @@ export default function ContactPage() {
               <div className="flex flex-col gap-2">
                 <p className="text-xl font-semibold">Socials</p>
                 <ul className="flex items-center gap-2">
-                  <li className="rounded p-1 transition-colors hover:bg-primary-purple/10">
+                  <li className="hover:bg-primary-purple/10 rounded-sm p-1 transition-colors">
                     <a
-                      className="rounded outline-none focus:outline-primary-purple"
+                      className="focus:outline-primary-purple rounded-sm outline-hidden"
                       href="https://www.facebook.com/profile.php?id=61572842924915"
                       target="_blank"
                       aria-label="Follow us on Facebook"
                     >
-                      <FacebookIcon className="h-8 w-8 rounded" />
+                      <FacebookIcon className="h-8 w-8 rounded-sm" />
                     </a>
                   </li>
-                  <li className="rounded p-1 transition-colors hover:bg-primary-purple/10">
+                  <li className="hover:bg-primary-purple/10 rounded-sm p-1 transition-colors">
                     <a
-                      className="rounded outline-none focus:outline-primary-purple"
+                      className="focus:outline-primary-purple rounded-sm outline-hidden"
                       href="https://www.snapchat.com/add/triplec.420"
                       target="_blank"
                       aria-label="Follow us on Snapchat"
                     >
-                      <SnapchatIcon className="h-8 w-8 rounded" />
+                      <SnapchatIcon className="h-8 w-8 rounded-sm" />
                     </a>
                   </li>
 
                   {/* TODO: Uncomment this when we have a new IG
-                    <li className="rounded p-1 transition-colors hover:bg-primary-purple/10">
+                    <li className="rounded-sm p-1 transition-colors hover:bg-primary-purple/10">
                      <a
-                       className="rounded outline-none focus:outline-primary-purple"
+                       className="rounded-sm outline-hidden focus:outline-primary-purple"
                        href="https://www.instagram.com/_tripleccollective/"
                        target="_blank"
                        aria-label="Follow us on Instagram"

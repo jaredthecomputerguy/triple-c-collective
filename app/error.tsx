@@ -4,6 +4,9 @@ import { useEffect } from "react";
 import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
 import { usePathname } from "next/navigation";
+import { Logger } from "@/lib/logger";
+
+const logger = new Logger();
 
 export default function Error({
   error,
@@ -15,8 +18,7 @@ export default function Error({
   const pathname = usePathname();
 
   useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.error(`Error on page ${pathname}: ${error}`);
+    logger.error(`Error on page ${pathname}: ${error}`);
   }, [error, pathname]);
 
   return (
@@ -27,7 +29,7 @@ export default function Error({
           Something went wrong
         </h1>
         <button
-          className="w-fit rounded bg-primary-purple px-6 py-2 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple active:bg-primary-purple/80 active:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
+          className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple active:bg-primary-purple/80 active:outline-primary-purple disabled:bg-primary-purple/50 w-fit rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
           onClick={() => reset()}
         >
           Reload Page

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 export default function TermsOfUsePage() {
   return (
     <main className="bg-[#fefefe]" id="main-content">
-      <section className="prose mx-auto max-w-4xl bg-[#fefefe] px-4 py-6 pb-8 prose-h5:font-semibold prose-h5:text-[#111827] prose-h6:font-semibold prose-h6:text-[#111827] prose-a:text-blue-600 sm:py-12">
+      <section className="prose prose-h5:font-semibold prose-h5:text-[#111827] prose-h6:font-semibold prose-h6:text-[#111827] prose-a:text-blue-600 mx-auto max-w-4xl bg-[#fefefe] px-4 py-6 pb-8 sm:py-12">
         <div>
           <h1 className="text-4xl font-semibold">Terms of Use</h1>
           <span className="mx-auto py-2 text-center text-gray-700">
@@ -67,7 +67,8 @@ export default function TermsOfUsePage() {
         <p>
           Information about our cannabis products on the website is for
           informational purposes only. It does not constitute medical advice,
-          and you should consult a healthcare professional for medical advice.{" "}
+          and you should consult a healthcare professional for medical
+          advice.{" "}
         </p>
         <h6 className="text-3xl">5. User Account</h6>
         <p>

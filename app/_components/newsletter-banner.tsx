@@ -19,7 +19,7 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
+  const emailInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
   const handleNewsletterBannerSubmit = async (
@@ -69,7 +69,6 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
       )}
     >
       <form
-        ref={formRef}
         className="mr-8 flex flex-col items-center gap-2 px-4 text-sm md:text-base"
         onSubmit={handleNewsletterBannerSubmit}
       >
@@ -81,7 +80,8 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
             {!hasSubmitted && (
               <div className="flex w-full gap-2">
                 <input
-                  className="w-full flex-grow rounded border border-primary-purple bg-white/90 p-2 text-base text-black placeholder:text-gray-500 disabled:cursor-not-allowed disabled:bg-white/90 disabled:text-gray-500"
+                  className="border-primary-purple w-full grow rounded-sm border bg-white/90 p-2 text-base text-black placeholder:text-gray-500 disabled:cursor-not-allowed disabled:bg-white/90 disabled:text-gray-500"
+                  ref={emailInputRef}
                   type="email"
                   name="email"
                   id="bannerEmail"
@@ -93,8 +93,9 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
                   maxLength={100}
                   placeholder="Enter your email"
                   onKeyDown={(e) => {
-                    if (e.key !== "Enter" || !formRef.current) return;
-                    const isValid = formRef.current.checkValidity();
+                    if (e.key !== "Enter" || !emailInputRef.current) return;
+                    const isValid = emailInputRef.current.reportValidity();
+                    // HERE: I want to show some of the validation errors
                     if (isValid) {
                       setCurrentStep("consent");
                     }
@@ -102,11 +103,11 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
                 />
                 <button
                   type="button"
-                  className="rounded border border-primary-purple bg-white px-4 py-2 font-semibold text-primary-purple transition-all hover:bg-white/90 disabled:cursor-not-allowed disabled:text-primary-purple/50"
+                  className="border-primary-purple text-primary-purple disabled:text-primary-purple/50 rounded-sm border bg-white px-4 py-2 font-semibold transition-all hover:bg-white/90 disabled:cursor-not-allowed"
                   disabled={hasSubmitted}
                   onClick={() => {
-                    if (!formRef.current) return;
-                    const isValid = formRef.current.checkValidity();
+                    if (!emailInputRef.current) return;
+                    const isValid = emailInputRef.current.reportValidity();
                     if (isValid) {
                       setCurrentStep("consent");
                     }
@@ -141,14 +142,14 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
             <div className="flex gap-2 md:ml-8">
               <button
                 type="submit"
-                className="rounded border border-transparent bg-primary-purple px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-primary-purple/90 disabled:cursor-not-allowed disabled:bg-primary-purple/50"
+                className="bg-primary-purple hover:bg-primary-purple/90 disabled:bg-primary-purple/50 rounded-sm border border-transparent px-4 py-2 text-sm font-semibold text-white transition-all disabled:cursor-not-allowed"
                 disabled={isSubmitting}
               >
                 Yes
               </button>
               <button
                 type="button"
-                className="rounded border border-transparent bg-red-700 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-red-700/90 disabled:cursor-not-allowed disabled:bg-red-700/50"
+                className="rounded-sm border border-transparent bg-red-700 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-red-700/90 disabled:cursor-not-allowed disabled:bg-red-700/50"
                 onClick={() => setCurrentStep("initial")}
                 disabled={isSubmitting}
               >

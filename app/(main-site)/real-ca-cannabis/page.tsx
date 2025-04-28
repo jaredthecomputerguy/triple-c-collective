@@ -58,7 +58,7 @@ export default async function RealCACannabisPage() {
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <main className="flex-1">
-        <section className="lg:py-18 w-full bg-[#F3F4F6] py-6 md:py-12">
+        <section className="w-full bg-[#F3F4F6] py-6 md:py-12 lg:py-18">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid items-center gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="max-w-[350px] space-y-4 sm:max-w-none">
@@ -90,7 +90,7 @@ export default async function RealCACannabisPage() {
                     </Button>
                     <Button
                       variant="outline"
-                      className="mx-auto my-2 w-fit border-black/50 hover:border-black hover:underline hover:shadow"
+                      className="mx-auto my-2 w-fit border-black/50 hover:border-black hover:underline hover:shadow-sm"
                       asChild
                     >
                       <Link

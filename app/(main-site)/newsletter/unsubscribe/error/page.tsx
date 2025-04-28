@@ -49,17 +49,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(`${process.env.SITE_URL}`),
 };
 
-export default async function NewsletterUnsubscribeSuccessPage({
-  searchParams,
-}: {
-  searchParams: { contactId: string };
+export default async function NewsletterUnsubscribeSuccessPage(props: {
+  searchParams: Promise<{ contactId: string }>;
 }) {
+  const searchParams = await props.searchParams;
   const { contactId } = searchParams;
 
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
-        <h1 className="py-4 font-logo text-4xl font-semibold">
+        <h1 className="font-logo py-4 text-4xl font-semibold">
           Something went wrong
         </h1>
         <hr />

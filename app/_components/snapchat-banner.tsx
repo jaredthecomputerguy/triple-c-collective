@@ -20,14 +20,14 @@ export const SnapchatBanner = ({
         {...rest}
         href={href}
         target="_blank"
-        className="text-black text-center text-sm md:text-base px-4 py-4 font-logo font-bold flex gap-2 items-center"
+        className="font-logo flex items-center gap-2 px-4 py-4 text-center text-sm font-bold text-black md:text-base"
       >
-        <SnapchatIcon className="flex-none size-6 md:size-10" />
+        <SnapchatIcon className="size-6 flex-none md:size-10" />
         <div className="flex flex-col">
           <span>{topText}</span>
           <small>{bottomText}</small>
         </div>
-        <SnapchatIcon className="flex-none size-6 md:size-10" />
+        <SnapchatIcon className="size-6 flex-none md:size-10" />
       </a>
     </TopBanner>
   );

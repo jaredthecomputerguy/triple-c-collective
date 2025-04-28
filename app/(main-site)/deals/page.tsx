@@ -129,7 +129,7 @@ export default async function DealsPage() {
     <main className="bg-[#fefefe]" id="main-content">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
         <section>
-          <h1 className="py-4 font-logo text-4xl font-semibold">
+          <h1 className="font-logo py-4 text-4xl font-semibold">
             Current Deals
           </h1>
           <hr className="pb-4" />
@@ -146,7 +146,7 @@ export default async function DealsPage() {
                 There are no active promotions.
               </p>
               <Button
-                className="rounded bg-primary-purple px-6 py-6 font-semibold text-white outline-none transition-all hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 md:text-xl"
+                className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 rounded-sm px-6 py-6 font-semibold text-white outline-hidden transition-all md:text-xl"
                 asChild
               >
                 <Link
@@ -198,11 +198,11 @@ export default async function DealsPage() {
           )}
         </section>
         <section>
-          <h2 className="py-4 font-logo text-4xl font-semibold">
+          <h2 className="font-logo py-4 text-4xl font-semibold">
             Recurring Deals
           </h2>
           <hr className="pb-4" />
-          <div className="block grid-cols-2 space-x-1 space-y-12 lg:grid">
+          <div className="block grid-cols-2 space-y-12 space-x-1 lg:grid">
             <StiiizyDealCard />
             <TrapTakeoverCountdown
               linkUrl="/deals/trap-takeover"

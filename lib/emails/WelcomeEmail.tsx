@@ -44,7 +44,7 @@ export const WelcomeEmail = ({ contactId }: WelcomeEmailProps) => {
       >
         <Preview>Welcome - Triple C Newsletter</Preview>
         <Body className="bg-offwhite font-sans text-base">
-          <Container className="p-45 bg-white">
+          <Container className="bg-white p-45">
             <Img
               className="mx-auto h-24 w-24"
               src={`https://tripleccollective.com/images/logo.png`}
@@ -69,7 +69,7 @@ export const WelcomeEmail = ({ contactId }: WelcomeEmailProps) => {
             <Section>
               <Row>
                 <Column className="w-[90%]">
-                  <Text className="m-0 text-[20px] font-semibold leading-[28px] text-gray-900">
+                  <Text className="m-0 text-[20px] leading-[28px] font-semibold text-gray-900">
                     Upcoming Events
                   </Text>
                   <Text className="m-0 mt-[8px] text-[16px] leading-[24px] text-gray-500">
@@ -83,7 +83,7 @@ export const WelcomeEmail = ({ contactId }: WelcomeEmailProps) => {
             <Section>
               <Row>
                 <Column className="w-[90%]">
-                  <Text className="m-0 text-[20px] font-semibold leading-[28px] text-gray-900">
+                  <Text className="m-0 text-[20px] leading-[28px] font-semibold text-gray-900">
                     Exclusive Deals
                   </Text>
                   <Text className="m-0 mt-[8px] text-[16px] leading-[24px] text-gray-500">
@@ -97,7 +97,7 @@ export const WelcomeEmail = ({ contactId }: WelcomeEmailProps) => {
             <Section>
               <Row>
                 <Column className="w-[90%]">
-                  <Text className="m-0 text-[20px] font-semibold leading-[28px] text-gray-900">
+                  <Text className="m-0 text-[20px] leading-[28px] font-semibold text-gray-900">
                     Holiday & Store Updates
                   </Text>
                   <Text className="m-0 mt-[8px] text-[16px] leading-[24px] text-gray-500">
@@ -110,7 +110,7 @@ export const WelcomeEmail = ({ contactId }: WelcomeEmailProps) => {
             <Section>
               <Row>
                 <Column className="w-[90%]">
-                  <Text className="m-0 text-[20px] font-semibold leading-[28px] text-gray-900">
+                  <Text className="m-0 text-[20px] leading-[28px] font-semibold text-gray-900">
                     Reward Points (Coming Soon!)
                   </Text>
                   <Text className="m-0 mt-[8px] text-[16px] leading-[24px] text-gray-500">
@@ -135,10 +135,10 @@ export const WelcomeEmail = ({ contactId }: WelcomeEmailProps) => {
             <Text className="m-0 text-center text-gray-400">
               Triple C Collective
             </Text>
-            <Text className=" m-0 text-center text-gray-400">
+            <Text className="m-0 text-center text-gray-400">
               14196 Lakeshore Dr, Clearlake, CA
             </Text>
-            <Text className=" m-0 text-center text-gray-400">
+            <Text className="m-0 text-center text-gray-400">
               (707) 701-4160
             </Text>
           </Container>

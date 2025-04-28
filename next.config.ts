@@ -1,3 +1,5 @@
+import type { NextConfig } from "next";
+
 const cspHeader = `
     default-src *;
     script-src 'self' 'unsafe-eval' 'unsafe-inline';
@@ -12,15 +14,7 @@ const cspHeader = `
     upgrade-insecure-requests;
 `.replace(/\n/g, "");
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    serverComponentsExternalPackages: [
-      "@react-email/components",
-      "@react-email/render",
-      "@react-email/tailwind",
-    ],
-  },
+const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
@@ -51,4 +45,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

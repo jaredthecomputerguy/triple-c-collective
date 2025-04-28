@@ -29,7 +29,7 @@ export const FourTwentyBanner = ({ active }: { active: boolean }) => {
         >
           <div className="flex items-center gap-1 md:flex-col md:gap-4">
             <Image
-              className="aspect-4/3 -my-8 h-24 w-24"
+              className="-my-8 aspect-4/3 h-24 w-24"
               src={fourTwentyLogo}
               alt="4/20 Triple C Collective Logo"
               priority

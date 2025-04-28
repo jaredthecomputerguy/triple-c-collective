@@ -23,7 +23,7 @@ export default function NotFound() {
           <p>
             Return to the{" "}
             <Link
-              className="font-semibold text-primary-purple hover:underline"
+              className="text-primary-purple font-semibold hover:underline"
               href="/"
             >
               Home Page

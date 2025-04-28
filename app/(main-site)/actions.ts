@@ -16,7 +16,6 @@ interface SendWelcomeEmailInfo {
   lastName?: string;
 }
 
-/* eslint-disable no-console */
 export async function sendWelcomeEmailAction(user: SendWelcomeEmailInfo) {
   const { toEmail, firstName, lastName } = user;
   try {

@@ -4,11 +4,11 @@ import { NewsletterForm } from "../(main-site)/newsletter-form";
 
 export const Footer = () => {
   return (
-    <footer className="min-w-screen radial-gradient flex flex-col items-center gap-2  py-6 text-white md:py-12">
+    <footer className="radial-gradient flex min-w-screen flex-col items-center gap-2 py-6 text-white md:py-12">
       <NewsletterForm />
       <Link
         href="/"
-        className="rounded p-2 font-logo text-2xl font-semibold uppercase transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white sm:text-3xl md:text-4xl"
+        className="font-logo rounded-sm p-2 text-2xl font-semibold uppercase transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white sm:text-3xl md:text-4xl"
       >
         Triple C Collective
       </Link>
@@ -20,7 +20,7 @@ export const Footer = () => {
       <ul className="flex divide-x py-2 text-sm sm:text-base">
         <li className="px-2">
           <Link
-            className="rounded p-2 transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
+            className="rounded-sm p-2 transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
             href="/privacy-policy"
           >
             Privacy Policy
@@ -28,7 +28,7 @@ export const Footer = () => {
         </li>
         <li className="px-2">
           <Link
-            className="rounded p-2 transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
+            className="rounded-sm p-2 transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
             href="/cookie-policy"
           >
             Cookie Policy
@@ -36,7 +36,7 @@ export const Footer = () => {
         </li>
         <li className="px-2">
           <Link
-            className="rounded p-2 transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
+            className="rounded-sm p-2 transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
             href="/terms-of-use"
           >
             Terms of Use
@@ -46,7 +46,7 @@ export const Footer = () => {
       <span className="flex flex-col items-center text-center text-xs">
         Made by
         <a
-          className="my-1 rounded p-1 px-2 font-semibold text-cyan-500 transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
+          className="my-1 rounded-sm p-1 px-2 font-semibold text-cyan-500 transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
           id="jared"
           href="https://jaredthecomputerguy.dev/"
           target="_blank"

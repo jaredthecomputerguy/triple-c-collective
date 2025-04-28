@@ -27,7 +27,7 @@ export const FourTwentyTimer = () => {
       {Object.entries(timeLeft).map(([key, value]) => (
         <div key={key + value} className="flex flex-col items-center">
           <div className="flex font-mono">
-            <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 font-bold text-white backdrop-blur-sm">
+            <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 font-bold text-white backdrop-blur-xs">
               {value}
             </span>
           </div>

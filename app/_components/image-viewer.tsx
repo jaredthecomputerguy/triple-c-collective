@@ -30,7 +30,7 @@ export const ImageViewer = ({
   if (!isMounted) {
     return (
       <div className={cn(className, "flex items-center justify-center")}>
-        <div className="h-full w-full animate-pulse rounded bg-gray-300"></div>
+        <div className="h-full w-full animate-pulse rounded-sm bg-gray-300"></div>
       </div>
     );
   }

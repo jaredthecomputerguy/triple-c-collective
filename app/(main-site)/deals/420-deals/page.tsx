@@ -62,7 +62,7 @@ export default function FourTwentyDealsPage() {
 
   return (
     <main className="bg-[#fefefe]" id="main-content">
-      <div className="relative mx-auto max-w-7xl rounded px-4 py-6 sm:py-12">
+      <div className="relative mx-auto max-w-7xl rounded-sm px-4 py-6 sm:py-12">
         {/* Header */}
         <div className="motion-preset-expand mx-auto flex max-w-3xl items-center justify-center transition-all duration-300 hover:scale-110">
           <Image
@@ -75,7 +75,7 @@ export default function FourTwentyDealsPage() {
         </div>
 
         <div className="flex flex-col items-center">
-          <h1 className="animate-text bg-gradient-to-r from-teal-500 via-purple-800 to-orange-500 bg-clip-text pb-8 text-center font-logo text-5xl font-black text-transparent md:text-7xl">
+          <h1 className="animate-text font-logo bg-linear-to-r from-teal-500 via-purple-800 to-orange-500 bg-clip-text pb-8 text-center text-5xl font-black text-transparent md:text-7xl">
             4/20 Deals
           </h1>
           <span className="w-full text-center text-2xl font-semibold">
@@ -93,7 +93,7 @@ export default function FourTwentyDealsPage() {
         <div className="pb-16">
           <div className="mx-auto w-fit">
             <ImageViewer
-              className="aspect-[1163/1600] h-96 w-72 cursor-pointer rounded border-white sm:h-[700px] sm:w-[500px]"
+              className="aspect-1163/1600 h-96 w-72 cursor-pointer rounded-sm border-white sm:h-[700px] sm:w-[500px]"
               src={fourTwentyFlyerPath}
               alt="4/20 Sales"
               width={1163}

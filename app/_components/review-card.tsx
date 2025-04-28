@@ -40,17 +40,16 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <div key={review.id} className="flex flex-col gap-2 ">
+    <div key={review.id} className="flex flex-col gap-2">
       <a
         href={review.link}
         target="_blank"
-        className="group flex items-center gap-4 rounded-lg px-6 outline-none focus:outline-primary-purple sm:px-2"
+        className="group focus:outline-primary-purple flex items-center gap-4 rounded-lg px-6 outline-hidden sm:px-2"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         {/* <img className="w-10 h-10 rounded-full object-cover" src={review.imageSrc} alt={review.name} /> */}
         <AvatarImage id={review.id} name={review.name} />
         <div className="flex flex-col">
-          <p className="text-pretty text-lg  font-semibold group-hover:underline">
+          <p className="text-lg font-semibold text-pretty group-hover:underline">
             {review.name}
           </p>
           <div className="flex items-center gap-1">
@@ -63,14 +62,14 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
       </a>
       <p
         className={cn(
-          "text-pretty px-4 text-lg text-gray-600 sm:px-2",
+          "px-4 text-lg text-pretty text-gray-600 sm:px-2",
           showMore === false && "line-clamp-3",
         )}
       >
         &quot;{review.text}&quot;
       </p>
       <button
-        className="rounded-lg py-2 font-semibold text-primary-purple outline-none hover:underline focus:underline focus:outline-primary-purple"
+        className="text-primary-purple focus:outline-primary-purple rounded-lg py-2 font-semibold outline-hidden hover:underline focus:underline"
         onClick={() => setShowMore((prev) => !prev)}
       >
         {showMore ? "Show less" : "Show more"}
