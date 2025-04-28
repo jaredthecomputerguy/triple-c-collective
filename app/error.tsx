@@ -4,6 +4,9 @@ import { useEffect } from "react";
 import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
 import { usePathname } from "next/navigation";
+import { Logger } from "@/lib/logger";
+
+const logger = new Logger();
 
 export default function Error({
   error,
@@ -15,8 +18,7 @@ export default function Error({
   const pathname = usePathname();
 
   useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.error(`Error on page ${pathname}: ${error}`);
+    logger.error(`Error on page ${pathname}: ${error}`);
   }, [error, pathname]);
 
   return (
