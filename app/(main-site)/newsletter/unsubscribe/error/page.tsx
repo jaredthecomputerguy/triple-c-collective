@@ -49,11 +49,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(`${process.env.SITE_URL}`),
 };
 
-export default async function NewsletterUnsubscribeSuccessPage({
-  searchParams,
-}: {
-  searchParams: { contactId: string };
+export default async function NewsletterUnsubscribeSuccessPage(props: {
+  searchParams: Promise<{ contactId: string }>;
 }) {
+  const searchParams = await props.searchParams;
   const { contactId } = searchParams;
 
   return (

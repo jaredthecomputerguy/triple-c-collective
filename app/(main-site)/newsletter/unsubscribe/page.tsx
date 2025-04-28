@@ -55,11 +55,10 @@ export const metadata: Metadata = {
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export default async function NewsletterUnsubscribePage({
-  searchParams,
-}: {
-  searchParams: { contactId: string };
+export default async function NewsletterUnsubscribePage(props: {
+  searchParams: Promise<{ contactId: string }>;
 }) {
+  const searchParams = await props.searchParams;
   const { contactId } = searchParams;
 
   if (!contactId) {
