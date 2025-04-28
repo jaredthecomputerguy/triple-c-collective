@@ -91,3 +91,7 @@ To run this project locally, follow these steps:
    ```bash
    npm run pocketbase:admin
    ```
+
+## Special Thanks
+
+Special thanks to [React Snowfall](https://github.com/cahilfoley/react-snowfall) for the snowfall effect!
