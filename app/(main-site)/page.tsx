@@ -12,7 +12,7 @@ import headerImg from "@/public/images/interior-shop.jpg";
 import logoImg from "@/public/images/logo.png";
 import orderOnlineImg from "@/public/images/order-online.avif";
 import phonecallImg from "@/public/images/phonecall.avif";
-import rewardsImg from "@/public/images/rewards.avif";
+import deliveryImg from "@/public/images/delivery.jpg";
 import dccLogoImg from "@/public/images/dcc-logo.png";
 
 import {
@@ -122,7 +122,7 @@ export default function HomePage() {
               alt="Online Ordering"
             />
             <p className="font-logo text-primary-purple text-2xl font-semibold">
-              Online Ordering
+              Order Online
             </p>
             <p>
               Look through our online menu and place an order for pickup or
@@ -152,22 +152,22 @@ export default function HomePage() {
           </div>
           <div className="flex flex-col gap-4">
             <Image
-              src={rewardsImg}
-              className="rounded-lg"
-              alt="Online Ordering"
+              src={deliveryImg}
+              className="max-w-[373px] rounded-lg"
+              alt="Cannabis Delivery"
             />
             <p className="font-logo text-primary-purple text-2xl font-semibold">
-              Rewards Program
+              Order Delivery
             </p>
             <p>
-              Earn points with every purchase you make, and redeem them at any
-              time.
+              Get your favorite cannabis products delivered straight to your
+              doorstep.
             </p>
             <Link
               className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 w-fit grow-0 rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
-              href="/reward-program"
+              href="/delivery"
             >
-              Explore Rewards
+              Schedule Delivery
             </Link>
           </div>
         </div>
