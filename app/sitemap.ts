@@ -21,6 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
+      url: "https://tripleccollective.com/delivery",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
+    {
       url: "https://tripleccollective.com/deals",
       lastModified: new Date(),
       changeFrequency: "daily",
@@ -74,7 +80,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.2,
     },
-
     {
       url: "https://tripleccollective.com/newsletter/unsubscribe/success",
       lastModified: new Date(),
