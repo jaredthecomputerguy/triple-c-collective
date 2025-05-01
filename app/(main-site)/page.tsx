@@ -22,7 +22,6 @@ import {
   AccordionTrigger,
 } from "@/app/_components/accordian";
 import { Button } from "../_components/button";
-import { ShopNowButton } from "../_components/shop-now-button";
 import { BrandCarousel } from "../_components/brand-carousel";
 
 export const metadata: Metadata = {
