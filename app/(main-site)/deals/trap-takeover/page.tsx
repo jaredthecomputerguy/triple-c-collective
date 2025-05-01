@@ -13,10 +13,10 @@ const SHOW_PAGE = true;
 const HAVE_VIDEO = false;
 
 // HAVE_FLYER determines whether to show the paper flyer or not
-const HAVE_FLYER = false;
+const HAVE_FLYER = true;
 
 // FLYER_PATH is the path to the digital flyer
-const FLYER_PATH = "/images/trap-takeover/0404-flyer-no-giftbags.png";
+const FLYER_PATH = "/images/trap-takeover/0502-flyer.png";
 
 // RAFFLE_RULES_PATH is the path to the raffle rules
 const RAFFLE_RULES_PATH = "/images/trap-takeover/raffle-rules.png";
