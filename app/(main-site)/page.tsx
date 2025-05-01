@@ -12,7 +12,7 @@ import headerImg from "@/public/images/interior-shop.jpg";
 import logoImg from "@/public/images/logo.png";
 import orderOnlineImg from "@/public/images/order-online.avif";
 import phonecallImg from "@/public/images/phonecall.avif";
-import deliveryImg from "@/public/images/delivery.jpg";
+import deliveryImg from "@/public/images/delivery.avif";
 import dccLogoImg from "@/public/images/dcc-logo.png";
 
 import {
@@ -128,7 +128,14 @@ export default function HomePage() {
               Look through our online menu and place an order for pickup or
               delivery.
             </p>
-            <ShopNowButton />
+
+            <Link
+              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 flex w-full min-w-[220px] grow-0 items-center justify-center rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
+              href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
+              target="_blank"
+            >
+              Shop Now
+            </Link>
           </div>
           <div className="flex flex-col gap-4">
             <Image
@@ -144,7 +151,7 @@ export default function HomePage() {
               or in store pickup.
             </p>
             <Link
-              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 w-fit grow-0 rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
+              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 flex w-full min-w-[220px] grow-0 justify-center rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
               href="tel:707-701-4160"
             >
               Call Us
@@ -153,7 +160,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-4">
             <Image
               src={deliveryImg}
-              className="max-w-[373px] rounded-lg"
+              className="rounded-lg"
               alt="Cannabis Delivery"
             />
             <p className="font-logo text-primary-purple text-2xl font-semibold">
@@ -164,7 +171,7 @@ export default function HomePage() {
               doorstep.
             </p>
             <Link
-              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 w-fit grow-0 rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
+              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 flex w-full min-w-[220px] grow-0 justify-center rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
               href="/delivery"
             >
               Schedule Delivery
