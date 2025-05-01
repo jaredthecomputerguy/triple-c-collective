@@ -7,15 +7,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/app/_components/table";
-import { Clock, MapPin, Phone, Truck } from "lucide-react";
+import { Clock, MapPin, Truck } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Delivery | Triple C Collective",
   description:
-    // TODO: Add description
-    "",
+    "Craft cannabis delivery straight to your door with Triple C Collective.",
   keywords: [
     "cannabis",
     "cannabis store",
@@ -34,6 +33,7 @@ export const metadata: Metadata = {
     "kratom",
     "wellness",
     "Clearlake",
+    "delivery",
   ],
   authors: [
     {
