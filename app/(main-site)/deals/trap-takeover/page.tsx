@@ -22,7 +22,7 @@ const FLYER_PATH = "/images/trap-takeover/0502-flyer.png";
 const RAFFLE_RULES_PATH = "/images/trap-takeover/raffle-rules.png";
 
 // HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo
-const HAVE_GIFT_BAGS = false;
+const HAVE_GIFT_BAGS = true;
 
 const TRAP_TAKEOVER_DATE_STRING = formatDate("05/02/2025");
 
