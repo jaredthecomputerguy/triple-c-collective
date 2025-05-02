@@ -97,7 +97,6 @@ const featuredBrands = getFeaturedBrands(
   "Green River Extracts",
   "Koa Cannabis Co.",
   "Akwaaba",
-  "Park Jams",
 );
 
 export default function TrapTakeoverPage() {
