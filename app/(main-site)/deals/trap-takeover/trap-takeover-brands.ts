@@ -11,7 +11,7 @@ import roninRosinLogo from "@/public/images/brands/ronin-logo.jpg";
 import coffeeSupplyLogo from "@/public/images/brands/coffee-supply.png";
 import hashtagLogo from "@/public/images/brands/hashtag-logo.png";
 import chameleonCraftLogo from "@/public/images/brands/chameleon-craft.png";
-import parkJamsProductPackaging from "@/public/images/brands/park-jams-product-packaging.png";
+import parkJamsProductPackaging from "@/public/images/brands/park-jams.jpg";
 
 export type FeaturedBrand = (typeof BRANDS)[number];
 type BrandNames = FeaturedBrand["name"][];
