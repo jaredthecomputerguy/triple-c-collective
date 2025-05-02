@@ -112,7 +112,7 @@ export const Header = () => {
         bannerText="Trap Takeover - May 2nd @ 12PM"
       />
       <NewsletterBanner active={false} />
-      <div className="group bg-primary-purple sticky top-0 min-w-screen">
+      <div className="group bg-primary-purple sticky top-0">
         <div className="bg-primary-purple flex justify-between px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
             className="flex items-center justify-center gap-2 rounded-sm p-2 font-semibold outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"

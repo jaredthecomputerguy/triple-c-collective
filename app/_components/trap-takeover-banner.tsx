@@ -17,7 +17,7 @@ export const TrapTakeoverBanner = ({
   }
 
   return (
-    <div className="trap-takeover font-logo sticky top-0 flex w-screen items-center justify-center py-4 font-semibold md:px-4">
+    <div className="trap-takeover font-logo sticky top-0 flex items-center justify-center py-4 font-semibold md:px-4">
       <div className="mx-auto max-w-7xl">
         <div className="text-sm md:text-base">
           <span className="flex items-center justify-center font-semibold">

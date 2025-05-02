@@ -4,7 +4,7 @@ import { NewsletterForm } from "../(main-site)/newsletter-form";
 
 export const Footer = () => {
   return (
-    <footer className="radial-gradient flex min-w-screen flex-col items-center gap-2 py-6 text-white md:py-12">
+    <footer className="radial-gradient flex flex-col items-center gap-2 py-6 text-white md:py-12">
       <NewsletterForm />
       <Link
         href="/"
