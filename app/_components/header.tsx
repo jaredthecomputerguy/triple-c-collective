@@ -102,7 +102,9 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        shouldHeaderShow ? "opacity-100" : "opacity-0",
+        shouldHeaderShow
+          ? "pointer-events-auto opacity-100"
+          : "pointer-events-none opacity-0",
         "sticky top-0 z-40 bg-[#fefefe] shadow-sm transition-opacity duration-300 ease-in-out",
       )}
     >
