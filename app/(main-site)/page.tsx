@@ -136,11 +136,12 @@ export default function HomePage() {
               Shop Now
             </Link>
           </div>
+
           <div className="flex flex-col gap-4">
             <Image
               src={phonecallImg}
               className="rounded-lg"
-              alt="Online Ordering"
+              alt="Order by Phone"
             />
             <p className="font-logo text-primary-purple text-2xl font-semibold">
               Order by Phone
@@ -156,6 +157,7 @@ export default function HomePage() {
               Call Us
             </Link>
           </div>
+
           <div className="flex flex-col gap-4">
             <Image
               src={deliveryImg}
