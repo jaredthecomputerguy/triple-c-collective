@@ -1,6 +1,6 @@
 "use client";
 
-import { getInitials, timeSince } from "@/lib/utils";
+import { timeSince } from "@/lib/utils";
 
 import { useState } from "react";
 import { StarRating } from "./star-rating";
@@ -33,7 +33,12 @@ const AvatarImage = ({ id, name }: { id: number; name: string }) => {
       break;
   }
 
-  return <div className={styles}>{getInitials(name)}</div>;
+  const initials = name
+    .split(" ")
+    .map((word) => word.charAt(0))
+    .join("");
+
+  return <div className={styles}>{initials}</div>;
 };
 
 export const ReviewCard = ({ review }: ReviewCardProps) => {
