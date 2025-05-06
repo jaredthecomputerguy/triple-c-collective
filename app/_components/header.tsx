@@ -313,7 +313,6 @@ const NavLink = ({
   label,
   links,
   showMoreLinksMenu,
-  setShowMoreLinksMenu,
   showMoreLinksMenuRef,
 }: Link & {
   showMoreLinksMenu: boolean;
