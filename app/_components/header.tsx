@@ -94,7 +94,7 @@ export const Header = () => {
   const [showMoreLinksMenu, setShowMoreLinksMenu] = useState(false);
   const [viewportHeight, setViewportHeight] = useState(0);
 
-  const showMoreLinksMenuRef = useRef<HTMLButtonElement>(null);
+  const showMoreLinksMenuRef = useRef<HTMLLIElement>(null);
 
   const pathname = usePathname();
 
@@ -130,6 +130,7 @@ export const Header = () => {
     setCurrentPath(pathname);
     if (pathname !== currentPath) {
       setShowMobileMenu(false);
+      setShowMoreLinksMenu(false);
     } else {
       setShowMobileMenu(false);
     }
@@ -170,9 +171,9 @@ export const Header = () => {
         setShowMoreLinksMenu(false);
       }
     }
-    document.addEventListener("pointerdown", handleClickOutside, true);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener("pointerdown", handleClickOutside, true);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showMoreLinksMenuRef]);
 
@@ -313,17 +314,16 @@ const NavLink = ({
 }: Link & {
   showMoreLinksMenu: boolean;
   setShowMoreLinksMenu: Dispatch<SetStateAction<boolean>>;
-  showMoreLinksMenuRef: Ref<HTMLButtonElement>;
+  showMoreLinksMenuRef: Ref<HTMLLIElement>;
 }) => {
   if (!href) {
     return (
-      <li className="relative">
+      <li className="relative" ref={showMoreLinksMenuRef}>
         <button
           className="text-primary-purple focus:outline-primary-purple group flex items-center gap-2 rounded-sm font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
           onClick={() => {
             setShowMoreLinksMenu((prev) => !prev);
           }}
-          ref={showMoreLinksMenuRef}
         >
           {label} <ChevronDown />
         </button>
@@ -338,7 +338,7 @@ const NavLink = ({
               <li key={link.href}>
                 <Link
                   className="focus:outline-primary-purple text-primary-purple flex items-center gap-2 rounded-sm px-4 py-2 text-center font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
-                  href={link.href ?? "#"}
+                  href={link.href ?? "/"}
                 >
                   {link.label}
                 </Link>
