@@ -1,6 +1,7 @@
 "use client";
 
 import React, {
+  type Dispatch,
   type ReactNode,
   type Ref,
   type SetStateAction,
@@ -93,7 +94,7 @@ export const Header = () => {
   const [showMoreLinksMenu, setShowMoreLinksMenu] = useState(false);
   const [viewportHeight, setViewportHeight] = useState(0);
 
-  const showMoreLinksMenuRef = useRef<HTMLUListElement>(null);
+  const showMoreLinksMenuRef = useRef<HTMLButtonElement>(null);
 
   const pathname = usePathname();
 
@@ -169,9 +170,9 @@ export const Header = () => {
         setShowMoreLinksMenu(false);
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("pointerdown", handleClickOutside, true);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("pointerdown", handleClickOutside, true);
     };
   }, [showMoreLinksMenuRef]);
 
@@ -188,10 +189,10 @@ export const Header = () => {
     >
       <StiiizyBanner active={false} />
       <TrapTakeoverBanner
-        active={true}
+        active={false}
         bannerText="Trap Takeover - TODAY @ 12PM"
       />
-      <NewsletterBanner active={false} />
+      <NewsletterBanner active={true} />
       <div className="group bg-primary-purple sticky top-0">
         <div className="bg-primary-purple flex justify-between px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
@@ -283,13 +284,7 @@ export const Header = () => {
           </>
         )}
         <nav className="hidden md:block">
-          <ul
-            className="flex md:gap-2 lg:gap-4"
-            id="desktop-navigation"
-            onClick={() => {
-              setShowMoreLinksMenu((prev) => !prev);
-            }}
-          >
+          <ul className="flex md:gap-2 lg:gap-4" id="desktop-navigation">
             {DESKTOP_LINKS.map((link) => (
               <NavLink
                 key={link.href}
@@ -313,16 +308,23 @@ const NavLink = ({
   label,
   links,
   showMoreLinksMenu,
+  setShowMoreLinksMenu,
   showMoreLinksMenuRef,
 }: Link & {
   showMoreLinksMenu: boolean;
-  setShowMoreLinksMenu: React.Dispatch<SetStateAction<boolean>>;
-  showMoreLinksMenuRef: Ref<HTMLUListElement>;
+  setShowMoreLinksMenu: Dispatch<SetStateAction<boolean>>;
+  showMoreLinksMenuRef: Ref<HTMLButtonElement>;
 }) => {
   if (!href) {
     return (
       <li className="relative">
-        <button className="text-primary-purple focus:outline-primary-purple group flex items-center gap-2 rounded-sm font-semibold outline-hidden hover:underline focus:underline lg:text-xl">
+        <button
+          className="text-primary-purple focus:outline-primary-purple group flex items-center gap-2 rounded-sm font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
+          onClick={() => {
+            setShowMoreLinksMenu((prev) => !prev);
+          }}
+          ref={showMoreLinksMenuRef}
+        >
           {label} <ChevronDown />
         </button>
         {links && (
@@ -331,7 +333,6 @@ const NavLink = ({
               "absolute top-[62px] right-0 flex w-[250px] flex-col gap-4 border bg-white py-2 transition-all duration-300 ease-in-out",
               showMoreLinksMenu ? "opacity-100" : "hidden opacity-0",
             )}
-            ref={showMoreLinksMenuRef}
           >
             {links.map((link) => (
               <li key={link.href}>
