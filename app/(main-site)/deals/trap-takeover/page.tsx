@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 import { ImageViewer } from "@/app/_components/image-viewer";
 
 // SHOW_PAGE determines whether to show the page or not
-const SHOW_PAGE = false;
+const SHOW_PAGE = true;
 
 // HAVE_VIDEO determines whether to show the video flyer or not
 const HAVE_VIDEO = false;
@@ -91,14 +91,19 @@ export async function generateMetadata(): Promise<Metadata> {
 
 // Pass `undefined` as the last arg to show the 'more brands coming soon...'
 const featuredBrands = getFeaturedBrands(
+  // Flower - Chameleon/Akwaaba
+  // Vapes - Mids/Dom
+  // Pre Rolls - Mids/Koa
+  // Dabs - Mids/GRE
+  // Edible - Park Jams
+  "Akwaaba",
+  "Chameleon Craft",
   "Midsfactory",
   "Dompen",
-  "Big Boy Dro",
-  "Green River Extracts",
   "Koa Cannabis Co.",
-  "Akwaaba",
+  "Green River Extracts",
+  "Park Jams",
 );
-
 export default function TrapTakeoverPage() {
   return (
     <main className="bg-[#fefefe]">
