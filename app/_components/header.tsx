@@ -2,8 +2,10 @@
 
 import React, {
   type ReactNode,
+  type Ref,
   type SetStateAction,
   useEffect,
+  useRef,
   useState,
 } from "react";
 import Link from "next/link";
@@ -15,6 +17,9 @@ import {
   Gem,
   BanknoteIcon,
   PhoneIcon as ContactUsIcon,
+  Cannabis,
+  CircleDollarSign,
+  ChevronDown,
 } from "lucide-react";
 
 import { BarsIcon } from "./icons/bar-icon";
@@ -30,7 +35,14 @@ import { NewsletterBanner } from "./newsletter-banner";
 
 import { cn } from "@/lib/utils";
 
-const LINKS = [
+type Link = {
+  href: string | null;
+  label: string;
+  icon?: ReactNode;
+  links?: Link[];
+};
+
+const MOBILE_LINKS: Link[] = [
   { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
   { href: "/about", label: "About", icon: <UsersRoundIcon size={26} /> },
   { href: "/reward-program", label: "Rewards", icon: <Gem size={26} /> },
@@ -41,13 +53,47 @@ const LINKS = [
     label: "Contact",
     icon: <ContactUsIcon size={26} />,
   },
+  {
+    href: "/delivery",
+    label: "Delivery",
+    icon: <LocationIcon className="h-[24px] w-[24px]" />,
+  },
+  {
+    href: "/real-ca-cannabis",
+    label: "Real CA Cannabis",
+    icon: <Cannabis className="h-[24px] w-[24px]" />,
+  },
+  {
+    href: "/deals/trap-takeover",
+    label: "Trap Takeover Sale",
+    icon: <CircleDollarSign className="h-[24px] w-[24px]" />,
+  },
+];
+
+const DESKTOP_LINKS: Link[] = [
+  { href: "/deals", label: "Deals" },
+  { href: "/delivery", label: "Delivery" },
+  { href: "/contact", label: "Contact" },
+  {
+    href: null,
+    label: "More",
+    links: [
+      { href: "/about", label: "About" },
+      { href: "/reward-program", label: "Rewards" },
+      { href: "/real-ca-cannabis", label: "Real CA Cannabis" },
+      { href: "/deals/trap-takeover", label: "Trap Takeover Sale" },
+    ],
+  },
 ];
 
 export const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [currentPath, setCurrentPath] = useState<string | null>();
-
   const [shouldHeaderShow, setShouldHeaderShow] = useState(true);
+  const [showMoreLinksMenu, setShowMoreLinksMenu] = useState(false);
+  const [viewportHeight, setViewportHeight] = useState(0);
+
+  const showMoreLinksMenuRef = useRef<HTMLUListElement>(null);
 
   const pathname = usePathname();
 
@@ -63,7 +109,13 @@ export const Header = () => {
       if (currentScroll < topOffset) {
         setShouldHeaderShow(true);
       } else if (Math.abs(delta) > threshold) {
-        setShouldHeaderShow(delta < 0); // show when scrolling up
+        const isScrollingUp = delta < 0;
+        setShouldHeaderShow(isScrollingUp);
+
+        if (!isScrollingUp) {
+          // If scrolling down, close the mobile nav menu + more links dropdown
+          setShowMobileMenu(false); // CLOSE THE MOBILE MENU when scrolling down
+        }
       }
 
       lastScroll = currentScroll;
@@ -97,6 +149,32 @@ export const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportHeight(window.innerHeight);
+    };
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [viewportHeight]);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (!e.target || !showMoreLinksMenuRef.current) return;
+
+      if (!showMoreLinksMenuRef.current.contains(e.target as Node)) {
+        setShowMoreLinksMenu(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showMoreLinksMenuRef]);
+
   const toggleMobileMenu = () => setShowMobileMenu((prevState) => !prevState);
 
   return (
@@ -110,10 +188,10 @@ export const Header = () => {
     >
       <StiiizyBanner active={false} />
       <TrapTakeoverBanner
-        active={false}
+        active={true}
         bannerText="Trap Takeover - TODAY @ 12PM"
       />
-      <NewsletterBanner active={true} />
+      <NewsletterBanner active={false} />
       <div className="group bg-primary-purple sticky top-0">
         <div className="bg-primary-purple flex justify-between px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
@@ -177,17 +255,25 @@ export const Header = () => {
         </button>
         {showMobileMenu && (
           <>
-            <nav className="bg-primary-purple absolute top-16 right-0 w-full py-[6px] text-center text-white md:hidden">
+            <nav
+              className={cn(
+                "bg-primary-purple absolute top-16 right-0 w-full overflow-y-auto py-[6px] text-center text-white md:hidden",
+              )}
+            >
               <ul className="bg-primary-purple flex w-full flex-col">
-                {LINKS.map((link) => (
-                  <MobileNavLink
-                    href={link.href}
-                    label={link.label}
-                    icon={link.icon}
-                    key={link.href}
-                    setShowMobileMenu={setShowMobileMenu}
-                  />
-                ))}
+                {MOBILE_LINKS.map((link) => {
+                  if (!link.href) return;
+                  return (
+                    <MobileNavLink
+                      href={link.href}
+                      label={link.label}
+                      icon={link.icon}
+                      key={link.href}
+                      setShowMobileMenu={setShowMobileMenu}
+                      viewportHeight={viewportHeight}
+                    />
+                  );
+                })}
               </ul>
             </nav>
             <div
@@ -197,13 +283,22 @@ export const Header = () => {
           </>
         )}
         <nav className="hidden md:block">
-          <ul className="flex md:gap-2 lg:gap-4">
-            {LINKS.filter((link) => link.label !== "Home").map((link) => (
+          <ul
+            className="flex md:gap-2 lg:gap-4"
+            id="desktop-navigation"
+            onClick={() => {
+              setShowMoreLinksMenu((prev) => !prev);
+            }}
+          >
+            {DESKTOP_LINKS.map((link) => (
               <NavLink
                 key={link.href}
                 href={link.href}
                 label={link.label}
-                setShowMobileMenu={setShowMobileMenu}
+                links={link.links}
+                showMoreLinksMenu={showMoreLinksMenu}
+                setShowMoreLinksMenu={setShowMoreLinksMenu}
+                showMoreLinksMenuRef={showMoreLinksMenuRef}
               />
             ))}
           </ul>
@@ -216,18 +311,47 @@ export const Header = () => {
 const NavLink = ({
   href,
   label,
-  setShowMobileMenu,
-}: {
-  href: string;
-  label: string;
-  setShowMobileMenu: React.Dispatch<SetStateAction<boolean>>;
+  links,
+  showMoreLinksMenu,
+  showMoreLinksMenuRef,
+}: Link & {
+  showMoreLinksMenu: boolean;
+  setShowMoreLinksMenu: React.Dispatch<SetStateAction<boolean>>;
+  showMoreLinksMenuRef: Ref<HTMLUListElement>;
 }) => {
+  if (!href) {
+    return (
+      <li className="relative">
+        <button className="text-primary-purple focus:outline-primary-purple group flex items-center gap-2 rounded-sm font-semibold outline-hidden hover:underline focus:underline lg:text-xl">
+          {label} <ChevronDown />
+        </button>
+        {links && (
+          <ul
+            className={cn(
+              "absolute top-[62px] right-0 flex w-[250px] flex-col gap-4 border bg-white py-2 transition-all duration-300 ease-in-out",
+              showMoreLinksMenu ? "opacity-100" : "hidden opacity-0",
+            )}
+            ref={showMoreLinksMenuRef}
+          >
+            {links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  className="focus:outline-primary-purple text-primary-purple flex items-center gap-2 rounded-sm px-4 py-2 text-center font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
+                  href={link.href ?? "#"}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    );
+  }
+
   return (
     <li>
       <Link
-        onClick={() => {
-          setShowMobileMenu(false);
-        }}
         className="text-primary-purple focus:outline-primary-purple rounded-sm px-4 py-2 font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
         href={href}
       >
@@ -242,11 +366,13 @@ const MobileNavLink = ({
   label,
   icon,
   setShowMobileMenu,
+  viewportHeight,
 }: {
   href: string;
   label: string;
   icon: ReactNode;
   setShowMobileMenu: React.Dispatch<SetStateAction<boolean>>;
+  viewportHeight: number;
 }) => {
   return (
     <li className="block">
@@ -254,7 +380,10 @@ const MobileNavLink = ({
         onClick={() => {
           setShowMobileMenu(false);
         }}
-        className="flex w-full items-center justify-between px-6 py-4 font-semibold uppercase outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
+        className={cn(
+          "flex w-full items-center justify-between px-6 py-4 font-semibold uppercase outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white",
+          viewportHeight < 710 && "py-3",
+        )}
         href={href}
       >
         <span className="flex items-center gap-4">
