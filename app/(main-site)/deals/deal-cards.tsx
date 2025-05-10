@@ -29,11 +29,17 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
               {isNew && <Badge variant="destructive">New</Badge>}
             </BadgeContainer>
             <Image
-              className="deal-card-shadow aspect-video object-cover"
+              className="deal-card-shadow aspect-video object-contain"
               src={deal.image ?? ""}
               alt={deal.title}
               width={500}
               height={500}
+              style={{
+                backgroundColor:
+                  deal.imageBackgroundColor === ""
+                    ? "#FFFFFF"
+                    : deal.imageBackgroundColor,
+              }}
             />
             <div className="px-6 py-4">
               <p className="pb-2 text-2xl font-semibold group-hover:underline group-focus:underline group-active:underline">

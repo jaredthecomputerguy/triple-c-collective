@@ -59,32 +59,9 @@ func main() {
 		return nil
 	})
 
-	// sigChannel := make(chan os.Signal, 1)
-	// signal.Notify(sigChannel, os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
-	//
-	// go func() {
-	// 	if err := app.Start(); err != nil {
-	// 		log.Fatal(err)
-	// 	}
-	// }()
-
 	if err := app.Start(); err != nil {
 		log.Fatal(err)
 	}
-	// go func() {
-	// 	time.Sleep(2 * time.Second)
-	// 	if recordId != nil {
-	// 		uploadPlaceholderImage(*recordId)
-	// 		return
-	// 	} else {
-	// 		fmt.Println("No record ID found. Image upload aborted.")
-	// 		return
-	// 	}
-	// }()
-	//
-	// <-sigChannel
-	// log.Println("\nReceived shutdown signal, closing PocketBase server...")
-	// log.Println("Server shut down successfully")
 }
 
 // createDefaultAdminUser creates a default admin user with the email "test@test.com" and the password "testpassword"
@@ -103,16 +80,6 @@ func createDefaultAdminUser(app *pocketbase.PocketBase) error {
 	return nil
 }
 
-// createDealCollection creates a collection called "deals" with the following schema:
-//
-//	{
-//	  "active": true,
-//	  "title": "string",
-//	  "description": "string",
-//	  "image": "file",
-//	  "brands": "select",
-//	  "categories": "select"
-//	}
 func createDealCollection(app *pocketbase.PocketBase) error {
 
 	brands := getBrands()
@@ -139,28 +106,33 @@ func createDealCollection(app *pocketbase.PocketBase) error {
 		Required:  true,
 		MaxSelect: 1,
 		MaxSize:   1000000,
-	}, &core.SelectField{
-		Name:      "brands",
-		Required:  true,
-		Values:    types.JSONArray[string](brands),
-		MaxSelect: 3,
-	}, &core.SelectField{
-		Name:     "categories",
-		Required: true,
-		Values: types.JSONArray[string]{
-			"flower",
-			"cartridge",
-			"extract",
-			"pill",
-			"tincture",
-			"preroll",
-			"edible",
-			"plant",
-		},
-		MaxSelect: 7,
 	}, &core.TextField{
-		Name: "badge",
+		Name:     "imageBackgroundColor",
+		Required: false,
+		Pattern:  "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
 	},
+		&core.SelectField{
+			Name:      "brands",
+			Required:  true,
+			Values:    types.JSONArray[string](brands),
+			MaxSelect: 3,
+		}, &core.SelectField{
+			Name:     "categories",
+			Required: true,
+			Values: types.JSONArray[string]{
+				"flower",
+				"cartridge",
+				"extract",
+				"pill",
+				"tincture",
+				"preroll",
+				"edible",
+				"plant",
+			},
+			MaxSelect: 7,
+		}, &core.TextField{
+			Name: "badge",
+		},
 		&core.AutodateField{
 			Name:     "created",
 			OnCreate: true,
@@ -207,6 +179,7 @@ func seedDeal(app *pocketbase.PocketBase, recordId **string) error {
 		return errors.New("failed to create test deal: " + err.Error())
 	}
 	deal.Set("image", imageFile)
+	deal.Set("imageBackgroundColor", "#DDDDDD")
 	if err := app.Save(deal); err != nil {
 		return errors.New("failed to save test deal: " + err.Error())
 	}
