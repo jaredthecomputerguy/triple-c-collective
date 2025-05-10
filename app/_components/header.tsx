@@ -35,6 +35,7 @@ import { StiiizyBanner } from "./stiiizy-banner";
 import { NewsletterBanner } from "./newsletter-banner";
 
 import { cn } from "@/lib/utils";
+import { MothersDayBanner } from "./mothers-day-banner";
 
 type Link = {
   href: string | null;
@@ -193,7 +194,8 @@ export const Header = () => {
         active={false}
         bannerText="Trap Takeover - TODAY @ 12PM"
       />
-      <NewsletterBanner active={true} />
+      <NewsletterBanner active={false} />
+      <MothersDayBanner active={true} />
       <div className="group bg-primary-purple sticky top-0">
         <div className="bg-primary-purple flex justify-between px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
