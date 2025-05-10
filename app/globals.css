@@ -4,7 +4,7 @@ layer(base);
 layer(base);
 @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap")
 layer(base);
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap")
+@import url("https://fonts.googleapis.com/css2?family=Birthstone&display=swap")
 layer(base);
 
 @import "tailwindcss";
@@ -242,8 +242,27 @@ td {
   }
 }
 
-/* 4/20 */
+/* Mother's Day */
 
+.animate-text-reveal {
+  animation: text-reveal 1s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+}
+
+@keyframes text-reveal {
+  0% {
+    transform: translate(0, 200%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.leaves {
+  @apply bg-[url('/images/roses.jpg')] bg-cover bg-bottom bg-no-repeat;
+}
+
+/* 4/20 */
 .leaf {
   @apply bg-[url('/images/4-20/cannabis-leaf.svg')] bg-center bg-no-repeat;
 }
@@ -473,5 +492,25 @@ td {
   50% {
     background: rgba(249, 251, 238, 0.4);
     box-shadow: 0px 4.66667px 24px 3px rgba(249, 251, 238, 0.2);
+  }
+}
+
+@keyframes write {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
