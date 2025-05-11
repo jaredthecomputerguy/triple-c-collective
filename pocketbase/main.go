@@ -130,7 +130,14 @@ func createDealCollection(app *pocketbase.PocketBase) error {
 				"plant",
 			},
 			MaxSelect: 7,
-		}, &core.TextField{
+		},
+		&core.TextField{
+			Name: "subTypes",
+		},
+		&core.JSONField{
+			Name: "typeSubtypes",
+		},
+		&core.TextField{
 			Name: "badge",
 		},
 		&core.AutodateField{
@@ -171,8 +178,10 @@ func seedDeal(app *pocketbase.PocketBase, recordId **string) error {
 	deal.Set("active", true)
 	deal.Set("title", "Test Deal")
 	deal.Set("description", "This is a test deal for development purposes.")
-	deal.Set("brands", []string{"AKWAABA FARMS"})
-	deal.Set("categories", []string{"flower"})
+	deal.Set("brands", []string{"EMERALD SKY"})
+	deal.Set("categories", []string{"edible"})
+	deal.Set("subTypes", "HARD CANDY,GUMMY")
+	deal.Set("typeSubtypes", "{\"EDIBLE\":[\"HARD CANDY\",\"GUMMY\"]}")
 	deal.Set("badge", "Test Deal Badge")
 	imageFile, err := filesystem.NewFileFromPath("placeholder.png")
 	if err != nil {

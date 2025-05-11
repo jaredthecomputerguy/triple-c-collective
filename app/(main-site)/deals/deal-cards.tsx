@@ -5,6 +5,20 @@ import type { ReactNode } from "react";
 import { Badge } from "./badge";
 
 const DAYS_TO_BE_CONSIDERED_NEW = 3;
+const BASE_ECOMMERCE_MENU_URL = "https://triplec.treez.io/onlinemenu/search";
+
+const formatUrl = (deal: Deal) => {
+  const url = new URL(BASE_ECOMMERCE_MENU_URL);
+  const params = new URLSearchParams();
+  params.set("categories", deal.categories.join(","));
+  params.set("brands", deal.brands.join(","));
+  params.set("subTypes", deal.subTypes);
+  params.set(
+    "typeSubtypes",
+    encodeURIComponent(JSON.stringify(deal.typeSubtypes)),
+  );
+  return `${url.origin}${url.pathname}?${params.toString().replace(/\+/g, "%20")}`;
+};
 
 export const DealCards = ({ deals }: { deals: Deal[] }) => {
   return (
@@ -13,13 +27,7 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
         const isNew = isDateLessThan(deal.updated, DAYS_TO_BE_CONSIDERED_NEW);
         return (
           <Link
-            href={{
-              pathname: "https://triplec.treez.io/onlinemenu/search",
-              query: {
-                categories: deal.categories?.join(","),
-                brands: deal.brands.join(","),
-              },
-            }}
+            href={formatUrl(deal)}
             target="_blank"
             className="group border-primary-purple/50 focus:outline-primary-purple relative flex flex-col items-center overflow-hidden rounded-xl border shadow-lg outline-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1"
             key={deal.id}
