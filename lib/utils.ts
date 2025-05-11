@@ -10,19 +10,21 @@ export type DealsResponse = {
 };
 
 export type Deal = {
-  active: boolean;
-  brands: string[];
-  categories: string[];
+  id: string;
   collectionId: string;
   collectionName: string;
   created: string; // ISO 8601 date string
+  updated: string; // ISO 8601 date string
   description: string;
-  id: string;
+  active: boolean;
+  brands: string[];
+  categories: string[];
+  subTypes: string;
+  typeSubtypes: string;
   image: string;
   imageBackgroundColor: string;
   title: string;
   badge: string;
-  updated: string; // ISO 8601 date string
 };
 
 export type TimeRemainingUntilDate = {
