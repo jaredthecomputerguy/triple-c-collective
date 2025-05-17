@@ -7,13 +7,13 @@ import type { Metadata } from "next";
 import { ImageViewer } from "@/app/_components/image-viewer";
 
 // SHOW_PAGE determines whether to show the page or not
-const SHOW_PAGE = true;
+const SHOW_PAGE = false;
 
 // HAVE_VIDEO determines whether to show the video flyer or not
 const HAVE_VIDEO = false;
 
 // HAVE_FLYER determines whether to show the paper flyer or not
-const HAVE_FLYER = true;
+const HAVE_FLYER = false;
 
 // FLYER_PATH is the path to the digital flyer
 const FLYER_PATH = "/images/trap-takeover/0516-flyer.png";
@@ -24,7 +24,7 @@ const RAFFLE_RULES_PATH = "/images/trap-takeover/raffle-rules.png";
 // HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo
 const HAVE_GIFT_BAGS = false;
 
-const TRAP_TAKEOVER_DATE_STRING = formatDate("05/16/2025");
+const TRAP_TAKEOVER_DATE_STRING = formatDate("06/06/2025");
 
 export async function generateMetadata(): Promise<Metadata> {
   const trapTakeoverDate = new Date(TRAP_TAKEOVER_DATE_STRING);
