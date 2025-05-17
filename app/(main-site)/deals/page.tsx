@@ -6,6 +6,7 @@ import Link from "next/link";
 import { DealCategory } from "./deal-category";
 import { getDealImageUrl, type DealsResponse } from "@/lib/utils";
 import { StiiizyDealCard } from "./stiiizy-deal-card";
+import { Calendar } from "@/app/_components/calendar";
 
 export const dynamic = "force-dynamic";
 
@@ -197,7 +198,16 @@ export default async function DealsPage() {
             </>
           )}
         </section>
+
         <section>
+          <h2 className="font-logo py-4 text-4xl font-semibold">
+            Event & Promotion Calendar
+          </h2>
+          <hr className="pb-4" />
+          <Calendar />
+        </section>
+
+        <section className="py-16">
           <h2 className="font-logo py-4 text-4xl font-semibold">
             Recurring Deals
           </h2>
