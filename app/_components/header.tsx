@@ -189,12 +189,12 @@ export const Header = () => {
         "sticky top-0 z-40 bg-[#fefefe] shadow-sm transition-opacity duration-300 ease-in-out",
       )}
     >
-      <StiiizyBanner active={false} />
+      <StiiizyBanner active={true} />
       <TrapTakeoverBanner
         active={false}
         bannerText="Trap Takeover - TODAY @ 12PM"
       />
-      <NewsletterBanner active={true} />
+      <NewsletterBanner active={false} />
       <div className="group bg-primary-purple sticky top-0">
         <div className="bg-primary-purple flex justify-between px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
