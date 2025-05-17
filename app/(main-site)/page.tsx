@@ -2,11 +2,9 @@ import { type Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { ReviewCard } from "@/app/_components/review-card";
+import { ReviewCards } from "@/app/_components/review-card";
 import { StoreIcon } from "@/app/_components/icons/store";
 import { StarRating } from "@/app/_components/star-rating";
-
-import reviews from "@/lib/data/reviews.json";
 
 import headerImg from "@/public/images/interior-shop.jpg";
 import logoImg from "@/public/images/logo.png";
@@ -211,12 +209,7 @@ export default function HomePage() {
             <span className="text-sm text-gray-600">(494 reviews)</span>
           </div>
         </div>
-        <div className="grid gap-4 px-2 py-14 md:grid-cols-3">
-          {reviews.map((review) => (
-            <ReviewCard key={review.id} review={review} />
-          ))}
-        </div>
-
+        <ReviewCards />
         <div className="mx-auto max-w-4xl px-4 py-12">
           <div className="pb-6">
             <h5 className="font-logo text-center text-4xl font-semibold">
