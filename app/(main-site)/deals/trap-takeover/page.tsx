@@ -15,8 +15,11 @@ const HAVE_VIDEO = false;
 // HAVE_FLYER determines whether to show the paper flyer or not
 const HAVE_FLYER = false;
 
-// FLYER_PATH is the path to the digital flyer
-const FLYER_PATH = "/images/trap-takeover/0516-flyer.png";
+// FLYER_IMAGE_PATH is the path to image version of the digital flyer
+const FLYER_IMAGE_PATH = "/images/trap-takeover/0516-flyer.png";
+
+// FLYER_PDF_PATH is the path to the PDF version of the digital flyer
+const FLYER_PDF_PATH = "/images/trap-takeover/0516-flyer.pdf";
 
 // RAFFLE_RULES_PATH is the path to the raffle rules
 const RAFFLE_RULES_PATH = "/images/trap-takeover/raffle-rules.png";
@@ -91,11 +94,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 // Pass `undefined` as the last arg to show the 'more brands coming soon...'
 const featuredBrands = getFeaturedBrands(
-  // Flower - Chameleon/Akwaaba
-  // Vapes - Mids/Dom
-  // Pre Rolls - Mids/Koa
-  // Dabs - Mids/GRE
-  // Edible - Park Jams
   "Akwaaba",
   "Chameleon Craft",
   "Midsfactory",
@@ -213,18 +211,34 @@ export default function TrapTakeoverPage() {
           </section>
         )}
         {HAVE_FLYER && (
-          <section className="w-full">
+          <section className="pb-8">
             <h3 className="font-logo py-4 text-center text-3xl font-semibold md:text-left">
-              Deals
+              Flyer
             </h3>
             <hr />
             <ImageViewer
-              className="mx-auto my-16 rounded-xl"
-              src={FLYER_PATH}
+              className="mx-auto my-8 w-full max-w-2xl cursor-pointer rounded-xl"
+              src={FLYER_IMAGE_PATH}
               alt="March 7th Trap Takeover Flyer"
               width={1236}
               height={1599}
             />
+            <div className="mx-auto flex max-w-md flex-col items-center justify-center gap-2">
+              <a
+                className="bg-primary-purple hover:bg-primary-purple/90 w-full cursor-pointer rounded-sm px-6 py-2 text-center font-semibold text-white transition-all"
+                href={FLYER_PDF_PATH}
+                download
+              >
+                Download PDF
+              </a>
+              <a
+                className="bg-primary-purple hover:bg-primary-purple/90 w-full cursor-pointer rounded-sm px-6 py-2 text-center font-semibold text-white transition-all"
+                href={FLYER_IMAGE_PATH}
+                download
+              >
+                Download Image
+              </a>
+            </div>
           </section>
         )}
 
@@ -234,7 +248,7 @@ export default function TrapTakeoverPage() {
           </h3>
           <hr />
           <ImageViewer
-            className="mx-auto my-16 rounded-xl"
+            className="mx-auto my-8 w-full max-w-2xl cursor-pointer rounded-xl"
             src={RAFFLE_RULES_PATH}
             alt="Raffle Rules"
             width={1236}
