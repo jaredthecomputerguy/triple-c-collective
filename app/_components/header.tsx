@@ -190,7 +190,7 @@ export const Header = () => {
     >
       <StiiizyBanner active={false} />
       <TrapTakeoverBanner
-        active={true}
+        active={false}
         bannerText="Trap Takeover - June 6th @ 12PM"
       />
       <MemorialDayBanner active={true} />
