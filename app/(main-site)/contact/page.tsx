@@ -117,6 +117,8 @@ export default function ContactPage() {
                       <FacebookIcon className="h-8 w-8 rounded-sm" />
                     </a>
                   </li>
+
+                  {/* Uncomment this when we have have new socials
                   <li className="hover:bg-primary-purple/10 rounded-sm p-1 transition-colors">
                     <a
                       className="focus:outline-primary-purple rounded-sm outline-hidden"
@@ -128,7 +130,6 @@ export default function ContactPage() {
                     </a>
                   </li>
 
-                  {/* TODO: Uncomment this when we have a new IG
                     <li className="rounded-sm p-1 transition-colors hover:bg-primary-purple/10">
                      <a
                        className="rounded-sm outline-hidden focus:outline-primary-purple"

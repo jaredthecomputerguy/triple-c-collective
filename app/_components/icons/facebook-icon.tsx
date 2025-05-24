@@ -1,11 +1,10 @@
+import { cn } from "@/lib/utils";
 import { type SVGProps } from "react";
 
-export const FacebookIcon = ({
-  className = "w-6 h-6",
-}: SVGProps<SVGElement>) => {
+export const FacebookIcon = ({ className }: SVGProps<SVGElement>) => {
   return (
     <svg
-      className={className}
+      className={cn("h-6 w-6", className)}
       fill="#4267B2"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 320 512"
