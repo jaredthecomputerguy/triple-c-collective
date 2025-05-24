@@ -233,38 +233,48 @@ export default function TrapTakeoverPage() {
           </h3>
           <div
             className={cn(
-              "flex flex-col flex-wrap justify-evenly py-8 text-lg sm:flex-row",
+              "grid grid-cols-2 place-items-center py-8 text-lg md:flex md:flex-wrap md:justify-evenly md:gap-4 md:py-12",
               SHOW_PAGE ? "" : "sm:justify-start",
             )}
           >
             {SHOW_PAGE ? (
-              featuredBrands.map((brand) => (
-                <div
-                  className="flex flex-col items-center hover:underline"
-                  key={brand.name ?? "undefined"}
-                >
-                  <Link
-                    className="focus:border-primary-purple focus:outline-primary-purple flex flex-col items-center rounded-sm border border-white px-8 py-2 outline-hidden"
-                    href={brand.url}
-                    target="_blank"
-                  >
-                    <h3 className="font-logo w-full py-2 text-center text-2xl font-semibold">
-                      {brand.name}
-                    </h3>
-                    {brand.name ? (
-                      <Image
-                        src={brand.image}
-                        alt={brand.alt}
-                        className="h-32 w-32 object-contain sm:h-56 sm:w-56"
-                      />
-                    ) : (
-                      <div className="flex h-56 w-56 flex-col items-center justify-center text-center">
-                        Brands coming soon...
-                      </div>
+              featuredBrands.map((brand) => {
+                const isLast =
+                  brand.name ===
+                    featuredBrands[featuredBrands.length - 1].name &&
+                  featuredBrands.length % 2 !== 0;
+
+                return (
+                  <div
+                    className={cn(
+                      "flex flex-col items-center hover:underline",
+                      isLast && "col-span-2",
                     )}
-                  </Link>
-                </div>
-              ))
+                    key={brand.name ?? "undefined"}
+                  >
+                    <Link
+                      className="focus:border-primary-purple focus:outline-primary-purple flex flex-col items-center rounded-sm border border-white px-2 py-2 outline-hidden"
+                      href={brand.url}
+                      target="_blank"
+                    >
+                      <h3 className="font-logo w-full py-2 text-center text-xl font-semibold">
+                        {brand.name}
+                      </h3>
+                      {brand.name ? (
+                        <Image
+                          src={brand.image}
+                          alt={brand.alt}
+                          className="h-32 w-32 object-contain sm:h-56 sm:w-56"
+                        />
+                      ) : (
+                        <div className="flex h-56 w-56 flex-col items-center justify-center text-center">
+                          Brands coming soon...
+                        </div>
+                      )}
+                    </Link>
+                  </div>
+                );
+              })
             ) : (
               <div className="text-center text-3xl md:text-left">
                 Coming soon...
