@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import fourTwentyLogo from "@/public/images/4-20/420_logo-resized.png";
-import { FourTwentyTimer } from "./4-20-timer";
+import { FourTwentyTimer } from "../4-20-timer";
 
 export const FourTwentyBanner = ({ active }: { active: boolean }) => {
   const [showBanner, setShowBanner] = useState(active);

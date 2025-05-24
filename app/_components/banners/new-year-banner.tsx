@@ -1,4 +1,4 @@
-import Sparkle from "./sparkle";
+import Sparkle from "../sparkle";
 import { TopBanner } from "./top-banner";
 
 interface NewYearBannerProps {
