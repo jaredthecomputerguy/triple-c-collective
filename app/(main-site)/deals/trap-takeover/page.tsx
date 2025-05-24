@@ -1,13 +1,17 @@
-import { cn, formatDate, getTrapTakeoverDateWithSuffix } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import { TrapTakeoverCountdown } from "../trap-takeover-countdown";
-import { getFeaturedBrands } from "./trap-takeover-brands";
 import type { Metadata } from "next";
+
 import { ImageViewer } from "@/app/_components/image-viewer";
+import { cn, formatDate, getTrapTakeoverDateWithSuffix } from "@/lib/utils";
+import { TrapTakeoverCountdown } from "@/app/(main-site)/deals/trap-takeover-countdown";
+import { getFeaturedBrands } from "@/app/(main-site)/deals/trap-takeover/trap-takeover-brands";
+import underdogGrillLogo from "@/public/images/trap-takeover/underdog-grill.jpg";
+import { FacebookIcon } from "@/app/_components/icons/facebook-icon";
+import { InstagramIcon } from "@/app/_components/icons/instagram-icon";
 
 // SHOW_PAGE determines whether to show the page or not
-const SHOW_PAGE = false;
+const SHOW_PAGE = true;
 
 // HAVE_VIDEO determines whether to show the video flyer or not
 const HAVE_VIDEO = false;
@@ -16,10 +20,10 @@ const HAVE_VIDEO = false;
 const HAVE_FLYER = false;
 
 // FLYER_IMAGE_PATH is the path to image version of the digital flyer
-const FLYER_IMAGE_PATH = "/images/trap-takeover/0516-flyer.png";
+const FLYER_IMAGE_PATH = "";
 
 // FLYER_PDF_PATH is the path to the PDF version of the digital flyer
-const FLYER_PDF_PATH = "/images/trap-takeover/0516-flyer.pdf";
+const FLYER_PDF_PATH = "";
 
 // RAFFLE_RULES_PATH is the path to the raffle rules
 const RAFFLE_RULES_PATH = "/images/trap-takeover/raffle-rules.png";
@@ -27,7 +31,20 @@ const RAFFLE_RULES_PATH = "/images/trap-takeover/raffle-rules.png";
 // HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo
 const HAVE_GIFT_BAGS = false;
 
+// HAVE_FREE_FOOD determines whether we're doing the free food promo
+const HAVE_FREE_FOOD = true;
+
 const TRAP_TAKEOVER_DATE_STRING = formatDate("06/06/2025");
+
+// Pass `undefined` as the last arg to show the 'more brands coming soon...'
+const featuredBrands = getFeaturedBrands(
+  "Akwaaba",
+  "Midsfactory",
+  "Dompen",
+  "Koa Cannabis Co.",
+  "Green River Extracts",
+  "Park Jams",
+);
 
 export async function generateMetadata(): Promise<Metadata> {
   const trapTakeoverDate = new Date(TRAP_TAKEOVER_DATE_STRING);
@@ -92,25 +109,17 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-// Pass `undefined` as the last arg to show the 'more brands coming soon...'
-const featuredBrands = getFeaturedBrands(
-  "Akwaaba",
-  "Chameleon Craft",
-  "Midsfactory",
-  "Dompen",
-  "Koa Cannabis Co.",
-  "Green River Extracts",
-  "Park Jams",
-);
 export default function TrapTakeoverPage() {
   return (
     <main className="bg-[#fefefe]">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
         <span className="pb-1 text-gray-600">{TRAP_TAKEOVER_DATE_STRING}</span>
-        <h1 className="font-logo pb-4 text-4xl font-semibold">Trap Takeover</h1>
+        <h1 className="font-logo pb-4 text-4xl font-semibold">
+          Trap Takeover Sale
+        </h1>
         <hr className="pb-4" />
         <h2 className="font-logo py-8 pb-12 text-center text-2xl font-semibold md:text-left md:text-4xl">
-          Get Ready for the Ultimate Cannabis Shopping Experience
+          Double Up on Your Favorites Every Month
         </h2>
         <div className="trap-takeover bg-primary-purple rounded-lg p-8 text-white">
           <p className="pb-4 text-2xl">
@@ -132,7 +141,7 @@ export default function TrapTakeoverPage() {
             </li>
             <li>
               <strong>Raffle Prizes:</strong> For every promo purchase, you’ll
-              receive a raffle ticket. At 8 PM, we’ll draw a ticket for a chance
+              receive a raffle ticket. At 6 PM, we’ll draw a ticket for a chance
               to win an exclusive prize pack filled with promo products and swag
               from top cannabis brands. Don’t miss your chance to win big!
             </li>
@@ -146,6 +155,77 @@ export default function TrapTakeoverPage() {
             )}
           </ul>
         </div>
+
+        {HAVE_FREE_FOOD && (
+          <>
+            <h3 className="font-logo py-8 pb-12 text-center text-3xl font-semibold md:text-left">
+              Complimentary Meal
+            </h3>
+            <section className="flex flex-col items-center gap-4 rounded-lg bg-red-700 p-8 text-white md:flex-row">
+              <div className="flex flex-col items-center">
+                <Link
+                  href="https://www.instagram.com/underdoggrill/?hl=en"
+                  target="_blank"
+                >
+                  <Image
+                    className="my-2 cursor-pointer rounded-xl"
+                    src={underdogGrillLogo}
+                    alt="Underdog Grill Logo"
+                    width={120}
+                    height={30}
+                  />
+                </Link>
+                <div className="flex gap-2">
+                  <Link
+                    href="https://www.facebook.com/UnderdogGrill?mibextid=wwXIfr"
+                    target="_blank"
+                    className="group rounded-full bg-white p-1 hover:bg-blue-600"
+                  >
+                    <FacebookIcon className="transition-all group-hover:fill-white" />
+                  </Link>
+                  <Link
+                    href="https://www.instagram.com/underdoggrill/?hl=en"
+                    target="_blank"
+                    className="group rounded-full bg-white p-1 hover:bg-gradient-to-br hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7]"
+                  >
+                    <InstagramIcon className="transition-all group-hover:fill-white" />
+                  </Link>
+                </div>
+              </div>
+              <div>
+                <p className="text-semibold mb-2 text-center text-xl text-pretty md:text-left">
+                  Brought to you by{" "}
+                  <Link
+                    href="https://www.instagram.com/underdoggrill/?hl=en"
+                    target="_blank"
+                    className="hover:underline"
+                  >
+                    Underdog Grill!
+                  </Link>
+                </p>
+                <div className="flex flex-col gap-2 text-left text-base text-pretty">
+                  <p>
+                    In partnership with Underdog Grill, we&apos;re offering a
+                    free meal with every purchase of a promo product during the
+                    sale.
+                  </p>
+                  <p>
+                    Take your receipt with you to the Underdog Grill to receive
+                    your choice of a{" "}
+                    <strong>
+                      hot dog or a vegetarian taco just for stopping by
+                    </strong>
+                    .
+                  </p>
+                  <p>
+                    This promotion is only available during the sale, from 12 PM
+                    to 6 PM. Available while supplies last.
+                  </p>
+                </div>
+              </div>
+            </section>{" "}
+          </>
+        )}
 
         <section className="py-8">
           <h3 className="font-logo py-4 text-center text-3xl font-semibold md:text-left">
