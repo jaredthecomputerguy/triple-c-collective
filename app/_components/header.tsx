@@ -30,12 +30,11 @@ import { CloseIcon } from "./icons/close-icon";
 import { ClockIcon } from "./icons/clock-icon";
 import { LocationIcon } from "./icons/location-icon";
 
-import { TrapTakeoverBanner } from "./trap-takeover-banner";
-import { StiiizyBanner } from "./stiiizy-banner";
-import { NewsletterBanner } from "./newsletter-banner";
+import { TrapTakeoverBanner } from "./banners/trap-takeover-banner";
+import { StiiizyBanner } from "./banners/stiiizy-banner";
 
 import { cn } from "@/lib/utils";
-import { MothersDayBanner } from "./mothers-day-banner";
+import { MemorialDayBanner } from "./banners/memorial-day-banner";
 
 type Link = {
   href: string | null;
@@ -189,12 +188,12 @@ export const Header = () => {
         "sticky top-0 z-40 bg-[#fefefe] shadow-sm transition-opacity duration-300 ease-in-out",
       )}
     >
-      <StiiizyBanner active={true} />
+      <StiiizyBanner active={false} />
       <TrapTakeoverBanner
         active={false}
         bannerText="Trap Takeover - TODAY @ 12PM"
       />
-      <NewsletterBanner active={false} />
+      <MemorialDayBanner active={true} />
       <div className="group bg-primary-purple sticky top-0">
         <div className="bg-primary-purple flex justify-between px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a

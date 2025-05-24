@@ -1,5 +1,5 @@
 import type { ComponentProps } from "react";
-import { SnapchatIcon } from "./icons/snapchat-icon";
+import { SnapchatIcon } from "../icons/snapchat-icon";
 import { TopBanner } from "./top-banner";
 
 interface SnapchatBannerProps extends ComponentProps<"a"> {
