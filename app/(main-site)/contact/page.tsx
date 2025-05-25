@@ -2,8 +2,6 @@ import { type Metadata } from "next";
 import { GoogleMapEmbed } from "./google-map-embed";
 import { ContactForm } from "./contact-form";
 import { FacebookIcon } from "@/app/_components/icons/facebook-icon";
-// import { InstagramIcon } from "@/app/_components/icons/instagram-icon";
-import { SnapchatIcon } from "@/app/_components/icons/snapchat-icon";
 
 export const metadata: Metadata = {
   title: "Contact Us | Triple C Collective",
