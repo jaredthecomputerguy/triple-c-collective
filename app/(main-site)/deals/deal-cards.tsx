@@ -25,12 +25,15 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
     <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-2 lg:grid-cols-3">
       {deals.map((deal) => {
         const isNew = isDateLessThan(deal.updated, DAYS_TO_BE_CONSIDERED_NEW);
+        const isStiiizyWeekendDeal =
+          deal.title === "Stiiizy - Buy 2 Get One Free";
         return (
           <Link
             href={formatUrl(deal)}
             target="_blank"
             className="group border-primary-purple/50 focus:outline-primary-purple relative flex flex-col items-center overflow-hidden rounded-xl border shadow-lg outline-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1"
             key={deal.id}
+            id={isStiiizyWeekendDeal ? "stiiizy" : undefined}
           >
             <BadgeContainer>
               {deal.badge && <Badge>{deal.badge}</Badge>}
