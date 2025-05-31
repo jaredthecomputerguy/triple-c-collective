@@ -3,22 +3,24 @@ import { SnapchatIcon } from "../icons/snapchat-icon";
 import { TopBanner } from "./top-banner";
 
 interface SnapchatBannerProps extends ComponentProps<"a"> {
+  active: boolean;
   topText?: string;
   bottomText?: string;
-  href: string;
+  href?: string;
 }
 
 export const SnapchatBanner = ({
+  active,
   topText = "REPLY TO OUR POST TO GET $15",
   bottomText = "SHOW US IN STORE TO REDEEM",
   href,
   ...rest
 }: SnapchatBannerProps) => {
   return (
-    <TopBanner active={true} className="bg-[#fffc00] text-black">
+    <TopBanner active={active} className="bg-[#fffc00] text-black">
       <a
         {...rest}
-        href={href}
+        href={href ?? ""}
         target="_blank"
         className="font-logo flex items-center gap-2 px-4 py-4 text-center text-sm font-bold text-black md:text-base"
       >
