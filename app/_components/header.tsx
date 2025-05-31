@@ -34,7 +34,6 @@ import { TrapTakeoverBanner } from "./banners/trap-takeover-banner";
 import { StiiizyBanner } from "./banners/stiiizy-banner";
 
 import { cn } from "@/lib/utils";
-import { MemorialDayBanner } from "./banners/memorial-day-banner";
 
 type Link = {
   href: string | null;
