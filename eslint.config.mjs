@@ -20,6 +20,7 @@ export default defineConfig([
         "warn",
         {
           args: "after-used",
+          argsIgnorePattern: "^_",
         },
       ],
 

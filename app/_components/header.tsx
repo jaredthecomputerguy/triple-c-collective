@@ -1,27 +1,15 @@
 "use client";
 
-import React, {
-  type Dispatch,
-  type ReactNode,
-  type Ref,
-  type SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  ChevronRight,
-  HomeIcon,
-  UsersRoundIcon,
-  Gem,
-  BanknoteIcon,
-  PhoneIcon as ContactUsIcon,
-  Cannabis,
-  CircleDollarSign,
-  ChevronDown,
-} from "lucide-react";
+
+import { cn } from "@/lib/utils";
+import { useClickOutside } from "@/lib/hooks/useClickOutside";
+import { useHeaderFocus } from "@/lib/hooks/useHeaderFocus";
+import { useScrollHeader } from "@/lib/hooks/useScrollHeader";
+import { useViewportHeight } from "@/lib/hooks/useViewportHeight";
+import { usePathChangeCloseMenus } from "@/lib/hooks/usePathChangeCloseMenu";
 
 import { BarsIcon } from "./icons/bar-icon";
 import { CartIcon } from "./icons/cart-icon";
@@ -30,65 +18,18 @@ import { CloseIcon } from "./icons/close-icon";
 import { ClockIcon } from "./icons/clock-icon";
 import { LocationIcon } from "./icons/location-icon";
 
-import { TrapTakeoverBanner } from "./banners/trap-takeover-banner";
-import { StiiizyBanner } from "./banners/stiiizy-banner";
+import { Banner } from "./banners";
 
-import { cn } from "@/lib/utils";
-
-type Link = {
-  href: string | null;
-  label: string;
-  icon?: ReactNode;
-  links?: Link[];
-};
-
-const MOBILE_LINKS: Link[] = [
-  { href: "/", label: "Home", icon: <HomeIcon size={26} /> },
-  { href: "/about", label: "About", icon: <UsersRoundIcon size={26} /> },
-  { href: "/reward-program", label: "Rewards", icon: <Gem size={26} /> },
-  { href: "/deals", label: "Deals", icon: <BanknoteIcon size={26} /> },
-  // { href: "/deals/420-deals", label: "4/20 Deals", icon: <FlameIcon size={26} />, },
-  {
-    href: "/contact",
-    label: "Contact",
-    icon: <ContactUsIcon size={26} />,
-  },
-  {
-    href: "/delivery",
-    label: "Delivery",
-    icon: <LocationIcon className="h-[24px] w-[24px]" />,
-  },
-  {
-    href: "/real-ca-cannabis",
-    label: "Real CA Cannabis",
-    icon: <Cannabis className="h-[24px] w-[24px]" />,
-  },
-  {
-    href: "/deals/trap-takeover",
-    label: "Trap Takeover Sale",
-    icon: <CircleDollarSign className="h-[24px] w-[24px]" />,
-  },
-];
-
-const DESKTOP_LINKS: Link[] = [
-  { href: "/deals", label: "Deals" },
-  { href: "/delivery", label: "Delivery" },
-  { href: "/contact", label: "Contact" },
-  {
-    href: null,
-    label: "More",
-    links: [
-      { href: "/about", label: "About" },
-      { href: "/reward-program", label: "Rewards" },
-      { href: "/real-ca-cannabis", label: "Real CA Cannabis" },
-      { href: "/deals/trap-takeover", label: "Trap Takeover Sale" },
-    ],
-  },
-];
+import {
+  MobileNavLink,
+  NavLink,
+  DESKTOP_LINKS,
+  MOBILE_LINKS,
+} from "./nav-links";
 
 export const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [currentPath, setCurrentPath] = useState<string | null>();
+  const [currentPath, setCurrentPath] = useState<string>();
   const [shouldHeaderShow, setShouldHeaderShow] = useState(true);
   const [showMoreLinksMenu, setShowMoreLinksMenu] = useState(false);
   const [viewportHeight, setViewportHeight] = useState(0);
@@ -97,84 +38,17 @@ export const Header = () => {
 
   const pathname = usePathname();
 
-  useEffect(() => {
-    let lastScroll = window.pageYOffset;
-
-    const handleScroll = () => {
-      const currentScroll = window.pageYOffset;
-      const delta = currentScroll - lastScroll;
-      const topOffset = 200;
-      const threshold = 5; // pixels
-
-      if (currentScroll < topOffset) {
-        setShouldHeaderShow(true);
-      } else if (Math.abs(delta) > threshold) {
-        const isScrollingUp = delta < 0;
-        setShouldHeaderShow(isScrollingUp);
-
-        if (!isScrollingUp) {
-          // If scrolling down, close the mobile nav menu + more links dropdown
-          setShowMobileMenu(false); // CLOSE THE MOBILE MENU when scrolling down
-        }
-      }
-
-      lastScroll = currentScroll;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setCurrentPath(pathname);
-    if (pathname !== currentPath) {
-      setShowMobileMenu(false);
-      setShowMoreLinksMenu(false);
-    } else {
-      setShowMobileMenu(false);
-    }
-  }, [pathname, currentPath]);
-
-  useEffect(() => {
-    const header = document.querySelector("header");
-    if (!header) return;
-
-    const handleFocusIn = () => {
-      setShouldHeaderShow(true);
-    };
-
-    header.addEventListener("focusin", handleFocusIn);
-
-    return () => {
-      header.removeEventListener("focusin", handleFocusIn);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setViewportHeight(window.innerHeight);
-    };
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [viewportHeight]);
-
-  useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
-      if (!e.target || !showMoreLinksMenuRef.current) return;
-
-      if (!showMoreLinksMenuRef.current.contains(e.target as Node)) {
-        setShowMoreLinksMenu(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [showMoreLinksMenuRef]);
+  useClickOutside(showMoreLinksMenuRef, () => setShowMoreLinksMenu(false));
+  useHeaderFocus(setShouldHeaderShow);
+  usePathChangeCloseMenus(
+    pathname,
+    currentPath,
+    setCurrentPath,
+    setShowMobileMenu,
+    setShowMoreLinksMenu,
+  );
+  useScrollHeader(setShouldHeaderShow, setShowMobileMenu);
+  useViewportHeight(setViewportHeight);
 
   const toggleMobileMenu = () => setShowMobileMenu((prevState) => !prevState);
 
@@ -187,11 +61,7 @@ export const Header = () => {
         "sticky top-0 z-40 bg-[#fefefe] shadow-sm transition-opacity duration-300 ease-in-out",
       )}
     >
-      <StiiizyBanner active={true} />
-      <TrapTakeoverBanner
-        active={false}
-        bannerText="Trap Takeover - June 6th @ 12PM"
-      />
+      <Banner />
       <div className="group bg-primary-purple sticky top-0">
         <div className="bg-primary-purple flex justify-between px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
@@ -232,7 +102,6 @@ export const Header = () => {
             <span>(707) 701-4160</span>
           </a>
         </div>
-        {/* Header */}
       </div>
       <div className="relative mx-auto flex max-w-7xl items-center justify-between bg-[#fefefe] p-4">
         <Link
@@ -299,98 +168,5 @@ export const Header = () => {
         </nav>
       </div>
     </header>
-  );
-};
-
-const NavLink = ({
-  href,
-  label,
-  links,
-  showMoreLinksMenu,
-  setShowMoreLinksMenu,
-  showMoreLinksMenuRef,
-}: Link & {
-  showMoreLinksMenu: boolean;
-  setShowMoreLinksMenu: Dispatch<SetStateAction<boolean>>;
-  showMoreLinksMenuRef: Ref<HTMLLIElement>;
-}) => {
-  if (!href) {
-    return (
-      <li className="relative" ref={showMoreLinksMenuRef}>
-        <button
-          className="text-primary-purple focus:outline-primary-purple group flex items-center gap-2 rounded-sm font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
-          onClick={() => {
-            setShowMoreLinksMenu((prev) => !prev);
-          }}
-        >
-          {label} <ChevronDown />
-        </button>
-        {links && (
-          <ul
-            className={cn(
-              "absolute top-[62px] right-0 flex w-[250px] flex-col gap-4 border bg-white py-2 transition-all duration-300 ease-in-out",
-              showMoreLinksMenu ? "opacity-100" : "hidden opacity-0",
-            )}
-          >
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  className="focus:outline-primary-purple text-primary-purple flex items-center gap-2 rounded-sm px-4 py-2 text-center font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
-                  href={link.href ?? "/"}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
-      </li>
-    );
-  }
-
-  return (
-    <li>
-      <Link
-        className="text-primary-purple focus:outline-primary-purple rounded-sm px-4 py-2 font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
-        href={href}
-      >
-        {label}
-      </Link>
-    </li>
-  );
-};
-
-const MobileNavLink = ({
-  href,
-  label,
-  icon,
-  setShowMobileMenu,
-  viewportHeight,
-}: {
-  href: string;
-  label: string;
-  icon: ReactNode;
-  setShowMobileMenu: React.Dispatch<SetStateAction<boolean>>;
-  viewportHeight: number;
-}) => {
-  return (
-    <li className="block">
-      <Link
-        onClick={() => {
-          setShowMobileMenu(false);
-        }}
-        className={cn(
-          "flex w-full items-center justify-between px-6 py-4 font-semibold uppercase outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white",
-          viewportHeight < 710 && "py-3",
-        )}
-        href={href}
-      >
-        <span className="flex items-center gap-4">
-          {icon}
-          {label}
-        </span>
-        <ChevronRight />
-      </Link>
-    </li>
   );
 };

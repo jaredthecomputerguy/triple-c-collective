@@ -1,8 +1,7 @@
-import type { ComponentProps } from "react";
 import { SnapchatIcon } from "../icons/snapchat-icon";
 import { TopBanner } from "./top-banner";
 
-interface SnapchatBannerProps extends ComponentProps<"a"> {
+interface SnapchatBannerProps {
   active: boolean;
   topText?: string;
   bottomText?: string;
@@ -20,7 +19,7 @@ export const SnapchatBanner = ({
     <TopBanner active={active} className="bg-[#fffc00] text-black">
       <a
         {...rest}
-        href={href ?? ""}
+        href={href}
         target="_blank"
         className="font-logo flex items-center gap-2 px-4 py-4 text-center text-sm font-bold text-black md:text-base"
       >
