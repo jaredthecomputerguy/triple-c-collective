@@ -6,6 +6,9 @@ interface NewYearBannerProps {
 }
 
 export const NewYearBanner = ({ active }: NewYearBannerProps) => {
+  if (!active) {
+    return null;
+  }
   return (
     <>
       <TopBanner

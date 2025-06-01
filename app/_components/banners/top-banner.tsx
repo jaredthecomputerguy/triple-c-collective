@@ -10,14 +10,14 @@ import { Button } from "../button";
 import { cn } from "@/lib/utils";
 
 interface TopBannerProps extends ComponentProps<"div"> {
-  active?: boolean;
+  active: boolean;
   closeBtnClass?: string;
   link?: { href: string; target?: HTMLAttributeAnchorTarget };
   onClose?: () => void;
 }
 
 export const TopBanner = ({
-  active,
+  active = false,
   closeBtnClass = "text-black",
   children,
   className,
