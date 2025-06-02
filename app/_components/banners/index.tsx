@@ -45,12 +45,12 @@ const bannerConfig: [
 ] = [
   {
     Component: TrapTakeoverBanner,
-    active: false,
+    active: true,
     props: { bannerText: "Trap Takeover - June 6th @ 12PM" },
   },
   {
     Component: StiiizyBanner,
-    active: true,
+    active: false,
     props: {},
   },
   {
