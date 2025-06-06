@@ -67,12 +67,12 @@ export function NewsletterForm() {
         </div>
 
         {hasSubmitted ? (
-          <>
+          <div className="flex w-full flex-col items-center justify-center gap-4">
             <h3 className="font-logo text-2xl font-semibold md:text-3xl">
               Thanks for subscribing!
             </h3>
             <p className="max-w-md">Check your email for your confirmation.</p>
-          </>
+          </div>
         ) : (
           <form
             onSubmit={handleNewsletterFormSubmit}
