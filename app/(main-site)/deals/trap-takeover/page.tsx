@@ -17,7 +17,7 @@ const SHOW_PAGE = true;
 const HAVE_VIDEO = false;
 
 // HAVE_FLYER determines whether to show the paper flyer or not
-const HAVE_FLYER = true;
+const HAVE_FLYER = false;
 
 // FLYER_IMAGE_PATH is the path to image version of the digital flyer
 const FLYER_IMAGE_PATH = "/images/trap-takeover/0606-flyer.png";
@@ -32,20 +32,12 @@ const RAFFLE_RULES_PATH = "/images/trap-takeover/raffle-rules.png";
 const HAVE_GIFT_BAGS = false;
 
 // HAVE_FREE_FOOD determines whether we're doing the free food promo
-const HAVE_FREE_FOOD = true;
+const HAVE_FREE_FOOD = false;
 
-const TRAP_TAKEOVER_DATE_STRING = formatDate("06/06/2025");
+const TRAP_TAKEOVER_DATE_STRING = formatDate("06/20/2025");
 
 // Pass `undefined` as the last arg to show the 'more brands coming soon...'
-const featuredBrands = getFeaturedBrands(
-  "Akwaaba",
-  "Midsfactory",
-  "Dompen",
-  "Koa Cannabis Co.",
-  "Green River Extracts",
-  "Park Jams",
-  "Chameleon Craft",
-);
+const featuredBrands = getFeaturedBrands(undefined);
 
 export async function generateMetadata(): Promise<Metadata> {
   const trapTakeoverDate = new Date(TRAP_TAKEOVER_DATE_STRING);
