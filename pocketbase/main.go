@@ -106,11 +106,15 @@ func createDealCollection(app *pocketbase.PocketBase) error {
 		Required:  true,
 		MaxSelect: 1,
 		MaxSize:   1000000,
-	}, &core.TextField{
-		Name:     "imageBackgroundColor",
-		Required: false,
-		Pattern:  "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
 	},
+		&core.TextField{
+			Name: "htmlId",
+		},
+		&core.TextField{
+			Name:     "imageBackgroundColor",
+			Required: false,
+			Pattern:  "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
+		},
 		&core.SelectField{
 			Name:      "brands",
 			Required:  true,
@@ -180,6 +184,7 @@ func seedDeal(app *pocketbase.PocketBase, recordId **string) error {
 	deal.Set("description", "This is a test deal for development purposes.")
 	deal.Set("brands", []string{"EMERALD SKY"})
 	deal.Set("categories", []string{"edible"})
+	deal.Set("htmlId", "test-deal")
 	deal.Set("subTypes", "HARD CANDY,GUMMY")
 	deal.Set("typeSubtypes", "{\"EDIBLE\":[\"HARD CANDY\",\"GUMMY\"]}")
 	deal.Set("badge", "Test Deal Badge")

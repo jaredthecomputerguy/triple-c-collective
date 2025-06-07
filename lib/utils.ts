@@ -11,6 +11,7 @@ export type DealsResponse = {
 
 export type Deal = {
   id: string;
+  htmlId: string;
   collectionId: string;
   collectionName: string;
   created: string; // ISO 8601 date string

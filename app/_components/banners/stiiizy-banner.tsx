@@ -57,7 +57,7 @@ export const StiiizyBanner = ({ active }: StiiizyBannerProps) => {
     >
       <Link
         className="font-stiiizy flex items-center gap-4 px-4 py-1 text-2xl font-thin text-white transition group-hover:text-black hover:underline md:gap-12 md:text-4xl"
-        href="/deals#stiiizy"
+        href="/deals#stiiizy-deal"
       >
         <Image
           className="h-10 w-20"
