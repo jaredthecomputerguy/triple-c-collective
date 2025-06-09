@@ -20,6 +20,10 @@ type BannerEntry<T extends ComponentType<any>> = {
   props?: Partial<PropsOf<T>>;
 };
 
+// This is just for visual clarity
+const TRUE = true;
+const FALSE = false;
+
 /*
  *  This component is a bit of typescript magic. It's a list of all the banners
  *  that are currently being used. It's used to dynamically render the banners
@@ -41,65 +45,62 @@ const bannerConfig: [
   BannerEntry<typeof NewsletterBanner>,
   BannerEntry<typeof SnapchatBanner>,
   BannerEntry<typeof StPatricksBanner>,
-  // 1. Add a new banner entry here
 ] = [
   {
     Component: TrapTakeoverBanner,
-    active: false,
+    active: FALSE,
     props: { bannerText: "Trap Takeover - TODAY @ 12-6PM" },
   },
   {
     Component: StiiizyBanner,
-    active: true,
+    active: FALSE,
     props: {},
   },
   {
     Component: CloneBanner,
-    active: false,
+    active: FALSE,
     props: {},
   },
   {
     Component: FourTwentyBanner,
-    active: false,
+    active: FALSE,
     props: {},
   },
   {
     Component: ChristmasBanner,
-    active: false,
+    active: FALSE,
     props: {},
   },
   {
     Component: MemorialDayBanner,
-    active: false,
+    active: FALSE,
     props: {},
   },
   {
     Component: MothersDayBanner,
-    active: false,
+    active: FALSE,
     props: {},
   },
   {
     Component: NewYearBanner,
-    active: false,
+    active: FALSE,
     props: {},
   },
   {
     Component: NewsletterBanner,
-    active: false,
+    active: TRUE,
     props: {},
   },
   {
     Component: SnapchatBanner,
-    active: false,
+    active: FALSE,
     props: {},
   },
   {
     Component: StPatricksBanner,
-    active: false,
+    active: FALSE,
     props: {},
   },
-  // 2. Add an object here for each banner you want to add
-  // and it will be rendered in the order listed here
 ];
 
 export const Banner = () => {

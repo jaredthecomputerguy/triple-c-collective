@@ -60,8 +60,10 @@ export async function sendWelcomeEmailAction(user: SendWelcomeEmailInfo) {
     return { error: null };
   } catch (e) {
     if (e instanceof Error) {
+      logger.error("Error sending welcome email", e);
       return { error: e.message };
     } else {
+      logger.error("Error sending welcome email", e);
       return { error: "Something went wrong" };
     }
   }

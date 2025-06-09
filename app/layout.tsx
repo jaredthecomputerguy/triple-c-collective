@@ -6,6 +6,7 @@ import { Toaster } from "./_components/toaster";
 import NextTopLoader from "nextjs-toploader";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Debug } from "./_components/debug";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -67,6 +68,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const isDev = process.env.NODE_ENV === "development";
+
   return (
     <html
       lang="en"
@@ -79,6 +82,7 @@ export default async function RootLayout({
         <NextTopLoader color="white" />
         <Toaster />
         {children}
+        <Debug active={isDev} />
       </body>
     </html>
   );
