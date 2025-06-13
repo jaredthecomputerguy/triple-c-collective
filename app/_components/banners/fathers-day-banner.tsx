@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { TopBanner } from "./top-banner";
 
-const HEADER_TEXT = "Happy Mother's Day";
+const HEADER_TEXT = "Happy Father's Day";
 
-export const MothersDayBanner = ({ active }: { active: boolean }) => {
+export const FathersDayBanner = ({ active }: { active: boolean }) => {
   return (
-    <TopBanner active={active} className="leaves py-4">
+    <TopBanner active={active} className="fathers-day font-stiiizy py-4">
       <Link
-        className="bg-roses group decoration-red z-50 text-center font-[Birthstone] text-4xl font-bold text-gray-50 md:text-6xl"
-        href="/deals#mothers-day"
+        className="bg-roses group decoration-red z-50 text-center text-2xl font-bold text-gray-50 md:text-4xl"
+        href="/deals#fathers-day"
       >
         <div className="flex flex-col items-center justify-center">
           <div className="overflow-hidden">
@@ -22,8 +22,8 @@ export const MothersDayBanner = ({ active }: { active: boolean }) => {
               </span>
             ))}
           </div>
-          <span className="inline-block text-2xl transition-colors [animation-fill-mode:backwards] group-hover:underline md:text-4xl">
-            Get Her the Bouquet She Actually Wants
+          <span className="inline-block text-base transition-colors [animation-fill-mode:backwards] group-hover:underline md:text-lg">
+            Give Dad a Gift He’ll Actually Use
           </span>
         </div>
       </Link>

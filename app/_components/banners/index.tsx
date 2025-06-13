@@ -5,6 +5,7 @@ import { ChristmasBanner } from "./christmas-banner";
 import { CloneBanner } from "./clone-banner";
 import { MemorialDayBanner } from "./memorial-day-banner";
 import { MothersDayBanner } from "./mothers-day-banner";
+import { FathersDayBanner } from "./fathers-day-banner";
 import { NewYearBanner } from "./new-year-banner";
 import { NewsletterBanner } from "./newsletter-banner";
 import { SnapchatBanner } from "./snapchat-banner";
@@ -41,6 +42,7 @@ const bannerConfig: [
   BannerEntry<typeof ChristmasBanner>,
   BannerEntry<typeof MemorialDayBanner>,
   BannerEntry<typeof MothersDayBanner>,
+  BannerEntry<typeof FathersDayBanner>,
   BannerEntry<typeof NewYearBanner>,
   BannerEntry<typeof NewsletterBanner>,
   BannerEntry<typeof SnapchatBanner>,
@@ -79,6 +81,11 @@ const bannerConfig: [
   {
     Component: MothersDayBanner,
     active: FALSE,
+    props: {},
+  },
+  {
+    Component: FathersDayBanner,
+    active: TRUE,
     props: {},
   },
   {
