@@ -1,45 +1,18 @@
-import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 
-import { ImageViewer } from "@/app/_components/image-viewer";
-import { cn, formatDate, getTrapTakeoverDateWithSuffix } from "@/lib/utils";
+import { formatDate, getTrapTakeoverDateWithSuffix } from "@/lib/utils";
 import { TrapTakeoverCountdown } from "@/app/(main-site)/deals/trap-takeover-countdown";
 import { getFeaturedBrands } from "@/app/(main-site)/deals/trap-takeover/trap-takeover-brands";
-import underdogGrillLogo from "@/public/images/trap-takeover/underdog-grill.jpg";
-import { FacebookIcon } from "@/app/_components/icons/facebook-icon";
-import { InstagramIcon } from "@/app/_components/icons/instagram-icon";
 
-// TODO: Should probably refactor all of the sub-components to be their own files with their associated constants, this file is a mess
+import { FreeFood } from "./free-food";
+import { SpecialPromo } from "./special-promo";
+import { FeaturedBrands } from "./featured-brands";
+import { TrapTakeoverVideo } from "./trap-takeover-video";
+import { TrapTakeoverFlyer } from "./trap-takeover-flyer";
+import { TrapTakeoverRaffleRules } from "./trap-takeover-raffle-rules";
 
-// SHOW_PAGE determines whether to show the page or not
-const SHOW_PAGE = true;
-
-// HAVE_VIDEO determines whether to show the video flyer or not
-const HAVE_VIDEO = false;
-
-// HAVE_FLYER determines whether to show the paper flyer or not
-const HAVE_FLYER = true;
-
-// FLYER_IMAGE_PATH is the path to image version of the digital flyer
-const FLYER_IMAGE_PATH = "/images/trap-takeover/0620-flyer.png";
-
-// FLYER_PDF_PATH is the path to the PDF version of the digital flyer
-const FLYER_PDF_PATH = "/images/trap-takeover/0620-flyer.pdf";
-
-// RAFFLE_RULES_PATH is the path to the raffle rules
-const RAFFLE_RULES_PATH = "/images/trap-takeover/raffle-rules.png";
-
-// HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo
+/** HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo */
 const HAVE_GIFT_BAGS = false;
-
-// HAVE_FREE_FOOD determines whether we're doing the free food promo
-const HAVE_FREE_FOOD = false;
-
-// HAVE_SPECIAL_PROMO determines whether we have a special promo for the upcoming sale (i.e. non-cannabis raffle)
-const HAVE_SPECIAL_PROMO = true;
-
-const SPECIAL_PROMO_IMAGE_PATH = "/images/trap-takeover/reggie-painting.jpg";
 
 const TRAP_TAKEOVER_DATE_STRING = formatDate("06/20/2025");
 
@@ -164,255 +137,18 @@ export default function TrapTakeoverPage() {
           </ul>
         </div>
 
-        {HAVE_FREE_FOOD && (
-          <>
-            <h3 className="font-logo py-8 pb-12 text-center text-3xl font-semibold md:text-left">
-              Complimentary Meal
-            </h3>
-            <section className="flex flex-col items-center gap-4 rounded-lg bg-red-700 p-8 text-white md:flex-row">
-              <div className="flex flex-col items-center">
-                <Link
-                  href="https://www.instagram.com/underdoggrill/?hl=en"
-                  target="_blank"
-                >
-                  <Image
-                    className="my-2 cursor-pointer rounded-xl"
-                    src={underdogGrillLogo}
-                    alt="Underdog Grill Logo"
-                    width={120}
-                    height={30}
-                  />
-                </Link>
-                <div className="flex gap-2">
-                  <Link
-                    href="https://www.facebook.com/UnderdogGrill?mibextid=wwXIfr"
-                    target="_blank"
-                    className="group rounded-full bg-white p-1 hover:bg-blue-600"
-                  >
-                    <FacebookIcon className="transition-all group-hover:fill-white" />
-                  </Link>
-                  <Link
-                    href="https://www.instagram.com/underdoggrill/?hl=en"
-                    target="_blank"
-                    className="group rounded-full bg-white p-1 hover:bg-gradient-to-br hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7]"
-                  >
-                    <InstagramIcon className="transition-all group-hover:fill-white" />
-                  </Link>
-                </div>
-              </div>
-              <div>
-                <p className="text-semibold mb-2 text-center text-xl text-pretty md:text-left">
-                  Brought to you by{" "}
-                  <Link
-                    href="https://www.instagram.com/underdoggrill/?hl=en"
-                    target="_blank"
-                    className="hover:underline"
-                  >
-                    Underdog Grill!
-                  </Link>
-                </p>
-                <div className="flex flex-col gap-2 text-left text-base text-pretty">
-                  <p>
-                    In partnership with Underdog Grill, we&apos;re offering a
-                    free meal with every purchase of a promo product during the
-                    sale.
-                  </p>
-                  <p>
-                    Take your receipt with you to the Underdog Grill to receive
-                    your choice of a{" "}
-                    <strong>
-                      hot dog or a vegetarian taco just for stopping by
-                    </strong>
-                    .
-                  </p>
-                  <p>
-                    This promotion is only available during the sale, from 12 PM
-                    to 6 PM. Available while supplies last.
-                  </p>
-                </div>
-              </div>
-            </section>{" "}
-          </>
-        )}
+        <FreeFood active={false} />
 
-        {HAVE_SPECIAL_PROMO && (
-          <>
-            <h3 className="font-logo py-8 pb-12 text-center text-3xl font-semibold md:text-left">
-              Art Raffle Giveaway
-            </h3>
-            <section className="radial-gradient flex flex-col items-center gap-4 rounded-lg bg-yellow-600 p-8 text-white md:flex-row">
-              <div className="flex flex-col items-center">
-                <ImageViewer
-                  className="mx-auto my-8 w-full max-w-2xl cursor-pointer rounded-xl"
-                  src={SPECIAL_PROMO_IMAGE_PATH}
-                  alt="Painting by Reggie Baker"
-                  width={120}
-                  height={120}
-                />
-                <div className="flex gap-2">
-                  {/*
-                  TODO: Add a link to another of Reggie's socials when I see him!
-                  <Link
-                    href="https://www.facebook.com/UnderdogGrill?mibextid=wwXIfr"
-                    target="_blank"
-                    className="group rounded-full bg-white p-1 hover:bg-blue-600"
-                  >
-                    <FacebookIcon className="transition-all group-hover:fill-white" />
-                  </Link>
-                  */}
-                  <Link
-                    href="https://www.instagram.com/reggiebak3r/"
-                    target="_blank"
-                    className="group rounded-full bg-white p-1 hover:bg-gradient-to-br hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7]"
-                  >
-                    <InstagramIcon className="transition-all group-hover:fill-white" />
-                  </Link>
-                </div>
-              </div>
-              <div>
-                <p className="mb-2 text-center text-xl font-semibold md:text-left">
-                  Win an original painting by{" "}
-                  <strong className="font-bold">Reggie Baker!</strong>
-                </p>
-                <div className="flex flex-col gap-2 text-left text-base">
-                  <p>
-                    Enter our special raffle during the Trap Takeover sale for a
-                    chance to win a one-of-a-kind painting created by talented
-                    local artist Reggie Baker.
-                  </p>
-                  <p>
-                    Every qualifying purchase earns you raffle entries, the more
-                    you buy, the better your odds!
-                  </p>
-                  <p>
-                    The lucky winner will be announced at the end of the event.
-                    Be sure to stick around or keep an eye on your phone!
-                  </p>
-                </div>
-              </div>
-            </section>
-          </>
-        )}
+        <SpecialPromo active={true} />
 
-        <section className="py-8">
-          <h3 className="font-logo py-4 text-center text-3xl font-semibold md:text-left">
-            Featured Brands
-          </h3>
-          <div
-            className={cn(
-              "grid grid-cols-2 place-items-center py-8 text-lg md:flex md:flex-wrap md:justify-evenly md:gap-4 md:py-12",
-              SHOW_PAGE ? "" : "sm:justify-start",
-            )}
-          >
-            {SHOW_PAGE ? (
-              featuredBrands.map((brand) => {
-                const isLast =
-                  brand.name ===
-                    featuredBrands[featuredBrands.length - 1].name &&
-                  featuredBrands.length % 2 !== 0;
+        <FeaturedBrands active={true} featuredBrands={featuredBrands} />
 
-                return (
-                  <div
-                    className={cn(
-                      "flex flex-col items-center hover:underline",
-                      isLast && "col-span-2",
-                    )}
-                    key={brand.name ?? "undefined"}
-                  >
-                    <Link
-                      className="focus:border-primary-purple focus:outline-primary-purple flex flex-col items-center rounded-sm border border-white px-2 py-2 outline-hidden"
-                      href={brand.url}
-                      target="_blank"
-                    >
-                      <h3 className="font-logo w-full py-2 text-center text-xl font-semibold">
-                        {brand.name}
-                      </h3>
-                      {brand.name ? (
-                        <Image
-                          src={brand.image}
-                          alt={brand.alt}
-                          className="h-32 w-32 object-contain sm:h-56 sm:w-56"
-                        />
-                      ) : (
-                        <div className="flex h-56 w-56 flex-col items-center justify-center text-center">
-                          Brands coming soon...
-                        </div>
-                      )}
-                    </Link>
-                  </div>
-                );
-              })
-            ) : (
-              <div className="text-center text-3xl md:text-left">
-                Coming soon...
-              </div>
-            )}
-          </div>
-        </section>
+        <TrapTakeoverVideo active={false} />
 
-        {HAVE_VIDEO && (
-          <section className="w-full">
-            <video
-              autoPlay
-              muted
-              preload="auto"
-              className="mx-auto my-16 rounded-xl"
-              loop
-              playsInline
-            >
-              <source
-                src="/videos/trap-takeover-0221-updated.mp4"
-                type="video/mp4"
-              />
-            </video>
-          </section>
-        )}
+        <TrapTakeoverFlyer active={true} />
 
-        {HAVE_FLYER && (
-          <section className="pb-8">
-            <h3 className="font-logo py-4 text-center text-3xl font-semibold md:text-left">
-              Flyer
-            </h3>
-            <hr />
-            <ImageViewer
-              className="mx-auto my-8 w-full max-w-2xl cursor-pointer rounded-xl"
-              src={FLYER_IMAGE_PATH}
-              alt="March 7th Trap Takeover Flyer"
-              width={1236}
-              height={1599}
-            />
-            <div className="mx-auto flex max-w-md flex-col items-center justify-center gap-2">
-              <a
-                className="bg-primary-purple hover:bg-primary-purple/90 w-full cursor-pointer rounded-sm px-6 py-2 text-center font-semibold text-white transition-all"
-                href={FLYER_PDF_PATH}
-                download
-              >
-                Download PDF
-              </a>
-              <a
-                className="bg-primary-purple hover:bg-primary-purple/90 w-full cursor-pointer rounded-sm px-6 py-2 text-center font-semibold text-white transition-all"
-                href={FLYER_IMAGE_PATH}
-                download
-              >
-                Download Image
-              </a>
-            </div>
-          </section>
-        )}
+        <TrapTakeoverRaffleRules />
 
-        <section className="w-full" id="raffle-rules">
-          <h3 className="font-logo py-4 text-center text-3xl font-semibold md:text-left">
-            Raffle Rules
-          </h3>
-          <hr />
-          <ImageViewer
-            className="mx-auto my-8 w-full max-w-2xl cursor-pointer rounded-xl"
-            src={RAFFLE_RULES_PATH}
-            alt="Raffle Rules"
-            width={1236}
-            height={1599}
-          />
-        </section>
         <TrapTakeoverCountdown
           linkUrl="https://illaguerrilla.com"
           target="_blank"
