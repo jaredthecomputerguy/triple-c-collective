@@ -19,13 +19,13 @@ const SHOW_PAGE = true;
 const HAVE_VIDEO = false;
 
 // HAVE_FLYER determines whether to show the paper flyer or not
-const HAVE_FLYER = false;
+const HAVE_FLYER = true;
 
 // FLYER_IMAGE_PATH is the path to image version of the digital flyer
-const FLYER_IMAGE_PATH = "/images/trap-takeover/0606-flyer.png";
+const FLYER_IMAGE_PATH = "/images/trap-takeover/0620-flyer.png";
 
 // FLYER_PDF_PATH is the path to the PDF version of the digital flyer
-const FLYER_PDF_PATH = "/images/trap-takeover/0606-flyer.pdf";
+const FLYER_PDF_PATH = "/images/trap-takeover/0620-flyer.pdf";
 
 // RAFFLE_RULES_PATH is the path to the raffle rules
 const RAFFLE_RULES_PATH = "/images/trap-takeover/raffle-rules.png";
