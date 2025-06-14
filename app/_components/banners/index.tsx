@@ -53,7 +53,7 @@ const bannerConfig: [
   },
   {
     Component: StiiizyBanner,
-    active: FALSE,
+    active: TRUE,
     props: {},
   },
   {
@@ -88,7 +88,7 @@ const bannerConfig: [
   },
   {
     Component: NewsletterBanner,
-    active: TRUE,
+    active: FALSE,
     props: {},
   },
   {
