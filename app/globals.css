@@ -242,7 +242,7 @@ td {
   }
 }
 
-/* Mother's Day */
+/* Mother's & Father's Day */
 
 .animate-text-reveal {
   animation: text-reveal 1s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
@@ -260,6 +260,10 @@ td {
 
 .leaves {
   @apply bg-[url('/images/roses.jpg')] bg-cover bg-bottom bg-no-repeat;
+}
+
+.fathers-day {
+  @apply bg-[url('/images/fathers-day.jpg')] bg-cover bg-bottom bg-no-repeat;
 }
 
 /* 4/20 */
