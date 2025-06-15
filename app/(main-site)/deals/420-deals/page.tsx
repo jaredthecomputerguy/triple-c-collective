@@ -1,12 +1,11 @@
 import { type Metadata } from "next";
-
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
-import { GoogleMapEmbed } from "../../contact/google-map-embed";
+import { GoogleMapEmbed } from "@/app/_components/google-map-embed";
 import { ImageViewer } from "@/app/_components/image-viewer";
 import fourTwentyLogo from "@/public/images/4-20/420_logo-resized.png";
-import { FourTwentyDeals } from "./420-deals";
-import { notFound } from "next/navigation";
+import { FourTwentyDeals } from "@/app/(main-site)/deals/420-deals/420-deals";
 
 const fourTwentyFlyerPath = "/images/4-20/420-flyer-with-bags.jpg";
 

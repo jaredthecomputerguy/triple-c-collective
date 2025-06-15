@@ -1,8 +1,8 @@
 import { type Metadata } from "next";
 import Link from "next/link";
 
-import { Header } from "./_components/header";
-import { Footer } from "./_components/footer";
+import { Header } from "@/app/_components/header";
+import { Footer } from "@/app/_components/footer";
 
 export const metadata: Metadata = {
   title: "Not Found | Triple C Collective",

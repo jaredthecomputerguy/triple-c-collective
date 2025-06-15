@@ -2,10 +2,11 @@
 
 import { renderAsync } from "@react-email/render";
 import nodemailer from "nodemailer";
-import { ContactEmail } from "../app/(main-site)/contact/contact-email";
-import { type EmailInfo } from "../app/(main-site)/contact/contact-form";
 import { type MailOptions } from "nodemailer/lib/sendmail-transport";
-import { Logger } from "./logger";
+
+import { ContactEmail } from "@/app/(main-site)/contact/contact-email";
+import { type EmailInfo } from "@/app/(main-site)/contact/contact-form";
+import { Logger } from "@/lib/logger";
 
 const logger = new Logger();
 

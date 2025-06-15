@@ -19,8 +19,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/app/_components/accordian";
-import { Button } from "../_components/button";
-import { BrandCarousel } from "../_components/brand-carousel";
+import { Button } from "@/app/_components/button";
+import { BrandCarousel } from "@/app/_components/brand-carousel";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",

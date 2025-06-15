@@ -1,4 +1,4 @@
-import { TopBanner } from "./top-banner";
+import { TopBanner } from "@/app/_components/banners/top-banner";
 
 interface CloneBannerProps {
   active: boolean;

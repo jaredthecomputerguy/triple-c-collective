@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, expect, test, vi } from "vitest";
-import { getTimeRemainingUntilFirstOrThirdFriday } from "../lib/utils";
+
+import { getTimeRemainingUntilFirstOrThirdFriday } from "@/lib/utils";
 
 beforeEach(() => {
   // Freeze Date.now to a controlled value for each test

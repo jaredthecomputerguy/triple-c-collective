@@ -1,5 +1,5 @@
-import { SnapchatIcon } from "../icons/snapchat-icon";
-import { TopBanner } from "./top-banner";
+import { SnapchatIcon } from "@/app/_components/icons/snapchat-icon";
+import { TopBanner } from "@/app/_components/banners/top-banner";
 
 interface SnapchatBannerProps {
   active: boolean;

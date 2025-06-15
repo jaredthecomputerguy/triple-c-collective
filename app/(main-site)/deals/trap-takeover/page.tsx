@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 
 import { formatDate, getTrapTakeoverDateWithSuffix } from "@/lib/utils";
 import { TrapTakeoverCountdown } from "@/app/(main-site)/deals/trap-takeover-countdown";
-import { getFeaturedBrands } from "@/app/(main-site)/deals/trap-takeover/trap-takeover-brands";
+import { getFeaturedBrands } from "@/app/_components/trap-takeover/trap-takeover-brands";
 
-import { FreeFood } from "./free-food";
-import { SpecialPromo } from "./special-promo";
-import { FeaturedBrands } from "./featured-brands";
-import { TrapTakeoverVideo } from "./trap-takeover-video";
-import { TrapTakeoverFlyer } from "./trap-takeover-flyer";
-import { TrapTakeoverRaffleRules } from "./trap-takeover-raffle-rules";
+import { FreeFood } from "@/app/_components/trap-takeover/free-food";
+import { SpecialPromo } from "@/app/_components/trap-takeover/special-promo";
+import { FeaturedBrands } from "@/app/_components/trap-takeover/featured-brands";
+import { TrapTakeoverVideo } from "@/app/_components/trap-takeover/trap-takeover-video";
+import { TrapTakeoverFlyer } from "@/app/_components/trap-takeover/trap-takeover-flyer";
+import { TrapTakeoverRaffleRules } from "@/app/_components/trap-takeover/trap-takeover-raffle-rules";
 
 /** HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo */
 const HAVE_GIFT_BAGS = false;

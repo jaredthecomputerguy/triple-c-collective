@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState, useMemo } from "react";
-import { getSize, isEqual } from "./snowfall-utils";
-import { snowfallBaseStyle } from "./snowfall-config";
+
+import { getSize, isEqual } from "@/app/_components/snowfall/snowfall-utils";
+import { snowfallBaseStyle } from "@/app/_components/snowfall/snowfall-config";
 
 /**
  * Returns the height and width of a HTML element, uses the `ResizeObserver` api if available to detect changes to the

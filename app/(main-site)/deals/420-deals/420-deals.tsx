@@ -9,7 +9,7 @@ import {
   fourTwentyDealsData,
   type Deal,
   type ReducedPriceDeal,
-} from "./420-deals-data";
+} from "@/app/(main-site)/deals/420-deals/420-deals-data";
 
 interface FourTwentyDealCardProps {
   title: string;

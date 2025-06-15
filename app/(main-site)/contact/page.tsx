@@ -1,6 +1,7 @@
 import { type Metadata } from "next";
-import { GoogleMapEmbed } from "./google-map-embed";
-import { ContactForm } from "./contact-form";
+
+import { GoogleMapEmbed } from "@/app/_components/google-map-embed";
+import { ContactForm } from "@/app/(main-site)/contact/contact-form";
 import { FacebookIcon } from "@/app/_components/icons/facebook-icon";
 
 export const metadata: Metadata = {

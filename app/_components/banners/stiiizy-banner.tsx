@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { useEffect, useState, type TouchEvent, type MouseEvent } from "react";
 import Image, { type StaticImageData } from "next/image";
-import { Separator } from "../separator";
+
+import { Separator } from "@/app/_components/separator";
 import { cn } from "@/lib/utils";
-import { TopBanner } from "./top-banner";
+import { TopBanner } from "@/app/_components/banners/top-banner";
 import stiiizyWhiteLogo from "@/public/images/brands/stiiizy-white.png";
 import stiiizyBlackLogo from "@/public/images/brands/stiiizy-logo-black.png";
 
