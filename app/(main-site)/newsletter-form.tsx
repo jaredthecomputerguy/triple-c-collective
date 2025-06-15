@@ -5,7 +5,7 @@ import { useState, type FormEvent, useRef } from "react";
 
 import { useToast } from "@/lib/use-toast";
 
-import { sendWelcomeEmailAction } from "./actions";
+import { sendWelcomeEmailAction } from "@/lib/actions/send-welcome-email-action";
 
 export function NewsletterForm() {
   const [email, setEmail] = useState("");

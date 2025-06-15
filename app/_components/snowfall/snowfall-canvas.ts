@@ -1,5 +1,8 @@
-import Snowflake, { type SnowflakeConfig, defaultConfig } from "./snowflake";
-import { targetFrameTime } from "./snowfall-config";
+import Snowflake, {
+  type SnowflakeConfig,
+  defaultConfig,
+} from "@/app/_components/snowfall/snowflake";
+import { targetFrameTime } from "@/app/_components/snowfall/snowfall-config";
 
 export interface SnowfallCanvasConfig extends SnowflakeConfig {
   /**

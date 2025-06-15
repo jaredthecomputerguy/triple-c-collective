@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { isDateLessThan, type Deal } from "@/lib/utils";
 import type { ReactNode } from "react";
-import { Badge } from "./badge";
+
+import { isDateLessThan, type Deal } from "@/lib/utils";
+import { Badge } from "@/app/(main-site)/deals/badge";
 
 const DAYS_TO_BE_CONSIDERED_NEW = 3;
 const BASE_ECOMMERCE_MENU_URL = "https://triplec.treez.io/onlinemenu/search";

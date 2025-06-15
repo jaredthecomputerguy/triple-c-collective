@@ -1,5 +1,5 @@
-import Sparkle from "../sparkle";
-import { TopBanner } from "./top-banner";
+import Sparkle from "@/app/_components/sparkle";
+import { TopBanner } from "@/app/_components/banners/top-banner";
 
 interface NewYearBannerProps {
   active: boolean;

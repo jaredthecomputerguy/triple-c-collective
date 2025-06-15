@@ -1,12 +1,12 @@
 "use client";
 
-import { TopBanner } from "./top-banner";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { TopBanner } from "@/app/_components/banners/top-banner";
 import fourTwentyLogo from "@/public/images/4-20/420_logo-resized.png";
-import { FourTwentyTimer } from "../4-20-timer";
+import { FourTwentyTimer } from "@/app/_components/4-20-timer";
 
 export const FourTwentyBanner = ({ active }: { active: boolean }) => {
   const [showBanner, setShowBanner] = useState(active);

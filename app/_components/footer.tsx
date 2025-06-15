@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { CopyrightYear } from "./copyright-year";
-import { NewsletterForm } from "../(main-site)/newsletter-form";
+import { CopyrightYear } from "@/app/_components/copyright-year";
+import { NewsletterForm } from "@/app/(main-site)/newsletter-form";
 
 export const Footer = () => {
   return (

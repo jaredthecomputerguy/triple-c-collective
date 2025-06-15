@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
-import { TopBanner } from "./top-banner";
 import Link from "next/link";
+
+import { TopBanner } from "@/app/_components/banners/top-banner";
 
 export const MemorialDayBanner = ({ active }: { active: boolean }) => {
   return (

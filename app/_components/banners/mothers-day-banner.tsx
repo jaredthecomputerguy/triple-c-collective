@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { TopBanner } from "./top-banner";
+
+import { TopBanner } from "@/app/_components/banners/top-banner";
 
 const HEADER_TEXT = "Happy Mother's Day";
 

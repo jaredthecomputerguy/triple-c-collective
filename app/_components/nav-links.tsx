@@ -16,8 +16,9 @@ import {
   ChevronDown,
   ChevronRight,
 } from "lucide-react";
+
 import { cn } from "@/lib/utils";
-import { LocationIcon } from "./icons/location-icon";
+import { LocationIcon } from "@/app/_components/icons/location-icon";
 
 type NavLinkItem = {
   href: string | null;

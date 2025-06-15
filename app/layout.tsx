@@ -1,12 +1,12 @@
 import { type Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import "./globals.css";
-
-import { Toaster } from "./_components/toaster";
 import NextTopLoader from "nextjs-toploader";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Debug } from "./_components/debug";
+
+import "@/app/globals.css";
+import { Toaster } from "@/app/_components/toaster";
+import { Debug } from "@/app/_components/debug";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",

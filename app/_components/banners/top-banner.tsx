@@ -5,8 +5,9 @@ import {
   type ComponentProps,
   type HTMLAttributeAnchorTarget,
 } from "react";
-import { CloseIcon } from "../icons/close-icon";
-import { Button } from "../button";
+
+import { CloseIcon } from "@/app/_components/icons/close-icon";
+import { Button } from "@/app/_components/button";
 import { cn } from "@/lib/utils";
 
 interface TopBannerProps extends ComponentProps<"div"> {

@@ -1,8 +1,9 @@
 "use client";
 
-import { Button } from "@/app/_components/button";
 import Link from "next/link";
-import { unsubscribeUserAction } from "./actions";
+
+import { Button } from "@/app/_components/button";
+import { unsubscribeUserAction } from "@/lib/actions/unsubscribe-user-action";
 
 export const UnsubscribeForm = ({ contactId }: { contactId: string }) => {
   return (

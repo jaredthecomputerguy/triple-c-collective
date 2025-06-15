@@ -13,6 +13,7 @@ import { StPatricksBanner } from "./st-patricks-banner";
 import { StiiizyBanner } from "./stiiizy-banner";
 import { TrapTakeoverBanner } from "./trap-takeover-banner";
 
+
 type PropsOf<T> = T extends ComponentType<infer P> ? P : never;
 
 type BannerEntry<T extends ComponentType<any>> = {

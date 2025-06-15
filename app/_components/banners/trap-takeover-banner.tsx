@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Button } from "../button";
 import { useState } from "react";
-import { CloseIcon } from "../icons/close-icon";
+
+import { CloseIcon } from "@/app/_components/icons/close-icon";
+import { Button } from "@/app/_components/button";
 
 export const TrapTakeoverBanner = ({
   active,
