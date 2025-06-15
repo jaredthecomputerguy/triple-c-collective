@@ -55,7 +55,7 @@ const bannerConfig: [
   },
   {
     Component: StiiizyBanner,
-    active: TRUE,
+    active: FALSE,
     props: {},
   },
   {
