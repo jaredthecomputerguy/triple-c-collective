@@ -1,8 +1,9 @@
 import { type Metadata } from "next";
 import { type ReactNode } from "react";
-import { Header } from "../_components/header";
-import { AgeModal } from "../_components/age-modal";
-import { Footer } from "../_components/footer";
+
+import { Header } from "@/app/_components/header";
+import { AgeModal } from "@/app/_components/age-modal";
+import { Footer } from "@/app/_components/footer";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",

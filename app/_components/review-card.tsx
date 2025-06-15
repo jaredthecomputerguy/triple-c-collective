@@ -1,11 +1,11 @@
 "use client";
 
-import { timeSince } from "@/lib/utils";
-
 import { useState } from "react";
-import { StarRating } from "./star-rating";
+
+import { timeSince } from "@/lib/utils";
+import { StarRating } from "@/app/_components/star-rating";
 import { cn } from "@/lib/utils";
-import { Avatar, AvatarImage, AvatarFallback } from "./avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/app/_components/avatar";
 
 const reviewOne = "/images/review-one.png";
 const reviewTwo = "/images/review-two.png";

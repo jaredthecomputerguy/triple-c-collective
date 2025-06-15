@@ -1,5 +1,5 @@
 import type { Deal } from "@/lib/utils";
-import { DealCards } from "./deal-cards";
+import { DealCards } from "@/app/(main-site)/deals/deal-cards";
 
 interface DealCategoryProps {
   categoryTitle: string;

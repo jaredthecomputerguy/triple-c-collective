@@ -1,16 +1,16 @@
 import type { ComponentType } from "react";
 
-import { FourTwentyBanner } from "./4-20-banner";
-import { ChristmasBanner } from "./christmas-banner";
-import { CloneBanner } from "./clone-banner";
-import { MemorialDayBanner } from "./memorial-day-banner";
-import { MothersDayBanner } from "./mothers-day-banner";
-import { NewYearBanner } from "./new-year-banner";
-import { NewsletterBanner } from "./newsletter-banner";
-import { SnapchatBanner } from "./snapchat-banner";
-import { StPatricksBanner } from "./st-patricks-banner";
-import { StiiizyBanner } from "./stiiizy-banner";
-import { TrapTakeoverBanner } from "./trap-takeover-banner";
+import { FourTwentyBanner } from "@/app/_components/banners/4-20-banner";
+import { ChristmasBanner } from "@/app/_components/banners/christmas-banner";
+import { CloneBanner } from "@/app/_components/banners/clone-banner";
+import { MemorialDayBanner } from "@/app/_components/banners/memorial-day-banner";
+import { MothersDayBanner } from "@/app/_components/banners/mothers-day-banner";
+import { NewYearBanner } from "@/app/_components/banners/new-year-banner";
+import { NewsletterBanner } from "@/app/_components/banners/newsletter-banner";
+import { SnapchatBanner } from "@/app/_components/banners/snapchat-banner";
+import { StPatricksBanner } from "@/app/_components/banners/st-patricks-banner";
+import { StiiizyBanner } from "@/app/_components/banners/stiiizy-banner";
+import { TrapTakeoverBanner } from "@/app/_components/banners/trap-takeover-banner";
 
 type PropsOf<T> = T extends ComponentType<infer P> ? P : never;
 

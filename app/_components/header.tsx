@@ -11,21 +11,19 @@ import { useScrollHeader } from "@/lib/hooks/useScrollHeader";
 import { useViewportHeight } from "@/lib/hooks/useViewportHeight";
 import { usePathChangeCloseMenus } from "@/lib/hooks/usePathChangeCloseMenu";
 
-import { BarsIcon } from "./icons/bar-icon";
-import { CartIcon } from "./icons/cart-icon";
-import { PhoneIcon } from "./icons/phone-icon";
-import { CloseIcon } from "./icons/close-icon";
-import { ClockIcon } from "./icons/clock-icon";
-import { LocationIcon } from "./icons/location-icon";
-
-import { Banner } from "./banners";
-
+import { BarsIcon } from "@/app/_components/icons/bar-icon";
+import { CartIcon } from "@/app/_components/icons/cart-icon";
+import { PhoneIcon } from "@/app/_components/icons/phone-icon";
+import { CloseIcon } from "@/app/_components/icons/close-icon";
+import { ClockIcon } from "@/app/_components/icons/clock-icon";
+import { LocationIcon } from "@/app/_components/icons/location-icon";
+import { Banner } from "@/app/_components/banners";
 import {
   MobileNavLink,
   NavLink,
   DESKTOP_LINKS,
   MOBILE_LINKS,
-} from "./nav-links";
+} from "@/app/_components/nav-links";
 
 export const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);

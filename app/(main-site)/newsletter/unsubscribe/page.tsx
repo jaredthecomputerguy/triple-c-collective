@@ -1,7 +1,8 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Resend } from "resend";
-import { UnsubscribeForm } from "./unsubscribe-form";
-import type { Metadata } from "next";
+
+import { UnsubscribeForm } from "@/app/(main-site)/newsletter/unsubscribe/unsubscribe-form";
 
 export const dynamic = "force-dynamic";
 

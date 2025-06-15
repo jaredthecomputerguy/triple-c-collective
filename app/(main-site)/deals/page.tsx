@@ -1,12 +1,13 @@
 import { type Metadata } from "next";
-import { TrapTakeoverCountdown } from "./trap-takeover-countdown";
 import Image from "next/image";
-import { Button } from "@/app/_components/button";
 import Link from "next/link";
-import { DealCategory } from "./deal-category";
-import { getDealImageUrl, type DealsResponse } from "@/lib/utils";
-import { StiiizyDealCard } from "./stiiizy-deal-card";
+
+import { TrapTakeoverCountdown } from "@/app/(main-site)/deals/trap-takeover-countdown";
+import { Button } from "@/app/_components/button";
+import { DealCategory } from "@/app/(main-site)/deals/deal-category";
+import { StiiizyDealCard } from "@/app/(main-site)/deals/stiiizy-deal-card";
 import { Calendar } from "@/app/_components/calendar";
+import { getDealImageUrl, type DealsResponse } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 

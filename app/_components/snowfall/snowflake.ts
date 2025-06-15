@@ -1,4 +1,10 @@
-import { isEqual, lerp, random, randomElement, twoPi } from "./snowfall-utils";
+import {
+  isEqual,
+  lerp,
+  random,
+  randomElement,
+  twoPi,
+} from "@/app/_components/snowfall/snowfall-utils";
 
 export interface SnowflakeProps {
   /** The color of the snowflake, can be any valid CSS color. */

@@ -1,9 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import underdogGrillLogo from "@/public/images/trap-takeover/underdog-grill.jpg";
 import { FacebookIcon } from "@/app/_components/icons/facebook-icon";
 import { InstagramIcon } from "@/app/_components/icons/instagram-icon";
-import Link from "next/link";
 
 export const FreeFood = ({ active }: { active: boolean }) => {
   if (!active) {

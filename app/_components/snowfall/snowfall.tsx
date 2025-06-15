@@ -7,13 +7,17 @@
  */
 
 import { useEffect, useRef, type JSX } from "react";
-import { SnowfallCanvas, type SnowfallCanvasConfig } from "./snowfall-canvas";
-import { defaultConfig } from "./snowflake";
+
+import {
+  SnowfallCanvas,
+  type SnowfallCanvasConfig,
+} from "@/app/_components/snowfall/snowfall-canvas";
+import { defaultConfig } from "@/app/_components/snowfall/snowflake";
 import {
   useComponentSize,
   useDeepMemo,
   useSnowfallStyle,
-} from "./snowfall-hooks";
+} from "@/app/_components/snowfall/snowfall-hooks";
 
 export interface SnowfallProps extends Partial<SnowfallCanvasConfig> {
   /**

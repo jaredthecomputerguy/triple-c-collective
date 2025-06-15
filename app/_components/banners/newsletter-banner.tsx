@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
-import { TopBanner } from "./top-banner";
+
+import { TopBanner } from "@/app/_components/banners/top-banner";
 import { useToast } from "@/lib/use-toast";
-import { sendWelcomeEmailAction } from "../../(main-site)/actions";
+import { sendWelcomeEmailAction } from "@/lib/actions/send-welcome-email-action";
 import { cn } from "@/lib/utils";
 
 const NEWSLETTER_SUBMIT_KEY = "ns";
