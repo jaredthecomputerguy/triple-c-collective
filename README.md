@@ -14,7 +14,7 @@
 
 ## Introduction
 
-Triple C Collective is a cannabis dispensary dedicated to providing high-quality products and exceptional customer service. Our website serves as a platform for customers to learn about our products, place orders, and stay updated with our latest news and promotions.
+Triple C Collective is a cannabis dispensary dedicated to providing high-quality products and exceptional customer service. Our website serves as a platform for customers to learn about our products, place orders, subscribe to our newsletter, and stay updated with our latest news and promotions.
 
 ## Technologies Used
 
