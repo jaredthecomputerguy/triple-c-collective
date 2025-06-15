@@ -26,6 +26,7 @@ Triple C Collective is a cannabis dispensary dedicated to providing high-quality
 - [Husky](https://typicode.github.io/husky/): A tool that allows for Git hooks to be easily configured.
 - [lint-staged](https://github.com/lint-staged/lint-staged): A tool for running scripts on staged files in Git.
 - [React Email](https://react.email/): A library for sending HTML emails using React.
+- [Resend](https://resend.com): A modern email service for sending transactional and marketing emails.
 - [Google Maps API](https://developers.google.com/maps): For integrating maps and location services into the website.
 - [Golang](https://go.dev/): To extend my PocketBase local backend with preconfigured admin user + deal collection.
 
