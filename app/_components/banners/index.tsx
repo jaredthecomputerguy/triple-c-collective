@@ -13,7 +13,6 @@ import { StPatricksBanner } from "./st-patricks-banner";
 import { StiiizyBanner } from "./stiiizy-banner";
 import { TrapTakeoverBanner } from "./trap-takeover-banner";
 
-
 type PropsOf<T> = T extends ComponentType<infer P> ? P : never;
 
 type BannerEntry<T extends ComponentType<any>> = {
@@ -52,7 +51,10 @@ const bannerConfig: [
   {
     Component: TrapTakeoverBanner,
     active: FALSE,
-    props: { bannerText: "Trap Takeover - TODAY @ 12-6PM" },
+    props: {
+      bannerText: "Trap Takeover - June 20th @ 12-6PM",
+      //bannerSubText: "Product + Art Raffle",
+    },
   },
   {
     Component: StiiizyBanner,
@@ -86,7 +88,7 @@ const bannerConfig: [
   },
   {
     Component: FathersDayBanner,
-    active: TRUE,
+    active: false,
     props: {},
   },
   {
