@@ -3,13 +3,16 @@ import { useState } from "react";
 
 import { CloseIcon } from "@/app/_components/icons/close-icon";
 import { Button } from "@/app/_components/button";
+import { cn } from "@/lib/utils";
 
 export const TrapTakeoverBanner = ({
   active,
-  bannerText = "Trap Takeover is Here - 12PM",
+  bannerText = "Trap Takeover Sale",
+  bannerSubText,
 }: {
   active: boolean;
   bannerText?: string;
+  bannerSubText?: string;
 }) => {
   const [showBanner, setShowBanner] = useState(active);
 
@@ -17,20 +20,35 @@ export const TrapTakeoverBanner = ({
     return null;
   }
 
+  const hasBannerSubText = bannerSubText && bannerSubText.length > 0;
+
   return (
     <div className="trap-takeover font-logo sticky top-0 flex items-center justify-center py-4 font-semibold md:px-4">
       <div className="mx-auto max-w-7xl">
         <div className="text-sm md:text-base">
-          <span className="flex items-center justify-center font-semibold">
+          <span className="my-2 flex items-center justify-center font-semibold md:my-4">
             <Button
               asChild
               className="px-1 py-2 text-2xl font-semibold decoration-yellow-500 md:text-4xl"
               variant="link"
             >
-              <Link href="/deals/trap-takeover" className="flex gap-2">
-                <span className="font-trap-takeover trap-takeover-text uppercase">
+              <Link href="/deals/trap-takeover" className="flex flex-col">
+                <span
+                  className={cn(
+                    "font-trap-takeover trap-takeover-text text-3xl uppercase md:text-5xl",
+                  )}
+                >
                   {bannerText}
                 </span>
+                {hasBannerSubText && (
+                  <span
+                    className={
+                      "font-trap-takeover trap-takeover-text uppercase"
+                    }
+                  >
+                    {bannerSubText}
+                  </span>
+                )}
               </Link>
             </Button>
           </span>
