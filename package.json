@@ -2,6 +2,7 @@
   "name": "triple-c-collective",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.12.1",
   "scripts": {
     "dev": "concurrently -n pb,next -c green,magenta \"npm:pocketbase:run\" \"next dev\"",
     "build": "next build",
