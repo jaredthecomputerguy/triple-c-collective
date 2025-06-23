@@ -14,7 +14,7 @@ import { TrapTakeoverRaffleRules } from "@/app/_components/trap-takeover/trap-ta
 /** HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo */
 const HAVE_GIFT_BAGS = false;
 
-const TRAP_TAKEOVER_DATE_STRING = formatDate("06/20/2025");
+const TRAP_TAKEOVER_DATE_STRING = formatDate("07/04/2025");
 
 // Pass `undefined` as the last arg to show the 'more brands coming soon...'
 const featuredBrands = getFeaturedBrands(
@@ -139,13 +139,13 @@ export default function TrapTakeoverPage() {
 
         <FreeFood active={false} />
 
-        <SpecialPromo active={true} />
+        <SpecialPromo active={false} />
 
-        <FeaturedBrands active={true} featuredBrands={featuredBrands} />
+        <FeaturedBrands active={false} featuredBrands={featuredBrands} />
 
         <TrapTakeoverVideo active={false} />
 
-        <TrapTakeoverFlyer active={true} />
+        <TrapTakeoverFlyer active={false} />
 
         <TrapTakeoverRaffleRules />
 
