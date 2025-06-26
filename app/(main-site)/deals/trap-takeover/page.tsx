@@ -21,10 +21,10 @@ const featuredBrands = getFeaturedBrands(
   "Akwaaba",
   "Midsfactory",
   "Dompen",
-  "Green River Extracts",
   "Koa Cannabis Co.",
-  "Big Boy Dro",
+  "Green River Extracts",
   "Park Jams",
+  "Big Boy Dro",
 );
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -141,11 +141,11 @@ export default function TrapTakeoverPage() {
 
         <SpecialPromo active={false} />
 
-        <FeaturedBrands active={false} featuredBrands={featuredBrands} />
+        <FeaturedBrands active={true} featuredBrands={featuredBrands} />
 
         <TrapTakeoverVideo active={false} />
 
-        <TrapTakeoverFlyer active={false} />
+        <TrapTakeoverFlyer active={true} />
 
         <TrapTakeoverRaffleRules />
 

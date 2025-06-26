@@ -1,7 +1,7 @@
 import { ImageViewer } from "@/app/_components/image-viewer";
 
-const FLYER_IMAGE_PATH = "/images/trap-takeover/0620-flyer.png";
-const FLYER_PDF_PATH = "/images/trap-takeover/0620-flyer.pdf";
+const FLYER_IMAGE_PATH = "/images/trap-takeover/0704-flyer.png";
+const FLYER_PDF_PATH = "/images/trap-takeover/0704-flyer.pdf";
 
 export const TrapTakeoverFlyer = ({ active }: { active: boolean }) => {
   if (!active) {
