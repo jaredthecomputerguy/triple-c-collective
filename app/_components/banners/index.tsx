@@ -53,7 +53,7 @@ const bannerConfig: [
     active: TRUE,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "July 4th - 12-6PM",
+      bannerSubText: "All weekend! Ends Monday!",
     },
   },
   {
