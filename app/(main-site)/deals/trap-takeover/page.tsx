@@ -94,11 +94,20 @@ export default function TrapTakeoverPage() {
   return (
     <main className="bg-[#fefefe]">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
+        {/* TODO: DELETE ME ONCE THE WEEKEND IS OVER */}
+        <div className="rounded py-2 text-center text-2xl">
+          <span className="font-semibold">
+            The sale is continuing until{" "}
+            <strong className="font-logo font-bold">Monday, July 7th</strong>!
+          </span>
+        </div>
+        {/* END: DELETE ME ONCE THE WEEKEND IS OVER */}
         <span className="pb-1 text-gray-600">{TRAP_TAKEOVER_DATE_STRING}</span>
         <h1 className="font-logo pb-4 text-4xl font-semibold">
           Trap Takeover Sale
         </h1>
         <hr className="pb-4" />
+
         <h2 className="font-logo py-8 pb-12 text-center text-2xl font-semibold md:text-left md:text-4xl">
           Double Up on Your Favorites Every Month
         </h2>
