@@ -243,10 +243,11 @@ export default function HomePage() {
                   asChild
                 >
                   <Link
+                    className="mt-4"
                     href="/real-ca-cannabis"
                     aria-label="Learn more about the Real CA Cannabis program"
                   >
-                    Learn More
+                    Learn More About Real CA Cannabis
                   </Link>
                 </Button>
               </div>
