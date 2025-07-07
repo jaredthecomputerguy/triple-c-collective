@@ -14,18 +14,10 @@ import { TrapTakeoverRaffleRules } from "@/app/_components/trap-takeover/trap-ta
 /** HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo */
 const HAVE_GIFT_BAGS = false;
 
-const TRAP_TAKEOVER_DATE_STRING = formatDate("07/04/2025");
+const TRAP_TAKEOVER_DATE_STRING = formatDate("07/18/2025");
 
 // Pass `undefined` as the last arg to show the 'more brands coming soon...'
-const featuredBrands = getFeaturedBrands(
-  "Akwaaba",
-  "Midsfactory",
-  "Dompen",
-  "Koa Cannabis Co.",
-  "Green River Extracts",
-  "Park Jams",
-  "Big Boy Dro",
-);
+const featuredBrands = getFeaturedBrands(undefined);
 
 export async function generateMetadata(): Promise<Metadata> {
   const trapTakeoverDate = new Date(TRAP_TAKEOVER_DATE_STRING);
@@ -154,7 +146,7 @@ export default function TrapTakeoverPage() {
 
         <TrapTakeoverVideo active={false} />
 
-        <TrapTakeoverFlyer active={true} />
+        <TrapTakeoverFlyer active={false} />
 
         <TrapTakeoverRaffleRules />
 

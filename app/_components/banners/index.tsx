@@ -50,7 +50,7 @@ const bannerConfig: [
 ] = [
   {
     Component: TrapTakeoverBanner,
-    active: TRUE,
+    active: FALSE,
     props: {
       bannerText: "Trap Takeover Sale",
       bannerSubText: "All weekend! Ends Monday!",
