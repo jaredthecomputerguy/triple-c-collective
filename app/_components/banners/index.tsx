@@ -12,6 +12,7 @@ import { SnapchatBanner } from "./snapchat-banner";
 import { StPatricksBanner } from "./st-patricks-banner";
 import { StiiizyBanner } from "./stiiizy-banner";
 import { TrapTakeoverBanner } from "./trap-takeover-banner";
+import { SevenTenSaleBanner } from "./710-sale-banner/index";
 
 type PropsOf<T> = T extends ComponentType<infer P> ? P : never;
 
@@ -45,6 +46,7 @@ const bannerConfig: [
   BannerEntry<typeof FathersDayBanner>,
   BannerEntry<typeof NewYearBanner>,
   BannerEntry<typeof NewsletterBanner>,
+  BannerEntry<typeof SevenTenSaleBanner>,
   BannerEntry<typeof SnapchatBanner>,
   BannerEntry<typeof StPatricksBanner>,
 ] = [
@@ -99,6 +101,11 @@ const bannerConfig: [
   {
     Component: NewsletterBanner,
     active: FALSE,
+    props: {},
+  },
+  {
+    Component: SevenTenSaleBanner,
+    active: TRUE,
     props: {},
   },
   {
