@@ -52,10 +52,10 @@ const bannerConfig: [
 ] = [
   {
     Component: TrapTakeoverBanner,
-    active: FALSE,
+    active: TRUE,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "All weekend! Ends Monday!",
+      bannerSubText: "July 18th 12-6PM",
     },
   },
   {
@@ -105,7 +105,7 @@ const bannerConfig: [
   },
   {
     Component: SevenTenSaleBanner,
-    active: TRUE,
+    active: FALSE,
     props: {},
   },
   {
