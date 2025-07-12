@@ -22,10 +22,6 @@ type BannerEntry<T extends ComponentType<any>> = {
   props?: Partial<PropsOf<T>>;
 };
 
-// This is just for visual clarity
-const TRUE = true;
-const FALSE = false;
-
 /*
  *  This component is a bit of typescript magic. It's a list of all the banners
  *  that are currently being used. It's used to dynamically render the banners
@@ -52,7 +48,7 @@ const bannerConfig: [
 ] = [
   {
     Component: TrapTakeoverBanner,
-    active: TRUE,
+    active: false,
     props: {
       bannerText: "Trap Takeover Sale",
       bannerSubText: "July 18th 12-6PM",
@@ -60,62 +56,62 @@ const bannerConfig: [
   },
   {
     Component: StiiizyBanner,
-    active: FALSE,
+    active: true,
     props: {},
   },
   {
     Component: CloneBanner,
-    active: FALSE,
+    active: false,
     props: {},
   },
   {
     Component: FourTwentyBanner,
-    active: FALSE,
+    active: false,
     props: {},
   },
   {
     Component: ChristmasBanner,
-    active: FALSE,
+    active: false,
     props: {},
   },
   {
     Component: MemorialDayBanner,
-    active: FALSE,
+    active: false,
     props: {},
   },
   {
     Component: MothersDayBanner,
-    active: FALSE,
+    active: false,
     props: {},
   },
   {
     Component: FathersDayBanner,
-    active: FALSE,
+    active: false,
     props: {},
   },
   {
     Component: NewYearBanner,
-    active: FALSE,
+    active: false,
     props: {},
   },
   {
     Component: NewsletterBanner,
-    active: FALSE,
+    active: false,
     props: {},
   },
   {
     Component: SevenTenSaleBanner,
-    active: FALSE,
+    active: false,
     props: {},
   },
   {
     Component: SnapchatBanner,
-    active: FALSE,
+    active: false,
     props: {},
   },
   {
     Component: StPatricksBanner,
-    active: FALSE,
+    active: false,
     props: {},
   },
 ];
