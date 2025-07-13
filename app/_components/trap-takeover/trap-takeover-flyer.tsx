@@ -1,9 +1,16 @@
 import { ImageViewer } from "@/app/_components/image-viewer";
 
-const FLYER_IMAGE_PATH = "/images/trap-takeover/0704-flyer.png";
-const FLYER_PDF_PATH = "/images/trap-takeover/0704-flyer.pdf";
+interface TrapTakeoverFlyerProps {
+  active: boolean;
+  flyerImagePath: string;
+  flyerPDFPath: string;
+}
 
-export const TrapTakeoverFlyer = ({ active }: { active: boolean }) => {
+export const TrapTakeoverFlyer = ({
+  active,
+  flyerImagePath,
+  flyerPDFPath,
+}: TrapTakeoverFlyerProps) => {
   if (!active) {
     return null;
   }
@@ -16,7 +23,7 @@ export const TrapTakeoverFlyer = ({ active }: { active: boolean }) => {
       <hr />
       <ImageViewer
         className="mx-auto my-8 w-full max-w-2xl cursor-pointer rounded-xl"
-        src={FLYER_IMAGE_PATH}
+        src={flyerImagePath}
         alt="March 7th Trap Takeover Flyer"
         width={1236}
         height={1599}
@@ -24,14 +31,14 @@ export const TrapTakeoverFlyer = ({ active }: { active: boolean }) => {
       <div className="mx-auto flex max-w-md flex-col items-center justify-center gap-2">
         <a
           className="bg-primary-purple hover:bg-primary-purple/90 w-full cursor-pointer rounded-sm px-6 py-2 text-center font-semibold text-white transition-all"
-          href={FLYER_PDF_PATH}
+          href={flyerPDFPath}
           download
         >
           Download PDF
         </a>
         <a
           className="bg-primary-purple hover:bg-primary-purple/90 w-full cursor-pointer rounded-sm px-6 py-2 text-center font-semibold text-white transition-all"
-          href={FLYER_IMAGE_PATH}
+          href={flyerImagePath}
           download
         >
           Download Image

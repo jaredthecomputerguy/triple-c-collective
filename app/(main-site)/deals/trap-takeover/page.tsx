@@ -17,7 +17,15 @@ const HAVE_GIFT_BAGS = false;
 const TRAP_TAKEOVER_DATE_STRING = formatDate("07/18/2025");
 
 // Pass `undefined` as the last arg to show the 'more brands coming soon...'
-const featuredBrands = getFeaturedBrands(undefined);
+const featuredBrands = getFeaturedBrands(
+  "Akwaaba",
+  "Midsfactory",
+  "Dompen",
+  "Koa Cannabis Co.",
+  "Green River Extracts",
+  "Park Jams",
+  "Chameleon Craft",
+);
 
 export async function generateMetadata(): Promise<Metadata> {
   const trapTakeoverDate = new Date(TRAP_TAKEOVER_DATE_STRING);
@@ -138,7 +146,11 @@ export default function TrapTakeoverPage() {
 
         <TrapTakeoverVideo active={false} />
 
-        <TrapTakeoverFlyer active={false} />
+        <TrapTakeoverFlyer
+          active={true}
+          flyerImagePath="/images/trap-takeover/0718-flyer.png"
+          flyerPDFPath="/images/trap-takeover/0718-flyer.pdf"
+        />
 
         <TrapTakeoverRaffleRules />
 
