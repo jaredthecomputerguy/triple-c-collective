@@ -10,22 +10,12 @@ import { FeaturedBrands } from "@/app/_components/trap-takeover/featured-brands"
 import { TrapTakeoverVideo } from "@/app/_components/trap-takeover/trap-takeover-video";
 import { TrapTakeoverFlyer } from "@/app/_components/trap-takeover/trap-takeover-flyer";
 import { TrapTakeoverRaffleRules } from "@/app/_components/trap-takeover/trap-takeover-raffle-rules";
+import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 
-/** HAVE_GIFT_BAGS determines whether the Trap Takeover is doing the gift bag promo */
-const HAVE_GIFT_BAGS = false;
-
-const TRAP_TAKEOVER_DATE_STRING = formatDate("07/18/2025");
+const TRAP_TAKEOVER_DATE_STRING = formatDate("08/01/2025");
 
 // Pass `undefined` as the last arg to show the 'more brands coming soon...'
-const featuredBrands = getFeaturedBrands(
-  "Akwaaba",
-  "Midsfactory",
-  "Dompen",
-  "Koa Cannabis Co.",
-  "Green River Extracts",
-  "Park Jams",
-  "Chameleon Craft",
-);
+const featuredBrands = getFeaturedBrands(undefined);
 
 export async function generateMetadata(): Promise<Metadata> {
   const trapTakeoverDate = new Date(TRAP_TAKEOVER_DATE_STRING);
@@ -127,14 +117,7 @@ export default function TrapTakeoverPage() {
               to win an exclusive prize pack filled with promo products and swag
               from top cannabis brands. Don’t miss your chance to win big!
             </li>
-            {HAVE_GIFT_BAGS && (
-              <li>
-                <strong>Gift Bags for the Early Birds:</strong> The first 50
-                customers to show up for the sale will receive a complimentary
-                gift bag loaded with goodies. Make sure to arrive early to snag
-                one before they’re gone!{" "}
-              </li>
-            )}
+            <GiftBags active={false} />
           </ul>
         </div>
 
@@ -147,7 +130,7 @@ export default function TrapTakeoverPage() {
         <TrapTakeoverVideo active={false} />
 
         <TrapTakeoverFlyer
-          active={true}
+          active={false}
           flyerImagePath="/images/trap-takeover/0718-flyer.png"
           flyerPDFPath="/images/trap-takeover/0718-flyer.pdf"
         />
