@@ -107,22 +107,6 @@ export const WelcomeEmail = ({ contactId }: WelcomeEmailProps) => {
               </Row>
             </Section>
             <Hr className="mx-0 my-[24px] w-full border border-solid !border-gray-300" />
-            <Section>
-              <Row>
-                <Column className="w-[90%]">
-                  <Text className="m-0 text-[20px] leading-[28px] font-semibold text-gray-900">
-                    Reward Points (Coming Soon!)
-                  </Text>
-                  <Text className="m-0 mt-[8px] text-[16px] leading-[24px] text-gray-500">
-                    We’re working on giving every subscriber $15 in store
-                    rewards just for signing up. More details on how to receive
-                    your points will be shared soon!
-                  </Text>
-                </Column>
-              </Row>
-            </Section>
-
-            <Hr className="mx-0 my-[24px] w-full border border-solid !border-gray-300" />
 
             <Text className="text-center underline">
               <Link
