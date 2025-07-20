@@ -72,7 +72,7 @@ export default function AboutPage() {
         <p className="mx-auto max-w-4xl text-center text-xl font-semibold text-pretty md:py-12 md:text-2xl">
           Welcome to{" "}
           <span className="text-primary-purple">Triple C Collective</span>, your
-          trusted destination for a premium cannabis experience! With over 15
+          trusted destination for a premium cannabis experience! With over 16
           years of dedicated service, we take pride in being a cornerstone in
           the cannabis community.
         </p>
