@@ -14,9 +14,15 @@ import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 
 const TRAP_TAKEOVER_DATE_STRING = formatDate("08/01/2025");
 
-// Pass `undefined` as the last arg to show the 'more brands coming soon...'
-const featuredBrands = getFeaturedBrands(undefined);
-
+const featuredBrands = getFeaturedBrands(
+  "Midsfactory",
+  "Dompen",
+  "Koa Cannabis Co.",
+  "Akwaaba",
+  "Chameleon Craft",
+  "Park Jams",
+  "Green River Extracts",
+);
 export async function generateMetadata(): Promise<Metadata> {
   const trapTakeoverDate = new Date(TRAP_TAKEOVER_DATE_STRING);
 

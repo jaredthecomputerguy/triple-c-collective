@@ -97,6 +97,7 @@ const BRANDS = [
   },
 ] as const;
 
+/** Pass `undefined` as the last or only arg to show the 'more brands coming soon...' */
 export const getFeaturedBrands = (...brandNames: BrandNames) => {
   return BRANDS.filter((brand) => brandNames.includes(brand.name));
 };
