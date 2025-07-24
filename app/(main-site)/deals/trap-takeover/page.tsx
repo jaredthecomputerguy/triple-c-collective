@@ -136,9 +136,9 @@ export default function TrapTakeoverPage() {
         <TrapTakeoverVideo active={false} />
 
         <TrapTakeoverFlyer
-          active={false}
-          flyerImagePath="/images/trap-takeover/0718-flyer.png"
-          flyerPDFPath="/images/trap-takeover/0718-flyer.pdf"
+          active={true}
+          flyerImagePath="/images/trap-takeover/0801-flyer-small.png"
+          flyerPDFPath="/images/trap-takeover/0801-flyer-small.pdf"
         />
 
         <TrapTakeoverRaffleRules />
