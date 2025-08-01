@@ -51,7 +51,7 @@ const bannerConfig: [
     active: true,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "Fri, August 1st - 12-6PM",
+      bannerSubText: "TODAY - 12-6PM",
     },
   },
   {
