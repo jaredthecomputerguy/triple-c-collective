@@ -12,16 +12,17 @@ import { TrapTakeoverFlyer } from "@/app/_components/trap-takeover/trap-takeover
 import { TrapTakeoverRaffleRules } from "@/app/_components/trap-takeover/trap-takeover-raffle-rules";
 import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 
-const TRAP_TAKEOVER_DATE_STRING = formatDate("08/01/2025");
+const TRAP_TAKEOVER_DATE_STRING = formatDate("08/15/2025");
 
 const featuredBrands = getFeaturedBrands(
   "Midsfactory",
   "Dompen",
   "Koa Cannabis Co.",
-  "Akwaaba",
-  "Chameleon Craft",
-  "Park Jams",
   "Green River Extracts",
+  "Park Jams",
+  "Chameleon Craft",
+  "Akwaaba",
+  "Big Boy Dro",
 );
 export async function generateMetadata(): Promise<Metadata> {
   const trapTakeoverDate = new Date(TRAP_TAKEOVER_DATE_STRING);
@@ -137,8 +138,8 @@ export default function TrapTakeoverPage() {
 
         <TrapTakeoverFlyer
           active={true}
-          flyerImagePath="/images/trap-takeover/0801-flyer-small.png"
-          flyerPDFPath="/images/trap-takeover/0801-flyer-small.pdf"
+          flyerImagePath="/images/trap-takeover/0815-flyer.png"
+          flyerPDFPath="/images/trap-takeover/0815-flyer.pdf"
         />
 
         <TrapTakeoverRaffleRules />
