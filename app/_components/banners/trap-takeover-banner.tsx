@@ -35,7 +35,7 @@ export const TrapTakeoverBanner = ({
               <Link href="/deals/trap-takeover" className="flex flex-col">
                 <span
                   className={cn(
-                    "font-trap-takeover trap-takeover-text text-3xl uppercase md:text-5xl",
+                    "font-trap-takeover trap-takeover-text text-4xl uppercase md:text-6xl",
                   )}
                 >
                   {bannerText}
