@@ -4,12 +4,14 @@ interface TrapTakeoverFlyerProps {
   active: boolean;
   flyerImagePath: string;
   flyerPDFPath: string;
+  flyerImageAlt: string;
 }
 
 export const TrapTakeoverFlyer = ({
   active,
   flyerImagePath,
   flyerPDFPath,
+  flyerImageAlt,
 }: TrapTakeoverFlyerProps) => {
   if (!active) {
     return null;
@@ -24,7 +26,7 @@ export const TrapTakeoverFlyer = ({
       <ImageViewer
         className="mx-auto my-8 w-full max-w-2xl cursor-pointer rounded-xl"
         src={flyerImagePath}
-        alt="March 7th Trap Takeover Flyer"
+        alt={flyerImageAlt}
         width={1236}
         height={1599}
       />
