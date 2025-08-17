@@ -12,7 +12,11 @@ import { TrapTakeoverFlyer } from "@/app/_components/trap-takeover/trap-takeover
 import { TrapTakeoverRaffleRules } from "@/app/_components/trap-takeover/trap-takeover-raffle-rules";
 import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 
-const TRAP_TAKEOVER_DATE_STRING = formatDate("08/15/2025");
+const TRAP_TAKEOVER_DATE_STRING = formatDate({
+  year: 2025,
+  month: 9,
+  day: 5,
+});
 
 const featuredBrands = getFeaturedBrands(
   "Midsfactory",
@@ -24,6 +28,7 @@ const featuredBrands = getFeaturedBrands(
   "Akwaaba",
   "Big Boy Dro",
 );
+
 export async function generateMetadata(): Promise<Metadata> {
   const trapTakeoverDate = new Date(TRAP_TAKEOVER_DATE_STRING);
 
@@ -102,17 +107,16 @@ export default function TrapTakeoverPage() {
         </h2>
         <div className="trap-takeover bg-primary-purple rounded-lg p-8 text-white">
           <p className="pb-4 text-2xl">
-            {" "}
             We’re teaming up with Illa Guerrilla to bring you unbeatable deals
             and a night to remember. Here’s what you can look forward to:
-          </p>{" "}
+          </p>
           <ul className="list-inside list-decimal space-y-6">
             <li>
               <strong className="text-semibold">Buy One, Get One Free:</strong>{" "}
               Stock up on your favorites with BOGO deals on select premium
               brands. It’s the perfect opportunity to explore new products or
               get more of what you love.
-            </li>{" "}
+            </li>
             <li>
               <strong>Learn about Illa Guerrilla:</strong> Our Illa Guerrilla
               sales rep will be on-site with a booth, showcasing product
@@ -138,8 +142,9 @@ export default function TrapTakeoverPage() {
 
         <TrapTakeoverFlyer
           active={true}
-          flyerImagePath="/images/trap-takeover/0815-flyer.png"
-          flyerPDFPath="/images/trap-takeover/0815-flyer.pdf"
+          flyerImagePath="/images/trap-takeover/0905-flyer.png"
+          flyerPDFPath="/images/trap-takeover/0905-flyer.pdf"
+          flyerImageAlt="September 5th, 2025 Trap Takeover Flyer"
         />
 
         <TrapTakeoverRaffleRules />
