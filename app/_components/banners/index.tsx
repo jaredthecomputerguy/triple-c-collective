@@ -1,4 +1,4 @@
-import type { ComponentType, ReactNode } from "react";
+import type { ComponentType } from "react";
 
 import { TrapTakeoverBanner } from "@/app/_components/banners/trap-takeover-banner";
 import { StiiizyBanner } from "@/app/_components/banners/stiiizy-banner";
@@ -22,7 +22,6 @@ type BannerEntry<T extends ComponentType<any>> = {
   Component: T;
   active: boolean;
   props?: Partial<PropsOf<T>>;
-  children?: ReactNode;
 };
 
 /*
@@ -71,7 +70,7 @@ const bannerConfig: [
         </div>
       ),
       className:
-        "relative overflow-hidden bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-2 font-bold text-white uppercase",
+        "bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-2 font-bold text-white uppercase",
     },
   },
   {
@@ -147,12 +146,8 @@ const bannerConfig: [
 export const Banner = () => {
   return (
     <>
-      {bannerConfig.map(({ Component, active, props, children }) => {
-        return (
-          <Component key={Component.name} {...props} active={active}>
-            {children}
-          </Component>
-        );
+      {bannerConfig.map(({ Component, active, props }) => {
+        return <Component key={Component.name} {...props} active={active} />;
       })}
     </>
   );
