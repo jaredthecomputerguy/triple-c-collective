@@ -13,6 +13,8 @@ import { NewsletterBanner } from "@/app/_components/banners/newsletter-banner";
 import { SevenTenSaleBanner } from "@/app/_components/banners/710-sale-banner/";
 import { SnapchatBanner } from "@/app/_components/banners/snapchat-banner";
 import { StPatricksBanner } from "@/app/_components/banners/st-patricks-banner";
+import { GenericBanner } from "@/app/_components/banners/generic-banner";
+import Link from "next/link";
 
 type PropsOf<T> = T extends ComponentType<infer P> ? P : never;
 
@@ -32,6 +34,7 @@ type BannerEntry<T extends ComponentType<any>> = {
  */
 
 const bannerConfig: [
+  BannerEntry<typeof GenericBanner>,
   BannerEntry<typeof TrapTakeoverBanner>,
   BannerEntry<typeof StiiizyBanner>,
   BannerEntry<typeof CloneBanner>,
@@ -47,8 +50,32 @@ const bannerConfig: [
   BannerEntry<typeof StPatricksBanner>,
 ] = [
   {
-    Component: TrapTakeoverBanner,
+    Component: GenericBanner,
     active: true,
+    props: {
+      children: (
+        // TODO: Add me back after labor day weekend
+        // <div className="text-[#050505]">
+        //   <span className="uppercase">
+        //     NOW ACCEPTING CREDIT CARDS &amp; TAP TO PAY
+        //   </span>
+        // </div>
+        <div className="text-[#050505]">
+          <Link
+            href="/deals"
+            className="flex flex-col items-center justify-center gap-1 px-4 py-3 text-center text-[#fefefe] transition hover:underline md:text-xl"
+          >
+            LABOR DAY WEEKEND SALE
+          </Link>
+        </div>
+      ),
+      className:
+        "relative overflow-hidden bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-2 font-bold text-white uppercase",
+    },
+  },
+  {
+    Component: TrapTakeoverBanner,
+    active: false,
     props: {
       bannerText: "Trap Takeover Sale",
       bannerSubText: "Sept. 5th | 12-6PM",
@@ -56,7 +83,7 @@ const bannerConfig: [
   },
   {
     Component: StiiizyBanner,
-    active: false,
+    active: true,
     props: {},
   },
   {
