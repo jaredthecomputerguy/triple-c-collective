@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 
 interface GenericBannerProps {
   active: boolean;
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
 }
 
@@ -21,7 +21,9 @@ export const GenericBanner = ({
         className,
       )}
     >
-      <div className="flex flex-col items-center gap-2">{children}</div>
+      {children && (
+        <div className="flex flex-col items-center gap-2">{children}</div>
+      )}
     </TopBanner>
   );
 };
