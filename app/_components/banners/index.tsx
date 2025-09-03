@@ -54,28 +54,18 @@ const bannerConfig: [
     active: true,
     props: {
       children: (
-        // TODO: Add me back after labor day weekend
-        // <div className="text-[#050505]">
-        //   <span className="uppercase">
-        //     NOW ACCEPTING CREDIT CARDS &amp; TAP TO PAY
-        //   </span>
-        // </div>
         <div className="text-[#050505]">
-          <Link
-            href="/deals"
-            className="flex flex-col items-center justify-center gap-1 px-4 py-3 text-center text-[#fefefe] transition hover:underline md:text-xl"
-          >
-            LABOR DAY WEEKEND SALE
-          </Link>
+          <span className="uppercase">
+            NOW ACCEPTING CREDIT CARDS &amp; TAP TO PAY
+          </span>
         </div>
       ),
-      className:
-        "bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-2 font-bold text-white uppercase",
+      className: "py-2 font-bold text-white uppercase",
     },
   },
   {
     Component: TrapTakeoverBanner,
-    active: false,
+    active: true,
     props: {
       bannerText: "Trap Takeover Sale",
       bannerSubText: "Sept. 5th | 12-6PM",
@@ -83,7 +73,7 @@ const bannerConfig: [
   },
   {
     Component: StiiizyBanner,
-    active: true,
+    active: false,
     props: {},
   },
   {
