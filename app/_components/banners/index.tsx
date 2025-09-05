@@ -14,24 +14,16 @@ import { SevenTenSaleBanner } from "@/app/_components/banners/710-sale-banner/";
 import { SnapchatBanner } from "@/app/_components/banners/snapchat-banner";
 import { StPatricksBanner } from "@/app/_components/banners/st-patricks-banner";
 import { GenericBanner } from "@/app/_components/banners/generic-banner";
-import Link from "next/link";
 
 type PropsOf<T> = T extends ComponentType<infer P> ? P : never;
 
 type BannerEntry<T extends ComponentType<any>> = {
   Component: T;
   active: boolean;
+  /** Lower number = higher on the page */
+  order?: number;
   props?: Partial<PropsOf<T>>;
 };
-
-/*
- *  This component is a bit of typescript magic. It's a list of all the banners
- *  that are currently being used. It's used to dynamically render the banners
- *  based on the current date.
- *
- *  The banners are rendered in the order they are listed in this file. So if
- *  you want to add a new banner, you need to make sure it's listed first.
- */
 
 const bannerConfig: [
   BannerEntry<typeof GenericBanner>,
@@ -52,93 +44,58 @@ const bannerConfig: [
   {
     Component: GenericBanner,
     active: true,
+    order: 2,
     props: {
       children: (
-        <div className="text-[#050505]">
-          <span className="uppercase">
+        <div className="mr-4 text-center text-[#fefefe]">
+          <span className="text-xs uppercase md:text-sm">
             NOW ACCEPTING CREDIT CARDS &amp; TAP TO PAY
           </span>
         </div>
       ),
-      className: "py-2 font-bold text-white uppercase",
+      className: "py-2 font-bold text-white uppercase px-4 bg-primary-purple ",
+      closeBtnClass: "text-white",
     },
   },
   {
     Component: TrapTakeoverBanner,
     active: true,
+    order: 1,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "Sept. 5th | 12-6PM",
+      bannerSubText: "LIVE TODAY | 12-6PM",
     },
   },
-  {
-    Component: StiiizyBanner,
-    active: false,
-    props: {},
-  },
-  {
-    Component: CloneBanner,
-    active: false,
-    props: {},
-  },
-  {
-    Component: FourTwentyBanner,
-    active: false,
-    props: {},
-  },
-  {
-    Component: ChristmasBanner,
-    active: false,
-    props: {},
-  },
-  {
-    Component: MemorialDayBanner,
-    active: false,
-    props: {},
-  },
-  {
-    Component: MothersDayBanner,
-    active: false,
-    props: {},
-  },
-  {
-    Component: FathersDayBanner,
-    active: false,
-    props: {},
-  },
-  {
-    Component: NewYearBanner,
-    active: false,
-    props: {},
-  },
-  {
-    Component: NewsletterBanner,
-    active: false,
-    props: {},
-  },
-  {
-    Component: SevenTenSaleBanner,
-    active: false,
-    props: {},
-  },
-  {
-    Component: SnapchatBanner,
-    active: false,
-    props: {},
-  },
-  {
-    Component: StPatricksBanner,
-    active: false,
-    props: {},
-  },
+  { Component: StiiizyBanner, active: false, order: 50, props: {} },
+  { Component: CloneBanner, active: false, order: 50, props: {} },
+  { Component: FourTwentyBanner, active: false, order: 50, props: {} },
+  { Component: ChristmasBanner, active: false, order: 50, props: {} },
+  { Component: MemorialDayBanner, active: false, order: 50, props: {} },
+  { Component: MothersDayBanner, active: false, order: 50, props: {} },
+  { Component: FathersDayBanner, active: false, order: 50, props: {} },
+  { Component: NewYearBanner, active: false, order: 50, props: {} },
+  { Component: NewsletterBanner, active: false, order: 50, props: {} },
+  { Component: SevenTenSaleBanner, active: false, order: 50, props: {} },
+  { Component: SnapchatBanner, active: false, order: 50, props: {} },
+  { Component: StPatricksBanner, active: false, order: 50, props: {} },
 ];
 
 export const Banner = () => {
+  // Stable sort: by `order`, then by original index
+  const ordered = bannerConfig
+    .map((entry, idx) => [entry, idx] as const)
+    .sort((a, b) => {
+      const ao = a[0].order ?? Infinity;
+      const bo = b[0].order ?? Infinity;
+      return ao === bo ? a[1] - b[1] : ao - bo;
+    })
+    .map(([entry]) => entry);
+
   return (
     <>
-      {bannerConfig.map(({ Component, active, props }) => {
-        return <Component key={Component.name} {...props} active={active} />;
-      })}
+      {ordered.map(({ Component, active, props }) => (
+        <Component key={Component.name} {...props} active={active} />
+      ))}
     </>
   );
 };
