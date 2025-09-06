@@ -14,6 +14,8 @@ import (
 	"github.com/pocketbase/pocketbase/tools/types"
 )
 
+const brandsJSONPath = "./treez-brands.json"
+
 type BrandData struct {
 	Brands []string `json:"brands"`
 }
@@ -21,42 +23,20 @@ type BrandData struct {
 func main() {
 	app := pocketbase.New()
 
-	var recordId *string
-
 	app.OnServe().BindFunc(func(e *core.ServeEvent) error {
 		e.Router.GET("/*", apis.Static(os.DirFS("./pb_public"), false))
-		e.Next()
-		return nil
-	})
 
-	app.OnServe().BindFunc(func(e *core.ServeEvent) error {
-		fmt.Println("Creating default admin user...")
-		err := createDefaultAdminUser(app)
-		if err != nil {
-			return err
+		if err := createDefaultAdminUser(app); err != nil {
+			return fmt.Errorf("create default admin user: %w", err)
+		}
+		if err := ensureDealsCollection(app); err != nil {
+			return fmt.Errorf("ensure deals collection: %w", err)
+		}
+		if err := seedDeal(app); err != nil {
+			return fmt.Errorf("seed deals: %w", err)
 		}
 
-		err = createDealCollection(app)
-
-		fmt.Println("Creating deals collection user...")
-		if err != nil {
-			return err
-		}
-
-		fmt.Println("Seeding deals collection...")
-		err = seedDeal(app, &recordId)
-
-		fmt.Println("Finished seeding deals collection...")
-
-		if err != nil {
-			return err
-		}
-
-		err = e.Next()
-		if err != nil {
-			return err
-		}
-		return nil
+		return e.Next()
 	})
 
 	if err := app.Start(); err != nil {
@@ -64,52 +44,68 @@ func main() {
 	}
 }
 
-// createDefaultAdminUser creates a default admin user with the email "test@test.com" and the password "testpassword"
+// createDefaultAdminUser creates a default admin user with the email "test@test.com" and the password "testpassword".
 func createDefaultAdminUser(app *pocketbase.PocketBase) error {
 	collection, err := app.FindCollectionByNameOrId(core.CollectionNameSuperusers)
 	if err != nil {
-		return errors.New("failed to find admins collection: " + err.Error())
+		return fmt.Errorf("find admins collection: %w", err)
 	}
+
 	admin := core.NewRecord(collection)
 	admin.SetEmail("test@test.com")
 	admin.SetPassword("testpassword")
-	if err := app.Save(admin); err != nil {
-		return errors.New("failed to save admin: " + err.Error())
-	}
 
+	if err := app.Save(admin); err != nil {
+		return fmt.Errorf("save admin: %w", err)
+	}
 	return nil
 }
 
-func createDealCollection(app *pocketbase.PocketBase) error {
+func ensureDealsCollection(app *pocketbase.PocketBase) error {
+	brands, err := getBrands()
+	if err != nil {
+		return fmt.Errorf("load brands: %w", err)
+	}
 
-	brands := getBrands()
+	// If the collection already exists, no-op.
+	if _, findErr := app.FindCollectionByNameOrId("deals"); findErr == nil {
+		return nil
+	}
 
-	dealsCollection := core.NewBaseCollection("deals")
+	deals := newDealsCollection(brands)
 
-	dealsCollection.ListRule = types.Pointer("")
-	dealsCollection.ViewRule = types.Pointer("")
-	dealsCollection.CreateRule = nil
-	dealsCollection.UpdateRule = types.Pointer("")
-	dealsCollection.DeleteRule = nil
+	if err := app.Save(deals); err != nil {
+		return fmt.Errorf("save deals collection: %w", err)
+	}
+	return nil
+}
 
-	dealsCollection.Fields.Add(&core.BoolField{
-		Name:     "active",
-		Required: true,
-	}, &core.TextField{
-		Name:     "title",
-		Required: true,
-	}, &core.TextField{
-		Name:     "description",
-		Required: true,
-	}, &core.FileField{
-		Name:      "image",
-		Required:  true,
-		MaxSelect: 1,
-		MaxSize:   1000000,
-	},
-		&core.TextField{
-			Name: "htmlId",
+func allowAll() *string {
+	s := ""
+	return &s
+}
+
+func newDealsCollection(brands []string) *core.Collection {
+	c := core.NewBaseCollection("deals")
+
+	// PocketBase rules: empty string pointer means allow, nil means disallow.
+	c.ListRule = allowAll()
+	c.ViewRule = allowAll()
+	c.CreateRule = nil
+	c.UpdateRule = allowAll()
+	c.DeleteRule = nil
+
+	c.Fields.Add(
+		&core.BoolField{Name: "active", Required: true},
+		&core.TextField{Name: "title", Required: true},
+		&core.TextField{Name: "description", Required: true},
+		&core.FileField{
+			Name:      "image",
+			Required:  true,
+			MaxSelect: 1,
+			MaxSize:   1_000_000,
 		},
+		&core.TextField{Name: "htmlId"},
 		&core.TextField{
 			Name:     "imageBackgroundColor",
 			Required: false,
@@ -120,7 +116,8 @@ func createDealCollection(app *pocketbase.PocketBase) error {
 			Required:  true,
 			Values:    types.JSONArray[string](brands),
 			MaxSelect: 3,
-		}, &core.SelectField{
+		},
+		&core.SelectField{
 			Name:     "categories",
 			Required: true,
 			Values: types.JSONArray[string]{
@@ -135,49 +132,27 @@ func createDealCollection(app *pocketbase.PocketBase) error {
 			},
 			MaxSelect: 7,
 		},
-		&core.TextField{
-			Name: "subTypes",
-		},
-		&core.JSONField{
-			Name: "typeSubtypes",
-		},
-		&core.TextField{
-			Name: "badge",
-		},
-		&core.AutodateField{
-			Name:     "created",
-			OnCreate: true,
-		},
-		&core.AutodateField{
-			Name:     "updated",
-			OnCreate: true,
-			OnUpdate: true,
-		},
+		&core.TextField{Name: "subTypes"},
+		&core.JSONField{Name: "typeSubtypes"},
+		&core.TextField{Name: "badge"},
+		&core.AutodateField{Name: "created", OnCreate: true},
+		&core.AutodateField{Name: "updated", OnCreate: true, OnUpdate: true},
 	)
-
-	if err := app.Save(dealsCollection); err != nil {
-		return errors.New("failed to save deals collection: " + err.Error())
-	}
-
-	return nil
+	return c
 }
 
-func seedDeal(app *pocketbase.PocketBase, recordId **string) error {
-	// Check if the 'deals' table has any records
+func seedDeal(app *pocketbase.PocketBase) error {
 	collection, err := app.FindCollectionByNameOrId("deals")
 	if err != nil {
-		return errors.New("failed to find deals collection: " + err.Error())
+		return fmt.Errorf("find deals collection: %w", err)
 	}
 
-	// Try to get the first record
-	record, err := app.FindFirstRecordByFilter(collection.Name, "")
-	if err == nil && record != nil {
-		// If a record is found, log and return early
+	// If any record exists, skip.
+	if record, err := app.FindFirstRecordByFilter(collection.Name, ""); err == nil && record != nil {
 		log.Println("Deals table already has records. Skipping seeding.")
 		return nil
 	}
 
-	// If no records found or there was an error (likely because no records exist), insert a single deal for testing
 	deal := core.NewRecord(collection)
 	deal.Set("active", true)
 	deal.Set("title", "Test Deal")
@@ -186,40 +161,39 @@ func seedDeal(app *pocketbase.PocketBase, recordId **string) error {
 	deal.Set("categories", []string{"edible"})
 	deal.Set("htmlId", "test-deal")
 	deal.Set("subTypes", "HARD CANDY,GUMMY")
-	deal.Set("typeSubtypes", "{\"EDIBLE\":[\"HARD CANDY\",\"GUMMY\"]}")
+
+	// Prefer structured JSON for typeSubtypes
+	typeSub := map[string][]string{"EDIBLE": {"HARD CANDY", "GUMMY"}}
+	deal.Set("typeSubtypes", typeSub)
+
 	deal.Set("badge", "Test Deal Badge")
+
 	imageFile, err := filesystem.NewFileFromPath("placeholder.png")
 	if err != nil {
-		return errors.New("failed to create test deal: " + err.Error())
+		return fmt.Errorf("open placeholder image: %w", err)
 	}
 	deal.Set("image", imageFile)
 	deal.Set("imageBackgroundColor", "#DDDDDD")
+
 	if err := app.Save(deal); err != nil {
-		return errors.New("failed to save test deal: " + err.Error())
+		return fmt.Errorf("save test deal: %w", err)
 	}
-
-	*recordId = &deal.Id
-
 	return nil
 }
 
-func getBrands() []string {
-
-	brandJsonPath := "./treez-brands.json"
-
-	file, err := os.Open(brandJsonPath)
-
+func getBrands() ([]string, error) {
+	rawBrands, err := os.ReadFile(brandsJSONPath)
 	if err != nil {
-		log.Fatal("Error opening treez-brands.json file.")
+		return nil, fmt.Errorf("read %s: %w", brandsJSONPath, err)
 	}
 
-	defer file.Close()
-
 	var brandData BrandData
+	if err := json.Unmarshal(rawBrands, &brandData); err != nil {
+		return nil, fmt.Errorf("unmarshal brands json: %w", err)
+	}
 
-	decoder := json.NewDecoder(file)
-
-	decoder.Decode(&brandData)
-
-	return brandData.Brands
+	if len(brandData.Brands) == 0 {
+		return nil, errors.New("no brands found in json")
+	}
+	return brandData.Brands, nil
 }
