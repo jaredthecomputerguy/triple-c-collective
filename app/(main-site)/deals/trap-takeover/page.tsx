@@ -15,7 +15,7 @@ import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 const TRAP_TAKEOVER_DATE_STRING = formatDate({
   year: 2025,
   month: 9,
-  day: 5,
+  day: 19,
 });
 
 const featuredBrands = getFeaturedBrands(
@@ -24,7 +24,6 @@ const featuredBrands = getFeaturedBrands(
   "Koa Cannabis Co.",
   "Green River Extracts",
   "Park Jams",
-  "Chameleon Craft",
   "Akwaaba",
   "Big Boy Dro",
 );
@@ -142,9 +141,9 @@ export default function TrapTakeoverPage() {
 
         <TrapTakeoverFlyer
           active={true}
-          flyerImagePath="/images/trap-takeover/0905-flyer.png"
-          flyerPDFPath="/images/trap-takeover/0905-flyer.pdf"
-          flyerImageAlt="September 5th, 2025 Trap Takeover Flyer"
+          flyerImagePath="/images/trap-takeover/0919-flyer.png"
+          flyerPDFPath="/images/trap-takeover/0919-flyer.pdf"
+          flyerImageAlt="September 19th, 2025 Trap Takeover Flyer"
         />
 
         <TrapTakeoverRaffleRules />
