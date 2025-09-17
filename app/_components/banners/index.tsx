@@ -44,7 +44,7 @@ const bannerConfig: [
 ] = [
   {
     Component: GenericBanner,
-    active: false,
+    active: true,
     order: 2,
     props: {
       children: (
