@@ -14,6 +14,7 @@ import { SevenTenSaleBanner } from "@/app/_components/banners/710-sale-banner/";
 import { SnapchatBanner } from "@/app/_components/banners/snapchat-banner";
 import { StPatricksBanner } from "@/app/_components/banners/st-patricks-banner";
 import { GenericBanner } from "@/app/_components/banners/generic-banner";
+import Link from "next/link";
 
 type PropsOf<T> = T extends ComponentType<infer P> ? P : never;
 
@@ -43,17 +44,25 @@ const bannerConfig: [
 ] = [
   {
     Component: GenericBanner,
-    active: true,
+    active: false,
     order: 2,
     props: {
       children: (
-        <div className="mr-4 text-center text-[#fefefe]">
-          <span className="text-xs uppercase md:text-sm">
-            NOW ACCEPTING CREDIT CARDS &amp; TAP TO PAY
-          </span>
+        <div className="mr-4 text-center text-[#ebc558]">
+          <Link
+            className="text-sm uppercase md:text-xl"
+            href="/best-of-lake-and-mendocino"
+          >
+            <span className="flex flex-col items-center gap-0">
+              <p className="font-serif text-base md:text-2xl">
+                BEST OF LAKE &amp; MENDOCINO 2026
+              </p>
+              <p>VOTE FOR US HERE</p>
+            </span>
+          </Link>
         </div>
       ),
-      className: "py-2 font-bold text-white uppercase px-4 bg-primary-purple ",
+      className: "py-2 font-bold text-white uppercase px-4 bg-[#13331b] ",
       closeBtnClass: "text-white",
     },
   },
