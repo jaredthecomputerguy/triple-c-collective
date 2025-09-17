@@ -366,8 +366,9 @@ export default function HomePage() {
                   What payment methods do you accept?
                 </AccordionTrigger>
                 <AccordionContent>
-                  We accept cash and debit cards for in-store purchases. Online
-                  orders can be paid for securely with debit.
+                  We accept cash, debit cards, tap to pay, and credit cards for
+                  in-store purchases. Online orders can be paid for securely
+                  with debit over ACH.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-7">
