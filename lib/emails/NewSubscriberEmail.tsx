@@ -54,7 +54,7 @@ const NewSubscriberEmail = ({
           <Container className="bg-white p-45">
             <Img
               className="mx-auto h-24 w-24"
-              src={`https://tripleccollective.com/images/logo.png`}
+              src={`https://triplecnewsletter.com/opengraph-image.png`}
             />
             <Heading className="my-0 mb-4 text-center leading-8">
               New Subscriber Alert!
