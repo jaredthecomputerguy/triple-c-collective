@@ -68,14 +68,14 @@ const bannerConfig: [
   },
   {
     Component: TrapTakeoverBanner,
-    active: false,
-    order: 1,
+    active: true,
+    order: 3,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "TODAY | 12-6PM",
+      bannerSubText: "FRIDAY, OCT 3RD | 12-6PM",
     },
   },
-  { Component: StiiizyBanner, active: true, order: 3, props: {} },
+  { Component: StiiizyBanner, active: false, order: 3, props: {} },
   { Component: CloneBanner, active: false, order: 50, props: {} },
   { Component: FourTwentyBanner, active: false, order: 50, props: {} },
   { Component: ChristmasBanner, active: false, order: 50, props: {} },
