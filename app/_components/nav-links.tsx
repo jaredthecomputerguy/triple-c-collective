@@ -2,7 +2,7 @@ import React, {
   type Dispatch,
   type ReactNode,
   type Ref,
-  type SetStateAction,
+  type SetStateAction
 } from "react";
 import NavLinkItem from "next/link";
 import {
@@ -14,7 +14,7 @@ import {
   Cannabis,
   CircleDollarSign,
   ChevronDown,
-  ChevronRight,
+  ChevronRight
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -36,23 +36,23 @@ export const MOBILE_LINKS: NavLinkItem[] = [
   {
     href: "/contact",
     label: "Contact",
-    icon: <ContactUsIcon size={26} />,
+    icon: <ContactUsIcon size={26} />
   },
   {
     href: "/delivery",
     label: "Delivery",
-    icon: <LocationIcon className="h-[24px] w-[24px]" />,
+    icon: <LocationIcon className="h-[24px] w-[24px]" />
   },
   {
     href: "/real-ca-cannabis",
     label: "Real CA Cannabis",
-    icon: <Cannabis className="h-[24px] w-[24px]" />,
+    icon: <Cannabis className="h-[24px] w-[24px]" />
   },
   {
     href: "/deals/trap-takeover",
     label: "Trap Takeover Sale",
-    icon: <CircleDollarSign className="h-[24px] w-[24px]" />,
-  },
+    icon: <CircleDollarSign className="h-[24px] w-[24px]" />
+  }
 ];
 
 export const DESKTOP_LINKS: NavLinkItem[] = [
@@ -66,9 +66,9 @@ export const DESKTOP_LINKS: NavLinkItem[] = [
       { href: "/about", label: "About" },
       { href: "/reward-program", label: "Rewards" },
       { href: "/real-ca-cannabis", label: "Real CA Cannabis" },
-      { href: "/deals/trap-takeover", label: "Trap Takeover Sale" },
-    ],
-  },
+      { href: "/deals/trap-takeover", label: "Trap Takeover Sale" }
+    ]
+  }
 ];
 
 export const NavLink = ({
@@ -77,7 +77,7 @@ export const NavLink = ({
   links,
   showMoreLinksMenu,
   setShowMoreLinksMenu,
-  showMoreLinksMenuRef,
+  showMoreLinksMenuRef
 }: NavLinkItem & {
   showMoreLinksMenu: boolean;
   setShowMoreLinksMenu: Dispatch<SetStateAction<boolean>>;
@@ -90,23 +90,20 @@ export const NavLink = ({
           className="text-primary-purple focus:outline-primary-purple group flex items-center gap-2 rounded-sm font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
           onClick={() => {
             setShowMoreLinksMenu((prev) => !prev);
-          }}
-        >
+          }}>
           {label} <ChevronDown />
         </button>
         {links && (
           <ul
             className={cn(
               "absolute top-[62px] right-0 flex w-[250px] flex-col gap-4 border bg-white py-2 transition-all duration-300 ease-in-out",
-              showMoreLinksMenu ? "opacity-100" : "hidden opacity-0",
-            )}
-          >
+              showMoreLinksMenu ? "opacity-100" : "hidden opacity-0"
+            )}>
             {links.map((link) => (
               <li key={link.href}>
                 <NavLinkItem
                   className="focus:outline-primary-purple text-primary-purple flex items-center gap-2 rounded-sm px-4 py-2 text-center font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
-                  href={link.href ?? "/"}
-                >
+                  href={link.href ?? "/"}>
                   {link.label}
                 </NavLinkItem>
               </li>
@@ -121,8 +118,7 @@ export const NavLink = ({
     <li>
       <NavLinkItem
         className="text-primary-purple focus:outline-primary-purple rounded-sm px-4 py-2 font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
-        href={href}
-      >
+        href={href}>
         {label}
       </NavLinkItem>
     </li>
@@ -134,7 +130,7 @@ export const MobileNavLink = ({
   label,
   icon,
   setShowMobileMenu,
-  viewportHeight,
+  viewportHeight
 }: {
   href: string;
   label: string;
@@ -150,10 +146,9 @@ export const MobileNavLink = ({
         }}
         className={cn(
           "flex w-full items-center justify-between px-6 py-4 font-semibold uppercase outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white",
-          viewportHeight < 710 && "py-3",
+          viewportHeight < 710 && "py-3"
         )}
-        href={href}
-      >
+        href={href}>
         <span className="flex items-center gap-4">
           {icon}
           {label}

@@ -10,7 +10,7 @@ export async function unsubscribeUserAction(contactId: string) {
   try {
     const { error } = await resend.contacts.remove({
       id: contactId,
-      audienceId,
+      audienceId
     });
 
     if (error) {

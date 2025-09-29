@@ -17,14 +17,14 @@ export const ContactForm = () => {
     from: "",
     message: "",
     subject: "",
-    name: "",
+    name: ""
   });
   const [emailIsSending, setEmailIsSending] = useState(false);
 
   const { toast } = useToast();
 
   const handleInputChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { value } = e.target;
 
@@ -46,7 +46,7 @@ export const ContactForm = () => {
         title: "You've already sent a message today.",
         description: "Please try again tomorrow.",
         duration: 5000,
-        variant: "destructive",
+        variant: "destructive"
       });
     }
 
@@ -60,7 +60,7 @@ export const ContactForm = () => {
       from,
       message,
       subject: `Message from website contact page: '${subject}'`,
-      name,
+      name
     });
 
     if (error) {
@@ -69,7 +69,7 @@ export const ContactForm = () => {
         title: "Something went wrong...",
         description: "Please try again later.",
         duration: 5000,
-        variant: "destructive",
+        variant: "destructive"
       });
     }
 
@@ -79,12 +79,12 @@ export const ContactForm = () => {
       from: "",
       message: "",
       subject: "",
-      name: "",
+      name: ""
     });
 
     toast({
       title: "Your message was sent.",
-      duration: 5000,
+      duration: 5000
     });
 
     sessionStorage.setItem("es", new Date().toString());
@@ -159,8 +159,7 @@ export const ContactForm = () => {
       <button
         className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
         disabled={emailIsSending}
-        type="submit"
-      >
+        type="submit">
         {emailIsSending ? "Sending..." : "Send message"}
       </button>
     </form>

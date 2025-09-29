@@ -15,7 +15,7 @@ import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 const TRAP_TAKEOVER_DATE_STRING = formatDate({
   year: 2025,
   month: 10,
-  day: 3,
+  day: 3
 });
 
 const featuredBrands = getFeaturedBrands(
@@ -25,7 +25,7 @@ const featuredBrands = getFeaturedBrands(
   "Green River Extracts",
   "Park Jams",
   "Akwaaba",
-  "Big Boy Dro",
+  "Big Boy Dro"
 );
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -62,13 +62,13 @@ export async function generateMetadata(): Promise<Metadata> {
       "flower sale",
       "edible sale",
       "cartridge sale",
-      `Trap Takeover ${trapTakeoverDateWithSuffix} sale`,
+      `Trap Takeover ${trapTakeoverDateWithSuffix} sale`
     ],
     authors: [
       {
         name: "Jared Mercer",
-        url: "https://jaredthecomputerguy.dev",
-      },
+        url: "https://jaredthecomputerguy.dev"
+      }
     ],
     creator: "Jared Mercer",
     openGraph: {
@@ -78,16 +78,16 @@ export async function generateMetadata(): Promise<Metadata> {
       images: `${process.env.SITE_URL}/opengraph-image.png`,
       siteName: "Triple C Collective",
       locale: "en_US",
-      type: "website",
+      type: "website"
     },
     twitter: {
       card: "summary_large_image",
       title: `Trap Takeover ${trapTakeoverDateWithSuffix}. | Triple C Collective`,
       description: "Lake County's Premier Cannabis Dispensary",
-      images: [`${process.env.SITE_URL}/opengraph-image.png`],
+      images: [`${process.env.SITE_URL}/opengraph-image.png`]
     },
     robots: "all, noarchive",
-    metadataBase: new URL(`${process.env.SITE_URL}`),
+    metadataBase: new URL(`${process.env.SITE_URL}`)
   };
 }
 

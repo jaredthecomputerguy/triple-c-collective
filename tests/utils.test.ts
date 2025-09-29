@@ -17,7 +17,7 @@ function utcDate(
   month: number,
   day: number,
   hour = 0,
-  minute = 0,
+  minute = 0
 ) {
   return new Date(Date.UTC(year, month, day, hour, minute));
 }
@@ -36,7 +36,7 @@ test("First Friday of current month: Jan 1 → Jan 5, 2024", () => {
     Days: "04",
     Hours: "00",
     Minutes: "00",
-    Seconds: "00",
+    Seconds: "00"
   });
 });
 
@@ -47,7 +47,7 @@ test("Third Friday of current month: Jan 6 → Jan 19, 2024", () => {
     Days: "13",
     Hours: "00",
     Minutes: "00",
-    Seconds: "00",
+    Seconds: "00"
   });
 });
 
@@ -58,7 +58,7 @@ test("First Friday of next month: Jan 20 → Feb 2, 2024", () => {
     Days: "13",
     Hours: "00",
     Minutes: "00",
-    Seconds: "00",
+    Seconds: "00"
   });
 });
 
@@ -69,7 +69,7 @@ test("Exactly at first Friday 12PM → should move to third Friday", () => {
     Days: "14",
     Hours: "00",
     Minutes: "00",
-    Seconds: "00",
+    Seconds: "00"
   });
 });
 
@@ -80,7 +80,7 @@ test("Exactly at third Friday 12PM → should move to next month’s first Frida
     Days: "14",
     Hours: "00",
     Minutes: "00",
-    Seconds: "00",
+    Seconds: "00"
   });
 });
 
@@ -91,7 +91,7 @@ test("Late evening after first Friday (missed it) → should move to third Frida
     Days: "13",
     Hours: "18",
     Minutes: "00",
-    Seconds: "00",
+    Seconds: "00"
   });
 });
 
@@ -102,7 +102,7 @@ test("December 31st → roll over to January’s first Friday", () => {
     Days: "05",
     Hours: "00",
     Minutes: "00",
-    Seconds: "00",
+    Seconds: "00"
   });
 });
 
@@ -113,7 +113,7 @@ test("February (short month) → third Friday", () => {
     Days: "13",
     Hours: "00",
     Minutes: "00",
-    Seconds: "00",
+    Seconds: "00"
   });
 });
 
@@ -124,7 +124,7 @@ test("After third Friday (Jan 20, 2024) → should go to Feb 2", () => {
     Days: "13",
     Hours: "03",
     Minutes: "00",
-    Seconds: "00",
+    Seconds: "00"
   });
 });
 
@@ -135,6 +135,6 @@ test("Leap year check: Feb 29, 2024 → next month’s first Friday (Mar 1)", ()
     Days: "01",
     Hours: "00",
     Minutes: "00",
-    Seconds: "00",
+    Seconds: "00"
   });
 });

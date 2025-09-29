@@ -10,13 +10,13 @@ import { useEffect, useRef, type JSX } from "react";
 
 import {
   SnowfallCanvas,
-  type SnowfallCanvasConfig,
+  type SnowfallCanvasConfig
 } from "@/app/_components/snowfall/snowfall-canvas";
 import { defaultConfig } from "@/app/_components/snowfall/snowflake";
 import {
   useComponentSize,
   useDeepMemo,
-  useSnowfallStyle,
+  useSnowfallStyle
 } from "@/app/_components/snowfall/snowfall-hooks";
 
 export interface SnowfallProps extends Partial<SnowfallCanvasConfig> {
@@ -36,7 +36,7 @@ export const Snowfall = ({
   opacity = defaultConfig.opacity,
   snowflakeCount = 150,
   images,
-  style,
+  style
 }: SnowfallProps = {}): JSX.Element => {
   const mergedStyle = useSnowfallStyle(style);
 
@@ -53,7 +53,7 @@ export const Snowfall = ({
     rotationSpeed,
     images,
     snowflakeCount,
-    opacity,
+    opacity
   });
 
   // A reference to the config used for creating the initial instance
@@ -65,7 +65,7 @@ export const Snowfall = ({
     if (!snowfallCanvasRef.current && canvasRef.current) {
       snowfallCanvasRef.current = new SnowfallCanvas(
         canvasRef.current,
-        configRef.current,
+        configRef.current
       );
     }
 

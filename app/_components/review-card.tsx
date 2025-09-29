@@ -32,7 +32,7 @@ const REVIEWS: Review[] = [
     rating: "5",
     date: "May 17, 2024",
     imageSrc: reviewOne,
-    link: "https://www.google.com/maps/reviews/@38.9555303,-122.647228,17z/data=!3m1!4b1!4m6!14m5!1m4!2m3!1sChdDSUhNMG9nS0VJQ0FnSUNqb08tMHVBRRAB!2m1!1s0x0:0x78da14c7708d7d2a?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoASAFQAw%3D%3D",
+    link: "https://www.google.com/maps/reviews/@38.9555303,-122.647228,17z/data=!3m1!4b1!4m6!14m5!1m4!2m3!1sChdDSUhNMG9nS0VJQ0FnSUNqb08tMHVBRRAB!2m1!1s0x0:0x78da14c7708d7d2a?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoASAFQAw%3D%3D"
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ const REVIEWS: Review[] = [
     rating: "5",
     date: "February 23, 2024",
     imageSrc: "",
-    link: "https://maps.app.goo.gl/NkZykeD7ff1Z7HyB9",
+    link: "https://maps.app.goo.gl/NkZykeD7ff1Z7HyB9"
   },
   {
     id: 3,
@@ -50,8 +50,8 @@ const REVIEWS: Review[] = [
     rating: "5",
     date: "March 17, 2025",
     imageSrc: reviewTwo,
-    link: "https://maps.app.goo.gl/HGxVKc4SGfem59ZC7",
-  },
+    link: "https://maps.app.goo.gl/HGxVKc4SGfem59ZC7"
+  }
 ];
 
 export const ReviewCards = () => {
@@ -74,17 +74,15 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
       <a
         href={review.link}
         target="_blank"
-        className="group focus:outline-primary-purple flex items-center gap-4 rounded-lg px-6 outline-hidden sm:px-2"
-      >
+        className="group focus:outline-primary-purple flex items-center gap-4 rounded-lg px-6 outline-hidden sm:px-2">
         <Avatar>
           <AvatarImage src={review.imageSrc} alt={review.name} />
           <AvatarFallback
             className={cn(
               review.id === 1 && "bg-cyan-200",
               review.id === 2 && "bg-pink-200",
-              review.id === 3 && "bg-amber-200",
-            )}
-          >
+              review.id === 3 && "bg-amber-200"
+            )}>
             {(name[0] ?? "").charAt(0)}
             {(name[1] ?? "").charAt(0)}
           </AvatarFallback>
@@ -104,15 +102,13 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
       <p
         className={cn(
           "px-4 text-lg text-pretty text-gray-600 sm:px-2",
-          showMore === false && "line-clamp-3",
-        )}
-      >
+          showMore === false && "line-clamp-3"
+        )}>
         &quot;{review.text}&quot;
       </p>
       <button
         className="text-primary-purple focus:outline-primary-purple rounded-lg py-2 font-semibold outline-hidden hover:underline focus:underline"
-        onClick={() => setShowMore((prev) => !prev)}
-      >
+        onClick={() => setShowMore((prev) => !prev)}>
         {showMore ? "Show less" : "Show more"}
       </button>
     </div>

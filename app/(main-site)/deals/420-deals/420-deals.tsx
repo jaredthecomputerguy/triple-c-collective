@@ -8,7 +8,7 @@ import { CartridgeIcon } from "@/app/_components/icons/cartridge";
 import {
   fourTwentyDealsData,
   type Deal,
-  type ReducedPriceDeal,
+  type ReducedPriceDeal
 } from "@/app/(main-site)/deals/420-deals/420-deals-data";
 
 interface FourTwentyDealCardProps {
@@ -24,23 +24,20 @@ const FourTwentyDealCard = ({
   variant,
   icon,
   bogoDeals: deals,
-  reducedPriceDeals,
+  reducedPriceDeals
 }: FourTwentyDealCardProps) => {
   return (
     <div
       className={cn(
         "flex h-full flex-col items-center justify-between self-stretch md:flex-row",
-        title === "Other" && "md:col-span-2",
-      )}
-    >
+        title === "Other" && "md:col-span-2"
+      )}>
       <div
         className={cn(
           "flex h-full w-full flex-col items-center rounded-lg border-2 p-4 text-white md:gap-6 md:px-8",
           variant === "green" && "border-white bg-green-800",
-          variant === "white" &&
-            "leaf border-green-800 bg-white text-green-800",
-        )}
-      >
+          variant === "white" && "leaf border-green-800 bg-white text-green-800"
+        )}>
         <h2 className="font-logo flex flex-col items-center justify-center pb-4 text-center text-3xl font-semibold">
           {icon}
           {title}

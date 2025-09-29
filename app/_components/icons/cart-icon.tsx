@@ -3,7 +3,7 @@ import { type SVGProps } from "react";
 export const CartIcon = ({
   className = "w-6 h-6",
   stroke = "currentColor",
-  strokeWidth = 1.5,
+  strokeWidth = 1.5
 }: SVGProps<SVGElement>) => {
   return (
     <svg
@@ -12,8 +12,7 @@ export const CartIcon = ({
       viewBox="0 0 24 24"
       strokeWidth={strokeWidth}
       stroke={stroke}
-      className={className}
-    >
+      className={className}>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"

@@ -43,14 +43,14 @@ export const useComponentSize = (ref: React.RefObject<HTMLElement>) => {
  * @param overrides The style prop passed into the component
  */
 export const useSnowfallStyle = (
-  overrides?: React.CSSProperties,
+  overrides?: React.CSSProperties
 ): React.CSSProperties => {
   const styles = useMemo(
     () => ({
       ...snowfallBaseStyle,
-      ...(overrides || {}),
+      ...(overrides || {})
     }),
-    [overrides],
+    [overrides]
   );
 
   return styles;
@@ -65,7 +65,7 @@ export const useSnowfallStyle = (
  */
 export function useDeepCompareEffect(
   effect: React.EffectCallback,
-  deps: React.DependencyList,
+  deps: React.DependencyList
 ) {
   const ref = useRef<React.DependencyList>(deps);
 

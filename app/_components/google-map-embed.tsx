@@ -4,7 +4,7 @@ import { GoogleMapsEmbed } from "@next/third-parties/google";
 
 export const GoogleMapEmbed = ({
   width = "100%",
-  height = "100%",
+  height = "100%"
 }: {
   width?: string;
   height?: string;

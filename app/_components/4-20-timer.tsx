@@ -2,7 +2,7 @@
 
 import {
   getTimeRemainingUntilFourTwenty,
-  type TimeRemainingUntilDate,
+  type TimeRemainingUntilDate
 } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
@@ -11,7 +11,7 @@ export const FourTwentyTimer = () => {
     Days: "--",
     Hours: "--",
     Minutes: "--",
-    Seconds: "--",
+    Seconds: "--"
   });
 
   useEffect(() => {

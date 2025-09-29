@@ -7,7 +7,7 @@ import { Footer } from "@/app/_components/footer";
 export const metadata: Metadata = {
   title: "Not Found | Triple C Collective",
   description:
-    "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California. Proudly open for over 16 years, we offer a diverse selection of high-quality cannabis products, expert guidance, and a welcoming environment for cannabis enthusiasts. Discover a trusted name in the industry - Triple C Collective, your premier destination for a decade and a half of cannabis excellence.",
+    "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California. Proudly open for over 16 years, we offer a diverse selection of high-quality cannabis products, expert guidance, and a welcoming environment for cannabis enthusiasts. Discover a trusted name in the industry - Triple C Collective, your premier destination for a decade and a half of cannabis excellence."
 };
 
 export default function NotFound() {
@@ -24,8 +24,7 @@ export default function NotFound() {
             Return to the{" "}
             <Link
               className="text-primary-purple font-semibold hover:underline"
-              href="/"
-            >
+              href="/">
               Home Page
             </Link>
           </p>

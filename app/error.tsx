@@ -10,7 +10,7 @@ const logger = new Logger();
 
 export default function Error({
   error,
-  reset,
+  reset
 }: {
   error: Error & { digest?: string };
   reset: () => void;
@@ -30,8 +30,7 @@ export default function Error({
         </h1>
         <button
           className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple active:bg-primary-purple/80 active:outline-primary-purple disabled:bg-primary-purple/50 w-fit rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
-          onClick={() => reset()}
-        >
+          onClick={() => reset()}>
           Reload Page
         </button>
       </section>

@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     "cbd",
     "kratom",
     "wellness",
-    "Clearlake",
+    "Clearlake"
   ],
   authors: [
     {
       name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev",
-    },
+      url: "https://jaredthecomputerguy.dev"
+    }
   ],
   creator: "Jared Mercer",
   openGraph: {
@@ -41,15 +41,15 @@ export const metadata: Metadata = {
     images: `${process.env.SITE_URL}/opengraph-image.png`,
     siteName: "Triple C Collective",
     locale: "en_US",
-    type: "website",
+    type: "website"
   },
   twitter: {
     card: "summary_large_image",
     title: "Contact Us | Triple C Collective",
     description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/opengraph-image.png`],
+    images: [`${process.env.SITE_URL}/opengraph-image.png`]
   },
-  metadataBase: new URL(`${process.env.SITE_URL}`),
+  metadataBase: new URL(`${process.env.SITE_URL}`)
 };
 
 export default function ContactPage() {
@@ -78,8 +78,7 @@ export default function ContactPage() {
                   <a
                     className="focus:outline-primary-purple flex flex-col rounded-sm font-medium text-sky-700 outline-hidden hover:underline"
                     href="https://www.google.com/maps/place/14196+Lakeshore+Dr,+Clearlake,+CA+95422"
-                    target="_blank"
-                  >
+                    target="_blank">
                     <span>14196 Lakeshore Drive</span>
                     <span>Clearlake, CA 95422</span>
                   </a>
@@ -89,8 +88,7 @@ export default function ContactPage() {
                 <p className="text-xl font-semibold">Telephone</p>
                 <a
                   className="focus:outline-primary-purple rounded-sm font-medium text-sky-700 outline-hidden hover:underline"
-                  href="tel:707-701-4160"
-                >
+                  href="tel:707-701-4160">
                   (707) 701-4160
                 </a>
               </div>
@@ -98,8 +96,7 @@ export default function ContactPage() {
                 <p className="text-xl font-semibold">Email</p>
                 <a
                   className="focus:outline-primary-purple rounded-sm font-medium text-sky-700 outline-hidden hover:underline"
-                  href="mailto:clearlakecompassioncenter@yahoo.com"
-                >
+                  href="mailto:clearlakecompassioncenter@yahoo.com">
                   clearlakecompassioncenter@yahoo.com
                 </a>
               </div>
@@ -111,8 +108,7 @@ export default function ContactPage() {
                       className="focus:outline-primary-purple rounded-sm outline-hidden"
                       href="https://www.facebook.com/profile.php?id=61572842924915"
                       target="_blank"
-                      aria-label="Follow us on Facebook"
-                    >
+                      aria-label="Follow us on Facebook">
                       <FacebookIcon className="h-8 w-8 rounded-sm" />
                     </a>
                   </li>

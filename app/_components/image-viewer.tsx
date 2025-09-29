@@ -19,7 +19,7 @@ export const ImageViewer = ({
   src,
   alt,
   width,
-  height,
+  height
 }: ImageViewerProps) => {
   const [isMounted, setIsMounted] = useState(false);
 

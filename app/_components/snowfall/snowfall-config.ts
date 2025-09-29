@@ -5,7 +5,7 @@ export const snowfallBaseStyle: React.CSSProperties = {
   top: 0,
   left: 0,
   width: "100%",
-  height: "100%",
+  height: "100%"
 };
 
 // Target of 60 frames per second

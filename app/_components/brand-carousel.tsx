@@ -31,17 +31,17 @@ export const BrandCarousel = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: true,
-        },
+          infinite: true
+        }
       },
       {
         breakpoint: 640,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   return (
@@ -51,8 +51,7 @@ export const BrandCarousel = () => {
           key={brand.id}
           href={brand.website}
           target="_blank"
-          className="relative my-auto h-64 w-64"
-        >
+          className="relative my-auto h-64 w-64">
           <Image
             src={brand.src!}
             alt={brand.alt}

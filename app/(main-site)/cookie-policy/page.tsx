@@ -20,10 +20,10 @@ export const metadata: Metadata = {
     "cbd",
     "kratom",
     "wellness",
-    "Clearlake",
+    "Clearlake"
   ],
   description:
-    "Learn more about how Triple C Collective uses cookies to improve your experience.",
+    "Learn more about how Triple C Collective uses cookies to improve your experience."
 };
 
 export default function CookiePolicyPage() {

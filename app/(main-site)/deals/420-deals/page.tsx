@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     "cbd",
     "kratom",
     "wellness",
-    "Clearlake",
+    "Clearlake"
   ],
   authors: [
     {
       name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev",
-    },
+      url: "https://jaredthecomputerguy.dev"
+    }
   ],
   creator: "Jared Mercer",
   openGraph: {
@@ -45,15 +45,15 @@ export const metadata: Metadata = {
     description: "Lake County's Premier Cannabis Dispensary",
     siteName: "Triple C Collective",
     locale: "en_US",
-    type: "website",
+    type: "website"
   },
   twitter: {
     card: "summary_large_image",
     title: "4/20 Deals | Triple C Collective",
     description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/deals/420-deals/opengraph-image.png`],
+    images: [`${process.env.SITE_URL}/deals/420-deals/opengraph-image.png`]
   },
-  metadataBase: new URL(`${process.env.SITE_URL}`),
+  metadataBase: new URL(`${process.env.SITE_URL}`)
 };
 
 export default function FourTwentyDealsPage() {

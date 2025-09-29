@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 export function useScrollHeader(
   setShouldHeaderShow: (_v: boolean) => void,
-  setShowMobileMenu: (_v: boolean) => void,
+  setShowMobileMenu: (_v: boolean) => void
 ) {
   useEffect(() => {
     let lastScroll = window.pageYOffset;

@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export const TrapTakeoverBanner = ({
   active,
   bannerText = "Trap Takeover Sale",
-  bannerSubText,
+  bannerSubText
 }: {
   active: boolean;
   bannerText?: string;
@@ -30,22 +30,19 @@ export const TrapTakeoverBanner = ({
             <Button
               asChild
               className="px-1 py-2 text-2xl font-semibold decoration-yellow-500 md:text-4xl"
-              variant="link"
-            >
+              variant="link">
               <Link href="/deals/trap-takeover" className="flex flex-col">
                 <span
                   className={cn(
-                    "font-trap-takeover trap-takeover-text text-4xl uppercase md:text-6xl",
-                  )}
-                >
+                    "font-trap-takeover trap-takeover-text text-4xl uppercase md:text-6xl"
+                  )}>
                   {bannerText}
                 </span>
                 {hasBannerSubText && (
                   <span
                     className={
                       "font-trap-takeover trap-takeover-text uppercase"
-                    }
-                  >
+                    }>
                     {bannerSubText}
                   </span>
                 )}
@@ -57,8 +54,7 @@ export const TrapTakeoverBanner = ({
       <Button
         className="absolute right-2 p-1 md:right-7"
         onClick={() => setShowBanner(false)}
-        variant="ghost"
-      >
+        variant="ghost">
         <CloseIcon />
       </Button>
     </div>

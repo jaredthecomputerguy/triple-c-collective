@@ -17,7 +17,7 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
+  AccordionTrigger
 } from "@/app/_components/accordian";
 import { Button } from "@/app/_components/button";
 import { BrandCarousel } from "@/app/_components/brand-carousel";
@@ -43,13 +43,13 @@ export const metadata: Metadata = {
     "cbd",
     "kratom",
     "wellness",
-    "Clearlake",
+    "Clearlake"
   ],
   authors: [
     {
       name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev",
-    },
+      url: "https://jaredthecomputerguy.dev"
+    }
   ],
   creator: "Jared Mercer",
   openGraph: {
@@ -59,15 +59,15 @@ export const metadata: Metadata = {
     images: `${process.env.SITE_URL}/opengraph-image.png`,
     siteName: "Triple C Collective",
     locale: "en_US",
-    type: "website",
+    type: "website"
   },
   twitter: {
     card: "summary_large_image",
     title: "Home | Triple C Collective",
     description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/opengraph-image.png`],
+    images: [`${process.env.SITE_URL}/opengraph-image.png`]
   },
-  metadataBase: new URL(`${process.env.SITE_URL}`),
+  metadataBase: new URL(`${process.env.SITE_URL}`)
 };
 
 export default function HomePage() {
@@ -129,8 +129,7 @@ export default function HomePage() {
             <Link
               className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 flex w-full min-w-[220px] grow-0 items-center justify-center rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
               href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
-              target="_blank"
-            >
+              target="_blank">
               Shop Now
             </Link>
           </div>
@@ -150,8 +149,7 @@ export default function HomePage() {
             </p>
             <Link
               className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 flex w-full min-w-[220px] grow-0 justify-center rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
-              href="tel:707-701-4160"
-            >
+              href="tel:707-701-4160">
               Call Us
             </Link>
           </div>
@@ -171,8 +169,7 @@ export default function HomePage() {
             </p>
             <Link
               className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 flex w-full min-w-[220px] grow-0 justify-center rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
-              href="/delivery"
-            >
+              href="/delivery">
               Schedule Delivery
             </Link>
           </div>
@@ -240,13 +237,11 @@ export default function HomePage() {
                 <Button
                   variant="outline"
                   className="mx-auto my-2 w-fit border-black/50 hover:border-black hover:shadow-sm"
-                  asChild
-                >
+                  asChild>
                   <Link
                     className="mt-4"
                     href="/real-ca-cannabis"
-                    aria-label="Learn more about the Real CA Cannabis program"
-                  >
+                    aria-label="Learn more about the Real CA Cannabis program">
                     Learn More About Real CA Cannabis
                   </Link>
                 </Button>
@@ -307,8 +302,7 @@ export default function HomePage() {
                     <Link
                       href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
                       target="_blank"
-                      className="text-primary-purple font-semibold hover:underline"
-                    >
+                      className="text-primary-purple font-semibold hover:underline">
                       Start shopping
                     </Link>
                   </p>

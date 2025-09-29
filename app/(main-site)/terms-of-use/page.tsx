@@ -20,10 +20,10 @@ export const metadata: Metadata = {
     "cbd",
     "kratom",
     "wellness",
-    "Clearlake",
+    "Clearlake"
   ],
   description:
-    "By using this website, you agree to comply with and be bound by the following terms and conditions of use. Please read these Terms of Use carefully before accessing or using our website.",
+    "By using this website, you agree to comply with and be bound by the following terms and conditions of use. Please read these Terms of Use carefully before accessing or using our website."
 };
 
 export default function TermsOfUsePage() {

@@ -14,18 +14,18 @@ export default function manifest(): MetadataRoute.Manifest {
       {
         src: "/icon16.png",
         sizes: "16x16",
-        type: "image/png",
+        type: "image/png"
       },
       {
         src: "/icon32.png",
         sizes: "32x32",
-        type: "image/png",
+        type: "image/png"
       },
       {
         src: "/icon144.png",
         sizes: "144x144",
-        type: "image/png",
-      },
-    ],
+        type: "image/png"
+      }
+    ]
   };
 }

@@ -37,8 +37,7 @@ export const SpecialPromo = ({ active }: { active: boolean }) => {
             <Link
               href="https://www.instagram.com/reggiebak3r/"
               target="_blank"
-              className="group rounded-full bg-white p-1 hover:bg-gradient-to-br hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7]"
-            >
+              className="group rounded-full bg-white p-1 hover:bg-gradient-to-br hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7]">
               <InstagramIcon className="transition-all group-hover:fill-white" />
             </Link>
           </div>

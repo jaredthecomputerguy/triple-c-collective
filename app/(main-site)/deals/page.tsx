@@ -14,7 +14,7 @@ export const dynamic = "force-dynamic";
 const fetchDeals = async ({ cache }: { cache: boolean }) => {
   const res = await fetch(
     `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_DEAL_URL}?filter=active=true&sort=-updated`,
-    cache ? { cache: "no-store" } : undefined,
+    cache ? { cache: "no-store" } : undefined
   );
   return (await res.json()) as DealsResponse;
 };
@@ -48,13 +48,13 @@ export async function generateMetadata(): Promise<Metadata> {
       "kratom",
       "wellness",
       "Clearlake",
-      ...dealBrands,
+      ...dealBrands
     ],
     authors: [
       {
         name: "Jared Mercer",
-        url: "https://jaredthecomputerguy.dev",
-      },
+        url: "https://jaredthecomputerguy.dev"
+      }
     ],
     creator: "Jared Mercer",
     openGraph: {
@@ -63,16 +63,16 @@ export async function generateMetadata(): Promise<Metadata> {
       description: "Lake County's Premier Cannabis Dispensary",
       siteName: "Triple C Collective",
       locale: "en_US",
-      type: "website",
+      type: "website"
     },
     twitter: {
       card: "summary_large_image",
       title: "Deals | Triple C Collective",
       description: "Lake County's Premier Cannabis Dispensary",
-      images: [`${process.env.SITE_URL}/deals/opengraph-image.png`],
+      images: [`${process.env.SITE_URL}/deals/opengraph-image.png`]
     },
     robots: "all, noarchive",
-    metadataBase: new URL(`${process.env.SITE_URL}`),
+    metadataBase: new URL(`${process.env.SITE_URL}`)
   };
 }
 
@@ -86,7 +86,7 @@ export default async function DealsPage() {
       }
       return acc;
     },
-    [],
+    []
   );
 
   const flowerAndPrerollDeals = deals.filter((deal) => {
@@ -149,12 +149,10 @@ export default async function DealsPage() {
               </p>
               <Button
                 className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 rounded-sm px-6 py-6 font-semibold text-white outline-hidden transition-all md:text-xl"
-                asChild
-              >
+                asChild>
                 <Link
                   href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
-                  target="_blank"
-                >
+                  target="_blank">
                   Shop All Products
                 </Link>
               </Button>
