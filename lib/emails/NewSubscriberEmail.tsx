@@ -12,7 +12,7 @@ import {
   Container,
   Html,
   Img,
-  CodeInline,
+  CodeInline
 } from "@react-email/components";
 
 interface NewSubscriberEmailProps {
@@ -26,7 +26,7 @@ const NewSubscriberEmail = ({
   email,
   firstName,
   lastName,
-  createdAt,
+  createdAt
 }: NewSubscriberEmailProps) => {
   const hasName = !!firstName || !!lastName;
 
@@ -38,17 +38,16 @@ const NewSubscriberEmail = ({
           theme: {
             extend: {
               colors: {
-                offwhite: "#fafbfb",
+                offwhite: "#fafbfb"
               },
               spacing: {
                 0: "0px",
                 20: "20px",
-                45: "45px",
-              },
-            },
-          },
-        }}
-      >
+                45: "45px"
+              }
+            }
+          }
+        }}>
         <Preview>{email} Just Subscribed to the Newsletter!</Preview>
         <Body className="bg-offwhite font-sans text-base">
           <Container className="bg-white p-45">
@@ -108,7 +107,7 @@ NewSubscriberEmail.PreviewProps = {
   email: "test@test.com",
   firstName: "Test",
   lastName: "User",
-  createdAt: new Date(),
+  createdAt: new Date()
 } satisfies NewSubscriberEmailProps;
 
 export default NewSubscriberEmail;

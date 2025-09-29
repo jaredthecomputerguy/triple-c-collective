@@ -8,12 +8,11 @@ export const InstagramIcon = ({
   <svg
     className={cn(
       "h-7 w-7 fill-[url(#strokeGradient)] stroke-[url(#strokeGradient)] transition-all",
-      className,
+      className
     )}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 448 512"
-    {...props}
-  >
+    {...props}>
     <defs>
       <linearGradient id="strokeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor="#f9ce34" />

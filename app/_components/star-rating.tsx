@@ -22,12 +22,12 @@ interface StarRatingProps {
 export const StarRating = ({
   rating,
   colors = { active: "#edd813", inactive: "#ccc" },
-  className,
+  className
 }: StarRatingProps) => {
   const customStyles = {
     itemShapes: StarSvg,
     activeFillColor: colors.active,
-    inactiveFillColor: colors.inactive,
+    inactiveFillColor: colors.inactive
   };
 
   return (

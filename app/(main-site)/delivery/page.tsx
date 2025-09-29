@@ -5,7 +5,7 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
+  TableRow
 } from "@/app/_components/table";
 import { Clock, MapPin, Truck } from "lucide-react";
 import type { Metadata } from "next";
@@ -33,13 +33,13 @@ export const metadata: Metadata = {
     "kratom",
     "wellness",
     "Clearlake",
-    "delivery",
+    "delivery"
   ],
   authors: [
     {
       name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev",
-    },
+      url: "https://jaredthecomputerguy.dev"
+    }
   ],
   creator: "Jared Mercer",
   openGraph: {
@@ -49,15 +49,15 @@ export const metadata: Metadata = {
     images: `${process.env.SITE_URL}/opengraph-image.png`,
     siteName: "Triple C Collective",
     locale: "en_US",
-    type: "website",
+    type: "website"
   },
   twitter: {
     card: "summary_large_image",
     title: "Delivery | Triple C Collective",
     description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/opengraph-image.png`],
+    images: [`${process.env.SITE_URL}/opengraph-image.png`]
   },
-  metadataBase: new URL(`${process.env.SITE_URL}`),
+  metadataBase: new URL(`${process.env.SITE_URL}`)
 };
 
 export default function DeliveryPage() {
@@ -205,8 +205,7 @@ export default function DeliveryPage() {
                     <div className="flex items-center gap-2">
                       <Link
                         className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 my-4 inline-block gap-2 rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
-                        href="tel:7077014160"
-                      >
+                        href="tel:7077014160">
                         Call us: (707) 701-4160
                       </Link>
                     </div>
@@ -214,8 +213,7 @@ export default function DeliveryPage() {
                   <Link
                     className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 my-4 inline-block rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
                     href="https://triplec.treez.io/onlinemenu/"
-                    target="_blank"
-                  >
+                    target="_blank">
                     Place an Order Online
                   </Link>
                 </div>

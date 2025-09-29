@@ -22,20 +22,20 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "jaredthecomputerguy.dev",
-        pathname: "/**",
+        pathname: "/**"
       },
       {
         protocol: "http",
         hostname: "localhost",
         port: "8090",
-        pathname: "/**",
+        pathname: "/**"
       },
       {
         protocol: "https",
         hostname: "triplecnewsletter.com",
-        pathname: "/**",
-      },
-    ],
+        pathname: "/**"
+      }
+    ]
   },
   async headers() {
     return [
@@ -44,36 +44,36 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Content-Security-Policy",
-            value: cspHeader,
+            value: cspHeader
           },
           {
             key: "X-DNS-Prefetch-Control",
-            value: "on",
+            value: "on"
           },
           {
             key: "Strict-Transport-Security",
-            value: "max-age=63072000; includeSubDomains; preload",
+            value: "max-age=63072000; includeSubDomains; preload"
           },
           {
             key: "X-Frame-Options",
-            value: "SAMEORIGIN",
+            value: "SAMEORIGIN"
           },
           {
             key: "X-Content-Type-Options",
-            value: "nosniff",
+            value: "nosniff"
           },
           {
             key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin",
+            value: "strict-origin-when-cross-origin"
           },
           {
             key: "Permissions-Policy",
-            value: "geolocation=()", // adjust as needed
-          },
-        ],
-      },
+            value: "geolocation=()" // adjust as needed
+          }
+        ]
+      }
     ];
-  },
+  }
 };
 
 export default nextConfig;

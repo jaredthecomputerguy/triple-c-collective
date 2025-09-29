@@ -40,7 +40,7 @@ const bannerConfig: [
   BannerEntry<typeof NewsletterBanner>,
   BannerEntry<typeof SevenTenSaleBanner>,
   BannerEntry<typeof SnapchatBanner>,
-  BannerEntry<typeof StPatricksBanner>,
+  BannerEntry<typeof StPatricksBanner>
 ] = [
   {
     Component: GenericBanner,
@@ -51,8 +51,7 @@ const bannerConfig: [
         <div className="mr-4 text-center text-[#ebc558]">
           <Link
             className="text-sm uppercase md:text-xl"
-            href="/best-of-lake-and-mendocino"
-          >
+            href="/best-of-lake-and-mendocino">
             <span className="flex flex-col items-center gap-0">
               <p className="font-serif text-base md:text-2xl">
                 BEST OF LAKE &amp; MENDOCINO 2026
@@ -63,8 +62,8 @@ const bannerConfig: [
         </div>
       ),
       className: "py-2 font-bold text-white uppercase px-4 bg-[#13331b] ",
-      closeBtnClass: "text-white",
-    },
+      closeBtnClass: "text-white"
+    }
   },
   {
     Component: TrapTakeoverBanner,
@@ -72,8 +71,8 @@ const bannerConfig: [
     order: 3,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "FRIDAY, OCT 3RD | 12-6PM",
-    },
+      bannerSubText: "FRIDAY, OCT 3RD | 12-6PM"
+    }
   },
   { Component: StiiizyBanner, active: false, order: 3, props: {} },
   { Component: CloneBanner, active: false, order: 50, props: {} },
@@ -86,7 +85,7 @@ const bannerConfig: [
   { Component: NewsletterBanner, active: false, order: 50, props: {} },
   { Component: SevenTenSaleBanner, active: false, order: 50, props: {} },
   { Component: SnapchatBanner, active: false, order: 50, props: {} },
-  { Component: StPatricksBanner, active: false, order: 50, props: {} },
+  { Component: StPatricksBanner, active: false, order: 50, props: {} }
 ];
 
 export const Banner = () => {

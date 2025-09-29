@@ -12,7 +12,7 @@ import {
   Tailwind,
   Link,
   Column,
-  Hr,
+  Hr
 } from "@react-email/components";
 import * as React from "react";
 
@@ -31,17 +31,16 @@ export const WelcomeEmail = ({ contactId }: WelcomeEmailProps) => {
             extend: {
               colors: {
                 brand: "#2250f4",
-                offwhite: "#fafbfb",
+                offwhite: "#fafbfb"
               },
               spacing: {
                 0: "0px",
                 20: "20px",
-                45: "45px",
-              },
-            },
-          },
-        }}
-      >
+                45: "45px"
+              }
+            }
+          }
+        }}>
         <Preview>Welcome - Triple C Newsletter</Preview>
         <Body className="bg-offwhite font-sans text-base">
           <Container className="bg-white p-45">
@@ -110,8 +109,7 @@ export const WelcomeEmail = ({ contactId }: WelcomeEmailProps) => {
 
             <Text className="text-center underline">
               <Link
-                href={`https://tripleccollective.com/newsletter/unsubscribe?contactId=${contactId}`}
-              >
+                href={`https://tripleccollective.com/newsletter/unsubscribe?contactId=${contactId}`}>
                 Unsubscribe
               </Link>
             </Text>

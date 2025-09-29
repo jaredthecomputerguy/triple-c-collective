@@ -23,7 +23,7 @@ export function NewsletterForm() {
       toast({
         title: "You must consent to subscribe.",
         duration: 5000,
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
@@ -31,14 +31,14 @@ export function NewsletterForm() {
     const { error } = await sendWelcomeEmailAction({
       toEmail: email,
       firstName: firstName,
-      lastName: lastName,
+      lastName: lastName
     });
 
     if (error) {
       toast({
         title: error,
         duration: 5000,
-        variant: "destructive",
+        variant: "destructive"
       });
       setLoading(false);
       return;
@@ -53,8 +53,7 @@ export function NewsletterForm() {
     <div
       className="items-center justify-center rounded-lg p-4 text-white md:p-6"
       ref={subRef}
-      id="newsletter"
-    >
+      id="newsletter">
       <div className="mb-6 flex flex-col items-start justify-start gap-4 text-center">
         <div className="mb-6 flex h-full flex-col items-center gap-4 text-center">
           <h3 className="font-logo text-2xl font-semibold md:text-3xl">
@@ -76,8 +75,7 @@ export function NewsletterForm() {
         ) : (
           <form
             onSubmit={handleNewsletterFormSubmit}
-            className="mx-auto max-w-md space-y-4"
-          >
+            className="mx-auto max-w-md space-y-4">
             <div className="flex flex-col items-start gap-1">
               <label htmlFor="firstName" className="text-white">
                 First Name
@@ -136,16 +134,14 @@ export function NewsletterForm() {
                 <Link
                   href="/terms-of-use"
                   className="text-blue-400 underline"
-                  target="_blank"
-                >
+                  target="_blank">
                   Terms of Use
                 </Link>{" "}
                 and{" "}
                 <Link
                   href="/privacy-policy"
                   className="text-blue-400 underline"
-                  target="_blank"
-                >
+                  target="_blank">
                   Privacy Policy
                 </Link>{" "}
                 and consent to receive marketing emails.
@@ -156,8 +152,7 @@ export function NewsletterForm() {
             <button
               type="submit"
               disabled={loading}
-              className="text-primary-purple w-full rounded-sm bg-white px-6 py-2 font-semibold transition-all hover:bg-white/90"
-            >
+              className="text-primary-purple w-full rounded-sm bg-white px-6 py-2 font-semibold transition-all hover:bg-white/90">
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
                   <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#5D3FD3] border-t-transparent"></div>

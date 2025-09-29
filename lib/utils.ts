@@ -75,7 +75,7 @@ export function timeSince(dateString: string) {
 const dateSchema = z.object({
   year: z.number().min(1900).max(2100),
   month: z.number().min(1).max(12),
-  day: z.number().min(1).max(31),
+  day: z.number().min(1).max(31)
 });
 
 export function formatDate(dateObj: z.infer<typeof dateSchema>) {
@@ -92,14 +92,14 @@ export function formatDate(dateObj: z.infer<typeof dateSchema>) {
     year: "numeric",
     month: "long",
     day: "numeric",
-    weekday: "short",
+    weekday: "short"
   });
 }
 
 export function getTrapTakeoverDateWithSuffix(trapTakeoverDate: Date) {
   const formattedDate = new Intl.DateTimeFormat("en-US", {
     month: "long",
-    day: "numeric",
+    day: "numeric"
   }).format(trapTakeoverDate);
 
   const day = trapTakeoverDate.getDate();
@@ -129,13 +129,13 @@ const zeros = (): TimeRemainingUntilDate => ({
   Days: "00",
   Hours: "00",
   Minutes: "00",
-  Seconds: "00",
+  Seconds: "00"
 });
 
 /** Ensure we’re working with a ZonedDateTime; accept Date or ZonedDateTime */
 function toZdtNow(
   now: Temporal.ZonedDateTime | Date,
-  tz: string,
+  tz: string
 ): Temporal.ZonedDateTime {
   if (now && typeof (now as any).toInstant === "function") {
     // already a ZonedDateTime
@@ -149,7 +149,7 @@ function toZdtNow(
 /** Convert ms diff to DHMS strings */
 function diffToDHMS(
   nowI: Temporal.Instant,
-  targetI: Temporal.Instant,
+  targetI: Temporal.Instant
 ): TimeRemainingUntilDate {
   const ms = targetI.epochMilliseconds - nowI.epochMilliseconds;
   if (ms <= 0) return zeros();
@@ -163,7 +163,7 @@ function diffToDHMS(
     Days: pad2(days),
     Hours: pad2(totalHours % 24),
     Minutes: pad2(totalMinutes % 60),
-    Seconds: pad2(totalSeconds % 60),
+    Seconds: pad2(totalSeconds % 60)
   };
 }
 
@@ -174,7 +174,7 @@ function nthFridayAt(
   n: 1 | 3,
   hour: number,
   minute: number,
-  tz: string,
+  tz: string
 ): Temporal.ZonedDateTime {
   // Defensive: clamp/validate month into 1..12
   if (month1to12 < 1 || month1to12 > 12) {
@@ -197,7 +197,7 @@ function nthFridayAt(
 /** Remaining time until next 1st or 3rd Friday (this/next month) at 12:00 local */
 export function getTimeRemainingUntilFirstOrThirdFriday(
   nowInput: Temporal.ZonedDateTime | Date,
-  opts?: { timeZone?: string; hour?: number; minute?: number },
+  opts?: { timeZone?: string; hour?: number; minute?: number }
 ): TimeRemainingUntilDate {
   const tz = opts?.timeZone ?? Temporal.Now.timeZoneId();
   const hour = opts?.hour ?? 12;
@@ -231,7 +231,7 @@ export function getTimeRemainingUntilFirstOrThirdFriday(
 /** Remaining time until April 20 @ 16:20 in tz for the current year */
 export function getTimeRemainingUntilFourTwenty(
   nowInput: Temporal.ZonedDateTime | Date,
-  opts?: { timeZone?: string; hour?: number; minute?: number },
+  opts?: { timeZone?: string; hour?: number; minute?: number }
 ): TimeRemainingUntilDate {
   const tz = opts?.timeZone ?? Temporal.Now.timeZoneId();
   const hour = opts?.hour ?? 16;
@@ -244,7 +244,7 @@ export function getTimeRemainingUntilFourTwenty(
     month: 4,
     day: 20,
     hour,
-    minute,
+    minute
   });
   const target = pdt.toZonedDateTime(tz);
 
@@ -255,7 +255,7 @@ export function getTimeRemainingUntilFourTwenty(
 export function isDateLessThan(
   dateStr: string,
   days: number,
-  timeZone: string = Temporal.Now.timeZoneId(),
+  timeZone: string = Temporal.Now.timeZoneId()
 ): boolean {
   const nowI = Temporal.Now.instant();
   let inputI: Temporal.Instant;

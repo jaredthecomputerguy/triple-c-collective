@@ -1,6 +1,6 @@
 import Snowflake, {
   type SnowflakeConfig,
-  defaultConfig,
+  defaultConfig
 } from "@/app/_components/snowfall/snowflake";
 import { targetFrameTime } from "@/app/_components/snowfall/snowfall-config";
 
@@ -34,7 +34,7 @@ export class SnowfallCanvas {
 
   constructor(
     canvas: HTMLCanvasElement,
-    config: Partial<SnowfallCanvasConfig>,
+    config: Partial<SnowfallCanvasConfig>
   ) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d");
@@ -43,7 +43,7 @@ export class SnowfallCanvas {
     this.snowflakes = Snowflake.createSnowflakes(
       canvas,
       config.snowflakeCount || 150,
-      config,
+      config
     );
     this.play();
   }
@@ -61,7 +61,7 @@ export class SnowfallCanvas {
     if (sizeDifference > 0) {
       this.snowflakes = [
         ...this.snowflakes,
-        ...Snowflake.createSnowflakes(this.canvas, sizeDifference, config),
+        ...Snowflake.createSnowflakes(this.canvas, sizeDifference, config)
       ];
     }
 

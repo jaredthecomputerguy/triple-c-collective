@@ -3,7 +3,7 @@ import {
   lerp,
   random,
   randomElement,
-  twoPi,
+  twoPi
 } from "@/app/_components/snowfall/snowfall-utils";
 
 export interface SnowflakeProps {
@@ -83,7 +83,7 @@ export const defaultConfig: SnowflakeProps = {
   wind: [-0.5, 2.0],
   changeFrequency: 200,
   rotationSpeed: [-1.0, 1.0],
-  opacity: [1, 1],
+  opacity: [1, 1]
 };
 
 interface SnowflakeParams {
@@ -119,7 +119,7 @@ class Snowflake {
   static createSnowflakes(
     canvas: HTMLCanvasElement | null,
     amount: number,
-    config: SnowflakeConfig,
+    config: SnowflakeConfig
   ): Snowflake[] {
     if (!canvas) return [];
 
@@ -155,7 +155,7 @@ class Snowflake {
       nextSpeed: random(...speed),
       nextWind: random(...wind),
       nextRotationSpeed: random(...rotationSpeed),
-      opacity: random(...opacity),
+      opacity: random(...opacity)
     };
 
     this.framesSinceLastUpdate = 0;
@@ -174,7 +174,7 @@ class Snowflake {
     this.config = { ...defaultConfig, ...config };
     this.config.changeFrequency = random(
       this.config.changeFrequency,
-      this.config.changeFrequency * 1.5,
+      this.config.changeFrequency * 1.5
     );
 
     // Update the radius if the config has changed, it won't gradually update on it's own
@@ -198,7 +198,7 @@ class Snowflake {
   public update(
     offsetWidth: number,
     offsetHeight: number,
-    framesPassed = 1,
+    framesPassed = 1
   ): void {
     const {
       x,
@@ -210,7 +210,7 @@ class Snowflake {
       speed,
       nextWind,
       nextSpeed,
-      radius,
+      radius
     } = this.params;
 
     // Update current location, wrapping around if going off the canvas
@@ -237,7 +237,7 @@ class Snowflake {
 
   private getImageOffscreenCanvas(
     image: CanvasImageSource,
-    size: number,
+    size: number
   ): CanvasImageSource {
     if (image instanceof HTMLImageElement && image.loading) return image;
     let sizes = Snowflake.offscreenCanvases.get(image);

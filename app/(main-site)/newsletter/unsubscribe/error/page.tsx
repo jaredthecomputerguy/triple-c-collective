@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     "cbd",
     "kratom",
     "wellness",
-    "Clearlake",
+    "Clearlake"
   ],
   authors: [
     {
       name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev",
-    },
+      url: "https://jaredthecomputerguy.dev"
+    }
   ],
   creator: "Jared Mercer",
   openGraph: {
@@ -38,15 +38,15 @@ export const metadata: Metadata = {
     images: `${process.env.SITE_URL}/opengraph-image.png`,
     siteName: "Triple C Collective",
     locale: "en_US",
-    type: "website",
+    type: "website"
   },
   twitter: {
     card: "summary_large_image",
     title: "Newsletter Unsubscribe Error | Triple C Collective",
     description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/opengraph-image.png`],
+    images: [`${process.env.SITE_URL}/opengraph-image.png`]
   },
-  metadataBase: new URL(`${process.env.SITE_URL}`),
+  metadataBase: new URL(`${process.env.SITE_URL}`)
 };
 
 export default async function NewsletterUnsubscribeSuccessPage(props: {
@@ -69,8 +69,7 @@ export default async function NewsletterUnsubscribeSuccessPage(props: {
           Please try to unsubscribe again
           <Link
             className="text-blue-600 underline"
-            href={`/newsletter/unsubscribe?contactId=${contactId}`}
-          >
+            href={`/newsletter/unsubscribe?contactId=${contactId}`}>
             {" "}
             here.
           </Link>
@@ -79,8 +78,7 @@ export default async function NewsletterUnsubscribeSuccessPage(props: {
           If you&apos;re still seeing this page, reach out to us directly at{" "}
           <Link
             className="text-blue-600 underline"
-            href="mailto:clearlakecompassioncenter@yahoo.com"
-          >
+            href="mailto:clearlakecompassioncenter@yahoo.com">
             clearlakecompassioncenter@yahoo.com
           </Link>{" "}
           and we&apos;ll manually delete your email from the list.

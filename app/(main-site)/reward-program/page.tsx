@@ -23,13 +23,13 @@ export const metadata: Metadata = {
     "cbd",
     "kratom",
     "wellness",
-    "Clearlake",
+    "Clearlake"
   ],
   authors: [
     {
       name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev",
-    },
+      url: "https://jaredthecomputerguy.dev"
+    }
   ],
   creator: "Jared Mercer",
   openGraph: {
@@ -38,15 +38,15 @@ export const metadata: Metadata = {
     description: "Lake County's Premier Cannabis Dispensary",
     siteName: "Triple C Collective",
     locale: "en_US",
-    type: "website",
+    type: "website"
   },
   twitter: {
     card: "summary_large_image",
     title: "Reward Program | Triple C Collective",
     description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/reward-program/opengraph-image.png`],
+    images: [`${process.env.SITE_URL}/reward-program/opengraph-image.png`]
   },
-  metadataBase: new URL(`${process.env.SITE_URL}`),
+  metadataBase: new URL(`${process.env.SITE_URL}`)
 };
 
 export default function RewardsPage() {
@@ -116,8 +116,7 @@ export default function RewardsPage() {
           <a
             href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
             target="_blank"
-            className="bg-primary-purple hover:bg-primary-purple/75 focus:bg-primary-purple/75 focus:outline-primary-purple rounded-sm px-6 py-2 text-xl text-[#fefefe] outline-hidden lg:text-2xl"
-          >
+            className="bg-primary-purple hover:bg-primary-purple/75 focus:bg-primary-purple/75 focus:outline-primary-purple rounded-sm px-6 py-2 text-xl text-[#fefefe] outline-hidden lg:text-2xl">
             Shop now
           </a>
         </div>

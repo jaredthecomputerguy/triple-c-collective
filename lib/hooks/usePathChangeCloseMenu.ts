@@ -5,7 +5,7 @@ export function usePathChangeCloseMenus(
   currentPath: string | undefined,
   setCurrentPath: (_p: string) => void,
   setShowMobileMenu: (_v: boolean) => void,
-  setShowMoreLinksMenu: (_v: boolean) => void,
+  setShowMoreLinksMenu: (_v: boolean) => void
 ) {
   useEffect(() => {
     setCurrentPath(pathname);
@@ -21,6 +21,6 @@ export function usePathChangeCloseMenus(
     currentPath,
     setCurrentPath,
     setShowMobileMenu,
-    setShowMoreLinksMenu,
+    setShowMoreLinksMenu
   ]);
 }

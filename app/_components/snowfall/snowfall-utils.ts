@@ -44,7 +44,7 @@ export function getSize(element?: HTMLElement | null) {
 
   return {
     height: element.offsetHeight,
-    width: element.offsetWidth,
+    width: element.offsetWidth
   };
 }
 

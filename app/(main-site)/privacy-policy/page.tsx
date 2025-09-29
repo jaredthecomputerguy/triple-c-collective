@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     "cbd",
     "kratom",
     "wellness",
-    "Clearlake",
+    "Clearlake"
   ],
   description:
-    "This page describes what information they gather, how we use it and why we sometimes need to store these cookies. We will also share how you can prevent these cookies from being stored however this may downgrade or 'break' certain elements of the sites functionality.",
+    "This page describes what information they gather, how we use it and why we sometimes need to store these cookies. We will also share how you can prevent these cookies from being stored however this may downgrade or 'break' certain elements of the sites functionality."
 };
 
 export default function PrivacyPolicyPage() {
@@ -177,8 +177,7 @@ export default function PrivacyPolicyPage() {
                   your email address in accordance with their{" "}
                   <a
                     href="https://resend.com/legal/privacy-policy"
-                    target="_blank"
-                  >
+                    target="_blank">
                     privacy policy
                   </a>
                   .

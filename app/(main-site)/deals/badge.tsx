@@ -11,13 +11,13 @@ const badgeVariants = cva(
         default: "border-primary-purple bg-slate-100 hover:bg-slate-200",
         destructive:
           "border-transparent bg-red-600 text-white hover:bg-red-700",
-        outline: "text-foreground",
-      },
+        outline: "text-foreground"
+      }
     },
     defaultVariants: {
-      variant: "default",
-    },
-  },
+      variant: "default"
+    }
+  }
 );
 
 export interface BadgeProps

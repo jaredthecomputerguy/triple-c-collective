@@ -2,7 +2,7 @@
 
 import {
   type TimeRemainingUntilDate,
-  getTimeRemainingUntilFirstOrThirdFriday,
+  getTimeRemainingUntilFirstOrThirdFriday
 } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 export const TrapTakeoverCountdown = ({
   linkUrl,
   target,
-  labelText,
+  labelText
 }: {
   linkUrl: string;
   target?: string;
@@ -21,7 +21,7 @@ export const TrapTakeoverCountdown = ({
     Days: "--",
     Hours: "--",
     Minutes: "--",
-    Seconds: "--",
+    Seconds: "--"
   });
 
   useEffect(() => {
@@ -40,8 +40,7 @@ export const TrapTakeoverCountdown = ({
         <a
           className="rounded-xl p-2 outline-hidden transition-colors hover:bg-white/25 focus:bg-white/25 focus:outline-white"
           href="https://illaguerrilla.com/"
-          target="_blank"
-        >
+          target="_blank">
           <Image
             src="/images/illa-guerilla.png"
             alt="Illa Guerrilla Logo"
@@ -62,8 +61,7 @@ export const TrapTakeoverCountdown = ({
         {Object.entries(timeRemaining).map(([label, value]) => (
           <div
             key={label}
-            className="flex w-64 items-center justify-center gap-2 rounded-xl border-2 border-[#f2c029] bg-[#1a0056] py-1 md:w-32 md:flex-col md:gap-0"
-          >
+            className="flex w-64 items-center justify-center gap-2 rounded-xl border-2 border-[#f2c029] bg-[#1a0056] py-1 md:w-32 md:flex-col md:gap-0">
             <span className="text-3xl text-[#f2c029]">{value}</span>
             <span className="text-2xl text-[#f2913d]">{label}</span>
           </div>
@@ -72,8 +70,7 @@ export const TrapTakeoverCountdown = ({
       <a
         href={linkUrl}
         className="flex items-center gap-1 rounded-sm bg-[#f2c029] px-2 py-1 text-lg outline-hidden transition-all hover:bg-[#1a0056] hover:text-white focus:bg-[#1a0056] focus:text-white focus:outline-white"
-        target={target}
-      >
+        target={target}>
         <span>{labelText}</span>
         <ArrowRight size={18} />
       </a>

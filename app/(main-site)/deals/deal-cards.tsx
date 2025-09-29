@@ -16,7 +16,7 @@ const formatUrl = (deal: Deal) => {
   params.set("subTypes", deal.subTypes);
   params.set(
     "typeSubtypes",
-    encodeURIComponent(JSON.stringify(deal.typeSubtypes)),
+    encodeURIComponent(JSON.stringify(deal.typeSubtypes))
   );
   return `${url.origin}${url.pathname}?${params.toString().replace(/\+/g, "%20")}`;
 };
@@ -32,8 +32,7 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
             target="_blank"
             className="group border-primary-purple/50 focus:outline-primary-purple relative flex flex-col items-center overflow-hidden rounded-xl border shadow-lg outline-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1"
             key={deal.id}
-            id={deal.htmlId}
-          >
+            id={deal.htmlId}>
             <BadgeContainer>
               {deal.badge && <Badge>{deal.badge}</Badge>}
               {isNew && <Badge variant="destructive">New</Badge>}
@@ -48,7 +47,7 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
                 backgroundColor:
                   deal.imageBackgroundColor === ""
                     ? "#FFFFFF"
-                    : deal.imageBackgroundColor,
+                    : deal.imageBackgroundColor
               }}
             />
             <div className="px-6 py-4">

@@ -14,7 +14,7 @@ export const sendEmail = async ({
   from,
   message,
   subject,
-  name,
+  name
 }: EmailInfo) => {
   const email = process.env.NODEMAILER_USER;
   const password = process.env.NODEMAILER_PASSWORD;
@@ -23,7 +23,7 @@ export const sendEmail = async ({
     logger.log(
       "\n\nNODEMAILER --> Sending email: ",
       JSON.stringify({ from, message, subject, name }),
-      "\n\n",
+      "\n\n"
     );
     return { error: null };
   }
@@ -35,19 +35,19 @@ export const sendEmail = async ({
       secure: true,
       auth: {
         user: email,
-        pass: password,
-      },
+        pass: password
+      }
     });
 
     const emailHtml = await renderAsync(
-      ContactEmail({ message, from, subject, name }),
+      ContactEmail({ message, from, subject, name })
     );
 
     const options: MailOptions = {
       from: email,
       to: email,
       subject,
-      html: emailHtml,
+      html: emailHtml
     };
 
     await transporter.sendMail(options);
