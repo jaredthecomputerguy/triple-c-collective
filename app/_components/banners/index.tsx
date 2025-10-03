@@ -44,7 +44,7 @@ const bannerConfig: [
 ] = [
   {
     Component: GenericBanner,
-    active: true,
+    active: false,
     order: 2,
     props: {
       children: (
@@ -71,7 +71,7 @@ const bannerConfig: [
     order: 3,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "FRIDAY, OCT 3RD | 12-6PM"
+      bannerSubText: "TODAY | 12-6PM"
     }
   },
   { Component: StiiizyBanner, active: false, order: 3, props: {} },
