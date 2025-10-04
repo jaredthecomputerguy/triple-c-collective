@@ -67,7 +67,7 @@ const bannerConfig: [
   },
   {
     Component: TrapTakeoverBanner,
-    active: true,
+    active: false,
     order: 3,
     props: {
       bannerText: "Trap Takeover Sale",
