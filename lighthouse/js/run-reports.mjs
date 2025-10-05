@@ -18,6 +18,7 @@ const routes = [
   "/cookie-policy",
   "/terms-of-use",
   "/deals/trap-takeover",
+  "/best-of-lake-and-mendocino"
 ];
 
 console.log("Running lighthouse for", routes);
@@ -48,7 +49,7 @@ async function main() {
     const options = {
       logLevel: "info",
       output: "html",
-      port: chrome.port,
+      port: chrome.port
     };
 
     const runnerResult = await lighthouse(BASE_URL + route, options);
@@ -66,14 +67,14 @@ async function main() {
     try {
       await writeFile(fileName, reportHtml, {
         flag: "w",
-        encoding: "utf-8",
+        encoding: "utf-8"
       });
       index++;
       console.log(
         "\nReport is done for",
         runnerResult.lhr.finalDisplayedUrl,
         `Progress: ${index}/${total}`,
-        "\n--------------------\n",
+        "\n--------------------\n"
       );
     } catch (e) {
       console.log("Error writing report", e);
@@ -120,7 +121,7 @@ function generateIndex(outPath, routes) {
 
   writeFile(`${outPath}/index.html`, indexHtml, {
     flag: "w",
-    encoding: "utf-8",
+    encoding: "utf-8"
   });
 }
 
