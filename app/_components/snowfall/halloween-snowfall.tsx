@@ -7,8 +7,7 @@ const SIZE = 50;
 
 const IMAGES = ["/images/halloween/bat.svg", "/images/halloween/pumpkin.svg"];
 
-export const HalloweenSnowfall = ({ active }: { active: boolean }) => {
-  const [shouldShow, setShouldShow] = useState();
+export const HalloweenSnowfall = () => {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
 
   useEffect(() => {
