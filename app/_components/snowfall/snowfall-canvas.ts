@@ -38,6 +38,12 @@ export class SnowfallCanvas {
   ) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d");
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = canvas.clientWidth * dpr;
+    canvas.height = canvas.clientHeight * dpr;
+    if (this.ctx) {
+      this.ctx.scale(dpr, dpr);
+    }
     this.config = { snowflakeCount: 150, ...defaultConfig, ...config };
     this.snowflakes = [];
     this.snowflakes = Snowflake.createSnowflakes(

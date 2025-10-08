@@ -6,8 +6,10 @@ import { ReviewCards } from "@/app/_components/review-card";
 import { StoreIcon } from "@/app/_components/icons/store";
 import { StarRating } from "@/app/_components/star-rating";
 
+import halloweenHeaderImg from "@/public/images/halloween-store.png";
 import headerImg from "@/public/images/interior-shop.jpg";
 import logoImg from "@/public/images/logo.png";
+import halloweenLogoImg from "@/public/images/logo-halloween.png";
 import orderOnlineImg from "@/public/images/order-online.avif";
 import phonecallImg from "@/public/images/phonecall.avif";
 import deliveryImg from "@/public/images/delivery.avif";
@@ -21,6 +23,8 @@ import {
 } from "@/app/_components/accordian";
 import { Button } from "@/app/_components/button";
 import { BrandCarousel } from "@/app/_components/brand-carousel";
+
+const LOGO_IMAGE = new Date().getMonth() === 9 ? halloweenLogoImg : logoImg;
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -76,7 +80,7 @@ export default function HomePage() {
       <div className="relative flex flex-col items-center justify-center">
         <Image
           className="h-96 w-full object-cover md:h-[600px]"
-          src={headerImg}
+          src={halloweenHeaderImg} //headerImg}
           alt="Triple C Collective Storefront"
           priority
         />
@@ -96,7 +100,7 @@ export default function HomePage() {
           <div className="mx-auto flex max-w-2xl items-center">
             <div className="h-px w-36 bg-white md:w-60" />
             <Image
-              src={logoImg}
+              src={LOGO_IMAGE}
               className="mx-auto w-24 rounded-lg md:w-48"
               alt="Storefront"
             />

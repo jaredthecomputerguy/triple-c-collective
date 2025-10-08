@@ -7,6 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "@/app/globals.css";
 import { Toaster } from "@/app/_components/toaster";
 import { Debug } from "@/app/_components/debug";
+import { HalloweenSnowfall } from "@/app/_components/snowfall/halloween-snowfall";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -69,13 +70,13 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const isDev = process.env.NODE_ENV === "development";
-
   return (
     <html
       lang="en"
       className={`${montserrat.variable} bg-primary-purple scroll-smooth`}
       suppressHydrationWarning>
       <body className="relative">
+        <HalloweenSnowfall />
         <Analytics />
         <SpeedInsights />
         <NextTopLoader color="white" />
