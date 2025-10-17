@@ -63,7 +63,7 @@ const bannerConfig: [
     order: 1,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "Oct. 17th | 12-6PM"
+      bannerSubText: "TODAY | 12-6PM"
     }
   },
   { Component: StiiizyBanner, active: false, order: 1, props: {} },
