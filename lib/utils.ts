@@ -1,7 +1,9 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { z } from "zod";
+import { z, ZodError } from "zod";
 import { Temporal } from "@js-temporal/polyfill";
+
+import { Logger } from "./logger";
 
 export type DealsResponse = {
   page: number;
@@ -79,21 +81,28 @@ const dateSchema = z.object({
 });
 
 export function formatDate(dateObj: z.infer<typeof dateSchema>) {
-  const parsedDate = dateSchema.safeParse(dateObj);
-  if (!parsedDate.success) {
-    return "Invalid date";
+  const logger = new Logger();
+  try {
+    const parsedDate = dateSchema.parse(dateObj);
+
+    const { year, month, day } = parsedDate;
+
+    const date = new Temporal.PlainDate(year, month, day);
+
+    return date.toLocaleString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      weekday: "short"
+    });
+  } catch (e) {
+    if (e instanceof ZodError) {
+      logger.error("ZodError " + e);
+    } else {
+      logger.error("Error: " + e);
+    }
+    return "Error";
   }
-
-  const { year, month, day } = parsedDate.data;
-
-  const date = new Temporal.PlainDate(year, month, day);
-
-  return date.toLocaleString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    weekday: "short"
-  });
 }
 
 export function getTrapTakeoverDateWithSuffix(trapTakeoverDate: Date) {
