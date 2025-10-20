@@ -20,7 +20,7 @@ type PropsOf<T> = T extends ComponentType<infer P> ? P : never;
 type BannerEntry<T extends ComponentType<any>> = {
   Component: T;
   active: boolean;
-  /** Lower number = higher on the page */
+  /** lower number = higher on the page */
   order?: number;
   props?: Partial<PropsOf<T>>;
 };
@@ -66,7 +66,7 @@ const bannerConfig: [
       bannerSubText: "TODAY | 12-6PM"
     }
   },
-  { Component: StiiizyBanner, active: true, order: 1, props: {} },
+  { Component: StiiizyBanner, active: false, order: 1, props: {} },
   { Component: CloneBanner, active: false, order: 50, props: {} },
   { Component: FourTwentyBanner, active: false, order: 50, props: {} },
   { Component: ChristmasBanner, active: false, order: 50, props: {} },
