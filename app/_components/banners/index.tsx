@@ -66,7 +66,7 @@ const bannerConfig: [
       bannerSubText: "TODAY | 12-6PM"
     }
   },
-  { Component: StiiizyBanner, active: false, order: 1, props: {} },
+  { Component: StiiizyBanner, active: true, order: 1, props: {} },
   { Component: CloneBanner, active: false, order: 50, props: {} },
   { Component: FourTwentyBanner, active: false, order: 50, props: {} },
   { Component: ChristmasBanner, active: false, order: 50, props: {} },
