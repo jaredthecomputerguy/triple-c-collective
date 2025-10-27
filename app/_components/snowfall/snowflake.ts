@@ -304,8 +304,12 @@ class Snowflake {
     // a (scaleX), b (skewY), c (skewX), d (scaleY), e (translateX), f (translateY)
     ctx.setTransform(cos, sin, -sin, cos, x, y);
 
+    if (!this.image) {
+      throw new Error("No image provided");
+    }
+
     // Draw the image with the center of the image at the center of the current location
-    const image = this.getImageOffscreenCanvas(this.image!, radius);
+    const image = this.getImageOffscreenCanvas(this.image, radius);
     ctx.drawImage(image, -(radius / 2), -(radius / 2), radius, radius);
 
     // Reset the transform to avoid affecting other drawings if we were changing the opacity

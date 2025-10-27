@@ -8,7 +8,8 @@ export const Footer = () => {
       <NewsletterForm />
       <Link
         href="/"
-        className="font-logo rounded-sm p-2 text-2xl font-semibold uppercase transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white sm:text-3xl md:text-4xl">
+        className="font-logo rounded-sm p-2 text-2xl font-semibold uppercase transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white sm:text-3xl md:text-4xl"
+      >
         Triple C Collective
       </Link>
       <span className="-mt-2 text-sm text-zinc-400">C10-0000551-LIC</span>
@@ -20,21 +21,24 @@ export const Footer = () => {
         <li className="px-2">
           <Link
             className="rounded-sm p-2 transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
-            href="/privacy-policy">
+            href="/privacy-policy"
+          >
             Privacy Policy
           </Link>
         </li>
         <li className="px-2">
           <Link
             className="rounded-sm p-2 transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
-            href="/cookie-policy">
+            href="/cookie-policy"
+          >
             Cookie Policy
           </Link>
         </li>
         <li className="px-2">
           <Link
             className="rounded-sm p-2 transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
-            href="/terms-of-use">
+            href="/terms-of-use"
+          >
             Terms of Use
           </Link>
         </li>
@@ -45,7 +49,9 @@ export const Footer = () => {
           className="my-1 rounded-sm p-1 px-2 font-semibold text-cyan-500 transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
           id="jared"
           href="https://jaredthecomputerguy.dev/"
-          target="_blank">
+          rel="noopener"
+          target="_blank"
+        >
           Jared Mercer
         </a>
       </span>

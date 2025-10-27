@@ -1,3 +1,4 @@
+// biome-ignore-all lint/correctness/useExhaustiveDependencies: This is a custom hook
 import { useCallback, useEffect, useRef, useState, useMemo } from "react";
 
 import { getSize, isEqual } from "@/app/_components/snowfall/snowfall-utils";
@@ -8,7 +9,7 @@ import { snowfallBaseStyle } from "@/app/_components/snowfall/snowfall-config";
  * size. Falls back to listening for resize events on the window.
  * @param ref A ref to the HTML element to be measured
  */
-export const useComponentSize = (ref: React.RefObject<HTMLElement>) => {
+export const useComponentSize = (ref: React.RefObject<HTMLElement | null>) => {
   const [size, setSize] = useState(getSize(ref.current));
 
   const resizeHandler = useCallback(() => {

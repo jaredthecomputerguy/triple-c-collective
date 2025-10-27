@@ -13,7 +13,9 @@ export const Debug = ({ active }: { active: boolean }) => {
         onClick={() => {
           localStorage.clear();
           window.location.reload();
-        }}>
+        }}
+        type="button"
+      >
         Clear Local Storage
       </button>
 
@@ -22,7 +24,9 @@ export const Debug = ({ active }: { active: boolean }) => {
         onClick={() => {
           sessionStorage.clear();
           window.location.reload();
-        }}>
+        }}
+        type="button"
+      >
         Clear Session Storage
       </button>
     </div>

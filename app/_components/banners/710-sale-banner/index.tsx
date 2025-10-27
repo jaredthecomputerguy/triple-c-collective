@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { TopBanner } from "../top-banner";
 import styles from "./styles.module.scss";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/shared";
 
 interface SevenTenSaleBannerProps {
   active: boolean;
@@ -26,6 +26,7 @@ export const SevenTenSaleBanner = ({ active }: SevenTenSaleBannerProps) => {
           </h1>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="0">
+          <title>7/10 Sale</title>
           <defs>
             <filter id="goog">
               <feGaussianBlur

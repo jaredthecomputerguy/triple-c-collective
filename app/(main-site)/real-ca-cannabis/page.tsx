@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/app/_components/button";
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 import { Search } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -76,11 +76,13 @@ export default async function RealCACannabisPage() {
                     <Button
                       variant="outline"
                       className="w-fit-content bg-[#114b3c] font-semibold text-white transition-all hover:bg-[#f0b268] hover:text-[#114b3e]"
-                      asChild>
+                      asChild
+                    >
                       <Link
                         href="https://real.cannabis.ca.gov/licensed-retailers/?address=95422"
                         prefetch={false}
-                        target="_blank">
+                        target="_blank"
+                      >
                         <div className="flex items-center gap-1">
                           <Search className="h-4 w-4" /> Find Legal Retailers
                         </div>
@@ -89,11 +91,13 @@ export default async function RealCACannabisPage() {
                     <Button
                       variant="outline"
                       className="mx-auto my-2 w-fit border-black/50 hover:border-black hover:underline hover:shadow-sm"
-                      asChild>
+                      asChild
+                    >
                       <Link
                         href="https://real.cannabis.ca.gov/"
                         prefetch={false}
-                        target="_blank">
+                        target="_blank"
+                      >
                         Learn More
                       </Link>
                     </Button>
@@ -113,7 +117,8 @@ export default async function RealCACannabisPage() {
         </section>
         <section
           id="about"
-          className="w-full bg-[#114b3c] py-12 md:py-24 lg:py-32">
+          className="w-full bg-[#114b3c] py-12 md:py-24 lg:py-32"
+        >
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="max-w-[350px] space-y-4 text-white sm:max-w-none">
@@ -140,7 +145,8 @@ export default async function RealCACannabisPage() {
         </section>
         <section
           id="importance"
-          className="w-full bg-[#F3F4F6] py-12 md:py-24 lg:py-32">
+          className="w-full bg-[#F3F4F6] py-12 md:py-24 lg:py-32"
+        >
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
               <Image
@@ -167,7 +173,8 @@ export default async function RealCACannabisPage() {
         </section>
         <section
           id="logos"
-          className="w-full bg-[#f4ebdd] py-12 text-[#114b3c] md:py-24 lg:py-32">
+          className="w-full bg-[#f4ebdd] py-12 text-[#114b3c] md:py-24 lg:py-32"
+        >
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -193,7 +200,8 @@ export default async function RealCACannabisPage() {
         </section>
         <section
           id="factsheet"
-          className="w-full bg-[#F3F4F6] py-12 md:py-24 lg:py-32">
+          className="w-full bg-[#F3F4F6] py-12 md:py-24 lg:py-32"
+        >
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -208,13 +216,15 @@ export default async function RealCACannabisPage() {
               <div className="flex min-w-full flex-col items-center justify-center space-y-4 text-center">
                 <Button
                   className="w-fit-content bg-[#114b3c] font-semibold text-white transition-all hover:bg-[#f0b268] hover:text-[#114b3e]"
-                  asChild>
+                  asChild
+                >
                   <a
                     href="/pdf/dcc-factbook.pdf"
                     target="_blank"
                     rel="noreferrer"
                     download="real-ca-cannabis-factsheet.pdf"
-                    title="Download the Real CA Cannabis Fact Sheet">
+                    title="Download the Real CA Cannabis Fact Sheet"
+                  >
                     Download Fact Sheet
                   </a>
                 </Button>

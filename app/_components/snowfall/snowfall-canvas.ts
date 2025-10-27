@@ -113,7 +113,11 @@ export class SnowfallCanvas {
     for (const snowflake of snowflakes) {
       snowflake.drawCircle(ctx);
     }
-    ctx.fillStyle = this.config.color!;
+    if (!this.config.color) {
+      ctx.fillStyle = "#fff";
+      return;
+    }
+    ctx.fillStyle = this.config.color;
     ctx.fill();
   }
 

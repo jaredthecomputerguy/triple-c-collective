@@ -1,4 +1,4 @@
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,7 +7,7 @@ import { Button } from "@/app/_components/button";
 import { DealCategory } from "@/app/(main-site)/deals/deal-category";
 import { StiiizyDealCard } from "@/app/(main-site)/deals/stiiizy-deal-card";
 import { Calendar } from "@/app/_components/calendar";
-import { getDealImageUrl, type DealsResponse } from "@/lib/utils";
+import { getDealImageUrl, type DealsResponse } from "@/lib/utils/server";
 
 export const dynamic = "force-dynamic";
 
@@ -24,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   // Get unique brands from deals by creating a Set from the array of brands.
   // This is used to generate the SEO keywords for the page.
-  const dealBrands = new Set(deals.items.map((deal) => deal.brands).flat());
+  const dealBrands = new Set(deals.items.flatMap((deal) => deal.brands));
 
   return {
     title: "Deals | Triple C Collective",
@@ -149,10 +149,12 @@ export default async function DealsPage() {
               </p>
               <Button
                 className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 rounded-sm px-6 py-6 font-semibold text-white outline-hidden transition-all md:text-xl"
-                asChild>
+                asChild
+              >
                 <Link
                   href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
-                  target="_blank">
+                  target="_blank"
+                >
                   Shop All Products
                 </Link>
               </Button>

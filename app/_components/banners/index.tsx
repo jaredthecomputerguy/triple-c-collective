@@ -17,6 +17,7 @@ import { GenericBanner } from "@/app/_components/banners/generic-banner";
 
 type PropsOf<T> = T extends ComponentType<infer P> ? P : never;
 
+// biome-ignore lint: i need the any here to make this generic
 type BannerEntry<T extends ComponentType<any>> = {
   Component: T;
   active: boolean;
@@ -71,8 +72,18 @@ const bannerConfig: [
   { Component: FourTwentyBanner, active: false, order: 50, props: {} },
   { Component: ChristmasBanner, active: false, order: 50, props: {} },
   { Component: MemorialDayBanner, active: false, order: 50, props: {} },
-  { Component: MothersDayBanner, active: false, order: 50, props: {} },
-  { Component: FathersDayBanner, active: false, order: 50, props: {} },
+  {
+    Component: MothersDayBanner,
+    active: /** here */ true,
+    order: 50,
+    props: {}
+  },
+  {
+    Component: FathersDayBanner,
+    active: /** here */ true,
+    order: 50,
+    props: {}
+  },
   { Component: NewYearBanner, active: false, order: 50, props: {} },
   { Component: NewsletterBanner, active: false, order: 50, props: {} },
   { Component: SevenTenSaleBanner, active: false, order: 50, props: {} },
@@ -81,7 +92,6 @@ const bannerConfig: [
 ];
 
 export const Banner = () => {
-  // Stable sort: by `order`, then by original index
   const ordered = bannerConfig
     .map((entry, idx) => [entry, idx] as const)
     .sort((a, b) => {

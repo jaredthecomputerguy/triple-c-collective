@@ -159,7 +159,8 @@ export const ContactForm = () => {
       <button
         className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
         disabled={emailIsSending}
-        type="submit">
+        type="submit"
+      >
         {emailIsSending ? "Sending..." : "Send message"}
       </button>
     </form>

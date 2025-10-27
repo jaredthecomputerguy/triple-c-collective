@@ -1,4 +1,4 @@
-import { type SVGProps } from "react";
+import type { SVGProps } from "react";
 
 export const ClockIcon = ({
   className = "h-6 w-6",
@@ -12,7 +12,9 @@ export const ClockIcon = ({
       viewBox="0 0 24 24"
       strokeWidth={strokeWidth}
       stroke={stroke}
-      className={className}>
+      className={className}
+    >
+      <title>Clock Icon</title>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"

@@ -1,10 +1,10 @@
-import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
-
 import { LiaCannabisSolid, LiaCookieBiteSolid } from "react-icons/lia";
 import { GiMasonJar } from "react-icons/gi";
 import { SlPresent } from "react-icons/sl";
 import { CartridgeIcon } from "@/app/_components/icons/cartridge";
+
+import { cn } from "@/lib/utils/shared";
 import {
   fourTwentyDealsData,
   type Deal,
@@ -31,20 +31,22 @@ const FourTwentyDealCard = ({
       className={cn(
         "flex h-full flex-col items-center justify-between self-stretch md:flex-row",
         title === "Other" && "md:col-span-2"
-      )}>
+      )}
+    >
       <div
         className={cn(
           "flex h-full w-full flex-col items-center rounded-lg border-2 p-4 text-white md:gap-6 md:px-8",
           variant === "green" && "border-white bg-green-800",
           variant === "white" && "leaf border-green-800 bg-white text-green-800"
-        )}>
+        )}
+      >
         <h2 className="font-logo flex flex-col items-center justify-center pb-4 text-center text-3xl font-semibold">
           {icon}
           {title}
         </h2>
         <div className="flex flex-col gap-6">
-          {deals.map((deal, idx) => (
-            <div key={deal.description + idx}>
+          {deals.map((deal) => (
+            <div key={deal.description}>
               <div className="flex flex-col text-left font-semibold">
                 <div>
                   <span className="text-lg font-black">{deal.brand}</span> -{" "}
@@ -62,8 +64,8 @@ const FourTwentyDealCard = ({
             <div className="flex flex-col text-lg font-semibold text-pretty">
               Reduced Prices on the following:
               <ul className="list-inside list-disc space-y-2 py-2 text-left text-base">
-                {reducedPriceDeals.map((reducedPriceDeal, i) => (
-                  <li key={i}>
+                {reducedPriceDeals.map((reducedPriceDeal) => (
+                  <li key={reducedPriceDeal.description.slice(0, 10)}>
                     {reducedPriceDeal.description}{" "}
                     {reducedPriceDeal.limit && (
                       <span className="text-sm">

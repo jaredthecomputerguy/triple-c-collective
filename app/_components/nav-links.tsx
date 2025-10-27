@@ -1,10 +1,5 @@
-import React, {
-  type Dispatch,
-  type ReactNode,
-  type Ref,
-  type SetStateAction
-} from "react";
-import NavLinkItem from "next/link";
+import type { Dispatch, ReactNode, Ref, SetStateAction } from "react";
+import NextLink from "next/link";
 import {
   HomeIcon,
   UsersRoundIcon,
@@ -17,7 +12,7 @@ import {
   ChevronRight
 } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/shared";
 import { LocationIcon } from "@/app/_components/icons/location-icon";
 
 type NavLinkItem = {
@@ -90,7 +85,9 @@ export const NavLink = ({
           className="text-primary-purple focus:outline-primary-purple group flex items-center gap-2 rounded-sm font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
           onClick={() => {
             setShowMoreLinksMenu((prev) => !prev);
-          }}>
+          }}
+          type="button"
+        >
           {label} <ChevronDown />
         </button>
         {links && (
@@ -98,14 +95,16 @@ export const NavLink = ({
             className={cn(
               "absolute top-[62px] right-0 flex w-[250px] flex-col gap-4 border bg-white py-2 transition-all duration-300 ease-in-out",
               showMoreLinksMenu ? "opacity-100" : "hidden opacity-0"
-            )}>
+            )}
+          >
             {links.map((link) => (
               <li key={link.href}>
-                <NavLinkItem
+                <NextLink
                   className="focus:outline-primary-purple text-primary-purple flex items-center gap-2 rounded-sm px-4 py-2 text-center font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
-                  href={link.href ?? "/"}>
+                  href={link.href ?? "/"}
+                >
                   {link.label}
-                </NavLinkItem>
+                </NextLink>
               </li>
             ))}
           </ul>
@@ -116,11 +115,12 @@ export const NavLink = ({
 
   return (
     <li>
-      <NavLinkItem
+      <NextLink
         className="text-primary-purple focus:outline-primary-purple rounded-sm px-4 py-2 font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
-        href={href}>
+        href={href}
+      >
         {label}
-      </NavLinkItem>
+      </NextLink>
     </li>
   );
 };
@@ -140,7 +140,7 @@ export const MobileNavLink = ({
 }) => {
   return (
     <li className="block">
-      <NavLinkItem
+      <NextLink
         onClick={() => {
           setShowMobileMenu(false);
         }}
@@ -148,13 +148,14 @@ export const MobileNavLink = ({
           "flex w-full items-center justify-between px-6 py-4 font-semibold uppercase outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white",
           viewportHeight < 710 && "py-3"
         )}
-        href={href}>
+        href={href}
+      >
         <span className="flex items-center gap-4">
           {icon}
           {label}
         </span>
         <ChevronRight />
-      </NavLinkItem>
+      </NextLink>
     </li>
   );
 };

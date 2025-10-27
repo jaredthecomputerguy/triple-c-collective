@@ -1,4 +1,4 @@
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -8,6 +8,8 @@ import fourTwentyLogo from "@/public/images/4-20/420_logo-resized.png";
 import { FourTwentyDeals } from "@/app/(main-site)/deals/420-deals/420-deals";
 
 const fourTwentyFlyerPath = "/images/4-20/420-flyer-with-bags.jpg";
+
+const SHOW_PAGE = false;
 
 export const metadata: Metadata = {
   title: "4/20 Deals | Triple C Collective",
@@ -57,7 +59,9 @@ export const metadata: Metadata = {
 };
 
 export default function FourTwentyDealsPage() {
-  return notFound();
+  if (SHOW_PAGE) {
+    return notFound();
+  }
 
   return (
     <main className="bg-[#fefefe]" id="main-content">

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/shared";
 import { TopBanner } from "./top-banner";
 import type { ReactNode } from "react";
 
@@ -22,7 +22,8 @@ export const GenericBanner = ({
         "relative py-4 opacity-100 transition-opacity duration-500",
         className
       )}
-      closeBtnClass={closeBtnClass}>
+      closeBtnClass={closeBtnClass}
+    >
       {children && (
         <div className="flex flex-col items-center gap-2">{children}</div>
       )}

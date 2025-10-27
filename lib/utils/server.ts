@@ -1,9 +1,7 @@
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
 import { z, ZodError } from "zod";
 import { Temporal } from "@js-temporal/polyfill";
 
-import { Logger } from "./logger";
+import { Logger } from "@/lib/logger";
 
 export type DealsResponse = {
   page: number;
@@ -32,47 +30,16 @@ export type Deal = {
   badge: string;
 };
 
+export function getDealImageUrl(deal: Deal) {
+  return `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_IMAGE_URL}/${deal.id}/${deal.image}`;
+}
+
 export type TimeRemainingUntilDate = {
   Days: string;
   Hours: string;
   Minutes: string;
   Seconds: string;
 };
-
-export function getDealImageUrl(deal: Deal) {
-  return `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_IMAGE_URL}/${deal.id}/${deal.image}`;
-}
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
-export function timeSince(dateString: string) {
-  const currentDate = new Date();
-  const date = new Date(dateString);
-
-  const timeDifference = currentDate.getTime() - date.getTime();
-  const seconds = Math.floor(timeDifference / 1000);
-  const minutes = Math.floor(seconds / 60);
-  const hours = Math.floor(minutes / 60);
-  const days = Math.floor(hours / 24);
-  const months = Math.floor(days / 30);
-  const years = Math.floor(days / 365);
-
-  if (years > 0) {
-    return `${years} ${years === 1 ? "year" : "years"} ago`;
-  } else if (months > 0) {
-    return `${months} ${months === 1 ? "month" : "months"} ago`;
-  } else if (days > 0) {
-    return `${days} ${days === 1 ? "day" : "days"} ago`;
-  } else if (hours > 0) {
-    return `${hours} ${hours === 1 ? "hour" : "hours"} ago`;
-  } else if (minutes > 0) {
-    return `${minutes} ${minutes === 1 ? "minute" : "minutes"} ago`;
-  } else {
-    return `${seconds} ${seconds === 1 ? "second" : "seconds"} ago`;
-  }
-}
 
 const dateSchema = z.object({
   year: z.number().min(1900).max(2100),
@@ -97,9 +64,9 @@ export function formatDate(dateObj: z.infer<typeof dateSchema>) {
     });
   } catch (e) {
     if (e instanceof ZodError) {
-      logger.error("ZodError " + e);
+      logger.error(`ZodError: ${e}`);
     } else {
-      logger.error("Error: " + e);
+      logger.error(`Error: ${e}`);
     }
     return "Error";
   }
@@ -112,7 +79,7 @@ export function getTrapTakeoverDateWithSuffix(trapTakeoverDate: Date) {
   }).format(trapTakeoverDate);
 
   const day = trapTakeoverDate.getDate();
-  let suffix;
+  let suffix: string;
   const lastDigit = day % 10;
   const lastTwoDigits = day % 100;
   if (lastDigit === 1 && lastTwoDigits !== 11) {
@@ -146,7 +113,7 @@ function toZdtNow(
   now: Temporal.ZonedDateTime | Date,
   tz: string
 ): Temporal.ZonedDateTime {
-  if (now && typeof (now as any).toInstant === "function") {
+  if (now && typeof (now as Temporal.ZonedDateTime).toInstant === "function") {
     // already a ZonedDateTime
     return now as Temporal.ZonedDateTime;
   }

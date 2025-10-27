@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
-import { type SVGProps } from "react";
+import { cn } from "@/lib/utils/shared";
+import type { SVGProps } from "react";
 
 export const InstagramIcon = ({
   className,
@@ -12,7 +12,9 @@ export const InstagramIcon = ({
     )}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 448 512"
-    {...props}>
+    {...props}
+  >
+    <title>Instagram Icon</title>
     <defs>
       <linearGradient id="strokeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor="#f9ce34" />

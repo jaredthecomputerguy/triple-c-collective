@@ -6,7 +6,7 @@ import useEmblaCarousel, {
 } from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/shared";
 import { Button } from "@/app/_components/button";
 
 type CarouselApi = UseEmblaCarouselType[1];
@@ -133,14 +133,17 @@ const Carousel = React.forwardRef<
           scrollNext,
           canScrollPrev,
           canScrollNext
-        }}>
+        }}
+      >
+        {/* biome-ignore lint: ignore */}
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
           className={cn("relative", className)}
           role="region"
           aria-roledescription="carousel"
-          {...props}>
+          {...props}
+        >
           {children}
         </div>
       </CarouselContext.Provider>
@@ -178,6 +181,7 @@ const CarouselItem = React.forwardRef<
   const { orientation } = useCarousel();
 
   return (
+    // biome-ignore lint: ignore
     <div
       ref={ref}
       role="group"
@@ -213,7 +217,8 @@ const CarouselPrevious = React.forwardRef<
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
-      {...props}>
+      {...props}
+    >
       <ArrowLeft className="h-4 w-4" />
       <span className="sr-only">Previous slide</span>
     </Button>
@@ -241,7 +246,8 @@ const CarouselNext = React.forwardRef<
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
-      {...props}>
+      {...props}
+    >
       <ArrowRight className="h-4 w-4" />
       <span className="sr-only">Next slide</span>
     </Button>

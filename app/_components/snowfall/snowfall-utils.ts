@@ -1,3 +1,5 @@
+// biome-ignore-all lint: This file is a custom implementation of a utility function
+
 /**
  * Enhanced random function, selects a random value between a minimum and maximum. If the values provided are both
  * integers then the number returned will be an integer, otherwise the return number will be a decimal.
@@ -65,7 +67,7 @@ export const isEqual = (a: any, b: any) => {
   // START: fast-deep-equal es6/index.js 3.1.3
   if (a === b) return true;
 
-  if (a && b && typeof a == "object" && typeof b == "object") {
+  if (a && b && typeof a === "object" && typeof b === "object") {
     if (a.constructor !== b.constructor) return false;
 
     let length, i, keys;

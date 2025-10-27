@@ -1,4 +1,4 @@
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 
 import { GoogleMapEmbed } from "@/app/_components/google-map-embed";
 import { ContactForm } from "@/app/(main-site)/contact/contact-form";
@@ -78,7 +78,9 @@ export default function ContactPage() {
                   <a
                     className="focus:outline-primary-purple flex flex-col rounded-sm font-medium text-sky-700 outline-hidden hover:underline"
                     href="https://www.google.com/maps/place/14196+Lakeshore+Dr,+Clearlake,+CA+95422"
-                    target="_blank">
+                    target="_blank"
+                    rel="noopener"
+                  >
                     <span>14196 Lakeshore Drive</span>
                     <span>Clearlake, CA 95422</span>
                   </a>
@@ -88,7 +90,8 @@ export default function ContactPage() {
                 <p className="text-xl font-semibold">Telephone</p>
                 <a
                   className="focus:outline-primary-purple rounded-sm font-medium text-sky-700 outline-hidden hover:underline"
-                  href="tel:707-701-4160">
+                  href="tel:707-701-4160"
+                >
                   (707) 701-4160
                 </a>
               </div>
@@ -96,7 +99,8 @@ export default function ContactPage() {
                 <p className="text-xl font-semibold">Email</p>
                 <a
                   className="focus:outline-primary-purple rounded-sm font-medium text-sky-700 outline-hidden hover:underline"
-                  href="mailto:clearlakecompassioncenter@yahoo.com">
+                  href="mailto:clearlakecompassioncenter@yahoo.com"
+                >
                   clearlakecompassioncenter@yahoo.com
                 </a>
               </div>
@@ -108,7 +112,9 @@ export default function ContactPage() {
                       className="focus:outline-primary-purple rounded-sm outline-hidden"
                       href="https://www.facebook.com/profile.php?id=61572842924915"
                       target="_blank"
-                      aria-label="Follow us on Facebook">
+                      rel="noopener"
+                      aria-label="Follow us on Facebook"
+                    >
                       <FacebookIcon className="h-8 w-8 rounded-sm" />
                     </a>
                   </li>

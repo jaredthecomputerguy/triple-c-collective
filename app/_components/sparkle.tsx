@@ -1,5 +1,5 @@
 import { Logger } from "@/lib/logger";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const logger = new Logger();
 
@@ -97,7 +97,7 @@ const Sparkle = ({
     sparklesRef.current = [];
   };
 
-  // Initialize component
+  // biome-ignore lint: This is a custom hook
   useEffect(() => {
     const start = (): void => {
       createSparkles();
@@ -356,7 +356,8 @@ const Sparkle = ({
         top: `-${overflowPx}px`,
         left: `-${overflowPx}px`,
         pointerEvents: "none"
-      }}>
+      }}
+    >
       <canvas ref={sparkleCanvasRef} />
     </span>
   );
