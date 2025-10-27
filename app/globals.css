@@ -1,12 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap")
-layer(base);
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap")
-layer(base);
-@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap")
-layer(base);
-@import url("https://fonts.googleapis.com/css2?family=Birthstone&display=swap")
-layer(base);
-
 @import "tailwindcss";
 
 @theme {
@@ -18,10 +9,11 @@ layer(base);
   --background-image-main: url("/lake-county.webp");
   --background-image-clover: url("/clover.svg");
 
+  --font-main: var(--font-main);
   --font-logo: var(--font-logo);
-  --font-main: "Open Sans";
-  --font-serif: "DM Serif Display";
-  --font-stiiizy: "Bebas Neue";
+  --font-stiiizy: var(--font-stiiizy);
+  --font-trap-takeover: var(--font-trap-takeover);
+  --font-birthstone: var(--font-birthstone);
 
   --color-primary-purple: rgb(43, 7, 77);
   --color-new-years-gold: #d9b01c;
@@ -107,7 +99,7 @@ layer(base);
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: var(--font-main), sans-serif;
   @apply antialiased;
 }
 
@@ -156,7 +148,7 @@ td {
 }
 
 .font-trap-takeover {
-  font-family: "VT323", monospace;
+  font-family: var(--font-trap-takeover), monospace;
 }
 
 .trap-takeover-text {

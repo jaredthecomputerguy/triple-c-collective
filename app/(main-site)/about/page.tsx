@@ -61,7 +61,7 @@ export default function AboutPage() {
           width={1751}
           height={985}
           priority
-          quality={100}
+          quality={1}
         />
         <div className="absolute top-0 left-0 h-full w-full bg-black/50" />
         <span className="font-logo absolute text-3xl font-semibold text-white sm:text-5xl">

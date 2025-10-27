@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { mkdir, writeFile, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
 
@@ -9,8 +8,8 @@ const BASE_URL = "https://www.tripleccollective.com";
 
 const routes = [
   "",
-  "/about",
-  "/reward-program",
+  "/about"
+  /* "/reward-program",
   "/deals",
   "/contact",
   "/real-ca-cannabis",
@@ -18,7 +17,7 @@ const routes = [
   "/cookie-policy",
   "/terms-of-use",
   "/deals/trap-takeover",
-  "/best-of-lake-and-mendocino"
+  "/best-of-lake-and-mendocino" */
 ];
 
 console.log("Running lighthouse for", routes);
@@ -65,10 +64,11 @@ async function main() {
         ? `${outPath}/root.html`
         : `${outPath}/${route.replace(/\//gi, "_")}.html`;
     try {
-      await writeFile(fileName, reportHtml, {
-        flag: "w",
-        encoding: "utf-8"
-      });
+      await Bun.write(fileName, reportHtml);
+      // await writeFile(fileName, reportHtml, {
+      //   flag: "w",
+      //   encoding: "utf-8"
+      // });
       index++;
       console.log(
         "\nReport is done for",
@@ -88,7 +88,7 @@ async function main() {
   console.timeEnd("lighthouse");
 }
 
-function generateIndex(outPath, routes) {
+async function generateIndex(outPath, routes) {
   const indexHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,10 +119,7 @@ function generateIndex(outPath, routes) {
 </body>
 </html>`;
 
-  writeFile(`${outPath}/index.html`, indexHtml, {
-    flag: "w",
-    encoding: "utf-8"
-  });
+  await Bun.write(`${outPath}/index.html`, indexHtml);
 }
 
 main();

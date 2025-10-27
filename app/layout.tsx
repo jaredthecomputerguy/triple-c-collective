@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import {
+  Montserrat,
+  Bebas_Neue,
+  Open_Sans,
+  VT323,
+  Birthstone,
+  DM_Serif_Display
+} from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -64,6 +71,40 @@ const montserrat = Montserrat({
   variable: "--font-logo"
 });
 
+const bebasNeue = Bebas_Neue({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-stiiizy"
+});
+
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-main"
+});
+
+const vt323 = VT323({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-trap-takeover"
+});
+
+const dmSerifDisplay = DM_Serif_Display({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-serif"
+});
+
+const birthstone = Birthstone({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-birthstone"
+});
+
 export default async function RootLayout({
   children
 }: {
@@ -73,7 +114,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} bg-primary-purple scroll-smooth`}
+      className={`${montserrat.variable} ${bebasNeue.variable} ${openSans.variable} ${vt323.variable} ${birthstone.variable} ${dmSerifDisplay.variable} bg-primary-purple scroll-smooth`}
       suppressHydrationWarning
     >
       <body className="relative">

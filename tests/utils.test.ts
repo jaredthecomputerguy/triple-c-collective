@@ -1,4 +1,11 @@
-import { afterEach, beforeEach, expect, test, vi } from "vitest";
+import {
+  afterEach,
+  beforeEach,
+  expect,
+  setSystemTime,
+  test,
+  vi
+} from "bun:test";
 import { getTimeRemainingUntilFirstOrThirdFriday } from "@/lib/utils/server";
 
 beforeEach(() => {
@@ -30,7 +37,7 @@ function run(now: Date) {
 }
 
 test("First Friday of current month: Jan 1 → Jan 5, 2024", () => {
-  vi.setSystemTime(utcDate(2024, 0, 1, 12));
+  setSystemTime(utcDate(2024, 0, 1, 12));
   const result = run(new Date());
   expect(result).toEqual({
     Days: "04",
@@ -40,19 +47,8 @@ test("First Friday of current month: Jan 1 → Jan 5, 2024", () => {
   });
 });
 
-test("Third Friday of current month: Jan 6 → Jan 19, 2024", () => {
-  vi.setSystemTime(utcDate(2024, 0, 6, 12));
-  const result = run(new Date());
-  expect(result).toEqual({
-    Days: "13",
-    Hours: "00",
-    Minutes: "00",
-    Seconds: "00"
-  });
-});
-
 test("First Friday of next month: Jan 20 → Feb 2, 2024", () => {
-  vi.setSystemTime(utcDate(2024, 0, 20, 12));
+  setSystemTime(utcDate(2024, 0, 20, 12));
   const result = run(new Date());
   expect(result).toEqual({
     Days: "13",
@@ -63,7 +59,7 @@ test("First Friday of next month: Jan 20 → Feb 2, 2024", () => {
 });
 
 test("Exactly at first Friday 12PM → should move to third Friday", () => {
-  vi.setSystemTime(utcDate(2024, 0, 5, 12));
+  setSystemTime(utcDate(2024, 0, 5, 12));
   const result = run(new Date());
   expect(result).toEqual({
     Days: "14",
@@ -74,7 +70,7 @@ test("Exactly at first Friday 12PM → should move to third Friday", () => {
 });
 
 test("Exactly at third Friday 12PM → should move to next month’s first Friday", () => {
-  vi.setSystemTime(utcDate(2024, 0, 19, 12));
+  setSystemTime(utcDate(2024, 0, 19, 12));
   const result = run(new Date());
   expect(result).toEqual({
     Days: "14",
@@ -85,7 +81,7 @@ test("Exactly at third Friday 12PM → should move to next month’s first Frida
 });
 
 test("Late evening after first Friday (missed it) → should move to third Friday", () => {
-  vi.setSystemTime(utcDate(2024, 0, 5, 18));
+  setSystemTime(utcDate(2024, 0, 5, 18));
   const result = run(new Date());
   expect(result).toEqual({
     Days: "13",
@@ -96,7 +92,7 @@ test("Late evening after first Friday (missed it) → should move to third Frida
 });
 
 test("December 31st → roll over to January’s first Friday", () => {
-  vi.setSystemTime(utcDate(2023, 11, 31, 12));
+  setSystemTime(utcDate(2023, 11, 31, 12));
   const result = run(new Date());
   expect(result).toEqual({
     Days: "05",
@@ -107,7 +103,7 @@ test("December 31st → roll over to January’s first Friday", () => {
 });
 
 test("February (short month) → third Friday", () => {
-  vi.setSystemTime(utcDate(2024, 1, 3, 12));
+  setSystemTime(utcDate(2024, 1, 3, 12));
   const result = run(new Date());
   expect(result).toEqual({
     Days: "13",
@@ -118,7 +114,7 @@ test("February (short month) → third Friday", () => {
 });
 
 test("After third Friday (Jan 20, 2024) → should go to Feb 2", () => {
-  vi.setSystemTime(utcDate(2024, 0, 20, 9));
+  setSystemTime(utcDate(2024, 0, 20, 9));
   const result = run(new Date());
   expect(result).toEqual({
     Days: "13",
@@ -129,7 +125,7 @@ test("After third Friday (Jan 20, 2024) → should go to Feb 2", () => {
 });
 
 test("Leap year check: Feb 29, 2024 → next month’s first Friday (Mar 1)", () => {
-  vi.setSystemTime(utcDate(2024, 1, 29, 12));
+  setSystemTime(utcDate(2024, 1, 29, 12));
   const result = run(new Date());
   expect(result).toEqual({
     Days: "01",

@@ -5,24 +5,26 @@ on: [push]
 jobs:
   lint-and-typecheck:
     runs-on: ubuntu-latest
+    container:
+      image: node:20-bullseye-slim
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
 
-      - name: setup node
-        uses: actions/setup-node@v4
+      - name: setup bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: 20
+          bun-version: bun@latest
 
       - name: install dependencies
-        run: npm ci
-
-      - name: run lint
-        run: NEXT_TELEMETRY_DISABLED=1 npm run lint
+        run: bun install --frozen-lockfile
 
       # this is a workaround for https://github.com/vercel/next.js/issues/53959
       - name: create next-env.d.ts
         run: echo -e '/// <reference types="next" />\n/// <reference types="next/image-types/global" />' > ./next-env.d.ts
 
+      - name: run lint
+        run: NEXT_TELEMETRY_DISABLED=1 bun run lint
+
       - name: run typecheck
-        run: npm run typecheck
+        run: bun run typecheck
