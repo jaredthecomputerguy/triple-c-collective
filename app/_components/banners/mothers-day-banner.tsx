@@ -9,7 +9,7 @@ export const MothersDayBanner = ({ active }: { active: boolean }) => {
   return (
     <TopBanner active={active} className="leaves py-4">
       <Link
-        className="bg-roses group decoration-red z-50 text-center font-[Birthstone] text-4xl font-bold text-gray-50 md:text-6xl"
+        className="bg-roses group decoration-red font-birthstone z-50 text-center text-4xl font-bold text-gray-50 md:text-6xl"
         href="/deals#mothers-day"
       >
         <div className="flex flex-col items-center justify-center">
