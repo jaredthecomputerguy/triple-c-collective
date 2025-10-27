@@ -1,4 +1,4 @@
-import { type SVGProps } from "react";
+import type { SVGProps } from "react";
 
 export const LocationIcon = ({
   className = "h-6 w-6",
@@ -12,7 +12,9 @@ export const LocationIcon = ({
       viewBox="0 0 24 24"
       strokeWidth={strokeWidth}
       stroke={stroke}
-      className={className}>
+      className={className}
+    >
+      <title>Location Icon</title>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"

@@ -4,7 +4,7 @@ import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/shared";
 
 interface ImageViewerProps {
   className?: string;

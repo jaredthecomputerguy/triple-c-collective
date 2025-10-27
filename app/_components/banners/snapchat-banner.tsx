@@ -21,7 +21,8 @@ export const SnapchatBanner = ({
         {...rest}
         href={href}
         target="_blank"
-        className="font-logo flex items-center gap-2 px-4 py-4 text-center text-sm font-bold text-black md:text-base">
+        className="font-logo flex items-center gap-2 px-4 py-4 text-center text-sm font-bold text-black md:text-base"
+      >
         <SnapchatIcon className="size-6 flex-none md:size-10" />
         <div className="flex flex-col">
           <span>{topText}</span>

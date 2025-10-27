@@ -1,6 +1,6 @@
 import { Html } from "@react-email/html";
 import { Text } from "@react-email/text";
-import { type EmailInfo } from "@/app/(main-site)/contact/contact-form";
+import type { EmailInfo } from "@/app/(main-site)/contact/contact-form";
 
 export const ContactEmail = ({ from, subject, message, name }: EmailInfo) => {
   return (

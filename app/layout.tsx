@@ -1,4 +1,4 @@
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import { Analytics } from "@vercel/analytics/react";
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     images: [`${process.env.SITE_URL}/opengraph-image.png`]
   },
   robots: "all",
-  metadataBase: new URL(process.env.SITE_URL!)
+  metadataBase: new URL(process.env.SITE_URL)
 };
 
 const montserrat = Montserrat({
@@ -74,7 +74,8 @@ export default async function RootLayout({
     <html
       lang="en"
       className={`${montserrat.variable} bg-primary-purple scroll-smooth`}
-      suppressHydrationWarning>
+      suppressHydrationWarning
+    >
       <body className="relative">
         <HalloweenSnowfall />
         <Analytics />

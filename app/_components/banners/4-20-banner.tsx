@@ -21,10 +21,12 @@ export const FourTwentyBanner = ({ active }: { active: boolean }) => {
         active={showBanner}
         className="bg-[#101010]"
         closeBtnClass="text-white"
-        onClose={() => setShowBanner(false)}>
+        onClose={() => setShowBanner(false)}
+      >
         <Link
           className="flex items-center gap-2 py-4 hover:underline"
-          href="/deals/420-deals">
+          href="/deals/420-deals"
+        >
           <div className="flex items-center gap-1 md:flex-col md:gap-4">
             <Image
               className="-my-8 aspect-4/3 h-24 w-24"

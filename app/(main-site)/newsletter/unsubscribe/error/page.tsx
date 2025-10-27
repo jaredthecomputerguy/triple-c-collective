@@ -69,7 +69,8 @@ export default async function NewsletterUnsubscribeSuccessPage(props: {
           Please try to unsubscribe again
           <Link
             className="text-blue-600 underline"
-            href={`/newsletter/unsubscribe?contactId=${contactId}`}>
+            href={`/newsletter/unsubscribe?contactId=${contactId}`}
+          >
             {" "}
             here.
           </Link>
@@ -78,7 +79,8 @@ export default async function NewsletterUnsubscribeSuccessPage(props: {
           If you&apos;re still seeing this page, reach out to us directly at{" "}
           <Link
             className="text-blue-600 underline"
-            href="mailto:clearlakecompassioncenter@yahoo.com">
+            href="mailto:clearlakecompassioncenter@yahoo.com"
+          >
             clearlakecompassioncenter@yahoo.com
           </Link>{" "}
           and we&apos;ll manually delete your email from the list.

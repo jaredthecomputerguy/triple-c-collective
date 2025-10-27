@@ -19,7 +19,8 @@ export const FreeFood = ({ active }: { active: boolean }) => {
         <div className="flex flex-col items-center">
           <Link
             href="https://www.instagram.com/underdoggrill/?hl=en"
-            target="_blank">
+            target="_blank"
+          >
             <Image
               className="my-2 cursor-pointer rounded-xl"
               src={underdogGrillLogo}
@@ -32,13 +33,15 @@ export const FreeFood = ({ active }: { active: boolean }) => {
             <Link
               href="https://www.facebook.com/UnderdogGrill?mibextid=wwXIfr"
               target="_blank"
-              className="group rounded-full bg-white p-1 hover:bg-blue-600">
+              className="group rounded-full bg-white p-1 hover:bg-blue-600"
+            >
               <FacebookIcon className="transition-all group-hover:fill-white" />
             </Link>
             <Link
               href="https://www.instagram.com/underdoggrill/?hl=en"
               target="_blank"
-              className="group rounded-full bg-white p-1 hover:bg-gradient-to-br hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7]">
+              className="group rounded-full bg-white p-1 hover:bg-gradient-to-br hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7]"
+            >
               <InstagramIcon className="transition-all group-hover:fill-white" />
             </Link>
           </div>
@@ -49,7 +52,8 @@ export const FreeFood = ({ active }: { active: boolean }) => {
             <Link
               href="https://www.instagram.com/underdoggrill/?hl=en"
               target="_blank"
-              className="hover:underline">
+              className="hover:underline"
+            >
               Underdog Grill!
             </Link>
           </p>

@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/shared";
 import { useClickOutside } from "@/lib/hooks/useClickOutside";
 import { useHeaderFocus } from "@/lib/hooks/useHeaderFocus";
 import { useScrollHeader } from "@/lib/hooks/useScrollHeader";
@@ -57,20 +57,24 @@ export const Header = () => {
           ? "pointer-events-auto opacity-100"
           : "pointer-events-none opacity-0",
         "sticky top-0 z-40 bg-[#fefefe] shadow-sm transition-opacity duration-300 ease-in-out"
-      )}>
+      )}
+    >
       <Banner />
       <div className="group bg-primary-purple sticky top-0">
         <div className="bg-primary-purple flex justify-between px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
             className="flex items-center justify-center gap-2 rounded-sm p-2 font-semibold outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
-            href="tel:707-701-4160">
+            href="tel:707-701-4160"
+          >
             <PhoneIcon className="h-4 w-4" />
             <span>(707) 701-4160</span>
           </a>
           <a
             className="flex items-center justify-center gap-2 rounded-sm p-2 px-4 font-semibold outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
             href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
-            target="_blank">
+            target="_blank"
+            rel="noopener"
+          >
             <CartIcon className="h-4 w-4" />
             <span>Shop now</span>
           </a>
@@ -84,13 +88,16 @@ export const Header = () => {
           <a
             className="flex items-center justify-center gap-2 rounded-sm p-2 px-4 font-semibold outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
             href="https://www.google.com/maps/dir//triple+c+collective/@38.9554237,-122.6496488"
-            target="_blank">
+            target="_blank"
+            rel="noopener"
+          >
             <LocationIcon className="h-4 w-4" />
             <span>14196 Lakeshore Dr. Clearlake, CA 95422</span>
           </a>
           <a
             className="flex items-center justify-center gap-2 rounded-sm p-2 px-4 font-semibold outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white"
-            href="tel:707-701-4160">
+            href="tel:707-701-4160"
+          >
             <PhoneIcon className="h-4 w-4" />
             <span>(707) 701-4160</span>
           </a>
@@ -99,14 +106,17 @@ export const Header = () => {
       <div className="relative mx-auto flex max-w-7xl items-center justify-between bg-[#fefefe] p-4">
         <Link
           href="/"
-          className="font-logo text-primary-purple focus:outline-primary-purple rounded-sm p-2 text-xl font-bold uppercase outline-hidden transition-all sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+          className="font-logo text-primary-purple focus:outline-primary-purple rounded-sm p-2 text-xl font-bold uppercase outline-hidden transition-all sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
+        >
           Triple C Collective
         </Link>
         <button
           className="focus:outline-primary-purple rounded-sm p-1 outline-hidden transition-all hover:bg-gray-200 focus:bg-gray-200 md:hidden"
           onClick={toggleMobileMenu}
           name="mobile-navigation-button"
-          aria-label="Mobile Navigation Button">
+          aria-label="Mobile Navigation Button"
+          type="button"
+        >
           {showMobileMenu ? (
             <CloseIcon className="text-primary-purple h-8 w-8" />
           ) : (
@@ -118,10 +128,11 @@ export const Header = () => {
             <nav
               className={cn(
                 "bg-primary-purple absolute top-16 right-0 w-full overflow-y-auto py-[6px] text-center text-white md:hidden"
-              )}>
+              )}
+            >
               <ul className="bg-primary-purple flex w-full flex-col">
                 {MOBILE_LINKS.map((link) => {
-                  if (!link.href) return;
+                  if (!link.href) return null;
                   return (
                     <MobileNavLink
                       href={link.href}
@@ -135,9 +146,10 @@ export const Header = () => {
                 })}
               </ul>
             </nav>
-            <div
+            <button
               className="fixed top-0 left-0 -z-10 h-dvh w-screen"
               onClick={() => setShowMobileMenu(false)}
+              type="button"
             />
           </>
         )}

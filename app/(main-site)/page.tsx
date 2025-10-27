@@ -1,4 +1,4 @@
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,7 +7,7 @@ import { StoreIcon } from "@/app/_components/icons/store";
 import { StarRating } from "@/app/_components/star-rating";
 
 import halloweenHeaderImg from "@/public/images/halloween-store.png";
-import headerImg from "@/public/images/interior-shop.jpg";
+// import headerImg from "@/public/images/interior-shop.jpg";
 import logoImg from "@/public/images/logo.png";
 import halloweenLogoImg from "@/public/images/logo-halloween.png";
 import orderOnlineImg from "@/public/images/order-online.avif";
@@ -133,7 +133,8 @@ export default function HomePage() {
             <Link
               className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 flex w-full min-w-[220px] grow-0 items-center justify-center rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
               href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
-              target="_blank">
+              target="_blank"
+            >
               Shop Now
             </Link>
           </div>
@@ -153,7 +154,8 @@ export default function HomePage() {
             </p>
             <Link
               className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 flex w-full min-w-[220px] grow-0 justify-center rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
-              href="tel:707-701-4160">
+              href="tel:707-701-4160"
+            >
               Call Us
             </Link>
           </div>
@@ -173,7 +175,8 @@ export default function HomePage() {
             </p>
             <Link
               className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 flex w-full min-w-[220px] grow-0 justify-center rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
-              href="/delivery">
+              href="/delivery"
+            >
               Schedule Delivery
             </Link>
           </div>
@@ -241,11 +244,13 @@ export default function HomePage() {
                 <Button
                   variant="outline"
                   className="mx-auto my-2 w-fit border-black/50 hover:border-black hover:shadow-sm"
-                  asChild>
+                  asChild
+                >
                   <Link
                     className="mt-4"
                     href="/real-ca-cannabis"
-                    aria-label="Learn more about the Real CA Cannabis program">
+                    aria-label="Learn more about the Real CA Cannabis program"
+                  >
                     Learn More About Real CA Cannabis
                   </Link>
                 </Button>
@@ -306,7 +311,8 @@ export default function HomePage() {
                     <Link
                       href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
                       target="_blank"
-                      className="text-primary-purple font-semibold hover:underline">
+                      className="text-primary-purple font-semibold hover:underline"
+                    >
                       Start shopping
                     </Link>
                   </p>

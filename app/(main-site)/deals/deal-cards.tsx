@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-import { isDateLessThan, type Deal } from "@/lib/utils";
+import { isDateLessThan, type Deal } from "@/lib/utils/server";
 import { Badge } from "@/app/(main-site)/deals/badge";
 
 const DAYS_TO_BE_CONSIDERED_NEW = 3;
@@ -32,7 +32,8 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
             target="_blank"
             className="group border-primary-purple/50 focus:outline-primary-purple relative flex flex-col items-center overflow-hidden rounded-xl border shadow-lg outline-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1"
             key={deal.id}
-            id={deal.htmlId}>
+            id={deal.htmlId}
+          >
             <BadgeContainer>
               {deal.badge && <Badge>{deal.badge}</Badge>}
               {isNew && <Badge variant="destructive">New</Badge>}

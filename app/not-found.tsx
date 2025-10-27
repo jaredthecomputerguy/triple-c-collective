@@ -1,4 +1,4 @@
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Header } from "@/app/_components/header";
@@ -24,7 +24,8 @@ export default function NotFound() {
             Return to the{" "}
             <Link
               className="text-primary-purple font-semibold hover:underline"
-              href="/">
+              href="/"
+            >
               Home Page
             </Link>
           </p>

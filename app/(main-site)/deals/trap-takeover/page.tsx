@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { formatDate, getTrapTakeoverDateWithSuffix } from "@/lib/utils";
+import { formatDate, getTrapTakeoverDateWithSuffix } from "@/lib/utils/server";
 import { TrapTakeoverCountdown } from "@/app/(main-site)/deals/trap-takeover-countdown";
 import { getFeaturedBrands } from "@/app/_components/trap-takeover/trap-takeover-brands";
 

@@ -1,4 +1,4 @@
-import crypto from "crypto";
+import crypto from "node:crypto";
 import { Resend } from "resend";
 import { z } from "zod";
 
@@ -102,7 +102,7 @@ export const POST = async (req: Request) => {
     });
 
     if (error) {
-      throw new WebhookError("Resend Error: " + error.message, 500);
+      throw new WebhookError(`Resend Error: ${error.message}`, 500);
     }
 
     logger.log("Webhook handled successfully for", webhookData.data.email);

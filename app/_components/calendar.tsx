@@ -15,7 +15,7 @@ export const Calendar = () => {
 
     const updateSrc = (e: MediaQueryListEvent | MediaQueryList) => {
       if (e.matches) {
-        setIframeSrc(BASE_MAP_EMBED_URL + "&mode=AGENDA");
+        setIframeSrc(`${BASE_MAP_EMBED_URL}&mode=AGENDA`);
       } else {
         setIframeSrc(BASE_MAP_EMBED_URL);
       }
@@ -37,9 +37,11 @@ export const Calendar = () => {
 
   return (
     <iframe
+      title="Triple C Calendar"
       src={iframeSrc}
       style={{ border: 0, width: "100%" }}
       width="800"
-      height="600"></iframe>
+      height="600"
+    ></iframe>
   );
 };

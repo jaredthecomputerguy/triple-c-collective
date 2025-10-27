@@ -4,7 +4,7 @@ import Link from "next/link";
 import { TopBanner } from "@/app/_components/banners/top-banner";
 import { useToast } from "@/lib/use-toast";
 import { sendWelcomeEmailAction } from "@/lib/actions/send-welcome-email-action";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/shared";
 
 const NEWSLETTER_SUBMIT_KEY = "ns";
 
@@ -67,10 +67,12 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
       active={active}
       className={cn(
         "relative py-4 opacity-100 transition-opacity duration-500"
-      )}>
+      )}
+    >
       <form
         className="mr-8 flex flex-col items-center gap-2 px-4 text-sm md:text-base"
-        onSubmit={handleNewsletterBannerSubmit}>
+        onSubmit={handleNewsletterBannerSubmit}
+      >
         {currentStep === "initial" && (
           <div className="flex flex-col items-center gap-2">
             <span className="text-center text-[#050505]">
@@ -110,7 +112,8 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
                     if (isValid) {
                       setCurrentStep("consent");
                     }
-                  }}>
+                  }}
+                >
                   Subscribe
                 </button>
               </div>
@@ -124,13 +127,15 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
               Do you consent to receiving marketing emails and agree to our{" "}
               <Link
                 className="text-blue-500 underline hover:text-blue-600"
-                href="/terms-of-use">
+                href="/terms-of-use"
+              >
                 Terms of Use
               </Link>{" "}
               and{" "}
               <Link
                 className="text-blue-500 underline hover:text-blue-600"
-                href="/privacy-policy">
+                href="/privacy-policy"
+              >
                 Privacy Policy
               </Link>
               ?
@@ -139,14 +144,16 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
               <button
                 type="submit"
                 className="bg-primary-purple hover:bg-primary-purple/90 disabled:bg-primary-purple/50 rounded-sm border border-transparent px-4 py-2 text-sm font-semibold text-white transition-all disabled:cursor-not-allowed"
-                disabled={isSubmitting}>
+                disabled={isSubmitting}
+              >
                 Yes
               </button>
               <button
                 type="button"
                 className="rounded-sm border border-transparent bg-red-700 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-red-700/90 disabled:cursor-not-allowed disabled:bg-red-700/50"
                 onClick={() => setCurrentStep("initial")}
-                disabled={isSubmitting}>
+                disabled={isSubmitting}
+              >
                 No
               </button>
             </div>

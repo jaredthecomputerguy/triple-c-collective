@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, expect, test, vi } from "vitest";
-import { getTimeRemainingUntilFirstOrThirdFriday } from "@/lib/utils";
+import { getTimeRemainingUntilFirstOrThirdFriday } from "@/lib/utils/server";
 
 beforeEach(() => {
   vi.useFakeTimers();

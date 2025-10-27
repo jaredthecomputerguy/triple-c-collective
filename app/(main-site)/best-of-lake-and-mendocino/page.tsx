@@ -88,58 +88,69 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const CONTEST_YEAR = 2026;
 
-const FAQ: { trigger: string; content: string }[] = [
+const FAQ: { id: number; trigger: string; content: string }[] = [
   {
+    id: 1,
     trigger: "What is the Best of Lake and Mendocino contest?",
     content:
       "The Best of Lake and Mendocino, presented by Bicoastal Media, is a community-driven contest that highlights the best businesses, services, and organizations in Lake and Mendocino counties."
   },
   {
+    id: 2,
     trigger: "How was Triple C Collective nominated?",
     content:
       "Nominations come directly from the community. After the nomination period closes, verified nominees like Triple C Collective are placed on the official ballot for voting."
   },
   {
+    id: 3,
     trigger: "In which categories is Triple C Collective nominated?",
     content:
       "We’ve been nominated in multiple categories, including Best Cannabis Dispensary, Best CBD Products, Best Budtender Team, and more."
   },
   {
+    id: 4,
     trigger: "How does voting work?",
     content:
       "Once voting begins, community members can cast one vote per category every 24 hours. Voting is done entirely online through the Best of Lake and Mendocino website."
   },
   {
+    id: 5,
     trigger: "Do I need to register to vote?",
     content:
       "Yes. Registration with basic information, like your name and email, is required to validate votes and prevent fraud."
   },
   {
+    id: 6,
     trigger: "Can I vote in person or with a paper ballot?",
     content:
       "No. All voting is done online only — there are no in-person or paper ballot options."
   },
   {
+    id: 7,
     trigger: "How many times can I vote for Triple C Collective?",
     content:
       "You can vote once per category per day. That means you can support Triple C Collective daily throughout the entire voting period."
   },
   {
+    id: 8,
     trigger: "When does voting take place?",
     content:
       "The regular voting period runs from Wednesday, September 17th at 12:00 pm through Wednesday, October 1st at 5:00 pm."
   },
   {
+    id: 9,
     trigger: "When will winners be announced?",
     content:
       "Winners will be posted on the Best of Lake and Mendocino website on Wednesday, January 7th at 12:00 pm and featured in the official winners magazine."
   },
   {
+    id: 10,
     trigger: "How are votes counted?",
     content:
       "Votes are tabulated by a third-party. Bicoastal Media and its affiliates don’t see the results until the tabulation is complete. Votes suspected of fraud or tampering may be disqualified."
   },
   {
+    id: 11,
     trigger: "What happens if Triple C Collective wins?",
     content:
       "Winning is a community recognition of our service, products, and team. We’ll proudly share the award with our customers and continue to serve Lake and Mendocino counties with excellence."
@@ -205,8 +216,8 @@ export default function BestOfLakeAndMendocinoPage() {
               </div>
 
               <div className="grid gap-4">
-                {CATEGORIES.map((category, index) => (
-                  <Card key={index}>
+                {CATEGORIES.map((category) => (
+                  <Card key={category.name}>
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4">
                         <category.icon className="text-primary-purple h-8 w-8 min-w-8" />
@@ -253,11 +264,13 @@ export default function BestOfLakeAndMendocinoPage() {
                   </p>
                   <Button
                     className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 px-8 py-3 text-lg font-semibold text-white"
-                    asChild>
+                    asChild
+                  >
                     <Link
                       className="text-white"
                       href="https://votebolm.com/triple-c-collective"
-                      target="_blank">
+                      target="_blank"
+                    >
                       Vote Now - Official Site
                     </Link>
                   </Button>
@@ -305,7 +318,7 @@ export default function BestOfLakeAndMendocinoPage() {
           <div className="px-4 md:px-6">
             <Accordion type="multiple" className="mx-auto">
               {FAQ.map((faq, i) => (
-                <AccordionItem value={`item-${i}`} key={i}>
+                <AccordionItem value={`item-${i}`} key={faq.id}>
                   <AccordionTrigger>{faq.trigger}</AccordionTrigger>
                   <AccordionContent>{faq.content}</AccordionContent>
                 </AccordionItem>

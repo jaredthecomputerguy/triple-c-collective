@@ -11,7 +11,7 @@ export const GoogleMapEmbed = ({
 }) => {
   return (
     <GoogleMapsEmbed
-      apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}
+      apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
       mode="place"
       allowfullscreen
       style={`height: ${height}; width: ${width}`}

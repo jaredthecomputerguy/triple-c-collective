@@ -41,7 +41,6 @@ export const Snowfall = ({
   const mergedStyle = useSnowfallStyle(style);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  // @ts-ignore
   const canvasSize = useComponentSize(canvasRef);
 
   const config = useDeepMemo<SnowfallCanvasConfig>({
@@ -71,8 +70,7 @@ export const Snowfall = ({
 
     return () => {
       snowfallCanvasRef.current?.pause();
-      // @ts-ignore
-      snowfallCanvasRef.current = undefined;
+      snowfallCanvasRef.current = null;
     };
   }, []);
 

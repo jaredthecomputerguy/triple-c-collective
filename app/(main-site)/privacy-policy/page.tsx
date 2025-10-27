@@ -1,4 +1,4 @@
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Triple C Collective",
@@ -177,7 +177,9 @@ export default function PrivacyPolicyPage() {
                   your email address in accordance with their{" "}
                   <a
                     href="https://resend.com/legal/privacy-policy"
-                    target="_blank">
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     privacy policy
                   </a>
                   .

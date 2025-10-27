@@ -1,4 +1,4 @@
-import { type SVGProps } from "react";
+import type { SVGProps } from "react";
 
 export const CloseIcon = ({
   className = "w-6 h-6",
@@ -12,7 +12,9 @@ export const CloseIcon = ({
       viewBox="0 0 24 24"
       strokeWidth={strokeWidth}
       stroke={stroke}
-      className={className}>
+      className={className}
+    >
+      <title>Close Icon</title>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
