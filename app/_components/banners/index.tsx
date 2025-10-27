@@ -74,13 +74,13 @@ const bannerConfig: [
   { Component: MemorialDayBanner, active: false, order: 50, props: {} },
   {
     Component: MothersDayBanner,
-    active: /** here */ true,
+    active: false,
     order: 50,
     props: {}
   },
   {
     Component: FathersDayBanner,
-    active: /** here */ true,
+    active: false,
     order: 50,
     props: {}
   },
