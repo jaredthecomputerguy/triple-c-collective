@@ -15,8 +15,8 @@
     "pocketbase:run": "make -C pocketbase all",
     "pocketbase:clean": "make -C pocketbase clean",
     "pocketbase:admin": "concurrently \"bun run pocketbase:run\" \"open http://127.0.0.1:8090/_/\"",
-    "lighthouse:run": "bun lighthouse/js/run-reports.mjs",
-    "lighthouse:serve": "serve ./lighthouse/js/reports",
+    "lighthouse:run": "bun lighthouse/run-reports.ts",
+    "lighthouse:serve": "serve ./lighthouse/reports",
     "lighthouse": "bun run lighthouse:run && bun run lighthouse:serve",
     "email": "email dev --port 3050 --dir lib/emails"
   },

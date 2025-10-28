@@ -1,15 +1,15 @@
-import { mkdir, writeFile, rm } from "node:fs/promises";
+// biome-ignore-all lint/suspicious/noConsole: i need the console for logging
+import { mkdir, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
-
 import * as chromeLauncher from "chrome-launcher";
-import lighthouse from "lighthouse";
+import lighthouse, { type Flags } from "lighthouse";
 
 const BASE_URL = "https://www.tripleccollective.com";
 
-const routes = [
+const ROUTES = [
   "",
-  "/about"
-  /* "/reward-program",
+  "/about",
+  "/reward-program",
   "/deals",
   "/contact",
   "/real-ca-cannabis",
@@ -17,13 +17,12 @@ const routes = [
   "/cookie-policy",
   "/terms-of-use",
   "/deals/trap-takeover",
-  "/best-of-lake-and-mendocino" */
-];
+  "/best-of-lake-and-mendocino"
+] as const;
 
-console.log("Running lighthouse for", routes);
+console.log("Running lighthouse for", ROUTES);
 
-let index = 0;
-const total = routes.length;
+let current = 0;
 
 async function main() {
   console.time("lighthouse");
@@ -39,13 +38,13 @@ async function main() {
 
   await mkdir(outPath);
 
-  generateIndex(outPath, routes);
+  await generateIndex(outPath, ROUTES);
 
-  for (let idx = 0; idx < routes.length; idx++) {
-    const route = routes[idx];
+  for (let idx = 0; idx < ROUTES.length; idx++) {
+    const route = ROUTES[idx];
     console.log(`Running lighthouse for ${route}`);
     const chrome = await chromeLauncher.launch({ chromeFlags: ["--headless"] });
-    const options = {
+    const options: Flags = {
       logLevel: "info",
       output: "html",
       port: chrome.port
@@ -65,15 +64,11 @@ async function main() {
         : `${outPath}/${route.replace(/\//gi, "_")}.html`;
     try {
       await Bun.write(fileName, reportHtml);
-      // await writeFile(fileName, reportHtml, {
-      //   flag: "w",
-      //   encoding: "utf-8"
-      // });
-      index++;
+      current++;
       console.log(
         "\nReport is done for",
         runnerResult.lhr.finalDisplayedUrl,
-        `Progress: ${index}/${total}`,
+        `Progress: ${current}/${ROUTES.length}`,
         "\n--------------------\n"
       );
     } catch (e) {
@@ -88,7 +83,7 @@ async function main() {
   console.timeEnd("lighthouse");
 }
 
-async function generateIndex(outPath, routes) {
+async function generateIndex(outPath: string, routes: typeof ROUTES) {
   const indexHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,7 +109,7 @@ async function generateIndex(outPath, routes) {
   <hr />
   <h2>Reports</h2>
   <ul>
-    ${routes.map((route) => `<li><a href="${route == "" ? "./root" : route.replace(/\//gi, "_")}.html">${route == "" ? "/" : route}</a></li>`).join("\n")}
+    ${routes.map((route) => `<li><a href="${route === "" ? "./root" : route.replace(/\//gi, "_")}.html">${route === "" ? "/" : route}</a></li>`).join("\n")}
   </ul>
 </body>
 </html>`;
