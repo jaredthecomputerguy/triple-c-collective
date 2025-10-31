@@ -13,6 +13,7 @@ import { NewsletterBanner } from "@/app/_components/banners/newsletter-banner";
 import { SevenTenSaleBanner } from "@/app/_components/banners/710-sale-banner/";
 import { SnapchatBanner } from "@/app/_components/banners/snapchat-banner";
 import { StPatricksBanner } from "@/app/_components/banners/st-patricks-banner";
+import { HalloweenBanner } from "@/app/_components/banners/halloween-banner";
 import { GenericBanner } from "@/app/_components/banners/generic-banner";
 
 type PropsOf<T> = T extends ComponentType<infer P> ? P : never;
@@ -25,6 +26,8 @@ type BannerEntry<T extends ComponentType<any>> = {
   order?: number;
   props?: Partial<PropsOf<T>>;
 };
+
+const DEFAULT_ORDER = 50;
 
 const bannerConfig: [
   BannerEntry<typeof GenericBanner>,
@@ -40,12 +43,13 @@ const bannerConfig: [
   BannerEntry<typeof NewsletterBanner>,
   BannerEntry<typeof SevenTenSaleBanner>,
   BannerEntry<typeof SnapchatBanner>,
-  BannerEntry<typeof StPatricksBanner>
+  BannerEntry<typeof StPatricksBanner>,
+  BannerEntry<typeof HalloweenBanner>
 ] = [
   {
     Component: GenericBanner,
     active: true,
-    order: 2,
+    order: DEFAULT_ORDER,
     props: {
       children: (
         <div className="mr-4 text-center text-[#fefefe]">
@@ -68,27 +72,58 @@ const bannerConfig: [
     }
   },
   { Component: StiiizyBanner, active: false, order: 1, props: {} },
-  { Component: CloneBanner, active: false, order: 50, props: {} },
-  { Component: FourTwentyBanner, active: false, order: 50, props: {} },
-  { Component: ChristmasBanner, active: false, order: 50, props: {} },
-  { Component: MemorialDayBanner, active: false, order: 50, props: {} },
+  { Component: CloneBanner, active: false, order: DEFAULT_ORDER, props: {} },
+  {
+    Component: FourTwentyBanner,
+    active: false,
+    order: DEFAULT_ORDER,
+    props: {}
+  },
+  {
+    Component: ChristmasBanner,
+    active: false,
+    order: DEFAULT_ORDER,
+    props: {}
+  },
+  {
+    Component: MemorialDayBanner,
+    active: false,
+    order: DEFAULT_ORDER,
+    props: {}
+  },
   {
     Component: MothersDayBanner,
     active: false,
-    order: 50,
+    order: DEFAULT_ORDER,
     props: {}
   },
   {
     Component: FathersDayBanner,
     active: false,
-    order: 50,
+    order: DEFAULT_ORDER,
     props: {}
   },
-  { Component: NewYearBanner, active: false, order: 50, props: {} },
-  { Component: NewsletterBanner, active: false, order: 50, props: {} },
-  { Component: SevenTenSaleBanner, active: false, order: 50, props: {} },
-  { Component: SnapchatBanner, active: false, order: 50, props: {} },
-  { Component: StPatricksBanner, active: false, order: 50, props: {} }
+  { Component: NewYearBanner, active: false, order: DEFAULT_ORDER, props: {} },
+  {
+    Component: NewsletterBanner,
+    active: false,
+    order: DEFAULT_ORDER,
+    props: {}
+  },
+  {
+    Component: SevenTenSaleBanner,
+    active: false,
+    order: DEFAULT_ORDER,
+    props: {}
+  },
+  { Component: SnapchatBanner, active: false, order: DEFAULT_ORDER, props: {} },
+  {
+    Component: StPatricksBanner,
+    active: false,
+    order: DEFAULT_ORDER,
+    props: {}
+  },
+  { Component: HalloweenBanner, active: true, order: 0, props: {} }
 ];
 
 export const Banner = () => {

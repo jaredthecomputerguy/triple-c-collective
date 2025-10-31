@@ -7,12 +7,14 @@ import {
 } from "react";
 
 import { CloseIcon } from "@/app/_components/icons/close-icon";
-import { Button } from "@/app/_components/button";
+import { Button, type buttonVariants } from "@/app/_components/button";
 import { cn } from "@/lib/utils/shared";
+import type { VariantProps } from "class-variance-authority";
 
 interface TopBannerProps extends ComponentProps<"div"> {
   active: boolean;
   closeBtnClass?: string;
+  closeBtnVariant?: VariantProps<typeof buttonVariants>["variant"];
   link?: { href: string; target?: HTMLAttributeAnchorTarget };
   onClose?: () => void;
 }
@@ -20,6 +22,7 @@ interface TopBannerProps extends ComponentProps<"div"> {
 export const TopBanner = ({
   active = false,
   closeBtnClass = "text-black",
+  closeBtnVariant = "ghost",
   children,
   className,
   onClose,
@@ -50,7 +53,7 @@ export const TopBanner = ({
       <Button
         className={cn("absolute right-2 z-50 p-1 md:right-8", closeBtnClass)}
         onClick={handleClose}
-        variant="ghost"
+        variant={closeBtnVariant}
         name="Close Top Banner"
         aria-label="Close Top Banner"
       >

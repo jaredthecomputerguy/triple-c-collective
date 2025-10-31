@@ -5,7 +5,8 @@ import {
   Open_Sans,
   VT323,
   Birthstone,
-  DM_Serif_Display
+  DM_Serif_Display,
+  Emilys_Candy
 } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import { Analytics } from "@vercel/analytics/react";
@@ -105,6 +106,14 @@ const birthstone = Birthstone({
   variable: "--font-birthstone"
 });
 
+const emilysCandy = Emilys_Candy({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-halloween",
+  preload: false
+});
+
 export default async function RootLayout({
   children
 }: {
@@ -114,7 +123,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${bebasNeue.variable} ${openSans.variable} ${vt323.variable} ${birthstone.variable} ${dmSerifDisplay.variable} bg-primary-purple scroll-smooth`}
+      className={`${montserrat.variable} ${bebasNeue.variable} ${openSans.variable} ${vt323.variable} ${birthstone.variable} ${dmSerifDisplay.variable} ${emilysCandy.variable} bg-primary-purple scroll-smooth`}
       suppressHydrationWarning
     >
       <body className="relative">
