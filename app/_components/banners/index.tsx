@@ -18,7 +18,7 @@ import { GenericBanner } from "@/app/_components/banners/generic-banner";
 
 type PropsOf<T> = T extends ComponentType<infer P> ? P : never;
 
-// biome-ignore lint: i need the any here to make this generic
+// biome-ignore lint/suspicious/noExplicitAny: i need the any here to make this generic
 type BannerEntry<T extends ComponentType<any>> = {
   Component: T;
   active: boolean;
@@ -71,7 +71,7 @@ const bannerConfig: [
       bannerSubText: "TODAY | 12-6PM"
     }
   },
-  { Component: StiiizyBanner, active: false, order: 1, props: {} },
+  { Component: StiiizyBanner, active: true, order: 1, props: {} },
   { Component: CloneBanner, active: false, order: DEFAULT_ORDER, props: {} },
   {
     Component: FourTwentyBanner,
@@ -123,7 +123,7 @@ const bannerConfig: [
     order: DEFAULT_ORDER,
     props: {}
   },
-  { Component: HalloweenBanner, active: true, order: 0, props: {} }
+  { Component: HalloweenBanner, active: false, order: 0, props: {} }
 ];
 
 export const Banner = () => {
