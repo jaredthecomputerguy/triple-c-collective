@@ -1,14 +1,5 @@
 import { z, ZodError } from "zod";
 import { Temporal } from "@js-temporal/polyfill";
-import {
-  Montserrat,
-  Bebas_Neue,
-  Open_Sans,
-  VT323,
-  Birthstone,
-  DM_Serif_Display,
-  Emilys_Candy
-} from "next/font/google";
 
 import { Logger } from "@/lib/logger";
 
