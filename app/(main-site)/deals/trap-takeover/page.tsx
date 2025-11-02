@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 
-import { formatDate, getTrapTakeoverDateWithSuffix } from "@/lib/utils/server";
+import {
+  formatAndValidateDate,
+  getTrapTakeoverDateWithSuffix
+} from "@/lib/utils/server";
 import { TrapTakeoverCountdown } from "@/app/(main-site)/deals/trap-takeover-countdown";
 import { getFeaturedBrands } from "@/app/_components/trap-takeover/trap-takeover-brands";
 
@@ -12,10 +15,10 @@ import { TrapTakeoverFlyer } from "@/app/_components/trap-takeover/trap-takeover
 import { TrapTakeoverRaffleRules } from "@/app/_components/trap-takeover/trap-takeover-raffle-rules";
 import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 
-const TRAP_TAKEOVER_DATE_STRING = formatDate({
+const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
   year: 2025,
   month: 11,
-  day: 3
+  day: 7
 });
 
 const featuredBrands = getFeaturedBrands(

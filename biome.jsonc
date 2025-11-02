@@ -1,12 +1,17 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.3.0/schema.json",
-  "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
+  "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": false },
   "files": {
-    "ignoreUnknown": false,
-    "includes": ["**/*.{js,jsx,ts,tsx}", "!node_modules", "!.next"]
+    "ignoreUnknown": false
   },
   "formatter": {
     "enabled": true,
+    "includes": [
+      "**/*.{js,jsx,ts,tsx,html,css}",
+      "**/coverage/*.{js,jsx,ts,tsx,html,css}",
+      "!node_modules",
+      "!.next"
+    ],
     "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,
@@ -20,10 +25,21 @@
   },
   "linter": {
     "enabled": true,
+    "includes": [
+      "coverage/**/*.{js,jsx,ts,tsx,html,css}",
+      "app/**/*.{js,jsx,ts,tsx,html,css}",
+      "lib/**/*.{js,jsx,ts,tsx,html,css}",
+      "!node_modules",
+      "!.next"
+    ],
     "rules": {
       "recommended": true,
       "correctness": { "noUnusedVariables": "warn" },
-      "suspicious": { "noConsole": "warn", "noShadowRestrictedNames": "off" }
+      "suspicious": {
+        "noConsole": "warn",
+        "noShadowRestrictedNames": "off",
+        "noUnknownAtRules": "off"
+      }
     }
   },
   "javascript": {
@@ -41,8 +57,20 @@
   },
   "html": {
     "formatter": {
+      "enabled": true,
       "indentScriptAndStyle": false,
       "selfCloseVoidElements": "always"
+    }
+  },
+  "css": {
+    "formatter": {
+      "enabled": true
+    },
+    "parser": {
+      "tailwindDirectives": true
+    },
+    "linter": {
+      "enabled": true
     }
   },
   "assist": {

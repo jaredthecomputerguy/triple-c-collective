@@ -1,5 +1,14 @@
 import { z, ZodError } from "zod";
 import { Temporal } from "@js-temporal/polyfill";
+import {
+  Montserrat,
+  Bebas_Neue,
+  Open_Sans,
+  VT323,
+  Birthstone,
+  DM_Serif_Display,
+  Emilys_Candy
+} from "next/font/google";
 
 import { Logger } from "@/lib/logger";
 
@@ -30,9 +39,17 @@ export type Deal = {
   badge: string;
 };
 
-export function getDealImageUrl(deal: Deal) {
-  return `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_IMAGE_URL}/${deal.id}/${deal.image}`;
+enum DaysOfWeek {
+  Monday = 1,
+  Tuesday = 2,
+  Wednesday = 3,
+  Thursday = 4,
+  Friday = 5,
+  Saturday = 6,
+  Sunday = 7
 }
+
+const logger = new Logger();
 
 export type TimeRemainingUntilDate = {
   Days: string;
@@ -41,20 +58,32 @@ export type TimeRemainingUntilDate = {
   Seconds: string;
 };
 
-const dateSchema = z.object({
-  year: z.number().min(1900).max(2100),
-  month: z.number().min(1).max(12),
-  day: z.number().min(1).max(31)
-});
+const dateSchema = z
+  .object({
+    year: z.number().min(1900).max(2100),
+    month: z.number().min(1).max(12),
+    day: z.number().min(1).max(31)
+  })
+  .refine(
+    (d) => {
+      try {
+        const date = new Temporal.PlainDate(d.year, d.month, d.day);
+        return date.dayOfWeek === DaysOfWeek.Friday;
+      } catch {
+        return false;
+      }
+    },
+    { message: "Date must be a valid Friday" }
+  );
 
-export function formatDate(dateObj: z.infer<typeof dateSchema>) {
-  const logger = new Logger();
+/**
+ * Validate and format a date object, ensuring it falls on a Friday.
+ * Returns a localized string or "Error" if invalid.
+ */
+export function formatAndValidateDate(dateObj: z.infer<typeof dateSchema>) {
   try {
-    const parsedDate = dateSchema.parse(dateObj);
-
-    const { year, month, day } = parsedDate;
-
-    const date = new Temporal.PlainDate(year, month, day);
+    const parsed = dateSchema.parse(dateObj);
+    const date = new Temporal.PlainDate(parsed.year, parsed.month, parsed.day);
 
     return date.toLocaleString("en-US", {
       year: "numeric",
@@ -64,12 +93,18 @@ export function formatDate(dateObj: z.infer<typeof dateSchema>) {
     });
   } catch (e) {
     if (e instanceof ZodError) {
-      logger.error(`ZodError: ${e}`);
+      logger.error(
+        `ZodError: ${e.errors.map((err) => err.message).join(", ")}`
+      );
     } else {
-      logger.error(`Error: ${e}`);
+      logger.error(`Error: ${(e as Error).message}`);
     }
     return "Error";
   }
+}
+
+export function getDealImageUrl(deal: Deal) {
+  return `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_IMAGE_URL}/${deal.id}/${deal.image}`;
 }
 
 export function getTrapTakeoverDateWithSuffix(trapTakeoverDate: Date) {
