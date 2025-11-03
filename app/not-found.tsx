@@ -24,8 +24,7 @@ export default function NotFound() {
             Return to the{" "}
             <Link
               className="text-primary-purple font-semibold hover:underline"
-              href="/"
-            >
+              href="/">
               Home Page
             </Link>
           </p>

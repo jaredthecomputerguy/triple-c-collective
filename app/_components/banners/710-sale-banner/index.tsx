@@ -1,8 +1,9 @@
 import Link from "next/link";
 
-import { TopBanner } from "../top-banner";
-import styles from "./styles.module.scss";
+import { TopBanner } from "@/app/_components/banners/top-banner";
 import { cn } from "@/lib/utils/shared";
+
+import styles from "./styles.module.scss";
 
 interface SevenTenSaleBannerProps {
   active: boolean;

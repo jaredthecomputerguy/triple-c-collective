@@ -39,8 +39,7 @@ export const WelcomeEmail = ({ contactId }: WelcomeEmailProps) => {
               }
             }
           }
-        }}
-      >
+        }}>
         <Preview>Welcome - Triple C Newsletter</Preview>
         <Body className="bg-offwhite font-sans text-base">
           <Container className="bg-white p-45">
@@ -109,8 +108,7 @@ export const WelcomeEmail = ({ contactId }: WelcomeEmailProps) => {
 
             <Text className="text-center underline">
               <Link
-                href={`https://tripleccollective.com/newsletter/unsubscribe?contactId=${contactId}`}
-              >
+                href={`https://tripleccollective.com/newsletter/unsubscribe?contactId=${contactId}`}>
                 Unsubscribe
               </Link>
             </Text>

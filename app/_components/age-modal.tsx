@@ -86,8 +86,7 @@ export const AgeModal = () => {
       id="age-modal"
       tabIndex={-1}
       onKeyDown={handleKeyDownInModal}
-      role="dialog"
-    >
+      role="dialog">
       <div className="rounded-lg bg-white p-8">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -95,8 +94,7 @@ export const AgeModal = () => {
           viewBox="0 0 24 24"
           strokeWidth={2}
           stroke="currentColor"
-          className="text-primary-purple mx-auto h-12 w-12"
-        >
+          className="text-primary-purple mx-auto h-12 w-12">
           <title>Close</title>
           <path
             strokeLinecap="round"
@@ -129,8 +127,7 @@ export const AgeModal = () => {
                     viewBox="0 0 20 20"
                     fill="#fefefe"
                     className="h-4 w-4"
-                    strokeWidth={5}
-                  >
+                    strokeWidth={5}>
                     <title>Remember Me</title>
                     <path
                       fillRule="evenodd"
@@ -146,15 +143,13 @@ export const AgeModal = () => {
             <button
               className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
               onClick={handleYesClick}
-              type="button"
-            >
+              type="button">
               Yes
             </button>
             <button
               className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
               onClick={() => router.push("https://google.com")}
-              type="button"
-            >
+              type="button">
               No
             </button>
           </div>

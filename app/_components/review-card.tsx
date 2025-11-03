@@ -74,8 +74,7 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
       <a
         href={review.link}
         target="_blank"
-        className="group focus:outline-primary-purple flex items-center gap-4 rounded-lg px-6 outline-hidden sm:px-2"
-      >
+        className="group focus:outline-primary-purple flex items-center gap-4 rounded-lg px-6 outline-hidden sm:px-2">
         <Avatar>
           <AvatarImage src={review.imageSrc} alt={review.name} />
           <AvatarFallback
@@ -83,8 +82,7 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
               review.id === 1 && "bg-cyan-200",
               review.id === 2 && "bg-pink-200",
               review.id === 3 && "bg-amber-200"
-            )}
-          >
+            )}>
             {(name[0] ?? "").charAt(0)}
             {(name[1] ?? "").charAt(0)}
           </AvatarFallback>
@@ -105,15 +103,13 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
         className={cn(
           "px-4 text-lg text-pretty text-gray-600 sm:px-2",
           showMore === false && "line-clamp-3"
-        )}
-      >
+        )}>
         &quot;{review.text}&quot;
       </p>
       <button
         className="text-primary-purple focus:outline-primary-purple rounded-lg py-2 font-semibold outline-hidden hover:underline focus:underline"
         onClick={() => setShowMore((prev) => !prev)}
-        type="button"
-      >
+        type="button">
         {showMore ? "Show less" : "Show more"}
       </button>
     </div>

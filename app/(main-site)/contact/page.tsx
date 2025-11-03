@@ -67,10 +67,6 @@ export default function ContactPage() {
                   <span className="font-semibold">Everyday:</span>10 AM - 9:30
                   PM
                 </p>
-                <p className="flex gap-1">
-                  <span className="font-semibold">Closed:</span>Thanksgiving &
-                  Christmas Day
-                </p>
               </div>
               <div className="flex flex-col gap-2">
                 <p className="text-xl font-semibold">Address</p>
@@ -79,8 +75,7 @@ export default function ContactPage() {
                     className="focus:outline-primary-purple flex flex-col rounded-sm font-medium text-sky-700 outline-hidden hover:underline"
                     href="https://www.google.com/maps/place/14196+Lakeshore+Dr,+Clearlake,+CA+95422"
                     target="_blank"
-                    rel="noopener"
-                  >
+                    rel="noopener">
                     <span>14196 Lakeshore Drive</span>
                     <span>Clearlake, CA 95422</span>
                   </a>
@@ -90,8 +85,7 @@ export default function ContactPage() {
                 <p className="text-xl font-semibold">Telephone</p>
                 <a
                   className="focus:outline-primary-purple rounded-sm font-medium text-sky-700 outline-hidden hover:underline"
-                  href="tel:707-701-4160"
-                >
+                  href="tel:707-701-4160">
                   (707) 701-4160
                 </a>
               </div>
@@ -99,8 +93,7 @@ export default function ContactPage() {
                 <p className="text-xl font-semibold">Email</p>
                 <a
                   className="focus:outline-primary-purple rounded-sm font-medium text-sky-700 outline-hidden hover:underline"
-                  href="mailto:clearlakecompassioncenter@yahoo.com"
-                >
+                  href="mailto:clearlakecompassioncenter@yahoo.com">
                   clearlakecompassioncenter@yahoo.com
                 </a>
               </div>
@@ -113,35 +106,10 @@ export default function ContactPage() {
                       href="https://www.facebook.com/profile.php?id=61572842924915"
                       target="_blank"
                       rel="noopener"
-                      aria-label="Follow us on Facebook"
-                    >
+                      aria-label="Follow us on Facebook">
                       <FacebookIcon className="h-8 w-8 rounded-sm" />
                     </a>
                   </li>
-
-                  {/* Uncomment this when we have have new socials
-                  <li className="hover:bg-primary-purple/10 rounded-sm p-1 transition-colors">
-                    <a
-                      className="focus:outline-primary-purple rounded-sm outline-hidden"
-                      href="https://www.snapchat.com/add/triplec.420"
-                      target="_blank"
-                      aria-label="Follow us on Snapchat"
-                    >
-                      <SnapchatIcon className="h-8 w-8 rounded-sm" />
-                    </a>
-                  </li>
-
-                    <li className="rounded-sm p-1 transition-colors hover:bg-primary-purple/10">
-                     <a
-                       className="rounded-sm outline-hidden focus:outline-primary-purple"
-                       href="https://www.instagram.com/_tripleccollective/"
-                       target="_blank"
-                       aria-label="Follow us on Instagram"
-                     >
-                       <InstagramIcon className="h-9 w-9" />
-                     </a>
-                   </li>
-                   */}
                 </ul>
               </div>
               <hr />

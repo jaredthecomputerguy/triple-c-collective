@@ -205,8 +205,7 @@ export default function DeliveryPage() {
                     <div className="flex items-center gap-2">
                       <Link
                         className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 my-4 inline-block gap-2 rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
-                        href="tel:7077014160"
-                      >
+                        href="tel:7077014160">
                         Call us: (707) 701-4160
                       </Link>
                     </div>
@@ -214,8 +213,7 @@ export default function DeliveryPage() {
                   <Link
                     className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 my-4 inline-block rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
                     href="https://triplec.treez.io/onlinemenu/"
-                    target="_blank"
-                  >
+                    target="_blank">
                     Place an Order Online
                   </Link>
                 </div>

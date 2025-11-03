@@ -16,8 +16,7 @@ export default function MainSiteLayout({ children }: { children: ReactNode }) {
     <>
       <a
         href="#main-content"
-        className="bg-primary-purple absolute top-2 left-2 z-50 rounded-sm border-white p-1 text-sm text-white opacity-0 outline-hidden transition-opacity focus:opacity-100 focus:outline-white"
-      >
+        className="bg-primary-purple absolute top-2 left-2 z-50 rounded-sm border-white p-1 text-sm text-white opacity-0 outline-hidden transition-opacity focus:opacity-100 focus:outline-white">
         Skip to main content
       </a>
       <Header />

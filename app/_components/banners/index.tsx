@@ -15,6 +15,7 @@ import { SnapchatBanner } from "@/app/_components/banners/snapchat-banner";
 import { StPatricksBanner } from "@/app/_components/banners/st-patricks-banner";
 import { HalloweenBanner } from "@/app/_components/banners/halloween-banner";
 import { GenericBanner } from "@/app/_components/banners/generic-banner";
+import { ThanksgivingBanner } from "./thanksgiving-banner";
 
 type PropsOf<T> = T extends ComponentType<infer P> ? P : never;
 
@@ -44,7 +45,8 @@ const bannerConfig: [
   BannerEntry<typeof SevenTenSaleBanner>,
   BannerEntry<typeof SnapchatBanner>,
   BannerEntry<typeof StPatricksBanner>,
-  BannerEntry<typeof HalloweenBanner>
+  BannerEntry<typeof HalloweenBanner>,
+  BannerEntry<typeof ThanksgivingBanner>
 ] = [
   {
     Component: GenericBanner,
@@ -71,7 +73,7 @@ const bannerConfig: [
       bannerSubText: "TODAY | 12-6PM"
     }
   },
-  { Component: StiiizyBanner, active: true, order: 1, props: {} },
+  { Component: StiiizyBanner, active: false, order: 1, props: {} },
   { Component: CloneBanner, active: false, order: DEFAULT_ORDER, props: {} },
   {
     Component: FourTwentyBanner,
@@ -123,7 +125,8 @@ const bannerConfig: [
     order: DEFAULT_ORDER,
     props: {}
   },
-  { Component: HalloweenBanner, active: false, order: 0, props: {} }
+  { Component: HalloweenBanner, active: false, order: 0, props: {} },
+  { Component: ThanksgivingBanner, active: true, order: 0, props: {} }
 ];
 
 export const Banner = () => {

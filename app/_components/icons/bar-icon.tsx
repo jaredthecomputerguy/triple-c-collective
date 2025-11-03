@@ -12,8 +12,7 @@ export const BarsIcon = ({
       viewBox="0 0 24 24"
       strokeWidth={strokeWidth}
       stroke={stroke}
-      className={className}
-    >
+      className={className}>
       <title>Bar Icon</title>
       <path
         strokeLinecap="round"

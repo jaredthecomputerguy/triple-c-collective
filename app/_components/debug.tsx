@@ -14,8 +14,7 @@ export const Debug = ({ active }: { active: boolean }) => {
           localStorage.clear();
           window.location.reload();
         }}
-        type="button"
-      >
+        type="button">
         Clear Local Storage
       </button>
 
@@ -25,8 +24,7 @@ export const Debug = ({ active }: { active: boolean }) => {
           sessionStorage.clear();
           window.location.reload();
         }}
-        type="button"
-      >
+        type="button">
         Clear Session Storage
       </button>
     </div>
