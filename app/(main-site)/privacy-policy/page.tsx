@@ -178,8 +178,7 @@ export default function PrivacyPolicyPage() {
                   <a
                     href="https://resend.com/legal/privacy-policy"
                     target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                    rel="noopener noreferrer">
                     privacy policy
                   </a>
                   .

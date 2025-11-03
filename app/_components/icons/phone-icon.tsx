@@ -12,8 +12,7 @@ export const PhoneIcon = ({
       viewBox="0 0 24 24"
       strokeWidth={strokeWidth}
       stroke={stroke}
-      className={className}
-    >
+      className={className}>
       <title>Phone Icon</title>
       <path
         strokeLinecap="round"

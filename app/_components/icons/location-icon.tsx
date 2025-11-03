@@ -12,8 +12,7 @@ export const LocationIcon = ({
       viewBox="0 0 24 24"
       strokeWidth={strokeWidth}
       stroke={stroke}
-      className={className}
-    >
+      className={className}>
       <title>Location Icon</title>
       <path
         strokeLinecap="round"

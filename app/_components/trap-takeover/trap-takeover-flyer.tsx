@@ -34,15 +34,13 @@ export const TrapTakeoverFlyer = ({
         <a
           className="bg-primary-purple hover:bg-primary-purple/90 w-full cursor-pointer rounded-sm px-6 py-2 text-center font-semibold text-white transition-all"
           href={flyerPDFPath}
-          download
-        >
+          download>
           Download PDF
         </a>
         <a
           className="bg-primary-purple hover:bg-primary-purple/90 w-full cursor-pointer rounded-sm px-6 py-2 text-center font-semibold text-white transition-all"
           href={flyerImagePath}
-          download
-        >
+          download>
           Download Image
         </a>
       </div>

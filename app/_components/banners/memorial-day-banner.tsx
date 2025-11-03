@@ -7,12 +7,10 @@ export const MemorialDayBanner = ({ active }: { active: boolean }) => {
   return (
     <TopBanner
       active={active}
-      className="relative overflow-hidden bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-2 font-bold text-white uppercase"
-    >
+      className="relative overflow-hidden bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-2 font-bold text-white uppercase">
       <Link
         href="/deals"
-        className="flex flex-col items-center justify-center gap-1 px-4 py-3 text-center transition hover:underline"
-      >
+        className="flex flex-col items-center justify-center gap-1 px-4 py-3 text-center transition hover:underline">
         <div className="flex items-center justify-center gap-2">
           <Star className="size-5 text-white md:size-6" />
           <span className="font-logo text-xl tracking-wider md:text-2xl">

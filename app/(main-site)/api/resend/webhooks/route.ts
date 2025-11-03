@@ -7,7 +7,6 @@ import { Logger } from "@/lib/logger";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.RESEND_FROM_EMAIL;
-const logger = new Logger();
 
 const LIST_OF_RESEND_IPS = [
   "44.228.126.217",
@@ -105,17 +104,17 @@ export const POST = async (req: Request) => {
       throw new WebhookError(`Resend Error: ${error.message}`, 500);
     }
 
-    logger.log("Webhook handled successfully for", webhookData.data.email);
+    Logger.log("Webhook handled successfully for", webhookData.data.email);
     return new Response(null, { status: 200 });
   } catch (e) {
     if (e instanceof WebhookError) {
-      logger.error("Webhook Error:", e.message);
+      Logger.error("Webhook Error:", e.message);
       return new Response(null, { status: e.status });
     } else if (e instanceof Error) {
-      logger.error("Error:", e.message);
+      Logger.error("Error:", e.message);
       return new Response(null, { status: 500 });
     } else {
-      logger.error("Unknown Error:", e);
+      Logger.error("Unknown Error:", e);
       return new Response(null, { status: 500 });
     }
   }

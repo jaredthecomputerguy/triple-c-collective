@@ -264,13 +264,11 @@ export default function BestOfLakeAndMendocinoPage() {
                   </p>
                   <Button
                     className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 px-8 py-3 text-lg font-semibold text-white"
-                    asChild
-                  >
+                    asChild>
                     <Link
                       className="text-white"
                       href="https://votebolm.com/triple-c-collective"
-                      target="_blank"
-                    >
+                      target="_blank">
                       Vote Now - Official Site
                     </Link>
                   </Button>

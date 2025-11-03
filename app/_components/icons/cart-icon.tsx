@@ -12,8 +12,7 @@ export const CartIcon = ({
       viewBox="0 0 24 24"
       strokeWidth={strokeWidth}
       stroke={stroke}
-      className={className}
-    >
+      className={className}>
       <title>Cart Icon</title>
       <path
         strokeLinecap="round"

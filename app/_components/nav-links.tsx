@@ -86,8 +86,7 @@ export const NavLink = ({
           onClick={() => {
             setShowMoreLinksMenu((prev) => !prev);
           }}
-          type="button"
-        >
+          type="button">
           {label} <ChevronDown />
         </button>
         {links && (
@@ -95,14 +94,12 @@ export const NavLink = ({
             className={cn(
               "absolute top-[62px] right-0 flex w-[250px] flex-col gap-4 border bg-white py-2 transition-all duration-300 ease-in-out",
               showMoreLinksMenu ? "opacity-100" : "hidden opacity-0"
-            )}
-          >
+            )}>
             {links.map((link) => (
               <li key={link.href}>
                 <NextLink
                   className="focus:outline-primary-purple text-primary-purple flex items-center gap-2 rounded-sm px-4 py-2 text-center font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
-                  href={link.href ?? "/"}
-                >
+                  href={link.href ?? "/"}>
                   {link.label}
                 </NextLink>
               </li>
@@ -117,8 +114,7 @@ export const NavLink = ({
     <li>
       <NextLink
         className="text-primary-purple focus:outline-primary-purple rounded-sm px-4 py-2 font-semibold outline-hidden hover:underline focus:underline lg:text-xl"
-        href={href}
-      >
+        href={href}>
         {label}
       </NextLink>
     </li>
@@ -148,8 +144,7 @@ export const MobileNavLink = ({
           "flex w-full items-center justify-between px-6 py-4 font-semibold uppercase outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white",
           viewportHeight < 710 && "py-3"
         )}
-        href={href}
-      >
+        href={href}>
         <span className="flex items-center gap-4">
           {icon}
           {label}

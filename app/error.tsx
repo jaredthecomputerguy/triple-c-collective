@@ -6,8 +6,6 @@ import { Footer } from "@/app/_components/footer";
 import { Header } from "@/app/_components/header";
 import { Logger } from "@/lib/logger";
 
-const logger = new Logger();
-
 export default function Error({
   error,
   reset
@@ -18,7 +16,7 @@ export default function Error({
   const pathname = usePathname();
 
   useEffect(() => {
-    logger.error(`Error on page ${pathname}: ${error}`);
+    Logger.error(`Error on page ${pathname}: ${error}`);
   }, [error, pathname]);
 
   return (
@@ -31,8 +29,7 @@ export default function Error({
         <button
           className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple active:bg-primary-purple/80 active:outline-primary-purple disabled:bg-primary-purple/50 w-fit rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
           onClick={() => reset()}
-          type="button"
-        >
+          type="button">
           Reload Page
         </button>
       </section>

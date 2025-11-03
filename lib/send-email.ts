@@ -8,8 +8,6 @@ import { ContactEmail } from "@/app/(main-site)/contact/contact-email";
 import type { EmailInfo } from "@/app/(main-site)/contact/contact-form";
 import { Logger } from "@/lib/logger";
 
-const logger = new Logger();
-
 export const sendEmail = async ({
   from,
   message,
@@ -20,7 +18,7 @@ export const sendEmail = async ({
   const password = process.env.NODEMAILER_PASSWORD;
 
   if (process.env.NODE_ENV === "development") {
-    logger.log(
+    Logger.log(
       "\n\nNODEMAILER --> Sending email: ",
       JSON.stringify({ from, message, subject, name }),
       "\n\n"
@@ -54,10 +52,10 @@ export const sendEmail = async ({
     return { error: null };
   } catch (err) {
     if (err instanceof Error) {
-      logger.error("Nodemailer Error: ", err.message);
+      Logger.error("Nodemailer Error: ", err.message);
       return { error: err.message };
     } else {
-      logger.error("Error: ", err);
+      Logger.error("Error: ", err);
       return { error: "Something went wrong..." };
     }
   }

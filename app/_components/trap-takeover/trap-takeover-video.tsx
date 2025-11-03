@@ -13,8 +13,7 @@ export const TrapTakeoverVideo = ({ active }: { active: boolean }) => {
         preload="auto"
         className="mx-auto my-16 rounded-xl"
         loop
-        playsInline
-      >
+        playsInline>
         <source src={TRAP_TAKEOVER_VIDEO_PATH} type="video/mp4" />
       </video>
     </section>

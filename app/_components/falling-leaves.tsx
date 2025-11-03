@@ -4,11 +4,15 @@ import { useEffect, useState } from "react";
 
 import Snowfall from "@/app/_components/snowfall/snowfall";
 
-const SIZE = 50;
+const SIZE = 25;
 
-const IMAGES = ["/images/halloween/bat.svg", "/images/halloween/pumpkin.svg"];
+const IMAGES = [
+  "/images/thanksgiving/leaf-green.svg",
+  "/images/thanksgiving/leaf-brown.svg",
+  "/images/thanksgiving/leaf-brown.svg"
+];
 
-export const HalloweenSnowfall = () => {
+export const FallingLeaves = () => {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
 
   useEffect(() => {
@@ -18,17 +22,18 @@ export const HalloweenSnowfall = () => {
       img.width = 1024; // or larger
       img.height = 1024;
       img.onload = () => setImages((prev) => [...prev, img]);
-    });
+    }, []);
   }, []);
 
-  if (!images) return null; // or a loading fallback
+  if (!images) return null;
 
   return (
     <Snowfall
-      snowflakeCount={20}
-      rotationSpeed={[0.25, 0.25]}
+      snowflakeCount={15}
+      rotationSpeed={[0.5, 0.5]}
       images={images}
       radius={[SIZE, SIZE]}
+      wind={[-0.5, 1]}
       style={{
         position: "fixed",
         width: "100vw",

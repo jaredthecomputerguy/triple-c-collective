@@ -116,8 +116,7 @@ export default function RewardsPage() {
             href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-primary-purple hover:bg-primary-purple/75 focus:bg-primary-purple/75 focus:outline-primary-purple rounded-sm px-6 py-2 text-xl text-[#fefefe] outline-hidden lg:text-2xl"
-          >
+            className="bg-primary-purple hover:bg-primary-purple/75 focus:bg-primary-purple/75 focus:outline-primary-purple rounded-sm px-6 py-2 text-xl text-[#fefefe] outline-hidden lg:text-2xl">
             Shop now
           </a>
         </div>

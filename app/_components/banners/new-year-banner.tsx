@@ -14,8 +14,7 @@ export const NewYearBanner = ({ active }: NewYearBannerProps) => {
       <TopBanner
         active={active}
         className="bg-new-years-black py-6"
-        closeBtnClass="text-white"
-      >
+        closeBtnClass="text-white">
         <div className="flex items-center gap-4">
           <span className="text-new-years-gold font-serif text-xl tracking-wider md:text-3xl">
             {" "}

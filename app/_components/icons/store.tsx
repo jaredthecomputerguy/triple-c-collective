@@ -12,8 +12,7 @@ export const StoreIcon = ({
       viewBox="0 0 24 24"
       strokeWidth={strokeWidth}
       stroke={stroke}
-      className={className}
-    >
+      className={className}>
       <title>Store Icon</title>
       <path
         strokeLinecap="round"

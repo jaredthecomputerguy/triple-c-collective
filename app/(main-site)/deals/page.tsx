@@ -149,12 +149,10 @@ export default async function DealsPage() {
               </p>
               <Button
                 className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 rounded-sm px-6 py-6 font-semibold text-white outline-hidden transition-all md:text-xl"
-                asChild
-              >
+                asChild>
                 <Link
                   href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
-                  target="_blank"
-                >
+                  target="_blank">
                   Shop All Products
                 </Link>
               </Button>

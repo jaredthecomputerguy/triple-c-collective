@@ -20,8 +20,7 @@ export const FeaturedBrands = ({
         className={cn(
           "grid grid-cols-2 place-items-center py-8 text-lg md:flex md:flex-wrap md:justify-evenly md:gap-4 md:py-12",
           active ? "" : "sm:justify-start"
-        )}
-      >
+        )}>
         {active ? (
           featuredBrands.map((brand) => {
             const isLast =
@@ -34,13 +33,11 @@ export const FeaturedBrands = ({
                   "flex flex-col items-center hover:underline",
                   isLast && "col-span-2"
                 )}
-                key={brand.name ?? "undefined"}
-              >
+                key={brand.name ?? "undefined"}>
                 <Link
                   className="focus:border-primary-purple focus:outline-primary-purple flex flex-col items-center rounded-sm border border-white px-2 py-2 outline-hidden"
                   href={brand.url}
-                  target="_blank"
-                >
+                  target="_blank">
                   <h3 className="font-logo w-full py-2 text-center text-xl font-semibold">
                     {brand.name}
                   </h3>

@@ -15,7 +15,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "@/app/globals.css";
 import { Toaster } from "@/app/_components/toaster";
 import { Debug } from "@/app/_components/debug";
-import { HalloweenSnowfall } from "@/app/_components/snowfall/halloween-snowfall";
+import { FallingLeaves } from "@/app/_components/falling-leaves";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -96,7 +96,7 @@ const dmSerifDisplay = DM_Serif_Display({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-serif"
+  variable: "--font-dm-serif"
 });
 
 const birthstone = Birthstone({
@@ -124,10 +124,9 @@ export default async function RootLayout({
     <html
       lang="en"
       className={`${montserrat.variable} ${bebasNeue.variable} ${openSans.variable} ${vt323.variable} ${birthstone.variable} ${dmSerifDisplay.variable} ${emilysCandy.variable} bg-primary-purple scroll-smooth`}
-      suppressHydrationWarning
-    >
+      suppressHydrationWarning>
       <body className="relative">
-        <HalloweenSnowfall />
+        <FallingLeaves />
         <Analytics />
         <SpeedInsights />
         <NextTopLoader color="white" />

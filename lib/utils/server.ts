@@ -1,15 +1,5 @@
 import { z, ZodError } from "zod";
 import { Temporal } from "@js-temporal/polyfill";
-import {
-  Montserrat,
-  Bebas_Neue,
-  Open_Sans,
-  VT323,
-  Birthstone,
-  DM_Serif_Display,
-  Emilys_Candy
-} from "next/font/google";
-
 import { Logger } from "@/lib/logger";
 
 export type DealsResponse = {
@@ -48,8 +38,6 @@ enum DaysOfWeek {
   Saturday = 6,
   Sunday = 7
 }
-
-const logger = new Logger();
 
 export type TimeRemainingUntilDate = {
   Days: string;
@@ -93,11 +81,11 @@ export function formatAndValidateDate(dateObj: z.infer<typeof dateSchema>) {
     });
   } catch (e) {
     if (e instanceof ZodError) {
-      logger.error(
+      Logger.error(
         `ZodError: ${e.errors.map((err) => err.message).join(", ")}`
       );
     } else {
-      logger.error(`Error: ${(e as Error).message}`);
+      Logger.error(`Error: ${(e as Error).message}`);
     }
     return "Error";
   }

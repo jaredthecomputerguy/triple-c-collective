@@ -51,8 +51,7 @@ export const BrandCarousel = () => {
           key={brand.id}
           href={brand.website}
           target="_blank"
-          className="relative my-auto h-64 w-64"
-        >
+          className="relative my-auto h-64 w-64">
           <Image
             src={brand.src}
             alt={brand.alt}
