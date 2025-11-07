@@ -66,7 +66,7 @@ const bannerConfig: [
   },
   {
     Component: TrapTakeoverBanner,
-    active: false,
+    active: true,
     order: 1,
     props: {
       bannerText: "Trap Takeover Sale",
@@ -126,7 +126,7 @@ const bannerConfig: [
     props: {}
   },
   { Component: HalloweenBanner, active: false, order: 0, props: {} },
-  { Component: ThanksgivingBanner, active: true, order: 0, props: {} }
+  { Component: ThanksgivingBanner, active: false, order: 0, props: {} }
 ];
 
 export const Banner = () => {
