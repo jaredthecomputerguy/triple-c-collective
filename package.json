@@ -8,9 +8,9 @@
     "build:dev": "concurrently -n pb,next-builder -c green,magenta --kill-others \"bun run pocketbase:run\" \"next build\"",
     "start": "next start",
     "preview": "concurrently -n pb,next -c green,cyan \"bun run pocketbase:run\" \"next start\"",
-    "lint": "biome lint",
-    "format": "biome format --write",
-    "check": "biome format",
+    "lint": "biome lint .",
+    "format": "biome format . --write",
+    "check": "biome format .",
     "typecheck": "tsc --noEmit",
     "pocketbase:build": "make -C pocketbase build",
     "pocketbase:run": "make -C pocketbase all",
@@ -27,13 +27,13 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,tsx,jsx}": "bun run lint",
-    "*.{js,jsx,ts,tsx,css,md}": "bun run format"
+    "*.{js,ts,tsx,jsx}": "bun lint",
+    "*.{js,jsx,ts,tsx,css,md}": "bun format"
   },
   "dependencies": {
     "@fireworks-js/react": "^2.10.8",
     "@js-temporal/polyfill": "^0.5.1",
-    "@next/third-parties": "^15.4.2",
+    "@next/third-parties": "16.0.1",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-separator": "^1.1.7",
@@ -55,16 +55,16 @@
     "husky": "^9.1.7",
     "lighthouse": "^12.8.0",
     "lucide-react": "^0.525.0",
-    "next": "^15.4.2",
+    "next": "16.0.1",
     "nextjs-toploader": "^3.8.16",
     "nodemailer": "^7.0.5",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
     "react-icons": "^5.5.0",
     "react-photo-view": "^1.2.7",
     "react-slick": "^0.30.3",
     "resend": "^4.7.0",
-    "sharp": "^0.34.3",
+    "sharp": "^0.34.5",
     "slick-carousel": "^1.8.1",
     "tailwind-merge": "^3.3.1"
   },
@@ -76,8 +76,8 @@
     "@types/escape-html": "^1.0.4",
     "@types/node": "^24",
     "@types/nodemailer": "^6.4.17",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
     "@types/react-slick": "^0.23.13",
     "@vitejs/plugin-react": "^4.7.0",
     "@vitest/coverage-v8": "^3.2.4",
@@ -85,7 +85,7 @@
     "concurrently": "^9.2.0",
     "dotenv": "^17.2.0",
     "eslint": "^9",
-    "eslint-config-next": "^15.4.2",
+    "eslint-config-next": "16.0.1",
     "jsdom": "^26.1.0",
     "lint-staged": "^16.1.2",
     "postcss": "^8",
@@ -97,5 +97,9 @@
     "tailwindcss-motion": "^1.1.1",
     "typescript": "^5",
     "vitest": "^3.2.4"
+  },
+  "overrides": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2"
   }
 }

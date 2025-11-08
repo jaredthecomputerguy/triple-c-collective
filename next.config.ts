@@ -28,14 +28,15 @@ const nextConfig: NextConfig = {
         protocol: "http",
         hostname: "localhost",
         port: "8090",
-        pathname: "/**"
+        pathname: "/api/files/**"
       },
       {
         protocol: "https",
         hostname: "triplecnewsletter.com",
         pathname: "/**"
       }
-    ]
+    ],
+    dangerouslyAllowLocalIP: isDev ? true : false
   },
   async headers() {
     return [
