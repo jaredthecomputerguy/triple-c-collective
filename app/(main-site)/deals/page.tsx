@@ -8,22 +8,35 @@ import { DealCategory } from "@/app/(main-site)/deals/deal-category";
 import { StiiizyDealCard } from "@/app/(main-site)/deals/stiiizy-deal-card";
 import { Calendar } from "@/app/_components/calendar";
 import { getDealImageUrl, type DealsResponse } from "@/lib/utils/server";
+import { Logger } from "@/lib/logger";
 
 export const dynamic = "force-dynamic";
 
 const fetchDeals = async ({ cache }: { cache: boolean }) => {
-  const res = await fetch(
-    `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_DEAL_URL}?filter=active=true&sort=-updated`,
-    cache ? { cache: "no-store" } : undefined
-  );
-  return (await res.json()) as DealsResponse;
+  try {
+    const res = await fetch(
+      `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_DEAL_URL}?filter=active=true&sort=-updated`,
+      cache ? { cache: "no-store" } : undefined
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch deals");
+    }
+
+    return (await res.json()) as DealsResponse;
+  } catch (error) {
+    if (error instanceof Error) {
+      Logger.error(error.message);
+    } else {
+      Logger.error("Unknown error");
+    }
+    return { items: [] };
+  }
 };
 
 export async function generateMetadata(): Promise<Metadata> {
   const deals = await fetchDeals({ cache: false });
 
-  // Get unique brands from deals by creating a Set from the array of brands.
-  // This is used to generate the SEO keywords for the page.
   const dealBrands = new Set(deals.items.flatMap((deal) => deal.brands));
 
   return {

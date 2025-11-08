@@ -2,7 +2,7 @@ import comingSoonImage from "@/public/images/palm-tree.webp";
 
 import midsfactoryLogo from "@/public/images/brands/midsfactory.png";
 import akwaabaLogo from "@/public/images/brands/akwaaba.png";
-import dompenLogo from "@/public/images/brands/dompen.avif";
+import dompenLogo from "@/public/images/brands/dompen.webp";
 import koaLogo from "@/public/images/brands/koa.png";
 import greenRiverExtractsLogo from "@/public/images/brands/green-river-extracts-logo.png";
 import bigBoyDroLogo from "@/public/images/brands/big-boy-dro.png";
