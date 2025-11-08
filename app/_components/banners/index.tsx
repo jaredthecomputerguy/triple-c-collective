@@ -1,5 +1,3 @@
-import type { ComponentType } from "react";
-
 import { TrapTakeoverBanner } from "@/app/_components/banners/trap-takeover-banner";
 import { StiiizyBanner } from "@/app/_components/banners/stiiizy-banner";
 import { CloneBanner } from "@/app/_components/banners/clone-banner";
@@ -15,135 +13,23 @@ import { SnapchatBanner } from "@/app/_components/banners/snapchat-banner";
 import { StPatricksBanner } from "@/app/_components/banners/st-patricks-banner";
 import { HalloweenBanner } from "@/app/_components/banners/halloween-banner";
 import { GenericBanner } from "@/app/_components/banners/generic-banner";
-import { ThanksgivingBanner } from "./thanksgiving-banner";
+import { ThanksgivingBanner } from "@/app/_components/banners/thanksgiving-banner";
 
-type PropsOf<T> = T extends ComponentType<infer P> ? P : never;
-
-// biome-ignore lint/suspicious/noExplicitAny: i need the any here to make this generic
-type BannerEntry<T extends ComponentType<any>> = {
-  Component: T;
-  active: boolean;
-  /** lower number = higher on the page */
-  order?: number;
-  props?: Partial<PropsOf<T>>;
-};
-
-const DEFAULT_ORDER = 50;
-
-const bannerConfig: [
-  BannerEntry<typeof GenericBanner>,
-  BannerEntry<typeof TrapTakeoverBanner>,
-  BannerEntry<typeof StiiizyBanner>,
-  BannerEntry<typeof CloneBanner>,
-  BannerEntry<typeof FourTwentyBanner>,
-  BannerEntry<typeof ChristmasBanner>,
-  BannerEntry<typeof MemorialDayBanner>,
-  BannerEntry<typeof MothersDayBanner>,
-  BannerEntry<typeof FathersDayBanner>,
-  BannerEntry<typeof NewYearBanner>,
-  BannerEntry<typeof NewsletterBanner>,
-  BannerEntry<typeof SevenTenSaleBanner>,
-  BannerEntry<typeof SnapchatBanner>,
-  BannerEntry<typeof StPatricksBanner>,
-  BannerEntry<typeof HalloweenBanner>,
-  BannerEntry<typeof ThanksgivingBanner>
-] = [
-  {
-    Component: GenericBanner,
-    active: true,
-    order: DEFAULT_ORDER,
-    props: {
-      children: (
-        <div className="mr-4 text-center text-[#fefefe]">
-          <span className="text-xs uppercase md:text-sm">
-            NOW ACCEPTING CREDIT CARDS &amp; TAP TO PAY
-          </span>
-        </div>
-      ),
-      className: "py-2 font-bold text-white uppercase px-4 bg-primary-purple",
-      closeBtnClass: "text-white"
-    }
-  },
-  {
-    Component: TrapTakeoverBanner,
-    active: true,
-    order: 1,
-    props: {
-      bannerText: "Trap Takeover Sale",
-      bannerSubText: "TODAY | 12-6PM"
-    }
-  },
-  { Component: StiiizyBanner, active: false, order: 1, props: {} },
-  { Component: CloneBanner, active: false, order: DEFAULT_ORDER, props: {} },
-  {
-    Component: FourTwentyBanner,
-    active: false,
-    order: DEFAULT_ORDER,
-    props: {}
-  },
-  {
-    Component: ChristmasBanner,
-    active: false,
-    order: DEFAULT_ORDER,
-    props: {}
-  },
-  {
-    Component: MemorialDayBanner,
-    active: false,
-    order: DEFAULT_ORDER,
-    props: {}
-  },
-  {
-    Component: MothersDayBanner,
-    active: false,
-    order: DEFAULT_ORDER,
-    props: {}
-  },
-  {
-    Component: FathersDayBanner,
-    active: false,
-    order: DEFAULT_ORDER,
-    props: {}
-  },
-  { Component: NewYearBanner, active: false, order: DEFAULT_ORDER, props: {} },
-  {
-    Component: NewsletterBanner,
-    active: false,
-    order: DEFAULT_ORDER,
-    props: {}
-  },
-  {
-    Component: SevenTenSaleBanner,
-    active: false,
-    order: DEFAULT_ORDER,
-    props: {}
-  },
-  { Component: SnapchatBanner, active: false, order: DEFAULT_ORDER, props: {} },
-  {
-    Component: StPatricksBanner,
-    active: false,
-    order: DEFAULT_ORDER,
-    props: {}
-  },
-  { Component: HalloweenBanner, active: false, order: 0, props: {} },
-  { Component: ThanksgivingBanner, active: false, order: 0, props: {} }
-];
-
-export const Banner = () => {
-  const ordered = bannerConfig
-    .map((entry, idx) => [entry, idx] as const)
-    .sort((a, b) => {
-      const ao = a[0].order ?? Infinity;
-      const bo = b[0].order ?? Infinity;
-      return ao === bo ? a[1] - b[1] : ao - bo;
-    })
-    .map(([entry]) => entry);
-
-  return (
-    <>
-      {ordered.map(({ Component, active, props }) => (
-        <Component key={Component.name} {...props} active={active} />
-      ))}
-    </>
-  );
+export {
+  TrapTakeoverBanner,
+  StiiizyBanner,
+  CloneBanner,
+  FourTwentyBanner,
+  ChristmasBanner,
+  MemorialDayBanner,
+  MothersDayBanner,
+  FathersDayBanner,
+  NewYearBanner,
+  NewsletterBanner,
+  SevenTenSaleBanner,
+  SnapchatBanner,
+  StPatricksBanner,
+  HalloweenBanner,
+  GenericBanner,
+  ThanksgivingBanner
 };

@@ -17,7 +17,7 @@ import { PhoneIcon } from "@/app/_components/icons/phone-icon";
 import { CloseIcon } from "@/app/_components/icons/close-icon";
 import { ClockIcon } from "@/app/_components/icons/clock-icon";
 import { LocationIcon } from "@/app/_components/icons/location-icon";
-import { Banner } from "@/app/_components/banners";
+import { Banners } from "@/app/_components/banners/banners";
 import {
   MobileNavLink,
   NavLink,
@@ -58,7 +58,7 @@ export const Header = () => {
           : "pointer-events-none opacity-0",
         "sticky top-0 z-40 bg-[#fefefe] shadow-sm transition-opacity duration-300 ease-in-out"
       )}>
-      <Banner />
+      <Banners />
       <div className="group bg-primary-purple sticky top-0">
         <div className="bg-primary-purple flex justify-between px-4 py-2 text-sm text-[#fefefe] md:hidden">
           <a
