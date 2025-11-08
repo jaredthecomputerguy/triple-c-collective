@@ -11,9 +11,9 @@ import halloweenHeaderImg from "@/public/images/halloween-store.png";
 import logoImg from "@/public/images/logo.png";
 import halloweenLogoImg from "@/public/images/logo-halloween.png";
 import thanksgivingLogoImg from "@/public/images/thanksgiving/logo.png";
-import orderOnlineImg from "@/public/images/order-online.avif";
-import phonecallImg from "@/public/images/phonecall.avif";
-import deliveryImg from "@/public/images/delivery.avif";
+import orderOnlineImg from "@/public/images/order-online.webp";
+import phonecallImg from "@/public/images/phonecall.webp";
+import deliveryImg from "@/public/images/delivery.webp";
 import dccLogoImg from "@/public/images/dcc-logo.png";
 
 import {

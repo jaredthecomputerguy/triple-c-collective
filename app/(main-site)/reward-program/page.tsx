@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import rewardsPageImg from "@/public/images/rewards-program.avif";
+import rewardsPageImg from "@/public/images/rewards-program.webp";
 
 export const metadata: Metadata = {
   title: "Reward Program | Triple C Collective",
