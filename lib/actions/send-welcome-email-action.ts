@@ -18,13 +18,11 @@ export async function sendWelcomeEmailAction(user: SendWelcomeEmailInfo) {
   const { toEmail, firstName, lastName } = user;
   try {
     if (process.env.NODE_ENV === "development") {
-      Logger.log("<--DEV MODE-->");
-      Logger.log("\t", {
+      Logger.log("sendWelcomeEmailAction:", {
         toEmail,
         firstName,
         lastName
       });
-      Logger.log("<--END DEV MODE-->");
       return { error: null };
     }
 
