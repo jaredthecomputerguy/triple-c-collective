@@ -48,7 +48,7 @@ const bannerConfig = [
   generateBanner({
     Component: GenericBanner,
     active: true,
-    /** INFO: This is always order `1`, so that it's belowm the primary banner */
+    /** INFO: This is always order `1`, so that it's below the primary banner */
     order: 1,
     props: {
       children: (
