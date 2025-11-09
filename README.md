@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://triple-c-collective.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.80aa9f42.png&w=3840&q=75" width="200px" />
+  <img src="https://triplecnewsletter.com/newsletter/logo.png" width="200px" />
 </p>
 
-<h1 align="center">Triple C Collective🌿</h1>
+<h1 align="center">Triple C Collective 🌿</h1>
 
 <p align="center">Triple C Collective is Lake County California's Premier Cannabis Dispensary</p>
 
@@ -29,6 +29,8 @@ Triple C Collective is a cannabis dispensary dedicated to providing high-quality
 - [Resend](https://resend.com): A modern email service for sending transactional and marketing emails.
 - [Google Maps API](https://developers.google.com/maps): For integrating maps and location services into the website.
 - [Golang](https://go.dev/): To extend my PocketBase local backend with preconfigured admin user + deal collection.
+- [Biome](https://biomejs.dev/): All-in-one formatting & linting solution for JavaScript and TypeScript.
+- [Google Lighthouse](https://developers.google.com/web/tools/lighthouse): A tool for analyzing the performance of a web page.
 
 ## Installation
 
@@ -43,7 +45,7 @@ To run this project locally, follow these steps:
 2. Install dependencies
 
    ```bash
-   npm install
+   bun install
    ```
 
 3. Copy .env.example to .env
@@ -77,20 +79,19 @@ To run this project locally, follow these steps:
 5. Start the local Pocketbase backend
 
    ```bash
-   npm run pocketbase:build
-   npm run pocketbase:run
+   bun run pocketbase:run
    ```
 
 6. Run the application
 
    ```bash
-   npm run dev
+   bun run dev
    ```
 
 7. (Optional) Open the Pocketbase admin page
 
    ```bash
-   npm run pocketbase:admin
+   bun run pocketbase:admin
    ```
 
 ## Special Thanks
