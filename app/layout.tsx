@@ -69,41 +69,47 @@ export const metadata: Metadata = {
 const montserrat = Montserrat({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-logo"
+  variable: "--font-logo",
+  preload: false
 });
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-stiiizy"
+  variable: "--font-stiiizy",
+  preload: false
 });
 
 const openSans = Open_Sans({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-main"
+  variable: "--font-main",
+  preload: false
 });
 
 const vt323 = VT323({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-trap-takeover"
+  variable: "--font-trap-takeover",
+  preload: false
 });
 
 const dmSerifDisplay = DM_Serif_Display({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-dm-serif"
+  variable: "--font-dm-serif",
+  preload: false
 });
 
 const birthstone = Birthstone({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-birthstone"
+  variable: "--font-birthstone",
+  preload: false
 });
 
 const emilysCandy = Emilys_Candy({
@@ -124,7 +130,8 @@ export default async function RootLayout({
     <html
       lang="en"
       className={`${montserrat.variable} ${bebasNeue.variable} ${openSans.variable} ${vt323.variable} ${birthstone.variable} ${dmSerifDisplay.variable} ${emilysCandy.variable} bg-primary-purple scroll-smooth`}
-      suppressHydrationWarning>
+      suppressHydrationWarning
+      data-scroll-behavior="smooth">
       <body className="relative">
         <FallingLeaves />
         <Analytics />
