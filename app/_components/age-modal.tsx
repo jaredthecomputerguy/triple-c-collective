@@ -3,27 +3,32 @@
 import { useRouter } from "next/navigation";
 import { type KeyboardEventHandler, useEffect, useRef, useState } from "react";
 
-const AGE_CONSENT_KEY = "ac";
+import { setAgeConsentAction } from "@/lib/actions/age-consent-action";
+import { Logger } from "@/lib/logger";
 
-export const AgeModal = () => {
-  const [showModal, setShowModal] = useState<boolean>();
+type AgeModalProps = {
+  initialShowModal: boolean;
+};
+
+export const AgeModal = ({ initialShowModal }: AgeModalProps) => {
+  const [showModal, setShowModal] = useState(initialShowModal);
   const [rememberMe, setRememberMe] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const ageModalRef = useRef<HTMLDivElement>(null);
 
   const router = useRouter();
 
-  function handleYesClick() {
-    if (rememberMe) {
-      const today = new Date();
-
-      localStorage.setItem(
-        AGE_CONSENT_KEY,
-        `true; ${new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30)}`
-      );
+  async function handleYesClick() {
+    setIsSubmitting(true);
+    try {
+      await setAgeConsentAction(rememberMe);
       setShowModal(false);
-    } else {
-      sessionStorage.setItem(AGE_CONSENT_KEY, "true");
-      setShowModal(false);
+      // Refresh to update server-side state
+      router.refresh();
+    } catch (error) {
+      Logger.error("Failed to set age consent:", error);
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -48,33 +53,16 @@ export const AgeModal = () => {
   };
 
   useEffect(() => {
-    function checkStorageForAgeConsent() {
-      const localAgeConsent = localStorage.getItem(AGE_CONSENT_KEY);
-      const sessionAgeConsent = sessionStorage.getItem(AGE_CONSENT_KEY);
-
-      if (localAgeConsent) {
-        const expiry = localAgeConsent.split("; ")[1];
-        const expiryDate = new Date(expiry);
-        const today = new Date();
-
-        if (expiryDate < today) {
-          localStorage.removeItem(AGE_CONSENT_KEY);
-        }
-      }
-
-      if (!localAgeConsent && !sessionAgeConsent) {
-        ageModalRef.current?.focus();
-        setShowModal(true);
-        document.body.style.overflow = "hidden";
-      } else {
-        setShowModal(false);
-        document.body.style.overflow = "auto";
-      }
-    }
-    checkStorageForAgeConsent();
     if (showModal) {
       ageModalRef.current?.focus();
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
     }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [showModal]);
 
   if (!showModal) return null;
@@ -141,14 +129,16 @@ export const AgeModal = () => {
           </div>
           <div className="flex justify-center gap-4">
             <button
-              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
+              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
               onClick={handleYesClick}
+              disabled={isSubmitting}
               type="button">
-              Yes
+              {isSubmitting ? "Please wait..." : "Yes"}
             </button>
             <button
-              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
+              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
               onClick={() => router.push("https://google.com")}
+              disabled={isSubmitting}
               type="button">
               No
             </button>
