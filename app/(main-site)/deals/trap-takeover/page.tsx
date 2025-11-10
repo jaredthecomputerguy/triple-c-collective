@@ -6,10 +6,13 @@ import {
 } from "@/lib/utils/server";
 import { TrapTakeoverCountdown } from "@/app/(main-site)/deals/trap-takeover-countdown";
 import { getFeaturedBrands } from "@/app/_components/trap-takeover/trap-takeover-brands";
-
 import { FreeFood } from "@/app/_components/trap-takeover/free-food";
 import { SpecialPromo } from "@/app/_components/trap-takeover/special-promo";
 import { FeaturedBrands } from "@/app/_components/trap-takeover/featured-brands";
+import {
+  IndividualDeals,
+  type IndividualDeal
+} from "@/app/_components/trap-takeover/individual-deals";
 import { TrapTakeoverVideo } from "@/app/_components/trap-takeover/trap-takeover-video";
 import { TrapTakeoverFlyer } from "@/app/_components/trap-takeover/trap-takeover-flyer";
 import { TrapTakeoverRaffleRules } from "@/app/_components/trap-takeover/trap-takeover-raffle-rules";
@@ -31,6 +34,8 @@ const featuredBrands = getFeaturedBrands(
   "Park Jams",
   "Chameleon Craft"
 );
+
+const individualDeals: IndividualDeal[] = [];
 
 export async function generateMetadata(): Promise<Metadata> {
   const trapTakeoverDate = new Date(TRAP_TAKEOVER_DATE_STRING);
@@ -140,6 +145,8 @@ export default function TrapTakeoverPage() {
         <SpecialPromo active={false} />
 
         <FeaturedBrands active={true} featuredBrands={featuredBrands} />
+
+        <IndividualDeals active={true} deals={individualDeals} />
 
         <TrapTakeoverVideo active={false} />
 
