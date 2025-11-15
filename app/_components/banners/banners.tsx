@@ -30,7 +30,7 @@ interface BannerEntry<T extends ComponentType<any> = ComponentType<any>> {
   props?: Partial<PropsOf<T>>;
 }
 
-const DEFAULT_ORDER = 50;
+const DEFAULT_ORDER = 0;
 
 // biome-ignore lint/suspicious/noExplicitAny: I want to be able to use any component
 const generateBanner = <T extends ComponentType<any>>(
@@ -71,7 +71,7 @@ const bannerConfig = [
       bannerSubText: "Nov. 21st | 12-6PM"
     }
   }),
-  generateBanner({ Component: StiiizyBanner, active: false, order: 0 }),
+  generateBanner({ Component: StiiizyBanner, active: true }),
   generateBanner({ Component: CloneBanner }),
   generateBanner({ Component: FourTwentyBanner }),
   generateBanner({ Component: ChristmasBanner }),
@@ -84,7 +84,7 @@ const bannerConfig = [
   generateBanner({ Component: SnapchatBanner }),
   generateBanner({ Component: StPatricksBanner }),
   generateBanner({ Component: HalloweenBanner }),
-  generateBanner({ Component: ThanksgivingBanner, active: true, order: 0 })
+  generateBanner({ Component: ThanksgivingBanner })
 ] as const;
 
 export const Banners = () => {

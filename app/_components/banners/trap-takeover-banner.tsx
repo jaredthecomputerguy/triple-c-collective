@@ -20,7 +20,7 @@ export const TrapTakeoverBanner = ({
     return null;
   }
 
-  const hasBannerSubText = bannerSubText && bannerSubText.length > 0;
+  const hasBannerSubText = Boolean(bannerSubText && bannerSubText.length > 0);
 
   return (
     <div className="trap-takeover font-logo sticky top-0 flex items-center justify-center py-4 font-semibold md:px-4">
