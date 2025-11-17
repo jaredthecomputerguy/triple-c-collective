@@ -71,7 +71,7 @@ const bannerConfig = [
       bannerSubText: "Nov. 21st | 12-6PM"
     }
   }),
-  generateBanner({ Component: StiiizyBanner, active: true }),
+  generateBanner({ Component: StiiizyBanner }),
   generateBanner({ Component: CloneBanner }),
   generateBanner({ Component: FourTwentyBanner }),
   generateBanner({ Component: ChristmasBanner }),
@@ -84,7 +84,7 @@ const bannerConfig = [
   generateBanner({ Component: SnapchatBanner }),
   generateBanner({ Component: StPatricksBanner }),
   generateBanner({ Component: HalloweenBanner }),
-  generateBanner({ Component: ThanksgivingBanner })
+  generateBanner({ Component: ThanksgivingBanner, active: true })
 ] as const;
 
 export const Banners = () => {

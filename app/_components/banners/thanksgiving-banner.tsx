@@ -15,7 +15,7 @@ export const ThanksgivingBanner = ({ active }: ThanksgivingBannerProps) => {
           Happy Thanksgiving!
         </span>
         <span className="z-50 text-center text-sm md:text-base">
-          Open 11 to 6PM on Thanksgiving Day
+          Sales All Day - Wed Nov. 26th &amp; Thurs Nov. 27th
         </span>
       </div>
       <div className="absolute top-0 right-0 z-0 h-full w-full bg-black/50" />
