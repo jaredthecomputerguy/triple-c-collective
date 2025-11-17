@@ -7,14 +7,14 @@ import {
 } from "react";
 
 import { CloseIcon } from "@/app/_components/icons/close-icon";
-import { Button, type buttonVariants } from "@/app/_components/button";
+import { Button, type ButtonVariants } from "@/app/_components/button";
 import { cn } from "@/lib/utils/shared";
 import type { VariantProps } from "class-variance-authority";
 
 interface TopBannerProps extends ComponentProps<"div"> {
   active: boolean;
   closeBtnClass?: string;
-  closeBtnVariant?: VariantProps<typeof buttonVariants>["variant"];
+  closeBtnVariant?: ButtonVariants;
   link?: { href: string; target?: HTMLAttributeAnchorTarget };
   onClose?: () => void;
 }
