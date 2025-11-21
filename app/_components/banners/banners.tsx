@@ -47,7 +47,7 @@ const generateBanner = <T extends ComponentType<any>>(
 const bannerConfig = [
   generateBanner({
     Component: GenericBanner,
-    active: true,
+    active: false,
     /** INFO: This is always order `1`, so that it's below the primary banner */
     order: 1,
     props: {
@@ -65,10 +65,10 @@ const bannerConfig = [
   generateBanner({
     Component: TrapTakeoverBanner,
     order: 0,
-    active: false,
+    active: true,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "Nov. 21st | 12-6PM"
+      bannerSubText: "TODAY | 12-6PM"
     }
   }),
   generateBanner({ Component: StiiizyBanner }),
@@ -84,7 +84,7 @@ const bannerConfig = [
   generateBanner({ Component: SnapchatBanner }),
   generateBanner({ Component: StPatricksBanner }),
   generateBanner({ Component: HalloweenBanner }),
-  generateBanner({ Component: ThanksgivingBanner, active: true })
+  generateBanner({ Component: ThanksgivingBanner })
 ] as const;
 
 export const Banners = () => {
