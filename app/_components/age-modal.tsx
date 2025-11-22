@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 import { type KeyboardEventHandler, useEffect, useRef, useState } from "react";
 
 import { setAgeConsentAction } from "@/lib/actions/age-consent-action";
