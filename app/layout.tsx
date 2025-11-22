@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import {
   Montserrat,
@@ -8,14 +9,15 @@ import {
   DM_Serif_Display,
   Emilys_Candy
 } from "next/font/google";
-import NextTopLoader from "nextjs-toploader";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import NextTopLoader from "nextjs-toploader";
 
-import "@/app/globals.css";
 import { Toaster } from "@/app/_components/toaster";
 import { Debug } from "@/app/_components/debug";
 import { FallingLeaves } from "@/app/_components/falling-leaves";
+
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -123,7 +125,7 @@ const emilysCandy = Emilys_Candy({
 export default async function RootLayout({
   children
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   const isDev = process.env.NODE_ENV === "development";
   return (
