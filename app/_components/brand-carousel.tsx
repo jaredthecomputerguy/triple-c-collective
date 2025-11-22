@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Image from "next/image";
 import Link from "next/link";
+import type { Route } from "next";
 import brands from "@/lib/data/brands.json";
 
 import Slider, { type Settings } from "react-slick";
@@ -49,7 +50,7 @@ export const BrandCarousel = () => {
       {brands.map((brand) => (
         <Link
           key={brand.id}
-          href={brand.website}
+          href={brand.website as Route}
           target="_blank"
           className="relative my-auto h-64 w-64">
           <Image

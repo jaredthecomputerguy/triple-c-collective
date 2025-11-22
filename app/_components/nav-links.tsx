@@ -1,5 +1,6 @@
 import type { Dispatch, ReactNode, Ref, SetStateAction } from "react";
 import NextLink from "next/link";
+import type { Route } from "next";
 import {
   HomeIcon,
   UsersRoundIcon,
@@ -16,7 +17,7 @@ import { cn } from "@/lib/utils/shared";
 import { LocationIcon } from "@/app/_components/icons/location-icon";
 
 type NavLinkItem = {
-  href: string | null;
+  href: Route | null;
   label: string;
   icon?: ReactNode;
   links?: NavLinkItem[];
@@ -36,17 +37,17 @@ export const MOBILE_LINKS: NavLinkItem[] = [
   {
     href: "/delivery",
     label: "Delivery",
-    icon: <LocationIcon className="h-[24px] w-[24px]" />
+    icon: <LocationIcon className="h-6 w-6" />
   },
   {
     href: "/real-ca-cannabis",
     label: "Real CA Cannabis",
-    icon: <Cannabis className="h-[24px] w-[24px]" />
+    icon: <Cannabis className="h-6 w-6" />
   },
   {
     href: "/deals/trap-takeover",
     label: "Trap Takeover Sale",
-    icon: <CircleDollarSign className="h-[24px] w-[24px]" />
+    icon: <CircleDollarSign className="h-6 w-6" />
   }
 ];
 
@@ -144,7 +145,7 @@ export const MobileNavLink = ({
           "flex w-full items-center justify-between px-6 py-4 font-semibold uppercase outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white",
           viewportHeight < 710 && "py-3"
         )}
-        href={href}>
+        href={href as Route}>
         <span className="flex items-center gap-4">
           {icon}
           {label}
