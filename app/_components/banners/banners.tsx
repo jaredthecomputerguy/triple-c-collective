@@ -19,36 +19,39 @@ import {
   ThanksgivingBanner
 } from "@/app/_components/banners/";
 
-type PropsOf<T> = T extends ComponentType<infer P> ? P : never;
+// biome-ignore lint/suspicious/noExplicitAny: I need the any here
+type ComponentTypeWithAny = ComponentType<any>;
 
-// biome-ignore lint/suspicious/noExplicitAny: I want to be able to use any component
-interface BannerEntry<T extends ComponentType<any> = ComponentType<any>> {
+// Extract props from a React component
+type PropsOf<T extends ComponentTypeWithAny> = T extends ComponentType<infer P>
+  ? P
+  : never;
+
+// The core entry type
+interface BannerEntry<T extends ComponentTypeWithAny> {
   Component: T;
   active?: boolean;
-  /** Lower number = higher on the page */
-  order?: number;
+  order?: number; // lower = higher priority
   props?: Partial<PropsOf<T>>;
 }
 
 const DEFAULT_ORDER = 0;
 
-// biome-ignore lint/suspicious/noExplicitAny: I want to be able to use any component
-const generateBanner = <T extends ComponentType<any>>(
+function generateBanner<T extends ComponentTypeWithAny>(
   entry: BannerEntry<T>
-): Required<BannerEntry<T>> => {
+): BannerEntry<T> {
   return {
     active: false,
     order: DEFAULT_ORDER,
     props: {},
     ...entry
   };
-};
+}
 
 const bannerConfig = [
   generateBanner({
     Component: GenericBanner,
     active: false,
-    /** INFO: This is always order `1`, so that it's below the primary banner */
     order: 1,
     props: {
       children: (
@@ -94,7 +97,7 @@ export const Banners = () => {
   return (
     <>
       {ordered.map(({ Component, active, props }) => (
-        <Component key={Component.name} {...props} active={active} />
+        <Component key={Component.name} {...props} active={active ?? false} />
       ))}
     </>
   );

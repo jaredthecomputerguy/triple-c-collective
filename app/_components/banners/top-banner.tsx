@@ -1,21 +1,15 @@
 "use client";
 
-import {
-  useState,
-  type ComponentProps,
-  type HTMLAttributeAnchorTarget
-} from "react";
+import { useState, type ComponentProps } from "react";
 
 import { CloseIcon } from "@/app/_components/icons/close-icon";
 import { Button, type ButtonVariants } from "@/app/_components/button";
 import { cn } from "@/lib/utils/shared";
-import type { VariantProps } from "class-variance-authority";
 
 interface TopBannerProps extends ComponentProps<"div"> {
   active: boolean;
   closeBtnClass?: string;
   closeBtnVariant?: ButtonVariants;
-  link?: { href: string; target?: HTMLAttributeAnchorTarget };
   onClose?: () => void;
 }
 
@@ -30,11 +24,9 @@ export const TopBanner = ({
 }: TopBannerProps) => {
   const [showBanner, setShowBanner] = useState(active);
 
-  const handleClose = () => {
+  const handleCloseBanner = () => {
     setShowBanner(false);
-    if (onClose) {
-      onClose();
-    }
+    if (onClose) onClose();
   };
 
   if (!showBanner) {
@@ -51,7 +43,7 @@ export const TopBanner = ({
       <div className="mx-auto max-w-7xl">{children}</div>
       <Button
         className={cn("absolute right-2 z-50 p-1 md:right-8", closeBtnClass)}
-        onClick={handleClose}
+        onClick={handleCloseBanner}
         variant={closeBtnVariant}
         name="Close Top Banner"
         aria-label="Close Top Banner">
