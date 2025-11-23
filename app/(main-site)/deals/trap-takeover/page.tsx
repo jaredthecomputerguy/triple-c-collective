@@ -7,6 +7,7 @@ import {
 import { TrapTakeoverCountdown } from "@/app/(main-site)/deals/trap-takeover-countdown";
 import { getFeaturedBrands } from "@/app/_components/trap-takeover/trap-takeover-brands";
 import { FreeFood } from "@/app/_components/trap-takeover/free-food";
+import { SpecialArtPromo } from "@/app/_components/trap-takeover/special-art-promo";
 import { SpecialPromo } from "@/app/_components/trap-takeover/special-promo";
 import { FeaturedBrands } from "@/app/_components/trap-takeover/featured-brands";
 import {
@@ -20,11 +21,10 @@ import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 
 const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
   year: 2025,
-  month: 11,
-  day: 21
+  month: 12,
+  day: 5
 });
 
-/** Mids, Dom, Koa, GRE, Akwaaba, Park Jams, Chameleon */
 const featuredBrands = getFeaturedBrands(
   "Midsfactory",
   "Dompen",
@@ -142,7 +142,9 @@ export default function TrapTakeoverPage() {
 
         <FreeFood active={false} />
 
-        <SpecialPromo active={false} />
+        <SpecialArtPromo active={false} />
+
+        <SpecialPromo active={true} />
 
         <FeaturedBrands active={true} featuredBrands={featuredBrands} />
 
@@ -152,9 +154,9 @@ export default function TrapTakeoverPage() {
 
         <TrapTakeoverFlyer
           active={true}
-          flyerImagePath="/images/trap-takeover/1121-flyer.png"
-          flyerPDFPath="/images/trap-takeover/1121-flyer.pdf"
-          flyerImageAlt="November 21st, 2025 Trap Takeover Flyer"
+          flyerImagePath="/images/trap-takeover/1205-flyer.png"
+          flyerPDFPath="/images/trap-takeover/1205-flyer.pdf"
+          flyerImageAlt="December 5th, 2025 Trap Takeover Flyer"
         />
 
         <TrapTakeoverRaffleRules />
