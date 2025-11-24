@@ -73,7 +73,7 @@ const bannerConfig = [
       bannerSubText: "TODAY | 12-6PM"
     }
   }),
-  generateBanner({ Component: StiiizyBanner, active: true }),
+  generateBanner({ Component: StiiizyBanner }),
   generateBanner({ Component: CloneBanner }),
   generateBanner({ Component: FourTwentyBanner }),
   generateBanner({ Component: ChristmasBanner }),
