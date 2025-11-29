@@ -30,7 +30,6 @@ const featuredBrands = getFeaturedBrands(
   "Dompen",
   "Koa Cannabis Co.",
   "Green River Extracts",
-  "Akwaaba",
   "Park Jams",
   "Chameleon Craft"
 );
