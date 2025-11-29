@@ -23,9 +23,8 @@ import {
 type ComponentTypeWithAny = ComponentType<any>;
 
 // Extract props from a React component
-type PropsOf<T extends ComponentTypeWithAny> = T extends ComponentType<infer P>
-  ? P
-  : never;
+type PropsOf<T extends ComponentTypeWithAny> =
+  T extends ComponentType<infer P> ? P : never;
 
 // The core entry type
 interface BannerEntry<T extends ComponentTypeWithAny> {
@@ -70,10 +69,10 @@ const bannerConfig = [
     order: 0,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "TODAY | 12-6PM"
+      bannerSubText: "Dec. 5th | 12-6PM"
     }
   }),
-  generateBanner({ Component: StiiizyBanner }),
+  generateBanner({ Component: StiiizyBanner, active: true }),
   generateBanner({ Component: CloneBanner }),
   generateBanner({ Component: FourTwentyBanner }),
   generateBanner({ Component: ChristmasBanner }),
@@ -86,7 +85,7 @@ const bannerConfig = [
   generateBanner({ Component: SnapchatBanner }),
   generateBanner({ Component: StPatricksBanner }),
   generateBanner({ Component: HalloweenBanner }),
-  generateBanner({ Component: ThanksgivingBanner, active: true, order: 0 })
+  generateBanner({ Component: ThanksgivingBanner })
 ] as const;
 
 export const Banners = () => {
