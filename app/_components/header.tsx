@@ -120,7 +120,7 @@ export const Header = () => {
           <>
             <nav
               className={cn(
-                "bg-primary-purple absolute top-16 right-0 w-full overflow-y-auto py-[6px] text-center text-white md:hidden"
+                "bg-primary-purple absolute top-16 right-0 w-full overflow-y-auto py-1.5 text-center text-white md:hidden"
               )}>
               <ul className="bg-primary-purple flex w-full flex-col">
                 {MOBILE_LINKS.map((link) => {

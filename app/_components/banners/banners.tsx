@@ -1,4 +1,4 @@
-import type { ComponentType } from "react";
+import type { ComponentType, CSSProperties } from "react";
 
 import {
   TrapTakeoverBanner,
@@ -30,8 +30,21 @@ type PropsOf<T extends ComponentTypeWithAny> =
 interface BannerEntry<T extends ComponentTypeWithAny> {
   Component: T;
   active?: boolean;
-  order?: number; // lower = higher priority
+  order?: Order; // lower = higher priority
   props?: Partial<PropsOf<T>>;
+}
+
+enum Order {
+  First = 0,
+  Second = 1,
+  Third = 2,
+  Fourth = 3,
+  Fifth = 4,
+  Sixth = 5,
+  Seventh = 6,
+  Eighth = 7,
+  Ninth = 8,
+  Tenth = 9
 }
 
 const DEFAULT_ORDER = 0;
@@ -51,7 +64,7 @@ const bannerConfig = [
   generateBanner({
     Component: GenericBanner,
     active: false,
-    order: 1,
+    order: Order.Second,
     props: {
       children: (
         <div className="mr-4 text-center text-[#fefefe]">
@@ -66,16 +79,21 @@ const bannerConfig = [
   }),
   generateBanner({
     Component: TrapTakeoverBanner,
-    order: 0,
+    active: true,
+    order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
       bannerSubText: "Dec. 5th | 12-6PM"
     }
   }),
-  generateBanner({ Component: StiiizyBanner, active: true, order: 1 }),
+  generateBanner({ Component: StiiizyBanner }),
   generateBanner({ Component: CloneBanner }),
   generateBanner({ Component: FourTwentyBanner }),
-  generateBanner({ Component: ChristmasBanner, active: true }),
+  generateBanner({
+    Component: ChristmasBanner,
+    active: true,
+    order: Order.First
+  }),
   generateBanner({ Component: MemorialDayBanner }),
   generateBanner({ Component: MothersDayBanner }),
   generateBanner({ Component: FathersDayBanner }),
