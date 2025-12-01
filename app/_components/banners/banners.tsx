@@ -72,10 +72,10 @@ const bannerConfig = [
       bannerSubText: "Dec. 5th | 12-6PM"
     }
   }),
-  generateBanner({ Component: StiiizyBanner, active: true }),
+  generateBanner({ Component: StiiizyBanner, active: true, order: 1 }),
   generateBanner({ Component: CloneBanner }),
   generateBanner({ Component: FourTwentyBanner }),
-  generateBanner({ Component: ChristmasBanner }),
+  generateBanner({ Component: ChristmasBanner, active: true }),
   generateBanner({ Component: MemorialDayBanner }),
   generateBanner({ Component: MothersDayBanner }),
   generateBanner({ Component: FathersDayBanner }),

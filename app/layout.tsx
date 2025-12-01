@@ -15,7 +15,7 @@ import NextTopLoader from "nextjs-toploader";
 
 import { Toaster } from "@/app/_components/toaster";
 import { Debug } from "@/app/_components/debug";
-import { FallingLeaves } from "@/app/_components/falling-leaves";
+import Snowfall from "./_components/snowfall/snowfall";
 
 import "@/app/globals.css";
 
@@ -135,7 +135,11 @@ export default async function RootLayout({
       suppressHydrationWarning
       data-scroll-behavior="smooth">
       <body className="relative">
-        <FallingLeaves />
+        <Snowfall
+          style={{
+            zIndex: 50
+          }}
+        />
         <Analytics />
         <SpeedInsights />
         <NextTopLoader color="white" />
