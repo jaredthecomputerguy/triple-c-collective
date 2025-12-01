@@ -6,11 +6,14 @@ import { ReviewCards } from "@/app/_components/review-card";
 import { StoreIcon } from "@/app/_components/icons/store";
 import { StarRating } from "@/app/_components/star-rating";
 
+import headerImg from "@/public/images/interior-shop.jpg";
+// TODO: change me
+import christmasHeaderImg from "@/public/images/interior-shop.jpg";
 import halloweenHeaderImg from "@/public/images/halloween-store.png";
-// import headerImg from "@/public/images/interior-shop.jpg";
 import logoImg from "@/public/images/logo.png";
 import halloweenLogoImg from "@/public/images/logo-halloween.png";
 import thanksgivingLogoImg from "@/public/images/thanksgiving/logo.png";
+import christmasLogoImg from "@/public/images/christmas/logo.gif";
 import orderOnlineImg from "@/public/images/order-online.webp";
 import phonecallImg from "@/public/images/phonecall.webp";
 import deliveryImg from "@/public/images/delivery.webp";
@@ -25,21 +28,59 @@ import {
 import { Button } from "@/app/_components/button";
 import { BrandCarousel } from "@/app/_components/brand-carousel";
 
-const getLogoImage = () => {
-  const month = new Date().getMonth();
-  let logo: StaticImageData;
+enum Months {
+  January = 0,
+  February = 1,
+  March = 2,
+  April = 3,
+  May = 4,
+  June = 5,
+  July = 6,
+  August = 7,
+  September = 8,
+  October = 9,
+  November = 10,
+  December = 11
+}
+
+const getHeaderAndLogoImages = (): {
+  logo: StaticImageData;
+  header: StaticImageData;
+} => {
+  const month: number = 11; //new Date().getMonth();
+  let images: { logo: StaticImageData; header: StaticImageData } = {
+    header: headerImg,
+    logo: logoImg
+  };
   switch (month) {
-    case 9:
-      logo = halloweenLogoImg;
+    case Months.October:
+      images = {
+        logo: halloweenLogoImg,
+        header: halloweenHeaderImg
+      };
       break;
-    case 10:
-      logo = thanksgivingLogoImg;
+    case Months.November:
+      images = {
+        logo: thanksgivingLogoImg,
+        // TODO: Add Thanksgiving header image
+        header: headerImg
+      };
+      break;
+    case Months.December:
+      images = {
+        logo: christmasLogoImg ?? logoImg,
+        header: christmasHeaderImg
+      };
       break;
     default:
-      logo = logoImg;
+      images = {
+        logo: logoImg,
+        header: headerImg
+      };
       break;
   }
-  return logo;
+
+  return images;
 };
 
 export const metadata: Metadata = {
@@ -91,12 +132,14 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const { logo, header } = getHeaderAndLogoImages();
+
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <div className="relative flex flex-col items-center justify-center">
         <Image
           className="h-96 w-full object-cover md:h-[600px]"
-          src={halloweenHeaderImg} //headerImg}
+          src={header} //headerImg}
           alt="Triple C Collective Storefront"
           priority
         />
@@ -116,9 +159,9 @@ export default function HomePage() {
           <div className="mx-auto flex max-w-2xl items-center">
             <div className="h-px w-36 bg-white md:w-60" />
             <Image
-              src={getLogoImage()}
+              src={logo}
               className="mx-auto w-24 rounded-lg md:w-48"
-              alt="Storefront"
+              alt="Triple C Collective Logo"
             />
             <div className="h-px w-36 bg-white md:w-60" />
           </div>
