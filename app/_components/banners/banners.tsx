@@ -1,4 +1,4 @@
-import type { ComponentType, CSSProperties } from "react";
+import type { ComponentType } from "react";
 
 import {
   TrapTakeoverBanner,
@@ -83,7 +83,7 @@ const bannerConfig = [
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "Dec. 5th | 12-6PM"
+      bannerSubText: "TODAY | 12-6PM"
     }
   }),
   generateBanner({ Component: StiiizyBanner }),
