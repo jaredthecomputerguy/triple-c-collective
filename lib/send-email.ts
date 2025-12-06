@@ -1,6 +1,6 @@
 "use server";
 
-import { renderAsync } from "@react-email/render";
+import { render } from "@react-email/render";
 import nodemailer from "nodemailer";
 import type { MailOptions } from "nodemailer/lib/sendmail-transport";
 
@@ -37,7 +37,7 @@ export const sendEmail = async ({
       }
     });
 
-    const emailHtml = await renderAsync(
+    const emailHtml = await render(
       ContactEmail({ message, from, subject, name })
     );
 
