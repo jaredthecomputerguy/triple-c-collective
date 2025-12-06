@@ -31,6 +31,7 @@
     "*.{js,jsx,ts,tsx,css,md}": "bun format"
   },
   "dependencies": {
+    "@bprogress/next": "^3.2.12",
     "@fireworks-js/react": "^2.10.8",
     "@js-temporal/polyfill": "^0.5.1",
     "@next/third-parties": "16.0.7",
@@ -56,7 +57,6 @@
     "lighthouse": "^13.0.1",
     "lucide-react": "^0.556.0",
     "next": "16.0.7",
-    "nextjs-toploader": "^3.8.16",
     "node-gyp": "^12.1.0",
     "nodemailer": "^7.0.5",
     "react": "19.2.1",
