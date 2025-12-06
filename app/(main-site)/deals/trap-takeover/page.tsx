@@ -22,7 +22,7 @@ import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
   year: 2025,
   month: 12,
-  day: 5
+  day: 19
 });
 
 const featuredBrands = getFeaturedBrands(
@@ -30,8 +30,9 @@ const featuredBrands = getFeaturedBrands(
   "Dompen",
   "Koa Cannabis Co.",
   "Green River Extracts",
-  "Park Jams",
-  "Chameleon Craft"
+  "Big Boy Dro",
+  "Chameleon Craft",
+  "Park Jams"
 );
 
 const individualDeals: IndividualDeal[] = [];
@@ -135,7 +136,7 @@ export default function TrapTakeoverPage() {
               to win an exclusive prize pack filled with promo products and swag
               from top cannabis brands. Don’t miss your chance to win big!
             </li>
-            <GiftBags active={false} />
+            <GiftBags active={true} />
           </ul>
         </div>
 
@@ -143,7 +144,11 @@ export default function TrapTakeoverPage() {
 
         <SpecialArtPromo active={false} />
 
-        <SpecialPromo active={true} />
+        <SpecialPromo
+          active={false}
+          title="T-Shirts for the First 50 Customers!"
+          description="The first 50 customers in line get an exclusive T-shirt free just for coming in!"
+        />
 
         <FeaturedBrands active={true} featuredBrands={featuredBrands} />
 
@@ -153,9 +158,9 @@ export default function TrapTakeoverPage() {
 
         <TrapTakeoverFlyer
           active={true}
-          flyerImagePath="/images/trap-takeover/1205-flyer.png"
-          flyerPDFPath="/images/trap-takeover/1205-flyer.pdf"
-          flyerImageAlt="December 5th, 2025 Trap Takeover Flyer"
+          flyerImagePath="/images/trap-takeover/1219-flyer.png"
+          flyerPDFPath="/images/trap-takeover/1219-flyer.pdf"
+          flyerImageAlt="December 19th, 2025 Trap Takeover Flyer"
         />
 
         <TrapTakeoverRaffleRules />
