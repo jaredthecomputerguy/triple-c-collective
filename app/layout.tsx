@@ -11,13 +11,13 @@ import {
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import NextTopLoader from "nextjs-toploader";
 
 import { Toaster } from "@/app/_components/toaster";
 import { Debug } from "@/app/_components/debug";
 import Snowfall from "./_components/snowfall/snowfall";
 
 import "@/app/globals.css";
+import { Progress } from "./_components/progress";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -142,9 +142,8 @@ export default async function RootLayout({
         />
         <Analytics />
         <SpeedInsights />
-        <NextTopLoader color="white" />
         <Toaster />
-        {children}
+        <Progress>{children}</Progress>
         <Debug active={isDev} />
       </body>
     </html>

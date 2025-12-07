@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "nextjs-toploader/app";
+import { useRouter } from "@bprogress/next";
 import { type KeyboardEventHandler, useEffect, useRef, useState } from "react";
 
 import { setAgeConsentAction } from "@/lib/actions/age-consent-action";
@@ -23,7 +23,6 @@ export const AgeModal = ({ initialShowModal }: AgeModalProps) => {
     try {
       await setAgeConsentAction(rememberMe);
       setShowModal(false);
-      // Refresh to update server-side state
       router.refresh();
     } catch (error) {
       Logger.error("Failed to set age consent:", error);
@@ -137,7 +136,7 @@ export const AgeModal = ({ initialShowModal }: AgeModalProps) => {
             </button>
             <button
               className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
-              onClick={() => router.push("https://google.com")}
+              onClick={() => router.replace("https://google.com")}
               disabled={isSubmitting}
               type="button">
               No
