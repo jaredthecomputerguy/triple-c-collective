@@ -134,6 +134,8 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const { logo, header } = getHeaderAndLogoImages();
 
+  const shouldOptimize = logo.src.endsWith(".gif") || logo.src.endsWith(".svg");
+
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <div className="relative flex flex-col items-center justify-center">
@@ -160,6 +162,7 @@ export default function HomePage() {
             <div className="h-px w-36 bg-white md:w-60" />
             <Image
               src={logo}
+              unoptimized={shouldOptimize}
               className="mx-auto w-24 rounded-lg md:w-48"
               alt="Triple C Collective Logo"
             />
