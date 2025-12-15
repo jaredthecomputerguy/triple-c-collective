@@ -25,7 +25,7 @@ export const ChristmasBanner = ({ active }: { active: boolean }) => {
             Happy Holidays from Triple C!
           </span>
           <span className="z-50 text-center text-base md:text-lg pb-2">
-            Open Christmas Day 11-6pm
+            Open Christmas Day 10AM-6PM
           </span>
         </div>
       </TopBanner>
