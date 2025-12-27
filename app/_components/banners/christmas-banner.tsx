@@ -9,6 +9,8 @@ export const ChristmasBanner = ({ active }: { active: boolean }) => {
     []
   );
 
+  const SHOW = false;
+
   return (
     <>
       <ul className="strand">
@@ -24,16 +26,17 @@ export const ChristmasBanner = ({ active }: { active: boolean }) => {
           <span className="z-50 text-center text-xl tracking-wide md:text-4xl">
             Happy Holidays from Triple C!
           </span>
-          <span className="z-50 text-center text-base md:text-lg">
-            Open Christmas Day 10AM-6PM
+          <span className="z-50 text-center text-base md:text-lg pb-6">
+            {SHOW && "Open Christmas Day 10AM-6PM"}
           </span>
+          {/* 
           <a
             className="z-50 text-center text-base md:text-lg pb-2 hover:underline italic"
             href="/ChristmasSale.png"
             rel="noopener"
             target="_blank">
             Click this to see Christmas Day Sales!
-          </a>
+          </a> */}
         </div>
       </TopBanner>
     </>
