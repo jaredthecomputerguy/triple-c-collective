@@ -1,24 +1,50 @@
 import Sparkle from "@/app/_components/sparkle";
 import { TopBanner } from "@/app/_components/banners/top-banner";
+import { useIsMobile } from "@/lib/hooks/useIsMobile";
 
 interface NewYearBannerProps {
   active: boolean;
 }
 
 export const NewYearBanner = ({ active }: NewYearBannerProps) => {
+  const isMobile = useIsMobile();
+
   if (!active) {
     return null;
   }
+
   return (
     <>
       <TopBanner
         active={active}
         className="bg-new-years-black py-6"
         closeBtnClass="text-white">
-        <div className="flex items-center gap-4">
-          <span className="text-new-years-gold font-serif text-xl tracking-wider md:text-3xl">
-            {" "}
-            OPEN NEW YEARS DAY
+        <div className="flex flex-col items-center gap-0">
+          <svg
+            viewBox="0 0 1600 300"
+            className="w-full max-w-3xl md:mb-0 -mb-4"
+            xmlns="http://www.w3.org/2000/svg">
+            <title>Happy New Year</title>
+            <defs>
+              <path
+                id="curve"
+                d="M 100 220 Q 800 40 1500 220"
+                fill="transparent"
+              />
+            </defs>
+            <text>
+              <textPath
+                href="#curve"
+                startOffset="50%"
+                className="fill-new-years-gold font-serif tracking-wider uppercase transition-all"
+                textAnchor="middle"
+                style={{ fontSize: isMobile ? "6rem" : "8rem" }}>
+                Happy New Year
+              </textPath>
+            </text>
+          </svg>
+          <span className="text-new-years-gold font-serif tracking-wider uppercase text-xs md:text-sm transition-all">
+            Open New Year's Day
           </span>
         </div>
       </TopBanner>

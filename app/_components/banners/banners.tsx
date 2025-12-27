@@ -93,15 +93,15 @@ const bannerConfig = [
   }),
   generateBanner({ Component: CloneBanner }),
   generateBanner({ Component: FourTwentyBanner }),
-  generateBanner({
-    Component: ChristmasBanner,
-    active: true,
-    order: Order.First
-  }),
+  generateBanner({ Component: ChristmasBanner }),
   generateBanner({ Component: MemorialDayBanner }),
   generateBanner({ Component: MothersDayBanner }),
   generateBanner({ Component: FathersDayBanner }),
-  generateBanner({ Component: NewYearBanner }),
+  generateBanner({
+    Component: NewYearBanner,
+    active: true,
+    order: Order.First
+  }),
   generateBanner({ Component: NewsletterBanner }),
   generateBanner({ Component: SevenTenSaleBanner }),
   generateBanner({ Component: SnapchatBanner }),
