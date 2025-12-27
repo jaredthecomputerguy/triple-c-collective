@@ -14,7 +14,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Toaster } from "@/app/_components/toaster";
 import { Debug } from "@/app/_components/debug";
-import Snowfall from "./_components/snowfall/snowfall";
 
 import "@/app/globals.css";
 import { Progress } from "./_components/progress";
@@ -135,11 +134,6 @@ export default async function RootLayout({
       suppressHydrationWarning
       data-scroll-behavior="smooth">
       <body className="relative">
-        <Snowfall
-          style={{
-            zIndex: 50
-          }}
-        />
         <Analytics />
         <SpeedInsights />
         <Toaster />
