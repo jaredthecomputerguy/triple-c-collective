@@ -7,13 +7,13 @@ import { StoreIcon } from "@/app/_components/icons/store";
 import { StarRating } from "@/app/_components/star-rating";
 
 import headerImg from "@/public/images/interior-shop.jpg";
-// TODO: change me
 import christmasHeaderImg from "@/public/images/interior-shop.jpg";
 import halloweenHeaderImg from "@/public/images/halloween-store.png";
 import logoImg from "@/public/images/logo.png";
 import halloweenLogoImg from "@/public/images/logo-halloween.png";
 import thanksgivingLogoImg from "@/public/images/thanksgiving/logo.png";
 import christmasLogoImg from "@/public/images/christmas/logo.gif";
+import newYearsLogoImg from "@/public/images/new-years/logo.gif";
 import orderOnlineImg from "@/public/images/order-online.webp";
 import phonecallImg from "@/public/images/phonecall.webp";
 import deliveryImg from "@/public/images/delivery.webp";
@@ -47,7 +47,9 @@ const getHeaderAndLogoImages = (): {
   logo: StaticImageData;
   header: StaticImageData;
 } => {
-  const month: number = 11; //new Date().getMonth();
+  const today = new Date();
+  const month: number = today.getMonth();
+  const day = today.getDate();
   let images: { logo: StaticImageData; header: StaticImageData } = {
     header: headerImg,
     logo: logoImg
@@ -67,10 +69,17 @@ const getHeaderAndLogoImages = (): {
       };
       break;
     case Months.December:
-      images = {
-        logo: christmasLogoImg ?? logoImg,
-        header: christmasHeaderImg
-      };
+      if (day > 25) {
+        images = {
+          logo: newYearsLogoImg,
+          header: christmasHeaderImg
+        };
+      } else {
+        images = {
+          logo: christmasLogoImg ?? logoImg,
+          header: christmasHeaderImg
+        };
+      }
       break;
     default:
       images = {
