@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { GoogleMapEmbed } from "@/app/_components/google-map-embed";
 import { ContactForm } from "@/app/(main-site)/contact/contact-form";
 import { FacebookIcon } from "@/app/_components/icons/facebook-icon";
+import { InstagramIcon } from "@/app/_components/icons/instagram-icon";
 
 export const metadata: Metadata = {
   title: "Contact Us | Triple C Collective",
@@ -108,6 +109,16 @@ export default function ContactPage() {
                       rel="noopener"
                       aria-label="Follow us on Facebook">
                       <FacebookIcon className="h-8 w-8 rounded-sm" />
+                    </a>
+                  </li>
+                  <li className="rounded p-1 transition-colors hover:bg-primary-purple/10">
+                    <a
+                      className="rounded outline-none focus:outline-primary-purple"
+                      href="https://www.instagram.com/_tripleccollective420/"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Follow us on Instagram">
+                      <InstagramIcon className="h-9 w-9" />
                     </a>
                   </li>
                 </ul>
