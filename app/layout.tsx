@@ -64,7 +64,16 @@ export const metadata: Metadata = {
     images: [`${process.env.SITE_URL}/opengraph-image.png`]
   },
   robots: "all",
-  metadataBase: new URL(process.env.SITE_URL)
+  metadataBase: new URL(process.env.SITE_URL),
+  icons: {
+    icon: "/icon144.png",
+    shortcut: "/icon144.png",
+    apple: "/icon144.png",
+    other: {
+      rel: "apple-touch-icon-precomposed",
+      url: "/icon144.png"
+    }
+  }
 };
 
 const montserrat = Montserrat({
