@@ -75,6 +75,7 @@ const nextConfig: NextConfig = {
       }
     ];
   },
+  allowedDevOrigins: ["*.ngrok-free.app"],
   typedRoutes: true
 };
 
