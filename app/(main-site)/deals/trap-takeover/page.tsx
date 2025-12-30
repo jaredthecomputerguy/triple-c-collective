@@ -20,18 +20,18 @@ import { TrapTakeoverRaffleRules } from "@/app/_components/trap-takeover/trap-ta
 import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 
 const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
-  year: 2025,
-  month: 12,
-  day: 19
+  year: 2026,
+  month: 1,
+  day: 2
 });
 
 const featuredBrands = getFeaturedBrands(
+  "Akwaaba",
+  "Chameleon Craft",
   "Midsfactory",
   "Dompen",
-  "Koa Cannabis Co.",
   "Green River Extracts",
-  "Big Boy Dro",
-  "Chameleon Craft",
+  "Koa Cannabis Co.",
   "Park Jams"
 );
 
@@ -158,9 +158,9 @@ export default function TrapTakeoverPage() {
 
         <TrapTakeoverFlyer
           active={true}
-          flyerImagePath="/images/trap-takeover/1219-flyer.png"
-          flyerPDFPath="/images/trap-takeover/1219-flyer.pdf"
-          flyerImageAlt="December 19th, 2025 Trap Takeover Flyer"
+          flyerImagePath="/images/trap-takeover/010226-flyer.png"
+          flyerPDFPath="/images/trap-takeover/010226-flyer.pdf"
+          flyerImageAlt="January 2nd, 2026 Trap Takeover Flyer"
         />
 
         <TrapTakeoverRaffleRules />
