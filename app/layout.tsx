@@ -14,10 +14,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Toaster } from "@/app/_components/toaster";
 import { Debug } from "@/app/_components/debug";
+import { Progress } from "@/app/_components/progress";
 
 import "@/app/globals.css";
-import { Progress } from "./_components/progress";
-import { Fireworks } from "./_components/fireworks";
 
 export const metadata: Metadata = {
   title: "Home | Triple C Collective",
@@ -147,7 +146,6 @@ export default async function RootLayout({
         <Analytics />
         <SpeedInsights />
         <Toaster />
-        <Fireworks />
         <Progress>{children}</Progress>
         <Debug active={isDev} />
       </body>
