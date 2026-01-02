@@ -21,6 +21,7 @@ import {
 } from "@/app/_components/accordian";
 
 import voteForUsImage from "@/public/images/bolm/vote-for-us.png";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Best of Lake and Mendocino ${CONTEST_YEAR} | Triple C Collective`;
@@ -193,6 +194,8 @@ const CATEGORIES = [
 ];
 
 export default function BestOfLakeAndMendocinoPage() {
+  notFound();
+
   return (
     <main className="bg-[#fefefe]">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">

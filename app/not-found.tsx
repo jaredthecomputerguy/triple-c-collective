@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { Header } from "@/app/_components/header";
 import { Footer } from "@/app/_components/footer";
 
 export const metadata: Metadata = {
@@ -12,9 +11,8 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen w-screen flex-col justify-between bg-white">
-      <Header />
-      <section className="mx-auto mb-64 flex max-w-4xl flex-col items-center justify-center gap-6 px-2 pt-6 sm:pt-12">
+    <div className="flex w-screen flex-col justify-between bg-white">
+      <section className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-6 px-2 pt-6 sm:pt-12 mb-96">
         <h1 className="py-4 text-center text-4xl font-semibold">
           404 | Page Not Found
         </h1>
@@ -30,7 +28,6 @@ export default function NotFound() {
           </p>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }
