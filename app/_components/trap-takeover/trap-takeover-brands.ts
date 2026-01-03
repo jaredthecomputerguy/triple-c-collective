@@ -12,6 +12,8 @@ import coffeeSupplyLogo from "@/public/images/brands/coffee-supply.png";
 import hashtagLogo from "@/public/images/brands/hashtag-logo.png";
 import chameleonCraftLogo from "@/public/images/brands/chameleon-craft.png";
 import parkJamsProductPackaging from "@/public/images/brands/park-jams.jpg";
+import high90sLogo from "@/public/images/brands/high-90s-logo.png";
+import hellaMellowsLogo from "@/public/images/brands/hella-mellows-logo.jpg";
 
 export type FeaturedBrand = (typeof BRANDS)[number];
 type BrandNames = FeaturedBrand["name"][];
@@ -44,7 +46,7 @@ const BRANDS = [
   {
     name: "Green River Extracts",
     alt: "Green River Extracts Logo",
-    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=GREEN%20RIVER%20EXTRACTS",
+    url: "https://www.greenriverextracts.com",
     image: greenRiverExtractsLogo
   },
   {
@@ -88,6 +90,18 @@ const BRANDS = [
     alt: "Park Jams Gummy Pack",
     url: "https://triplec.treez.io/onlinemenu/search?customerType=ALL&query=park%20jams",
     image: parkJamsProductPackaging
+  },
+  {
+    name: "High 90's",
+    alt: "High 90's Logo",
+    url: "https://high90s.com",
+    image: high90sLogo
+  },
+  {
+    name: "Hella Mellows",
+    alt: "Hella Mellows Logo",
+    url: "https://www.thesunspotcbd.com/sacred-alchemix",
+    image: hellaMellowsLogo
   },
   {
     name: undefined,
