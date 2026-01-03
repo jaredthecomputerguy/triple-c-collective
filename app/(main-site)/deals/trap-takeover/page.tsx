@@ -22,17 +22,15 @@ import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
   year: 2026,
   month: 1,
-  day: 2
+  day: 9
 });
 
 const featuredBrands = getFeaturedBrands(
   "Akwaaba",
-  "Chameleon Craft",
+  "High 90's",
   "Midsfactory",
-  "Dompen",
   "Green River Extracts",
-  "Koa Cannabis Co.",
-  "Park Jams"
+  "Hella Mellows"
 );
 
 const individualDeals: IndividualDeal[] = [];
@@ -101,6 +99,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function TrapTakeoverPage() {
+  const flyerInfo = {
+    path: "/images/trap-takeover/2026/01/010926-flyer",
+    date: "January 9th, 2026"
+  };
+
   return (
     <main className="bg-[#fefefe]">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
@@ -136,7 +139,7 @@ export default function TrapTakeoverPage() {
               to win an exclusive prize pack filled with promo products and swag
               from top cannabis brands. Don’t miss your chance to win big!
             </li>
-            <GiftBags active={true} />
+            <GiftBags active={false} />
           </ul>
         </div>
 
@@ -152,15 +155,15 @@ export default function TrapTakeoverPage() {
 
         <FeaturedBrands active={true} featuredBrands={featuredBrands} />
 
-        <IndividualDeals active={true} deals={individualDeals} />
+        <IndividualDeals active={false} deals={individualDeals} />
 
         <TrapTakeoverVideo active={false} />
 
         <TrapTakeoverFlyer
           active={true}
-          flyerImagePath="/images/trap-takeover/010226-flyer.png"
-          flyerPDFPath="/images/trap-takeover/010226-flyer.pdf"
-          flyerImageAlt="January 2nd, 2026 Trap Takeover Flyer"
+          flyerImagePath={`${flyerInfo.path}.png`}
+          flyerPDFPath={`${flyerInfo.path}.pdf`}
+          flyerImageAlt={`${flyerInfo.date} Trap Takeover Flyer`}
         />
 
         <TrapTakeoverRaffleRules />

@@ -37,6 +37,7 @@ export const FeaturedBrands = ({
                 <Link
                   className="focus:border-primary-purple focus:outline-primary-purple flex flex-col items-center rounded-sm border border-white px-2 py-2 outline-hidden"
                   href={brand.url}
+                  rel="noopener noreferrer"
                   target="_blank">
                   <h3 className="font-logo w-full py-2 text-center text-xl font-semibold">
                     {brand.name}

@@ -1,6 +1,6 @@
 import { ImageViewer } from "@/app/_components/image-viewer";
 
-const RAFFLE_RULES_PATH = "/images/trap-takeover/raffle-rules.png";
+const RAFFLE_RULES_PATH = "/images/trap-takeover/other/raffle-rules.png";
 
 export const TrapTakeoverRaffleRules = () => {
   return (
