@@ -64,7 +64,7 @@ const bannerConfig = [
   generateBanner({
     Component: GenericBanner,
     active: false,
-    order: Order.Second,
+    order: Order.First,
     props: {
       children: (
         <div className="mr-4 text-center text-[#fefefe]">
@@ -79,16 +79,16 @@ const bannerConfig = [
   }),
   generateBanner({
     Component: TrapTakeoverBanner,
-    active: false,
+    active: true,
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "TODAY | 12-6PM"
+      bannerSubText: "Fri. Jan 9th | 12-6PM"
     }
   }),
   generateBanner({
     Component: StiiizyBanner,
-    active: true,
+    active: false,
     order: Order.Second
   }),
   generateBanner({ Component: CloneBanner }),
