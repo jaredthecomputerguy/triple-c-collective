@@ -25,13 +25,7 @@ const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
   day: 9
 });
 
-const featuredBrands = getFeaturedBrands(
-  "Akwaaba",
-  "High 90's",
-  "Midsfactory",
-  "Green River Extracts",
-  "Hella Mellows"
-);
+const featuredBrands = getFeaturedBrands(undefined);
 
 const individualDeals: IndividualDeal[] = [];
 
@@ -160,7 +154,7 @@ export default function TrapTakeoverPage() {
         <TrapTakeoverVideo active={false} />
 
         <TrapTakeoverFlyer
-          active={true}
+          active={false}
           flyerImagePath={`${flyerInfo.path}.png`}
           flyerPDFPath={`${flyerInfo.path}.pdf`}
           flyerImageAlt={`${flyerInfo.date} Trap Takeover Flyer`}
