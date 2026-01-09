@@ -11,7 +11,7 @@ import {
 } from "bun:test";
 
 import {
-  getTimeRemainingUntilFirstOrThirdFriday,
+  getTimeRemainingUntilNextFriday,
   formatAndValidateDate
 } from "@/lib/utils/server";
 
@@ -49,13 +49,15 @@ function utcDate(
  * Wrapper so all calls use UTC explicitly.
  */
 function run(now: Date) {
-  return getTimeRemainingUntilFirstOrThirdFriday(now, { timeZone: "UTC" });
+  return getTimeRemainingUntilNextFriday(now, { timeZone: "UTC" });
 }
 
-describe("getTimeRemainingUntilFirstOrThirdFriday", () => {
-  test("First Friday of current month: Jan 1 → Jan 5, 2024", () => {
+describe("getTimeRemainingUntilNextFriday", () => {
+  test("Monday → upcoming Friday same week", () => {
+    // Mon Jan 1, 2024 12:00 UTC → Fri Jan 5, 2024 12:00 UTC
     setSystemTime(utcDate(2024, 0, 1, 12));
     const result = run(new Date());
+
     expect(result).toEqual({
       Days: "04",
       Hours: "00",
@@ -64,53 +66,63 @@ describe("getTimeRemainingUntilFirstOrThirdFriday", () => {
     });
   });
 
-  test("First Friday of next month: Jan 20 → Feb 2, 2024", () => {
-    setSystemTime(utcDate(2024, 0, 20, 12));
+  test("Thursday night → Friday noon", () => {
+    // Thu Jan 4, 2024 18:00 → Fri Jan 5, 2024 12:00
+    setSystemTime(utcDate(2024, 0, 4, 18));
     const result = run(new Date());
-    expect(result).toEqual({
-      Days: "13",
-      Hours: "00",
-      Minutes: "00",
-      Seconds: "00"
-    });
-  });
 
-  test("Exactly at first Friday 12PM → should move to third Friday", () => {
-    setSystemTime(utcDate(2024, 0, 5, 12));
-    const result = run(new Date());
     expect(result).toEqual({
-      Days: "14",
-      Hours: "00",
-      Minutes: "00",
-      Seconds: "00"
-    });
-  });
-
-  test("Exactly at third Friday 12PM → should move to next month’s first Friday", () => {
-    setSystemTime(utcDate(2024, 0, 19, 12));
-    const result = run(new Date());
-    expect(result).toEqual({
-      Days: "14",
-      Hours: "00",
-      Minutes: "00",
-      Seconds: "00"
-    });
-  });
-
-  test("Late evening after first Friday (missed it) → should move to third Friday", () => {
-    setSystemTime(utcDate(2024, 0, 5, 18));
-    const result = run(new Date());
-    expect(result).toEqual({
-      Days: "13",
+      Days: "00",
       Hours: "18",
       Minutes: "00",
       Seconds: "00"
     });
   });
 
-  test("December 31st → roll over to January’s first Friday", () => {
-    setSystemTime(utcDate(2023, 11, 31, 12));
+  test("Exactly Friday at 12:00 → rolls to next Friday", () => {
+    // Fri Jan 5, 2024 12:00 → Fri Jan 12, 2024 12:00
+    setSystemTime(utcDate(2024, 0, 5, 12));
     const result = run(new Date());
+
+    expect(result).toEqual({
+      Days: "07",
+      Hours: "00",
+      Minutes: "00",
+      Seconds: "00"
+    });
+  });
+
+  test("Friday morning before sale time → same day Friday", () => {
+    // Fri Jan 5, 2024 09:00 → Fri Jan 5, 2024 12:00
+    setSystemTime(utcDate(2024, 0, 5, 9));
+    const result = run(new Date());
+
+    expect(result).toEqual({
+      Days: "00",
+      Hours: "03",
+      Minutes: "00",
+      Seconds: "00"
+    });
+  });
+
+  test("Friday evening after sale time → next Friday", () => {
+    // Fri Jan 5, 2024 18:00 → Fri Jan 12, 2024 12:00
+    setSystemTime(utcDate(2024, 0, 5, 18));
+    const result = run(new Date());
+
+    expect(result).toEqual({
+      Days: "06",
+      Hours: "18",
+      Minutes: "00",
+      Seconds: "00"
+    });
+  });
+
+  test("Sunday → next Friday", () => {
+    // Sun Jan 7, 2024 12:00 → Fri Jan 12, 2024 12:00
+    setSystemTime(utcDate(2024, 0, 7, 12));
+    const result = run(new Date());
+
     expect(result).toEqual({
       Days: "05",
       Hours: "00",
@@ -119,68 +131,29 @@ describe("getTimeRemainingUntilFirstOrThirdFriday", () => {
     });
   });
 
-  test("February (short month) → third Friday", () => {
-    setSystemTime(utcDate(2024, 1, 3, 12));
+  test("End of year rollover", () => {
+    // Sun Dec 31, 2023 12:00 → Fri Jan 5, 2024 12:00
+    setSystemTime(utcDate(2023, 11, 31, 12));
     const result = run(new Date());
+
     expect(result).toEqual({
-      Days: "13",
+      Days: "05",
       Hours: "00",
       Minutes: "00",
       Seconds: "00"
     });
   });
 
-  test("After third Friday (Jan 20, 2024) → should go to Feb 2", () => {
-    setSystemTime(utcDate(2024, 0, 20, 9));
-    const result = run(new Date());
-    expect(result).toEqual({
-      Days: "13",
-      Hours: "03",
-      Minutes: "00",
-      Seconds: "00"
-    });
-  });
-
-  test("Leap year check: Feb 29, 2024 → next month’s first Friday (Mar 1)", () => {
+  test("Leap year Feb 29 → next Friday", () => {
+    // Thu Feb 29, 2024 12:00 → Fri Mar 1, 2024 12:00
     setSystemTime(utcDate(2024, 1, 29, 12));
     const result = run(new Date());
+
     expect(result).toEqual({
       Days: "01",
       Hours: "00",
       Minutes: "00",
       Seconds: "00"
     });
-  });
-});
-
-describe("formatAndValidateDate", () => {
-  test("Ensure Trap Takeover date can only occur on Fridays -> returns a value if valid", () => {
-    const result = formatAndValidateDate({
-      day: 5,
-      month: 1,
-      year: 2024
-    });
-
-    expect(result).toBeDefined();
-  });
-
-  test("Ensure Trap Takeover date can only occur on Fridays -> returns `Error` if not valid", () => {
-    const result = formatAndValidateDate({
-      day: 6,
-      month: 1,
-      year: 2024
-    });
-
-    expect(result).toBe("Error");
-  });
-
-  test("Ensure Trap Takeover date can only occur on Fridays -> returns the correct string if valid", () => {
-    const result = formatAndValidateDate({
-      day: 19,
-      month: 1,
-      year: 2024
-    });
-
-    expect(result).toBe("Fri, January 19, 2024");
   });
 });

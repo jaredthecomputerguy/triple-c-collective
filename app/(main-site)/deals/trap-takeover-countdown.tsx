@@ -2,7 +2,7 @@
 
 import {
   type TimeRemainingUntilDate,
-  getTimeRemainingUntilFirstOrThirdFriday
+  getTimeRemainingUntilNextFriday
 } from "@/lib/utils/server";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -26,7 +26,7 @@ export const TrapTakeoverCountdown = ({
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeRemaining(getTimeRemainingUntilFirstOrThirdFriday(new Date()));
+      setTimeRemaining(getTimeRemainingUntilNextFriday(new Date()));
     }, 100);
 
     return () => clearInterval(interval);

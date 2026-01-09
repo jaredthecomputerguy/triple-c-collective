@@ -194,7 +194,7 @@ function nthFridayAt(
 }
 
 /** Remaining time until next 1st or 3rd Friday (this/next month) at 12:00 local */
-export function getTimeRemainingUntilFirstOrThirdFriday(
+export function getTimeRemainingUntilNextFriday(
   nowInput: Temporal.ZonedDateTime | Date,
   opts?: { timeZone?: string; hour?: number; minute?: number }
 ): TimeRemainingUntilDate {
@@ -203,25 +203,24 @@ export function getTimeRemainingUntilFirstOrThirdFriday(
   const minute = opts?.minute ?? 0;
 
   const now = toZdtNow(nowInput, tz);
-  const y = now.year;
-  const m = now.month; // already 1..12
 
-  const firstFri = nthFridayAt(y, m, 1, hour, minute, tz);
-  const thirdFri = nthFridayAt(y, m, 3, hour, minute, tz);
+  // Temporal weekday: Monday = 1 ... Friday = 5 ... Sunday = 7
+  const FRIDAY = 5;
 
-  const nowMs = now.toInstant().epochMilliseconds;
-  const firstMs = firstFri.toInstant().epochMilliseconds;
-  const thirdMs = thirdFri.toInstant().epochMilliseconds;
+  const daysUntilFriday = (FRIDAY - now.dayOfWeek + 7) % 7;
 
-  let target = firstFri;
-  if (nowMs < firstMs) {
-    target = firstFri;
-  } else if (nowMs < thirdMs) {
-    target = thirdFri;
-  } else {
-    // jump to next month’s 1st Friday
-    const next = now.add({ months: 1 });
-    target = nthFridayAt(next.year, next.month, 1, hour, minute, tz);
+  let target = now.add({ days: daysUntilFriday }).with({
+    hour,
+    minute,
+    second: 0,
+    millisecond: 0
+  });
+
+  // If it is already Friday and past the target time, go to next Friday
+  if (
+    target.toInstant().epochMilliseconds <= now.toInstant().epochMilliseconds
+  ) {
+    target = target.add({ days: 7 });
   }
 
   return diffToDHMS(now.toInstant(), target.toInstant());
