@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
+import type { RemotePattern } from "next/dist/shared/lib/image-config";
 
 const isDev = process.env.NODE_ENV === "development";
 
-const cspHeader = `
+const CSP_HEADER = `
   default-src 'self';
   script-src 'self' ${isDev ? "'unsafe-eval'" : ""} 'unsafe-inline' https://va.vercel-scripts.com;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
@@ -16,27 +17,36 @@ const cspHeader = `
   upgrade-insecure-requests;
 `.replace(/\n/g, "");
 
+const getRemotePatterns = (): RemotePattern[] => {
+  const patterns = [
+    {
+      protocol: "https",
+      hostname: "jaredthecomputerguy.dev",
+      pathname: "/**"
+    },
+    {
+      protocol: "https",
+      hostname: "triplecnewsletter.com",
+      pathname: "/**"
+    }
+  ] as RemotePattern[];
+
+  if (isDev) {
+    patterns.push({
+      protocol: "http",
+      hostname: "localhost",
+      port: "8090",
+      pathname: "/api/files/**"
+    });
+  }
+
+  return patterns;
+};
+
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "jaredthecomputerguy.dev",
-        pathname: "/**"
-      },
-      {
-        protocol: "http",
-        hostname: "localhost",
-        port: "8090",
-        pathname: "/api/files/**"
-      },
-      {
-        protocol: "https",
-        hostname: "triplecnewsletter.com",
-        pathname: "/**"
-      }
-    ],
-    dangerouslyAllowLocalIP: isDev ? true : false
+    remotePatterns: getRemotePatterns(),
+    dangerouslyAllowLocalIP: isDev
   },
   async headers() {
     return [
@@ -45,7 +55,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Content-Security-Policy",
-            value: cspHeader
+            value: CSP_HEADER
           },
           {
             key: "X-DNS-Prefetch-Control",
@@ -75,7 +85,7 @@ const nextConfig: NextConfig = {
       }
     ];
   },
-  allowedDevOrigins: ["*.ngrok-free.app"],
+  allowedDevOrigins: isDev ? ["*.ngrok-free.app"] : undefined,
   typedRoutes: true
 };
 
