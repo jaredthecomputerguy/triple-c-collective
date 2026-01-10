@@ -14,7 +14,21 @@ import (
 	"github.com/pocketbase/pocketbase/tools/types"
 )
 
-const brandsJSONPath = "./treez-brands.json"
+const BRANDS_JSON_PATH = "./treez-brands.json"
+
+var (
+	ErrCreateDefaultAdminUser = errors.New("create default admin user failed")
+	ErrEnsureDealsCollection  = errors.New("ensure deals collection failed")
+	ErrSeedDeals              = errors.New("seed deals failed")
+	ErrLoadBrands             = errors.New("load brands failed")
+)
+
+func wrapErr(kind error, err error) error {
+	if err == nil {
+		return nil
+	}
+	return fmt.Errorf("%w: %w", kind, err)
+}
 
 type BrandData struct {
 	Brands []string `json:"brands"`
@@ -27,13 +41,13 @@ func main() {
 		e.Router.GET("/*", apis.Static(os.DirFS("./pb_public"), false))
 
 		if err := createDefaultAdminUser(app); err != nil {
-			return fmt.Errorf("create default admin user: %w", err)
+			return wrapErr(ErrCreateDefaultAdminUser, err)
 		}
 		if err := ensureDealsCollection(app); err != nil {
-			return fmt.Errorf("ensure deals collection: %w", err)
+			return wrapErr(ErrEnsureDealsCollection, err)
 		}
 		if err := seedDeal(app); err != nil {
-			return fmt.Errorf("seed deals: %w", err)
+			return wrapErr(ErrSeedDeals, err)
 		}
 
 		return e.Next()
@@ -44,7 +58,7 @@ func main() {
 	}
 }
 
-// createDefaultAdminUser creates a default admin user with the email "test@test.com" and the password "testpassword".
+// createDefaultAdminUser creates a default admin user.
 func createDefaultAdminUser(app *pocketbase.PocketBase) error {
 	collection, err := app.FindCollectionByNameOrId(core.CollectionNameSuperusers)
 	if err != nil {
@@ -64,11 +78,11 @@ func createDefaultAdminUser(app *pocketbase.PocketBase) error {
 func ensureDealsCollection(app *pocketbase.PocketBase) error {
 	brands, err := getBrands()
 	if err != nil {
-		return fmt.Errorf("load brands: %w", err)
+		return wrapErr(ErrLoadBrands, err)
 	}
 
 	// If the collection already exists, no-op.
-	if _, findErr := app.FindCollectionByNameOrId("deals"); findErr == nil {
+	if _, err := app.FindCollectionByNameOrId("deals"); err == nil {
 		return nil
 	}
 
@@ -107,9 +121,8 @@ func newDealsCollection(brands []string) *core.Collection {
 		},
 		&core.TextField{Name: "htmlId"},
 		&core.TextField{
-			Name:     "imageBackgroundColor",
-			Required: false,
-			Pattern:  "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
+			Name:    "imageBackgroundColor",
+			Pattern: "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
 		},
 		&core.SelectField{
 			Name:      "brands",
@@ -138,6 +151,7 @@ func newDealsCollection(brands []string) *core.Collection {
 		&core.AutodateField{Name: "created", OnCreate: true},
 		&core.AutodateField{Name: "updated", OnCreate: true, OnUpdate: true},
 	)
+
 	return c
 }
 
@@ -162,10 +176,10 @@ func seedDeal(app *pocketbase.PocketBase) error {
 	deal.Set("htmlId", "test-deal")
 	deal.Set("subTypes", "HARD CANDY,GUMMY")
 
-	// Prefer structured JSON for typeSubtypes
-	typeSub := map[string][]string{"EDIBLE": {"HARD CANDY", "GUMMY"}}
+	typeSub := map[string][]string{
+		"EDIBLE": {"HARD CANDY", "GUMMY"},
+	}
 	deal.Set("typeSubtypes", typeSub)
-
 	deal.Set("badge", "Test Deal Badge")
 
 	imageFile, err := filesystem.NewFileFromPath("placeholder.png")
@@ -182,9 +196,9 @@ func seedDeal(app *pocketbase.PocketBase) error {
 }
 
 func getBrands() ([]string, error) {
-	rawBrands, err := os.ReadFile(brandsJSONPath)
+	rawBrands, err := os.ReadFile(BRANDS_JSON_PATH)
 	if err != nil {
-		return nil, fmt.Errorf("read %s: %w", brandsJSONPath, err)
+		return nil, fmt.Errorf("read brands file: %w", err)
 	}
 
 	var brandData BrandData
