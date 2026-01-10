@@ -22,7 +22,7 @@ import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
   year: 2026,
   month: 1,
-  day: 9
+  day: 16
 });
 
 const featuredBrands = getFeaturedBrands(undefined);
