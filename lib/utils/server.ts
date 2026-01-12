@@ -166,33 +166,6 @@ function diffToDHMS(
   };
 }
 
-/** Find the 1st or 3rd Friday for a given year/month at hour:minute in tz */
-function nthFridayAt(
-  year: number,
-  month1to12: number, // 1..12
-  n: 1 | 3,
-  hour: number,
-  minute: number,
-  tz: string
-): Temporal.ZonedDateTime {
-  // Defensive: clamp/validate month into 1..12
-  if (month1to12 < 1 || month1to12 > 12) {
-    throw new RangeError(`Invalid month (expected 1–12): ${month1to12}`);
-  }
-
-  const ym = Temporal.PlainYearMonth.from({ year, month: month1to12 });
-  let d = ym.toPlainDate({ day: 1 }); // PlainDate YYYY-MM-01
-
-  // Temporal dayOfWeek: Mon=1 … Sun=7; Friday=5
-  const offsetToFirstFriday = (5 - d.dayOfWeek + 7) % 7;
-  d = d.add({ days: offsetToFirstFriday });
-  if (n === 3) d = d.add({ days: 14 });
-
-  // Set target wall time
-  const pdt = d.toPlainDateTime({ hour, minute, second: 0 });
-  return pdt.toZonedDateTime(tz);
-}
-
 /** Remaining time until next 1st or 3rd Friday (this/next month) at 12:00 local */
 export function getTimeRemainingUntilNextFriday(
   nowInput: Temporal.ZonedDateTime | Date,

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // biome-ignore-all lint: unused page
 
 import {
