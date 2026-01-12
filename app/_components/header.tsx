@@ -105,7 +105,7 @@ export const Header = () => {
           Triple C Collective
         </Link>
         <button
-          className="focus:outline-primary-purple rounded-sm p-1 outline-hidden transition-all hover:bg-gray-200 focus:bg-gray-200 md:hidden"
+          className="outline-primary-purple focus:outline-2 rounded-sm p-1 transition-all hover:bg-gray-200 md:hidden"
           onClick={toggleMobileMenu}
           name="mobile-navigation-button"
           aria-label="Mobile Navigation Button"

@@ -16,7 +16,8 @@ import {
   StPatricksBanner,
   HalloweenBanner,
   GenericBanner,
-  ThanksgivingBanner
+  ThanksgivingBanner,
+  BestOfLakeAndMendocinoWinnerBanner
 } from "@/app/_components/banners/";
 
 // biome-ignore lint/suspicious/noExplicitAny: I need the any here
@@ -88,7 +89,7 @@ const bannerConfig = [
   }),
   generateBanner({
     Component: StiiizyBanner,
-    active: true,
+    active: false,
     order: Order.Second
   }),
   generateBanner({ Component: CloneBanner }),
@@ -103,7 +104,11 @@ const bannerConfig = [
   generateBanner({ Component: SnapchatBanner }),
   generateBanner({ Component: StPatricksBanner }),
   generateBanner({ Component: HalloweenBanner }),
-  generateBanner({ Component: ThanksgivingBanner })
+  generateBanner({ Component: ThanksgivingBanner }),
+  generateBanner({
+    Component: BestOfLakeAndMendocinoWinnerBanner,
+    active: true
+  })
 ] as const;
 
 export const Banners = () => {

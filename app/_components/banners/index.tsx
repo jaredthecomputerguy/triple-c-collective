@@ -14,6 +14,7 @@ import { StPatricksBanner } from "@/app/_components/banners/st-patricks-banner";
 import { HalloweenBanner } from "@/app/_components/banners/halloween-banner";
 import { GenericBanner } from "@/app/_components/banners/generic-banner";
 import { ThanksgivingBanner } from "@/app/_components/banners/thanksgiving-banner";
+import { BestOfLakeAndMendocinoWinnerBanner } from "@/app/_components/banners/best-of-lake-and-mendocino-winner-banner";
 
 export {
   TrapTakeoverBanner,
@@ -31,5 +32,6 @@ export {
   StPatricksBanner,
   HalloweenBanner,
   GenericBanner,
-  ThanksgivingBanner
+  ThanksgivingBanner,
+  BestOfLakeAndMendocinoWinnerBanner
 };

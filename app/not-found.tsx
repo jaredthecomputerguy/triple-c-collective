@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default function NotFound() {
+  console.log(crypto.randomUUID() + "on /not-found");
   return (
     <div className="flex w-screen flex-col justify-between bg-white">
       <section className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-6 px-2 pt-6 sm:pt-12 mb-96">
