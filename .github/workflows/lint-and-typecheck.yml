@@ -17,6 +17,9 @@ jobs:
       - name: install dependencies
         run: bun install --frozen-lockfile
 
+      - name: build project
+        run: bun run build
+
       # this is a workaround for https://github.com/vercel/next.js/issues/53959
       - name: create next-env.d.ts
         run: echo -e '/// <reference types="next" />\n/// <reference types="next/image-types/global" />\nimport "./.next/dev/types/routes.d.ts";' > ./next-env.d.ts 
