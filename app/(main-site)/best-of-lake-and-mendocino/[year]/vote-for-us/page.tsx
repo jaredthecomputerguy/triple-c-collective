@@ -26,8 +26,7 @@ import {
 
 import VOTE_FOR_US_IMAGE from "@/public/images/bolm/vote-for-us.png";
 
-type BestOfLakeAndMendocinoPageProps =
-  PageProps<"/best-of-lake-and-mendocino/[year]/vote-for-us">;
+type BestOfLakeAndMendocinoPageProps = { params: Promise<{ year: string }> };
 
 export async function generateMetadata({
   params

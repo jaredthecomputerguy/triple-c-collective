@@ -3,8 +3,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { z } from "zod";
 
+type BestOfLakeAndMendocinoYearPageProps = {
+  params: Promise<{ year: string }>;
+};
+
 // TODO: Update this to be a `z.union([z.literal("2026"), z.literal("2027"), ...])` of all years we particpate
-const participatingAwardYearSchema = z.literal(""); //z.literal("2026");
+const participatingAwardYearSchema = z.literal("2026"); //z.literal("2026");
 
 const parseYear = (year: string) => {
   const { data, success, error } = participatingAwardYearSchema.safeParse(year);
@@ -23,7 +27,7 @@ const parseYear = (year: string) => {
 
 export async function generateMetadata({
   params
-}: PageProps<"/best-of-lake-and-mendocino/[year]">): Promise<Metadata> {
+}: BestOfLakeAndMendocinoYearPageProps): Promise<Metadata> {
   const { year: rawYear } = await params;
 
   const year = parseYear(rawYear);
@@ -93,7 +97,7 @@ export async function generateMetadata({
 
 export default async function BestOfLakeAndMendocinoPage({
   params
-}: PageProps<"/best-of-lake-and-mendocino/[year]">) {
+}: BestOfLakeAndMendocinoYearPageProps) {
   const { year: rawYear } = await params;
 
   const year = parseYear(rawYear);
