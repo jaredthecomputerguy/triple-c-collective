@@ -61,7 +61,7 @@ export const TrapTakeoverBanner = ({
                   <span
                     className={cn(
                       "font-trap-takeover trap-takeover-text uppercase",
-                      mini && "text-xl"
+                      mini && "text-xl md:text-4xl"
                     )}>
                     {bannerSubText}
                   </span>
