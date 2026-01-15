@@ -19,7 +19,8 @@ export const BestOfLakeAndMendocinoWinnerBanner = ({
       closeBtnClass="text-white">
       <a
         className="flex gap-2 items-center py-2 px-8"
-        href="/best-of-lake-and-mendocino/2026"
+        //href="/best-of-lake-and-mendocino/2026"
+        href="https://bestoflakeandmendocino.com/listings/shopping/?cat=181&listings_badges=all&listings_campaign=3Pwdub&page_number=3#listing-104252"
         rel="noopener"
         target="_blank">
         <Image
