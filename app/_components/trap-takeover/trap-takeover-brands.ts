@@ -104,6 +104,12 @@ const BRANDS = [
     image: hellaMellowsLogo
   },
   {
+    name: "And more...",
+    alt: "More brands",
+    url: "https://triplec.treez.io/onlinemenu/?customerType=ADULT",
+    image: comingSoonImage
+  },
+  {
     name: undefined,
     alt: "Brands coming soon",
     url: "https://triplec.treez.io/onlinemenu/?customerType=ADULT",

@@ -22,10 +22,17 @@ import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
   year: 2026,
   month: 1,
-  day: 16
+  day: 23
 });
 
-const featuredBrands = getFeaturedBrands(undefined);
+const featuredBrands = getFeaturedBrands(
+  "Akwaaba",
+  "Midsfactory",
+  "High 90's",
+  "Koa Cannabis Co.",
+  "Park Jams",
+  "And more..."
+);
 
 const individualDeals: IndividualDeal[] = [];
 
@@ -94,7 +101,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function TrapTakeoverPage() {
   const flyerInfo = {
-    path: "/images/trap-takeover/2026/01/010926-flyer",
+    path: "/images/trap-takeover/2026/01/012326-flyer",
     date: "January 9th, 2026"
   };
 
@@ -154,7 +161,7 @@ export default function TrapTakeoverPage() {
         <TrapTakeoverVideo active={false} />
 
         <TrapTakeoverFlyer
-          active={false}
+          active={true}
           flyerImagePath={`${flyerInfo.path}.png`}
           flyerPDFPath={`${flyerInfo.path}.pdf`}
           flyerImageAlt={`${flyerInfo.date} Trap Takeover Flyer`}

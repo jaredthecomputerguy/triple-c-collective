@@ -46,7 +46,11 @@ export const FeaturedBrands = ({
                     <Image
                       src={brand.image}
                       alt={brand.alt}
-                      className="h-32 w-32 object-contain sm:h-56 sm:w-56"
+                      className={cn(
+                        "h-32 w-32 object-contain sm:h-56 sm:w-56",
+                        brand.name === "And more..." &&
+                          "rounded-lg p-4 bg-[radial-gradient(circle_at_100%_0%,rgb(191,38,138)_0%,rgb(53,2,124)_100%)] bg-center bg-contain bg-no-repeat"
+                      )}
                     />
                   ) : (
                     <div className="flex h-56 w-56 flex-col items-center justify-center text-center">
