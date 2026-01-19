@@ -84,14 +84,12 @@ const bannerConfig = [
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "FRI January 16th | 12-6PM",
+      bannerSubText: "Fri, January 23rd | 12-6PM",
       mini: true
     }
   }),
   generateBanner({
-    Component: StiiizyBanner,
-    active: false,
-    order: Order.Second
+    Component: StiiizyBanner // active: false, order: Order.Second
   }),
   generateBanner({ Component: CloneBanner }),
   generateBanner({ Component: FourTwentyBanner }),
