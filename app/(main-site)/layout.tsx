@@ -5,13 +5,15 @@ import { headers } from "next/headers";
 import { Header } from "@/app/_components/header";
 import { AgeModal } from "@/app/_components/age-modal";
 import { Footer } from "@/app/_components/footer";
-import { hasAgeConsentAction } from "@/lib/actions/age-consent-action";
 
-export const metadata: Metadata = {
-  title: "Home | Triple C Collective",
+import { hasAgeConsentAction } from "@/lib/actions/age-consent-action";
+import { createMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = createMetadata({
+  title: "Home",
   description:
     "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California. Proudly open for over 16 years, we offer a diverse selection of high-quality cannabis products, expert guidance, and a welcoming environment for cannabis enthusiasts. Discover a trusted name in the industry - Triple C Collective, your premier destination for a decade and a half of cannabis excellence."
-};
+});
 
 export default async function MainSiteLayout({
   children
@@ -19,8 +21,7 @@ export default async function MainSiteLayout({
   children: ReactNode;
 }) {
   const headersList = await headers();
-  const userAgent = headersList.get("user-agent");
-  const hasConsent = await hasAgeConsentAction(userAgent);
+  const hasConsent = await hasAgeConsentAction(headersList.get("user-agent"));
 
   return (
     <>

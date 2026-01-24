@@ -3,11 +3,12 @@ import { notFound } from "next/navigation";
 import { Resend } from "resend";
 
 import { UnsubscribeForm } from "@/app/(main-site)/newsletter/unsubscribe/unsubscribe-form";
+import { createMetadata } from "@/lib/metadata";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Newsletter Unsubscribe | Triple C Collective",
+export const metadata: Metadata = createMetadata({
+  title: "Newsletter Unsubscribe",
   description:
     "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California.",
   keywords: [
@@ -29,30 +30,22 @@ export const metadata: Metadata = {
     "wellness",
     "Clearlake"
   ],
-  authors: [
-    {
-      name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev"
-    }
-  ],
-  creator: "Jared Mercer",
   openGraph: {
     title: "Newsletter Unsubscribe | Triple C Collective",
-    url: `${process.env.SITE_URL}`,
     description: "Lake County's Premier Cannabis Dispensary",
-    images: `${process.env.SITE_URL}/opengraph-image.png`,
     siteName: "Triple C Collective",
     locale: "en_US",
     type: "website"
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Newsletter Unsubscribe | Triple C Collective",
-    description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/opengraph-image.png`]
-  },
-  metadataBase: new URL(`${process.env.SITE_URL}`)
-};
+  robots: {
+    follow: false,
+    index: false,
+    googleBot: {
+      follow: false,
+      index: false
+    }
+  }
+});
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 

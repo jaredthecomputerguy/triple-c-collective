@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Newsletter Unsubscribe Success | Triple C Collective",
+import { createMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = createMetadata({
+  title: "Newsletter Unsubscribe Success",
   description:
     "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California.",
   keywords: [
@@ -24,30 +26,22 @@ export const metadata: Metadata = {
     "wellness",
     "Clearlake"
   ],
-  authors: [
-    {
-      name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev"
-    }
-  ],
-  creator: "Jared Mercer",
   openGraph: {
     title: "Newsletter Unsubscribe Success | Triple C Collective",
-    url: `${process.env.SITE_URL}`,
     description: "Lake County's Premier Cannabis Dispensary",
-    images: `${process.env.SITE_URL}/opengraph-image.png`,
     siteName: "Triple C Collective",
     locale: "en_US",
     type: "website"
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Newsletter Unsubscribe Success | Triple C Collective",
-    description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/opengraph-image.png`]
-  },
-  metadataBase: new URL(`${process.env.SITE_URL}`)
-};
+  robots: {
+    follow: false,
+    index: false,
+    googleBot: {
+      follow: false,
+      index: false
+    }
+  }
+});
 
 export default function NewsletterUnsubscribeSuccessPage() {
   return (

@@ -1,19 +1,11 @@
 import type { Metadata } from "next";
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 
 import { ReviewCards } from "@/app/_components/review-card";
 import { StoreIcon } from "@/app/_components/icons/store";
 import { StarRating } from "@/app/_components/star-rating";
 
-import headerImg from "@/public/images/interior-shop.jpg";
-import christmasHeaderImg from "@/public/images/interior-shop.jpg";
-import halloweenHeaderImg from "@/public/images/halloween-store.png";
-import logoImg from "@/public/images/logo.png";
-import halloweenLogoImg from "@/public/images/logo-halloween.png";
-import thanksgivingLogoImg from "@/public/images/thanksgiving/logo.png";
-import christmasLogoImg from "@/public/images/christmas/logo.gif";
-import newYearsLogoImg from "@/public/images/new-years/logo.gif";
 import orderOnlineImg from "@/public/images/order-online.webp";
 import phonecallImg from "@/public/images/phonecall.webp";
 import deliveryImg from "@/public/images/delivery.webp";
@@ -28,128 +20,19 @@ import {
 import { Button } from "@/app/_components/button";
 import { BrandCarousel } from "@/app/_components/brand-carousel";
 
-enum Months {
-  January = 0,
-  February = 1,
-  March = 2,
-  April = 3,
-  May = 4,
-  June = 5,
-  July = 6,
-  August = 7,
-  September = 8,
-  October = 9,
-  November = 10,
-  December = 11
-}
+import { getHeaderAndLogoImages } from "@/lib/utils/client";
+import { createMetadata } from "@/lib/metadata";
 
-const getHeaderAndLogoImages = (): {
-  logo: StaticImageData;
-  header: StaticImageData;
-} => {
-  const today = new Date();
-  const month: number = today.getMonth();
-  const day = today.getDate();
-  let images: { logo: StaticImageData; header: StaticImageData } = {
-    header: headerImg,
-    logo: logoImg
-  };
-  switch (month) {
-    case Months.October:
-      images = {
-        logo: halloweenLogoImg,
-        header: halloweenHeaderImg
-      };
-      break;
-    case Months.November:
-      images = {
-        logo: thanksgivingLogoImg,
-        // TODO: Add Thanksgiving header image
-        header: headerImg
-      };
-      break;
-    case Months.December:
-      if (day > 25) {
-        images = {
-          logo: newYearsLogoImg,
-          header: christmasHeaderImg
-        };
-      } else {
-        images = {
-          logo: christmasLogoImg ?? logoImg,
-          header: christmasHeaderImg
-        };
-      }
-      break;
-    default:
-      images = {
-        logo: logoImg,
-        header: headerImg
-      };
-      break;
-  }
-
-  return images;
-};
-
-export const metadata: Metadata = {
-  title: "Home | Triple C Collective",
-  description:
-    "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California.",
-  keywords: [
-    "cannabis",
-    "cannabis store",
-    "dispensary",
-    "marijuana",
-    "weed",
-    "pot",
-    "Lake County",
-    "California",
-    "Triple C Collective",
-    "flower",
-    "dab",
-    "concentrate",
-    "edibles",
-    "cbd",
-    "kratom",
-    "wellness",
-    "Clearlake"
-  ],
-  authors: [
-    {
-      name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev"
-    }
-  ],
-  creator: "Jared Mercer",
-  openGraph: {
-    title: "Home | Triple C Collective",
-    url: `${process.env.SITE_URL}`,
-    description: "Lake County's Premier Cannabis Dispensary",
-    images: `${process.env.SITE_URL}/opengraph-image.png`,
-    siteName: "Triple C Collective",
-    locale: "en_US",
-    type: "website"
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Home | Triple C Collective",
-    description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/opengraph-image.png`]
-  },
-  metadataBase: new URL(`${process.env.SITE_URL}`)
-};
+export const metadata: Metadata = createMetadata({ title: "Home" });
 
 export default function HomePage() {
-  const { logo, header } = getHeaderAndLogoImages();
-
-  const shouldOptimize = logo.src.endsWith(".gif") || logo.src.endsWith(".svg");
+  const { logo, header, shouldOptimize } = getHeaderAndLogoImages();
 
   return (
     <main className="bg-[#fefefe]" id="main-content">
       <div className="relative flex flex-col items-center justify-center">
         <Image
-          className="h-96 w-full object-cover md:h-[600px]"
+          className="h-96 w-full object-cover md:h-150"
           src={header} //headerImg}
           alt="Triple C Collective Storefront"
           priority
@@ -202,7 +85,7 @@ export default function HomePage() {
             </p>
 
             <Link
-              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 flex w-full min-w-[220px] grow-0 items-center justify-center rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
+              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 flex w-full min-w-55 grow-0 items-center justify-center rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
               href="https://triplec.treez.io/onlinemenu/?customerType=ADULT"
               target="_blank">
               Shop Now
@@ -223,7 +106,7 @@ export default function HomePage() {
               or in store pickup.
             </p>
             <Link
-              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 flex w-full min-w-[220px] grow-0 justify-center rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
+              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 flex w-full min-w-55 grow-0 justify-center rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
               href="tel:707-701-4160">
               Call Us
             </Link>
@@ -243,7 +126,7 @@ export default function HomePage() {
               doorstep.
             </p>
             <Link
-              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 flex w-full min-w-[220px] grow-0 justify-center rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
+              className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 mt-4 flex w-full min-w-55 grow-0 justify-center rounded-sm px-6 py-2 font-semibold text-white outline-hidden transition-all md:text-xl"
               href="/delivery">
               Schedule Delivery
             </Link>
@@ -297,7 +180,7 @@ export default function HomePage() {
             {/* id="newsletter"> */}
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <p className="text-muted-foreground max-w-[900px] font-semibold md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="text-muted-foreground max-w-225 font-semibold md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   The Real CA Cannabis program is an official initiative of the
                   California Department of Cannabis Control. We&apos;re proud to
                   work with them to help you shop safely and responsibly.

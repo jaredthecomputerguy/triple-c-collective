@@ -24,75 +24,43 @@ import {
   AccordionContent
 } from "@/app/_components/accordian";
 
+import { createMetadata, baseMetadata } from "@/lib/metadata";
+
 import VOTE_FOR_US_IMAGE from "@/public/images/bolm/vote-for-us.png";
 
 type BestOfLakeAndMendocinoPageProps = { params: Promise<{ year: string }> };
 
 export async function generateMetadata({
   params
-}: BestOfLakeAndMendocinoPageProps): Promise<Metadata> {
-  const { year } = await params;
-  const title = `Best of Lake and Mendocino ${CONTEST_YEAR} | Triple C Collective`;
-  const siteUrl = process.env.SITE_URL;
+}: BestOfLakeAndMendocinoYearPageProps): Promise<Metadata> {
+  const { year: rawYear } = await params;
+  const year = parseYear(rawYear);
 
-  return {
-    title,
+  return createMetadata({
+    title: `Best of Lake and Mendocino ${year}`,
     description:
-      "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest. Proudly nominated across multiple categories, we’re honored to serve our community with the best cannabis products and service.",
+      "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest. Proudly nominated across multiple categories, we're honored to serve our community with the best cannabis products and service.",
     keywords: [
-      "cannabis",
-      "cannabis store",
-      "dispensary",
-      "marijuana",
-      "weed",
-      "pot",
-      "Lake County",
-      "California",
-      "Triple C Collective",
-      "flower",
-      "dab",
-      "concentrate",
-      "edibles",
-      "cbd",
-      "kratom",
-      "wellness",
-      "Clearlake",
+      ...(baseMetadata.keywords as string[]),
       "trap takeover",
       "cannabis sale",
       "cannabis bogo",
       "flower sale",
       "edible sale",
       "cartridge sale",
-      `Best of Lake and Mendocino ${CONTEST_YEAR}`,
-      `Cannabis contest ${CONTEST_YEAR}`
+      `Best of Lake and Mendocino ${year}`,
+      `Cannabis contest ${year}`
     ],
-    authors: [
-      {
-        name: "Jared Mercer",
-        url: "https://jaredthecomputerguy.dev"
-      }
-    ],
-    creator: "Jared Mercer",
+    canonical: `/best-of-lake-and-mendocino/${year}`,
     openGraph: {
-      title: ``,
-      url: `${process.env.SITE_URL}`,
       description:
-        "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest.",
-      images: `${siteUrl}/opengraph-image.png`,
-      siteName: "Triple C Collective",
-      locale: "en_US",
-      type: "website"
+        "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest."
     },
     twitter: {
-      card: "summary_large_image",
-      title,
       description:
-        "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest.",
-      images: [`${siteUrl}/opengraph-image.png`]
-    },
-    robots: "all",
-    metadataBase: new URL(`${siteUrl}`)
-  };
+        "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest."
+    }
+  });
 }
 
 const CONTEST_YEAR = 2026;

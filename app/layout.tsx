@@ -16,65 +16,15 @@ import { Toaster } from "@/app/_components/toaster";
 import { Debug } from "@/app/_components/debug";
 import { Progress } from "@/app/_components/progress";
 
+import { createMetadata } from "@/lib/metadata";
+
 import "@/app/globals.css";
 
-export const metadata: Metadata = {
-  title: "Home | Triple C Collective",
+export const metadata: Metadata = createMetadata({
+  title: "Home",
   description:
-    "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California.",
-  keywords: [
-    "cannabis",
-    "cannabis store",
-    "dispensary",
-    "marijuana",
-    "weed",
-    "pot",
-    "Lake County",
-    "California",
-    "Triple C Collective",
-    "flower",
-    "dab",
-    "concentrate",
-    "edibles",
-    "cbd",
-    "kratom",
-    "wellness",
-    "Clearlake"
-  ],
-  authors: [
-    {
-      name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev"
-    }
-  ],
-  creator: "Jared Mercer",
-  openGraph: {
-    title: "Home | Triple C Collective",
-    url: `${process.env.SITE_URL}`,
-    description: "Lake County's Premier Cannabis Dispensary",
-    images: `${process.env.SITE_URL}/opengraph-image.png`,
-    siteName: "Triple C Collective",
-    locale: "en_US",
-    type: "website"
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Home | Triple C Collective",
-    description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/opengraph-image.png`]
-  },
-  robots: "all",
-  metadataBase: new URL(process.env.SITE_URL),
-  icons: {
-    icon: "/icon144.png",
-    shortcut: "/icon144.png",
-    apple: "/icon144.png",
-    other: {
-      rel: "apple-touch-icon-precomposed",
-      url: "/icon144.png"
-    }
-  }
-};
+    "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California. Proudly open for over 16 years, we offer a diverse selection of high-quality cannabis products, expert guidance, and a welcoming environment for cannabis enthusiasts. Discover a trusted name in the industry - Triple C Collective, your premier destination for a decade and a half of cannabis excellence."
+});
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -130,12 +80,13 @@ const emilysCandy = Emilys_Candy({
   preload: false
 });
 
+const isDev = process.env.NODE_ENV === "development";
+
 export default async function RootLayout({
   children
 }: {
   children: ReactNode;
 }) {
-  const isDev = process.env.NODE_ENV === "development";
   return (
     <html
       lang="en"

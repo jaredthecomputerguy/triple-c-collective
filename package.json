@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently -n pb,next -c green,magenta \"bun run pocketbase:run\" \"next dev\"",
+    "dev": "concurrently -n pb,next -c yellow,cyan \"bun run pocketbase:run\" \"next dev\"",
     "build": "next build",
-    "build:dev": "concurrently -n pb,next-builder -c green,magenta --kill-others \"bun run pocketbase:run\" \"next build\"",
-    "start": "concurrently -n pb,next-builder -c green,magenta --kill-others \"bun run pocketbase:run\" \"next start\"",
-    "preview": "concurrently -n pb,next -c green,cyan \"bun run pocketbase:run\" \"next start\"",
+    "build:dev": "concurrently -n pb,next-builder -c yellow,cyan --kill-others \"bun run pocketbase:run\" \"next build\"",
+    "start": "concurrently -n pb,next-builder -c yellow,cyan --kill-others \"bun run pocketbase:run\" \"next start\"",
+    "preview": "concurrently -n pb,next-builder -c yellow,cyan --kill-others \"bun run pocketbase:run\" \"dotenvx run -f .env.prod -- next start\"",
     "lint": "biome lint .",
     "format": "biome format . --write",
     "check": "biome format .",
@@ -72,6 +72,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.11",
+    "@dotenvx/dotenvx": "^1.52.0",
     "@react-email/preview-server": "^5.1.1",
     "@tailwindcss/typography": "^0.5.16",
     "@testing-library/react": "^16.3.1",

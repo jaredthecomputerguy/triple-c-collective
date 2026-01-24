@@ -4,54 +4,13 @@ import { GoogleMapEmbed } from "@/app/_components/google-map-embed";
 import { ContactForm } from "@/app/(main-site)/contact/contact-form";
 import { FacebookIcon } from "@/app/_components/icons/facebook-icon";
 import { InstagramIcon } from "@/app/_components/icons/instagram-icon";
+import { createMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Contact Us | Triple C Collective",
+export const metadata: Metadata = createMetadata({
+  title: "Contact Us",
   description:
-    "If you have any questions or concerns, feel free to reach out to us. We are here to help you with all your cannabis needs.",
-  keywords: [
-    "cannabis",
-    "cannabis store",
-    "dispensary",
-    "marijuana",
-    "weed",
-    "pot",
-    "Lake County",
-    "California",
-    "Triple C Collective",
-    "flower",
-    "dab",
-    "concentrate",
-    "edibles",
-    "cbd",
-    "kratom",
-    "wellness",
-    "Clearlake"
-  ],
-  authors: [
-    {
-      name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev"
-    }
-  ],
-  creator: "Jared Mercer",
-  openGraph: {
-    title: "Contact Us | Triple C Collective",
-    url: `${process.env.SITE_URL}`,
-    description: "Lake County's Premier Cannabis Dispensary",
-    images: `${process.env.SITE_URL}/opengraph-image.png`,
-    siteName: "Triple C Collective",
-    locale: "en_US",
-    type: "website"
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Contact Us | Triple C Collective",
-    description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/opengraph-image.png`]
-  },
-  metadataBase: new URL(`${process.env.SITE_URL}`)
-};
+    "If you have any questions or concerns, feel free to reach out to us. We are here to help you with all your cannabis needs and inquiries."
+});
 
 export default function ContactPage() {
   return (
