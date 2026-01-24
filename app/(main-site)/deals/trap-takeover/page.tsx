@@ -22,17 +22,10 @@ import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
   year: 2026,
   month: 1,
-  day: 23
+  day: 30
 });
 
-const featuredBrands = getFeaturedBrands(
-  "Akwaaba",
-  "Midsfactory",
-  "High 90's",
-  "Koa Cannabis Co.",
-  "Park Jams",
-  "And more..."
-);
+const featuredBrands = getFeaturedBrands("And more...");
 
 const individualDeals: IndividualDeal[] = [];
 
@@ -154,14 +147,14 @@ export default function TrapTakeoverPage() {
           description="The first 50 customers in line get an exclusive T-shirt free just for coming in!"
         />
 
-        <FeaturedBrands active={true} featuredBrands={featuredBrands} />
+        <FeaturedBrands active={false} featuredBrands={featuredBrands} />
 
         <IndividualDeals active={false} deals={individualDeals} />
 
         <TrapTakeoverVideo active={false} />
 
         <TrapTakeoverFlyer
-          active={true}
+          active={false}
           flyerImagePath={`${flyerInfo.path}.png`}
           flyerPDFPath={`${flyerInfo.path}.pdf`}
           flyerImageAlt={`${flyerInfo.date} Trap Takeover Flyer`}
