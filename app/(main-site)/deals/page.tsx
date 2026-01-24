@@ -7,8 +7,10 @@ import { Button } from "@/app/_components/button";
 import { DealCategory } from "@/app/(main-site)/deals/deal-category";
 import { StiiizyDealCard } from "@/app/(main-site)/deals/stiiizy-deal-card";
 import { Calendar } from "@/app/_components/calendar";
+
 import { getDealImageUrl, type DealsResponse } from "@/lib/utils/server";
 import { Logger } from "@/lib/logger";
+import { createMetadata } from "@/lib/metadata";
 
 export const dynamic = "force-dynamic";
 
@@ -39,8 +41,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
   const dealBrands = new Set(deals.items.flatMap((deal) => deal.brands));
 
-  return {
-    title: "Deals | Triple C Collective",
+  return createMetadata({
+    title: "Deals",
     description:
       "Check out Lake County's premier cannabis dispensary for the latest deals on flower, dabs, concentrates, edibles, and more.",
     keywords: [
@@ -63,13 +65,6 @@ export async function generateMetadata(): Promise<Metadata> {
       "Clearlake",
       ...dealBrands
     ],
-    authors: [
-      {
-        name: "Jared Mercer",
-        url: "https://jaredthecomputerguy.dev"
-      }
-    ],
-    creator: "Jared Mercer",
     openGraph: {
       title: "Deals | Triple C Collective",
       url: `${process.env.SITE_URL}/deals`,
@@ -77,16 +72,8 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "Triple C Collective",
       locale: "en_US",
       type: "website"
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Deals | Triple C Collective",
-      description: "Lake County's Premier Cannabis Dispensary",
-      images: [`${process.env.SITE_URL}/deals/opengraph-image.png`]
-    },
-    robots: "all, noarchive",
-    metadataBase: new URL(`${process.env.SITE_URL}`)
-  };
+    }
+  });
 }
 
 export default async function DealsPage() {

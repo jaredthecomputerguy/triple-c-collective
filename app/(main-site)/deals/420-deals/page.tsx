@@ -4,62 +4,25 @@ import { notFound } from "next/navigation";
 
 import { GoogleMapEmbed } from "@/app/_components/google-map-embed";
 import { ImageViewer } from "@/app/_components/image-viewer";
-import fourTwentyLogo from "@/public/images/4-20/420_logo-resized.png";
 import { FourTwentyDeals } from "@/app/(main-site)/deals/420-deals/420-deals";
+
+import { createMetadata } from "@/lib/metadata";
+
+import fourTwentyLogo from "@/public/images/4-20/420_logo-resized.png";
 
 const fourTwentyFlyerPath = "/images/4-20/420-flyer-with-bags.jpg";
 
 const SHOW_PAGE = false;
 
-export const metadata: Metadata = {
-  title: "4/20 Deals | Triple C Collective",
+export const metadata: Metadata = createMetadata({
+  title: "4/20 Deals",
   description:
     "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California.",
-  keywords: [
-    "cannabis",
-    "cannabis store",
-    "dispensary",
-    "marijuana",
-    "weed",
-    "pot",
-    "Lake County",
-    "California",
-    "Triple C Collective",
-    "flower",
-    "dab",
-    "concentrate",
-    "edibles",
-    "cbd",
-    "kratom",
-    "wellness",
-    "Clearlake"
-  ],
-  authors: [
-    {
-      name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev"
-    }
-  ],
-  creator: "Jared Mercer",
-  openGraph: {
-    title: "4/20 Deals | Triple C Collective",
-    url: `${process.env.SITE_URL}/deals/420-deals`,
-    description: "Lake County's Premier Cannabis Dispensary",
-    siteName: "Triple C Collective",
-    locale: "en_US",
-    type: "website"
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "4/20 Deals | Triple C Collective",
-    description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/deals/420-deals/opengraph-image.png`]
-  },
-  metadataBase: new URL(`${process.env.SITE_URL}`)
-};
+  keywords: ["420 deals", "4-20 deals"]
+});
 
 export default function FourTwentyDealsPage() {
-  if (SHOW_PAGE) {
+  if (!SHOW_PAGE) {
     return notFound();
   }
 
@@ -96,7 +59,7 @@ export default function FourTwentyDealsPage() {
         <div className="pb-16">
           <div className="mx-auto w-fit">
             <ImageViewer
-              className="aspect-1163/1600 h-96 w-72 cursor-pointer rounded-sm border-white sm:h-[700px] sm:w-[500px]"
+              className="aspect-1163/1600 h-96 w-72 cursor-pointer rounded-sm border-white sm:h-175 sm:w-125"
               src={fourTwentyFlyerPath}
               alt="4/20 Sales"
               width={1163}

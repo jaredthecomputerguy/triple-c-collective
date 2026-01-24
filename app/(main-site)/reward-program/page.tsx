@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import rewardsPageImg from "@/public/images/rewards-program.webp";
+import { createMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Reward Program | Triple C Collective",
+export const metadata: Metadata = createMetadata({
+  title: "Reward Program",
   description:
     "Sign up for our rewards program and earn $0.02 for every dollar spent. Start saving today!",
   keywords: [
@@ -25,29 +26,14 @@ export const metadata: Metadata = {
     "wellness",
     "Clearlake"
   ],
-  authors: [
-    {
-      name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev"
-    }
-  ],
-  creator: "Jared Mercer",
   openGraph: {
     title: "Reward Program | Triple C Collective",
-    url: `${process.env.SITE_URL}/reward-program`,
     description: "Lake County's Premier Cannabis Dispensary",
     siteName: "Triple C Collective",
     locale: "en_US",
     type: "website"
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Reward Program | Triple C Collective",
-    description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/reward-program/opengraph-image.png`]
-  },
-  metadataBase: new URL(`${process.env.SITE_URL}`)
-};
+  }
+});
 
 export default function RewardsPage() {
   return (

@@ -1,54 +1,23 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+
+import { createMetadata } from "@/lib/metadata";
+
 import staffPhoto from "@/public/images/staff.jpg";
 
-export const metadata: Metadata = {
-  title: "About | Triple C Collective",
-  description:
-    "Learn more about Triple C Collective, Lake County's premier cannabis dispensary.",
-  keywords: [
-    "cannabis",
-    "cannabis store",
-    "dispensary",
-    "marijuana",
-    "weed",
-    "pot",
-    "Lake County",
-    "California",
-    "Triple C Collective",
-    "flower",
-    "dab",
-    "concentrate",
-    "edibles",
-    "cbd",
-    "kratom",
-    "wellness",
-    "Clearlake"
-  ],
-  authors: [
-    {
-      name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev"
-    }
-  ],
-  creator: "Jared Mercer",
+export const metadata: Metadata = createMetadata({
+  title: "About",
+  description: "Lake County's Premier Cannabis Dispensary",
+  canonical: "/about",
   openGraph: {
-    title: "About | Triple C Collective",
-    url: `${process.env.SITE_URL}`,
-    description: "Lake County's Premier Cannabis Dispensary",
-    images: `${process.env.SITE_URL}/opengraph-image.png`,
-    siteName: "Triple C Collective",
-    locale: "en_US",
-    type: "website"
+    description:
+      "Learn more about Triple C Collective, Lake County's premier cannabis dispensary."
   },
   twitter: {
-    card: "summary_large_image",
-    title: "About | Triple C Collective",
-    description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/opengraph-image.png`]
-  },
-  metadataBase: new URL(`${process.env.SITE_URL}`)
-};
+    description:
+      "Learn more about Triple C Collective, Lake County's premier cannabis dispensary."
+  }
+});
 
 export default function AboutPage() {
   return (

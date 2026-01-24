@@ -1,3 +1,7 @@
+import { Clock, MapPin, Truck } from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
+
 import { Card, CardContent } from "@/app/_components/card";
 import {
   Table,
@@ -7,12 +11,11 @@ import {
   TableHeader,
   TableRow
 } from "@/app/_components/table";
-import { Clock, MapPin, Truck } from "lucide-react";
-import type { Metadata } from "next";
-import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Delivery | Triple C Collective",
+import { createMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = createMetadata({
+  title: "Delivery",
   description:
     "Craft cannabis delivery straight to your door with Triple C Collective.",
   keywords: [
@@ -35,30 +38,14 @@ export const metadata: Metadata = {
     "Clearlake",
     "delivery"
   ],
-  authors: [
-    {
-      name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev"
-    }
-  ],
-  creator: "Jared Mercer",
   openGraph: {
     title: "Delivery | Triple C Collective",
-    url: `${process.env.SITE_URL}`,
     description: "Lake County's Premier Cannabis Dispensary",
-    images: `${process.env.SITE_URL}/opengraph-image.png`,
     siteName: "Triple C Collective",
     locale: "en_US",
     type: "website"
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Delivery | Triple C Collective",
-    description: "Lake County's Premier Cannabis Dispensary",
-    images: [`${process.env.SITE_URL}/opengraph-image.png`]
-  },
-  metadataBase: new URL(`${process.env.SITE_URL}`)
-};
+  }
+});
 
 export default function DeliveryPage() {
   return (

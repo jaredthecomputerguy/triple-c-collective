@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | Triple C Collective",
+import { createMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = createMetadata({
+  title: "Privacy Policy",
   keywords: [
     "cannabis",
     "cannabis store",
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
   ],
   description:
     "This page describes what information they gather, how we use it and why we sometimes need to store these cookies. We will also share how you can prevent these cookies from being stored however this may downgrade or 'break' certain elements of the sites functionality."
-};
+});
 
 export default function PrivacyPolicyPage() {
   return (

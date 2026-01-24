@@ -1,30 +1,12 @@
+import { createMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Cookie Policy | Triple C Collective",
-  keywords: [
-    "cannabis",
-    "cannabis store",
-    "dispensary",
-    "marijuana",
-    "weed",
-    "pot",
-    "Lake County",
-    "California",
-    "Triple C Collective",
-    "flower",
-    "dab",
-    "concentrate",
-    "edibles",
-    "cbd",
-    "kratom",
-    "wellness",
-    "Clearlake"
-  ],
+export const metadata: Metadata = createMetadata({
+  title: "Cookie Policy",
   description:
     "Learn more about how Triple C Collective uses cookies to improve your experience."
-};
+});
 
 export default function CookiePolicyPage() {
   return (

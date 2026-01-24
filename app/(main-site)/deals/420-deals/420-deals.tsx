@@ -2,14 +2,15 @@ import type { ReactNode } from "react";
 import { LiaCannabisSolid, LiaCookieBiteSolid } from "react-icons/lia";
 import { GiMasonJar } from "react-icons/gi";
 import { SlPresent } from "react-icons/sl";
-import { CartridgeIcon } from "@/app/_components/icons/cartridge";
 
-import { cn } from "@/lib/utils/shared";
+import { CartridgeIcon } from "@/app/_components/icons/cartridge";
 import {
   fourTwentyDealsData,
   type Deal,
   type ReducedPriceDeal
 } from "@/app/(main-site)/deals/420-deals/420-deals-data";
+
+import { cn } from "@/lib/utils/shared";
 
 interface FourTwentyDealCardProps {
   title: string;
@@ -44,7 +45,7 @@ const FourTwentyDealCard = ({
         </h2>
         <div className="flex flex-col gap-6">
           {deals.map((deal) => (
-            <div key={deal.description}>
+            <div key={deal.brand + deal.description}>
               <div className="flex flex-col text-left font-semibold">
                 <div>
                   <span className="text-lg font-black">{deal.brand}</span> -{" "}
@@ -63,7 +64,7 @@ const FourTwentyDealCard = ({
               Reduced Prices on the following:
               <ul className="list-inside list-disc space-y-2 py-2 text-left text-base">
                 {reducedPriceDeals.map((reducedPriceDeal) => (
-                  <li key={reducedPriceDeal.description.slice(0, 10)}>
+                  <li key={reducedPriceDeal.description}>
                     {reducedPriceDeal.description}{" "}
                     {reducedPriceDeal.limit && (
                       <span className="text-sm">
