@@ -33,7 +33,7 @@ export default function HomePage() {
       <div className="relative flex flex-col items-center justify-center">
         <Image
           className="h-96 w-full object-cover md:h-150"
-          src={header} //headerImg}
+          src={header}
           alt="Triple C Collective Storefront"
           priority
         />
