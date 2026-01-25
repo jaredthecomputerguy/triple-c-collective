@@ -14,6 +14,7 @@ import chameleonCraftLogo from "@/public/images/brands/chameleon-craft.png";
 import parkJamsProductPackaging from "@/public/images/brands/park-jams.jpg";
 import high90sLogo from "@/public/images/brands/high-90s-logo.png";
 import hellaMellowsLogo from "@/public/images/brands/hella-mellows-logo.jpg";
+import togetherCannaSupplyLogo from "@/public/images/brands/together-canna-logo.jpg";
 
 export type FeaturedBrand = (typeof BRANDS)[number];
 type BrandNames = FeaturedBrand["name"][];
@@ -102,6 +103,12 @@ const BRANDS = [
     alt: "Hella Mellows Logo",
     url: "https://www.thesunspotcbd.com/sacred-alchemix",
     image: hellaMellowsLogo
+  },
+  {
+    name: "Together Canna Supply",
+    alt: "Together Canna Supply Logo",
+    url: "https://www.instagram.com/together.canna.supply/?hl=en",
+    image: togetherCannaSupplyLogo
   },
   {
     name: "And more...",

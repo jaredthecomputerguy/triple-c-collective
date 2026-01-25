@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { TrapTakeoverCountdown } from "@/app/(main-site)/deals/trap-takeover-countdown";
-import { getFeaturedBrands } from "@/app/_components/trap-takeover/trap-takeover-brands";
 import { FreeFood } from "@/app/_components/trap-takeover/free-food";
 import { SpecialArtPromo } from "@/app/_components/trap-takeover/special-art-promo";
 import { SpecialPromo } from "@/app/_components/trap-takeover/special-promo";
@@ -10,6 +9,7 @@ import { TrapTakeoverVideo } from "@/app/_components/trap-takeover/trap-takeover
 import { TrapTakeoverFlyer } from "@/app/_components/trap-takeover/trap-takeover-flyer";
 import { TrapTakeoverRaffleRules } from "@/app/_components/trap-takeover/trap-takeover-raffle-rules";
 import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
+import { getFeaturedBrands } from "@/app/_components/trap-takeover/trap-takeover-brands";
 /* import {
   IndividualDeals,
   type IndividualDeal
@@ -27,9 +27,25 @@ const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
   day: 30
 });
 
-const featuredBrands = getFeaturedBrands("And more...");
+const featuredBrands = getFeaturedBrands(
+  "Midsfactory",
+  "Dompen",
+  "Koa Cannabis Co.",
+  "Together Canna Supply",
+  "And more..."
+);
 
-//const individualDeals: IndividualDeal[] = [];
+const flags = {
+  featuredBrands: true,
+  flyer: true,
+
+  giftBags: false,
+  freeFood: false,
+  specialArtPromo: false,
+  specialPromo: false,
+  video: false,
+  individualDeals: false
+} as const;
 
 export async function generateMetadata(): Promise<Metadata> {
   const trapTakeoverDate = new Date(TRAP_TAKEOVER_DATE_STRING);
@@ -78,7 +94,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function TrapTakeoverPage() {
   const flyerInfo = {
-    path: "/images/trap-takeover/2026/01/012326-flyer",
+    path: "/images/trap-takeover/2026/01/013026-flyer",
     date: "January 9th, 2026"
   };
 
@@ -116,28 +132,31 @@ export default function TrapTakeoverPage() {
               to win an exclusive prize pack filled with promo products and swag
               from top cannabis brands. Don’t miss your chance to win big!
             </li>
-            <GiftBags active={false} />
+            <GiftBags active={flags.giftBags} />
           </ul>
         </div>
 
-        <FreeFood active={false} />
+        <FreeFood active={flags.freeFood} />
 
-        <SpecialArtPromo active={false} />
+        <SpecialArtPromo active={flags.specialArtPromo} />
 
         <SpecialPromo
-          active={false}
+          active={flags.specialPromo}
           title="T-Shirts for the First 50 Customers!"
           description="The first 50 customers in line get an exclusive T-shirt free just for coming in!"
         />
 
-        <FeaturedBrands active={false} featuredBrands={featuredBrands} />
+        <FeaturedBrands
+          active={flags.featuredBrands}
+          featuredBrands={featuredBrands}
+        />
 
-        {/* <IndividualDeals active={false} deals={individualDeals} /> */}
+        {/* <IndividualDeals active={flags.individualDeals} deals={individualDeals} /> */}
 
-        <TrapTakeoverVideo active={false} />
+        <TrapTakeoverVideo active={flags.video} />
 
         <TrapTakeoverFlyer
-          active={false}
+          active={flags.flyer}
           flyerImagePath={`${flyerInfo.path}.png`}
           flyerPDFPath={`${flyerInfo.path}.pdf`}
           flyerImageAlt={`${flyerInfo.date} Trap Takeover Flyer`}
