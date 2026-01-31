@@ -10,10 +10,14 @@ import { TrapTakeoverFlyer } from "@/app/_components/trap-takeover/trap-takeover
 import { TrapTakeoverRaffleRules } from "@/app/_components/trap-takeover/trap-takeover-raffle-rules";
 import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 import { getFeaturedBrands } from "@/app/_components/trap-takeover/trap-takeover-brands";
-/* import {
+
+/* TODO: Eventually I will use this component. For now, we don't have visibility into the specific deals before the sale day
+ *
+import {
   IndividualDeals,
   type IndividualDeal
-} from "@/app/_components/trap-takeover/individual-deals"; */
+} from "@/app/_components/trap-takeover/individual-deals"; 
+*/
 
 import {
   formatAndValidateDate,
@@ -27,11 +31,21 @@ const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
   day: 6
 });
 
-const featuredBrands = getFeaturedBrands("And more...");
+const featuredBrands = getFeaturedBrands(
+  "Akwaaba",
+  "Midsfactory",
+  "Dompen",
+  "Together Canna Supply",
+  "Koa Cannabis Co.",
+  "Park Jams",
+  "Green River Extracts",
+  "Sweetleaf Collective"
+  // "And more..."
+);
 
 const flags = {
   featuredBrands: true,
-  flyer: false,
+  flyer: true,
 
   giftBags: false,
   freeFood: false,
@@ -88,8 +102,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function TrapTakeoverPage() {
   const flyerInfo = {
-    path: "/images/trap-takeover/2026/01/013026-flyer",
-    date: "January 9th, 2026"
+    path: "/images/trap-takeover/2026/02/020626-flyer",
+    date: new Date(TRAP_TAKEOVER_DATE_STRING)
   };
 
   return (
@@ -153,7 +167,7 @@ export default function TrapTakeoverPage() {
           active={flags.flyer}
           flyerImagePath={`${flyerInfo.path}.png`}
           flyerPDFPath={`${flyerInfo.path}.pdf`}
-          flyerImageAlt={`${flyerInfo.date} Trap Takeover Flyer`}
+          flyerImageAlt={`${TRAP_TAKEOVER_DATE_STRING} Trap Takeover Flyer`}
         />
 
         <TrapTakeoverRaffleRules />

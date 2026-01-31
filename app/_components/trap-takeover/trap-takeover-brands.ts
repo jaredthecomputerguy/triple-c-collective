@@ -15,6 +15,7 @@ import parkJamsProductPackaging from "@/public/images/brands/park-jams.jpg";
 import high90sLogo from "@/public/images/brands/high-90s-logo.png";
 import hellaMellowsLogo from "@/public/images/brands/hella-mellows-logo.jpg";
 import togetherCannaSupplyLogo from "@/public/images/brands/together-canna-logo.jpg";
+import sweetLeafLogo from "@/public/images/brands/sweetleaf-logo.png";
 
 export type FeaturedBrand = (typeof BRANDS)[number];
 type BrandNames = FeaturedBrand["name"][];
@@ -110,6 +111,14 @@ const BRANDS = [
     url: "https://www.instagram.com/together.canna.supply/?hl=en",
     image: togetherCannaSupplyLogo
   },
+  {
+    // TODO: finish me
+    name: "Sweetleaf Collective",
+    alt: "Sweetleaf Collective Logo",
+    url: "https://www.sweetleafcollective.org/",
+    image: sweetLeafLogo
+  },
+  /* Placeholders */
   {
     name: "And more...",
     alt: "More brands",
