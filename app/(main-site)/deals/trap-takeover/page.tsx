@@ -23,21 +23,15 @@ import { createMetadata } from "@/lib/metadata";
 
 const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
   year: 2026,
-  month: 1,
-  day: 30
+  month: 2,
+  day: 6
 });
 
-const featuredBrands = getFeaturedBrands(
-  "Midsfactory",
-  "Dompen",
-  "Koa Cannabis Co.",
-  "Together Canna Supply",
-  "And more..."
-);
+const featuredBrands = getFeaturedBrands("And more...");
 
 const flags = {
   featuredBrands: true,
-  flyer: true,
+  flyer: false,
 
   giftBags: false,
   freeFood: false,

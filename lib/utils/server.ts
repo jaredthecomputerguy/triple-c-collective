@@ -82,7 +82,7 @@ export function formatAndValidateDate(dateObj: z.infer<typeof dateSchema>) {
   } catch (e) {
     if (e instanceof ZodError) {
       Logger.error(
-        `ZodError: ${e.errors.map((err) => err.message).join(", ")}`
+        `ZodError: ${e.issues.map((err) => err.message).join(", ")}`
       );
     } else {
       Logger.error(`Error: ${(e as Error).message}`);
@@ -96,30 +96,40 @@ export function getDealImageUrl(deal: Deal) {
 }
 
 export function getTrapTakeoverDateWithSuffix(trapTakeoverDate: Date) {
-  const formattedDate = new Intl.DateTimeFormat("en-US", {
+  const formatOptions: Intl.DateTimeFormatOptions = {
     month: "long",
     day: "numeric"
-  }).format(trapTakeoverDate);
+  };
 
-  const day = trapTakeoverDate.getDate();
-  let suffix: string;
-  const lastDigit = day % 10;
-  const lastTwoDigits = day % 100;
-  if (lastDigit === 1 && lastTwoDigits !== 11) {
-    suffix = "st";
-    return formattedDate + suffix;
-  }
-  if (lastDigit === 2 && lastTwoDigits !== 12) {
-    suffix = "nd";
-    return formattedDate + suffix;
-  }
-  if (lastDigit === 3 && lastTwoDigits !== 13) {
-    suffix = "rd";
-    return formattedDate + suffix;
-  }
+  try {
+    const formattedDate = new Intl.DateTimeFormat(
+      "en-US",
+      formatOptions
+    ).format(trapTakeoverDate);
 
-  suffix = "th";
-  return formattedDate + suffix;
+    const day = trapTakeoverDate.getDate();
+    let suffix: string;
+    const lastDigit = day % 10;
+    const lastTwoDigits = day % 100;
+    if (lastDigit === 1 && lastTwoDigits !== 11) {
+      suffix = "st";
+      return formattedDate + suffix;
+    }
+    if (lastDigit === 2 && lastTwoDigits !== 12) {
+      suffix = "nd";
+      return formattedDate + suffix;
+    }
+    if (lastDigit === 3 && lastTwoDigits !== 13) {
+      suffix = "rd";
+      return formattedDate + suffix;
+    }
+
+    suffix = "th";
+    return formattedDate + suffix;
+  } catch (e) {
+    Logger.error(e);
+    throw e;
+  }
 }
 
 const pad2 = (n: number) => String(n).padStart(2, "0");
