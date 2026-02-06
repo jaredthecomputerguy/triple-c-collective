@@ -84,7 +84,7 @@ const bannerConfig = [
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "Fri Feb. 6th | 12-6PM",
+      bannerSubText: "TODAY | 12-6PM",
       mini: true
     }
   }),
