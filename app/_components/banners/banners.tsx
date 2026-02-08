@@ -18,7 +18,7 @@ import {
   GenericBanner,
   ThanksgivingBanner,
   BestOfLakeAndMendocinoWinnerBanner
-} from "@/app/_components/banners/";
+} from "@/app/_components/banners";
 
 // biome-ignore lint/suspicious/noExplicitAny: I need the any here
 type ComponentTypeWithAny = ComponentType<any>;
@@ -84,7 +84,7 @@ const bannerConfig = [
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "TODAY | 12-6PM",
+      bannerSubText: "Fri, Feb. 13th | 12-6PM",
       mini: true
     }
   }),
