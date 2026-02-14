@@ -7,7 +7,8 @@ import {
   VT323,
   Birthstone,
   DM_Serif_Display,
-  Emilys_Candy
+  Emilys_Candy,
+  Courgette
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -80,6 +81,14 @@ const emilysCandy = Emilys_Candy({
   preload: false
 });
 
+const courgette = Courgette({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-courgette",
+  preload: false
+});
+
 const isDev = process.env.NODE_ENV === "development";
 
 export default async function RootLayout({
@@ -87,10 +96,23 @@ export default async function RootLayout({
 }: {
   children: ReactNode;
 }) {
+  const fontVars = [
+    montserrat,
+    bebasNeue,
+    openSans,
+    vt323,
+    dmSerifDisplay,
+    birthstone,
+    emilysCandy,
+    courgette
+  ]
+    .map((font) => font.variable)
+    .join(" ");
+
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${bebasNeue.variable} ${openSans.variable} ${vt323.variable} ${birthstone.variable} ${dmSerifDisplay.variable} ${emilysCandy.variable} bg-primary-purple scroll-smooth`}
+      className={`bg-primary-purple scroll-smooth ${fontVars}`}
       suppressHydrationWarning
       data-scroll-behavior="smooth">
       <body className="relative">
