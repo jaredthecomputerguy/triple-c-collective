@@ -28,19 +28,14 @@ import { createMetadata } from "@/lib/metadata";
 const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
   year: 2026,
   month: 2,
-  day: 13
+  day: 20
 });
 
-const featuredBrands = getFeaturedBrands(
-  "Akwaaba",
-  "High 90's",
-  "Hashtag",
-  "Dompen"
-);
+const featuredBrands = getFeaturedBrands(undefined);
 
 const flags = {
   featuredBrands: true,
-  flyer: true,
+  flyer: false,
 
   giftBags: false,
   freeFood: false,

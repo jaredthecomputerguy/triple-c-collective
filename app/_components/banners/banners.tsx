@@ -64,23 +64,27 @@ function generateBanner<T extends ComponentTypeWithAny>(
 const bannerConfig = [
   generateBanner({
     Component: GenericBanner,
-    active: false,
-    order: Order.First,
+    active: true,
+    order: Order.Second,
     props: {
       children: (
-        <div className="mr-4 text-center text-[#fefefe]">
+        <div className="mr-4 text-center text-[#fefefe] flex flex-col gap-1 py-2">
+          <span className="text-base md:text-3xl uppercase font-courgette">
+            HAPPY VALENTINE'S DAY
+          </span>
           <span className="text-xs uppercase md:text-sm">
-            NOW ACCEPTING CREDIT CARDS &amp; TAP TO PAY
+            Stop by and see our deals!
           </span>
         </div>
       ),
-      className: "py-2 font-bold text-white uppercase px-4 bg-primary-purple",
+      className:
+        "py-2 font-bold text-white uppercase px-4 bg-primary-purple bg-[#e57b7b]",
       closeBtnClass: "text-white"
     }
   }),
   generateBanner({
     Component: TrapTakeoverBanner,
-    active: true,
+    active: false,
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
