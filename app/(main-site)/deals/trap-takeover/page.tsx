@@ -31,11 +31,20 @@ const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
   day: 20
 });
 
-const featuredBrands = getFeaturedBrands(undefined);
+const featuredBrands = getFeaturedBrands(
+  "Akwaaba",
+  "Midsfactory",
+  "Dompen",
+  "Koa Cannabis Co.",
+  "Chameleon Craft",
+  "Green River Extracts",
+  "Park Jams",
+  "Sweetleaf Collective"
+);
 
 const flags = {
   featuredBrands: true,
-  flyer: false,
+  flyer: true,
 
   giftBags: false,
   freeFood: false,
@@ -92,7 +101,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function TrapTakeoverPage() {
   const flyerInfo = {
-    path: "/images/trap-takeover/2026/02/021326-flyer",
+    path: "/images/trap-takeover/2026/02/022026-flyer",
     date: TRAP_TAKEOVER_DATE
   };
 

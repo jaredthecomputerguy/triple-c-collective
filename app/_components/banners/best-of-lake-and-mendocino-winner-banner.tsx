@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import { TopBanner } from "@/app/_components/banners/top-banner";
-
 import bestOfBadge from "@/public/images/best-of-lake-2026-award.png";
 
 interface BestOfLakeAndMendocinoWinnerBannerProps {
@@ -29,10 +28,12 @@ export const BestOfLakeAndMendocinoWinnerBanner = ({
           quality={75}
           className="size-16"
         />
-        <div className="text-[#ebc558] text-sm md:text-lg flex flex-col items-center text-center px-2">
-          <span className="text-xs md:text-base">Voted</span>
-          <span className="md:text-xl">Best of CBD Products</span>
-          <span className="text-xs md:text-base">
+        <div className="flex flex-col px-2 text-center items-center justify-center">
+          <div className="text-[#ebc558] text-sm md:text-2xl flex flex-row gap-1 items-center text-center">
+            <span>Voted</span>
+            <span>Best of CBD Products</span>
+          </div>
+          <span className="text-xs md:text-lg">
             in the Best of Lake &amp; Mendocino 2026
           </span>
         </div>
