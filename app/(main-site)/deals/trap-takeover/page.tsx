@@ -28,18 +28,15 @@ import { createMetadata } from "@/lib/metadata";
 const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
   year: 2026,
   month: 2,
-  day: 20
+  day: 27
 });
 
 const featuredBrands = getFeaturedBrands(
   "Akwaaba",
-  "Midsfactory",
+  "High 90's",
+  "Hashtag",
   "Dompen",
-  "Koa Cannabis Co.",
-  "Chameleon Craft",
-  "Green River Extracts",
-  "Park Jams",
-  "Sweetleaf Collective"
+  "And more..."
 );
 
 const flags = {
@@ -59,7 +56,6 @@ const TRAP_TAKEOVER_DATE = new Date(TRAP_TAKEOVER_DATE_STRING);
 export async function generateMetadata(): Promise<Metadata> {
   const trapTakeoverDateWithSuffix =
     getTrapTakeoverDateWithSuffix(TRAP_TAKEOVER_DATE);
-
   return createMetadata({
     title: trapTakeoverDateWithSuffix,
     description:
@@ -101,7 +97,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function TrapTakeoverPage() {
   const flyerInfo = {
-    path: "/images/trap-takeover/2026/02/022026-flyer",
+    path: "/images/trap-takeover/2026/02/022726-flyer",
     date: TRAP_TAKEOVER_DATE
   };
 
