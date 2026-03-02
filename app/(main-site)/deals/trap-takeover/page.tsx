@@ -27,21 +27,32 @@ import { createMetadata } from "@/lib/metadata";
 
 const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
   year: 2026,
-  month: 2,
-  day: 27
+  month: 3,
+  day: 6
 });
+
+/*
+ *BOGO deals on Big Boy Dro!!!
+BOGO deals on Mids Factory!!!
+BOGO deals on Park Jams!!!
+BOGO deals on Koa!!!
+BOGO deals on AkwaabA!!!
+BOGO deals on GRE!!!
+ */
 
 const featuredBrands = getFeaturedBrands(
   "Akwaaba",
-  "High 90's",
-  "Hashtag",
-  "Dompen",
-  "And more..."
+  "Big Boy Dro",
+  "Midsfactory",
+  "Park Jams",
+  "Koa Cannabis Co.",
+  "Green River Extracts"
 );
 
 const flags = {
   featuredBrands: true,
-  flyer: true,
+  // TODO: Change me
+  flyer: false,
 
   giftBags: false,
   freeFood: false,
