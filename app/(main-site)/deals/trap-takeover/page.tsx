@@ -9,7 +9,8 @@ import { TrapTakeoverVideo } from "@/app/_components/trap-takeover/trap-takeover
 import { TrapTakeoverFlyer } from "@/app/_components/trap-takeover/trap-takeover-flyer";
 import { TrapTakeoverRaffleRules } from "@/app/_components/trap-takeover/trap-takeover-raffle-rules";
 import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
-import { getFeaturedBrands } from "@/app/_components/trap-takeover/trap-takeover-brands";
+import { event } from "@/app/(main-site)/deals/trap-takeover/trap-takeover-event-config";
+import { createMetadata } from "@/lib/metadata";
 
 /* TODO: Eventually I will use this component. For now, we don't have visibility into the specific deals before the sale day
  *
@@ -19,56 +20,10 @@ import {
 } from "@/app/_components/trap-takeover/individual-deals"; 
 */
 
-import {
-  formatAndValidateDate,
-  getTrapTakeoverDateWithSuffix
-} from "@/lib/utils/server";
-import { createMetadata } from "@/lib/metadata";
-
-const TRAP_TAKEOVER_DATE_STRING = formatAndValidateDate({
-  year: 2026,
-  month: 3,
-  day: 6
-});
-
-/*
- *BOGO deals on Big Boy Dro!!!
-BOGO deals on Mids Factory!!!
-BOGO deals on Park Jams!!!
-BOGO deals on Koa!!!
-BOGO deals on AkwaabA!!!
-BOGO deals on GRE!!!
- */
-
-const featuredBrands = getFeaturedBrands(
-  "Akwaaba",
-  "Big Boy Dro",
-  "Midsfactory",
-  "Park Jams",
-  "Koa Cannabis Co.",
-  "Green River Extracts"
-);
-
-const flags = {
-  featuredBrands: true,
-  // TODO: Change me
-  flyer: false,
-
-  giftBags: false,
-  freeFood: false,
-  specialArtPromo: false,
-  specialPromo: false,
-  video: false,
-  individualDeals: false
-} as const;
-
-const TRAP_TAKEOVER_DATE = new Date(TRAP_TAKEOVER_DATE_STRING);
-
 export async function generateMetadata(): Promise<Metadata> {
-  const trapTakeoverDateWithSuffix =
-    getTrapTakeoverDateWithSuffix(TRAP_TAKEOVER_DATE);
+  const title = `Trap Takeover Sale - ${event.dateWithSuffix}`;
   return createMetadata({
-    title: trapTakeoverDateWithSuffix,
+    title,
     description:
       "Join us at Triple C Collective for our Trap Takeover event in collaboration with Illa Guerrilla! Enjoy unbeatable BOGO deals on select premium cannabis brands, meet the Illa Guerrilla sales rep, and enter our raffle for a chance to win exclusive prize packs.",
     keywords: [
@@ -95,10 +50,10 @@ export async function generateMetadata(): Promise<Metadata> {
       "flower sale",
       "edible sale",
       "cartridge sale",
-      `Trap Takeover ${trapTakeoverDateWithSuffix} sale`
+      `Trap Takeover ${event.dateWithSuffix} sale`
     ],
     openGraph: {
-      title: `Trap Takeover ${trapTakeoverDateWithSuffix} | Triple C Collective`,
+      title,
       siteName: "Triple C Collective",
       locale: "en_US",
       type: "website"
@@ -107,15 +62,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function TrapTakeoverPage() {
-  const flyerInfo = {
-    path: "/images/trap-takeover/2026/02/022726-flyer",
-    date: TRAP_TAKEOVER_DATE
-  };
-
   return (
     <main className="bg-[#fefefe]">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
-        <span className="pb-1 text-gray-600">{TRAP_TAKEOVER_DATE_STRING}</span>
+        <span className="pb-1 text-gray-600">{event.dateString}</span>
         <h1 className="font-logo pb-4 text-4xl font-semibold">
           Trap Takeover Sale
         </h1>
@@ -146,34 +96,34 @@ export default function TrapTakeoverPage() {
               to win an exclusive prize pack filled with promo products and swag
               from top cannabis brands. Don’t miss your chance to win big!
             </li>
-            <GiftBags active={flags.giftBags} />
+            <GiftBags active={event.flags.giftBags} />
           </ul>
         </div>
 
-        <FreeFood active={flags.freeFood} />
+        <FreeFood active={event.flags.freeFood} />
 
-        <SpecialArtPromo active={flags.specialArtPromo} />
+        <SpecialArtPromo active={event.flags.specialArtPromo} />
 
         <SpecialPromo
-          active={flags.specialPromo}
+          active={event.flags.specialPromo}
           title="T-Shirts for the First 50 Customers!"
           description="The first 50 customers in line get an exclusive T-shirt free just for coming in!"
         />
 
         <FeaturedBrands
-          active={flags.featuredBrands}
-          featuredBrands={featuredBrands}
+          active={event.flags.featuredBrands}
+          featuredBrands={event.featuredBrands}
         />
 
-        {/* <IndividualDeals active={flags.individualDeals} deals={individualDeals} /> */}
+        {/* <IndividualDeals active={trapTakeoverEvent.flags.individualDeals} deals={individualDeals} /> */}
 
-        <TrapTakeoverVideo active={flags.video} />
+        <TrapTakeoverVideo active={event.flags.video} />
 
         <TrapTakeoverFlyer
-          active={flags.flyer}
-          flyerImagePath={`${flyerInfo.path}.png`}
-          flyerPDFPath={`${flyerInfo.path}.pdf`}
-          flyerImageAlt={`${TRAP_TAKEOVER_DATE_STRING} Trap Takeover Flyer`}
+          active={event.flags.flyer}
+          flyerImagePath={event.flyer.image}
+          flyerPDFPath={event.flyer.pdf}
+          flyerImageAlt={`${event.dateString} Trap Takeover Flyer`}
         />
 
         <TrapTakeoverRaffleRules />
