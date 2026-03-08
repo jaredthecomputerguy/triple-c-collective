@@ -29,16 +29,6 @@ export type Deal = {
   badge: string;
 };
 
-enum DaysOfWeek {
-  Monday = 1,
-  Tuesday = 2,
-  Wednesday = 3,
-  Thursday = 4,
-  Friday = 5,
-  Saturday = 6,
-  Sunday = 7
-}
-
 export type TimeRemainingUntilDate = {
   Days: string;
   Hours: string;
@@ -53,10 +43,11 @@ const dateSchema = z
     day: z.number().min(1).max(31)
   })
   .refine(
-    (d) => {
+    ({ year, month, day }) => {
+      const FRIDAY = 5;
       try {
-        const date = new Temporal.PlainDate(d.year, d.month, d.day);
-        return date.dayOfWeek === DaysOfWeek.Friday;
+        const date = new Temporal.PlainDate(year, month, day);
+        return date.dayOfWeek === FRIDAY;
       } catch {
         return false;
       }

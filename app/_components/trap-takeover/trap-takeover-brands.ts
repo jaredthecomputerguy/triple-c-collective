@@ -112,7 +112,6 @@ const BRANDS = [
     image: togetherCannaSupplyLogo
   },
   {
-    // TODO: finish me
     name: "Sweetleaf Collective",
     alt: "Sweetleaf Collective Logo",
     url: "https://www.sweetleafcollective.org/",
@@ -133,7 +132,12 @@ const BRANDS = [
   }
 ] as const;
 
-/** Pass `undefined` as the last or only arg to show the 'more brands coming soon...' */
+/*
+ *
+ * This function takes a list of brand names and returns a filtered list of brands that match the names.
+ *
+ * Pass `undefined` as the last or only arg to show the 'more brands coming soon...'
+ */
 export const getFeaturedBrands = (...brandNames: BrandNames) => {
   return BRANDS.filter((brand) => brandNames.includes(brand.name));
 };
