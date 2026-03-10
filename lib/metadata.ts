@@ -3,30 +3,32 @@ import type { Metadata } from "next";
 const SITE_URL = process.env.SITE_URL || "https://tripleccollective.com";
 const SITE_NAME = "Triple C Collective";
 
+export const BASE_KEYWORDS = [
+  "cannabis",
+  "cannabis store",
+  "dispensary",
+  "marijuana",
+  "weed",
+  "pot",
+  "Lake County",
+  "California",
+  "Triple C Collective",
+  "flower",
+  "dab",
+  "concentrate",
+  "edibles",
+  "cbd",
+  "kratom",
+  "wellness",
+  "Clearlake"
+];
+
 export const baseMetadata: Metadata = {
   title: SITE_NAME,
   description:
     "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California.",
   category: "Cannabis Dispensary",
-  keywords: [
-    "cannabis",
-    "cannabis store",
-    "dispensary",
-    "marijuana",
-    "weed",
-    "pot",
-    "Lake County",
-    "California",
-    "Triple C Collective",
-    "flower",
-    "dab",
-    "concentrate",
-    "edibles",
-    "cbd",
-    "kratom",
-    "wellness",
-    "Clearlake"
-  ],
+  keywords: BASE_KEYWORDS,
   authors: [
     {
       name: "Jared Mercer",

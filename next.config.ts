@@ -46,7 +46,8 @@ const getRemotePatterns = (): RemotePattern[] => {
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: getRemotePatterns(),
-    dangerouslyAllowLocalIP: isDev
+    dangerouslyAllowLocalIP: isDev,
+    qualities: [100, 75]
   },
   async headers() {
     return [

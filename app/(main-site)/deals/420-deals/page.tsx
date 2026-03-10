@@ -6,19 +6,21 @@ import { GoogleMapEmbed } from "@/app/_components/google-map-embed";
 import { ImageViewer } from "@/app/_components/image-viewer";
 import { FourTwentyDeals } from "@/app/(main-site)/deals/420-deals/420-deals";
 
-import { createMetadata } from "@/lib/metadata";
+import { BASE_KEYWORDS, createMetadata } from "@/lib/metadata";
 
 import fourTwentyLogo from "@/public/images/4-20/420_logo-resized.png";
+import purpleCannabisBackgroundImage from "@/public/images/4-20/purple-cannabis-bg.jpg";
 
 const fourTwentyFlyerPath = "/images/4-20/420-flyer-with-bags.jpg";
 
-const SHOW_PAGE = false;
+// TODO: Change me when we're ready to push the page live
+const SHOW_PAGE = process.env.NODE_ENV === "development";
 
 export const metadata: Metadata = createMetadata({
   title: "4/20 Deals",
   description:
     "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California.",
-  keywords: ["420 deals", "4-20 deals"]
+  keywords: [...BASE_KEYWORDS, "420 deals", "4-20 deals"]
 });
 
 export default function FourTwentyDealsPage() {
@@ -27,7 +29,18 @@ export default function FourTwentyDealsPage() {
   }
 
   return (
-    <main className="bg-[#fefefe]" id="main-content">
+    <main className="text-[#fefefe] relative" id="main-content">
+      <Image
+        className="absolute inset-0 z-0 object-cover object-center"
+        src={purpleCannabisBackgroundImage}
+        alt="Purple Cannabis Background Image"
+        fill
+        priority
+        quality={100}
+      />
+
+      <div className="absolute inset-0 z-0 bg-black/40" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-transparent to-[#16141f]" />
       <div className="relative mx-auto max-w-7xl rounded-sm px-4 py-6 sm:py-12">
         {/* Header */}
         <div className="motion-preset-expand mx-auto flex max-w-3xl items-center justify-center transition-all duration-300 hover:scale-110">
@@ -40,7 +53,7 @@ export default function FourTwentyDealsPage() {
           />
         </div>
 
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center z-20">
           <h1 className="animate-text font-logo bg-linear-to-r from-teal-500 via-purple-800 to-orange-500 bg-clip-text pb-8 text-center text-5xl font-black text-transparent md:text-7xl">
             4/20 Deals
           </h1>
