@@ -30,7 +30,8 @@ export const event: TrapTakeoverEventConfig = {
     "Akwaaba",
     "High 90's",
     "Midsfactory",
-    "Together Canna Supply"
+    "Together Canna Supply",
+    "Park Jams"
   ),
   flags: {
     featuredBrands: true,
