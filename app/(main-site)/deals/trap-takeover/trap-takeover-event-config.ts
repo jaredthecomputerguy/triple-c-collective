@@ -7,31 +7,27 @@ import {
 const dateString = formatAndValidateDate({
   year: 2026,
   month: 3,
-  day: 13
+  day: 20
 });
 
 const date = new Date(dateString);
-
-/* BOGO deals on High 90s!!!
-BOGO deals on Mids Factory!!!
-BOGO deals on Together Canna Supply!!!
-BOGO deals on Elevens gummies!!!
- * */
 
 export const event: TrapTakeoverEventConfig = {
   date,
   dateString,
   dateWithSuffix: getTrapTakeoverDateWithSuffix(date),
   flyer: {
-    image: "/images/trap-takeover/2026/03/031326-flyer.png",
-    pdf: "/images/trap-takeover/2026/03/031326-flyer.pdf"
+    image: "/images/trap-takeover/2026/03/032026-flyer.png",
+    // TODO: Make sure to update this too
+    pdf: "/images/trap-takeover/2026/03/032026-flyer.pdf"
   },
   featuredBrands: getFeaturedBrands(
-    "Akwaaba",
-    "High 90's",
+    "Chameleon Craft",
+    "Koa Cannabis Co.",
+    "Dompen",
+    "Park Jams",
     "Midsfactory",
-    "Together Canna Supply",
-    "Park Jams"
+    "Akwaaba"
   ),
   flags: {
     featuredBrands: true,

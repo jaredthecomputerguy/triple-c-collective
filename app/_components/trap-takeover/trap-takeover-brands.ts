@@ -139,5 +139,7 @@ const BRANDS = [
  * Pass `undefined` as the last or only arg to show the 'more brands coming soon...'
  */
 export const getFeaturedBrands = (...brandNames: BrandNames) => {
-  return BRANDS.filter((brand) => brandNames.includes(brand.name));
+  return BRANDS.filter((brand) => brandNames.includes(brand.name)).toSorted(
+    (a, b) => ((a.name ?? "") > (b.name ?? "") ? 1 : -1)
+  );
 };
