@@ -10,6 +10,7 @@ import { BASE_KEYWORDS, createMetadata } from "@/lib/metadata";
 
 import fourTwentyLogo from "@/public/images/4-20/420_logo-resized.png";
 import purpleCannabisBackgroundImage from "@/public/images/4-20/purple-cannabis-bg.jpg";
+import { Steam } from "@/app/_components/steam/steam";
 
 const fourTwentyFlyerPath = "/images/4-20/2026/420-2026-Flyer-Final.png";
 
@@ -29,6 +30,7 @@ export default function FourTwentyDealsPage() {
 
   return (
     <main className="text-[#fefefe] relative" id="main-content">
+      <Steam />
       <Image
         className="absolute inset-0 z-0 object-cover object-center"
         src={purpleCannabisBackgroundImage}
