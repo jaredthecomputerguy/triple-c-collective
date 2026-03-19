@@ -10,11 +10,13 @@ import { BASE_KEYWORDS, createMetadata } from "@/lib/metadata";
 
 import fourTwentyLogo from "@/public/images/4-20/420_logo-resized.png";
 import purpleCannabisBackgroundImage from "@/public/images/4-20/purple-cannabis-bg.jpg";
+import { Steam } from "@/app/_components/steam/steam";
 
 const fourTwentyFlyerPath = "/images/4-20/420-flyer-with-bags.jpg";
 
 // TODO: Change me when we're ready to push the page live
-const SHOW_PAGE = process.env.NODE_ENV === "development";
+//const SHOW_PAGE = false;
+const SHOW_PAGE = true;
 
 export const metadata: Metadata = createMetadata({
   title: "4/20 Deals",
@@ -30,6 +32,7 @@ export default function FourTwentyDealsPage() {
 
   return (
     <main className="text-[#fefefe] relative" id="main-content">
+      <Steam />
       <Image
         className="absolute inset-0 z-0 object-cover object-center"
         src={purpleCannabisBackgroundImage}
@@ -40,10 +43,10 @@ export default function FourTwentyDealsPage() {
       />
 
       <div className="absolute inset-0 z-0 bg-black/40" />
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-transparent to-[#16141f]" />
+      <div className="absolute inset-0 z-0 bg-linear-to-b from-transparent via-transparent to-[#16141f]" />
       <div className="relative mx-auto max-w-7xl rounded-sm px-4 py-6 sm:py-12">
         {/* Header */}
-        <div className="motion-preset-expand mx-auto flex max-w-3xl items-center justify-center transition-all duration-300 hover:scale-110">
+        <div className="motion-preset-expand mx-auto flex items-center justify-center transition-all duration-300 hover:scale-110">
           <Image
             className="aspect-4/3"
             src={fourTwentyLogo}
@@ -54,11 +57,11 @@ export default function FourTwentyDealsPage() {
         </div>
 
         <div className="flex flex-col items-center z-20">
-          <h1 className="animate-text font-logo bg-linear-to-r from-teal-500 via-purple-800 to-orange-500 bg-clip-text pb-8 text-center text-5xl font-black text-transparent md:text-7xl">
-            4/20 Deals
+          <h1 className="font-logo pb-8 text-center text-5xl font-black md:text-7xl leading-14">
+            Celebrate 4/20 with Triple C
           </h1>
-          <span className="w-full text-center text-2xl font-semibold">
-            Sales All Weekend
+          <span className="w-full text-center text-2xl font-semibold uppercase font-logo">
+            All Weekend
           </span>
           <span className="w-full text-center text-sm font-semibold md:text-lg">
             Trap Takeover - Friday 4/18 & Saturday 4/19
@@ -70,15 +73,15 @@ export default function FourTwentyDealsPage() {
 
         {/* Flyer */}
         <div className="pb-16">
-          <div className="mx-auto w-fit">
+          <div className="mx-auto w-full max-w-372.25">
             <ImageViewer
-              className="aspect-1163/1600 h-96 w-72 cursor-pointer rounded-sm border-white sm:h-175 sm:w-125"
+              className="cursor-pointer rounded-sm border-white"
               src={fourTwentyFlyerPath}
               alt="4/20 Sales"
-              width={1163}
-              height={1600}
+              width={1489}
+              height={2047}
             />
-            <p className="py-1 text-center text-sm font-semibold text-gray-600">
+            <p className="py-1 text-center text-sm font-semibold text-white">
               (Click the image to expand)
             </p>
           </div>
