@@ -22,12 +22,12 @@ export const event: TrapTakeoverEventConfig = {
     pdf: "/images/trap-takeover/2026/03/032026-flyer.pdf"
   },
   featuredBrands: getFeaturedBrands(
-    "Chameleon Craft",
-    "Koa Cannabis Co.",
     "Dompen",
+    "Koa Cannabis Co.",
+    "Hashtag",
     "Park Jams",
-    "Midsfactory",
-    "Akwaaba"
+    "Chameleon Craft",
+    "Sweetleaf Collective"
   ),
   flags: {
     featuredBrands: true,
