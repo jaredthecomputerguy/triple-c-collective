@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  getTimeRemainingUntilFourTwenty,
-  type TimeRemainingUntilDate
-} from "@/lib/utils/server";
+import { getTimeRemainingUntilFourTwenty } from "@/lib/utils/server";
 import { useEffect, useState } from "react";
 
 export const FourTwentyTimer = () => {

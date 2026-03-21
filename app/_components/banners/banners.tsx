@@ -1,5 +1,3 @@
-import type { ComponentType } from "react";
-
 import {
   TrapTakeoverBanner,
   StiiizyBanner,
@@ -19,21 +17,6 @@ import {
   ThanksgivingBanner,
   BestOfLakeAndMendocinoWinnerBanner
 } from "@/app/_components/banners";
-
-// biome-ignore lint/suspicious/noExplicitAny: I need the any here
-type ComponentTypeWithAny = ComponentType<any>;
-
-// Extract props from a React component
-type PropsOf<T extends ComponentTypeWithAny> =
-  T extends ComponentType<infer P> ? P : never;
-
-// The core entry type
-interface BannerEntry<T extends ComponentTypeWithAny> {
-  Component: T;
-  active?: boolean;
-  order?: Order; // lower = higher priority
-  props?: Partial<PropsOf<T>>;
-}
 
 enum Order {
   First = 0,
@@ -84,7 +67,7 @@ const bannerConfig = [
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "Fri, March 20th | 12-6PM",
+      bannerSubText: "Fri March 27th | 12-6PM",
       mini: true
     }
   }),

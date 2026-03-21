@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  type TimeRemainingUntilDate,
-  getTimeRemainingUntilNextFriday
-} from "@/lib/utils/server";
+import { getTimeRemainingUntilNextFriday } from "@/lib/utils/server";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";

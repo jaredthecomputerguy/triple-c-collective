@@ -7,26 +7,25 @@ import {
 const dateString = formatAndValidateDate({
   year: 2026,
   month: 3,
-  day: 20
+  day: 27
 });
 
 const date = new Date(dateString);
 
 export const event: TrapTakeoverEventConfig = {
-  date,
+  date: new Date(dateString),
   dateString,
   dateWithSuffix: getTrapTakeoverDateWithSuffix(date),
   flyer: {
-    image: "/images/trap-takeover/2026/03/032026-flyer.png",
-    // TODO: Make sure to update this too
-    pdf: "/images/trap-takeover/2026/03/032026-flyer.pdf"
+    image: "/images/trap-takeover/2026/03/032726-flyer.png",
+    pdf: "/images/trap-takeover/2026/03/032726-flyer.pdf"
   },
   featuredBrands: getFeaturedBrands(
-    "Dompen",
-    "Koa Cannabis Co.",
-    "Hashtag",
+    "Akwaaba",
+    "High 90's",
+    "Midsfactory",
+    "Big Boy Dro",
     "Park Jams",
-    "Chameleon Craft",
     "Sweetleaf Collective"
   ),
   flags: {
@@ -39,25 +38,4 @@ export const event: TrapTakeoverEventConfig = {
     video: false,
     individualDeals: false
   }
-};
-
-type TrapTakeoverEventConfig = {
-  date: Date;
-  dateString: string;
-  dateWithSuffix: string;
-  flyer: {
-    image: string;
-    pdf: string;
-  };
-  featuredBrands: ReturnType<typeof getFeaturedBrands>;
-  flags: {
-    featuredBrands: boolean;
-    flyer: boolean;
-    giftBags: boolean;
-    freeFood: boolean;
-    specialArtPromo: boolean;
-    specialPromo: boolean;
-    video: boolean;
-    individualDeals: boolean;
-  };
 };
