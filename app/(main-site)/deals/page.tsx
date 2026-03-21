@@ -8,7 +8,7 @@ import { DealCategory } from "@/app/(main-site)/deals/deal-category";
 import { StiiizyDealCard } from "@/app/(main-site)/deals/stiiizy-deal-card";
 import { Calendar } from "@/app/_components/calendar";
 
-import { getDealImageUrl, type DealsResponse } from "@/lib/utils/server";
+import { getDealImageUrl } from "@/lib/utils/server";
 import { Logger } from "@/lib/logger";
 import { createMetadata } from "@/lib/metadata";
 

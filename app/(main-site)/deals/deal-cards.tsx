@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Route } from "next";
 import type { ReactNode } from "react";
 
-import { isDateLessThan, type Deal } from "@/lib/utils/server";
+import { isDateLessThan } from "@/lib/utils/server";
 import { Badge } from "@/app/(main-site)/deals/badge";
 
 const DAYS_TO_BE_CONSIDERED_NEW = 3;

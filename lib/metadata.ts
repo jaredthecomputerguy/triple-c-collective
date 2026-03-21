@@ -1,40 +1,5 @@
 import type { Metadata } from "next";
 
-type MetadataOverride = Partial<{
-  title: string;
-  description: string;
-  keywords: string | string[];
-  canonical: string;
-  openGraph: Partial<{
-    title: string;
-    description: string;
-    url: string;
-    siteName: string;
-    locale: string;
-    type: string;
-    images: Array<{
-      url: string;
-      width?: number;
-      height?: number;
-      alt?: string;
-    }>;
-  }>;
-  twitter: Partial<{
-    card: string;
-    title: string;
-    description: string;
-    images: string | Array<{ url: string; alt?: string }>;
-  }>;
-  robots: Partial<{
-    index: boolean;
-    follow: boolean;
-    googleBot: Partial<{
-      index: boolean;
-      follow: boolean;
-    }>;
-  }>;
-}>;
-
 const SITE_URL = process.env.SITE_URL || "https://tripleccollective.com";
 const SITE_NAME = "Triple C Collective";
 

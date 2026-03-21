@@ -2,40 +2,6 @@ import { z, ZodError } from "zod";
 import { Temporal } from "@js-temporal/polyfill";
 import { Logger } from "@/lib/logger";
 
-export type DealsResponse = {
-  page: number;
-  perPage: number;
-  totalItems: number;
-  totalPages: number;
-  items: Deal[];
-};
-
-export type Deal = {
-  id: string;
-  htmlId: string;
-  collectionId: string;
-  collectionName: string;
-  created: string; // ISO 8601 date string
-  updated: string; // ISO 8601 date string
-  description: string;
-  active: boolean;
-  brands: string[];
-  categories: string[];
-  subTypes: string;
-  typeSubtypes: string;
-  image: string;
-  imageBackgroundColor: string;
-  title: string;
-  badge: string;
-};
-
-export type TimeRemainingUntilDate = {
-  Days: string;
-  Hours: string;
-  Minutes: string;
-  Seconds: string;
-};
-
 const dateSchema = z
   .object({
     year: z.number().min(1900).max(2100),
