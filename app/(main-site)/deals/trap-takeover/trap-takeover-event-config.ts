@@ -4,6 +4,8 @@ import { Temporal } from "@js-temporal/polyfill";
 import { getFeaturedBrands } from "@/app/_components/trap-takeover/trap-takeover-brands";
 import { getTrapTakeoverDateWithSuffix } from "@/lib/utils/server";
 
+const TIME_ZONE = "America/Los_Angeles";
+
 const eventDateSchema = z
   .object({
     year: z.number().min(1900).max(2100),
@@ -29,21 +31,28 @@ const parsedDate = eventDateSchema.parse({
   day: 3
 });
 
-const eventDate = new Date(
+const eventPlainDate = new Temporal.PlainDate(
   parsedDate.year,
-  parsedDate.month - 1,
+  parsedDate.month,
   parsedDate.day
 );
 
+const eventDate = new Date(
+  eventPlainDate.toZonedDateTime({
+    timeZone: TIME_ZONE,
+    plainTime: new Temporal.PlainTime(12, 0)
+  }).epochMilliseconds
+);
+
 const fileNameFormatter = new Intl.DateTimeFormat("en-US", {
-  timeZone: "America/Los_Angeles",
+  timeZone: TIME_ZONE,
   month: "2-digit",
   day: "2-digit",
   year: "2-digit"
 });
 
 const readableDateFormatter = new Intl.DateTimeFormat("en-US", {
-  timeZone: "America/Los_Angeles",
+  timeZone: TIME_ZONE,
   weekday: "short",
   month: "long",
   day: "numeric",
@@ -52,9 +61,8 @@ const readableDateFormatter = new Intl.DateTimeFormat("en-US", {
 
 function formatDateForFile(date: Date, fileType: "png" | "pdf"): string {
   const filePrefix = fileNameFormatter.format(date).replaceAll("/", "");
-
-  const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const year = parsedDate.year;
+  const month = String(parsedDate.month).padStart(2, "0");
 
   return `/images/trap-takeover/${year}/${month}/${filePrefix}-flyer.${fileType}`;
 }
