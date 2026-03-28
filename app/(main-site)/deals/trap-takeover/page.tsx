@@ -13,7 +13,6 @@ import { event } from "@/app/(main-site)/deals/trap-takeover/trap-takeover-event
 import { createMetadata } from "@/lib/metadata";
 
 /* TODO: Eventually I will use this component. For now, we don't have visibility into the specific deals before the sale day
- *
 import {
   IndividualDeals,
   type IndividualDeal

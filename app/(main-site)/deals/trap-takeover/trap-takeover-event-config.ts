@@ -1,7 +1,8 @@
+import { z } from "zod";
+import { Temporal } from "@js-temporal/polyfill";
+
 import { getFeaturedBrands } from "@/app/_components/trap-takeover/trap-takeover-brands";
 import { getTrapTakeoverDateWithSuffix } from "@/lib/utils/server";
-import { Temporal } from "@js-temporal/polyfill";
-import { z } from "zod";
 
 const eventDateSchema = z
   .object({
@@ -66,7 +67,13 @@ export const event: TrapTakeoverEventConfig = {
     image: formatDateForFile(eventDate, "png"),
     pdf: formatDateForFile(eventDate, "pdf")
   },
-  featuredBrands: getFeaturedBrands(),
+  featuredBrands: getFeaturedBrands(
+    "Midsfactory",
+    "Park Jams",
+    "High 90's",
+    "Together Canna Supply",
+    "Sweetleaf Collective"
+  ),
   flags: {
     featuredBrands: true,
     flyer: true,
