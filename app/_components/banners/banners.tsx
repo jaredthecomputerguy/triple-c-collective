@@ -73,7 +73,7 @@ const bannerConfig = [
   }),
   generateBanner({
     Component: StiiizyBanner,
-    active: false,
+    active: true,
     order: Order.Second
   }),
   generateBanner({ Component: CloneBanner }),
