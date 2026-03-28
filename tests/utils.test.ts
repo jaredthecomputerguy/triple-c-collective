@@ -10,10 +10,7 @@ import {
   afterAll
 } from "bun:test";
 
-import {
-  getTimeRemainingUntilNextFriday,
-  formatAndValidateDate
-} from "@/lib/utils/server";
+import { getTimeRemainingUntilNextFriday } from "@/lib/utils/server";
 
 beforeAll(() => {
   vi.spyOn(console, "log").mockImplementation(() => {});

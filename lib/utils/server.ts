@@ -1,52 +1,5 @@
-import { z, ZodError } from "zod";
 import { Temporal } from "@js-temporal/polyfill";
 import { Logger } from "@/lib/logger";
-
-const dateSchema = z
-  .object({
-    year: z.number().min(1900).max(2100),
-    month: z.number().min(1).max(12),
-    day: z.number().min(1).max(31)
-  })
-  .refine(
-    ({ year, month, day }) => {
-      const FRIDAY = 5;
-      try {
-        const date = new Temporal.PlainDate(year, month, day);
-        return date.dayOfWeek === FRIDAY;
-      } catch {
-        return false;
-      }
-    },
-    { message: "Date must be a valid Friday" }
-  );
-
-/**
- * Validate and format a date object, ensuring it falls on a Friday.
- * Returns a localized string or "Error" if invalid.
- */
-export function formatAndValidateDate(dateObj: z.infer<typeof dateSchema>) {
-  try {
-    const parsed = dateSchema.parse(dateObj);
-    const date = new Temporal.PlainDate(parsed.year, parsed.month, parsed.day);
-
-    return date.toLocaleString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      weekday: "short"
-    });
-  } catch (e) {
-    if (e instanceof ZodError) {
-      Logger.error(
-        `ZodError: ${e.issues.map((err) => err.message).join(", ")}`
-      );
-    } else {
-      Logger.error(`Error: ${(e as Error).message}`);
-    }
-    return "Error";
-  }
-}
 
 export function getDealImageUrl(deal: Deal) {
   return `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_IMAGE_URL}/${deal.id}/${deal.image}`;
