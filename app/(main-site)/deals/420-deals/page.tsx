@@ -14,8 +14,6 @@ import { Steam } from "@/app/_components/steam/steam";
 
 const fourTwentyFlyerPath = "/images/4-20/420-flyer-with-bags.jpg";
 
-// TODO: Change me when we're ready to push the page live
-//const SHOW_PAGE = false;
 const SHOW_PAGE = false;
 
 export const metadata: Metadata = createMetadata({
