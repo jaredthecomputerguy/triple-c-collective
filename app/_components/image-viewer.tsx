@@ -27,27 +27,34 @@ export const ImageViewer = ({
     setIsMounted(true);
   }, []);
 
-  if (!isMounted) {
-    return (
-      <div className={cn(className, "flex items-center justify-center")}>
-        <div className="h-112.5 md:h-237.5 w-full animate-pulse rounded-lg bg-gray-300"></div>
-      </div>
-    );
-  }
-
   return (
-    <PhotoProvider>
-      <PhotoView src={src}>
-        <Image
-          className={className}
-          src={src}
-          alt={alt}
-          width={width}
-          height={height}
-          priority
-          tabIndex={0}
+    <div
+      className="relative w-full"
+      style={{
+        maxWidth: `${width}px`
+      }}>
+      {!isMounted ? (
+        <div
+          className={cn(
+            "h-full w-full animate-pulse rounded-sm bg-gray-300",
+            className
+          )}
         />
-      </PhotoView>
-    </PhotoProvider>
+      ) : (
+        <PhotoProvider>
+          <PhotoView src={src}>
+            <Image
+              className={cn("h-auto w-full max-w-3xl mx-auto", className)}
+              src={src}
+              alt={alt}
+              width={width}
+              height={height}
+              priority
+              tabIndex={0}
+            />
+          </PhotoView>
+        </PhotoProvider>
+      )}
+    </div>
   );
 };

@@ -24,7 +24,7 @@ export const TrapTakeoverFlyer = ({
       </h3>
       <hr />
       <ImageViewer
-        className="mx-auto my-8 w-full max-w-2xl cursor-pointer rounded-xl"
+        className="mx-auto my-8 cursor-pointer rounded-xl"
         src={flyerImagePath}
         alt={flyerImageAlt}
         width={1236}
