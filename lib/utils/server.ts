@@ -119,25 +119,25 @@ export function getTimeRemainingUntilNextFriday(
   return diffToDHMS(now.toInstant(), target.toInstant());
 }
 
-/** Remaining time until April 20 @ 16:20 in tz for the current year */
+/** Remaining time until April 20 @ 10:00 AM America/Los_Angeles */
 export function getTimeRemainingUntilFourTwenty(
   nowInput: Temporal.ZonedDateTime | Date,
   opts?: { timeZone?: string; hour?: number; minute?: number }
 ): TimeRemainingUntilDate {
-  const tz = opts?.timeZone ?? Temporal.Now.timeZoneId();
-  const hour = opts?.hour ?? 16;
-  const minute = opts?.minute ?? 20;
+  const tz = opts?.timeZone ?? "America/Los_Angeles";
+  const hour = opts?.hour ?? 10;
+  const minute = opts?.minute ?? 0;
 
   const now = toZdtNow(nowInput, tz);
 
-  const pdt = Temporal.PlainDateTime.from({
+  const target = Temporal.ZonedDateTime.from({
+    timeZone: tz,
     year: now.year,
     month: 4,
     day: 20,
     hour,
     minute
   });
-  const target = pdt.toZonedDateTime(tz);
 
   return diffToDHMS(now.toInstant(), target.toInstant());
 }

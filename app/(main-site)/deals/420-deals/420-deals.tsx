@@ -82,7 +82,8 @@ const FourTwentyDealCard = ({
   );
 };
 
-export const FourTwentyDeals = () => {
+export const FourTwentyDeals = ({ active }: { active: boolean }) => {
+  if (!active) return null;
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
       {/* Flower */}

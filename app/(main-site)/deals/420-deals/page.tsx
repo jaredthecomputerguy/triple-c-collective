@@ -12,9 +12,9 @@ import fourTwentyLogo from "@/public/images/4-20/420_logo-resized.png";
 import purpleCannabisBackgroundImage from "@/public/images/4-20/purple-cannabis-bg.jpg";
 import { Steam } from "@/app/_components/steam/steam";
 
-const fourTwentyFlyerPath = "/images/4-20/420-flyer-with-bags.jpg";
+const fourTwentyFlyerPath = "/images/4-20/2026/420-2026-Flyer-Final.png";
 
-const SHOW_PAGE = false;
+const SHOW_PAGE = true;
 
 export const metadata: Metadata = createMetadata({
   title: "4/20 Deals",
@@ -62,15 +62,15 @@ export default function FourTwentyDealsPage() {
             All Weekend
           </span>
           <span className="w-full text-center text-sm font-semibold md:text-lg">
-            Trap Takeover - Friday 4/18 & Saturday 4/19
+            Trap Takeover - Friday 4/17 to Sunday 4/19
           </span>
           <span className="w-full pb-8 text-center text-sm font-semibold md:text-lg">
-            4/20 - Sunday 4/20
+            4/20 Sale - Sunday 4/20
           </span>
         </div>
 
         {/* Flyer */}
-        <div className="pb-16">
+        <div className="pb-8">
           <div className="mx-auto w-full max-w-372.25">
             <ImageViewer
               className="cursor-pointer rounded-sm border-white"
@@ -86,11 +86,32 @@ export default function FourTwentyDealsPage() {
         </div>
 
         {/* Deals */}
-        <FourTwentyDeals />
+        <FourTwentyDeals active={false} />
 
-        <p className="p-4 text-center text-lg">
+        <p className="px-4 text-center text-lg">
           All Sales Are While Supplies Last
         </p>
+
+        {/* Underdog */}
+        <div>
+          <div className="flex flex-col pt-16 pb-4 font-semibold">
+            {" "}
+            <h3 className="font-logo text-4xl font-semibold">
+              Free Meal from Underdog Grill
+            </h3>
+            <hr className="pb-4" />
+            <div className="flex flex-col gap-2">
+              <p className="text-xl">
+                We’re teaming up with Underdog Grill this year again for 4/20.
+                They’ll be posted up in our parking lot serving food all day.
+              </p>
+              <p className="text-xl">
+                Make a purchase in the store and show your receipt at the truck
+                to receive a free meal.
+              </p>
+            </div>
+          </div>
+        </div>
 
         {/* Footer */}
         <div>
@@ -102,7 +123,7 @@ export default function FourTwentyDealsPage() {
             <hr className="pb-4" />
             <span className="text-xl">
               Show up on 4/20 and make a purchase to get a raffle ticket. The
-              winners will be drawn on Monday, 4/21 at 10 PM PST.
+              winners will be drawn on Tuesday, 4/21 at 10 AM.
             </span>
             <div className="grid grid-cols-1 gap-8 pt-8 md:grid-cols-2">
               <div>
@@ -112,13 +133,13 @@ export default function FourTwentyDealsPage() {
                   $300+ and merch from your favorite brands!
                 </p>
               </div>
-              <div>
+              {/* <div>
                 <h4 className="pb-2 text-3xl font-semibold">Store Credit</h4>
                 <p className="text-lg">
                   Win $200 in store credit to use on your next purchase or save
                   it for a rainy day
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
           <div>
