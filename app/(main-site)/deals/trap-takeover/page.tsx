@@ -66,7 +66,8 @@ export default function TrapTakeoverPage() {
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
         <span className="pb-1 text-gray-600">{event.dateString}</span>
         <h1 className="font-logo pb-4 text-4xl font-semibold">
-          Trap Takeover Sale
+          Trap Takeover
+          {/* TODO: Remove me after this week! */} + 4/20 Sale
         </h1>
         <hr className="pb-4" />
         <h2 className="font-logo py-8 pb-12 text-center text-2xl font-semibold md:text-left md:text-4xl">
