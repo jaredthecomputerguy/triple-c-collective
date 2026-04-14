@@ -90,6 +90,54 @@ export default function FourTwentyDealsPage() {
           All Sales Are While Supplies Last
         </p>
 
+        <div className="py-8 pt-16 flex flex-col gap-4">
+          <h2 className="font-logo text-4xl font-semibold">Deals</h2>
+          <hr className="pb-4" />
+          <ul className="list-disc">
+            <li>.25 CENT PREROLLS (LIMIT TBD)</li>
+            <li>BOGO ON MIDS PRODUCTS- MIX & MATCH IS ALLOWED (NO LIMIT) </li>
+            <li>BOGO ON DOMPEN PRODUCTS (LIMIT 2) </li>
+            <li>BOGO ON HIGH 90 PRODUCTS (LIMIT 2) </li>
+            <li>BOGO ON TOGETHER CANNA PRODUCTS (LIMIT 2) </li>
+            <li>B2 G1 ON BBD 8THS (LIMIT 2) </li>
+            <li>BOGO ON KOA 10PK PREROLLS (LIMIT 2) </li>
+            <li>BOGO ON PARK JAMS GUMMIES (LIMIT 2) </li>
+            <li>
+              BUY ANY EDIBLE GET A KUSHY PUNCH, PLUS , OR DROPS GUMMY (LIMIT 3){" "}
+            </li>
+            <li>
+              BUY ANY STIIIZY POD/DISPO/STARTER PK GET A 1G STIIIZY POD FOR $1
+              (LIMIT 1){" "}
+            </li>
+            <li>BUY ANY 2 AKWAABA GET 1 FOR A PENNY (LIMIT 3) </li>
+            <li>BUY 2 CHAMELON GET 1 FOR A PENNY (LIMIT 2) </li>
+            <li>
+              BUY ANY CARTRIDGE/ PARTICIPATE IN ANY CART/DISPO DEAL (FULL OR
+              HALF GRAM LIMIT 2) GET A RAW GARDEN BATTERY FOR $10.
+            </li>
+            <li>BUY ANY 7G, GET A EIGHTY EAST 7G FOR A PENNY (LIMIT 1) </li>
+            <li>
+              BUY ANY DRINK GET A ST. IDES GEORGIA PEACH FOR A PENNY. (LIMIT 2){" "}
+            </li>
+            <li>
+              BUY ANY 3.5G/ PARTICIPATE IN ANY FLOWER DEAL GET A WCT , CITIES ,
+              7L, EE, CLARKIES OR GLASSHOUSE FARMS 3.5G (LIMIT 1){" "}
+            </li>
+          </ul>
+
+          <div>
+            <h2 className="font-logo text-2xl font-semibold pb-4">
+              Reduced Prices
+            </h2>
+            <ul className="list-disc">
+              <li>TYSON FLOWER - $28</li>
+              <li>BOSKY FLOWER - $28</li>
+              <li>BBD STEP BROS &amp; SOUR PEZ 3.5G - $20</li>
+              <li>GARDEN SOCIETY GUMMIES - $20 </li>
+            </ul>
+          </div>
+        </div>
+
         {/* Underdog */}
         <div>
           <div className="flex flex-col pt-16 pb-4 font-semibold">
