@@ -139,6 +139,27 @@ export function getTimeRemainingUntilFourTwenty(
     minute
   });
 
+  const endOfPromoWindow = Temporal.ZonedDateTime.from({
+    timeZone: tz,
+    year: now.year,
+    month: 4,
+    day: 20,
+    hour: 21,
+    minute: 30
+  });
+
+  if (
+    Temporal.ZonedDateTime.compare(now, target) >= 0 &&
+    Temporal.ZonedDateTime.compare(now, endOfPromoWindow) <= 0
+  ) {
+    return {
+      Days: "00",
+      Hours: "00",
+      Minutes: "00",
+      Seconds: "00"
+    };
+  }
+
   return diffToDHMS(now.toInstant(), target.toInstant());
 }
 

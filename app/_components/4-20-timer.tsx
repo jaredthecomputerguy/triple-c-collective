@@ -4,7 +4,7 @@ import { getTimeRemainingUntilFourTwenty } from "@/lib/utils/server";
 import { useEffect, useState } from "react";
 
 export const FourTwentyTimer = () => {
-  const [timeLeft, setTimeLeft] = useState<TimeRemainingUntilDate>({
+  const [timeLeft, setTimeLeft] = useState<TimeRemainingUntilDate | string>({
     Days: "--",
     Hours: "--",
     Minutes: "--",
@@ -13,11 +13,29 @@ export const FourTwentyTimer = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeLeft(getTimeRemainingUntilFourTwenty(new Date()));
+      const result = getTimeRemainingUntilFourTwenty(new Date());
+
+      const isZero =
+        result.Days === "0" &&
+        result.Hours === "0" &&
+        result.Minutes === "0" &&
+        result.Seconds === "0";
+
+      if (isZero) {
+        setTimeLeft("LIVE TODAY @ 10AM");
+      } else {
+        setTimeLeft(result);
+      }
     }, 100);
 
     return () => clearInterval(interval);
   }, []);
+
+  if (typeof timeLeft === "string") {
+    return (
+      <div className="p-2 text-center font-bold text-white">{timeLeft}</div>
+    );
+  }
 
   return (
     <div className="flex gap-2 p-2">
