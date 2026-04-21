@@ -47,7 +47,7 @@ function generateBanner<T extends ComponentTypeWithAny>(
 const bannerConfig = [
   generateBanner({
     Component: GenericBanner,
-    active: false,
+    active: true,
     order: Order.First,
     props: {
       children: (
@@ -63,11 +63,11 @@ const bannerConfig = [
   }),
   generateBanner({
     Component: TrapTakeoverBanner,
-    active: false,
+    active: true,
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "TODAY | 12-6PM",
+      bannerSubText: "Fri April 24th | 12-6PM",
       mini: true
     }
   }),
@@ -77,7 +77,7 @@ const bannerConfig = [
     order: Order.Second
   }),
   generateBanner({ Component: CloneBanner }),
-  generateBanner({ Component: FourTwentyBanner, active: true }),
+  generateBanner({ Component: FourTwentyBanner }),
   generateBanner({ Component: ChristmasBanner }),
   generateBanner({ Component: MemorialDayBanner }),
   generateBanner({ Component: MothersDayBanner }),
