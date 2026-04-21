@@ -13,7 +13,7 @@ import purpleCannabisBackgroundImage from "@/public/images/4-20/purple-cannabis-
 
 const fourTwentyFlyerPath = "/images/4-20/2026/420-2026-Flyer-Final.png";
 
-const SHOW_PAGE = true;
+const SHOW_PAGE = false;
 
 export const metadata: Metadata = createMetadata({
   title: "4/20 Deals",
