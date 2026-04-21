@@ -12,12 +12,11 @@ import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 import { event } from "@/app/(main-site)/deals/trap-takeover/trap-takeover-event-config";
 import { createMetadata } from "@/lib/metadata";
 
-/* TODO: Eventually I will use this component. For now, we don't have visibility into the specific deals before the sale day
-import {
-  IndividualDeals,
-  type IndividualDeal
-} from "@/app/_components/trap-takeover/individual-deals"; 
-*/
+/* WARNING:
+ * Eventually I will use this component.
+ * For now, we don't have visibility into the specific deals before the sale day
+ * import { IndividualDeals, type IndividualDeal } from "@/app/_components/trap-takeover/individual-deals";
+ */
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Trap Takeover Sale - ${event.dateWithSuffix}`;

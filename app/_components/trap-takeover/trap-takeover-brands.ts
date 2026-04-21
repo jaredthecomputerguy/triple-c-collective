@@ -133,7 +133,6 @@ const BRANDS = [
 ] as const;
 
 /*
- *
  * This function takes a list of brand names and returns a filtered list of brands that match the names.
  *
  * Pass `undefined` as the last or only arg to show the 'more brands coming soon...'

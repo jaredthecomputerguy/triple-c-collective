@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { createMetadata } from "@/lib/metadata";
 
-import staffPhoto from "@/public/images/staff.jpg";
+import staffPhoto from "@/public/images/staff-2026.jpg";
 
 export const metadata: Metadata = createMetadata({
   title: "About",
@@ -24,7 +24,7 @@ export default function AboutPage() {
     <main className="mx-auto bg-[#fefefe]" id="main-content">
       <div className="relative flex flex-col items-center justify-center">
         <Image
-          className="aspect-video h-full max-h-[600px] w-full object-cover"
+          className="aspect-video h-full max-h-150 w-full object-cover"
           src="/images/store-updated-2.jpg"
           alt="Triple C Collective Storefront"
           width={1751}
@@ -81,8 +81,10 @@ export default function AboutPage() {
               </p>
             </div>
             <Image
-              className="aspect-3/2 rounded-xl object-cover"
+              className="aspect-3/2 rounded-xl object-cover max-w-full"
               src={staffPhoto}
+              width={600}
+              height={400}
               alt="Dispensary Staff"
             />
           </div>
