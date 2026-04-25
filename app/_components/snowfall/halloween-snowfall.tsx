@@ -33,7 +33,7 @@ export const HalloweenSnowfall = () => {
         position: "fixed",
         width: "100vw",
         height: "100vh",
-        zIndex: 50
+        zIndex: 50,
       }}
     />
   );

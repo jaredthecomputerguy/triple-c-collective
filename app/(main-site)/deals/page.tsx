@@ -18,7 +18,7 @@ const fetchDeals = async ({ cache }: { cache: boolean }) => {
   try {
     const res = await fetch(
       `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_DEAL_URL}?filter=active=true&sort=-updated`,
-      cache ? { cache: "no-store" } : undefined
+      cache ? { cache: "no-store" } : undefined,
     );
 
     if (!res.ok) {
@@ -63,7 +63,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "kratom",
       "wellness",
       "Clearlake",
-      ...dealBrands
+      ...dealBrands,
     ],
     openGraph: {
       title: "Deals | Triple C Collective",
@@ -71,8 +71,8 @@ export async function generateMetadata(): Promise<Metadata> {
       description: "Lake County's Premier Cannabis Dispensary",
       siteName: "Triple C Collective",
       locale: "en_US",
-      type: "website"
-    }
+      type: "website",
+    },
   });
 }
 
@@ -86,7 +86,7 @@ export default async function DealsPage() {
       }
       return acc;
     },
-    []
+    [],
   );
 
   const flowerAndPrerollDeals = deals.filter((deal) => {

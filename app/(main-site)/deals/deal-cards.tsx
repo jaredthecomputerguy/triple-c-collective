@@ -17,7 +17,7 @@ const formatUrl = (deal: Deal): Route => {
   params.set("subTypes", deal.subTypes);
   params.set(
     "typeSubtypes",
-    encodeURIComponent(JSON.stringify(deal.typeSubtypes))
+    encodeURIComponent(JSON.stringify(deal.typeSubtypes)),
   );
   return `${url.origin}${url.pathname}?${params.toString().replace(/\+/g, "%20")}` as Route;
 };
@@ -48,7 +48,7 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
                 backgroundColor:
                   deal.imageBackgroundColor === ""
                     ? "#FFFFFF"
-                    : deal.imageBackgroundColor
+                    : deal.imageBackgroundColor,
               }}
             />
             <div className="px-6 py-4">

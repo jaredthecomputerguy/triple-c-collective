@@ -32,17 +32,17 @@ export const BrandCarousel = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: true
-        }
+          infinite: true,
+        },
       },
       {
         breakpoint: 640,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (

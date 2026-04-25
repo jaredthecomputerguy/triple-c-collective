@@ -19,7 +19,7 @@ export const ImageViewer = ({
   src,
   alt,
   width,
-  height
+  height,
 }: ImageViewerProps) => {
   const [isMounted, setIsMounted] = useState(false);
 
@@ -31,13 +31,13 @@ export const ImageViewer = ({
     <div
       className="relative w-full"
       style={{
-        maxWidth: `${width}px`
+        maxWidth: `${width}px`,
       }}>
       {!isMounted ? (
         <div
           className={cn(
             "h-full w-full animate-pulse rounded-sm bg-gray-300",
-            className
+            className,
           )}
         />
       ) : (

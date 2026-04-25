@@ -3,7 +3,7 @@ import type { SVGProps } from "react";
 export const BarsIcon = ({
   className = "w-6 h-6",
   stroke = "currentColor",
-  strokeWidth = 1.5
+  strokeWidth = 1.5,
 }: SVGProps<SVGElement>) => {
   return (
     <svg

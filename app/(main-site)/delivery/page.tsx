@@ -9,7 +9,7 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
+  TableRow,
 } from "@/app/_components/table";
 
 import { createMetadata } from "@/lib/metadata";
@@ -36,15 +36,15 @@ export const metadata: Metadata = createMetadata({
     "kratom",
     "wellness",
     "Clearlake",
-    "delivery"
+    "delivery",
   ],
   openGraph: {
     title: "Delivery | Triple C Collective",
     description: "Lake County's Premier Cannabis Dispensary",
     siteName: "Triple C Collective",
     locale: "en_US",
-    type: "website"
-  }
+    type: "website",
+  },
 });
 
 export default function DeliveryPage() {

@@ -32,7 +32,7 @@ export const TrapTakeoverBanner = ({
     <div
       className={cn(
         "trap-takeover font-logo sticky top-0 flex items-center justify-center py-4 font-semibold md:px-4",
-        className
+        className,
       )}
       {...props}>
       <div className="mx-auto max-w-7xl">
@@ -40,20 +40,20 @@ export const TrapTakeoverBanner = ({
           <span
             className={cn(
               "my-2 flex items-center justify-center font-semibold md:my-4",
-              mini && "my-0"
+              mini && "my-0",
             )}>
             <Button
               asChild
               className={cn(
                 "px-1 py-2 text-2xl font-semibold decoration-yellow-500 md:text-4xl",
-                mini && "py-0"
+                mini && "py-0",
               )}
               variant="link">
               <Link href="/deals/trap-takeover" className={"flex flex-col"}>
                 <span
                   className={cn(
                     "font-trap-takeover trap-takeover-text text-4xl uppercase md:text-6xl",
-                    mini && "text-2xl"
+                    mini && "text-2xl",
                   )}>
                   {bannerText}
                 </span>
@@ -61,7 +61,7 @@ export const TrapTakeoverBanner = ({
                   <span
                     className={cn(
                       "font-trap-takeover trap-takeover-text uppercase",
-                      mini && "text-xl md:text-4xl"
+                      mini && "text-xl md:text-4xl",
                     )}>
                     {bannerSubText}
                   </span>

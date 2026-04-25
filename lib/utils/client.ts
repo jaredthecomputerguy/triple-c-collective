@@ -25,7 +25,7 @@ enum Months {
   September,
   October,
   November,
-  December
+  December,
 }
 
 export const getHeaderAndLogoImages = () => {
@@ -34,39 +34,39 @@ export const getHeaderAndLogoImages = () => {
   const day = today.getDate();
   let images: { logo: StaticImageData; header: StaticImageData } = {
     header: headerImg,
-    logo: logoImg
+    logo: logoImg,
   };
   switch (month) {
     case Months.October:
       images = {
         logo: halloweenLogoImg,
-        header: halloweenHeaderImg
+        header: halloweenHeaderImg,
       };
       break;
     case Months.November:
       images = {
         logo: thanksgivingLogoImg,
         // TODO: Add Thanksgiving header image
-        header: headerImg
+        header: headerImg,
       };
       break;
     case Months.December:
       if (day > 25) {
         images = {
           logo: newYearsLogoImg,
-          header: christmasHeaderImg
+          header: christmasHeaderImg,
         };
       } else {
         images = {
           logo: christmasLogoImg ?? logoImg,
-          header: christmasHeaderImg
+          header: christmasHeaderImg,
         };
       }
       break;
     default:
       images = {
         logo: logoImg,
-        header: headerImg
+        header: headerImg,
       };
       break;
   }
@@ -74,6 +74,6 @@ export const getHeaderAndLogoImages = () => {
   return {
     ...images,
     shouldOptimize:
-      !images.logo.src.endsWith(".gif") && !images.logo.src.endsWith(".svg")
+      !images.logo.src.endsWith(".gif") && !images.logo.src.endsWith(".svg"),
   };
 };

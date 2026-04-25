@@ -9,7 +9,7 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createMetadata({
   title: "Contact Us",
   description:
-    "If you have any questions or concerns, feel free to reach out to us. We are here to help you with all your cannabis needs and inquiries."
+    "If you have any questions or concerns, feel free to reach out to us. We are here to help you with all your cannabis needs and inquiries.",
 });
 
 export default function ContactPage() {

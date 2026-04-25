@@ -38,7 +38,7 @@ export const TopBanner = ({
       {...props}
       className={cn(
         className,
-        "font-logo sticky top-0 flex items-center justify-center font-semibold text-white md:px-4"
+        "font-logo sticky top-0 flex items-center justify-center font-semibold text-white md:px-4",
       )}>
       <div className="mx-auto max-w-7xl">{children}</div>
       <Button

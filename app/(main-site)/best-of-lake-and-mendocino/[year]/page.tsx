@@ -19,7 +19,7 @@ const parseYear = (year: string) => {
     Logger.error(
       "Parse error:",
       error?.flatten().formErrors[0],
-      `on "/best-of-lake-and-mendocino/${year}"`
+      `on "/best-of-lake-and-mendocino/${year}"`,
     );
     return notFound();
   } else {
@@ -28,7 +28,7 @@ const parseYear = (year: string) => {
 };
 
 export async function generateMetadata({
-  params
+  params,
 }: BestOfLakeAndMendocinoYearPageProps): Promise<Metadata> {
   const { year: rawYear } = await params;
   const year = parseYear(rawYear);
@@ -46,22 +46,22 @@ export async function generateMetadata({
       "edible sale",
       "cartridge sale",
       `Best of Lake and Mendocino ${year}`,
-      `Cannabis contest ${year}`
+      `Cannabis contest ${year}`,
     ],
     canonical: `/best-of-lake-and-mendocino/${year}`,
     openGraph: {
       description:
-        "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest."
+        "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest.",
     },
     twitter: {
       description:
-        "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest."
-    }
+        "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest.",
+    },
   });
 }
 
 export default async function BestOfLakeAndMendocinoPage({
-  params
+  params,
 }: BestOfLakeAndMendocinoYearPageProps) {
   const { year: rawYear } = await params;
 

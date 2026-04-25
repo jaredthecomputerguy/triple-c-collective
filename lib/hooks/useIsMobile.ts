@@ -7,7 +7,7 @@ export const useIsMobile = (mobileScreenSize = 768) => {
     (event: MediaQueryListEvent | MediaQueryList) => {
       setIsMobile(event.matches);
     },
-    []
+    [],
   );
 
   useEffect(() => {

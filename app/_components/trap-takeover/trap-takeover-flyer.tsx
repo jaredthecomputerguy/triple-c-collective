@@ -11,7 +11,7 @@ export const TrapTakeoverFlyer = ({
   active,
   flyerImagePath,
   flyerPDFPath,
-  flyerImageAlt
+  flyerImageAlt,
 }: TrapTakeoverFlyerProps) => {
   if (!active) {
     return null;

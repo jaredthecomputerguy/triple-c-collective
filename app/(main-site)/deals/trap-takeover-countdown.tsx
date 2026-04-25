@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 export const TrapTakeoverCountdown = ({
   linkUrl,
   target,
-  labelText
+  labelText,
 }: {
   linkUrl: string;
   target?: string;
@@ -18,7 +18,7 @@ export const TrapTakeoverCountdown = ({
     Days: "--",
     Hours: "--",
     Minutes: "--",
-    Seconds: "--"
+    Seconds: "--",
   });
 
   useEffect(() => {

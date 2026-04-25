@@ -20,7 +20,7 @@ export const BASE_KEYWORDS = [
   "cbd",
   "kratom",
   "wellness",
-  "Clearlake"
+  "Clearlake",
 ];
 
 export const baseMetadata: Metadata = {
@@ -32,21 +32,21 @@ export const baseMetadata: Metadata = {
   authors: [
     {
       name: "Jared Mercer",
-      url: "https://jaredthecomputerguy.dev"
-    }
+      url: "https://jaredthecomputerguy.dev",
+    },
   ],
   creator: "Jared Mercer",
   metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: "/"
+    canonical: "/",
   },
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
-      follow: true
-    }
+      follow: true,
+    },
   },
   openGraph: {
     siteName: SITE_NAME,
@@ -58,26 +58,26 @@ export const baseMetadata: Metadata = {
         url: `${SITE_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
-        alt: SITE_NAME
-      }
-    ]
+        alt: SITE_NAME,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     images: [
       {
         url: `${SITE_URL}/opengraph-image.png`,
-        alt: SITE_NAME
-      }
-    ]
-  }
+        alt: SITE_NAME,
+      },
+    ],
+  },
 };
 
 export function createMetadata(overrides: MetadataOverride = {}): Metadata {
   // Helper to ensure we never return null, only string or undefined
   const resolveString = (
     value: string | null | undefined,
-    fallback: string | null | undefined
+    fallback: string | null | undefined,
   ): string | undefined => {
     return value ?? fallback ?? undefined;
   };
@@ -89,7 +89,7 @@ export function createMetadata(overrides: MetadataOverride = {}): Metadata {
 
   const resolvedDescription = resolveString(
     overrides.description,
-    baseMetadata.description as string
+    baseMetadata.description as string,
   );
 
   // Merge robots safely
@@ -104,8 +104,8 @@ export function createMetadata(overrides: MetadataOverride = {}): Metadata {
             ...(typeof baseMetadata.robots.googleBot === "object"
               ? baseMetadata.robots.googleBot
               : {}),
-            ...(overrides.robots.googleBot || {})
-          }
+            ...(overrides.robots.googleBot || {}),
+          },
         }
       : overrides.robots || baseMetadata.robots;
 
@@ -115,7 +115,7 @@ export function createMetadata(overrides: MetadataOverride = {}): Metadata {
     description: resolvedDescription,
     ...(overrides.keywords && { keywords: overrides.keywords }),
     ...(overrides.canonical && {
-      alternates: { canonical: overrides.canonical }
+      alternates: { canonical: overrides.canonical },
     }),
     robots: resolvedRobots,
     openGraph: {
@@ -124,8 +124,8 @@ export function createMetadata(overrides: MetadataOverride = {}): Metadata {
       title: resolveString(overrides.openGraph?.title, resolvedTitle),
       description: resolveString(
         overrides.openGraph?.description,
-        resolvedDescription
-      )
+        resolvedDescription,
+      ),
     },
     twitter: {
       ...baseMetadata.twitter,
@@ -133,8 +133,8 @@ export function createMetadata(overrides: MetadataOverride = {}): Metadata {
       title: resolveString(overrides.twitter?.title, resolvedTitle),
       description: resolveString(
         overrides.twitter?.description,
-        resolvedDescription
-      )
-    }
+        resolvedDescription,
+      ),
+    },
   };
 }

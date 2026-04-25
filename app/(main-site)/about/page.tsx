@@ -11,12 +11,12 @@ export const metadata: Metadata = createMetadata({
   canonical: "/about",
   openGraph: {
     description:
-      "Learn more about Triple C Collective, Lake County's premier cannabis dispensary."
+      "Learn more about Triple C Collective, Lake County's premier cannabis dispensary.",
   },
   twitter: {
     description:
-      "Learn more about Triple C Collective, Lake County's premier cannabis dispensary."
-  }
+      "Learn more about Triple C Collective, Lake County's premier cannabis dispensary.",
+  },
 });
 
 export default function AboutPage() {

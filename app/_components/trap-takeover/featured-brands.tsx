@@ -6,7 +6,7 @@ import type { FeaturedBrand } from "@/app/_components/trap-takeover/trap-takeove
 
 export const FeaturedBrands = ({
   active,
-  featuredBrands
+  featuredBrands,
 }: {
   active: boolean;
   featuredBrands: FeaturedBrand[];
@@ -19,7 +19,7 @@ export const FeaturedBrands = ({
       <div
         className={cn(
           "grid grid-cols-2 place-items-center py-8 text-lg md:flex md:flex-wrap md:justify-evenly md:gap-4 md:py-12",
-          active ? "" : "sm:justify-start"
+          active ? "" : "sm:justify-start",
         )}>
         {active ? (
           featuredBrands.map((brand) => {
@@ -31,7 +31,7 @@ export const FeaturedBrands = ({
               <div
                 className={cn(
                   "flex flex-col items-center hover:underline",
-                  isLast && "col-span-2"
+                  isLast && "col-span-2",
                 )}
                 key={brand.name ?? "undefined"}>
                 <Link
@@ -49,7 +49,7 @@ export const FeaturedBrands = ({
                       className={cn(
                         "h-32 w-32 object-contain sm:h-56 sm:w-56",
                         brand.name === "And more..." &&
-                          "rounded-lg p-4 bg-[radial-gradient(circle_at_100%_0%,rgb(191,38,138)_0%,rgb(53,2,124)_100%)] bg-center bg-contain bg-no-repeat"
+                          "rounded-lg p-4 bg-[radial-gradient(circle_at_100%_0%,rgb(191,38,138)_0%,rgb(53,2,124)_100%)] bg-center bg-contain bg-no-repeat",
                       )}
                     />
                   ) : (

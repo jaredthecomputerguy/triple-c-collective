@@ -33,5 +33,5 @@ export {
   HalloweenBanner,
   GenericBanner,
   ThanksgivingBanner,
-  BestOfLakeAndMendocinoWinnerBanner
+  BestOfLakeAndMendocinoWinnerBanner,
 };

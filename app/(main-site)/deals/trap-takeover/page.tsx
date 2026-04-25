@@ -48,14 +48,14 @@ export async function generateMetadata(): Promise<Metadata> {
       "flower sale",
       "edible sale",
       "cartridge sale",
-      `Trap Takeover ${event.dateWithSuffix} sale`
+      `Trap Takeover ${event.dateWithSuffix} sale`,
     ],
     openGraph: {
       title,
       siteName: "Triple C Collective",
       locale: "en_US",
-      type: "website"
-    }
+      type: "website",
+    },
   });
 }
 

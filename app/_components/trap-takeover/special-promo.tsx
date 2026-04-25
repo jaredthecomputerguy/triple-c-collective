@@ -11,7 +11,7 @@ export const SpecialPromo = ({
   active,
   title,
   description,
-  icon
+  icon,
 }: SpecialPromoProps) => {
   if (!active) {
     return null;

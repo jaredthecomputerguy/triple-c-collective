@@ -21,7 +21,7 @@ export async function sendWelcomeEmailAction(user: SendWelcomeEmailInfo) {
       Logger.log("sendWelcomeEmailAction:", {
         toEmail,
         firstName,
-        lastName
+        lastName,
       });
       return { error: null };
     }
@@ -31,7 +31,7 @@ export async function sendWelcomeEmailAction(user: SendWelcomeEmailInfo) {
         email: toEmail,
         firstName,
         lastName,
-        audienceId
+        audienceId,
       });
 
     if (createContactError || !createContactData) {
@@ -45,8 +45,8 @@ export async function sendWelcomeEmailAction(user: SendWelcomeEmailInfo) {
         subject: "Welcome to the Triple C Newsletter!",
         react: WelcomeEmail({
           siteUrl: process.env.SITE_URL,
-          contactId: createContactData.id
-        })
+          contactId: createContactData.id,
+        }),
       });
 
     if (sendEmailError || !sendEmailData) {

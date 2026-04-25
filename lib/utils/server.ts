@@ -8,13 +8,13 @@ export function getDealImageUrl(deal: Deal) {
 export function getTrapTakeoverDateWithSuffix(trapTakeoverDate: Date) {
   const formatOptions: Intl.DateTimeFormatOptions = {
     month: "long",
-    day: "numeric"
+    day: "numeric",
   };
 
   try {
     const formattedDate = new Intl.DateTimeFormat(
       "en-US",
-      formatOptions
+      formatOptions,
     ).format(trapTakeoverDate);
 
     const day = trapTakeoverDate.getDate();
@@ -48,13 +48,13 @@ const zeros = (): TimeRemainingUntilDate => ({
   Days: "00",
   Hours: "00",
   Minutes: "00",
-  Seconds: "00"
+  Seconds: "00",
 });
 
 /** Ensure we’re working with a ZonedDateTime; accept Date or ZonedDateTime */
 function toZdtNow(
   now: Temporal.ZonedDateTime | Date,
-  tz: string
+  tz: string,
 ): Temporal.ZonedDateTime {
   if (now && typeof (now as Temporal.ZonedDateTime).toInstant === "function") {
     // already a ZonedDateTime
@@ -68,7 +68,7 @@ function toZdtNow(
 /** Convert ms diff to DHMS strings */
 function diffToDHMS(
   nowI: Temporal.Instant,
-  targetI: Temporal.Instant
+  targetI: Temporal.Instant,
 ): TimeRemainingUntilDate {
   const ms = targetI.epochMilliseconds - nowI.epochMilliseconds;
   if (ms <= 0) return zeros();
@@ -82,14 +82,14 @@ function diffToDHMS(
     Days: pad2(days),
     Hours: pad2(totalHours % 24),
     Minutes: pad2(totalMinutes % 60),
-    Seconds: pad2(totalSeconds % 60)
+    Seconds: pad2(totalSeconds % 60),
   };
 }
 
 /** Remaining time until next 1st or 3rd Friday (this/next month) at 12:00 local */
 export function getTimeRemainingUntilNextFriday(
   nowInput: Temporal.ZonedDateTime | Date,
-  opts?: { timeZone?: string; hour?: number; minute?: number }
+  opts?: { timeZone?: string; hour?: number; minute?: number },
 ): TimeRemainingUntilDate {
   const tz = opts?.timeZone ?? Temporal.Now.timeZoneId();
   const hour = opts?.hour ?? 12;
@@ -106,7 +106,7 @@ export function getTimeRemainingUntilNextFriday(
     hour,
     minute,
     second: 0,
-    millisecond: 0
+    millisecond: 0,
   });
 
   // If it is already Friday and past the target time, go to next Friday
@@ -122,7 +122,7 @@ export function getTimeRemainingUntilNextFriday(
 /** Remaining time until April 20 @ 10:00 AM America/Los_Angeles */
 export function getTimeRemainingUntilFourTwenty(
   nowInput: Temporal.ZonedDateTime | Date,
-  opts?: { timeZone?: string; hour?: number; minute?: number }
+  opts?: { timeZone?: string; hour?: number; minute?: number },
 ): TimeRemainingUntilDate {
   const tz = opts?.timeZone ?? "America/Los_Angeles";
   const hour = opts?.hour ?? 10;
@@ -136,7 +136,7 @@ export function getTimeRemainingUntilFourTwenty(
     month: 4,
     day: 20,
     hour,
-    minute
+    minute,
   });
 
   const endOfPromoWindow = Temporal.ZonedDateTime.from({
@@ -145,7 +145,7 @@ export function getTimeRemainingUntilFourTwenty(
     month: 4,
     day: 20,
     hour: 21,
-    minute: 30
+    minute: 30,
   });
 
   if (
@@ -156,7 +156,7 @@ export function getTimeRemainingUntilFourTwenty(
       Days: "00",
       Hours: "00",
       Minutes: "00",
-      Seconds: "00"
+      Seconds: "00",
     };
   }
 
@@ -167,7 +167,7 @@ export function getTimeRemainingUntilFourTwenty(
 export function isDateLessThan(
   dateStr: string,
   days: number,
-  timeZone: string = Temporal.Now.timeZoneId()
+  timeZone: string = Temporal.Now.timeZoneId(),
 ): boolean {
   const nowI = Temporal.Now.instant();
   let inputI: Temporal.Instant;

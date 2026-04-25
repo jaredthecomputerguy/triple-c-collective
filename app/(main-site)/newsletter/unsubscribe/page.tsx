@@ -28,23 +28,23 @@ export const metadata: Metadata = createMetadata({
     "cbd",
     "kratom",
     "wellness",
-    "Clearlake"
+    "Clearlake",
   ],
   openGraph: {
     title: "Newsletter Unsubscribe | Triple C Collective",
     description: "Lake County's Premier Cannabis Dispensary",
     siteName: "Triple C Collective",
     locale: "en_US",
-    type: "website"
+    type: "website",
   },
   robots: {
     follow: false,
     index: false,
     googleBot: {
       follow: false,
-      index: false
-    }
-  }
+      index: false,
+    },
+  },
 });
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -61,7 +61,7 @@ export default async function NewsletterUnsubscribePage(props: {
 
   const { data } = await resend.contacts.get({
     id: contactId,
-    audienceId: process.env.RESEND_GENERAL_AUDIENCE_ID
+    audienceId: process.env.RESEND_GENERAL_AUDIENCE_ID,
   });
 
   if (!data) {

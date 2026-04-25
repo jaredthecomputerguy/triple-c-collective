@@ -12,7 +12,7 @@ const LIST_OF_RESEND_IPS = [
   "44.228.126.217",
   "50.112.21.217",
   "52.24.126.164",
-  "54.148.139.208"
+  "54.148.139.208",
 ];
 
 const resendContactCreatedWebhookDataSchema = z.object({
@@ -26,8 +26,8 @@ const resendContactCreatedWebhookDataSchema = z.object({
     email: z.string(),
     first_name: z.optional(z.string()),
     last_name: z.optional(z.string()),
-    unsubscribed: z.boolean()
-  })
+    unsubscribed: z.boolean(),
+  }),
 });
 
 class WebhookError extends Error {
@@ -96,8 +96,8 @@ export const POST = async (req: Request) => {
         email: webhookData.data.email,
         firstName: webhookData.data.first_name,
         lastName: webhookData.data.last_name,
-        createdAt: webhookData.created_at
-      })
+        createdAt: webhookData.created_at,
+      }),
     });
 
     if (error) {

@@ -12,7 +12,7 @@ const flickerSpeedConstants = {
   normal: 7,
   fast: 4,
   faster: 2,
-  fastest: 0
+  fastest: 0,
 };
 
 // Types
@@ -51,7 +51,7 @@ const getOpacity = (): number => {
 const randomHexColor = (): string => {
   // http://www.paulirish.com/2009/random-hex-color-code-snippets/
   return `#${`000000${Math.floor(Math.random() * 16777215).toString(16)}`.slice(
-    -6
+    -6,
   )}`;
 };
 
@@ -64,7 +64,7 @@ const Sparkle = ({
   fadeOutSpeed = 50,
   newSparkleOnFadeOut = true,
   flicker = true,
-  flickerSpeed = "normal"
+  flickerSpeed = "normal",
 }: SparkleProps) => {
   // Refs
   const sparkleWrapperRef = useRef<HTMLSpanElement>(null);
@@ -132,16 +132,16 @@ const Sparkle = ({
         // Subtract size so sparkles don't get cut off by the edge of the canvas
         position: {
           x: Math.floor(
-            Math.random() * (sparkleCanvasRef.current.width - size)
+            Math.random() * (sparkleCanvasRef.current.width - size),
           ),
           y: Math.floor(
-            Math.random() * (sparkleCanvasRef.current.height - size)
-          )
+            Math.random() * (sparkleCanvasRef.current.height - size),
+          ),
         },
         size,
         opacity: getOpacity(),
         color: getColor(),
-        variant: getSpriteVariant()
+        variant: getSpriteVariant(),
       };
     };
 
@@ -152,7 +152,7 @@ const Sparkle = ({
         size: 0,
         opacity: 0,
         color: "",
-        variant: 0
+        variant: 0,
       });
     };
 
@@ -179,7 +179,7 @@ const Sparkle = ({
         0,
         0,
         sparkleCanvasRef.current.width,
-        sparkleCanvasRef.current.height
+        sparkleCanvasRef.current.height,
       );
 
       // Draw each sparkle
@@ -197,7 +197,7 @@ const Sparkle = ({
           sparkle.position.x,
           sparkle.position.y,
           sparkle.size,
-          sparkle.size
+          sparkle.size,
         );
 
         // Tint with the color
@@ -209,7 +209,7 @@ const Sparkle = ({
             sparkle.position.x,
             sparkle.position.y,
             sparkle.size,
-            sparkle.size
+            sparkle.size,
           );
         }
 
@@ -283,7 +283,7 @@ const Sparkle = ({
       if (!sparkleWrapperRef.current) return;
 
       const parentStyle = window.getComputedStyle(
-        sparkleWrapperRef.current.parentNode as Element
+        sparkleWrapperRef.current.parentNode as Element,
       );
       const boxSizing = parentStyle.getPropertyValue("box-sizing");
       const isHorizontalWritingMode =
@@ -307,7 +307,7 @@ const Sparkle = ({
 
       resizeObserverRef.current.observe(
         sparkleWrapperRef.current.parentNode as Element,
-        { box: boxSizing as ResizeObserverBoxOptions }
+        { box: boxSizing as ResizeObserverBoxOptions },
       );
     };
     if (!sparkleCanvasRef.current) {
@@ -340,7 +340,7 @@ const Sparkle = ({
     flicker,
     flickerSpeed,
     newSparkleOnFadeOut,
-    overflowPx
+    overflowPx,
   ]);
 
   return (
@@ -353,7 +353,7 @@ const Sparkle = ({
         position: "absolute",
         top: `-${overflowPx}px`,
         left: `-${overflowPx}px`,
-        pointerEvents: "none"
+        pointerEvents: "none",
       }}>
       <canvas ref={sparkleCanvasRef} />
     </span>

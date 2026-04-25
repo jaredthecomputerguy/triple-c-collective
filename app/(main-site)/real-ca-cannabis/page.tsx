@@ -29,15 +29,15 @@ export const metadata: Metadata = createMetadata({
     "cbd",
     "kratom",
     "wellness",
-    "Clearlake"
+    "Clearlake",
   ],
   openGraph: {
     title: "Real CA Cannabis | Triple C Collective",
     description: "Lake County's Premier Cannabis Dispensary",
     siteName: "Triple C Collective",
     locale: "en_US",
-    type: "website"
-  }
+    type: "website",
+  },
 });
 
 export default async function RealCACannabisPage() {

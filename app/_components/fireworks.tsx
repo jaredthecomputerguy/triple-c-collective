@@ -3,7 +3,7 @@
 import {
   Fireworks as FireworksJS,
   type FireworksHandlers,
-  type FireworksOptions
+  type FireworksOptions,
 } from "@fireworks-js/react";
 import { useRef, useState, type RefObject } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./tooltip";
@@ -14,7 +14,7 @@ const fireworkOptions: FireworksOptions = {
   opacity: 0.5,
   acceleration: 1,
   intensity: 10,
-  particles: 20
+  particles: 20,
 };
 
 export const Fireworks = () => {
@@ -32,7 +32,7 @@ export const Fireworks = () => {
           height: "100%",
           position: "fixed",
           zIndex: 100,
-          pointerEvents: "none"
+          pointerEvents: "none",
         }}
       />
       <FireworksToggle fireworkRef={fireworkRef} />
@@ -41,7 +41,7 @@ export const Fireworks = () => {
 };
 
 const FireworksToggle = ({
-  fireworkRef
+  fireworkRef,
 }: {
   fireworkRef: RefObject<FireworksHandlers | null>;
 }) => {
@@ -63,7 +63,7 @@ const FireworksToggle = ({
         <button
           className={cn(
             "fixed bottom-24 bg-black left-5 z-100 p-2 rounded-full ring",
-            isOn ? "ring-amber-400/50" : "ring-white/50"
+            isOn ? "ring-amber-400/50" : "ring-white/50",
           )}
           onClick={toggle}
           type="button">
