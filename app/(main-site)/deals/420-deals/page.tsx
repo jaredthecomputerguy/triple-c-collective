@@ -19,7 +19,7 @@ export const metadata: Metadata = createMetadata({
   title: "4/20 Deals",
   description:
     "Explore the best in medicinal and recreational cannabis at Triple C Collective, serving Lake County, California.",
-  keywords: [...BASE_KEYWORDS, "420 deals", "4-20 deals"]
+  keywords: [...BASE_KEYWORDS, "420 deals", "4-20 deals"],
 });
 
 export default function FourTwentyDealsPage() {

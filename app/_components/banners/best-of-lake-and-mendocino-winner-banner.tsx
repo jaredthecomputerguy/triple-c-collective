@@ -8,7 +8,7 @@ interface BestOfLakeAndMendocinoWinnerBannerProps {
 }
 
 export const BestOfLakeAndMendocinoWinnerBanner = ({
-  active
+  active,
 }: BestOfLakeAndMendocinoWinnerBannerProps) => {
   if (!active) return null;
   return (

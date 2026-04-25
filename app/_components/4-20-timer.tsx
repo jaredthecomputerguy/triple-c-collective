@@ -8,7 +8,7 @@ export const FourTwentyTimer = () => {
     Days: "--",
     Hours: "--",
     Minutes: "--",
-    Seconds: "--"
+    Seconds: "--",
   });
 
   useEffect(() => {

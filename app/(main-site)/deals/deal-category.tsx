@@ -9,7 +9,7 @@ interface DealCategoryProps {
 export const DealCategory = ({
   categoryTitle,
   categorySubtitle,
-  deals
+  deals,
 }: DealCategoryProps) => {
   if (!deals.length) {
     return null;

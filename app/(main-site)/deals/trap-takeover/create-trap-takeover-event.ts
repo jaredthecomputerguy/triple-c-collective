@@ -10,7 +10,7 @@ const eventDateSchema = z
   .object({
     year: z.number().min(1900).max(2100),
     month: z.number().min(1).max(12),
-    day: z.number().min(1).max(31)
+    day: z.number().min(1).max(31),
   })
   .refine(
     ({ year, month, day }) => {
@@ -23,14 +23,14 @@ const eventDateSchema = z
         return false;
       }
     },
-    { message: "Date must be a valid Friday" }
+    { message: "Date must be a valid Friday" },
   );
 
 const fileNameFormatter = new Intl.DateTimeFormat("en-US", {
   timeZone: TIME_ZONE,
   month: "2-digit",
   day: "2-digit",
-  year: "2-digit"
+  year: "2-digit",
 });
 
 const readableDateFormatter = new Intl.DateTimeFormat("en-US", {
@@ -38,7 +38,7 @@ const readableDateFormatter = new Intl.DateTimeFormat("en-US", {
   weekday: "short",
   month: "long",
   day: "numeric",
-  year: "numeric"
+  year: "numeric",
 });
 
 type FeaturedBrandName = Exclude<
@@ -62,7 +62,7 @@ const defaultFlags: TrapTakeoverEventConfig["flags"] = {
   specialArtPromo: false,
   specialPromo: false,
   video: false,
-  individualDeals: false
+  individualDeals: false,
 };
 
 function createEventDate(year: number, month: number, day: number): Date {
@@ -71,14 +71,14 @@ function createEventDate(year: number, month: number, day: number): Date {
   const plainDate = new Temporal.PlainDate(
     parsedDate.year,
     parsedDate.month,
-    parsedDate.day
+    parsedDate.day,
   );
 
   return new Date(
     plainDate.toZonedDateTime({
       timeZone: TIME_ZONE,
-      plainTime: new Temporal.PlainTime(12, 0)
-    }).epochMilliseconds
+      plainTime: new Temporal.PlainTime(12, 0),
+    }).epochMilliseconds,
   );
 }
 
@@ -86,7 +86,7 @@ function formatDateForFile(
   date: Date,
   fileType: "png" | "pdf",
   year: number,
-  month: number
+  month: number,
 ): string {
   const filePrefix = fileNameFormatter.format(date).replaceAll("/", "");
   const paddedMonth = String(month).padStart(2, "0");
@@ -99,7 +99,7 @@ export function createTrapTakeoverEvent({
   month,
   day,
   featuredBrands,
-  flags = {}
+  flags = {},
 }: TrapTakeoverInput): TrapTakeoverEventConfig {
   const eventDate = createEventDate(year, month, day);
   const resolvedFeaturedBrands: FeaturedBrandName[] = featuredBrands ?? [];
@@ -109,12 +109,12 @@ export function createTrapTakeoverEvent({
     dateWithSuffix: getTrapTakeoverDateWithSuffix(eventDate),
     flyer: {
       image: formatDateForFile(eventDate, "png", year, month),
-      pdf: formatDateForFile(eventDate, "pdf", year, month)
+      pdf: formatDateForFile(eventDate, "pdf", year, month),
     },
     featuredBrands: getFeaturedBrands(...resolvedFeaturedBrands),
     flags: {
       ...defaultFlags,
-      ...flags
-    }
+      ...flags,
+    },
   };
 }

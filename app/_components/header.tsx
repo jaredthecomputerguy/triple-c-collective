@@ -22,7 +22,7 @@ import {
   MobileNavLink,
   NavLink,
   DESKTOP_LINKS,
-  MOBILE_LINKS
+  MOBILE_LINKS,
 } from "@/app/_components/nav-links";
 
 export const Header = () => {
@@ -43,7 +43,7 @@ export const Header = () => {
     currentPath,
     setCurrentPath,
     setShowMobileMenu,
-    setShowMoreLinksMenu
+    setShowMoreLinksMenu,
   );
   useScrollHeader(setShouldHeaderShow, setShowMobileMenu);
   useViewportHeight(setViewportHeight);
@@ -56,7 +56,7 @@ export const Header = () => {
         shouldHeaderShow
           ? "pointer-events-auto opacity-100"
           : "pointer-events-none opacity-0",
-        "sticky top-0 z-40 bg-[#fefefe] shadow-sm transition-opacity duration-300 ease-in-out"
+        "sticky top-0 z-40 bg-[#fefefe] shadow-sm transition-opacity duration-300 ease-in-out",
       )}>
       <Banners />
       <div className="group bg-primary-purple sticky top-0">
@@ -120,7 +120,7 @@ export const Header = () => {
           <>
             <nav
               className={cn(
-                "bg-primary-purple absolute top-16 right-0 w-full overflow-y-auto py-1.5 text-center text-white md:hidden"
+                "bg-primary-purple absolute top-16 right-0 w-full overflow-y-auto py-1.5 text-center text-white md:hidden",
               )}>
               <ul className="bg-primary-purple flex w-full flex-col">
                 {MOBILE_LINKS.map((link) => {

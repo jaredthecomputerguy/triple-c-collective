@@ -8,7 +8,7 @@ import {
   PillBottle,
   Briefcase,
   Cannabis,
-  Store
+  Store,
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -21,7 +21,7 @@ import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
-  AccordionContent
+  AccordionContent,
 } from "@/app/_components/accordian";
 
 import { createMetadata, baseMetadata } from "@/lib/metadata";
@@ -31,7 +31,7 @@ import VOTE_FOR_US_IMAGE from "@/public/images/bolm/vote-for-us.png";
 type BestOfLakeAndMendocinoPageProps = { params: Promise<{ year: string }> };
 
 export async function generateMetadata({
-  params
+  params,
 }: BestOfLakeAndMendocinoYearPageProps): Promise<Metadata> {
   const { year: rawYear } = await params;
   const year = parseYear(rawYear);
@@ -49,17 +49,17 @@ export async function generateMetadata({
       "edible sale",
       "cartridge sale",
       `Best of Lake and Mendocino ${year}`,
-      `Cannabis contest ${year}`
+      `Cannabis contest ${year}`,
     ],
     canonical: `/best-of-lake-and-mendocino/${year}`,
     openGraph: {
       description:
-        "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest."
+        "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest.",
     },
     twitter: {
       description:
-        "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest."
-    }
+        "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest.",
+    },
   });
 }
 
@@ -70,103 +70,103 @@ const FAQ: { id: number; trigger: string; content: string }[] = [
     id: 1,
     trigger: "What is the Best of Lake and Mendocino contest?",
     content:
-      "The Best of Lake and Mendocino, presented by Bicoastal Media, is a community-driven contest that highlights the best businesses, services, and organizations in Lake and Mendocino counties."
+      "The Best of Lake and Mendocino, presented by Bicoastal Media, is a community-driven contest that highlights the best businesses, services, and organizations in Lake and Mendocino counties.",
   },
   {
     id: 2,
     trigger: "How was Triple C Collective nominated?",
     content:
-      "Nominations come directly from the community. After the nomination period closes, verified nominees like Triple C Collective are placed on the official ballot for voting."
+      "Nominations come directly from the community. After the nomination period closes, verified nominees like Triple C Collective are placed on the official ballot for voting.",
   },
   {
     id: 3,
     trigger: "In which categories is Triple C Collective nominated?",
     content:
-      "We’ve been nominated in multiple categories, including Best Cannabis Dispensary, Best CBD Products, Best Budtender Team, and more."
+      "We’ve been nominated in multiple categories, including Best Cannabis Dispensary, Best CBD Products, Best Budtender Team, and more.",
   },
   {
     id: 4,
     trigger: "How does voting work?",
     content:
-      "Once voting begins, community members can cast one vote per category every 24 hours. Voting is done entirely online through the Best of Lake and Mendocino website."
+      "Once voting begins, community members can cast one vote per category every 24 hours. Voting is done entirely online through the Best of Lake and Mendocino website.",
   },
   {
     id: 5,
     trigger: "Do I need to register to vote?",
     content:
-      "Yes. Registration with basic information, like your name and email, is required to validate votes and prevent fraud."
+      "Yes. Registration with basic information, like your name and email, is required to validate votes and prevent fraud.",
   },
   {
     id: 6,
     trigger: "Can I vote in person or with a paper ballot?",
     content:
-      "No. All voting is done online only — there are no in-person or paper ballot options."
+      "No. All voting is done online only — there are no in-person or paper ballot options.",
   },
   {
     id: 7,
     trigger: "How many times can I vote for Triple C Collective?",
     content:
-      "You can vote once per category per day. That means you can support Triple C Collective daily throughout the entire voting period."
+      "You can vote once per category per day. That means you can support Triple C Collective daily throughout the entire voting period.",
   },
   {
     id: 8,
     trigger: "When does voting take place?",
     content:
-      "The regular voting period runs from Wednesday, September 17th at 12:00 pm through Wednesday, October 1st at 5:00 pm."
+      "The regular voting period runs from Wednesday, September 17th at 12:00 pm through Wednesday, October 1st at 5:00 pm.",
   },
   {
     id: 9,
     trigger: "When will winners be announced?",
     content:
-      "Winners will be posted on the Best of Lake and Mendocino website on Wednesday, January 7th at 12:00 pm and featured in the official winners magazine."
+      "Winners will be posted on the Best of Lake and Mendocino website on Wednesday, January 7th at 12:00 pm and featured in the official winners magazine.",
   },
   {
     id: 10,
     trigger: "How are votes counted?",
     content:
-      "Votes are tabulated by a third-party. Bicoastal Media and its affiliates don’t see the results until the tabulation is complete. Votes suspected of fraud or tampering may be disqualified."
+      "Votes are tabulated by a third-party. Bicoastal Media and its affiliates don’t see the results until the tabulation is complete. Votes suspected of fraud or tampering may be disqualified.",
   },
   {
     id: 11,
     trigger: "What happens if Triple C Collective wins?",
     content:
-      "Winning is a community recognition of our service, products, and team. We’ll proudly share the award with our customers and continue to serve Lake and Mendocino counties with excellence."
-  }
+      "Winning is a community recognition of our service, products, and team. We’ll proudly share the award with our customers and continue to serve Lake and Mendocino counties with excellence.",
+  },
 ];
 
 const CATEGORIES = [
   {
     name: "CBD Products",
     icon: PillBottle,
-    description: "Recognized for our premium CBD product selection and quality"
+    description: "Recognized for our premium CBD product selection and quality",
   },
   {
     name: "Cannabis Dispensary",
     icon: Building,
-    description: "Honored as a top cannabis dispensary in the region"
+    description: "Honored as a top cannabis dispensary in the region",
   },
   {
     name: "Cannabis Expert Budtender Team",
     icon: Users,
-    description: "Our knowledgeable team provides exceptional customer service"
+    description: "Our knowledgeable team provides exceptional customer service",
   },
   {
     name: "Cannabis Flower",
     icon: Cannabis,
-    description: "Celebrated for our premium flower selection and quality"
+    description: "Celebrated for our premium flower selection and quality",
   },
   {
     name: "Place to Work",
     icon: Briefcase,
     description:
-      "Recognized as an outstanding workplace in the cannabis industry"
+      "Recognized as an outstanding workplace in the cannabis industry",
   },
   {
     name: "Vape/Smoke Shop",
     icon: Store,
     description:
-      "Acknowledged for our comprehensive vape and smoking accessories"
-  }
+      "Acknowledged for our comprehensive vape and smoking accessories",
+  },
 ];
 
 export default function BestOfLakeAndMendocinoPage() {

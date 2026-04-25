@@ -24,20 +24,20 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
   const { toast } = useToast();
 
   const handleNewsletterBannerSubmit = async (
-    e: FormEvent<HTMLFormElement>
+    e: FormEvent<HTMLFormElement>,
   ) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     const { error } = await sendWelcomeEmailAction({
-      toEmail: email
+      toEmail: email,
     });
 
     if (error) {
       toast({
         title: error,
         duration: 5000,
-        variant: "destructive"
+        variant: "destructive",
       });
       setIsSubmitting(false);
       return;
@@ -66,7 +66,7 @@ export const NewsletterBanner = ({ active }: NewsletterBannerProps) => {
     <TopBanner
       active={active}
       className={cn(
-        "relative py-4 opacity-100 transition-opacity duration-500"
+        "relative py-4 opacity-100 transition-opacity duration-500",
       )}>
       <form
         className="mr-8 flex flex-col items-center gap-2 px-4 text-sm md:text-base"

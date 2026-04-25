@@ -1,24 +1,24 @@
 import {
   createTrapTakeoverEvent,
-  type TrapTakeoverInput
+  type TrapTakeoverInput,
 } from "@/app/(main-site)/deals/trap-takeover/create-trap-takeover-event";
 
 const eventData: TrapTakeoverInput = {
   year: 2026,
-  month: 4,
-  day: 24,
+  month: 5,
+  day: 1,
   featuredBrands: [
-    "Midsfactory",
-    "High 90's",
-    "Big Boy Dro",
+    "Hashtag",
+    "Dompen",
+    "Koa Cannabis Co.",
     "Park Jams",
     "Together Canna Supply",
-    "Sweetleaf Collective"
+    "Sweetleaf Collective",
   ],
   flags: {
     featuredBrands: true,
-    flyer: true
-  }
+    flyer: true,
+  },
 };
 
 export const event = createTrapTakeoverEvent(eventData);

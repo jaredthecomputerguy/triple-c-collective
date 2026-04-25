@@ -22,13 +22,13 @@ const getRemotePatterns = (): RemotePattern[] => {
     {
       protocol: "https",
       hostname: "jaredthecomputerguy.dev",
-      pathname: "/**"
+      pathname: "/**",
     },
     {
       protocol: "https",
       hostname: "triplecnewsletter.com",
-      pathname: "/**"
-    }
+      pathname: "/**",
+    },
   ] as RemotePattern[];
 
   if (isDev) {
@@ -36,7 +36,7 @@ const getRemotePatterns = (): RemotePattern[] => {
       protocol: "http",
       hostname: "localhost",
       port: "8090",
-      pathname: "/api/files/**"
+      pathname: "/api/files/**",
     });
   }
 
@@ -47,7 +47,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: getRemotePatterns(),
     dangerouslyAllowLocalIP: isDev,
-    qualities: [100, 75]
+    qualities: [100, 75],
   },
   async headers() {
     return [
@@ -56,38 +56,38 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Content-Security-Policy",
-            value: CSP_HEADER
+            value: CSP_HEADER,
           },
           {
             key: "X-DNS-Prefetch-Control",
-            value: "on"
+            value: "on",
           },
           {
             key: "Strict-Transport-Security",
-            value: "max-age=63072000; includeSubDomains; preload"
+            value: "max-age=63072000; includeSubDomains; preload",
           },
           {
             key: "X-Frame-Options",
-            value: "SAMEORIGIN"
+            value: "SAMEORIGIN",
           },
           {
             key: "X-Content-Type-Options",
-            value: "nosniff"
+            value: "nosniff",
           },
           {
             key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin"
+            value: "strict-origin-when-cross-origin",
           },
           {
             key: "Permissions-Policy",
-            value: "geolocation=()" // adjust as needed
-          }
-        ]
-      }
+            value: "geolocation=()", // adjust as needed
+          },
+        ],
+      },
     ];
   },
   allowedDevOrigins: isDev ? ["*.ngrok-free.app"] : undefined,
-  typedRoutes: true
+  typedRoutes: true,
 };
 
 export default nextConfig;

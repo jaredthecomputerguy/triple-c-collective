@@ -7,12 +7,12 @@ import {
   test,
   vi,
   beforeAll,
-  afterAll
+  afterAll,
 } from "bun:test";
 
 import {
   getTimeRemainingUntilNextFriday,
-  getTimeRemainingUntilFourTwenty
+  getTimeRemainingUntilFourTwenty,
 } from "@/lib/utils/server";
 
 beforeAll(() => {
@@ -40,7 +40,7 @@ function utcDate(
   month: number,
   day: number,
   hour = 0,
-  minute = 0
+  minute = 0,
 ) {
   return new Date(Date.UTC(year, month, day, hour, minute));
 }
@@ -62,7 +62,7 @@ describe("getTimeRemainingUntilNextFriday", () => {
       Days: "04",
       Hours: "00",
       Minutes: "00",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 
@@ -75,7 +75,7 @@ describe("getTimeRemainingUntilNextFriday", () => {
       Days: "00",
       Hours: "18",
       Minutes: "00",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 
@@ -88,7 +88,7 @@ describe("getTimeRemainingUntilNextFriday", () => {
       Days: "07",
       Hours: "00",
       Minutes: "00",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 
@@ -101,7 +101,7 @@ describe("getTimeRemainingUntilNextFriday", () => {
       Days: "00",
       Hours: "03",
       Minutes: "00",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 
@@ -114,7 +114,7 @@ describe("getTimeRemainingUntilNextFriday", () => {
       Days: "06",
       Hours: "18",
       Minutes: "00",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 
@@ -127,7 +127,7 @@ describe("getTimeRemainingUntilNextFriday", () => {
       Days: "05",
       Hours: "00",
       Minutes: "00",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 
@@ -140,7 +140,7 @@ describe("getTimeRemainingUntilNextFriday", () => {
       Days: "05",
       Hours: "00",
       Minutes: "00",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 
@@ -153,7 +153,7 @@ describe("getTimeRemainingUntilNextFriday", () => {
       Days: "01",
       Hours: "00",
       Minutes: "00",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 });
@@ -172,7 +172,7 @@ describe("getTimeRemainingUntilFourTwenty", () => {
       Days: "01",
       Hours: "00",
       Minutes: "00",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 
@@ -185,7 +185,7 @@ describe("getTimeRemainingUntilFourTwenty", () => {
       Days: "00",
       Hours: "00",
       Minutes: "30",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 
@@ -197,7 +197,7 @@ describe("getTimeRemainingUntilFourTwenty", () => {
       Days: "00",
       Hours: "00",
       Minutes: "00",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 
@@ -210,7 +210,7 @@ describe("getTimeRemainingUntilFourTwenty", () => {
       Days: "00",
       Hours: "00",
       Minutes: "00",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 
@@ -222,7 +222,7 @@ describe("getTimeRemainingUntilFourTwenty", () => {
       Days: "00",
       Hours: "00",
       Minutes: "00",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 
@@ -235,7 +235,7 @@ describe("getTimeRemainingUntilFourTwenty", () => {
       Days: "00",
       Hours: "00",
       Minutes: "01",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 
@@ -245,14 +245,14 @@ describe("getTimeRemainingUntilFourTwenty", () => {
     const result = getTimeRemainingUntilFourTwenty(new Date(), {
       timeZone: "UTC",
       hour: 12,
-      minute: 30
+      minute: 30,
     });
 
     expect(result).toEqual({
       Days: "00",
       Hours: "01",
       Minutes: "30",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 
@@ -265,7 +265,7 @@ describe("getTimeRemainingUntilFourTwenty", () => {
       Days: "109",
       Hours: "10",
       Minutes: "00",
-      Seconds: "00"
+      Seconds: "00",
     });
   });
 });

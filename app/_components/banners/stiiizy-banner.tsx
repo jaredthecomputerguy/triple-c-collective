@@ -71,7 +71,7 @@ export const StiiizyBanner = ({ active }: StiiizyBannerProps) => {
         <Separator
           className={cn(
             "h-12 w-1 bg-white transition group-hover:bg-black",
-            !isSaturdayOrSunday ? "hidden" : ""
+            !isSaturdayOrSunday ? "hidden" : "",
           )}
           orientation={"vertical"}
         />

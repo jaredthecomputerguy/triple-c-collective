@@ -23,7 +23,7 @@ export function NewsletterForm() {
       toast({
         title: "You must consent to subscribe.",
         duration: 5000,
-        variant: "destructive"
+        variant: "destructive",
       });
       return;
     }
@@ -31,14 +31,14 @@ export function NewsletterForm() {
     const { error } = await sendWelcomeEmailAction({
       toEmail: email,
       firstName: firstName,
-      lastName: lastName
+      lastName: lastName,
     });
 
     if (error) {
       toast({
         title: error,
         duration: 5000,
-        variant: "destructive"
+        variant: "destructive",
       });
       setLoading(false);
       return;

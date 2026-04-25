@@ -25,111 +25,111 @@ const BRANDS = [
     name: "Akwaaba",
     alt: "Akwaaba Logo",
     url: "https://www.akwaabafarms.com/",
-    image: akwaabaLogo
+    image: akwaabaLogo,
   },
   {
     name: "Midsfactory",
     alt: "Midsfactory Logo",
     url: "https://www.midsfactory.com/",
-    image: midsfactoryLogo
+    image: midsfactoryLogo,
   },
   {
     name: "Dompen",
     alt: "Dompen Logo",
     url: "https://www.dompen.co",
-    image: dompenLogo
+    image: dompenLogo,
   },
   {
     name: "Koa Cannabis Co.",
     alt: "Koa Logo",
     url: "https://www.koacannabis.com/",
-    image: koaLogo
+    image: koaLogo,
   },
   {
     name: "Green River Extracts",
     alt: "Green River Extracts Logo",
     url: "https://www.greenriverextracts.com",
-    image: greenRiverExtractsLogo
+    image: greenRiverExtractsLogo,
   },
   {
     name: "Big Boy Dro",
     alt: "Big Boy Dro Logo",
     url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=BIG BOY DRO",
-    image: bigBoyDroLogo
+    image: bigBoyDroLogo,
   },
   {
     name: "Jeff's Sessions",
     alt: "Jeff's Sessions Logo",
     url: "https://jeffssessions.com/",
-    image: jeffsSessionsLogo
+    image: jeffsSessionsLogo,
   },
   {
     name: "Ronin",
     alt: "Ronin Rosin Logo",
     url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=RONIN",
-    image: roninRosinLogo
+    image: roninRosinLogo,
   },
   {
     name: "Coffee Supply",
     alt: "Coffee Supply Logo",
     url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=COFFEE%20SUPPLY",
-    image: coffeeSupplyLogo
+    image: coffeeSupplyLogo,
   },
   {
     name: "Hashtag",
     alt: "Hashtag Infused Flower",
     url: "https://triplec.treez.io/onlinemenu/search?customerType=ALL&query=hashtag",
-    image: hashtagLogo
+    image: hashtagLogo,
   },
   {
     name: "Chameleon Craft",
     alt: "Chameleon Craft Logo",
     url: "https://www.chameleoncraftcannabis.com/",
-    image: chameleonCraftLogo
+    image: chameleonCraftLogo,
   },
   {
     name: "Park Jams",
     alt: "Park Jams Gummy Pack",
     url: "https://triplec.treez.io/onlinemenu/search?customerType=ALL&query=park%20jams",
-    image: parkJamsProductPackaging
+    image: parkJamsProductPackaging,
   },
   {
     name: "High 90's",
     alt: "High 90's Logo",
     url: "https://high90s.com",
-    image: high90sLogo
+    image: high90sLogo,
   },
   {
     name: "Hella Mellows",
     alt: "Hella Mellows Logo",
     url: "https://www.thesunspotcbd.com/sacred-alchemix",
-    image: hellaMellowsLogo
+    image: hellaMellowsLogo,
   },
   {
     name: "Together Canna Supply",
     alt: "Together Canna Supply Logo",
     url: "https://www.instagram.com/together.canna.supply/?hl=en",
-    image: togetherCannaSupplyLogo
+    image: togetherCannaSupplyLogo,
   },
   {
     name: "Sweetleaf Collective",
     alt: "Sweetleaf Collective Logo",
     url: "https://www.sweetleafcollective.org/",
-    image: sweetLeafLogo
+    image: sweetLeafLogo,
   },
   /* Placeholders */
   {
     name: "And more...",
     alt: "More brands",
     url: "https://triplec.treez.io/onlinemenu/?customerType=ADULT",
-    image: comingSoonImage
+    image: comingSoonImage,
   },
   {
     name: undefined,
     alt: "Brands coming soon",
     url: "https://triplec.treez.io/onlinemenu/?customerType=ADULT",
-    image: comingSoonImage
-  }
+    image: comingSoonImage,
+  },
 ] as const;
 
 /*
@@ -139,6 +139,6 @@ const BRANDS = [
  */
 export const getFeaturedBrands = (...brandNames: BrandNames) => {
   return BRANDS.filter((brand) => brandNames.includes(brand.name)).toSorted(
-    (a, b) => ((a.name ?? "") > (b.name ?? "") ? 1 : -1)
+    (a, b) => ((a.name ?? "") > (b.name ?? "") ? 1 : -1),
   );
 };

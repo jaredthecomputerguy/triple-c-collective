@@ -15,7 +15,7 @@ import {
   HalloweenBanner,
   GenericBanner,
   ThanksgivingBanner,
-  BestOfLakeAndMendocinoWinnerBanner
+  BestOfLakeAndMendocinoWinnerBanner,
 } from "@/app/_components/banners";
 
 enum Order {
@@ -28,19 +28,19 @@ enum Order {
   Seventh = 6,
   Eighth = 7,
   Ninth = 8,
-  Tenth = 9
+  Tenth = 9,
 }
 
 const DEFAULT_ORDER = 0;
 
 function generateBanner<T extends ComponentTypeWithAny>(
-  entry: BannerEntry<T>
+  entry: BannerEntry<T>,
 ): BannerEntry<T> {
   return {
     active: false,
     order: DEFAULT_ORDER,
     props: {},
-    ...entry
+    ...entry,
   };
 }
 
@@ -58,8 +58,8 @@ const bannerConfig = [
         </div>
       ),
       className: "py-2 font-bold text-white uppercase px-4 bg-primary-purple",
-      closeBtnClass: "text-white"
-    }
+      closeBtnClass: "text-white",
+    },
   }),
   generateBanner({
     Component: TrapTakeoverBanner,
@@ -68,13 +68,13 @@ const bannerConfig = [
     props: {
       bannerText: "Trap Takeover Sale",
       bannerSubText: "TODAY | 12-6PM",
-      mini: true
-    }
+      mini: true,
+    },
   }),
   generateBanner({
     Component: StiiizyBanner,
     active: true,
-    order: Order.Second
+    order: Order.Second,
   }),
   generateBanner({ Component: CloneBanner }),
   generateBanner({ Component: FourTwentyBanner }),
@@ -92,13 +92,13 @@ const bannerConfig = [
   generateBanner({
     Component: BestOfLakeAndMendocinoWinnerBanner,
     order: Order.First,
-    active: false
-  })
+    active: false,
+  }),
 ] as const;
 
 export const Banners = () => {
   const ordered = [...bannerConfig].sort(
-    (a, b) => (a.order ?? DEFAULT_ORDER) - (b.order ?? DEFAULT_ORDER)
+    (a, b) => (a.order ?? DEFAULT_ORDER) - (b.order ?? DEFAULT_ORDER),
   );
 
   return (

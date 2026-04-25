@@ -20,14 +20,14 @@ export async function setAgeConsentAction(rememberMe: boolean) {
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       maxAge: 60 * 60 * 24 * 30, // 30 days
-      path: "/"
+      path: "/",
     });
     cookieStore.set(AGE_CONSENT_REMEMBER_COOKIE, "true", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       maxAge: 60 * 60 * 24 * 30, // 30 days
-      path: "/"
+      path: "/",
     });
   } else {
     // Set session cookie (expires when browser closes)
@@ -35,7 +35,7 @@ export async function setAgeConsentAction(rememberMe: boolean) {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
-      path: "/"
+      path: "/",
     });
   }
 }
@@ -61,11 +61,11 @@ export async function hasAgeConsentAction(userAgent?: string | null) {
       "Twitterbot",
       "Slackbot",
       "WhatsApp",
-      "TelegramBot"
+      "TelegramBot",
     ];
 
     const isBot = botPatterns.some((pattern) =>
-      userAgent.toLowerCase().includes(pattern.toLowerCase())
+      userAgent.toLowerCase().includes(pattern.toLowerCase()),
     );
 
     if (isBot) {

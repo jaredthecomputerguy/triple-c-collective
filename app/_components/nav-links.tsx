@@ -11,7 +11,7 @@ import {
   CircleDollarSign,
   ChevronDown,
   ChevronRight,
-  FlameIcon
+  FlameIcon,
 } from "lucide-react";
 
 import { cn } from "@/lib/utils/shared";
@@ -32,28 +32,28 @@ export const MOBILE_LINKS: NavLinkItem[] = [
   {
     href: "/deals/420-deals",
     label: "4/20 Deals",
-    icon: <FlameIcon size={26} />
+    icon: <FlameIcon size={26} />,
   },
   {
     href: "/contact",
     label: "Contact",
-    icon: <ContactUsIcon size={26} />
+    icon: <ContactUsIcon size={26} />,
   },
   {
     href: "/delivery",
     label: "Delivery",
-    icon: <LocationIcon className="h-6 w-6" />
+    icon: <LocationIcon className="h-6 w-6" />,
   },
   {
     href: "/real-ca-cannabis",
     label: "Real CA Cannabis",
-    icon: <Cannabis className="h-6 w-6" />
+    icon: <Cannabis className="h-6 w-6" />,
   },
   {
     href: "/deals/trap-takeover",
     label: "Trap Takeover Sale",
-    icon: <CircleDollarSign className="h-6 w-6" />
-  }
+    icon: <CircleDollarSign className="h-6 w-6" />,
+  },
 ];
 
 export const DESKTOP_LINKS: NavLinkItem[] = [
@@ -66,14 +66,14 @@ export const DESKTOP_LINKS: NavLinkItem[] = [
     links: [
       {
         href: "/deals/420-deals",
-        label: "4/20 Deals"
+        label: "4/20 Deals",
       },
       { href: "/about", label: "About" },
       { href: "/reward-program", label: "Rewards" },
       { href: "/real-ca-cannabis", label: "Real CA Cannabis" },
-      { href: "/deals/trap-takeover", label: "Trap Takeover Sale" }
-    ]
-  }
+      { href: "/deals/trap-takeover", label: "Trap Takeover Sale" },
+    ],
+  },
 ];
 
 export const NavLink = ({
@@ -82,7 +82,7 @@ export const NavLink = ({
   links,
   showMoreLinksMenu,
   setShowMoreLinksMenu,
-  showMoreLinksMenuRef
+  showMoreLinksMenuRef,
 }: NavLinkItem & {
   showMoreLinksMenu: boolean;
   setShowMoreLinksMenu: Dispatch<SetStateAction<boolean>>;
@@ -103,7 +103,7 @@ export const NavLink = ({
           <ul
             className={cn(
               "absolute top-[62px] right-0 flex w-[250px] flex-col gap-4 border bg-white py-2 transition-all duration-300 ease-in-out",
-              showMoreLinksMenu ? "opacity-100" : "hidden opacity-0"
+              showMoreLinksMenu ? "opacity-100" : "hidden opacity-0",
             )}>
             {links.map((link) => (
               <li key={link.href}>
@@ -136,7 +136,7 @@ export const MobileNavLink = ({
   label,
   icon,
   setShowMobileMenu,
-  viewportHeight
+  viewportHeight,
 }: {
   href: string;
   label: string;
@@ -152,7 +152,7 @@ export const MobileNavLink = ({
         }}
         className={cn(
           "flex w-full items-center justify-between px-6 py-4 font-semibold uppercase outline-hidden transition-all hover:bg-white/10 focus:bg-white/10 focus:outline-white",
-          viewportHeight < 710 && "py-3"
+          viewportHeight < 710 && "py-3",
         )}
         href={href as Route}>
         <span className="flex items-center gap-4">

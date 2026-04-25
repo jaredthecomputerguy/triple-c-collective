@@ -1,7 +1,7 @@
 import type { SVGProps } from "react";
 
 export const SnapchatIcon = ({
-  className = "w-7 h-7"
+  className = "w-7 h-7",
 }: SVGProps<SVGElement>) => {
   return (
     <svg

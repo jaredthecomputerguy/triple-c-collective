@@ -13,14 +13,14 @@ export const GenericBanner = ({
   active,
   children,
   className,
-  closeBtnClass
+  closeBtnClass,
 }: GenericBannerProps) => {
   return (
     <TopBanner
       active={active}
       className={cn(
         "relative py-4 opacity-100 transition-opacity duration-500",
-        className
+        className,
       )}
       closeBtnClass={closeBtnClass}>
       {children && (

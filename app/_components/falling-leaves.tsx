@@ -9,7 +9,7 @@ const SIZE = 25;
 const IMAGES = [
   "/images/thanksgiving/leaf-green.svg",
   "/images/thanksgiving/leaf-brown.svg",
-  "/images/thanksgiving/leaf-brown.svg"
+  "/images/thanksgiving/leaf-brown.svg",
 ];
 
 export const FallingLeaves = () => {
@@ -38,7 +38,7 @@ export const FallingLeaves = () => {
         position: "fixed",
         width: "100vw",
         height: "100vh",
-        zIndex: 50
+        zIndex: 50,
       }}
     />
   );

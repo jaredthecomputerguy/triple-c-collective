@@ -12,7 +12,7 @@ import {
   Tailwind,
   Link,
   Column,
-  Hr
+  Hr,
 } from "@react-email/components";
 
 type WelcomeEmailProps = {
@@ -30,15 +30,15 @@ export const WelcomeEmail = ({ contactId }: WelcomeEmailProps) => {
             extend: {
               colors: {
                 brand: "#2250f4",
-                offwhite: "#fafbfb"
+                offwhite: "#fafbfb",
               },
               spacing: {
                 0: "0px",
                 20: "20px",
-                45: "45px"
-              }
-            }
-          }
+                45: "45px",
+              },
+            },
+          },
         }}>
         <Preview>Welcome - Triple C Newsletter</Preview>
         <Body className="bg-offwhite font-sans text-base">

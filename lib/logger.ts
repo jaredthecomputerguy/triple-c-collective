@@ -6,7 +6,7 @@ export const Logger = {
     gray: "\x1b[90m",
     blue: "\x1b[34m",
     yellow: "\x1b[33m",
-    red: "\x1b[31m"
+    red: "\x1b[31m",
   },
 
   timestamp() {
@@ -38,5 +38,5 @@ export const Logger = {
 
     // biome-ignore lint/suspicious/noConsole: project-wide logger
     console.log(`${time} ${prefix}:`, ...output);
-  }
+  },
 };

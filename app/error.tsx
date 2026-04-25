@@ -8,7 +8,7 @@ import { Logger } from "@/lib/logger";
 
 export default function Error({
   error,
-  reset
+  reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;

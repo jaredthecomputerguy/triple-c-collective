@@ -6,7 +6,7 @@ const randomId = () => Math.random().toString(36).slice(2, 10);
 export const ChristmasBanner = ({ active }: { active: boolean }) => {
   const bulbs = useMemo(
     () => Array.from({ length: 64 }, () => ({ id: randomId() })),
-    []
+    [],
   );
 
   if (!active) {

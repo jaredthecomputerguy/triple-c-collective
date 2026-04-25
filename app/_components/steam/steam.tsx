@@ -25,7 +25,7 @@ interface CannabisSmokeProps {
 export const Steam = ({
   spawnIntervalMs = 220,
   spawnDurationMs = 12000,
-  cleanupDelayMs = 18000
+  cleanupDelayMs = 18000,
 }: CannabisSmokeProps) => {
   const [particles, setParticles] = useState<SmokeParticle[]>([]);
   const [isVisible, setIsVisible] = useState(true);
@@ -45,7 +45,7 @@ export const Steam = ({
         driftX: -80 + Math.random() * 160,
         scaleTo: 1.8 + Math.random() * 1.4,
         opacity: 0.2 + Math.random() * 1,
-        blur: 10 + Math.random() * 10
+        blur: 10 + Math.random() * 10,
       };
 
       setParticles((prev) => [...prev, particle]);
@@ -54,7 +54,7 @@ export const Steam = ({
         () => {
           setParticles((prev) => prev.filter((p) => p.id !== id));
         },
-        (particle.duration + particle.delay) * 1000
+        (particle.duration + particle.delay) * 1000,
       );
     };
 
@@ -99,7 +99,7 @@ export const Steam = ({
               animationDuration: `${particle.duration}s`,
               animationDelay: `${particle.delay}s`,
               "--drift-x": `${particle.driftX}px`,
-              "--scale-to": particle.scaleTo
+              "--scale-to": particle.scaleTo,
             } as React.CSSProperties
           }
         />
