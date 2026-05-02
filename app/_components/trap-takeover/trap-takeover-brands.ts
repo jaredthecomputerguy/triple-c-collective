@@ -16,6 +16,9 @@ import high90sLogo from "@/public/images/brands/high-90s-logo.png";
 import hellaMellowsLogo from "@/public/images/brands/hella-mellows-logo.jpg";
 import togetherCannaSupplyLogo from "@/public/images/brands/together-canna-logo.jpg";
 import sweetLeafLogo from "@/public/images/brands/sweetleaf-logo.png";
+import budgetDabsLogo from "@/public/images/brands/budget-dabs.png";
+import outTheDoorLogo from "@/public/images/brands/out-the-door-logo.jpg";
+import elevensLogo from "@/public/images/brands/elevens.png";
 
 export type FeaturedBrand = (typeof BRANDS)[number];
 type BrandNames = FeaturedBrand["name"][];
@@ -117,6 +120,25 @@ const BRANDS = [
     url: "https://www.sweetleafcollective.org/",
     image: sweetLeafLogo,
   },
+  {
+    name: "Budget Dabs",
+    alt: "Budget Dabs Logo",
+    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=BUDGET%20DABS",
+    image: budgetDabsLogo,
+  },
+  {
+    name: "The Elevens",
+    alt: "The Elevens Logo",
+    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=THE%20ELEVENS",
+    image: elevensLogo,
+  },
+  {
+    name: "Out the Door",
+    alt: "Out the Door Logo",
+    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=OUT%20THE%20DOOR",
+    image: outTheDoorLogo,
+  },
+
   /* Placeholders */
   {
     name: "And more...",
