@@ -20,15 +20,15 @@ import {
 
 enum Order {
   First = 0,
-  Second = 1,
-  Third = 2,
-  Fourth = 3,
-  Fifth = 4,
-  Sixth = 5,
-  Seventh = 6,
-  Eighth = 7,
-  Ninth = 8,
-  Tenth = 9,
+  Second,
+  Third,
+  Fourth,
+  Fifth,
+  Sixth,
+  Seventh,
+  Eighth,
+  Ninth,
+  Tenth,
 }
 
 const DEFAULT_ORDER = 0;
@@ -47,7 +47,7 @@ function generateBanner<T extends ComponentTypeWithAny>(
 const bannerConfig = [
   generateBanner({
     Component: GenericBanner,
-    active: true,
+    active: false,
     order: Order.First,
     props: {
       children: (
@@ -63,7 +63,7 @@ const bannerConfig = [
   }),
   generateBanner({
     Component: TrapTakeoverBanner,
-    active: true,
+    active: false,
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
@@ -80,7 +80,7 @@ const bannerConfig = [
   generateBanner({ Component: FourTwentyBanner }),
   generateBanner({ Component: ChristmasBanner }),
   generateBanner({ Component: MemorialDayBanner }),
-  generateBanner({ Component: MothersDayBanner }),
+  generateBanner({ Component: MothersDayBanner, active: true }),
   generateBanner({ Component: FathersDayBanner }),
   generateBanner({ Component: NewYearBanner }),
   generateBanner({ Component: NewsletterBanner }),

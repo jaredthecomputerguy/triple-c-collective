@@ -11,7 +11,7 @@ import {
   CircleDollarSign,
   ChevronDown,
   ChevronRight,
-  FlameIcon,
+  //FlameIcon,
 } from "lucide-react";
 
 import { cn } from "@/lib/utils/shared";
@@ -29,11 +29,11 @@ export const MOBILE_LINKS: NavLinkItem[] = [
   { href: "/about", label: "About", icon: <UsersRoundIcon size={26} /> },
   { href: "/reward-program", label: "Rewards", icon: <Gem size={26} /> },
   { href: "/deals", label: "Deals", icon: <BanknoteIcon size={26} /> },
-  {
-    href: "/deals/420-deals",
-    label: "4/20 Deals",
-    icon: <FlameIcon size={26} />,
-  },
+  // {
+  //   href: "/deals/420-deals",
+  //   label: "4/20 Deals",
+  //   icon: <FlameIcon size={26} />,
+  // },
   {
     href: "/contact",
     label: "Contact",
@@ -64,10 +64,10 @@ export const DESKTOP_LINKS: NavLinkItem[] = [
     href: null,
     label: "More",
     links: [
-      {
-        href: "/deals/420-deals",
-        label: "4/20 Deals",
-      },
+      // {
+      //   href: "/deals/420-deals",
+      //   label: "4/20 Deals",
+      // },
       { href: "/about", label: "About" },
       { href: "/reward-program", label: "Rewards" },
       { href: "/real-ca-cannabis", label: "Real CA Cannabis" },
@@ -102,7 +102,7 @@ export const NavLink = ({
         {links && (
           <ul
             className={cn(
-              "absolute top-[62px] right-0 flex w-[250px] flex-col gap-4 border bg-white py-2 transition-all duration-300 ease-in-out",
+              "absolute top-15.5 right-0 flex w-62.5 flex-col gap-4 border bg-white py-2 transition-all duration-300 ease-in-out",
               showMoreLinksMenu ? "opacity-100" : "hidden opacity-0",
             )}>
             {links.map((link) => (

@@ -6,13 +6,13 @@ import {
 const eventData: TrapTakeoverInput = {
   year: 2026,
   month: 5,
-  day: 8,
+  day: 15,
   featuredBrands: [
-    "Budget Dabs",
-    "The Elevens",
-    "Out the Door",
-    "Big Boy Dro",
     "High 90's",
+    "Chameleon Craft",
+    "Dompen",
+    "Koa Cannabis Co.",
+    "Sweetleaf Collective",
   ],
   flags: {
     featuredBrands: true,
