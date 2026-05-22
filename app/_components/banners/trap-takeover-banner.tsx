@@ -9,6 +9,7 @@ interface TrapTakeoverBannerProps extends ComponentProps<"div"> {
   active: boolean;
   bannerText?: string;
   bannerSubText?: string;
+  today?: boolean;
   mini?: boolean;
 }
 
@@ -16,6 +17,7 @@ export const TrapTakeoverBanner = ({
   active,
   bannerText = "Trap Takeover Sale",
   bannerSubText,
+  today = false,
   className,
   mini,
   ...props
@@ -63,7 +65,7 @@ export const TrapTakeoverBanner = ({
                       "font-trap-takeover trap-takeover-text uppercase",
                       mini && "text-xl md:text-4xl",
                     )}>
-                    {bannerSubText}
+                    {today ? "TODAY - 12-6PM" : bannerSubText}
                   </span>
                 )}
               </Link>
