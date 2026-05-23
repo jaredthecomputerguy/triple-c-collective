@@ -28,13 +28,21 @@ declare global {
     };
     featuredBrands: ReturnType<typeof getFeaturedBrands>;
     flags: {
+      /** Brands that are particpating in the event. */
       featuredBrands: boolean;
+      /** The flyer for the event. */
       flyer: boolean;
+      /** Whether or not we'll have free gift bags for the event. */
       giftBags: boolean;
+      /** Whether or not we'll have free food for the event. */
       freeFood: boolean;
+      /** Whether or not we'll raffle of a piece of art the event. */
       specialArtPromo: boolean;
+      /** Whether or not we'll raffle of a special promotion (other than the usual raffle bag) the event. */
       specialPromo: boolean;
+      /** If we have a promotional video for the event. */
       video: boolean;
+      /** Shows the individual deals for the event. */
       individualDeals: boolean;
     };
   };
