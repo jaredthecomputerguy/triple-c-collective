@@ -264,6 +264,10 @@ td {
   @apply bg-[url('/images/fathers-day.jpg')] bg-cover bg-bottom bg-no-repeat;
 }
 
+.memorial-day-flag {
+  @apply bg-[url('/images/flag.jpg')] bg-cover bg-bottom bg-no-repeat;
+}
+
 /* 4/20 */
 .leaf {
   @apply bg-[url('/images/4-20/cannabis-leaf.svg')] bg-center bg-no-repeat;
