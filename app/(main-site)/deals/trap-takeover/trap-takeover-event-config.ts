@@ -8,6 +8,7 @@ const eventData: TrapTakeoverInput = {
   month: 5,
   day: 29,
   featuredBrands: [
+    "Akwaaba",
     "High 90's",
     "Dompen",
     "Koa Cannabis Co.",
