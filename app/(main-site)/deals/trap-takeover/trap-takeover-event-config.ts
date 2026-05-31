@@ -5,15 +5,14 @@ import {
 
 const eventData: TrapTakeoverInput = {
   year: 2026,
-  month: 5,
-  day: 29,
+  month: 6,
+  day: 5,
   featuredBrands: [
-    "Akwaaba",
-    "High 90's",
     "Dompen",
     "Koa Cannabis Co.",
-    "Together Canna Supply",
     "Chameleon Craft",
+    "Hashtag",
+    "Akwaaba",
   ],
   flags: {
     /* TRUE FLAGS */
