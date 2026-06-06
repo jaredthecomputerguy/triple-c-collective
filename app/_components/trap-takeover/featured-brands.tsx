@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import { cn } from "@/lib/utils/shared";
 import type { FeaturedBrand } from "@/app/_components/trap-takeover/trap-takeover-brands";
@@ -34,7 +33,7 @@ export const FeaturedBrands = ({
                   isLast && "col-span-2",
                 )}
                 key={brand.name ?? "undefined"}>
-                <Link
+                <a
                   className="focus:border-primary-purple focus:outline-primary-purple flex flex-col items-center rounded-sm border border-white px-2 py-2 outline-hidden"
                   href={brand.url}
                   rel="noopener noreferrer"
@@ -57,7 +56,7 @@ export const FeaturedBrands = ({
                       Brands coming soon...
                     </div>
                   )}
-                </Link>
+                </a>
               </div>
             );
           })

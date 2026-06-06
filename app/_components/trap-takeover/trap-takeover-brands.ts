@@ -19,8 +19,15 @@ import sweetLeafLogo from "@/public/images/brands/sweetleaf-logo.png";
 import budgetDabsLogo from "@/public/images/brands/budget-dabs.png";
 import outTheDoorLogo from "@/public/images/brands/out-the-door-logo.jpg";
 import elevensLogo from "@/public/images/brands/elevens.png";
+import boxLunchLogo from "@/public/images/brands/box-lunch.webp";
+import type { StaticImageData } from "next/image";
 
-export type FeaturedBrand = (typeof BRANDS)[number];
+export type FeaturedBrand = {
+  readonly name: string;
+  readonly alt: string;
+  readonly url: string;
+  readonly image: StaticImageData;
+};
 type BrandNames = FeaturedBrand["name"][];
 
 const BRANDS = [
@@ -138,7 +145,12 @@ const BRANDS = [
     url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=OUT%20THE%20DOOR",
     image: outTheDoorLogo,
   },
-
+  {
+    name: "Box Lunch",
+    alt: "Box Lunch Logo",
+    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=BOX%20LUNCH",
+    image: boxLunchLogo,
+  },
   /* Placeholders */
   {
     name: "And more...",
@@ -147,7 +159,7 @@ const BRANDS = [
     image: comingSoonImage,
   },
   {
-    name: undefined,
+    name: "Brands coming soon...",
     alt: "Brands coming soon",
     url: "https://triplec.treez.io/onlinemenu/?customerType=ADULT",
     image: comingSoonImage,
