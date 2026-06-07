@@ -9,14 +9,11 @@ import { TrapTakeoverVideo } from "@/app/_components/trap-takeover/trap-takeover
 import { TrapTakeoverFlyer } from "@/app/_components/trap-takeover/trap-takeover-flyer";
 import { TrapTakeoverRaffleRules } from "@/app/_components/trap-takeover/trap-takeover-raffle-rules";
 import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
-import { event } from "@/app/(main-site)/deals/trap-takeover/trap-takeover-event-config";
-import { createMetadata } from "@/lib/metadata";
+import { IndividualDeals } from "@/app/_components/trap-takeover/individual-deals";
 
-/* WARNING:
- * Eventually I will use this component.
- * For now, we don't have visibility into the specific deals before the sale day
- * import { IndividualDeals, type IndividualDeal } from "@/app/_components/trap-takeover/individual-deals";
- */
+import { createMetadata } from "@/lib/metadata";
+import { event } from "@/app/(main-site)/deals/trap-takeover/trap-takeover-event-config";
+import type { StaticImageData } from "next/image";
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Trap Takeover Sale - ${event.dateWithSuffix}`;
@@ -111,7 +108,10 @@ export default function TrapTakeoverPage() {
           featuredBrands={event.featuredBrands}
         />
 
-        {/* <IndividualDeals active={trapTakeoverEvent.flags.individualDeals} deals={individualDeals} /> */}
+        <IndividualDeals
+          active={event.flags.individualDeals}
+          deals={event.deals}
+        />
 
         <TrapTakeoverVideo active={event.flags.video} />
 
