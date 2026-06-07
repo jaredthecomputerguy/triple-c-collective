@@ -52,6 +52,7 @@ export type TrapTakeoverInput = {
   day: number;
   featuredBrands?: FeaturedBrandName[];
   flags?: Partial<TrapTakeoverEventConfig["flags"]>;
+  deals: IndividualDeal[];
 };
 
 const defaultFlags: TrapTakeoverEventConfig["flags"] = {
@@ -99,6 +100,7 @@ export function createTrapTakeoverEvent({
   month,
   day,
   featuredBrands,
+  deals,
   flags = {},
 }: TrapTakeoverInput): TrapTakeoverEventConfig {
   const eventDate = createEventDate(year, month, day);
@@ -116,5 +118,6 @@ export function createTrapTakeoverEvent({
       ...defaultFlags,
       ...flags,
     },
+    deals,
   };
 }

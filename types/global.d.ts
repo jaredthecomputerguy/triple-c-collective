@@ -1,4 +1,6 @@
 import type { ComponentType } from "react";
+import { getFeaturedBrands } from "@/app/_components/trap-takeover/trap-takeover-brands";
+import type { StaticImageData } from "next/image";
 
 export {};
 
@@ -45,6 +47,38 @@ declare global {
       /** Shows the individual deals for the event. */
       individualDeals: boolean;
     };
+    /** The deals for the event. */
+    deals: IndividualDeal[];
+  };
+
+  type Category =
+    | "Extract"
+    | "Cartridge"
+    | "Edible"
+    | "Flower"
+    | "Preroll"
+    | "Merch";
+
+  type IndividualDeal = {
+    /** The name of the brand */
+    brand: string;
+    /** Type of deal, for example: "BOGO" or "B2G1" or "50% off" */
+    dealType: "Buy One, Get One" | "Buy Two, Get One";
+    /** The description of the deal */
+    description: string;
+    /** The deal product category */
+    categories: Category[];
+    /** The product name and strain of the free units */
+    options?: DealOption[];
+    /** Details about the deal */
+    details?: string;
+    /** The brand's logo or image */
+    image: StaticImageData;
+  };
+
+  type DealOption = {
+    name: string;
+    strain: "indica" | "sativa" | "hybrid";
   };
 
   type DealsResponse = {

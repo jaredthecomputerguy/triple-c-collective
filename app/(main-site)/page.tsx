@@ -25,6 +25,8 @@ import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({ title: "Home" });
 
+const NUMBER_OF_REVIEWS = 521;
+
 export default function HomePage() {
   const { logo, header, shouldOptimize } = getHeaderAndLogoImages();
 
@@ -161,7 +163,9 @@ export default function HomePage() {
               4.4
             </span>
             <StarRating rating="4.4" className="max-w-40 sm:max-w-48" />
-            <span className="text-sm text-gray-600">(494 reviews)</span>
+            <span className="text-sm text-gray-600">
+              ({NUMBER_OF_REVIEWS} reviews)
+            </span>
           </div>
         </div>
         <ReviewCards />
