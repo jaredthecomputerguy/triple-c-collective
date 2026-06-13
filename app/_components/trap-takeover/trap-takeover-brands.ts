@@ -23,7 +23,8 @@ import boxLunchLogo from "@/public/images/brands/box-lunch.webp";
 import geekThcxLogo from "@/public/images/brands/geek-thcx-logo.webp";
 import puffcoLogo from "@/public/images/brands/puffco.svg";
 
-export type BrandName = (typeof BRANDS)[number]["name"];
+export type FeaturedBrand = (typeof BRANDS)[number];
+export type BrandName = FeaturedBrand["name"];
 
 const BRANDS = [
   {
