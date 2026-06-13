@@ -13,7 +13,6 @@ import { IndividualDeals } from "@/app/_components/trap-takeover/individual-deal
 
 import { createMetadata } from "@/lib/metadata";
 import { event } from "@/app/(main-site)/deals/trap-takeover/trap-takeover-event-config";
-import type { StaticImageData } from "next/image";
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Trap Takeover Sale - ${event.dateWithSuffix}`;
