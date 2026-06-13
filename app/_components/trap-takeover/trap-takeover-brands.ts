@@ -20,15 +20,11 @@ import budgetDabsLogo from "@/public/images/brands/budget-dabs.png";
 import outTheDoorLogo from "@/public/images/brands/out-the-door-logo.jpg";
 import elevensLogo from "@/public/images/brands/elevens.png";
 import boxLunchLogo from "@/public/images/brands/box-lunch.webp";
-import type { StaticImageData } from "next/image";
+import geekThcxLogo from "@/public/images/brands/geek-thcx-logo.webp";
+import puffcoLogo from "@/public/images/brands/puffco.svg";
 
-export type FeaturedBrand = {
-  readonly name: string;
-  readonly alt: string;
-  readonly url: string;
-  readonly image: StaticImageData;
-};
-type BrandNames = FeaturedBrand["name"][];
+export type FeaturedBrand = (typeof BRANDS)[number];
+export type BrandName = FeaturedBrand["name"];
 
 const BRANDS = [
   {
@@ -151,6 +147,18 @@ const BRANDS = [
     url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=BOX%20LUNCH",
     image: boxLunchLogo,
   },
+  {
+    name: "Geek THCX",
+    alt: "Geek THCX Logo",
+    url: "https://geek-thcx.com",
+    image: geekThcxLogo,
+  },
+  {
+    name: "Puffco",
+    alt: "Puffco Logo",
+    url: "https://www.puffco.com",
+    image: puffcoLogo,
+  },
   /* Placeholders */
   {
     name: "And more...",
@@ -171,7 +179,7 @@ const BRANDS = [
  *
  * Pass `undefined` as the last or only arg to show the 'more brands coming soon...'
  */
-export const getFeaturedBrands = (...brandNames: BrandNames) => {
+export const getFeaturedBrands = (...brandNames: BrandName[]) => {
   return BRANDS.filter((brand) => brandNames.includes(brand.name)).toSorted(
     (a, b) => ((a.name ?? "") > (b.name ?? "") ? 1 : -1),
   );
