@@ -1,7 +1,10 @@
 import { z } from "zod";
 import { Temporal } from "@js-temporal/polyfill";
 
-import { getFeaturedBrands } from "@/app/_components/trap-takeover/trap-takeover-brands";
+import {
+  getFeaturedBrands,
+  type BrandName,
+} from "@/app/_components/trap-takeover/trap-takeover-brands";
 import { getTrapTakeoverDateWithSuffix } from "@/lib/utils/server";
 
 const TIME_ZONE = "America/Los_Angeles";
@@ -41,16 +44,11 @@ const readableDateFormatter = new Intl.DateTimeFormat("en-US", {
   year: "numeric",
 });
 
-type FeaturedBrandName = Exclude<
-  Parameters<typeof getFeaturedBrands>[number],
-  undefined
->;
-
 export type TrapTakeoverInput = {
   year: number;
   month: number;
   day: number;
-  featuredBrands?: FeaturedBrandName[];
+  featuredBrands?: BrandName[];
   flags?: Partial<TrapTakeoverEventConfig["flags"]>;
   deals: IndividualDeal[];
 };
@@ -104,7 +102,7 @@ export function createTrapTakeoverEvent({
   flags = {},
 }: TrapTakeoverInput): TrapTakeoverEventConfig {
   const eventDate = createEventDate(year, month, day);
-  const resolvedFeaturedBrands: FeaturedBrandName[] = featuredBrands ?? [];
+  const resolvedFeaturedBrands: BrandName[] = featuredBrands ?? [];
   return {
     date: eventDate,
     dateString: readableDateFormatter.format(eventDate),
