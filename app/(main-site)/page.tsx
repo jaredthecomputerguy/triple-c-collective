@@ -39,13 +39,36 @@ export default function HomePage() {
           alt="Triple C Collective Storefront"
           priority
         />
-        <div className="absolute top-0 left-0 h-full w-full bg-black/50" />
 
-        <h1 className="text-shadow font-logo absolute px-4 text-center text-4xl font-semibold text-white md:text-6xl">
-          Welcome to Triple C Collective
-        </h1>
+        <div className="absolute inset-0 bg-black/65" />
+
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
+          <h1 className="text-shadow font-logo text-4xl font-semibold text-white md:text-6xl">
+            Welcome to Triple C Collective
+          </h1>
+
+          <p className="mt-4 max-w-2xl text-base texts-shadow font-medium text-white/90 drop-shadow md:text-xl">
+            Browse our live menu for today’s flower, vapes, edibles,
+            concentrates, and deals.
+          </p>
+
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="https://triplec.treez.io/onlinemenu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md bg-white px-7 py-3.5 text-base font-bold text-purple-950 border border-purple-300 shadow-lg transition hover:bg-primary-purple hover:text-white">
+              Shop Online Menu
+            </a>
+
+            <a
+              href="/deals"
+              className="rounded-md border border-white/70 bg-white/10 px-7 py-3.5 text-base font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-purple-950">
+              View Deals
+            </a>
+          </div>
+        </div>
       </div>
-
       <div className="radial-gradient text-[#fefefe]">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-20">
           <h2 className="text-shadow font-logo text-center text-3xl font-semibold uppercase md:text-4xl">
