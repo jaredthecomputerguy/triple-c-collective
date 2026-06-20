@@ -22,6 +22,8 @@ import elevensLogo from "@/public/images/brands/elevens.png";
 import boxLunchLogo from "@/public/images/brands/box-lunch.webp";
 import geekThcxLogo from "@/public/images/brands/geek-thcx-logo.webp";
 import puffcoLogo from "@/public/images/brands/puffco.svg";
+import cannatrustLogo from "@/public/images/brands/cannatrust-logo.jpeg";
+import bobStashLogo from "@/public/images/brands/bob-stash-logo.png";
 
 export type FeaturedBrand = (typeof BRANDS)[number];
 export type BrandName = FeaturedBrand["name"];
@@ -158,6 +160,18 @@ const BRANDS = [
     alt: "Puffco Logo",
     url: "https://www.puffco.com",
     image: puffcoLogo,
+  },
+  {
+    name: "Cannatrust",
+    alt: "Cannatrust Logo",
+    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=CANNATRUST",
+    image: cannatrustLogo,
+  },
+  {
+    name: "B.O.B Stash",
+    alt: "B.O.B Stash Logo",
+    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=B.O.B%20STASH",
+    image: bobStashLogo,
   },
   /* Placeholders */
   {
