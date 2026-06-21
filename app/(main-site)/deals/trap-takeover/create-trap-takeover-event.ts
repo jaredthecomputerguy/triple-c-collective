@@ -29,6 +29,7 @@ const eventDateSchema = z
     { message: "Date must be a valid Friday" },
   );
 
+/** For example, "06232023" */
 const fileNameFormatter = new Intl.DateTimeFormat("en-US", {
   timeZone: TIME_ZONE,
   month: "2-digit",
@@ -36,6 +37,7 @@ const fileNameFormatter = new Intl.DateTimeFormat("en-US", {
   year: "2-digit",
 });
 
+/** For example, "Friday, June 23, 2023" */
 const readableDateFormatter = new Intl.DateTimeFormat("en-US", {
   timeZone: TIME_ZONE,
   weekday: "short",
