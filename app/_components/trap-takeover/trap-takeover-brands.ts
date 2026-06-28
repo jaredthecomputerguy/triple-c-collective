@@ -24,6 +24,7 @@ import geekThcxLogo from "@/public/images/brands/geek-thcx-logo.webp";
 import puffcoLogo from "@/public/images/brands/puffco.svg";
 import cannatrustLogo from "@/public/images/brands/cannatrust-logo.jpeg";
 import bobStashLogo from "@/public/images/brands/bob-stash-logo.png";
+import hypnoticBag from "@/public/images/brands/hypnotic.png";
 
 export type FeaturedBrand = (typeof BRANDS)[number];
 export type BrandName = FeaturedBrand["name"];
@@ -172,6 +173,12 @@ const BRANDS = [
     alt: "B.O.B Stash Logo",
     url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=B.O.B%20STASH",
     image: bobStashLogo,
+  },
+  {
+    name: "Hypnotic",
+    alt: "Hypnotic 1g Hash Infused All-in-one",
+    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=HYPNOTIC",
+    image: hypnoticBag,
   },
   /* Placeholders */
   {
