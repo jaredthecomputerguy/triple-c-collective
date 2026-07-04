@@ -26,6 +26,27 @@ export const FeaturedBrands = ({
               brand.name === featuredBrands[featuredBrands.length - 1].name &&
               featuredBrands.length % 2 !== 0;
 
+            if (brand.name === "Brands coming soon...") {
+              return (
+                <div
+                  className={cn(
+                    "flex flex-col items-center hover:underline",
+                    isLast && "col-span-2",
+                  )}
+                  key={brand.name ?? "undefined"}>
+                  <a
+                    className="flex flex-col items-center rounded-sm border border-white px-2 py-2 outline-hidden"
+                    href={brand.url}
+                    rel="noopener noreferrer"
+                    target="_blank">
+                    <h3 className="font-logo w-full py-2 text-center text-xl font-semibold">
+                      {brand.name}
+                    </h3>
+                  </a>
+                </div>
+              );
+            }
+
             return (
               <div
                 className={cn(
