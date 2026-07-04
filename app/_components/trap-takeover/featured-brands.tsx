@@ -34,7 +34,7 @@ export const FeaturedBrands = ({
                 )}
                 key={brand.name ?? "undefined"}>
                 <a
-                  className="focus:border-primary-purple focus:outline-primary-purple flex flex-col items-center rounded-sm border border-white px-2 py-2 outline-hidden"
+                  className="flex flex-col items-center rounded-sm border border-white px-2 py-2 outline-hidden"
                   href={brand.url}
                   rel="noopener noreferrer"
                   target="_blank">
