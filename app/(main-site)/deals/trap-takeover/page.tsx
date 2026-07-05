@@ -83,12 +83,15 @@ export default function TrapTakeoverPage() {
               displays and ready to answer all your cannabis questions.{" "}
             </li>
             <li>
-              <strong>Raffle Prizes:</strong> For every promo purchase, you’ll
-              receive a raffle ticket. At 6 PM, we’ll draw a ticket for a chance
+              <strong>Sweepstakes Prizes:</strong> For every promo purchase,
+              you’ll receive a ticket. At 6 PM, we’ll draw a ticket for a chance
               to win an exclusive prize pack filled with promo products and swag
               from top cannabis brands. Don’t miss your chance to win big!
             </li>
-            <GiftBags active={event.flags.giftBags} />
+            <GiftBags
+              active={event.flags.giftBags}
+              numberOfGiftBags={event.numberOfGiftBags}
+            />
           </ul>
         </div>
 

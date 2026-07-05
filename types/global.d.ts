@@ -49,6 +49,8 @@ declare global {
     };
     /** The deals for the event. */
     deals: IndividualDeal[];
+    /** The number of gift bags for the event. */
+    numberOfGiftBags?: number;
   };
 
   type Category =

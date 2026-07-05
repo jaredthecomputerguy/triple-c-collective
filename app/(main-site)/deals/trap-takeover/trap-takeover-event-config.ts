@@ -9,13 +9,27 @@ const eventData: TrapTakeoverInput = {
   year: 2026,
   month: 7,
   day: 10,
-  featuredBrands: ["Brands coming soon..."],
+  featuredBrands: [
+    "Hashtag",
+    "Big Boy Dro",
+    "High 90's",
+    "Hypnotic",
+    "Together Canna Supply",
+    "Park Jams",
+    "Dompen",
+    "Koa Cannabis Co.",
+    "Geek THCX",
+    "Chameleon Craft",
+    "Box Lunch",
+    "B.O.B Stash",
+    "Cannatrust",
+  ],
   flags: {
     /* TRUE FLAGS */
     featuredBrands: true,
-    flyer: false,
+    flyer: true,
+    giftBags: true,
     /* FALSE FLAGS */
-    giftBags: false,
     freeFood: false,
     specialArtPromo: false,
     specialPromo: false,
@@ -23,6 +37,7 @@ const eventData: TrapTakeoverInput = {
     individualDeals: true,
   },
   deals,
+  numberOfGiftBags: 100,
 };
 
 export const event = createTrapTakeoverEvent(eventData);

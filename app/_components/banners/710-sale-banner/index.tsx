@@ -1,4 +1,6 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
+import type { Route } from "next";
 
 import { TopBanner } from "@/app/_components/banners/top-banner";
 import { cn } from "@/lib/utils/shared";
@@ -7,12 +9,19 @@ import styles from "./styles.module.scss";
 
 interface SevenTenSaleBannerProps {
   active: boolean;
+  children?: ReactNode;
+  href?: string;
 }
 
-export const SevenTenSaleBanner = ({ active }: SevenTenSaleBannerProps) => {
+export const SevenTenSaleBanner = ({
+  active,
+  children,
+  href,
+}: SevenTenSaleBannerProps) => {
+  if (!href) return null;
   return (
-    <TopBanner active={active} className="w-full">
-      <Link href="/deals" className="group flex flex-col items-center">
+    <TopBanner active={active} className="w-full pt-2">
+      <Link href={href as Route} className="group flex flex-col items-center">
         <div className={styles.container}>
           <div className={styles.blobs}>
             <div className={styles.liquid}></div>
@@ -23,7 +32,7 @@ export const SevenTenSaleBanner = ({ active }: SevenTenSaleBannerProps) => {
             <div className={styles.blob}></div>
           </div>
           <h1 className={cn(styles.text, "group-hover:text-underline")}>
-            7/10 SALE - ALL DAY
+            {children}
           </h1>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="0">

@@ -9,6 +9,7 @@ import {
   DM_Serif_Display,
   Emilys_Candy,
   Courgette,
+  Chewy,
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -89,6 +90,14 @@ const courgette = Courgette({
   preload: false,
 });
 
+const chewy = Chewy({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-chewy",
+  preload: false,
+});
+
 const isDev = process.env.NODE_ENV === "development";
 
 export default async function RootLayout({
@@ -105,6 +114,7 @@ export default async function RootLayout({
     birthstone,
     emilysCandy,
     courgette,
+    chewy,
   ]
     .map((font) => font.variable)
     .join(" ");
