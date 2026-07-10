@@ -95,9 +95,7 @@ const bannerConfig = [
           <p className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl pt-2">
             7/10 TRAP TAKEOVER SALE!
           </p>
-          <p className="text-lg sm:text-xl md:text-2xl">
-            FRIDAY, JULY 10<sup>TH</sup> 12-6PM
-          </p>
+          <p className="text-lg sm:text-xl md:text-2xl">TODAY - 12-6PM</p>
         </div>
       ),
       href: "/deals/trap-takeover",
