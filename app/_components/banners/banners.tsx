@@ -67,14 +67,14 @@ const bannerConfig = [
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "TODAY | 12-6PM",
+      bannerSubText: "Fri July 17th | 12-6PM",
       today: false,
       mini: true,
     },
   }),
   generateBanner({
     Component: StiiizyBanner,
-    active: false,
+    active: true,
     order: Order.Second,
   }),
   generateBanner({ Component: CloneBanner }),
@@ -85,22 +85,7 @@ const bannerConfig = [
   generateBanner({ Component: FathersDayBanner }),
   generateBanner({ Component: NewYearBanner }),
   generateBanner({ Component: NewsletterBanner }),
-  generateBanner({
-    Component: SevenTenSaleBanner,
-    active: true,
-    order: Order.Third,
-    props: {
-      children: (
-        <div className="flex flex-col items-center whitespace-nowrap">
-          <p className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl pt-2">
-            7/10 TRAP TAKEOVER SALE!
-          </p>
-          <p className="text-lg sm:text-xl md:text-2xl">TODAY - 12-6PM</p>
-        </div>
-      ),
-      href: "/deals/trap-takeover",
-    },
-  }),
+  generateBanner({ Component: SevenTenSaleBanner }),
   generateBanner({ Component: SnapchatBanner }),
   generateBanner({ Component: StPatricksBanner }),
   generateBanner({ Component: HalloweenBanner }),
