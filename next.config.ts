@@ -88,6 +88,9 @@ const nextConfig: NextConfig = {
   },
   allowedDevOrigins: isDev ? ["*.ngrok-free.app"] : undefined,
   typedRoutes: true,
+  experimental: {
+    useTypeScriptCli: true,
+  },
 };
 
 export default nextConfig;
