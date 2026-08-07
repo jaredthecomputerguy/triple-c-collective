@@ -79,6 +79,7 @@ export default function HomePage() {
             <div className="h-px w-36 bg-white md:w-60" />
             <Image
               src={logo}
+              loading="eager"
               unoptimized={shouldOptimize}
               className="mx-auto w-24 rounded-lg md:w-48"
               alt="Triple C Collective Logo"
