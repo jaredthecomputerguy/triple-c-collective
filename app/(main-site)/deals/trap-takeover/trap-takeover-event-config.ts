@@ -8,19 +8,12 @@ const deals: IndividualDeal[] = [];
 const eventData: TrapTakeoverInput = {
   year: 2026,
   month: 8,
-  day: 7,
-  featuredBrands: [
-    "Dompen",
-    "Geek THCX",
-    "Koa Cannabis Co.",
-    "Together Canna Supply",
-    "Hashtag",
-    "High 90's",
-  ],
+  day: 14,
+  featuredBrands: ["Brands coming soon..."],
   flags: {
     /* TRUE FLAGS */
     featuredBrands: true,
-    flyer: true,
+    flyer: false,
     /* FALSE FLAGS */
     giftBags: false,
     freeFood: false,
