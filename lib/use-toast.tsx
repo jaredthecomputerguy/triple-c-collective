@@ -2,6 +2,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 
 import type { ToastActionElement, ToastProps } from "@/app/_components/toast";
+import { match } from "ts-pattern";
 
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 1000000;
@@ -70,23 +71,23 @@ const addToRemoveQueue = (toastId: string) => {
 };
 
 export const reducer = (state: State, action: Action): State => {
-  switch (action.type) {
-    case "ADD_TOAST":
+  return match(action)
+    .with({ type: "ADD_TOAST" }, ({ toast }) => {
       return {
         ...state,
-        toasts: [action.toast, ...state.toasts].slice(0, TOAST_LIMIT),
+        toasts: [toast, ...state.toasts].slice(0, TOAST_LIMIT),
       };
-
-    case "UPDATE_TOAST":
+    })
+    .with({ type: "UPDATE_TOAST" }, ({ toast }) => {
       return {
         ...state,
         toasts: state.toasts.map((t) =>
-          t.id === action.toast.id ? { ...t, ...action.toast } : t,
+          t.id === toast.id ? { ...t, ...toast } : t,
         ),
       };
-
-    case "DISMISS_TOAST": {
-      const { toastId } = action;
+    })
+    .with({ type: "DISMISS_TOAST" }, (act) => {
+      const { toastId } = act;
 
       // ! Side effects ! - This could be extracted into a dismissToast() action,
       // but I'll keep it here for simplicity
@@ -109,9 +110,9 @@ export const reducer = (state: State, action: Action): State => {
             : t,
         ),
       };
-    }
-    case "REMOVE_TOAST":
-      if (action.toastId === undefined) {
+    })
+    .with({ type: "REMOVE_TOAST" }, ({ toastId }) => {
+      if (toastId === undefined) {
         return {
           ...state,
           toasts: [],
@@ -119,9 +120,10 @@ export const reducer = (state: State, action: Action): State => {
       }
       return {
         ...state,
-        toasts: state.toasts.filter((t) => t.id !== action.toastId),
+        toasts: state.toasts.filter((t) => t.id !== toastId),
       };
-  }
+    })
+    .exhaustive();
 };
 
 // eslint-disable-next-line no-unused-vars

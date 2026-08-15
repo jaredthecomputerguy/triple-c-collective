@@ -1,4 +1,5 @@
 import type { StaticImageData } from "next/image";
+import { match, P } from "ts-pattern";
 
 import headerImg from "@/public/images/interior-shop.jpg";
 import christmasHeaderImg from "@/public/images/interior-shop.jpg";
@@ -28,48 +29,54 @@ enum Months {
   December,
 }
 
-export const getHeaderAndLogoImages = () => {
+type LogoAndHeaderImageInfo = {
+  logo: StaticImageData;
+  header: StaticImageData;
+  shouldOptimize: boolean;
+};
+
+export const getHeaderAndLogoImages = (): LogoAndHeaderImageInfo => {
   const today = new Date();
-  const month: number = today.getMonth();
+  const month = today.getMonth();
   const day = today.getDate();
-  let images: { logo: StaticImageData; header: StaticImageData } = {
+
+  let images: Omit<LogoAndHeaderImageInfo, "shouldOptimize"> = {
     header: headerImg,
     logo: logoImg,
   };
-  switch (month) {
-    case Months.October:
+
+  match({ month, day })
+    .with({ month: Months.October }, () => {
       images = {
         logo: halloweenLogoImg,
         header: halloweenHeaderImg,
       };
-      break;
-    case Months.November:
+    })
+    .with({ month: Months.November }, () => {
       images = {
         logo: thanksgivingLogoImg,
         // TODO: Add Thanksgiving header image
         header: headerImg,
       };
-      break;
-    case Months.December:
-      if (day > 25) {
-        images = {
-          logo: newYearsLogoImg,
-          header: christmasHeaderImg,
-        };
-      } else {
-        images = {
-          logo: christmasLogoImg ?? logoImg,
-          header: christmasHeaderImg,
-        };
-      }
-      break;
-    default:
+    })
+    .with({ month: Months.December, day: P.number.gt(25) }, () => {
+      images = {
+        logo: newYearsLogoImg,
+        header: christmasHeaderImg,
+      };
+    })
+    .with({ month: Months.December, day: P.number.lte(25) }, () => {
+      images = {
+        logo: christmasLogoImg ?? logoImg,
+        header: christmasHeaderImg,
+      };
+    })
+    .otherwise(() => {
       images = {
         logo: logoImg,
         header: headerImg,
       };
-      break;
-  }
+    });
 
   return {
     ...images,

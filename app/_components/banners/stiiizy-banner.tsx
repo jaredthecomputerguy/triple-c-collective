@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils/shared";
 import { TopBanner } from "@/app/_components/banners/top-banner";
 import stiiizyWhiteLogo from "@/public/images/brands/stiiizy-white.png";
 import stiiizyBlackLogo from "@/public/images/brands/stiiizy-logo-black.png";
+import { match } from "ts-pattern";
 
 interface StiiizyBannerProps {
   active: boolean;
@@ -26,25 +27,10 @@ export const StiiizyBanner = ({ active }: StiiizyBannerProps) => {
   const isSaturdayOrSunday = dayOfWeek === 0 || dayOfWeek === 6;
 
   const handleStiiizyBannerEvent = (e: MouseEvent<HTMLDivElement>) => {
-    switch (
-      e.type as
-        | "click"
-        | "dblclick"
-        | "mousedown"
-        | "mouseenter"
-        | "mouseleave"
-        | "mousemove"
-        | "mouseover"
-        | "mouseout"
-        | "mouseup"
-    ) {
-      case "mouseenter":
-        setStiiizyLogo(stiiizyBlackLogo);
-        break;
-      case "mouseleave":
-        setStiiizyLogo(stiiizyWhiteLogo);
-        break;
-    }
+    match(e.type)
+      .with("mouseenter", () => setStiiizyLogo(stiiizyBlackLogo))
+      .with("mouseleave", () => setStiiizyLogo(stiiizyWhiteLogo))
+      .otherwise(() => {});
   };
 
   return (
@@ -61,6 +47,7 @@ export const StiiizyBanner = ({ active }: StiiizyBannerProps) => {
           key={stiiizyLogo.src}
           className="h-10 w-20"
           src={stiiizyLogo}
+          loading="eager"
           alt="Stiiizy Logo"
         />
         <Separator
