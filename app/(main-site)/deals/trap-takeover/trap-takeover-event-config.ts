@@ -9,10 +9,16 @@ const eventData: TrapTakeoverInput = {
   year: 2026,
   month: 8,
   day: 28,
-  featuredBrands: ["Brands coming soon..."],
+  featuredBrands: [
+    "Jeff's Sessions",
+    "Big Boy Dro",
+    "Park Jams",
+    "Together Canna Supply",
+    "High 90's",
+  ],
   flags: {
     featuredBrands: true,
-    flyer: false,
+    flyer: true,
     /* Other flags */
     giftBags: false,
     freeFood: false,
