@@ -31,7 +31,7 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
           <Link
             href={formatUrl(deal)}
             target="_blank"
-            className="group border-primary-purple/50 focus:outline-primary-purple relative flex flex-col items-center overflow-hidden rounded-xl border shadow-lg outline-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1"
+            className="group border-primary-purple/50 focus:outline-primary-purple relative flex flex-col items-center overflow-hidden rounded-xl border shadow-lg outline-hidden transition-transform duration-300 ease-in-out hover:-translate-y-1 scroll-mt-48 md:scroll-mt-24"
             key={deal.id}
             id={deal.htmlId}>
             <BadgeContainer>
