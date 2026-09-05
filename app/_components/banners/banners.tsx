@@ -5,6 +5,7 @@ import {
   FourTwentyBanner,
   ChristmasBanner,
   MemorialDayBanner,
+  LaborDayBanner,
   MothersDayBanner,
   FathersDayBanner,
   NewYearBanner,
@@ -17,6 +18,7 @@ import {
   ThanksgivingBanner,
   BestOfLakeAndMendocinoWinnerBanner,
 } from "@/app/_components/banners";
+import Link from "next/link";
 
 enum Order {
   First = 0,
@@ -51,19 +53,22 @@ const bannerConfig = [
     order: Order.First,
     props: {
       children: (
-        <div className="mr-4 text-center text-[#fefefe]">
-          <span className="text-xs uppercase md:text-sm">
-            NOW ACCEPTING CREDIT CARDS &amp; TAP TO PAY
-          </span>
+        <div className="text-[#050505]">
+          <Link
+            href="/deals"
+            className="flex flex-col items-center justify-center gap-1 px-4 py-3 text-center text-[#fefefe] transition hover:underline md:text-xl">
+            LABOR DAY WEEKEND SALE
+          </Link>
         </div>
       ),
-      className: "py-2 font-bold text-white uppercase px-4 bg-primary-purple",
+      className:
+        "relative overflow-hidden bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-2 font-bold text-white uppercase",
       closeBtnClass: "text-white",
     },
   }),
   generateBanner({
     Component: TrapTakeoverBanner,
-    active: true,
+    active: false,
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
@@ -81,6 +86,7 @@ const bannerConfig = [
   generateBanner({ Component: FourTwentyBanner }),
   generateBanner({ Component: ChristmasBanner }),
   generateBanner({ Component: MemorialDayBanner }),
+  generateBanner({ Component: LaborDayBanner, active: true }),
   generateBanner({ Component: MothersDayBanner }),
   generateBanner({ Component: FathersDayBanner }),
   generateBanner({ Component: NewYearBanner }),
