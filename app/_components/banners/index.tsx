@@ -3,7 +3,10 @@ import { StiiizyBanner } from "@/app/_components/banners/stiiizy-banner";
 import { CloneBanner } from "@/app/_components/banners/clone-banner";
 import { FourTwentyBanner } from "@/app/_components/banners/4-20-banner";
 import { ChristmasBanner } from "@/app/_components/banners/christmas-banner";
-import { MemorialDayBanner } from "@/app/_components/banners/memorial-day-banner";
+import {
+  MemorialDayBanner,
+  LaborDayBanner,
+} from "@/app/_components/banners/memorial-day-banner";
 import { MothersDayBanner } from "@/app/_components/banners/mothers-day-banner";
 import { FathersDayBanner } from "@/app/_components/banners/fathers-day-banner";
 import { NewYearBanner } from "@/app/_components/banners/new-year-banner";
@@ -23,6 +26,7 @@ export {
   FourTwentyBanner,
   ChristmasBanner,
   MemorialDayBanner,
+  LaborDayBanner,
   MothersDayBanner,
   FathersDayBanner,
   NewYearBanner,
