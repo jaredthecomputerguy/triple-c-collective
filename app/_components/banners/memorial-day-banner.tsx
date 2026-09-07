@@ -49,7 +49,7 @@ export const LaborDayBanner = ({ active }: { active: boolean }) => {
             <Star className="size-5 text-white md:size-6" />
           </div>
           <span className="text-sm font-semibold tracking-wide text-white md:text-base">
-            BOGO Deals All Weekend
+            BOGO Deals - Sunday to Monday
           </span>
         </div>
       </Link>

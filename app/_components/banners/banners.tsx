@@ -68,7 +68,7 @@ const bannerConfig = [
   }),
   generateBanner({
     Component: TrapTakeoverBanner,
-    active: true,
+    active: false,
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
@@ -86,7 +86,7 @@ const bannerConfig = [
   generateBanner({ Component: FourTwentyBanner }),
   generateBanner({ Component: ChristmasBanner }),
   generateBanner({ Component: MemorialDayBanner }),
-  generateBanner({ Component: LaborDayBanner }),
+  generateBanner({ Component: LaborDayBanner, active: true }),
   generateBanner({ Component: MothersDayBanner }),
   generateBanner({ Component: FathersDayBanner }),
   generateBanner({ Component: NewYearBanner }),
