@@ -1,7 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
 import type { Route } from "next";
 import type { ReactNode } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 import { isDateLessThan } from "@/lib/utils/server";
 import { Badge } from "@/app/(main-site)/deals/badge";
@@ -9,7 +9,7 @@ import { Badge } from "@/app/(main-site)/deals/badge";
 const DAYS_TO_BE_CONSIDERED_NEW = 3;
 const BASE_ECOMMERCE_MENU_URL = "https://triplec.treez.io/onlinemenu/search";
 
-const formatUrl = (deal: Deal): Route => {
+function formatUrl(deal: Deal): Route {
   const url = new URL(BASE_ECOMMERCE_MENU_URL);
   const params = new URLSearchParams();
   params.set("categories", deal.categories.join(","));
@@ -20,7 +20,7 @@ const formatUrl = (deal: Deal): Route => {
     encodeURIComponent(JSON.stringify(deal.typeSubtypes)),
   );
   return `${url.origin}${url.pathname}?${params.toString().replace(/\+/g, "%20")}` as Route;
-};
+}
 
 export const DealCards = ({ deals }: { deals: Deal[] }) => {
   return (

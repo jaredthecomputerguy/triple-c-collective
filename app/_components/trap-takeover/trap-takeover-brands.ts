@@ -25,9 +25,13 @@ import puffcoLogo from "@/public/images/brands/puffco.svg";
 import cannatrustLogo from "@/public/images/brands/cannatrust-logo.jpeg";
 import bobStashLogo from "@/public/images/brands/bob-stash-logo.png";
 import hypnoticBag from "@/public/images/brands/hypnotic.png";
+import backCountryOrganicsJar from "@/public/images/brands/back-country-logo.png";
 
 export type FeaturedBrand = (typeof BRANDS)[number];
 export type BrandName = FeaturedBrand["name"];
+
+const getTreezMenuSearchUrlByBrand = (brandName: string) =>
+  `https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=${encodeURIComponent(brandName.toUpperCase())}`;
 
 const BRANDS = [
   {
@@ -63,7 +67,7 @@ const BRANDS = [
   {
     name: "Big Boy Dro",
     alt: "Big Boy Dro Logo",
-    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=BIG BOY DRO",
+    url: getTreezMenuSearchUrlByBrand("Big Boy Dro"),
     image: bigBoyDroLogo,
   },
   {
@@ -75,19 +79,19 @@ const BRANDS = [
   {
     name: "Ronin",
     alt: "Ronin Rosin Logo",
-    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=RONIN",
+    url: getTreezMenuSearchUrlByBrand("Ronin"),
     image: roninRosinLogo,
   },
   {
     name: "Coffee Supply",
     alt: "Coffee Supply Logo",
-    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=COFFEE%20SUPPLY",
+    url: getTreezMenuSearchUrlByBrand("Coffee Supply"),
     image: coffeeSupplyLogo,
   },
   {
     name: "Hashtag",
     alt: "Hashtag Infused Flower",
-    url: "https://triplec.treez.io/onlinemenu/search?customerType=ALL&query=hashtag",
+    url: getTreezMenuSearchUrlByBrand("Hashtag"),
     image: hashtagLogo,
   },
   {
@@ -99,7 +103,7 @@ const BRANDS = [
   {
     name: "Park Jams",
     alt: "Park Jams Gummy Pack",
-    url: "https://triplec.treez.io/onlinemenu/search?customerType=ALL&query=park%20jams",
+    url: getTreezMenuSearchUrlByBrand("Park Jams"),
     image: parkJamsProductPackaging,
   },
   {
@@ -129,25 +133,25 @@ const BRANDS = [
   {
     name: "Budget Dabs",
     alt: "Budget Dabs Logo",
-    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=BUDGET%20DABS",
+    url: getTreezMenuSearchUrlByBrand("Budget Dabs"),
     image: budgetDabsLogo,
   },
   {
     name: "The Elevens",
     alt: "The Elevens Logo",
-    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=THE%20ELEVENS",
+    url: getTreezMenuSearchUrlByBrand("The Elevens"),
     image: elevensLogo,
   },
   {
     name: "Out the Door",
     alt: "Out the Door Logo",
-    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=OUT%20THE%20DOOR",
+    url: getTreezMenuSearchUrlByBrand("Out the Door"),
     image: outTheDoorLogo,
   },
   {
     name: "Box Lunch",
     alt: "Box Lunch Logo",
-    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=BOX%20LUNCH",
+    url: getTreezMenuSearchUrlByBrand("Box Lunch"),
     image: boxLunchLogo,
   },
   {
@@ -165,22 +169,28 @@ const BRANDS = [
   {
     name: "Cannatrust",
     alt: "Cannatrust Logo",
-    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=CANNATRUST",
+    url: getTreezMenuSearchUrlByBrand("Cannatrust"),
     image: cannatrustLogo,
   },
   {
     name: "B.O.B Stash",
     alt: "B.O.B Stash Logo",
-    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=B.O.B%20STASH",
+    url: getTreezMenuSearchUrlByBrand("B.O.B Stash"),
     image: bobStashLogo,
   },
   {
     name: "Hypnotic",
     alt: "Hypnotic 1g Hash Infused All-in-one",
-    url: "https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=HYPNOTIC",
+    url: getTreezMenuSearchUrlByBrand("Hypnotic"),
     image: hypnoticBag,
   },
-  /* Placeholders */
+  {
+    name: "Back Country Organics",
+    alt: "Back Country Organics Flower 3.5g Jar",
+    url: getTreezMenuSearchUrlByBrand("Back Country Organics"),
+    image: backCountryOrganicsJar,
+  },
+  /* --- Placeholders --- */
   {
     name: "And more...",
     alt: "More brands",
@@ -195,11 +205,6 @@ const BRANDS = [
   },
 ] as const;
 
-/*
- * This function takes a list of brand names and returns a filtered list of brands that match the names.
- *
- * Pass `undefined` as the last or only arg to show the 'more brands coming soon...'
- */
 export const getFeaturedBrands = (...brandNames: BrandName[]) => {
   return BRANDS.filter((brand) => brandNames.includes(brand.name)).toSorted(
     (a, b) => ((a.name ?? "") > (b.name ?? "") ? 1 : -1),
