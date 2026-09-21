@@ -8,14 +8,15 @@ const deals: IndividualDeal[] = [];
 const eventData: TrapTakeoverInput = {
   year: 2026,
   month: 9,
-  day: 18,
+  day: 25,
   featuredBrands: [
+    "Cannatrust",
+    "B.O.B Stash",
+    "Jeff's Sessions",
+    "Park Jams",
     "High 90's",
     "Hashtag",
-    "Geek THCX",
-    "Park Jams",
-    "Back Country Organics",
-    "Together Canna Supply",
+    "Big Boy Dro",
   ],
   flags: {
     featuredBrands: true,
