@@ -8,6 +8,13 @@ declare global {
   // biome-ignore lint/suspicious/noExplicitAny: I need the any here
   type ComponentTypeWithAny = ComponentType<any>;
 
+  type AnyBanner = {
+    Component: ComponentTypeWithAny;
+    active: boolean;
+    order: Order;
+    props: Record<string, unknown>;
+  };
+
   // Extract props from a React component
   type PropsOf<T extends ComponentTypeWithAny> =
     T extends ComponentType<infer P> ? P : never;
