@@ -63,18 +63,19 @@ export async function generateMetadata({
 export default async function BestOfLakeAndMendocinoPage({
   params,
 }: BestOfLakeAndMendocinoYearPageProps) {
-  const { year: rawYear } = await params;
-
-  const year = parseYear(rawYear);
-
-  return (
-    <main className="bg-[#fefefe]">
-      <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
-        <h1 className="font-logo py-4 text-4xl font-semibold">
-          Best of Lake &amp; Mendocino {year}
-        </h1>
-        <hr className="pb-4" />
-      </div>
-    </main>
-  );
+  return notFound();
+  // const { year: rawYear } = await params;
+  //
+  // const year = parseYear(rawYear);
+  //
+  // return (
+  //   <main className="bg-[#fefefe]">
+  //     <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
+  //       <h1 className="font-logo py-4 text-4xl font-semibold">
+  //         Best of Lake &amp; Mendocino {year}
+  //       </h1>
+  //       <hr className="pb-4" />
+  //     </div>
+  //   </main>
+  // );
 }
