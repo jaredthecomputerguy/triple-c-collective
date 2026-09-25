@@ -13,7 +13,7 @@ import {
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import { Card, CardContent } from "@/app/_components/card";
 import { Button } from "@/app/_components/button";
@@ -33,8 +33,7 @@ type BestOfLakeAndMendocinoPageProps = { params: Promise<{ year: string }> };
 export async function generateMetadata({
   params,
 }: BestOfLakeAndMendocinoYearPageProps): Promise<Metadata> {
-  const { year: rawYear } = await params;
-  const year = parseYear(rawYear);
+  const { year } = await params;
 
   return createMetadata({
     title: `Best of Lake and Mendocino ${year}`,
@@ -63,7 +62,7 @@ export async function generateMetadata({
   });
 }
 
-const CONTEST_YEAR = 2026;
+const CONTEST_YEAR = "2027";
 
 const FAQ: { id: number; trigger: string; content: string }[] = [
   {
@@ -112,13 +111,13 @@ const FAQ: { id: number; trigger: string; content: string }[] = [
     id: 8,
     trigger: "When does voting take place?",
     content:
-      "The regular voting period runs from Wednesday, September 17th at 12:00 pm through Wednesday, October 1st at 5:00 pm.",
+      "The regular voting period runs from September 16th at 12:00 pm through September 30th at 5:00 pm.",
   },
   {
     id: 9,
     trigger: "When will winners be announced?",
     content:
-      "Winners will be posted on the Best of Lake and Mendocino website on Wednesday, January 7th at 12:00 pm and featured in the official winners magazine.",
+      "Winners will be posted on the Best of Lake and Mendocino website on Wednesday, January 6th at 12:00 pm and featured in the official winners magazine.",
   },
   {
     id: 10,
@@ -169,140 +168,149 @@ const CATEGORIES = [
   },
 ];
 
-export default function BestOfLakeAndMendocinoPage() {
-  return notFound();
-  // return (
-  //   <main className="bg-[#fefefe]">
-  //     <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
-  //       <h1 className="font-logo py-4 text-4xl font-semibold">
-  //         Best of Lake &amp; Mendocino 2026
-  //       </h1>
-  //       <hr className="pb-4" />
-  //
-  //       <div className="container py-4 md:py-6">
-  //         <div className="grid gap-8 lg:grid-cols-2">
-  //           <div className="space-y-6">
-  //             <div className="space-y-2">
-  //               <h2 className="text-primary-purple text-3xl font-bold tracking-tighter">
-  //                 Our Nominations
-  //               </h2>
-  //               <p className="text-gray-600">
-  //                 We&apos;re honored to be recognized in these categories,
-  //                 reflecting our commitment to excellence in cannabis retail,
-  //                 customer service, and community engagement.
-  //               </p>
-  //             </div>
-  //
-  //             <div className="grid gap-4">
-  //               {CATEGORIES.map((category) => (
-  //                 <Card key={category.name}>
-  //                   <CardContent className="p-6">
-  //                     <div className="flex items-center gap-4">
-  //                       <category.icon className="text-primary-purple h-8 w-8 min-w-8" />
-  //                       <div>
-  //                         <h3 className="text-lg font-bold">{category.name}</h3>
-  //                         <p className="mt-1 text-sm text-gray-600">
-  //                           {category.description}
-  //                         </p>
-  //                       </div>
-  //                     </div>
-  //                   </CardContent>
-  //                 </Card>
-  //               ))}
-  //             </div>
-  //           </div>
-  //
-  //           <div className="space-y-6">
-  //             <div className="space-y-2">
-  //               <h2 className="text-primary-purple text-3xl font-bold tracking-tighter">
-  //                 Vote for Us!
-  //               </h2>
-  //               <p className="text-gray-600">
-  //                 Your support means everything to us. Help us win by casting
-  //                 your vote in the official Best of Lake & Mendocino 2026
-  //                 contest.
-  //               </p>
-  //             </div>
-  //
-  //             <Card className="border-purple-200 bg-gradient-to-br from-purple-50 to-purple-100">
-  //               <CardContent className="p-8 text-center">
-  //                 <div className="mx-auto mb-8 max-w-sm rounded-lg bg-white p-6 shadow">
-  //                   <Image
-  //                     src={VOTE_FOR_US_IMAGE}
-  //                     alt="Best of Lake & Mendocino 2026 Logo - Vote for Us"
-  //                     priority
-  //                   />
-  //                 </div>
-  //                 <h3 className="text-primary-purple mb-4 text-2xl font-bold">
-  //                   Cast Your Vote Today
-  //                 </h3>
-  //                 <p className="mb-6 text-gray-700">
-  //                   Visit the official voting site to support Triple C
-  //                   Collective in all six categories. Every vote counts!
-  //                 </p>
-  //                 <Button
-  //                   className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 px-8 py-3 text-lg font-semibold text-white"
-  //                   asChild>
-  //                   <Link
-  //                     className="text-white"
-  //                     href="https://votebolm.com/triple-c-collective"
-  //                     target="_blank">
-  //                     Vote Now - Official Site
-  //                   </Link>
-  //                 </Button>
-  //               </CardContent>
-  //             </Card>
-  //
-  //             <Card>
-  //               <CardContent className="p-6">
-  //                 <h3 className="text-primary-purple mb-3 text-xl font-bold">
-  //                   Why Vote for Triple C Collective?
-  //                 </h3>
-  //                 <ul className="space-y-2 text-gray-600">
-  //                   <li className="flex items-start gap-2">
-  //                     <Star className="text-primary-purple mt-1 h-4 w-4 min-w-4" />
-  //                     <span>
-  //                       Expert budtenders with extensive cannabis knowledge
-  //                     </span>
-  //                   </li>
-  //                   <li className="flex items-start gap-2">
-  //                     <Star className="text-primary-purple mt-1 h-4 w-4 min-w-4" />
-  //                     <span>
-  //                       Premium quality products and extensive selection
-  //                     </span>
-  //                   </li>
-  //                   <li className="flex items-start gap-2">
-  //                     <Star className="text-primary-purple mt-1 h-4 w-4 min-w-4" />
-  //                     <span>Commitment to customer service and community</span>
-  //                   </li>
-  //                   <li className="flex items-start gap-2">
-  //                     <Star className="text-primary-purple mt-1 h-4 w-4 min-w-4" />
-  //                     <span>
-  //                       Supporting the local Lake County cannabis industry
-  //                     </span>
-  //                   </li>
-  //                 </ul>
-  //               </CardContent>
-  //             </Card>
-  //           </div>
-  //           {/* TODO: add the accordion component */}
-  //         </div>
-  //         <hr className="mt-16 pb-4" />
-  //         <h2 className="font-logo py-8 text-center text-4xl font-semibold">
-  //           Frequently Asked Questions
-  //         </h2>
-  //         <div className="px-4 md:px-6">
-  //           <Accordion type="multiple" className="mx-auto">
-  //             {FAQ.map((faq, i) => (
-  //               <AccordionItem value={`item-${i}`} key={faq.id}>
-  //                 <AccordionTrigger>{faq.trigger}</AccordionTrigger>
-  //                 <AccordionContent>{faq.content}</AccordionContent>
-  //               </AccordionItem>
-  //             ))}
-  //           </Accordion>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </main>
-  // );
+export default async function BestOfLakeAndMendocinoPage({
+  params,
+}: {
+  params: { year: number };
+}) {
+  const { year } = await params;
+
+  if (year !== CONTEST_YEAR) {
+    return redirect(`/best-of-lake-and-mendocino/${CONTEST_YEAR}/vote-for-us`);
+  }
+
+  return (
+    <main className="bg-[#fefefe]">
+      <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
+        <h1 className="font-logo py-4 text-4xl font-semibold">
+          Best of Lake &amp; Mendocino {CONTEST_YEAR}
+        </h1>
+        <hr className="pb-4" />
+
+        <div className="container py-4 md:py-6">
+          <div className="grid gap-8 lg:grid-cols-2">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h2 className="text-primary-purple text-3xl font-bold tracking-tighter">
+                  Our Nominations
+                </h2>
+                <p className="text-gray-600">
+                  We&apos;re honored to be recognized in these categories,
+                  reflecting our commitment to excellence in cannabis retail,
+                  customer service, and community engagement.
+                </p>
+              </div>
+
+              <div className="grid gap-4">
+                {CATEGORIES.map((category) => (
+                  <Card key={category.name}>
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-4">
+                        <category.icon className="text-primary-purple h-8 w-8 min-w-8" />
+                        <div>
+                          <h3 className="text-lg font-bold">{category.name}</h3>
+                          <p className="mt-1 text-sm text-gray-600">
+                            {category.description}
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h2 className="text-primary-purple text-3xl font-bold tracking-tighter">
+                  Vote for Us!
+                </h2>
+                <p className="text-gray-600">
+                  Your support means everything to us. Help us win by casting
+                  your vote in the official Best of Lake & Mendocino 2026
+                  contest.
+                </p>
+              </div>
+
+              <Card className="border-purple-200 bg-linear-to-br from-purple-50 to-purple-100">
+                <CardContent className="p-8 text-center">
+                  <div className="mx-auto mb-8 max-w-sm rounded-lg bg-white p-6 shadow">
+                    <Image
+                      src={VOTE_FOR_US_IMAGE}
+                      alt="Best of Lake & Mendocino 2026 Logo - Vote for Us"
+                      priority
+                    />
+                  </div>
+                  <h3 className="text-primary-purple mb-4 text-2xl font-bold">
+                    Cast Your Vote Today
+                  </h3>
+                  <p className="mb-6 text-gray-700">
+                    Visit the official voting site to support Triple C
+                    Collective in all six categories. Every vote counts!
+                  </p>
+                  <Button
+                    className="bg-primary-purple hover:bg-primary-purple/80 focus:bg-primary-purple/80 focus:outline-primary-purple disabled:bg-primary-purple/50 px-8 py-3 text-lg font-semibold text-white"
+                    asChild>
+                    <Link
+                      className="text-white"
+                      href="https://bestoflakeandmendocino.com/vote/"
+                      target="_blank">
+                      Vote Now - Official Site
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-primary-purple mb-3 text-xl font-bold">
+                    Why Vote for Triple C Collective?
+                  </h3>
+                  <ul className="space-y-2 text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <Star className="text-primary-purple mt-1 h-4 w-4 min-w-4" />
+                      <span>
+                        Expert budtenders with extensive cannabis knowledge
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Star className="text-primary-purple mt-1 h-4 w-4 min-w-4" />
+                      <span>
+                        Premium quality products and extensive selection
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Star className="text-primary-purple mt-1 h-4 w-4 min-w-4" />
+                      <span>Commitment to customer service and community</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Star className="text-primary-purple mt-1 h-4 w-4 min-w-4" />
+                      <span>
+                        Supporting the local Lake County cannabis industry
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+            {/* TODO: add the accordion component */}
+          </div>
+          <hr className="mt-16 pb-4" />
+          <h2 className="font-logo py-8 text-center text-4xl font-semibold">
+            Frequently Asked Questions
+          </h2>
+          <div className="px-4 md:px-6">
+            <Accordion type="multiple" className="mx-auto">
+              {FAQ.map((faq, i) => (
+                <AccordionItem value={`item-${i}`} key={faq.id}>
+                  <AccordionTrigger>{faq.trigger}</AccordionTrigger>
+                  <AccordionContent>{faq.content}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
 }

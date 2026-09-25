@@ -37,7 +37,7 @@ const DEFAULT_ORDER = 0;
 
 function generateBanner<T extends ComponentTypeWithAny>(
   entry: BannerEntry<T>,
-): BannerEntry<T> {
+): AnyBanner {
   return {
     active: false,
     order: DEFAULT_ORDER,
@@ -96,7 +96,15 @@ const bannerConfig = [
   generateBanner({ Component: StPatricksBanner }),
   generateBanner({ Component: HalloweenBanner }),
   generateBanner({ Component: ThanksgivingBanner }),
-  generateBanner({ Component: BestOfLakeAndMendocinoWinnerBanner }),
+  generateBanner({
+    Component: BestOfLakeAndMendocinoWinnerBanner,
+    active: true,
+    order: Order.First,
+    props: {
+      year: 2027,
+      isVotingPeriod: true,
+    },
+  }),
 ] as const;
 
 export const Banners = () => {
