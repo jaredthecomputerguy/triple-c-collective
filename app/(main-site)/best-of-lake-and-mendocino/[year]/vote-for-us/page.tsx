@@ -26,7 +26,7 @@ import {
 
 import { createMetadata, baseMetadata } from "@/lib/metadata";
 
-import VOTE_FOR_US_IMAGE from "@/public/images/bolm/vote-for-us.png";
+import VOTE_FOR_US_IMAGE from "@/public/images/bolm/2027-vote-for-us.png";
 
 type BestOfLakeAndMendocinoPageProps = { params: Promise<{ year: string }> };
 
