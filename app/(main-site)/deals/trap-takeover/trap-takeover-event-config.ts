@@ -7,20 +7,12 @@ const deals: IndividualDeal[] = [];
 
 const eventData: TrapTakeoverInput = {
   year: 2026,
-  month: 9,
-  day: 25,
-  featuredBrands: [
-    "Cannatrust",
-    "B.O.B Stash",
-    "Jeff's Sessions",
-    "Park Jams",
-    "High 90's",
-    "Hashtag",
-    "Big Boy Dro",
-  ],
+  month: 10,
+  day: 2,
+  featuredBrands: ["Brands coming soon..."],
   flags: {
     featuredBrands: true,
-    flyer: true,
+    flyer: false,
     /* Other flags */
     giftBags: false,
     freeFood: false,
