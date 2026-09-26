@@ -68,19 +68,19 @@ const bannerConfig = [
   }),
   generateBanner({
     Component: TrapTakeoverBanner,
-    active: true,
+    active: false,
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "TODAY | 12-6PM",
+      bannerSubText: "Fri October 2nd | 12-6PM",
       today: false,
       mini: true,
     },
   }),
   generateBanner({
     Component: StiiizyBanner,
-    active: false,
-    order: Order.Second,
+    active: true,
+    order: Order.First,
   }),
   generateBanner({ Component: CloneBanner }),
   generateBanner({ Component: FourTwentyBanner }),
