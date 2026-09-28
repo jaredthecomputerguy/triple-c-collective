@@ -24,21 +24,22 @@ export const BestOfLakeAndMendocinoWinnerBanner = ({
         className="bg-[#12321a]"
         closeBtnClass="text-white">
         <Link
-          className="flex gap-2 items-center py-2 px-8"
+          className="flex gap-2 items-center justify-center py-2 px-8 -ml-7"
           //href="/best-of-lake-and-mendocino/2026"
           href={`/best-of-lake-and-mendocino/${year}/vote-for-us`}>
           <Image
             src={bestOfBadge}
             alt="Voted Best of CBD Products in the Best of Lake & Mendocino 2026"
             quality={75}
-            className="size-16"
+            loading="eager"
+            className="size-12 md:size-16"
           />
           <div className="flex flex-col px-2 text-center items-center justify-center">
             <div className="text-[#ebc558] text-sm md:text-2xl flex flex-row gap-1 items-center text-center">
-              <span className="uppercase">Vote for us</span>
+              <span className="uppercase font-dm-serif">Vote for us</span>
             </div>
             <span className="text-xs md:text-lg">
-              in the Best of Lake &amp; Mendocino {year}
+              Best of Lake &amp; Mendocino {year}
             </span>
           </div>
         </Link>
