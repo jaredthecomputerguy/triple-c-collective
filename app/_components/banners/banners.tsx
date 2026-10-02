@@ -72,7 +72,7 @@ const bannerConfig = [
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "Fri October 2nd | 12-6PM",
+      bannerSubText: "TODAY | 12-6PM",
       today: false,
       mini: true,
     },
@@ -98,7 +98,7 @@ const bannerConfig = [
   generateBanner({ Component: ThanksgivingBanner }),
   generateBanner({
     Component: BestOfLakeAndMendocinoWinnerBanner,
-    active: true,
+    active: false,
     order: Order.First,
     props: {
       year: 2027,
