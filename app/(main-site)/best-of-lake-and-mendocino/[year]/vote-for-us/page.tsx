@@ -173,6 +173,7 @@ export default async function BestOfLakeAndMendocinoPage({
 }: {
   params: { year: number };
 }) {
+  return notFound();
   const { year } = await params;
 
   if (year !== CONTEST_YEAR) {
