@@ -5,6 +5,8 @@ import Link from "next/link";
 import { ReviewCards } from "@/app/_components/review-card";
 import { StoreIcon } from "@/app/_components/icons/store";
 import { StarRating } from "@/app/_components/star-rating";
+// TODO: Remove me after Halloween
+import { Cobwebs } from "@/app/_components/cobwebs";
 
 import orderOnlineImg from "@/public/images/order-online.webp";
 import phonecallImg from "@/public/images/phonecall.webp";
@@ -69,7 +71,8 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <div className="radial-gradient text-[#fefefe]">
+      <div className="radial-gradient text-[#fefefe] relative">
+        <Cobwebs />
         <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-20">
           <h2 className="text-shadow font-logo text-center text-3xl font-semibold uppercase md:text-4xl">
             Lake County&apos;s <span className="gold">Premier</span> Cannabis

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { headers } from "next/headers";
+import Image from "next/image";
 
 import { Header } from "@/app/_components/header";
 import { AgeModal } from "@/app/_components/age-modal";
