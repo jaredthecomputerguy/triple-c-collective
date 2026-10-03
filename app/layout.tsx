@@ -17,6 +17,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/app/_components/toaster";
 import { Debug } from "@/app/_components/debug";
 import { Progress } from "@/app/_components/progress";
+import { HalloweenSnowfall } from "@/app/_components/snowfall/halloween-snowfall";
 
 import { createMetadata } from "@/lib/metadata";
 
@@ -126,6 +127,7 @@ export default async function RootLayout({
       suppressHydrationWarning
       data-scroll-behavior="smooth">
       <body className="relative">
+        <HalloweenSnowfall />
         <Analytics />
         <SpeedInsights />
         <Toaster />
