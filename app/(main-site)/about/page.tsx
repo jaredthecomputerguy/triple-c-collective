@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { createMetadata } from "@/lib/metadata";
-
 import staffPhoto from "@/public/images/staff-2026.jpg";
 
 export const metadata: Metadata = createMetadata({

@@ -1,5 +1,6 @@
-import { cn } from "@/lib/utils/shared";
 import type { ComponentProps } from "react";
+
+import { cn } from "@/lib/utils/shared";
 
 export const TurkeyIcon = ({ className, ...props }: ComponentProps<"svg">) => {
   return (

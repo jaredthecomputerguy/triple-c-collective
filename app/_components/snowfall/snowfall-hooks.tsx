@@ -1,8 +1,7 @@
-// biome-ignore-all lint/correctness/useExhaustiveDependencies: This is a custom hook
 import { useCallback, useEffect, useRef, useState, useMemo } from "react";
 
-import { getSize, isEqual } from "@/app/_components/snowfall/snowfall-utils";
 import { snowfallBaseStyle } from "@/app/_components/snowfall/snowfall-config";
+import { getSize, isEqual } from "@/app/_components/snowfall/snowfall-utils";
 
 /**
  * Returns the height and width of a HTML element, uses the `ResizeObserver` api if available to detect changes to the
@@ -49,7 +48,7 @@ export const useSnowfallStyle = (
   const styles = useMemo(
     () => ({
       ...snowfallBaseStyle,
-      ...(overrides || {}),
+      ...overrides,
     }),
     [overrides],
   );

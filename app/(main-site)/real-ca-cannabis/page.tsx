@@ -1,7 +1,7 @@
-import Link from "next/link";
-import Image from "next/image";
-import type { Metadata } from "next";
 import { Search } from "lucide-react";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
 import { Button } from "@/app/_components/button";
 import { createMetadata } from "@/lib/metadata";

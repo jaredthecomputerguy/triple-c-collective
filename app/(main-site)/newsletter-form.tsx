@@ -3,9 +3,8 @@
 import Link from "next/link";
 import { useState, type FormEvent, useRef } from "react";
 
-import { useToast } from "@/lib/use-toast";
-
 import { sendWelcomeEmailAction } from "@/lib/actions/send-welcome-email-action";
+import { useToast } from "@/lib/use-toast";
 
 export function NewsletterForm() {
   const [email, setEmail] = useState("");

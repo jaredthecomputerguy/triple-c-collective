@@ -1,11 +1,11 @@
-import type { ComponentType } from "react";
-import { getFeaturedBrands } from "@/app/_components/trap-takeover/trap-takeover-brands";
 import type { StaticImageData } from "next/image";
+import type { ComponentType } from "react";
+
+import { getFeaturedBrands } from "@/app/_components/trap-takeover/trap-takeover-brands";
 
 export {};
 
 declare global {
-  // biome-ignore lint/suspicious/noExplicitAny: I need the any here
   type ComponentTypeWithAny = ComponentType<any>;
 
   type AnyBanner = {

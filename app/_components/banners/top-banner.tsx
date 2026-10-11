@@ -2,8 +2,8 @@
 
 import { useState, type ComponentProps } from "react";
 
-import { CloseIcon } from "@/app/_components/icons/close-icon";
 import { Button, type ButtonVariants } from "@/app/_components/button";
+import { CloseIcon } from "@/app/_components/icons/close-icon";
 import { cn } from "@/lib/utils/shared";
 
 interface TopBannerProps extends ComponentProps<"div"> {
@@ -14,7 +14,7 @@ interface TopBannerProps extends ComponentProps<"div"> {
 }
 
 export const TopBanner = ({
-  active = false,
+  active,
   closeBtnClass = "text-black",
   closeBtnVariant = "ghost",
   children,

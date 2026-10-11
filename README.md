@@ -29,7 +29,7 @@ Triple C Collective is a cannabis dispensary dedicated to providing high-quality
 - [Resend](https://resend.com): A modern email service for sending transactional and marketing emails.
 - [Google Maps API](https://developers.google.com/maps): For integrating maps and location services into the website.
 - [Golang](https://go.dev/): To extend my PocketBase local backend with preconfigured admin user + deal collection.
-- [Biome](https://biomejs.dev/): All-in-one formatting & linting solution for JavaScript and TypeScript.
+- [Oxlint/Oxfmt](https://oxc.rs/): A high-performance linter and formatter for JavaScript and TypeScript built on the Oxc compiler stack.
 - [Google Lighthouse](https://developers.google.com/web/tools/lighthouse): A tool for analyzing the performance of a web page.
 
 ## Installation

@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "warn",
+    "perf": "warn",
+    "suspicious": "warn",
+    "restriction": "off",
+    "style": "off",
+    "nursery": "off",
+    "pedantic": "off"
+  },
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-console": "warn",
+    "no-shadow-restricted-names": "off",
+    "typescript/no-unsafe-type-assertion": "allow",
+    "typescript/consistent-return": "allow",
+    "unicorn/require-module-specifiers": "allow"
+  },
+  "ignorePatterns": ["/node_modules", "/.next"],
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}

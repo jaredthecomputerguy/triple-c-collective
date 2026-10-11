@@ -1,10 +1,10 @@
 import type { Route } from "next";
-import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
-import { isDateLessThan } from "@/lib/utils/server";
 import { Badge } from "@/app/(main-site)/deals/badge";
+import { isDateLessThan } from "@/lib/utils/server";
 
 const DAYS_TO_BE_CONSIDERED_NEW = 3;
 const BASE_ECOMMERCE_MENU_URL = "https://triplec.treez.io/onlinemenu/search";
@@ -19,6 +19,7 @@ function formatUrl(deal: Deal): Route {
     "typeSubtypes",
     encodeURIComponent(JSON.stringify(deal.typeSubtypes)),
   );
+
   return `${url.origin}${url.pathname}?${params.toString().replace(/\+/g, "%20")}` as Route;
 }
 

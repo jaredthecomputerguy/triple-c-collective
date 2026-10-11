@@ -36,7 +36,7 @@ export const Logger = {
       ? messages
       : [JSON.stringify({ level, time, message: messages })];
 
-    // biome-ignore lint/suspicious/noConsole: project-wide logger
+    // oxlint-disable-next-line no-console
     console.log(`${time} ${prefix}:`, ...output);
   },
 };

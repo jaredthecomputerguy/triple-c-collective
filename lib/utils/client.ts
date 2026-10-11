@@ -1,14 +1,14 @@
 import type { StaticImageData } from "next/image";
 import { match, P } from "ts-pattern";
 
+import christmasLogoImg from "@/public/images/christmas/logo.gif";
+import halloweenHeaderImg from "@/public/images/halloween-store.png";
 import headerImg from "@/public/images/interior-shop.jpg";
 import christmasHeaderImg from "@/public/images/interior-shop.jpg";
-import halloweenHeaderImg from "@/public/images/halloween-store.png";
-import logoImg from "@/public/images/logo.png";
 import halloweenLogoImg from "@/public/images/logo-halloween.png";
-import thanksgivingLogoImg from "@/public/images/thanksgiving/logo.png";
-import christmasLogoImg from "@/public/images/christmas/logo.gif";
+import logoImg from "@/public/images/logo.png";
 import newYearsLogoImg from "@/public/images/new-years/logo.gif";
+import thanksgivingLogoImg from "@/public/images/thanksgiving/logo.png";
 
 export const getUUID = () => {
   return crypto.randomUUID();

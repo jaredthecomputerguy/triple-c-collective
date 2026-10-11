@@ -38,6 +38,7 @@ export async function generateMetadata({
     description:
       "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest. Proudly nominated across multiple categories, we're honored to serve our community with the best cannabis products and service.",
     keywords: [
+      // oxlint-disable-next-line typescript/no-unsafe-type-assertion
       ...(baseMetadata.keywords as string[]),
       "trap takeover",
       "cannabis sale",
@@ -61,7 +62,7 @@ export async function generateMetadata({
 }
 
 export default async function BestOfLakeAndMendocinoPage({
-  params,
+  params: _params,
 }: BestOfLakeAndMendocinoYearPageProps) {
   return notFound();
   // const { year: rawYear } = await params;

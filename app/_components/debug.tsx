@@ -1,7 +1,9 @@
 "use client";
 
-import { clearAgeConsent } from "@/lib/actions/age-consent-action";
 import { useState } from "react";
+
+import { clearAgeConsent } from "@/lib/actions/age-consent-action";
+
 import { CloseIcon } from "./icons/close-icon";
 
 export const Debug = ({ active }: { active: boolean }) => {

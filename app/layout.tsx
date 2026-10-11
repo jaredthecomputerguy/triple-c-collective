@@ -1,4 +1,5 @@
-import type { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import {
   Montserrat,
@@ -11,14 +12,12 @@ import {
   Courgette,
   Chewy,
 } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { ReactNode } from "react";
 
-import { Toaster } from "@/app/_components/toaster";
 import { Debug } from "@/app/_components/debug";
 import { Progress } from "@/app/_components/progress";
 import { HalloweenSnowfall } from "@/app/_components/snowfall/halloween-snowfall";
-
+import { Toaster } from "@/app/_components/toaster";
 import { createMetadata } from "@/lib/metadata";
 
 import "@/app/globals.css";

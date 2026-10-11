@@ -1,5 +1,6 @@
-import { cn } from "@/lib/utils/shared";
 import Image from "next/image";
+
+import { cn } from "@/lib/utils/shared";
 
 const strainColors = {
   indica: "bg-purple-600",

@@ -1,4 +1,5 @@
 import { Temporal } from "@js-temporal/polyfill";
+
 import { Logger } from "@/lib/logger";
 
 export function getDealImageUrl(deal: Deal) {

@@ -12,12 +12,12 @@ import {
   SnowfallCanvas,
   type SnowfallCanvasConfig,
 } from "@/app/_components/snowfall/snowfall-canvas";
-import { defaultConfig } from "@/app/_components/snowfall/snowflake";
 import {
   useComponentSize,
   useDeepMemo,
   useSnowfallStyle,
 } from "@/app/_components/snowfall/snowfall-hooks";
+import { defaultConfig } from "@/app/_components/snowfall/snowflake";
 
 export interface SnowfallProps extends Partial<SnowfallCanvasConfig> {
   /**

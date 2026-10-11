@@ -1,6 +1,7 @@
+import Link from "next/link";
+
 import { InstagramIcon } from "@/app/_components/icons/instagram-icon";
 import { ImageViewer } from "@/app/_components/image-viewer";
-import Link from "next/link";
 
 const SPECIAL_PROMO_IMAGE_PATH = "/images/trap-takeover/reggie-painting.jpg";
 

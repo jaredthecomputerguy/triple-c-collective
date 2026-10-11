@@ -1,5 +1,3 @@
-// biome-ignore-all lint: This file is a custom implementation of a utility function
-
 /**
  * Enhanced random function, selects a random value between a minimum and maximum. If the values provided are both
  * integers then the number returned will be an integer, otherwise the return number will be a decimal.
@@ -74,7 +72,7 @@ export const isEqual = (a: any, b: any) => {
     if (Array.isArray(a)) {
       length = a.length;
       if (length != b.length) return false;
-      for (i = length; i-- !== 0; ) if (!isEqual(a[i], b[i])) return false;
+      for (i = length; i-- !== 0;) if (!isEqual(a[i], b[i])) return false;
       return true;
     }
 
@@ -123,7 +121,7 @@ export const isEqual = (a: any, b: any) => {
       // @ts-ignore
       if (length != b.length) return false;
       // @ts-ignore
-      for (i = length; i-- !== 0; ) if (a[i] !== b[i]) return false;
+      for (i = length; i-- !== 0;) if (a[i] !== b[i]) return false;
       return true;
     }
 
@@ -151,7 +149,7 @@ export const isEqual = (a: any, b: any) => {
     length = keys.length;
     if (length !== Object.keys(b).length) return false;
 
-    for (i = length; i-- !== 0; )
+    for (i = length; i-- !== 0;)
       if (!Object.prototype.hasOwnProperty.call(b, keys[i])) return false;
     // END: fast-deep-equal
 
@@ -160,7 +158,7 @@ export const isEqual = (a: any, b: any) => {
     if (hasElementType && a instanceof Element) return false;
 
     // custom handling for React/Preact
-    for (i = length; i-- !== 0; ) {
+    for (i = length; i-- !== 0;) {
       if (
         (keys[i] === "_owner" || keys[i] === "__v" || keys[i] === "__o") &&
         a.$$typeof

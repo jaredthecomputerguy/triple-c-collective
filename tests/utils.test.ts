@@ -158,11 +158,11 @@ describe("getTimeRemainingUntilNextFriday", () => {
   });
 });
 
-describe("getTimeRemainingUntilFourTwenty", () => {
-  function run420(now: Date) {
-    return getTimeRemainingUntilFourTwenty(now, { timeZone: "UTC" });
-  }
+function run420(now: Date) {
+  return getTimeRemainingUntilFourTwenty(now, { timeZone: "UTC" });
+}
 
+describe("getTimeRemainingUntilFourTwenty", () => {
   test("day before 4/20 → counts down to April 20 at 10:00", () => {
     // Apr 19, 2026 10:00 UTC → Apr 20, 2026 10:00 UTC
     setSystemTime(utcDate(2026, 3, 19, 10));

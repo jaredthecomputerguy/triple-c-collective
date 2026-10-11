@@ -11,7 +11,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/app/_components/table";
-
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({

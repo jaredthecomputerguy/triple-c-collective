@@ -73,7 +73,8 @@ export const AgeModal = ({ initialShowModal }: AgeModalProps) => {
       id="age-modal"
       tabIndex={-1}
       onKeyDown={handleKeyDownInModal}
-      role="dialog">
+      role="dialog"
+      title="Age Modal">
       <div className="rounded-lg bg-white p-8">
         <svg
           xmlns="http://www.w3.org/2000/svg"

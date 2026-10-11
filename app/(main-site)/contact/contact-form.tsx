@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
+
 import { sendEmail } from "@/lib/send-email";
 import { useToast } from "@/lib/use-toast";
 
@@ -53,7 +54,12 @@ export const ContactForm = () => {
     const { from, message, subject, name } = emailInfo;
 
     if (!from || !message || !subject) {
-      return;
+      return toast({
+        title: "Something went wrong...",
+        description: "Please try again later.",
+        duration: 5000,
+        variant: "destructive",
+      });
     }
 
     const { error } = await sendEmail({
@@ -82,12 +88,12 @@ export const ContactForm = () => {
       name: "",
     });
 
-    toast({
+    sessionStorage.setItem("es", new Date().toString());
+
+    return toast({
       title: "Your message was sent.",
       duration: 5000,
     });
-
-    sessionStorage.setItem("es", new Date().toString());
   };
 
   return (

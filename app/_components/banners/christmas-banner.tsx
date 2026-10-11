@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+
 import { TopBanner } from "@/app/_components/banners/top-banner";
 
 const randomId = () => Math.random().toString(36).slice(2, 10);

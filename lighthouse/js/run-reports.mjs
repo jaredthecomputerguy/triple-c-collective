@@ -1,14 +1,15 @@
-import { mkdir, writeFile, rm } from "node:fs/promises";
-import { existsSync } from "node:fs";
+// oxlint-disable no-console
+// @ts-check
+import { mkdir, rm } from "node:fs/promises";
 
 import * as chromeLauncher from "chrome-launcher";
 import lighthouse from "lighthouse";
 
-const BASE_URL = "https://www.tripleccollective.com";
+const BASE_URL = "http://localhost:3000";
 
 const routes = [
   "",
-  "/about"
+  "/about",
   /* "/reward-program",
   "/deals",
   "/contact",
@@ -20,75 +21,99 @@ const routes = [
   "/best-of-lake-and-mendocino" */
 ];
 
-console.log("Running lighthouse for", routes);
+const OUT_PATH = "./lighthouse/js/reports";
 
-let index = 0;
-const total = routes.length;
+let completed = 0;
+
+console.log("Running Lighthouse for", routes);
 
 async function main() {
   console.time("lighthouse");
-  const outPath = "./lighthouse/js/reports";
 
-  if (existsSync(outPath)) {
-    try {
-      await rm(outPath, { recursive: true, force: true });
-    } catch (e) {
-      console.log("Error removing reports", e);
+  try {
+    await rm(OUT_PATH, { recursive: true, force: true });
+    await mkdir(OUT_PATH, { recursive: true });
+
+    await generateIndex(OUT_PATH, routes);
+
+    const failures = [];
+
+    for (const route of routes) {
+      try {
+        // oxlint-disable-next-line no-await-in-loop I want these to run sequentially to avoid resource contention
+        await runLighthouse(route);
+      } catch (error) {
+        failures.push({ route, error });
+        console.error(`Lighthouse failed for ${route || "/"}`, error);
+      }
     }
+
+    if (failures.length > 0) {
+      console.error(
+        `\n${failures.length}/${routes.length} Lighthouse audit(s) failed.`,
+      );
+
+      process.exitCode = 1;
+      return;
+    }
+
+    console.log("\x1b[32;1;4mFinished running Lighthouse.");
+  } catch (error) {
+    console.error("Failed to initialize Lighthouse reports", error);
+    process.exitCode = 1;
+  } finally {
+    console.timeEnd("lighthouse");
   }
+}
 
-  await mkdir(outPath);
+/**
+ * @param {string} route
+ * */
+async function runLighthouse(route) {
+  console.log(`Running Lighthouse for ${route || "/"}`);
 
-  generateIndex(outPath, routes);
+  const chrome = await chromeLauncher.launch({
+    chromeFlags: ["--headless"],
+  });
 
-  for (let idx = 0; idx < routes.length; idx++) {
-    const route = routes[idx];
-    console.log(`Running lighthouse for ${route}`);
-    const chrome = await chromeLauncher.launch({ chromeFlags: ["--headless"] });
-    const options = {
+  try {
+    const runnerResult = await lighthouse(`${BASE_URL}${route}`, {
       logLevel: "info",
       output: "html",
-      port: chrome.port
-    };
-
-    const runnerResult = await lighthouse(BASE_URL + route, options);
+      port: chrome.port,
+    });
 
     if (!runnerResult) {
-      throw new Error(`Lighthouse runner result is undefined for ${route}`);
+      throw new Error(
+        `Lighthouse runner result is undefined for ${route || "/"}`,
+      );
     }
-
-    const reportHtml = runnerResult.report;
 
     const fileName =
       route === ""
-        ? `${outPath}/root.html`
-        : `${outPath}/${route.replace(/\//gi, "_")}.html`;
-    try {
-      await Bun.write(fileName, reportHtml);
-      // await writeFile(fileName, reportHtml, {
-      //   flag: "w",
-      //   encoding: "utf-8"
-      // });
-      index++;
-      console.log(
-        "\nReport is done for",
-        runnerResult.lhr.finalDisplayedUrl,
-        `Progress: ${index}/${total}`,
-        "\n--------------------\n"
-      );
-    } catch (e) {
-      console.log("Error writing report", e);
-      chrome.kill();
-    }
+        ? `${OUT_PATH}/root.html`
+        : `${OUT_PATH}/${route.replace(/\//g, "_")}.html`;
 
+    await Bun.write(fileName, runnerResult.report);
+
+    completed++;
+
+    console.log(
+      "\nReport completed for",
+      runnerResult.lhr.finalDisplayedUrl,
+      `Progress: ${completed}/${routes.length}`,
+      "\n--------------------\n",
+    );
+  } finally {
     chrome.kill();
   }
-
-  console.log("\x1b[32;1;4mFinished running lighthouse.");
-  console.timeEnd("lighthouse");
 }
 
-async function generateIndex(outPath, routes) {
+/**
+ * @param {string} outPath
+ * @param {string[]} generatedRoutes
+ */
+async function generateIndex(outPath, generatedRoutes) {
   const indexHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,12 +134,17 @@ async function generateIndex(outPath, routes) {
 <body class="container pt-8">
   <hgroup>
     <h1>Lighthouse Reports</h1>
-    <p>This is a collection of lighthouse reports for the www.triplecolllective.com website.</p>
+    <p>This is a collection of Lighthouse reports for the www.tripleccollective.com website.</p>
   </hgroup>
   <hr />
   <h2>Reports</h2>
   <ul>
-    ${routes.map((route) => `<li><a href="${route == "" ? "./root" : route.replace(/\//gi, "_")}.html">${route == "" ? "/" : route}</a></li>`).join("\n")}
+    ${generatedRoutes
+      .map(
+        (route) =>
+          `<li><a href="${route === "" ? "./root" : route.replace(/\//g, "_")}.html">${route === "" ? "/" : route}</a></li>`,
+      )
+      .join("\n")}
   </ul>
 </body>
 </html>`;
@@ -122,4 +152,4 @@ async function generateIndex(outPath, routes) {
   await Bun.write(`${outPath}/index.html`, indexHtml);
 }
 
-main();
+void main();

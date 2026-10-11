@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
 
 import { TrapTakeoverCountdown } from "@/app/(main-site)/deals/trap-takeover-countdown";
-import { FreeFood } from "@/app/_components/trap-takeover/free-food";
-import { SpecialArtPromo } from "@/app/_components/trap-takeover/special-art-promo";
-import { SpecialPromo } from "@/app/_components/trap-takeover/special-promo";
+import { event } from "@/app/(main-site)/deals/trap-takeover/trap-takeover-event-config";
 import { FeaturedBrands } from "@/app/_components/trap-takeover/featured-brands";
-import { TrapTakeoverVideo } from "@/app/_components/trap-takeover/trap-takeover-video";
-import { TrapTakeoverFlyer } from "@/app/_components/trap-takeover/trap-takeover-flyer";
-import { TrapTakeoverRaffleRules } from "@/app/_components/trap-takeover/trap-takeover-raffle-rules";
+import { FreeFood } from "@/app/_components/trap-takeover/free-food";
 import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
 import { IndividualDeals } from "@/app/_components/trap-takeover/individual-deals";
-
+import { SpecialArtPromo } from "@/app/_components/trap-takeover/special-art-promo";
+import { SpecialPromo } from "@/app/_components/trap-takeover/special-promo";
+import { TrapTakeoverFlyer } from "@/app/_components/trap-takeover/trap-takeover-flyer";
+import { TrapTakeoverRaffleRules } from "@/app/_components/trap-takeover/trap-takeover-raffle-rules";
+import { TrapTakeoverVideo } from "@/app/_components/trap-takeover/trap-takeover-video";
 import { createMetadata } from "@/lib/metadata";
-import { event } from "@/app/(main-site)/deals/trap-takeover/trap-takeover-event-config";
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Trap Takeover Sale - ${event.dateWithSuffix}`;

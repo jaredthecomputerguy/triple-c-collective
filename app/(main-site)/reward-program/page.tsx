@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import rewardsPageImg from "@/public/images/rewards-program.webp";
+
 import { createMetadata } from "@/lib/metadata";
+import rewardsPageImg from "@/public/images/rewards-program.webp";
 
 export const metadata: Metadata = createMetadata({
   title: "Reward Program",
@@ -45,7 +46,8 @@ export default function RewardsPage() {
               Join our Rewards Program
             </h1>
             <p className="text-center text-pretty text-gray-600">
-              Earn $0.02 for every dollar spent. Sign up today and start saving!{" "}
+              Earn $0.02 for every dollar spent. Sign up today and start
+              saving!{" "}
             </p>
           </div>
           <div className="max-w-[500px] basis-5/6 md:max-w-full">

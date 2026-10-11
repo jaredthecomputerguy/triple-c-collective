@@ -1,9 +1,10 @@
 "use client";
 
-import { getTimeRemainingUntilNextFriday } from "@/lib/utils/server";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+
+import { getTimeRemainingUntilNextFriday } from "@/lib/utils/server";
 
 export const TrapTakeoverCountdown = ({
   linkUrl,
