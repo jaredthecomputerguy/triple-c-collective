@@ -8,7 +8,7 @@ const deals: IndividualDeal[] = [];
 const eventData: TrapTakeoverInput = {
   year: 2026,
   month: 10,
-  day: 9,
+  day: 16,
   featuredBrands: [
     "Cannatrust",
     "B.O.B Stash",
@@ -18,11 +18,11 @@ const eventData: TrapTakeoverInput = {
     "Park Jams",
   ],
   flags: {
-    // Always True Flags
+    // True flags
     featuredBrands: true,
     flyer: true,
+    giftBags: true,
     // Other flags
-    giftBags: false,
     freeFood: false,
     specialArtPromo: false,
     specialPromo: false,
@@ -30,7 +30,7 @@ const eventData: TrapTakeoverInput = {
     individualDeals: false,
   },
   deals,
-  numberOfGiftBags: 0,
+  numberOfGiftBags: 25,
 };
 
 export const event = createTrapTakeoverEvent(eventData);
