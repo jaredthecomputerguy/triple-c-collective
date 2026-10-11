@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 
-import cobwebImg from "@/public/images/halloween/cobweb-white.png";
 import { useIsMobile } from "@/lib/hooks/useIsMobile";
 import { cn } from "@/lib/utils/shared";
+import cobwebImg from "@/public/images/halloween/cobweb-white.png";
 
 export const Cobwebs = () => {
   return (

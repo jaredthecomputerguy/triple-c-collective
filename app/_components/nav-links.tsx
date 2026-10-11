@@ -1,6 +1,3 @@
-import type { Dispatch, ReactNode, Ref, SetStateAction } from "react";
-import NextLink from "next/link";
-import type { Route } from "next";
 import {
   HomeIcon,
   UsersRoundIcon,
@@ -13,9 +10,12 @@ import {
   ChevronRight,
   //FlameIcon,
 } from "lucide-react";
+import type { Route } from "next";
+import NextLink from "next/link";
+import type { Dispatch, ReactNode, Ref, SetStateAction } from "react";
 
-import { cn } from "@/lib/utils/shared";
 import { LocationIcon } from "@/app/_components/icons/location-icon";
+import { cn } from "@/lib/utils/shared";
 
 type NavLinkItem = {
   href: Route | null;

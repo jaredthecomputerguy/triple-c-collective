@@ -2,12 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
+import { FourTwentyDeals } from "@/app/(main-site)/deals/420-deals/420-deals";
 import { GoogleMapEmbed } from "@/app/_components/google-map-embed";
 import { ImageViewer } from "@/app/_components/image-viewer";
-import { FourTwentyDeals } from "@/app/(main-site)/deals/420-deals/420-deals";
-
 import { BASE_KEYWORDS, createMetadata } from "@/lib/metadata";
-
 import fourTwentyLogo from "@/public/images/4-20/420_logo-resized.png";
 import purpleCannabisBackgroundImage from "@/public/images/4-20/purple-cannabis-bg.jpg";
 
@@ -103,7 +101,8 @@ export default function FourTwentyDealsPage() {
             <li>BOGO ON KOA 10PK PREROLLS (LIMIT 2)</li>
             <li>BOGO ON THE ELEVENS GUMMIES (LIMIT 2)</li>
             <li>
-              BUY ANY EDIBLE GET A KUSHY PUNCH, PLUS, OR DROPS GUMMY (LIMIT 3){" "}
+              BUY ANY EDIBLE GET A KUSHY PUNCH, PLUS, OR DROPS GUMMY (LIMIT
+              3){" "}
             </li>
             <li>
               BUY ANY STIIIZY POD/DISPO/STARTER PK GET A 1G STIIIZY POD FOR $1
@@ -117,7 +116,8 @@ export default function FourTwentyDealsPage() {
             </li>
             <li>BUY ANY 7G, GET A EIGHTY EAST 7G FOR A PENNY (LIMIT 1)</li>
             <li>
-              BUY ANY DRINK GET A ST. IDES GEORGIA PEACH FOR A PENNY. (LIMIT 2){" "}
+              BUY ANY DRINK GET A ST. IDES GEORGIA PEACH FOR A PENNY. (LIMIT
+              2){" "}
             </li>
             <li>
               BUY ANY 3.5G/ PARTICIPATE IN ANY FLOWER DEAL GET A WCT , CITIES ,

@@ -1,8 +1,9 @@
+// oxlint-disable no-shadow
 // Inspired by react-hot-toast library
 import { useEffect, useState, type ReactNode } from "react";
+import { match } from "ts-pattern";
 
 import type { ToastActionElement, ToastProps } from "@/app/_components/toast";
-import { match } from "ts-pattern";
 
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 1000000;

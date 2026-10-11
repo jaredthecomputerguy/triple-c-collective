@@ -1,13 +1,13 @@
 "use client";
 
-import * as React from "react";
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import * as React from "react";
 
-import { cn } from "@/lib/utils/shared";
 import { Button } from "@/app/_components/button";
+import { cn } from "@/lib/utils/shared";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -69,6 +69,7 @@ const Carousel = React.forwardRef<
     const [canScrollPrev, setCanScrollPrev] = React.useState(false);
     const [canScrollNext, setCanScrollNext] = React.useState(false);
 
+    // oxlint-disable-next-line no-shadow
     const onSelect = React.useCallback((api: CarouselApi) => {
       if (!api) {
         return;
@@ -134,7 +135,6 @@ const Carousel = React.forwardRef<
           canScrollPrev,
           canScrollNext,
         }}>
-        {/* biome-ignore lint: ignore */}
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
@@ -179,7 +179,6 @@ const CarouselItem = React.forwardRef<
   const { orientation } = useCarousel();
 
   return (
-    // biome-ignore lint: ignore
     <div
       ref={ref}
       role="group"

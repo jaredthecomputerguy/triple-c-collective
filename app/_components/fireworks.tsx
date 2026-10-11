@@ -5,10 +5,12 @@ import {
   type FireworksHandlers,
   type FireworksOptions,
 } from "@fireworks-js/react";
-import { useRef, useState, type RefObject } from "react";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./tooltip";
 import { Power, PowerOff } from "lucide-react";
+import { useRef, useState, type RefObject } from "react";
+
 import { cn } from "@/lib/utils/shared";
+
+import { Tooltip, TooltipContent, TooltipTrigger } from "./tooltip";
 
 const fireworkOptions: FireworksOptions = {
   opacity: 0.5,

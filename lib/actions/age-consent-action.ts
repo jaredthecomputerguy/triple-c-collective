@@ -1,7 +1,7 @@
 "use server";
 
-import { redirect, RedirectType } from "next/navigation";
 import { cookies } from "next/headers";
+import { redirect, RedirectType } from "next/navigation";
 
 const AGE_CONSENT_COOKIE = "age_consent";
 const AGE_CONSENT_REMEMBER_COOKIE = "age_consent_remember";

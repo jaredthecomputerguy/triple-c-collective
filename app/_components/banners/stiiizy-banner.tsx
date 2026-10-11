@@ -1,15 +1,15 @@
 "use client";
 
+import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { useEffect, useState, type MouseEvent } from "react";
-import Image, { type StaticImageData } from "next/image";
+import { match } from "ts-pattern";
 
+import { TopBanner } from "@/app/_components/banners/top-banner";
 import { Separator } from "@/app/_components/separator";
 import { cn } from "@/lib/utils/shared";
-import { TopBanner } from "@/app/_components/banners/top-banner";
-import stiiizyWhiteLogo from "@/public/images/brands/stiiizy-white.png";
 import stiiizyBlackLogo from "@/public/images/brands/stiiizy-logo-black.png";
-import { match } from "ts-pattern";
+import stiiizyWhiteLogo from "@/public/images/brands/stiiizy-white.png";
 
 interface StiiizyBannerProps {
   active: boolean;

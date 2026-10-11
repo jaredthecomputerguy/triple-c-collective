@@ -1,8 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { TopBanner } from "@/app/_components/banners/top-banner";
 import bestOfBadge from "@/public/images/best-of-lake-2026-award.png";
-import Link from "next/link";
 
 interface BestOfLakeAndMendocinoWinnerBannerProps {
   active: boolean;

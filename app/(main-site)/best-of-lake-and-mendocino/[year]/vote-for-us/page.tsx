@@ -1,5 +1,5 @@
+// oxlint-disable no-unreachable await-thenable
 // @ts-nocheck
-// biome-ignore-all lint: unused page
 
 import {
   Building,
@@ -11,24 +11,22 @@ import {
   Store,
 } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 
-import { Card, CardContent } from "@/app/_components/card";
-import { Button } from "@/app/_components/button";
 import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
 } from "@/app/_components/accordian";
-
+import { Button } from "@/app/_components/button";
+import { Card, CardContent } from "@/app/_components/card";
 import { createMetadata, baseMetadata } from "@/lib/metadata";
-
 import VOTE_FOR_US_IMAGE from "@/public/images/bolm/2027-vote-for-us.png";
 
-type BestOfLakeAndMendocinoPageProps = { params: Promise<{ year: string }> };
+//type BestOfLakeAndMendocinoPageProps = { params: Promise<{ year: string }> };
 
 export async function generateMetadata({
   params,
@@ -40,6 +38,7 @@ export async function generateMetadata({
     description:
       "Vote for Triple C Collective in the Best of Lake & Mendocino 2026 contest. Proudly nominated across multiple categories, we're honored to serve our community with the best cannabis products and service.",
     keywords: [
+      // oxlint-disable-next-line typescript/no-unsafe-type-assertion
       ...(baseMetadata.keywords as string[]),
       "trap takeover",
       "cannabis sale",

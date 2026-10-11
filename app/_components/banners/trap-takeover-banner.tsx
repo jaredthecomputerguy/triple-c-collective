@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useState, type ComponentProps } from "react";
 
-import { CloseIcon } from "@/app/_components/icons/close-icon";
 import { Button } from "@/app/_components/button";
+import { CloseIcon } from "@/app/_components/icons/close-icon";
 import { cn } from "@/lib/utils/shared";
 
 interface TrapTakeoverBannerProps extends ComponentProps<"div"> {

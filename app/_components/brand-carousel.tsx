@@ -2,13 +2,12 @@
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import type { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import type { Route } from "next";
-import brands from "@/lib/data/brands.json";
-
 import Slider, { type Settings } from "react-slick";
+
+import brands from "@/lib/data/brands.json";
 
 export const BrandCarousel = () => {
   const settings: Settings = {

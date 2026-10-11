@@ -1,6 +1,6 @@
+import type { Route } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import type { Route } from "next";
 
 import { TopBanner } from "@/app/_components/banners/top-banner";
 import { cn } from "@/lib/utils/shared";

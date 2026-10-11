@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 
-import { timeSince } from "@/lib/utils/shared";
-import { StarRating } from "@/app/_components/star-rating";
-import { cn } from "@/lib/utils/shared";
 import { Avatar, AvatarImage, AvatarFallback } from "@/app/_components/avatar";
+import { StarRating } from "@/app/_components/star-rating";
+import { timeSince } from "@/lib/utils/shared";
+import { cn } from "@/lib/utils/shared";
 
 const reviewOne = "/images/review-one.png";
 const reviewTwo = "/images/review-two.png";
@@ -103,7 +103,7 @@ export const ReviewCard = ({ review }: ReviewCardProps) => {
       <p
         className={cn(
           "px-4 text-lg text-pretty text-gray-600 sm:px-2",
-          showMore === false && "line-clamp-3",
+          !showMore && "line-clamp-3",
         )}>
         &quot;{review.text}&quot;
       </p>

@@ -2,28 +2,25 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { ReviewCards } from "@/app/_components/review-card";
-import { StoreIcon } from "@/app/_components/icons/store";
-import { StarRating } from "@/app/_components/star-rating";
-// TODO: Remove me after Halloween
-import { Cobwebs } from "@/app/_components/cobwebs";
-
-import orderOnlineImg from "@/public/images/order-online.webp";
-import phonecallImg from "@/public/images/phonecall.webp";
-import deliveryImg from "@/public/images/delivery.webp";
-import dccLogoImg from "@/public/images/dcc-logo.png";
-
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/app/_components/accordian";
-import { Button } from "@/app/_components/button";
 import { BrandCarousel } from "@/app/_components/brand-carousel";
-
-import { getHeaderAndLogoImages } from "@/lib/utils/client";
+import { Button } from "@/app/_components/button";
+// TODO: Remove me after Halloween
+import { Cobwebs } from "@/app/_components/cobwebs";
+import { StoreIcon } from "@/app/_components/icons/store";
+import { ReviewCards } from "@/app/_components/review-card";
+import { StarRating } from "@/app/_components/star-rating";
 import { createMetadata } from "@/lib/metadata";
+import { getHeaderAndLogoImages } from "@/lib/utils/client";
+import dccLogoImg from "@/public/images/dcc-logo.png";
+import deliveryImg from "@/public/images/delivery.webp";
+import orderOnlineImg from "@/public/images/order-online.webp";
+import phonecallImg from "@/public/images/phonecall.webp";
 
 export const metadata: Metadata = createMetadata({ title: "Home" });
 

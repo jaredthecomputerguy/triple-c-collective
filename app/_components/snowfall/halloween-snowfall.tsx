@@ -1,12 +1,13 @@
 "use client";
 
+import { Sparkles, Sparkle } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import Snowfall from "@/app/_components/snowfall/snowfall";
-import { Sparkles, Sparkle } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip";
 import { useLocalStorage } from "@/lib/hooks/useLocalStorage";
 import { cn } from "@/lib/utils/shared";
+
+import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip";
 
 const SIZE = 50;
 const IMAGES = ["/images/halloween/bat.svg", "/images/halloween/pumpkin.svg"];
@@ -20,7 +21,7 @@ export const HalloweenSnowfall = () => {
 
   // Load snowfall images
   useEffect(() => {
-    Promise.all(
+    void Promise.all(
       IMAGES.map(
         (src) =>
           new Promise<HTMLImageElement>((resolve, reject) => {
@@ -28,8 +29,10 @@ export const HalloweenSnowfall = () => {
             image.src = src;
             image.width = 1024;
             image.height = 1024;
-            image.onload = () => resolve(image);
-            image.onerror = reject;
+            image.addEventListener("load", () => resolve(image));
+            image.addEventListener("error", reject);
+            // image.onload = () => resolve(image);
+            // image.onerror = reject;
           }),
       ),
     ).then(setImages);
@@ -54,11 +57,13 @@ export const HalloweenSnowfall = () => {
       <Tooltip>
         <TooltipTrigger
           className={cn(
-            "fixed flex justify-center items-center bottom-6 left-6 z-100 text-orange-500 p-2 rounded-full transition-all duration-300 border border-orange-300 border-3",
+            "fixed flex justify-center items-center bottom-6 left-6 z-100 text-orange-500 p-2 rounded-full transition-all duration-300 border-orange-300 border-3",
             enabled && "bg-white",
             !enabled && "text-white bg-orange-500",
           )}
-          onClick={handleTooltipClick}>
+          onClick={handleTooltipClick}
+          aria-label="Halloween Effects Toggle"
+          aria-labelledby="tooltip-halloween-effects">
           <div className="">
             <Sparkles
               className={cn(
@@ -79,7 +84,10 @@ export const HalloweenSnowfall = () => {
             />
           </div>
         </TooltipTrigger>
-        <TooltipContent side="right" className="bg-white">
+        <TooltipContent
+          side="right"
+          className="bg-white"
+          id="tooltip-halloween-effects">
           Click to turn {enabled ? "off" : "on"} Halloween effects
         </TooltipContent>
       </Tooltip>

@@ -1,7 +1,8 @@
 import Image from "next/image";
-import stiiizyLogo from "@/public/images/brands/stiiizy-logo-black.png";
-import stiiizyCarts from "@/public/images/brands/stiiizy-carts.png";
 import Link from "next/link";
+
+import stiiizyCarts from "@/public/images/brands/stiiizy-carts.png";
+import stiiizyLogo from "@/public/images/brands/stiiizy-logo-black.png";
 
 export const StiiizyDealCard = () => {
   return (

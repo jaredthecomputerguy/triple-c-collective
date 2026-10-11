@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { cn } from "@/lib/utils/shared";
+
 import type { FeaturedBrand } from "./trap-takeover-brands";
 
 export const FeaturedBrands = ({

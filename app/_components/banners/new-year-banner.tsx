@@ -1,7 +1,9 @@
-import Sparkle from "@/app/_components/sparkle";
-import { TopBanner } from "@/app/_components/banners/top-banner";
-import { useIsMobile } from "@/lib/hooks/useIsMobile";
 import { PhotoProvider, PhotoView } from "react-photo-view";
+
+import { TopBanner } from "@/app/_components/banners/top-banner";
+import Sparkle from "@/app/_components/sparkle";
+import { useIsMobile } from "@/lib/hooks/useIsMobile";
+
 import "react-photo-view/dist/react-photo-view.css";
 
 interface NewYearBannerProps {

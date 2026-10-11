@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { TrapTakeoverCountdown } from "@/app/(main-site)/deals/trap-takeover-countdown";
-import { Button } from "@/app/_components/button";
 import { DealCategory } from "@/app/(main-site)/deals/deal-category";
 import { StiiizyDealCard } from "@/app/(main-site)/deals/stiiizy-deal-card";
+import { TrapTakeoverCountdown } from "@/app/(main-site)/deals/trap-takeover-countdown";
+import { Button } from "@/app/_components/button";
 import { Calendar } from "@/app/_components/calendar";
-
-import { getDealImageUrl } from "@/lib/utils/server";
 import { Logger } from "@/lib/logger";
 import { createMetadata } from "@/lib/metadata";
+import { getDealImageUrl } from "@/lib/utils/server";
 
 export const dynamic = "force-dynamic";
 

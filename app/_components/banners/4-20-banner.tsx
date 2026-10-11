@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { TopBanner } from "@/app/_components/banners/top-banner";
 import { FourTwentyTimer } from "@/app/_components/4-20-timer";
+import { TopBanner } from "@/app/_components/banners/top-banner";
 import fourTwentyLogo from "@/public/images/4-20/420_logo-resized.png";
 
 export const FourTwentyBanner = ({ active }: { active: boolean }) => {

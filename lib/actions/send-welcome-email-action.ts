@@ -1,6 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
+
 import WelcomeEmail from "@/lib/emails/WelcomeEmail";
 import { Logger } from "@/lib/logger";
 

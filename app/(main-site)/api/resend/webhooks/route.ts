@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+
 import { Resend } from "resend";
 import { z } from "zod";
 
@@ -8,12 +9,12 @@ import { Logger } from "@/lib/logger";
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.RESEND_FROM_EMAIL;
 
-const LIST_OF_RESEND_IPS = [
+const LIST_OF_RESEND_IPS = new Set([
   "44.228.126.217",
   "50.112.21.217",
   "52.24.126.164",
   "54.148.139.208",
-];
+]);
 
 const resendContactCreatedWebhookDataSchema = z.object({
   type: z.literal("contact.created"),
@@ -45,7 +46,7 @@ const verifyWebhook = async (req: Request) => {
     throw new WebhookError("No IP address header", 403);
   }
 
-  if (!LIST_OF_RESEND_IPS.includes(ip)) {
+  if (!LIST_OF_RESEND_IPS.has(ip)) {
     throw new WebhookError("IP address header not from Resend", 403);
   }
 

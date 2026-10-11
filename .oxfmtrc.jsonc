@@ -1,0 +1,57 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80,
+  "useTabs": true,
+  "singleQuote": false,
+  "jsxSingleQuote": false,
+  "quoteProps": "as-needed",
+  "trailingComma": "all",
+  "semi": false,
+  "sortImports": true,
+  "arrowParens": "always",
+  "ignorePatterns": [
+    "/node_modules",
+    "/.next",
+    "**/*.{yaml,yml}",
+    "**/*.toml",
+    "**/*.{md,mdx}",
+  ],
+  "sortPackageJson": false,
+  "overrides": [
+    {
+      "files": ["**/*.{js,jsx,ts,tsx,mjs,mts,cjs,cts}"],
+      "options": {
+        "printWidth": 80,
+        "useTabs": false,
+        "tabWidth": 2,
+        "endOfLine": "lf",
+        "singleQuote": false,
+        "jsxSingleQuote": false,
+        "quoteProps": "as-needed",
+        "trailingComma": "all",
+        "semi": true,
+        "arrowParens": "always",
+        "bracketSpacing": true,
+        "bracketSameLine": true,
+        "singleAttributePerLine": false,
+        "objectWrap": "preserve",
+      },
+    },
+    {
+      "files": ["**/*.{json,jsonc,json5}"],
+      "options": {
+        "useTabs": false,
+        "tabWidth": 2,
+        "endOfLine": "lf",
+      },
+    },
+    {
+      "files": ["**/*.{css,scss,sass,less}"],
+      "options": {
+        "useTabs": false,
+        "tabWidth": 2,
+        "endOfLine": "lf",
+      },
+    },
+  ],
+}

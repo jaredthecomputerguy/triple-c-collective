@@ -1,7 +1,7 @@
 @mixin leftPos($count) {
   @for $i from 1 through $count {
     &:nth-child(#{$i}) {
-      left: ((($i)-2) * 13)-1%;
+      left: ((($i)-2) * 13) -1%;
     }
   }
 }

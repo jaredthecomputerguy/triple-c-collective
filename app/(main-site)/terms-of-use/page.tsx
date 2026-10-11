@@ -1,6 +1,7 @@
-import { createMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
+
+import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
   title: "Terms of Use",
@@ -49,7 +50,8 @@ export default function TermsOfUsePage() {
         <p>
           Information about our cannabis products on the website is for
           informational purposes only. It does not constitute medical advice,
-          and you should consult a healthcare professional for medical advice.{" "}
+          and you should consult a healthcare professional for medical
+          advice.{" "}
         </p>
         <h6 className="text-3xl">5. User Account</h6>
         <p>

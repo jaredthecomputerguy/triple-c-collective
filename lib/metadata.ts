@@ -73,14 +73,15 @@ export const baseMetadata: Metadata = {
   },
 };
 
+const resolveString = (
+  value: string | null | undefined,
+  fallback: string | null | undefined,
+): string | undefined => {
+  return value ?? fallback ?? undefined;
+};
+
 export function createMetadata(overrides: MetadataOverride = {}): Metadata {
   // Helper to ensure we never return null, only string or undefined
-  const resolveString = (
-    value: string | null | undefined,
-    fallback: string | null | undefined,
-  ): string | undefined => {
-    return value ?? fallback ?? undefined;
-  };
 
   // Build the full title with separator if override is provided
   const resolvedTitle = overrides.title
@@ -89,7 +90,7 @@ export function createMetadata(overrides: MetadataOverride = {}): Metadata {
 
   const resolvedDescription = resolveString(
     overrides.description,
-    baseMetadata.description as string,
+    baseMetadata.description,
   );
 
   // Merge robots safely
@@ -104,7 +105,7 @@ export function createMetadata(overrides: MetadataOverride = {}): Metadata {
             ...(typeof baseMetadata.robots.googleBot === "object"
               ? baseMetadata.robots.googleBot
               : {}),
-            ...(overrides.robots.googleBot || {}),
+            ...overrides.robots.googleBot,
           },
         }
       : overrides.robots || baseMetadata.robots;

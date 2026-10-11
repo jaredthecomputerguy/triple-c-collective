@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import { cn } from "@/lib/utils/shared";
-import { SpiderWeb } from "@/app/_components/spiderweb";
 import { TopBanner } from "@/app/_components/banners/top-banner";
+import { SpiderWeb } from "@/app/_components/spiderweb";
+import { cn } from "@/lib/utils/shared";
 
 export const HalloweenBanner = ({ active }: { active: boolean }) => {
   return (

@@ -1,29 +1,28 @@
 "use client";
 
-import { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useRef, useState } from "react";
 
-import { cn } from "@/lib/utils/shared";
-import { useClickOutside } from "@/lib/hooks/useClickOutside";
-import { useHeaderFocus } from "@/lib/hooks/useHeaderFocus";
-import { useScrollHeader } from "@/lib/hooks/useScrollHeader";
-import { useViewportHeight } from "@/lib/hooks/useViewportHeight";
-import { usePathChangeCloseMenus } from "@/lib/hooks/usePathChangeCloseMenu";
-
+import { Banners } from "@/app/_components/banners/banners";
 import { BarsIcon } from "@/app/_components/icons/bar-icon";
 import { CartIcon } from "@/app/_components/icons/cart-icon";
-import { PhoneIcon } from "@/app/_components/icons/phone-icon";
-import { CloseIcon } from "@/app/_components/icons/close-icon";
 import { ClockIcon } from "@/app/_components/icons/clock-icon";
+import { CloseIcon } from "@/app/_components/icons/close-icon";
 import { LocationIcon } from "@/app/_components/icons/location-icon";
-import { Banners } from "@/app/_components/banners/banners";
+import { PhoneIcon } from "@/app/_components/icons/phone-icon";
 import {
   MobileNavLink,
   NavLink,
   DESKTOP_LINKS,
   MOBILE_LINKS,
 } from "@/app/_components/nav-links";
+import { useClickOutside } from "@/lib/hooks/useClickOutside";
+import { useHeaderFocus } from "@/lib/hooks/useHeaderFocus";
+import { usePathChangeCloseMenus } from "@/lib/hooks/usePathChangeCloseMenu";
+import { useScrollHeader } from "@/lib/hooks/useScrollHeader";
+import { useViewportHeight } from "@/lib/hooks/useViewportHeight";
+import { cn } from "@/lib/utils/shared";
 
 export const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);

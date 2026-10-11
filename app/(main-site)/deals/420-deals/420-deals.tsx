@@ -1,15 +1,14 @@
 import type { ReactNode } from "react";
-import { LiaCannabisSolid, LiaCookieBiteSolid } from "react-icons/lia";
 import { GiMasonJar } from "react-icons/gi";
+import { LiaCannabisSolid, LiaCookieBiteSolid } from "react-icons/lia";
 import { SlPresent } from "react-icons/sl";
 
-import { CartridgeIcon } from "@/app/_components/icons/cartridge";
 import {
   fourTwentyDealsData,
   type Deal,
   type ReducedPriceDeal,
 } from "@/app/(main-site)/deals/420-deals/420-deals-data";
-
+import { CartridgeIcon } from "@/app/_components/icons/cartridge";
 import { cn } from "@/lib/utils/shared";
 
 interface FourTwentyDealCardProps {

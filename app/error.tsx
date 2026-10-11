@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+
 import { Footer } from "@/app/_components/footer";
 import { Header } from "@/app/_components/header";
 import { Logger } from "@/lib/logger";

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import { GoogleMapEmbed } from "@/app/_components/google-map-embed";
 import { ContactForm } from "@/app/(main-site)/contact/contact-form";
+import { GoogleMapEmbed } from "@/app/_components/google-map-embed";
 import { FacebookIcon } from "@/app/_components/icons/facebook-icon";
 import { InstagramIcon } from "@/app/_components/icons/instagram-icon";
 import { createMetadata } from "@/lib/metadata";

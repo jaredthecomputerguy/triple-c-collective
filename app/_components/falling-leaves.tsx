@@ -21,7 +21,8 @@ export const FallingLeaves = () => {
       img.src = imageSrc;
       img.width = 1024; // or larger
       img.height = 1024;
-      img.onload = () => setImages((prev) => [...prev, img]);
+      img.addEventListener("load", () => setImages((prev) => [...prev, img]));
+      //img.onload = () => setImages((prev) => [...prev, img]);
     }, []);
   }, []);
 

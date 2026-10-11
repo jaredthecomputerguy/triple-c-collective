@@ -1,5 +1,6 @@
-import { cn } from "@/lib/utils/shared";
 import type { SVGProps } from "react";
+
+import { cn } from "@/lib/utils/shared";
 
 export const FacebookIcon = ({ className }: SVGProps<SVGElement>) => {
   return (

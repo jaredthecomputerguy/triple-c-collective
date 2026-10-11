@@ -1,6 +1,8 @@
-import { cn } from "@/lib/utils/shared";
-import { TopBanner } from "./top-banner";
 import type { ReactNode } from "react";
+
+import { cn } from "@/lib/utils/shared";
+
+import { TopBanner } from "./top-banner";
 
 interface GenericBannerProps {
   active: boolean;

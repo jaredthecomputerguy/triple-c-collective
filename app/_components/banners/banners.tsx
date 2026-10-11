@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import {
   TrapTakeoverBanner,
   StiiizyBanner,
@@ -18,7 +20,6 @@ import {
   ThanksgivingBanner,
   BestOfLakeAndMendocinoWinnerBanner,
 } from "@/app/_components/banners";
-import Link from "next/link";
 
 enum Order {
   First = 0,
@@ -108,7 +109,7 @@ const bannerConfig = [
 ] as const;
 
 export const Banners = () => {
-  const ordered = [...bannerConfig].sort(
+  const ordered = [...bannerConfig].toSorted(
     (a, b) => (a.order ?? DEFAULT_ORDER) - (b.order ?? DEFAULT_ORDER),
   );
 
