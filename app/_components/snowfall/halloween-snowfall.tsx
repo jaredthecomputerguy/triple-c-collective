@@ -4,13 +4,18 @@ import { Sparkles, Sparkle } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import Snowfall from "@/app/_components/snowfall/snowfall";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/app/_components/tooltip";
 import { useLocalStorage } from "@/lib/hooks/useLocalStorage";
+import { Logger } from "@/lib/logger";
 import { cn } from "@/lib/utils/shared";
-
-import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip";
 
 const SIZE = 50;
 const IMAGES = ["/images/halloween/bat.svg", "/images/halloween/pumpkin.svg"];
+
 export const HalloweenSnowfall = () => {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [enabled, setIsEnabled] = useLocalStorage("hw_effect", true);
@@ -21,7 +26,7 @@ export const HalloweenSnowfall = () => {
 
   // Load snowfall images
   useEffect(() => {
-    void Promise.all(
+    Promise.all(
       IMAGES.map(
         (src) =>
           new Promise<HTMLImageElement>((resolve, reject) => {
@@ -35,7 +40,9 @@ export const HalloweenSnowfall = () => {
             // image.onerror = reject;
           }),
       ),
-    ).then(setImages);
+    )
+      .then(setImages)
+      .catch((e) => Logger.error(e));
   }, []);
 
   if (!images) return null;
@@ -58,8 +65,7 @@ export const HalloweenSnowfall = () => {
         <TooltipTrigger
           className={cn(
             "fixed flex justify-center items-center bottom-6 left-6 z-100 text-orange-500 p-2 rounded-full transition-all duration-300 border-orange-300 border-3",
-            enabled && "bg-white",
-            !enabled && "text-white bg-orange-500",
+            enabled ? "bg-white" : "text-white bg-orange-500",
           )}
           onClick={handleTooltipClick}
           aria-label="Halloween Effects Toggle"
