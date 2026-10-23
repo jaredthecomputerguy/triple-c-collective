@@ -11,7 +11,7 @@ const eventData: TrapTakeoverInput = {
   day: 23,
   featuredBrands: [
     "High 90's",
-    "Jeff's Sessions",
+    "Dompen",
     "Back Country Organics",
     "Hashtag",
     "Park Jams",
