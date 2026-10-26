@@ -1,17 +1,14 @@
 import Link from "next/link";
 
+import { Active } from "@/app/_components/active";
 import { InstagramIcon } from "@/app/_components/icons/instagram-icon";
 import { ImageViewer } from "@/app/_components/image-viewer";
 
 const SPECIAL_PROMO_IMAGE_PATH = "/images/trap-takeover/reggie-painting.jpg";
 
 export const SpecialArtPromo = ({ active }: { active: boolean }) => {
-  if (!active) {
-    return null;
-  }
-
   return (
-    <>
+    <Active active={active}>
       <h3 className="font-logo py-8 pb-12 text-center text-3xl font-semibold md:text-left">
         Art Raffle Giveaway
       </h3>
@@ -55,6 +52,6 @@ export const SpecialArtPromo = ({ active }: { active: boolean }) => {
           </div>
         </div>
       </section>
-    </>
+    </Active>
   );
 };

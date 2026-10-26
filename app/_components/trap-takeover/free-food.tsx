@@ -1,17 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { Active } from "@/app/_components/active";
 import { FacebookIcon } from "@/app/_components/icons/facebook-icon";
 import { InstagramIcon } from "@/app/_components/icons/instagram-icon";
 import underdogGrillLogo from "@/public/images/trap-takeover/other/underdog-grill.jpg";
 
 export const FreeFood = ({ active }: { active: boolean }) => {
-  if (!active) {
-    return null;
-  }
-
   return (
-    <>
+    <Active active={active}>
       <h3 className="font-logo py-8 pb-12 text-center text-3xl font-semibold md:text-left">
         Complimentary Meal
       </h3>
@@ -71,6 +68,6 @@ export const FreeFood = ({ active }: { active: boolean }) => {
           </div>
         </div>
       </section>{" "}
-    </>
+    </Active>
   );
 };

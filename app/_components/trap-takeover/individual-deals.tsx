@@ -14,7 +14,7 @@ type IndividualDealsProps = {
 };
 
 export function IndividualDeals({ active, deals }: IndividualDealsProps) {
-  if (!active || deals.length === 0) return null;
+  if (deals.length === 0 || !active) return null;
 
   return (
     <section className="py-8">
