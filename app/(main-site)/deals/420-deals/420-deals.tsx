@@ -8,6 +8,7 @@ import {
   type Deal,
   type ReducedPriceDeal,
 } from "@/app/(main-site)/deals/420-deals/420-deals-data";
+import { Active } from "@/app/_components/active";
 import { CartridgeIcon } from "@/app/_components/icons/cartridge";
 import { cn } from "@/lib/utils/shared";
 
@@ -83,57 +84,58 @@ const FourTwentyDealCard = ({
 };
 
 export const FourTwentyDeals = ({ active }: { active: boolean }) => {
-  if (!active) return null;
   return (
-    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-      {/* Flower */}
-      <FourTwentyDealCard
-        title="Flower & Prerolls"
-        variant="green"
-        icon={<LiaCannabisSolid className="h-12 w-12" />}
-        bogoDeals={fourTwentyDealsData.flowerAndPrerolls.bogoDeals}
-        reducedPriceDeals={
-          fourTwentyDealsData.flowerAndPrerolls.reducedPriceDeals
-        }
-      />
+    <Active active={active}>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        {/* Flower */}
+        <FourTwentyDealCard
+          title="Flower & Prerolls"
+          variant="green"
+          icon={<LiaCannabisSolid className="h-12 w-12" />}
+          bogoDeals={fourTwentyDealsData.flowerAndPrerolls.bogoDeals}
+          reducedPriceDeals={
+            fourTwentyDealsData.flowerAndPrerolls.reducedPriceDeals
+          }
+        />
 
-      {/* Edibles */}
+        {/* Edibles */}
 
-      <FourTwentyDealCard
-        title="Edibles"
-        variant="white"
-        icon={<LiaCookieBiteSolid className="h-12 w-12" />}
-        bogoDeals={fourTwentyDealsData.edibles.bogoDeals}
-        reducedPriceDeals={fourTwentyDealsData.edibles.reducedPriceDeals}
-      />
-      {/* Cartridges */}
+        <FourTwentyDealCard
+          title="Edibles"
+          variant="white"
+          icon={<LiaCookieBiteSolid className="h-12 w-12" />}
+          bogoDeals={fourTwentyDealsData.edibles.bogoDeals}
+          reducedPriceDeals={fourTwentyDealsData.edibles.reducedPriceDeals}
+        />
+        {/* Cartridges */}
 
-      <FourTwentyDealCard
-        title="Cartridges"
-        variant="green"
-        icon={<CartridgeIcon className="h-12 w-12" />}
-        bogoDeals={fourTwentyDealsData.cartridges.bogoDeals}
-        reducedPriceDeals={fourTwentyDealsData.cartridges.reducedPriceDeals}
-      />
-      {/* Concentrate */}
+        <FourTwentyDealCard
+          title="Cartridges"
+          variant="green"
+          icon={<CartridgeIcon className="h-12 w-12" />}
+          bogoDeals={fourTwentyDealsData.cartridges.bogoDeals}
+          reducedPriceDeals={fourTwentyDealsData.cartridges.reducedPriceDeals}
+        />
+        {/* Concentrate */}
 
-      <FourTwentyDealCard
-        title="Concentrate"
-        variant="white"
-        icon={<GiMasonJar className="h-12 w-12" />}
-        bogoDeals={fourTwentyDealsData.concentrates.bogoDeals}
-        reducedPriceDeals={fourTwentyDealsData.concentrates.reducedPriceDeals}
-      />
+        <FourTwentyDealCard
+          title="Concentrate"
+          variant="white"
+          icon={<GiMasonJar className="h-12 w-12" />}
+          bogoDeals={fourTwentyDealsData.concentrates.bogoDeals}
+          reducedPriceDeals={fourTwentyDealsData.concentrates.reducedPriceDeals}
+        />
 
-      {/* Other */}
+        {/* Other */}
 
-      <FourTwentyDealCard
-        title="Other"
-        variant="green"
-        icon={<SlPresent className="h-12 w-12" />}
-        bogoDeals={fourTwentyDealsData.other.bogoDeals}
-        reducedPriceDeals={fourTwentyDealsData.other.reducedPriceDeals}
-      />
-    </div>
+        <FourTwentyDealCard
+          title="Other"
+          variant="green"
+          icon={<SlPresent className="h-12 w-12" />}
+          bogoDeals={fourTwentyDealsData.other.bogoDeals}
+          reducedPriceDeals={fourTwentyDealsData.other.reducedPriceDeals}
+        />
+      </div>
+    </Active>
   );
 };

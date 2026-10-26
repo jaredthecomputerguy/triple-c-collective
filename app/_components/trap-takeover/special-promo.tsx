@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import { Active } from "@/app/_components/active";
+
 interface SpecialPromoProps {
   active: boolean;
   title: string;
@@ -13,12 +15,8 @@ export const SpecialPromo = ({
   description,
   icon,
 }: SpecialPromoProps) => {
-  if (!active) {
-    return null;
-  }
-
   return (
-    <>
+    <Active active={active}>
       <h3 className="font-logo py-8 pb-12 text-center text-3xl font-semibold md:text-left">
         {title}
       </h3>
@@ -30,6 +28,6 @@ export const SpecialPromo = ({
           </p>
         </div>
       </section>
-    </>
+    </Active>
   );
 };

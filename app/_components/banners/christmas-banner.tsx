@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 
+import { Active } from "@/app/_components/active";
 import { TopBanner } from "@/app/_components/banners/top-banner";
 
 const randomId = () => Math.random().toString(36).slice(2, 10);
@@ -10,12 +11,8 @@ export const ChristmasBanner = ({ active }: { active: boolean }) => {
     [],
   );
 
-  if (!active) {
-    return null;
-  }
-
   return (
-    <>
+    <Active active={active}>
       <ul className="strand">
         {bulbs.map((b) => (
           <li key={b.id}></li>
@@ -41,6 +38,6 @@ export const ChristmasBanner = ({ active }: { active: boolean }) => {
           </a>
         </div>
       </TopBanner>
-    </>
+    </Active>
   );
 };
