@@ -45,6 +45,7 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
               alt={deal.title}
               width={500}
               height={500}
+              loading="eager"
               style={{
                 backgroundColor:
                   deal.imageBackgroundColor === ""
