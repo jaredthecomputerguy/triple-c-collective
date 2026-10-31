@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 import { TopBanner } from "@/app/_components/banners/top-banner";
-import { SpiderWeb } from "@/app/_components/spiderweb";
-import { cn } from "@/lib/utils/shared";
+// import { SpiderWeb } from "@/app/_components/spiderweb";
+// import { cn } from "@/lib/utils/shared";
 
 export const HalloweenBanner = ({ active }: { active: boolean }) => {
   return (
@@ -10,7 +10,7 @@ export const HalloweenBanner = ({ active }: { active: boolean }) => {
       active={active}
       className="bg-[#080606]"
       closeBtnClass="z-100 font-bold bg-white/75 hidden">
-      <SpiderWebs className="absolute top-0 size-24 fill-white/75 sm:size-[150px]" />
+      {/* <SpiderWebs className="absolute top-0 size-24 fill-white/75 sm:size-37.5" /> */}
       <Link
         className="font-halloween flex flex-col items-center justify-center py-4 underline-offset-8 transition-colors duration-200 ease-in-out hover:text-orange-400 hover:underline"
         href="/deals">
@@ -18,18 +18,18 @@ export const HalloweenBanner = ({ active }: { active: boolean }) => {
           HAPPY HALLOWEEN!
         </span>
         <span className="z-50 text-center text-sm md:text-base">
-          SALES ALL DAY
+          SALES ALL WEEKEND
         </span>
       </Link>
     </TopBanner>
   );
 };
 
-const SpiderWebs = ({ className }: { className: string }) => {
+/* const SpiderWebs = ({ className }: { className: string }) => {
   return (
     <>
       <SpiderWeb className={cn(className, "left-0")} />
       <SpiderWeb className={cn(className, "right-0 -scale-x-100")} />
     </>
   );
-};
+}; */
