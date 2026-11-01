@@ -56,4 +56,5 @@ export const env = createEnv({
     COPY_FLYER_SRC_DIR: process.env.COPY_FLYER_SRC_DIR,
     COPY_FLYER_OUT_DIR: process.env.COPY_FLYER_OUT_DIR,
   },
+  skipValidation: process.env.SKIP_ENV_VALIDATION === "true",
 });
