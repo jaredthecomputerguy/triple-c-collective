@@ -4,10 +4,11 @@ import { Resend } from "resend";
 import { z } from "zod";
 
 import NewSubscriberEmail from "@/lib/emails/NewSubscriberEmail";
+import { env } from "@/lib/env";
 import { Logger } from "@/lib/logger";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const fromEmail = process.env.RESEND_FROM_EMAIL;
+const resend = new Resend(env.RESEND_API_KEY);
+const fromEmail = env.RESEND_FROM_EMAIL;
 
 const LIST_OF_RESEND_IPS = new Set([
   "44.228.126.217",
@@ -62,7 +63,7 @@ const verifyWebhook = async (req: Request) => {
   }
 
   const signedContent = `${svixId}.${svixTimestamp}.${bodyText}`;
-  const webhookSecret = process.env.RESEND_WEBHOOK_SECRET;
+  const webhookSecret = env.RESEND_WEBHOOK_SECRET;
 
   const webhookSecretBytes = Buffer.from(webhookSecret.split("_")[1], "base64");
   const signature = crypto
@@ -91,7 +92,7 @@ export const POST = async (req: Request) => {
 
     const { error } = await resend.emails.send({
       from: fromEmail,
-      to: [process.env.RESEND_WEBHOOK_EMAIL],
+      to: [env.RESEND_WEBHOOK_EMAIL],
       subject: "New Subscriber to the Newsletter!",
       react: NewSubscriberEmail({
         email: webhookData.data.email,

@@ -1,9 +1,10 @@
 import { Temporal } from "@js-temporal/polyfill";
 
+import { env } from "@/lib/env";
 import { Logger } from "@/lib/logger";
 
 export function getDealImageUrl(deal: Deal) {
-  return `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_IMAGE_URL}/${deal.id}/${deal.image}`;
+  return `${env.POCKETBASE_BASE_URL}${env.POCKETBASE_IMAGE_URL}/${deal.id}/${deal.image}`;
 }
 
 export function getTrapTakeoverDateWithSuffix(trapTakeoverDate: Date) {

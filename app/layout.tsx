@@ -18,9 +18,10 @@ import { Debug } from "@/app/_components/debug";
 import { Progress } from "@/app/_components/progress";
 import { HalloweenSnowfall } from "@/app/_components/snowfall/halloween-snowfall";
 import { Toaster } from "@/app/_components/toaster";
-import { createMetadata } from "@/lib/metadata";
+import { env } from "@/lib/env";
 
 import "@/app/globals.css";
+import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
   title: "Home",
@@ -98,7 +99,7 @@ const chewy = Chewy({
   preload: false,
 });
 
-const isDev = process.env.NODE_ENV === "development";
+const isDev = env.NODE_ENV === "development";
 
 export default async function RootLayout({
   children,

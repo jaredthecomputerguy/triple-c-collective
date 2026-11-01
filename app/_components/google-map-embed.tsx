@@ -2,6 +2,8 @@
 
 import { GoogleMapsEmbed } from "@next/third-parties/google";
 
+import { env } from "@/lib/env";
+
 export const GoogleMapEmbed = ({
   width = "100%",
   height = "100%",
@@ -11,7 +13,7 @@ export const GoogleMapEmbed = ({
 }) => {
   return (
     <GoogleMapsEmbed
-      apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+      apiKey={env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
       mode="place"
       allowfullscreen
       style={`height: ${height}; width: ${width}`}

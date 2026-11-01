@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Resend } from "resend";
 
 import { UnsubscribeForm } from "@/app/(main-site)/newsletter/unsubscribe/unsubscribe-form";
+import { env } from "@/lib/env";
 import { createMetadata } from "@/lib/metadata";
 
 export const dynamic = "force-dynamic";
@@ -47,7 +48,7 @@ export const metadata: Metadata = createMetadata({
   },
 });
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(env.RESEND_API_KEY);
 
 export default async function NewsletterUnsubscribePage(props: {
   searchParams: Promise<{ contactId: string }>;
@@ -61,7 +62,7 @@ export default async function NewsletterUnsubscribePage(props: {
 
   const { data } = await resend.contacts.get({
     id: contactId,
-    audienceId: process.env.RESEND_GENERAL_AUDIENCE_ID,
+    audienceId: env.RESEND_GENERAL_AUDIENCE_ID,
   });
 
   if (!data) {

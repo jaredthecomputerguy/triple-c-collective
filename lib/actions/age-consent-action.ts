@@ -3,6 +3,8 @@
 import { cookies } from "next/headers";
 import { redirect, RedirectType } from "next/navigation";
 
+import { env } from "@/lib/env";
+
 const AGE_CONSENT_COOKIE = "age_consent";
 const AGE_CONSENT_REMEMBER_COOKIE = "age_consent_remember";
 
@@ -17,14 +19,14 @@ export async function setAgeConsentAction(rememberMe: boolean) {
     // Set persistent cookie for 30 days
     cookieStore.set(AGE_CONSENT_COOKIE, "true", {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: env.NODE_ENV === "production",
       sameSite: "lax",
       maxAge: 60 * 60 * 24 * 30, // 30 days
       path: "/",
     });
     cookieStore.set(AGE_CONSENT_REMEMBER_COOKIE, "true", {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: env.NODE_ENV === "production",
       sameSite: "lax",
       maxAge: 60 * 60 * 24 * 30, // 30 days
       path: "/",
@@ -33,7 +35,7 @@ export async function setAgeConsentAction(rememberMe: boolean) {
     // Set session cookie (expires when browser closes)
     cookieStore.set(AGE_CONSENT_COOKIE, "true", {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: env.NODE_ENV === "production",
       sameSite: "lax",
       path: "/",
     });

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 
-const SITE_URL = process.env.SITE_URL || "https://tripleccollective.com";
+import { env } from "@/lib/env";
+
+const SITE_URL = env.SITE_URL || "https://tripleccollective.com";
 const SITE_NAME = "Triple C Collective";
 
 export const BASE_KEYWORDS = [
