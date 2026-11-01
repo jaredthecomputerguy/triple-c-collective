@@ -3,11 +3,12 @@
 import { Resend } from "resend";
 
 import WelcomeEmail from "@/lib/emails/WelcomeEmail";
+import { env } from "@/lib/env";
 import { Logger } from "@/lib/logger";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const audienceId = process.env.RESEND_GENERAL_AUDIENCE_ID;
-const fromEmail = process.env.RESEND_FROM_EMAIL;
+const resend = new Resend(env.RESEND_API_KEY);
+const audienceId = env.RESEND_GENERAL_AUDIENCE_ID;
+const fromEmail = env.RESEND_FROM_EMAIL;
 
 interface SendWelcomeEmailInfo {
   toEmail: string;
@@ -18,7 +19,7 @@ interface SendWelcomeEmailInfo {
 export async function sendWelcomeEmailAction(user: SendWelcomeEmailInfo) {
   const { toEmail, firstName, lastName } = user;
   try {
-    if (process.env.NODE_ENV === "development") {
+    if (env.NODE_ENV === "development") {
       Logger.log("sendWelcomeEmailAction:", {
         toEmail,
         firstName,
@@ -45,7 +46,7 @@ export async function sendWelcomeEmailAction(user: SendWelcomeEmailInfo) {
         to: [toEmail],
         subject: "Welcome to the Triple C Newsletter!",
         react: WelcomeEmail({
-          siteUrl: process.env.SITE_URL,
+          siteUrl: env.SITE_URL,
           contactId: createContactData.id,
         }),
       });

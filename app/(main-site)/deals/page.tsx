@@ -7,6 +7,7 @@ import { StiiizyDealCard } from "@/app/(main-site)/deals/stiiizy-deal-card";
 import { TrapTakeoverCountdown } from "@/app/(main-site)/deals/trap-takeover-countdown";
 import { Button } from "@/app/_components/button";
 import { Calendar } from "@/app/_components/calendar";
+import { env } from "@/lib/env";
 import { Logger } from "@/lib/logger";
 import { createMetadata } from "@/lib/metadata";
 import { getDealImageUrl } from "@/lib/utils/server";
@@ -16,7 +17,7 @@ export const dynamic = "force-dynamic";
 const fetchDeals = async ({ cache }: { cache: boolean }) => {
   try {
     const res = await fetch(
-      `${process.env.POCKETBASE_BASE_URL}${process.env.POCKETBASE_DEAL_URL}?filter=active=true&sort=-updated`,
+      `${env.POCKETBASE_BASE_URL}${env.POCKETBASE_DEAL_URL}?filter=active=true&sort=-updated`,
       cache ? { cache: "no-store" } : undefined,
     );
 
@@ -66,7 +67,7 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     openGraph: {
       title: "Deals | Triple C Collective",
-      url: `${process.env.SITE_URL}/deals`,
+      url: `${env.SITE_URL}/deals`,
       description: "Lake County's Premier Cannabis Dispensary",
       siteName: "Triple C Collective",
       locale: "en_US",

@@ -6,6 +6,7 @@ import type { MailOptions } from "nodemailer/lib/sendmail-transport";
 
 import { ContactEmail } from "@/app/(main-site)/contact/contact-email";
 import type { EmailInfo } from "@/app/(main-site)/contact/contact-form";
+import { env } from "@/lib/env";
 import { Logger } from "@/lib/logger";
 
 export const sendEmail = async ({
@@ -14,10 +15,10 @@ export const sendEmail = async ({
   subject,
   name,
 }: EmailInfo) => {
-  const email = process.env.NODEMAILER_USER;
-  const password = process.env.NODEMAILER_PASSWORD;
+  const email = env.NODEMAILER_USER;
+  const password = env.NODEMAILER_PASSWORD;
 
-  if (process.env.NODE_ENV === "development") {
+  if (env.NODE_ENV === "development") {
     Logger.log(
       "\n\nNODEMAILER --> Sending email: ",
       JSON.stringify({ from, message, subject, name }),

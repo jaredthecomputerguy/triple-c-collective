@@ -3,8 +3,10 @@
 import { redirect } from "next/navigation";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const audienceId = process.env.RESEND_GENERAL_AUDIENCE_ID;
+import { env } from "@/lib/env";
+
+const resend = new Resend(env.RESEND_API_KEY);
+const audienceId = env.RESEND_GENERAL_AUDIENCE_ID;
 
 export async function unsubscribeUserAction(contactId: string) {
   try {
