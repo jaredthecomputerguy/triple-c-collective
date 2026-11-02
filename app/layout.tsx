@@ -16,7 +16,6 @@ import type { ReactNode } from "react";
 
 import { Debug } from "@/app/_components/debug";
 import { Progress } from "@/app/_components/progress";
-import { HalloweenSnowfall } from "@/app/_components/snowfall/halloween-snowfall";
 import { Toaster } from "@/app/_components/toaster";
 import { env } from "@/lib/env";
 
@@ -104,7 +103,7 @@ const isDev = env.NODE_ENV === "development";
 export default async function RootLayout({
   children,
 }: {
-  children: ReactNode;
+  readonly children: ReactNode;
 }) {
   const fontVars = [
     montserrat,
@@ -127,7 +126,6 @@ export default async function RootLayout({
       suppressHydrationWarning
       data-scroll-behavior="smooth">
       <body className="relative">
-        <HalloweenSnowfall />
         <Analytics />
         <SpeedInsights />
         <Toaster />

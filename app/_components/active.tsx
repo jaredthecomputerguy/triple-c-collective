@@ -13,7 +13,7 @@ export const Active = ({
   children,
 }: {
   active: boolean;
-  children: ReactNode;
+  readonly children: ReactNode;
 }) => {
   if (!active) return null;
   return children;

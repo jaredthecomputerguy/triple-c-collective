@@ -17,7 +17,7 @@ export const metadata: Metadata = createMetadata({
 export default async function MainSiteLayout({
   children,
 }: {
-  children: ReactNode;
+  readonly children: ReactNode;
 }) {
   const headersList = await headers();
   const hasConsent = await hasAgeConsentAction(headersList.get("user-agent"));
