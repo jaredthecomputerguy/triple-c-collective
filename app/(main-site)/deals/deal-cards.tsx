@@ -66,7 +66,7 @@ export const DealCards = ({ deals }: { deals: Deal[] }) => {
   );
 };
 
-const BadgeContainer = ({ children }: { children: ReactNode }) => {
+const BadgeContainer = ({ children }: { readonly children: ReactNode }) => {
   return (
     <div className="font-logo absolute top-0 right-0 flex items-center justify-center gap-2 p-1 text-sm">
       {children}
