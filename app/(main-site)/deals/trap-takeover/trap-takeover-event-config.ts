@@ -12,7 +12,7 @@ const eventData: TrapTakeoverInput = {
   featuredBrands: [
     "Dompen",
     "Koa Cannabis Co.",
-    "Geek THCX",
+    "Jeff's Sessions",
     "Big Boy Dro",
     "Hashtag",
     "Together Canna Supply",
