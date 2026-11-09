@@ -69,8 +69,9 @@ export default function HomePage() {
       <div className="radial-gradient text-[#fefefe] relative">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-20">
           <h2 className="text-shadow font-logo text-center text-3xl font-semibold uppercase md:text-4xl">
-            Lake County&apos;s <span className="gold">Premier</span> Cannabis
-            Dispensary
+            Lake County&apos;s
+            <span className="gold"> Premier </span>
+            Cannabis Dispensary
           </h2>
           <div className="mx-auto flex max-w-2xl items-center">
             <div className="h-px w-36 bg-white md:w-60" />
