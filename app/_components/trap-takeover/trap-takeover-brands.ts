@@ -1,4 +1,5 @@
 import akwaabaLogo from "@/public/images/brands/akwaaba.png";
+import ashAndEmberLogo from "@/public/images/brands/ash-and-ember-logo.avif";
 import backCountryOrganicsJar from "@/public/images/brands/back-country-logo.png";
 import bigBoyDroLogo from "@/public/images/brands/big-boy-dro.jpg";
 import bobStashLogo from "@/public/images/brands/bob-stash-logo.png";
@@ -33,6 +34,12 @@ const getTreezMenuSearchUrlByBrand = (brandName: string) =>
   `https://triplec.treez.io/onlinemenu/search?mjk=&customerType=ALL&typeSubtypes=%257B%257D&brands=${encodeURIComponent(brandName.toUpperCase())}`;
 
 const BRANDS = [
+  {
+    name: "Ash & Ember",
+    alt: "Ash & Ember Logo",
+    url: "https://weedmaps.com/brands/ash-ember",
+    image: ashAndEmberLogo,
+  },
   {
     name: "Akwaaba",
     alt: "Akwaaba Logo",
