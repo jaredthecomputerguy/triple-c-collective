@@ -20,7 +20,8 @@
   --font-courgette: var(--font-courgette);
   --font-chewy: var(--font-chewy);
 
-  --color-primary-purple: rgb(43, 7, 77);
+  /* --color-primary-purple: rgb(43, 7, 77); */
+  --color-primary-purple: #e15400;
   --color-new-years-gold: #d9b01c;
   --color-new-years-black: #090909;
 
@@ -120,7 +121,7 @@ td {
 
 .gold {
   background-image: linear-gradient(
-    to right,
+    to top,
     #cb9b51 0%,
     #f6e27a 45%,
     #f6f2c0 50%,
@@ -132,13 +133,22 @@ td {
   -webkit-background-clip: text;
 }
 
+/* 
+/* TODO: This is the normal radialGradient for the landing page.
+/* Change me back when Fall is over 
+/*
+/* .radial-gradient { */
+/*   background: radial-gradient( */
+/*     circle, */
+/*     rgba(64, 16, 110, 1) 0%, */
+/*     rgba(43, 7, 77, 1) 84%, */
+/*     rgba(47, 7, 77, 1) 100% */
+/*   ); */
+/* } */
+
 .radial-gradient {
-  background: radial-gradient(
-    circle,
-    rgba(64, 16, 110, 1) 0%,
-    rgba(43, 7, 77, 1) 84%,
-    rgba(47, 7, 77, 1) 100%
-  );
+  @apply bg-linear-to-t/oklch from-red-900 to-orange-600;
+  /* background: gradient(circle, #d8470b 0%, #ba6700 50%, #992d17 100%); */
 }
 
 .trap-takeover {
