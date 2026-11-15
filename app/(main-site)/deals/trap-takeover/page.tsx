@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { TrapTakeoverCountdown } from "@/app/(main-site)/deals/trap-takeover-countdown";
-import { event } from "@/app/(main-site)/deals/trap-takeover/trap-takeover-event-config";
+import { trapTakeoverEvent } from "@/app/(main-site)/deals/trap-takeover/trap-takeover-event-config";
 import { FeaturedBrands } from "@/app/_components/trap-takeover/featured-brands";
 import { FreeFood } from "@/app/_components/trap-takeover/free-food";
 import { GiftBags } from "@/app/_components/trap-takeover/gift-bags";
@@ -14,7 +14,7 @@ import { TrapTakeoverVideo } from "@/app/_components/trap-takeover/trap-takeover
 import { createMetadata } from "@/lib/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = `Trap Takeover Sale - ${event.dateWithSuffix}`;
+  const title = `Trap Takeover Sale - ${trapTakeoverEvent.dateWithSuffix}`;
   return createMetadata({
     title,
     description:
@@ -43,7 +43,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "flower sale",
       "edible sale",
       "cartridge sale",
-      `Trap Takeover ${event.dateWithSuffix} sale`,
+      `Trap Takeover ${trapTakeoverEvent.dateWithSuffix} sale`,
     ],
     openGraph: {
       title,
@@ -58,7 +58,9 @@ export default function TrapTakeoverPage() {
   return (
     <main className="bg-[#fefefe]">
       <div className="mx-auto max-w-7xl bg-[#fefefe] px-4 py-6 sm:py-12">
-        <span className="pb-1 text-gray-600">{event.dateString}</span>
+        <span className="pb-1 text-gray-600">
+          {trapTakeoverEvent.dateString}
+        </span>
         <h1 className="font-logo pb-4 text-4xl font-semibold">Trap Takeover</h1>
         <hr className="pb-4" />
         <h2 className="font-logo py-8 pb-12 text-center text-2xl font-semibold md:text-left md:text-4xl">
@@ -88,39 +90,39 @@ export default function TrapTakeoverPage() {
               from top cannabis brands. Don’t miss your chance to win big!
             </li>
             <GiftBags
-              active={event.flags.giftBags}
-              numberOfGiftBags={event.numberOfGiftBags}
+              active={trapTakeoverEvent.flags.giftBags}
+              numberOfGiftBags={trapTakeoverEvent.numberOfGiftBags}
             />
           </ul>
         </div>
 
-        <FreeFood active={event.flags.freeFood} />
+        <FreeFood active={trapTakeoverEvent.flags.freeFood} />
 
-        <SpecialArtPromo active={event.flags.specialArtPromo} />
+        <SpecialArtPromo active={trapTakeoverEvent.flags.specialArtPromo} />
 
         <SpecialPromo
-          active={event.flags.specialPromo}
+          active={trapTakeoverEvent.flags.specialPromo}
           title="T-Shirts for the First 50 Customers!"
           description="The first 50 customers in line get an exclusive T-shirt free just for coming in!"
         />
 
         <FeaturedBrands
-          active={event.flags.featuredBrands}
-          featuredBrands={event.featuredBrands}
+          active={trapTakeoverEvent.flags.featuredBrands}
+          featuredBrands={trapTakeoverEvent.featuredBrands}
         />
 
         <IndividualDeals
-          active={event.flags.individualDeals}
-          deals={event.deals}
+          active={trapTakeoverEvent.flags.individualDeals}
+          deals={trapTakeoverEvent.deals}
         />
 
-        <TrapTakeoverVideo active={event.flags.video} />
+        <TrapTakeoverVideo active={trapTakeoverEvent.flags.video} />
 
         <TrapTakeoverFlyer
-          active={event.flags.flyer}
-          flyerImagePath={event.flyer.image}
-          flyerPDFPath={event.flyer.pdf}
-          flyerImageAlt={`${event.dateString} Trap Takeover Flyer`}
+          active={trapTakeoverEvent.flags.flyer}
+          flyerImagePath={trapTakeoverEvent.flyer.image}
+          flyerPDFPath={trapTakeoverEvent.flyer.pdf}
+          flyerImageAlt={`${trapTakeoverEvent.dateString} Trap Takeover Flyer`}
         />
 
         <TrapTakeoverRaffleRules />

@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { trapTakeoverEvent } from "@/app/(main-site)/deals/trap-takeover/trap-takeover-event-config";
 import {
   TrapTakeoverBanner,
   StiiizyBanner,
@@ -34,7 +35,7 @@ enum Order {
   Tenth,
 }
 
-const DEFAULT_ORDER = 0;
+const DEFAULT_ORDER = Order.First;
 
 function generateBanner<T extends ComponentTypeWithAny>(
   entry: BannerEntry<T>,
@@ -73,7 +74,7 @@ const bannerConfig = [
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
-      bannerSubText: "Fri November 13th | 12-6PM",
+      bannerSubText: `${trapTakeoverEvent.dateString} | 12-6PM`,
       today: false,
       mini: true,
     },
