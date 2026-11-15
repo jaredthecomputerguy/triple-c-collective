@@ -1,5 +1,5 @@
 import akwaabaLogo from "@/public/images/brands/akwaaba.png";
-import ashAndEmberLogo from "@/public/images/brands/ash-and-ember-logo.avif";
+import ashAndEmberLogo from "@/public/images/brands/ash-and-ember-logo.png";
 import backCountryOrganicsJar from "@/public/images/brands/back-country-logo.png";
 import bigBoyDroLogo from "@/public/images/brands/big-boy-dro.jpg";
 import bobStashLogo from "@/public/images/brands/bob-stash-logo.png";
