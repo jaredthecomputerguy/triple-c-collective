@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { trapTakeoverEvent } from "@/app/(main-site)/deals/trap-takeover/trap-takeover-event-config";
 import {
   TrapTakeoverBanner,
