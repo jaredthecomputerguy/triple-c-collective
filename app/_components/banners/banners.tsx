@@ -49,28 +49,10 @@ function generateBanner<T extends ComponentTypeWithAny>(
 }
 
 const bannerConfig = [
-  generateBanner({
-    Component: GenericBanner,
-    active: false,
-    order: Order.First,
-    props: {
-      children: (
-        <div className="text-[#050505]">
-          <Link
-            href="/deals"
-            className="flex flex-col items-center justify-center gap-1 px-4 py-3 text-center text-[#fefefe] transition hover:underline md:text-xl">
-            LABOR DAY WEEKEND SALE
-          </Link>
-        </div>
-      ),
-      className:
-        "relative overflow-hidden bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-2 font-bold text-white uppercase",
-      closeBtnClass: "text-white",
-    },
-  }),
+  generateBanner({ Component: GenericBanner }),
   generateBanner({
     Component: TrapTakeoverBanner,
-    active: false,
+    active: true,
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
@@ -81,7 +63,7 @@ const bannerConfig = [
   }),
   generateBanner({
     Component: StiiizyBanner,
-    active: true,
+    active: false,
     order: Order.First,
   }),
   generateBanner({ Component: CloneBanner }),
@@ -98,15 +80,7 @@ const bannerConfig = [
   generateBanner({ Component: StPatricksBanner }),
   generateBanner({ Component: HalloweenBanner }),
   generateBanner({ Component: ThanksgivingBanner }),
-  generateBanner({
-    Component: BestOfLakeAndMendocinoWinnerBanner,
-    active: false,
-    order: Order.First,
-    props: {
-      year: 2027,
-      isVotingPeriod: false,
-    },
-  }),
+  generateBanner({ Component: BestOfLakeAndMendocinoWinnerBanner }),
 ] as const;
 
 export const Banners = () => {
