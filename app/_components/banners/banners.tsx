@@ -77,7 +77,11 @@ const bannerConfig = [
   generateBanner({ Component: SnapchatBanner }),
   generateBanner({ Component: StPatricksBanner }),
   generateBanner({ Component: HalloweenBanner }),
-  generateBanner({ Component: ThanksgivingBanner }),
+  generateBanner({
+    Component: ThanksgivingBanner,
+    active: true,
+    order: Order.Second,
+  }),
   generateBanner({ Component: BestOfLakeAndMendocinoWinnerBanner }),
 ] as const;
 

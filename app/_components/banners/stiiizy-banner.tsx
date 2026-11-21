@@ -26,8 +26,8 @@ export const StiiizyBanner = ({ active }: StiiizyBannerProps) => {
 
   const isSaturdayOrSunday = dayOfWeek === 0 || dayOfWeek === 6;
 
-  const handleStiiizyBannerEvent = (e: MouseEvent<HTMLDivElement>) => {
-    match(e.type)
+  const handleStiiizyBannerMouseEvent = (e: MouseEvent<HTMLDivElement>) => {
+    match(e.type as MouseEventName)
       .with("mouseenter", () => setStiiizyLogo(stiiizyBlackLogo))
       .with("mouseleave", () => setStiiizyLogo(stiiizyWhiteLogo))
       .otherwise(() => {});
@@ -38,14 +38,14 @@ export const StiiizyBanner = ({ active }: StiiizyBannerProps) => {
       active={active}
       className="group bg-black py-4 transition hover:bg-white"
       closeBtnClass="text-white transition group-hover:text-black"
-      onMouseEnter={handleStiiizyBannerEvent}
-      onMouseLeave={handleStiiizyBannerEvent}>
+      onMouseEnter={handleStiiizyBannerMouseEvent}
+      onMouseLeave={handleStiiizyBannerMouseEvent}>
       <Link
-        className="font-stiiizy flex items-center gap-4 px-4 py-1 text-2xl font-thin text-white transition group-hover:text-black hover:underline md:gap-12 md:text-4xl"
+        className="font-stiiizy flex items-center gap-4 px-4 md:py-1 py-0 text-2xl font-thin text-white transition group-hover:text-black hover:underline md:gap-12 md:text-4xl"
         href="/deals#stiiizy-deal">
         <Image
           key={stiiizyLogo.src}
-          className="h-10 w-20"
+          className="h-6 md:h-10 w-12 md:w-20"
           src={stiiizyLogo}
           loading="eager"
           alt="Stiiizy Logo"
