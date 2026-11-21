@@ -158,4 +158,10 @@ declare global {
       }>;
     }>;
   }>;
+
+  type MouseEventName = {
+    [
+      K in keyof GlobalEventHandlersEventMap
+    ]: GlobalEventHandlersEventMap[K] extends MouseEvent ? K : never;
+  }[keyof GlobalEventHandlersEventMap];
 }

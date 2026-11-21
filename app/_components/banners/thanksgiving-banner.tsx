@@ -11,11 +11,14 @@ export const ThanksgivingBanner = ({ active }: ThanksgivingBannerProps) => {
       className="bg-[url('/images/thanksgiving/fall-leaves.jpg')] bg-cover bg-no-repeat"
       closeBtnClass="text-white">
       <div className="font-dm-serif z-10 flex flex-col items-center justify-center py-2 text-white text-shadow-amber-800 text-shadow-lg md:py-4">
-        <span className="z-50 text-center text-lg md:text-4xl">
+        <span className="z-50 text-center text-xs md:text-sm">
+          OPEN 10-6PM THANKSGIVING DAY
+        </span>
+        <span className="z-50 text-center text-lg -my-1 md:text-4xl">
           Happy Thanksgiving!
         </span>
         <span className="z-50 text-center text-sm md:text-base">
-          Sales All Day - Wed Nov. 26th &amp; Thurs Nov. 27th
+          Sales All Day - Wed Nov. 25th &amp; Thurs Nov. 26th
         </span>
       </div>
       <div className="absolute top-0 right-0 z-0 h-full w-full bg-black/50" />
