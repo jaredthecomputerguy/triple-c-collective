@@ -9,11 +9,24 @@ const eventData: TrapTakeoverInput = {
   year: 2026,
   month: 11,
   day: 27,
-  featuredBrands: ["Brands coming soon..."],
+  featuredBrands: [
+    "Dompen",
+    "Koa Cannabis Co.",
+    "Big Boy Dro",
+    "Together Canna Supply",
+    "Back Country Organics",
+    "Park Jams",
+    "Jeff's Sessions",
+    "Hashtag",
+    "Geek THCX",
+    "B.O.B Stash",
+    "Cannatrust",
+    "Ash & Ember",
+  ],
   flags: {
     // True flags
     featuredBrands: true,
-    flyer: false,
+    flyer: true,
     // False flags
     giftBags: false,
     freeFood: false,
