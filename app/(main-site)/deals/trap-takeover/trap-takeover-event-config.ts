@@ -28,7 +28,7 @@ const eventData: TrapTakeoverInput = {
     featuredBrands: true,
     flyer: true,
     // False flags
-    giftBags: false,
+    giftBags: true,
     freeFood: false,
     specialArtPromo: false,
     specialPromo: false,
@@ -36,7 +36,7 @@ const eventData: TrapTakeoverInput = {
     individualDeals: false,
   },
   deals,
-  numberOfGiftBags: 0,
+  numberOfGiftBags: 100,
 };
 
 export const trapTakeoverEvent = createTrapTakeoverEvent(eventData);
