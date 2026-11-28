@@ -244,7 +244,7 @@ export default function HomePage() {
           </h5>
           <hr className="pb-4" />
           <div className="px-4">
-            <Accordion type="multiple">
+            <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger>
                   Is cannabis legal in California?
