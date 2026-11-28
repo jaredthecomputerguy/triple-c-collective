@@ -56,7 +56,7 @@ const bannerConfig = [
       bannerText: "Trap Takeover Sale",
       bannerSubText: `${trapTakeoverEvent.dateString} | 12-6PM`,
       today: true,
-      mini: true,
+      mini: false,
     },
   }),
   generateBanner({

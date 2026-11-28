@@ -31,7 +31,8 @@ export const TrapTakeoverBanner = ({
     <Active active={showBanner}>
       <div
         className={cn(
-          "trap-takeover font-logo sticky top-0 flex items-center justify-center py-4 font-semibold md:px-4",
+          "trap-takeover font-logo sticky top-0 flex items-center justify-center py-4 font-semibold md:px-4 md:py-6",
+          mini && "md:py-4",
           className,
         )}
         {...props}>
