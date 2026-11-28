@@ -20,8 +20,9 @@
   --font-courgette: var(--font-courgette);
   --font-chewy: var(--font-chewy);
 
-  /* --color-primary-purple: rgb(43, 7, 77); */
-  --color-primary-purple: #e15400;
+  /* NORMAL THEME --color-primary-purple: rgb(43, 7, 77); */
+  /* THANKSGIVING THEME --color-primary-purple: #e15400; */
+  --color-primary-purple: #2377a4;
   --color-new-years-gold: #d9b01c;
   --color-new-years-black: #090909;
 
@@ -137,6 +138,7 @@ td {
 /* TODO: This is the normal radialGradient for the landing page.
 /* Change me back when Fall is over 
 /*
+/* NORMAL GRADIENT
 /* .radial-gradient { */
 /*   background: radial-gradient( */
 /*     circle, */
@@ -146,9 +148,14 @@ td {
 /*   ); */
 /* } */
 
+/* THANKSGIVING GRADIENT */
+/* .radial-gradient { */
+/*   @apply bg-linear-to-t/oklch from-red-900 to-orange-600; */
+/* } */
+
+/* WINTER GRADIENT */
 .radial-gradient {
-  @apply bg-linear-to-t/oklch from-red-900 to-orange-600;
-  /* background: gradient(circle, #d8470b 0%, #ba6700 50%, #992d17 100%); */
+  @apply bg-linear-to-t/oklch from-sky-800 to-sky-600;
 }
 
 .trap-takeover {

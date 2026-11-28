@@ -25,7 +25,9 @@ export const metadata: Metadata = createMetadata({ title: "Home" });
 const NUMBER_OF_REVIEWS = 521;
 
 export default function HomePage() {
-  const { logo, header, shouldOptimize } = getHeaderAndLogoImages();
+  const { logo, header, shouldOptimize } = getHeaderAndLogoImages({
+    holiday: "christmas",
+  });
 
   return (
     <main className="bg-[#fefefe]" id="main-content">

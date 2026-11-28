@@ -35,7 +35,9 @@ type LogoAndHeaderImageInfo = {
   shouldOptimize: boolean;
 };
 
-export const getHeaderAndLogoImages = (): LogoAndHeaderImageInfo => {
+export const getHeaderAndLogoImages = (opts?: {
+  holiday: "thanksgiving" | "christmas";
+}): LogoAndHeaderImageInfo => {
   const today = new Date();
   const month = today.getMonth();
   const day = today.getDate();
@@ -77,6 +79,22 @@ export const getHeaderAndLogoImages = (): LogoAndHeaderImageInfo => {
         header: headerImg,
       };
     });
+
+  if (opts?.holiday) {
+    match(opts.holiday)
+      .with("thanksgiving", () => {
+        images = {
+          logo: thanksgivingLogoImg,
+          header: headerImg,
+        };
+      })
+      .with("christmas", () => {
+        images = {
+          logo: christmasLogoImg ?? logoImg,
+          header: christmasHeaderImg,
+        };
+      });
+  }
 
   return {
     ...images,
