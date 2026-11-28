@@ -50,13 +50,13 @@ const bannerConfig = [
   generateBanner({ Component: GenericBanner }),
   generateBanner({
     Component: TrapTakeoverBanner,
-    active: true,
+    active: false,
     order: Order.Second,
     props: {
       bannerText: "Trap Takeover Sale",
       bannerSubText: `${trapTakeoverEvent.dateString} | 12-6PM`,
-      today: true,
-      mini: true,
+      today: false,
+      mini: false,
     },
   }),
   generateBanner({

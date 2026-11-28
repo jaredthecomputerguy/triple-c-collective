@@ -1,5 +1,6 @@
 "use client";
 
+import { Temporal } from "@js-temporal/polyfill";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -57,14 +58,7 @@ export const TrapTakeoverCountdown = ({
         </div>
       </div>
       <div className="mx-auto flex flex-col flex-wrap items-center justify-center gap-4 px-8 py-4 md:flex-row">
-        {Object.entries(timeRemaining).map(([label, value]) => (
-          <div
-            key={label}
-            className="flex w-64 items-center justify-center gap-2 rounded-xl border-2 border-[#f2c029] bg-[#1a0056] py-1 md:w-32 md:flex-col md:gap-0">
-            <span className="text-3xl text-[#f2c029]">{value}</span>
-            <span className="text-2xl text-[#f2913d]">{label}</span>
-          </div>
-        ))}
+        <TimeRemaining timeRemaining={timeRemaining} />
       </div>
       <a
         href={linkUrl}
@@ -74,5 +68,38 @@ export const TrapTakeoverCountdown = ({
         <ArrowRight size={18} />
       </a>
     </div>
+  );
+};
+
+const TimeRemaining = ({
+  timeRemaining,
+}: {
+  timeRemaining: TimeRemainingUntilDate;
+}) => {
+  const entries = Object.entries(timeRemaining);
+  const values = Object.values(timeRemaining);
+
+  if (values.some((value) => value === "--")) {
+    return (
+      <span className="uppercase trap-takeover-text text-3xl font-bold">
+        The sale is live!
+      </span>
+    );
+  }
+
+  return (
+    <>
+      {entries.map(([label, value]) => {
+        return (
+          <div
+            key={label}
+            className="flex w-64 items-center justify-center gap-2 rounded-xl border-2 border-[#f2c029] bg-[#1a0056] py-1 md:w-32 md:flex-col md:gap-0">
+            <span className="text-3xl text-[#f2c029]">{value}</span>
+            <span className="text-2xl text-[#f2913d]">{label}</span>
+          </div>
+        );
+      })}
+      )
+    </>
   );
 };

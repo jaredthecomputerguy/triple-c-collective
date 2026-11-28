@@ -88,7 +88,7 @@ function diffToDHMS(
   };
 }
 
-/** Remaining time until next 1st or 3rd Friday (this/next month) at 12:00 local */
+/** Remaining time until next Friday (this/next month) at 12:00 local */
 export function getTimeRemainingUntilNextFriday(
   nowInput: Temporal.ZonedDateTime | Date,
   opts?: { timeZone?: string; hour?: number; minute?: number },
@@ -99,9 +99,17 @@ export function getTimeRemainingUntilNextFriday(
 
   const now = toZdtNow(nowInput, tz);
 
-  // Temporal weekday: Monday = 1 ... Friday = 5 ... Sunday = 7
-  const FRIDAY = 5;
+  // Friday sale window: 12:00 PM through 5:59:59 PM.
+  if (now.dayOfWeek === 5 && now.hour >= 12 && now.hour < 18) {
+    return {
+      Days: "--",
+      Hours: "--",
+      Minutes: "--",
+      Seconds: "--",
+    };
+  }
 
+  const FRIDAY = 5;
   const daysUntilFriday = (FRIDAY - now.dayOfWeek + 7) % 7;
 
   let target = now.add({ days: daysUntilFriday }).with({
@@ -111,7 +119,6 @@ export function getTimeRemainingUntilNextFriday(
     millisecond: 0,
   });
 
-  // If it is already Friday and past the target time, go to next Friday
   if (
     target.toInstant().epochMilliseconds <= now.toInstant().epochMilliseconds
   ) {
