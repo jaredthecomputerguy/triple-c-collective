@@ -25,7 +25,9 @@ export const metadata: Metadata = createMetadata({ title: "Home" });
 const NUMBER_OF_REVIEWS = 521;
 
 export default function HomePage() {
-  const { logo, header, shouldOptimize } = getHeaderAndLogoImages();
+  const { logo, header, shouldOptimize } = getHeaderAndLogoImages({
+    holiday: "christmas",
+  });
 
   return (
     <main className="bg-[#fefefe]" id="main-content">
@@ -242,7 +244,7 @@ export default function HomePage() {
           </h5>
           <hr className="pb-4" />
           <div className="px-4">
-            <Accordion type="multiple">
+            <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger>
                   Is cannabis legal in California?

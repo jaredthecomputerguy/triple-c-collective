@@ -22,6 +22,9 @@ import { env } from "@/lib/env";
 import "@/app/globals.css";
 import { createMetadata } from "@/lib/metadata";
 
+import { ChristmasSnowfall } from "./_components/snowfall/christmas-snowfall";
+import { Snowfall } from "./_components/snowfall/snowfall";
+
 export const metadata: Metadata = createMetadata({
   title: "Home",
   description:
@@ -126,6 +129,7 @@ export default async function RootLayout({
       suppressHydrationWarning
       data-scroll-behavior="smooth">
       <body className="relative">
+        <ChristmasSnowfall />
         <Analytics />
         <SpeedInsights />
         <Toaster />

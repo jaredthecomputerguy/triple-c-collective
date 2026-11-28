@@ -36,8 +36,6 @@ export const HalloweenSnowfall = () => {
             image.height = 1024;
             image.addEventListener("load", () => resolve(image));
             image.addEventListener("error", reject);
-            // image.onload = () => resolve(image);
-            // image.onerror = reject;
           }),
       ),
     )
